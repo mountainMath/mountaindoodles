@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://mountainmath.github.io/mountaindoodles/blog/categories/open-data/atom.xml" rel="self"/>
   <link href="http://mountainmath.github.io/mountaindoodles/"/>
-  <updated>2014-08-29T14:25:52-07:00</updated>
+  <updated>2014-08-29T14:29:43-07:00</updated>
   <id>http://mountainmath.github.io/mountaindoodles/</id>
   <author>
     <name><![CDATA[Jens von Bergmann]]></name>
@@ -36,7 +36,7 @@ to build an interactive map to explore the low end of the building stock.</p>
 <p>The short answer is that almost one in three properties in Vancouver fall into this category. And they are distributed
 quite evenly across all of Vancouver with some areas like downtown looking a little better.</p>
 
-<iframe src="xteardown_map.html" width="100%" height="500"></iframe>
+<iframe src="mountaindoodles/teardown_map.html" width="100%" height="500"></iframe>
 
 ]]></content>
   </entry>
