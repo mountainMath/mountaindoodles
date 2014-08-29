@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://mountainMath.github.io//github/atom.xml" rel="self"/>
-  <link href="http://mountainMath.github.io//github/"/>
-  <updated>2014-08-29T12:34:36-07:00</updated>
-  <id>http://mountainMath.github.io//github/</id>
+  <title><![CDATA[Mountain Doodles]]></title>
+  <link href="http://mountainMath.github.io//mountaindoodles/atom.xml" rel="self"/>
+  <link href="http://mountainMath.github.io//mountaindoodles/"/>
+  <updated>2014-08-29T12:41:02-07:00</updated>
+  <id>http://mountainMath.github.io//mountaindoodles/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[Jens von Bergmann]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
