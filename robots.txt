@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://mountainmath.github.io/mountaindoodles/sitemap.xml 
+Sitemap: http://mountainMath.github.io//github/sitemap.xml 
