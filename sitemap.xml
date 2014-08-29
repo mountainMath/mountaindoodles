@@ -2,17 +2,34 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   
+<<<<<<< HEAD
   
   <url>
     <loc>http://mountainMath.github.io//github/blog/archives/</loc>
     <lastmod>2014-08-29T12:28:14-07:00</lastmod>
+=======
+  <url>
+    <loc>http://mountainMath.github.io//github/blog/2014/08/28/vancouver-teardown-map/</loc>
+    <lastmod>2014-08-28T22:25:46-07:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  
+  <url>
+    <loc>http://mountainMath.github.io//github/blog/archives/</loc>
+    <lastmod>2014-08-29T11:50:28-07:00</lastmod>
+>>>>>>> bde3ec568bf970e258f3cb3a367337f04498caad
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://mountainMath.github.io//github/</loc>
+<<<<<<< HEAD
     <lastmod>2014-08-29T12:28:14-07:00</lastmod>
+=======
+    <lastmod>2014-08-29T11:50:28-07:00</lastmod>
+>>>>>>> bde3ec568bf970e258f3cb3a367337f04498caad
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

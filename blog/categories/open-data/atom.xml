@@ -1,30 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-<<<<<<< HEAD
-  <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://mountainMath.github.io//github/atom.xml" rel="self"/>
-  <link href="http://mountainMath.github.io//github/"/>
-  <updated>2014-08-29T12:28:14-07:00</updated>
-  <id>http://mountainMath.github.io//github/</id>
-  <author>
-    <name><![CDATA[Your Name]]></name>
-=======
-  <title><![CDATA[Mountain Doodles]]></title>
-  <link href="http://mountainMath.github.io//github/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Open Data | Mountain Doodles]]></title>
+  <link href="http://mountainMath.github.io//github/blog/categories/open-data/atom.xml" rel="self"/>
   <link href="http://mountainMath.github.io//github/"/>
   <updated>2014-08-29T11:50:28-07:00</updated>
   <id>http://mountainMath.github.io//github/</id>
   <author>
     <name><![CDATA[Jens von Bergmann]]></name>
->>>>>>> bde3ec568bf970e258f3cb3a367337f04498caad
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
-<<<<<<< HEAD
-=======
   <entry>
     <title type="html"><![CDATA[Vancouver Teardown Map]]></title>
     <link href="http://mountainMath.github.io//github/blog/2014/08/28/vancouver-teardown-map/"/>
@@ -53,5 +41,4 @@ quite evenly across all of Vancouver with some areas like downtown looking a lit
 ]]></content>
   </entry>
   
->>>>>>> bde3ec568bf970e258f3cb3a367337f04498caad
 </feed>
