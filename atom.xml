@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Mountain Doodles]]></title>
-  <link href="http://mountainMath.github.io//github/atom.xml" rel="self"/>
-  <link href="http://mountainMath.github.io//github/"/>
-  <updated>2014-08-29T14:02:06-07:00</updated>
-  <id>http://mountainMath.github.io//github/</id>
+  <link href="http://mountainMath.github.io/mountaindoodles/atom.xml" rel="self"/>
+  <link href="http://mountainMath.github.io/mountaindoodles/"/>
+  <updated>2014-08-29T14:06:31-07:00</updated>
+  <id>http://mountainMath.github.io/mountaindoodles/</id>
   <author>
     <name><![CDATA[Jens von Bergmann]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Vancouver Teardown Map]]></title>
-    <link href="http://mountainMath.github.io//github/blog/2014/08/29/vancouver-teardown-map/"/>
+    <link href="http://mountainMath.github.io/mountaindoodles/blog/2014/08/29/vancouver-teardown-map/"/>
     <updated>2014-08-29T13:27:18-07:00</updated>
-    <id>http://mountainMath.github.io//github/blog/2014/08/29/vancouver-teardown-map</id>
+    <id>http://mountainMath.github.io/mountaindoodles/blog/2014/08/29/vancouver-teardown-map</id>
     <content type="html"><![CDATA[<p>There has been lots of talk about old homes being torn down and replaced in Vancouver. In the past decades land prices
 have risen sharply and the building stock has not had time to catch up. A significant portion of Vancouver consists of
 land that is by an order of magnitude more valuable than the building on top of it.</p>
