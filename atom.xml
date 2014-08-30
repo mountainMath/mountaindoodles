@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/atom.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2014-08-29T18:27:56-07:00</updated>
+  <updated>2014-08-29T19:28:02-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[Jens von Bergmann]]></name>
@@ -30,7 +30,9 @@ ratio of (assessed) house value to total (assessed)
 <p>The short answer is that almost one in three properties in Vancouver fall into this category. And they are distributed
 quite evenly across all of Vancouver with some areas like downtown looking a little better.</p>
 
-<p>Take a look at the map below the fold and explore for yourself.</p>
+<p>Take a look at the map below the fold and explore for yourself. It&rsquo;s highly recommended that you have a good computer
+and an up-to-date modern browser to handle the map, it contains lots of data and will probably crash your old browser.
+Or your mobile browser if you are trying to view it on a mobile device.</p>
 
 <!--More-->
 
