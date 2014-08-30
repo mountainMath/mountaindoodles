@@ -137,6 +137,10 @@
       return color(myRate);
   };
 
+  var isResidential=function(props){
+      var code=props.ZONE_NAME.substring(0,2);
+      return (code == 'RS' || code == 'RT' || code == 'FM' || code == 'RM');
+  };
 
   function tooltipText(props){
         var text= '';
@@ -175,6 +179,7 @@
                 : 'Assessed value of building<br>(land improvements) relative to<br>overall assessed value');
     };
 
+
     info.addTo(map);
 
     if (showProperties) {
@@ -183,8 +188,7 @@
         if (error) return console.error(error);
         var propertyData = topojson.feature(properties, properties.objects.Parcel_w_BlockID_AC);
         var filteredData=propertyData.features.filter(function(d){
-            return (improvementsToOverall(d)<=maxRelValue && d.properties.BlockID_AC!=0  );
-//                    return ( d.properties.BlockID_AC==0 );
+            return (improvementsToOverall(d)<=maxRelValue && d.properties.BlockID_AC!=0  /*&& isResidential(d.properties)*/);
         });
         console.log(filteredData.length  + " filtered properties out of " + propertyData.features.length);
         var propertyBoundaries = g.selectAll(".propertyBoundary")
