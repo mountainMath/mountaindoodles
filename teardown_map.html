@@ -203,6 +203,9 @@
                 .on("mouseover", function (d) {
                     info.update(d.properties);
                 })
+                .on("click", function (d) {
+                    info.update(d.properties);
+                })
                 .on("mouseout", function () {
                     info.update();
                 }
