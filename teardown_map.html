@@ -184,10 +184,10 @@
     info.addTo(map);
 
     if (showProperties) {
-    d3.json("data/properties.json", function(error, properties) {
+    d3.json("data/teardowns.json", function(error, properties) {
 
         if (error) return console.error(error);
-        var propertyData = topojson.feature(properties, properties.objects.properties);
+        var propertyData = topojson.feature(properties, properties.objects.teardowns);
         var filteredData=propertyData.features;
 //        var filteredData=propertyData.features.filter(function(d){
 //            return (improvementsToOverall(d)<=maxRelValue && d.properties.BlockID_AC!=0 && isResidential(d.properties) );
