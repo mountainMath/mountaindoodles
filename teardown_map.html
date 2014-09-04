@@ -206,7 +206,10 @@
                 .on("mouseout", function () {
                     info.update();
                 })
-                .selection.on('touch', function (d) {
+                .on('touch', function (d) {
+                    info.update(d.properties);
+                })
+                .on('click', function (d) {
                     info.update(d.properties);
                 }
         );
