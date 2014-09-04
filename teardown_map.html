@@ -126,7 +126,7 @@
 
   var areaToLand=function(prop){
       var land=parseFloat(prop.CURRENT_LAND_VALUE);
-      var area=parseFloat(prop.Area_AC);
+      var area=parseFloat(prop.AREA);
       return land/(area);
   };
 
@@ -161,7 +161,7 @@
           zoneCode=zone.split(' ')[0];
           text += "<br>" + zone + ": " + zones[zoneCode];
       }
-      text+= "<br>Area: " + Math.round(props.Area_AC) + "m\u00B2";
+      text+= "<br>Area: " + Math.round(props.AREA) + "m\u00B2";
 //      text+= "<br>LOT " + props.LOT;
 
       return text;
@@ -187,10 +187,11 @@
     d3.json("data/properties.json", function(error, properties) {
 
         if (error) return console.error(error);
-        var propertyData = topojson.feature(properties, properties.objects.Parcel_w_BlockID_AC);
-        var filteredData=propertyData.features.filter(function(d){
-            return (improvementsToOverall(d)<=maxRelValue && d.properties.BlockID_AC!=0 && isResidential(d.properties) );
-        });
+        var propertyData = topojson.feature(properties, properties.objects.properties);
+        var filteredData=propertyData.features;
+//        var filteredData=propertyData.features.filter(function(d){
+//            return (improvementsToOverall(d)<=maxRelValue && d.properties.BlockID_AC!=0 && isResidential(d.properties) );
+//        });
         console.log(filteredData.length  + " filtered properties out of " + propertyData.features.length);
         var propertyBoundaries = g.selectAll(".propertyBoundary")
                 .data(filteredData)
