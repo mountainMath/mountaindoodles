@@ -70,11 +70,6 @@
 
     L.esri.basemapLayer("Gray").addTo(map);
 
-//    var layer = new L.TileLayer(
-//            "http://{s}.tile.osm.org/{z}/{x}/{y}.png"
-//    );
-//    map.addLayer(layer);
-
     var svg = d3.select(map.getPanes().overlayPane).append("svg");
     var g = svg.append("g").attr("class", "leaflet-zoom-hide");
 
@@ -109,15 +104,15 @@
     };
 
 
-    var improvementsToOverall=function(d){
-        var land=parseFloat(d.properties.CURRENT_LAND_VALUE);
-        var improvement=parseFloat(d.properties.CURRENT_IMPROVEMENT_VALUE);
+    var improvementsToOverall=function(props){
+        var land=parseFloat(props.C);
+        var improvement=parseFloat(props.I);
         return improvement/(land+improvement);
     };
 
 
-    var propertyColor=function(d){
-        var myRate=improvementsToOverall(d);
+    var propertyColor=function(props){
+        var myRate=improvementsToOverall(props);
         if (isNaN(myRate)) {
            return 'none';
         }
@@ -125,17 +120,9 @@
     };
 
   var areaToLand=function(prop){
-      var land=parseFloat(prop.CURRENT_LAND_VALUE);
-      var area=parseFloat(prop.AREA);
+      var land=parseFloat(prop.C);
+      var area=parseFloat(prop.A);
       return land/(area);
-  };
-
-  var areaColor=function(prop){
-      var myRate=areaToLand(prop);
-      if (isNaN(myRate)) {
-          return 'none';
-      }
-      return color(myRate);
   };
 
   var isResidential=function(props){
@@ -146,23 +133,22 @@
 
   function tooltipText(props){
         var text= '';
-        var number=props.CIVIC_NO;
+        var number=props.C;
         if (number) text+=number + ' ';
-        var street=props.STREETNAME;
+        var street=props.S;
         if (street) text+=street + '<br>';
-        var land=parseFloat(props.CURRENT_LAND_VALUE);
+        var land=parseFloat(props.L);
         if (!isNaN(land)) text+="Land: $" + land.format() + '<br>';
-        var improvements=parseFloat(props.CURRENT_IMPROVEMENT_VALUE);
+        var improvements=parseFloat(props.I);
         if (!isNaN(improvements)) text+="Improvements: $" + improvements.format();
       var areaValue=areaToLand(props);
       if (!isNaN(areaValue)) text+="<br>Land value per m^2: $" + areaValue.format();
-      var zone=props.ZONE_NAME;
+      var zone=props.Z;
       if (zone) {
           zoneCode=zone.split(' ')[0];
           text += "<br>" + zone + ": " + zones[zoneCode];
       }
-      text+= "<br>Area: " + Math.round(props.AREA) + "m\u00B2";
-//      text+= "<br>LOT " + props.LOT;
+      text+= "<br>Area: " + Math.round(props.A) + "m\u00B2";
 
       return text;
     }
@@ -183,22 +169,19 @@
 
     info.addTo(map);
 
-    if (showProperties) {
+
     d3.json("data/teardowns.json", function(error, properties) {
 
         if (error) return console.error(error);
         var propertyData = topojson.feature(properties, properties.objects.teardowns);
         var filteredData=propertyData.features;
-//        var filteredData=propertyData.features.filter(function(d){
-//            return (improvementsToOverall(d)<=maxRelValue && d.properties.BlockID_AC!=0 && isResidential(d.properties) );
-//        });
         console.log(filteredData.length  + " filtered properties out of " + propertyData.features.length);
         var propertyBoundaries = g.selectAll(".propertyBoundary")
                 .data(filteredData)
                 .enter().append("path")
                 .attr("class", "propertyBoundary")
                 .attr("fill", function (d) {
-                    return propertyColor(d);
+                    return propertyColor(d.properties);
                 })
                 .on("mouseover", function (d) {
                     info.update(d.properties);
@@ -207,9 +190,6 @@
                     info.update();
                 })
                 .on('touch', function (d) {
-                    info.update(d.properties);
-                })
-                .on('click', function (d) {
                     info.update(d.properties);
                 }
         );
@@ -237,64 +217,23 @@
                     .style('stroke-width', points + 'px');
         };
     });
-    }
-
-    if (showBlocks) {
-        d3.json("/data/blocks.json", function(error, blocks) {
-
-            if (error) return console.error(error);
-            var blockData = topojson.feature(blocks, blocks.objects.block_outlines);
-
-            var blockBoundaries = g.selectAll(".blockBoundary")
-                    .data(blockData.features)
-                    .enter().append("path")
-                    .attr("class", "blockBoundary")
-                    .attr("fill", 'grey')
-                    .style('opacity', 0.8);
 
 
-            map.on("viewreset", reset);
-            reset();
+  var legend = L.control({position: 'bottomleft'});
 
+  legend.onAdd = function (map) {
+      var div = L.DomUtil.create('div', 'info legend');
+      var grades=color.range();
+      var factor=100.0*domainStep;
 
+      for (var i = 0; i < grades.length; i++) {
+          var low=i*factor;
+          div.innerHTML +='<i style="background:' + grades[i] + '"></i> ' + low + '% &ndash; ' + (low+factor) + '%' + (grades[i+1] ? '<br>' : '');
+      }
+      return div;
+  };
 
-            function reset() {
-                var
-                        bounds = propertyMap.bounds(blockData),
-                        topLeft = bounds[0],
-                        bottomRight = bounds[1];
-
-
-                svg.attr("width", bottomRight[0] - topLeft[0])
-                        .attr("height", bottomRight[1] - topLeft[1])
-                        .style("left", topLeft[0] + "px")
-                        .style("top", topLeft[1] + "px");
-                g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
-                var points= pointsForMeters(1);
-                if (points<0.3) points=1; else points=5;
-                blockBoundaries.attr("d", propertyMap)
-                        .style(
-                        'stroke-width',points + 'px');
-            };
-
-    });
-    }
-
-        var legend = L.control({position: 'bottomright'});
-
-        legend.onAdd = function (map) {
-            var div = L.DomUtil.create('div', 'info legend');
-            var grades=color.range();
-            var factor=100.0*domainStep;
-
-            for (var i = 0; i < grades.length; i++) {
-                var low=i*factor;
-                div.innerHTML +='<i style="background:' + grades[i] + '"></i> ' + low + '% &ndash; ' + (low+factor) + '%' + (grades[i+1] ? '<br>' : '');
-            }
-            return div;
-        };
-
-        legend.addTo(map);
+  legend.addTo(map);
 
 
 
