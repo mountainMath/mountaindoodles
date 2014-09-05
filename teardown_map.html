@@ -144,7 +144,7 @@
       var tax=parseFloat(props.T);
       if (!isNaN(tax)) text+="Tax: $" + tax.format() + '<br>';
       var areaValue=areaToLand(props);
-      if (!isNaN(areaValue)) text+="Land value per m^2: $" + areaValue.format() + '<br>';
+      if (!isNaN(areaValue)) text+="Land value per m\u00B2: $" + areaValue.format() + '<br>';
       var zone=props.Z;
       if (zone) {
           zoneCode=zone.split(' ')[0];
