@@ -140,17 +140,17 @@
         var land=parseFloat(props.L);
         if (!isNaN(land)) text+="Land: $" + land.format() + '<br>';
       var improvements=parseFloat(props.I);
-      if (!isNaN(improvements)) text+="Improvements: $" + improvements.format();
+      if (!isNaN(improvements)) text+="Improvements: $" + improvements.format() + '<br>';
       var tax=parseFloat(props.T);
-      if (!isNaN(tax)) text+="2014 Tax: $" + tax.format();
+      if (!isNaN(tax)) text+="2014 Tax: $" + tax.format() + '<br>';
       var areaValue=areaToLand(props);
-      if (!isNaN(areaValue)) text+="<br>Land value per m^2: $" + areaValue.format();
+      if (!isNaN(areaValue)) text+="Land value per m^2: $" + areaValue.format() + '<br>';
       var zone=props.Z;
       if (zone) {
           zoneCode=zone.split(' ')[0];
-          text += "<br>" + zone + ": " + zones[zoneCode];
+          text += zone + ": " + zones[zoneCode] + "<br>";
       }
-      text+= "<br>Area: " + Math.round(props.A) + "m\u00B2";
+      text+= "Area: " + Math.round(props.A) + "m\u00B2";
 
       return text;
     }
