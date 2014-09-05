@@ -139,8 +139,10 @@
         if (street) text+=street + '<br>';
         var land=parseFloat(props.L);
         if (!isNaN(land)) text+="Land: $" + land.format() + '<br>';
-        var improvements=parseFloat(props.I);
-        if (!isNaN(improvements)) text+="Improvements: $" + improvements.format();
+      var improvements=parseFloat(props.I);
+      if (!isNaN(improvements)) text+="Improvements: $" + improvements.format();
+      var tax=parseFloat(props.T);
+      if (!isNaN(tax)) text+="2014 Tax: $" + tax.format();
       var areaValue=areaToLand(props);
       if (!isNaN(areaValue)) text+="<br>Land value per m^2: $" + areaValue.format();
       var zone=props.Z;
