@@ -45,7 +45,7 @@
         padding-right: 20%;
         padding-bottom:20%;
     }
-    .innerDownloadPane h2{
+    .innerDownloadPane h3{
         line-height: 1.1em;
         text-align: center;
     }
@@ -198,7 +198,7 @@
     downloadPane.onAdd = function(map) {
         this._div=L.DomUtil.create('div', 'info downloadPane'); // create a div with a class "info"
         var buttonHTML='<button class="downloadButton" onclick="loadData();">Download and Map Teardown Data</button>';
-        var titleText='<h2>To map the teardown properties you will need to download about 6MB of data, and older computers may struggle with the javascript.</h2>';
+        var titleText='<h3>To map the teardown properties you will need to download about 6MB of data, and older computers may struggle with the javascript.</h3>';
         var innerHTML='<div class="innerDownloadPane">' + titleText + buttonHTML + '</div>';
         this._div.innerHTML=innerHTML;
         return this._div;
