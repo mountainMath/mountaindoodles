@@ -36,25 +36,29 @@
     }
 
     .downloadPane {
-        width:97%;
-/*        height:90%;*/
+/*        width:97%;
+        height:90%;*/
     }
     .innerDownloadPane{
         padding-top:10%;
-        padding-left: 20%;
-        padding-right: 20%;
         padding-bottom:20%;
     }
     .innerDownloadPane h3{
         line-height: 1.1em;
         text-align: center;
+        max-width: 400px;
+        position:relative;
+        margin: 0 auto;
+        margin-bottom: 30px;
     }
     .downloadButton {
         height:40px;
         width:200px;
+
         margin: -40px -100px;
         position:relative;
         left:50%;
+
         background-color: lightblue;
     }
 
@@ -83,7 +87,10 @@
 
   var zones=JSON.parse(zoneString);
 
-  d3.select('#map').style('height',(window.innerHeight-20) + 'px');
+  var height=window.innerHeight-20;
+  var width=window.innerWidth-20;
+
+  d3.select('#map').style('height',(height) + 'px');
 
     var x=[49.261083,-123.17];
   var southWest = L.latLng(49.174297067849565, -123.39431762695314),
@@ -199,7 +206,7 @@
         this._div=L.DomUtil.create('div', 'info downloadPane'); // create a div with a class "info"
         var buttonHTML='<button class="downloadButton" onclick="loadData();">Download and Map Teardown Data</button>';
         var titleText='<h3>To map the teardown properties you will need to download about 6MB of data, older computers may struggle with the javascript.</h3>';
-        var innerHTML='<div class="innerDownloadPane">' + titleText + buttonHTML + '</div>';
+        var innerHTML='<div class="innerDownloadPane" style="width:' + (width-30) + 'px;">' + titleText + buttonHTML + '</div>';
         this._div.innerHTML=innerHTML;
         return this._div;
     }
