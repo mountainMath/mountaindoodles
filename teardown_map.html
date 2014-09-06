@@ -40,7 +40,7 @@
         heigh:90%;
     }
     .innerDownloadPane{
-        padding-top:20%;
+        padding-top:10%;
         padding-left: 20%;
         padding-right: 20%;
         padding-bottom:20%;
@@ -192,7 +192,6 @@
                 : 'Assessed value of building<br>(land improvements) relative to<br>overall assessed value');
     };
 
-    info.addTo(map);
 
 
     var downloadPane= L.control({position: 'topleft'});
@@ -210,6 +209,8 @@
 
     function loadData() {
         downloadPane.removeFrom(map);
+        info.addTo(map);
+        legend.addTo(map);
 
         d3.json("data/teardowns.json", function (error, properties) {
 
@@ -274,7 +275,6 @@
       return div;
   };
 
-  legend.addTo(map);
 
 
 
