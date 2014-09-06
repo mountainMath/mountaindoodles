@@ -35,6 +35,31 @@
         opacity: 0.7;
     }
 
+    .downloadPane {
+        width:97%;
+        heigh:90%;
+    }
+    .innerDownloadPane{
+        padding-top:20%;
+        padding-left: 20%;
+        padding-right: 20%;
+        padding-bottom:20%;
+    }
+    .innerDownloadPane h2{
+        line-height: 1.1em;
+        padding-left: 20%;
+        padding-right: 20%;
+        text-align: center;
+    }
+    .downloadButton {
+        height:40px;
+        width:200px;
+        margin: -40px -100px;
+        position:relative;
+        left:50%;
+        background-color: lightblue;
+    }
+
 
 </style>
 <head>
@@ -172,54 +197,70 @@
     info.addTo(map);
 
 
-    d3.json("data/teardowns.json", function(error, properties) {
+    var downloadPane= L.control({position: 'topleft'});
+    downloadPane.onAdd = function(map) {
+        this._div=L.DomUtil.create('div', 'info downloadPane'); // create a div with a class "info"
+        var buttonHTML='<button class="downloadButton" onclick="loadData();">Download and Map Teardown Data</button>';
+        var titleText='<h2>To map the teardown properties you will need to download about 6MB of data, and older computers may struggle with the javascript.</h2>';
+        var innerHTML='<div class="innerDownloadPane">' + titleText + buttonHTML + '</div>';
+        this._div.innerHTML=innerHTML;
+        return this._div;
+    }
 
-        if (error) return console.error(error);
-        var propertyData = topojson.feature(properties, properties.objects.teardowns);
-        var filteredData=propertyData.features;
-        console.log(filteredData.length  + " filtered properties out of " + propertyData.features.length);
-        var propertyBoundaries = g.selectAll(".propertyBoundary")
-                .data(filteredData)
-                .enter().append("path")
-                .attr("class", "propertyBoundary")
-                .attr("fill", function (d) {
-                    return propertyColor(d.properties);
-                })
-                .on("mouseover", function (d) {
-                    info.update(d.properties);
-                })
-                .on("mouseout", function () {
-                    info.update();
-                })
-                .on('touch', function (d) {
-                    info.update(d.properties);
-                }
-        );
+    downloadPane.addTo(map);
 
 
-        map.on("viewreset", reset);
-        reset();
+    function loadData() {
+        downloadPane.removeFrom(map);
+
+        d3.json("data/teardowns.json", function (error, properties) {
+
+            if (error) return console.error(error);
+            var propertyData = topojson.feature(properties, properties.objects.teardowns);
+            var filteredData = propertyData.features;
+            console.log(filteredData.length + " filtered properties out of " + propertyData.features.length);
+            var propertyBoundaries = g.selectAll(".propertyBoundary")
+                    .data(filteredData)
+                    .enter().append("path")
+                    .attr("class", "propertyBoundary")
+                    .attr("fill", function (d) {
+                        return propertyColor(d.properties);
+                    })
+                    .on("mouseover", function (d) {
+                        info.update(d.properties);
+                    })
+                    .on("mouseout", function () {
+                        info.update();
+                    })
+                    .on('touch', function (d) {
+                        info.update(d.properties);
+                    }
+            );
 
 
-        function reset() {
-            var
-                    bounds = propertyMap.bounds(propertyData),
-                    topLeft = bounds[0],
-                    bottomRight = bounds[1];
+            map.on("viewreset", reset);
+            reset();
 
 
-            svg.attr("width", bottomRight[0] - topLeft[0])
-                    .attr("height", bottomRight[1] - topLeft[1])
-                    .style("left", topLeft[0] + "px")
-                    .style("top", topLeft[1] + "px");
-            g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
-            var points = pointsForMeters(1);
-            if (points < 0.3) points = 0; else points = 1;
-            propertyBoundaries.attr("d", propertyMap)
-                    .style('stroke-width', points + 'px');
-        };
-    });
+            function reset() {
+                var
+                        bounds = propertyMap.bounds(propertyData),
+                        topLeft = bounds[0],
+                        bottomRight = bounds[1];
 
+
+                svg.attr("width", bottomRight[0] - topLeft[0])
+                        .attr("height", bottomRight[1] - topLeft[1])
+                        .style("left", topLeft[0] + "px")
+                        .style("top", topLeft[1] + "px");
+                g.attr("transform", "translate(" + -topLeft[0] + "," + -topLeft[1] + ")");
+                var points = pointsForMeters(1);
+                if (points < 0.3) points = 0; else points = 1;
+                propertyBoundaries.attr("d", propertyMap)
+                        .style('stroke-width', points + 'px');
+            };
+        });
+    }
 
   var legend = L.control({position: 'bottomleft'});
 
