@@ -223,8 +223,6 @@
     function loadData() {
         var downloadingText='<h3>downloading...</h3>'
         downloadPane._div.innerHTML='<div class="innerDownloadPane" style="width:' + (width-30) + 'px;">' + downloadingText + '</div>';
-        info.addTo(map);
-        legend.addTo(map);
 
         d3.json("data/teardowns.json", function (error, properties) {
             var downloadingText='<h3>processing...</h3>'
@@ -256,6 +254,8 @@
             map.on("viewreset", reset);
             reset();
             downloadPane.removeFrom(map);
+            info.addTo(map);
+            legend.addTo(map);
 
 
             function reset() {
