@@ -49,7 +49,12 @@
         max-width: 400px;
         position:relative;
         margin: 0 auto;
+    }
+    h3.subtitle{
         margin-bottom: 30px;
+    }
+    h3.title{
+        margin-bottom: 10px;
     }
     .downloadButton {
         height:40px;
@@ -205,8 +210,9 @@
     downloadPane.onAdd = function(map) {
         this._div=L.DomUtil.create('div', 'info downloadPane'); // create a div with a class "info"
         var buttonHTML='<button class="downloadButton" onclick="loadData();">Download and Map Teardown Data</button>';
-        var titleText='<h3>To map the teardown properties you will need to download about 6MB of data, older computers may struggle with the javascript.</h3>';
-        var innerHTML='<div class="innerDownloadPane" style="width:' + (width-30) + 'px;">' + titleText + buttonHTML + '</div>';
+        var titleText='<h3 class="title">To map the teardown properties you will need to download about 6MB of data, older computers may struggle with the javascript.</h3>';
+        var subtitleText='<h3 class="subtitle">Don\'t attempt this on an old mobile device, it won\'t be able to handle the data and freeze or crash.</h3>';
+        var innerHTML='<div class="innerDownloadPane" style="width:' + (width-30) + 'px;">' + titleText + subtitleText + buttonHTML + '</div>';
         this._div.innerHTML=innerHTML;
         return this._div;
     }
@@ -215,7 +221,8 @@
 
 
     function loadData() {
-        downloadPane.removeFrom(map);
+        var downloadingText='<h3>downloading...</h3>'
+        downloadPane._div.innerHTML='<div class="innerDownloadPane" style="width:' + (width-30) + 'px;">' + downloadingText + '</div>';
         info.addTo(map);
         legend.addTo(map);
 
@@ -246,6 +253,7 @@
 
             map.on("viewreset", reset);
             reset();
+            downloadPane.removeFrom(map);
 
 
             function reset() {
