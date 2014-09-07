@@ -227,6 +227,8 @@
         legend.addTo(map);
 
         d3.json("data/teardowns.json", function (error, properties) {
+            var downloadingText='<h3>processing...</h3>'
+            downloadPane._div.innerHTML='<div class="innerDownloadPane" style="width:' + (width-30) + 'px;">' + downloadingText + '</div>';
 
             if (error) return console.error(error);
             var propertyData = topojson.feature(properties, properties.objects.teardowns);
