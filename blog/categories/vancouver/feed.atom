@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2014-10-17T14:28:03-07:00</updated>
+  <updated>2014-11-05T13:02:09-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mapping CACs]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/"/>
+    <updated>2014-11-05T12:03:25-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs</id>
+    <content type="html"><![CDATA[<p>After reading the <a href="http://pricetags.wordpress.com/2014/11/04/the-daily-durning-back-and-forth-on-cacs/">post on Price Tags</a>,
+originally from <a href="http://karensawatzky.ca/2014/10/29/7868/">Karen Sawatzky&rsquo;s blog</a>, I got curious about getting a
+geographic overview over the CACs in Vancouver in 2010, 2011 and 2012.</p>
+
+<p>As opposed to the <a href="/blog/2014/09/05/vancouver-teardown-map/">teardown map</a> the dataset is quite small, so there should
+be no problems viewing this on a mobile device. As always, map is below the fold.</p>
+
+<!-- more -->
+
+
+<p>Some of the property addresses did not match any address in the CoV open data property database, probably because the
+developments are quite new and new addresses got assigned. In these cases I mapped the CAC property to a nearby property
+and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
+
+<iframe src="http://doodles.mountainmath.ca/cac_map.html" width="100%" height="500"></iframe>
+
+
+<p><a href="/cac_map.html">Full screen view</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Vancouver High Value Improvements Map]]></title>

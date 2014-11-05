@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/</loc>
+    <lastmod>2014-11-05T12:03:25-08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://doodles.mountainmath.ca/blog/2014/09/07/vancouver-high-value-improvements-map/</loc>
     <lastmod>2014-09-07T22:11:08-07:00</lastmod>
     <priority>0.8</priority>
@@ -17,21 +23,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2014-10-17T14:28:03-07:00</lastmod>
+    <lastmod>2014-11-05T13:02:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2014-10-17T14:28:03-07:00</lastmod>
+    <lastmod>2014-11-05T13:02:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2014-10-17T14:28:03-07:00</lastmod>
+    <lastmod>2014-11-05T13:02:09-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -40,6 +46,12 @@
   <url>
     <loc>http://doodles.mountainmath.ca/all_properties_map.html</loc>
     <lastmod>2014-09-16T21:39:24Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://doodles.mountainmath.ca/cac_map.html</loc>
+    <lastmod>2014-11-05T13:00:28Z</lastmod>
     <priority>0.6</priority>
   </url>
   
