@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-03-23T17:22:42-07:00</updated>
+  <updated>2015-03-23T17:23:40-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -27,7 +27,7 @@ be a good time to take our previous rather clumsy attempts to map tax data and p
 straight for <a href="http://mountainmath.ca/map/assessment">&lsquo;the map&rsquo;</a> or read on for some background information, including
 some methodology on data cleaning and interpolation.</p>
 
-<p><img src="http://doodles.mountainmath.ca/images/land_value.jpg" alt="&quot;Land Values&quot;" /></p>
+<p><a href="http://mountainmath.ca/map/assessment"><img src="http://doodles.mountainmath.ca/images/land_value.jpg" alt="&quot;Land Values&quot;" /></a></p>
 
 <!-- more -->
 
