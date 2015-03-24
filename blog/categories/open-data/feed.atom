@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-03-23T17:12:23-07:00</updated>
+  <updated>2015-03-23T17:17:41-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -26,6 +26,8 @@ be a good time to take our previous rather clumsy attempts to map tax data and p
 <p>This time we put in a couple of evenings to build a more responsive map with multiple options of what to map. Head
 straight for <a href="http://mountainmath.ca/map/assessment">&lsquo;the map&rsquo;</a> or read on for some background information, including
 some methodology on data cleaning and interpolation.</p>
+
+<p><img src="image/land_values.jpg" alt="&quot;Land Values&quot;" /></p>
 
 <!-- more -->
 
