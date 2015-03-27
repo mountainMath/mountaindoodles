@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-03-27T15:49:22-07:00</updated>
+  <updated>2015-03-27T15:51:23-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -38,7 +38,7 @@ the all at once. Options were limited for displaying more detailed data when sel
 For the viewer this resulted more in an exercise of patience than in an &lsquo;interactive&rsquo; experience.</p>
 
 <p>We decided to remedy this by importing the CoV data into a database and chop the data up dynamically and serve it as vector tiles.
-For smaller zoom levels we aggregated data at the block level. There are lots of blocks in Vancouver, 4461 that contain
+For smaller zoom levels we aggregated data at the block level. There are lots of blocks in Vancouver, 4444 that contain
 properties with tax information to be precise. So again the map is a little sluggish on mobile devices and slower machines when zoomed out,
 but things get much faster as we zoom in.</p>
 
