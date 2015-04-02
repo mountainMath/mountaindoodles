@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-04-02T12:53:34-07:00</updated>
+  <updated>2015-04-02T12:58:56-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -44,10 +44,11 @@ bike lane types on or off and the &lsquo;name&rsquo; will be displayed on hover.
 
 <h3>Update</h3>
 
-<p>Some more Canadian cities:
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">Calgary</a>,
+<h4>Some more Canadian cities:</h4>
+
+<p><a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">Calgary</a>,
  <a href="http://doodles.mountainmath.ca/bike_paths?city=Victoria&amp;type=FullDescr&amp;dataUrl=http://doodles.mountainmath.ca/data/VicBikeRoutes.geojson">Victoria</a>,
- <a href="http://doodles.mountainmath.ca/bike_paths?city=Montreal&amp;dataUrl=http://doodles.mountainmath.ca/data/MontrealBikeRoutes.geojson">Montreal</a></p>
+ <a href="http://doodles.mountainmath.ca/bike_paths?city=Montreal&amp;name=PROJET_NOM&amp;dataUrl=http://doodles.mountainmath.ca/data/MontrealBikeRoutes.geojson">Montreal</a></p>
 
 <p>Want to map another city&rsquo;s data? No problem, just read on.</p>
 
