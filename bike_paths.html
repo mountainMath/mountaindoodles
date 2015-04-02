@@ -26,6 +26,8 @@
     #map {
         border:solid darkgray 1px;
         border-radius: 5px;
+//        width:100%;
+//        height:100%;
     }
     #legend {
         text-align: right;
@@ -44,48 +46,50 @@
 <div id="map"></div>
 <div id="buttons"></div>
 <script>
-    var width = 700,
-            height = 520;
+    var height=window.innerHeight-20;
+    var width=window.innerWidth-20;
+
+    var mapHeight=height-40;
 
     var projection = d3.geo.mercator()
-            .center([-123.07, 49.255 ])
+            .center([-122.943 ,49.2])
             .scale(150000);
-    var svg = d3.select("#map").append("svg")
-            .attr("width", width)
-            .attr("height", height);
-
     var path = d3.geo.path()
             .projection(projection);
 
-    var g = svg.append("g");
+    var footer;
+    var legend;
+    var g;
+    var svg;
+
+    svg = d3.select("#map").append("svg").attr("width", width)
+            .attr("height", height);
+    g = svg.append("g").attr("width", width)
+            .attr("height", height);
     svg.append('text')
             .attr('x',10)
             .attr('y',40)
             .attr('id','title')
             .text('Vancouver');
-    var legend=svg.append('text')
-            .attr('x',600)
+    legend=svg.append('text')
             .attr('y',40)
             .attr('id','legend');
-
-    var options=svg.append("svg:foreignObject")
+    footer=svg.append("svg:foreignObject")
             .attr('x',10)
-            .attr('y',500)
-            .attr("width", 680)
-            .attr("height",20)
-            .append("xhtml:body")
+            .attr("height",40);
+
+    var options=footer.append("xhtml:body")
             .attr('id','buttons');
 
 
 
     // load and display the World
-    var infrastructure_types={};
     d3.json("data/bikeways.geojson", function(error, collection) {
+        var infrastructure_types={};
         g.selectAll("path")
                 .data(collection.features)
                 .enter()
                 .append("path")
-                .attr("d", path)
                 .attr('class',function(d){
                     var lane_type=d.properties.TYPE;
                     if (! lane_type) lane_type='unknown'; else {
@@ -94,6 +98,7 @@
                     }
                     return lane_type;
                 })
+                .attr("d", path)
                 .on('mouseover',function(d){legend.text(d.properties.NAME);})
                 .on('mouseout',function(d){legend.text(' ');});
         console.log(infrastructure_types);
@@ -105,6 +110,24 @@
             d3.selectAll('path.'+this.name).attr('display',display);
         });
 
+        function resize() {
+            height=window.innerHeight-20;
+            width=window.innerWidth-20;
+            mapHeight=height-40;
+            svg.attr("width", width)
+                    .attr("height", height);
+            var scale=Math.min(width/560,1);
+            g.attr("width", width)
+                    .attr("height", height)
+                    .attr('transform', 'translate('+width/2+','+mapHeight/2+')scale('+scale+')');
+            footer.attr('y',mapHeight+10)
+                    .attr("width", width-20);
+            legend.attr('x',width-100);
+        }
+
+        resize();
+//        window.onresize=function(){resize();};
+        window.onresize=resize;
     });
 /*
     var zoom = d3.behavior.zoom()
