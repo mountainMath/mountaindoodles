@@ -13,19 +13,6 @@
     path:hover {
         stroke-width: 3px;
     }
-    path.local_street {
-    }
-    path.painted_lanes{
-    }
-    path.separated_lanes{
-    }
-    path.shared_lanes{
-    }
-    path.unknown {
-        display: none;
-    }
-    #buttons {
-    }
     #map {
         border:solid darkgray 1px;
         border-radius: 5px;
@@ -79,7 +66,6 @@
             .attr("height", height).attr('id','map');
     var g = svg.append("g").attr("width", width)
             .attr("height", mapHeight);
-//            .attr('transform', 'translate('+width/2+','+mapHeight/2+')scale(1)');;
     svg.append('text')
             .attr('x',10)
             .attr('y',40)
@@ -98,7 +84,6 @@
 
     var dataURL=(QueryString.dataUrl)? QueryString.dataUrl : 'http://doodles.mountainmath.ca/data/bikeways.geojson';
 
-    // load and display the World
     d3.json(dataURL, function(error, collection) {
         var bbox = d3.geo.bounds(collection);
         var center = [(bbox[0][0] + bbox[1][0]) / 2.0, (bbox[0][1] + bbox[1][1]) / 2.0];
