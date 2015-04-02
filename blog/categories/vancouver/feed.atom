@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-03-27T15:51:23-07:00</updated>
+  <updated>2015-04-01T23:38:31-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vancouver Bike Paths]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2015/04/01/bike-paths/"/>
+    <updated>2015-04-01T16:24:34-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/04/01/bike-paths</id>
+    <content type="html"><![CDATA[<p>Motivated by the excellent <a href="http://www.washingtonpost.com/blogs/wonkblog/wp/2015/04/01/bleak-maps-of-how-cities-look-using-only-their-bike-lanes/">Washington Post Wonkblog</a> I
+mapped Vancouver&rsquo;s bike infrastructure. Looks good at first, but when you take out the &lsquo;fake&rsquo; &ldquo;Local Street&rdquo; bikeways more in line with Wonkblog&rsquo;s methodology it&rsquo;s looking pretty
+bleak in large portions of the city.</p>
+
+<p>Of course the devil is in the details and infrastructure cannot just be judged by how it&rsquo;s labeled. If one were to look for 8-80 infrastructure, then the separated lanes
+would make the cut. Some of the bike lanes would be marginal, but most would probably make the cut. Although I can&rsquo;t say that I would be particularly keen to let an 8yo cycle on
+some of them.</p>
+
+<p>Vancouver&rsquo;s &ldquo;Shared Lanes&rdquo; are not for the faint of heart. They have 50 speed limits on multi-lane roadways
+and feature sharrows to make it a little easier for cyclists to &lsquo;take the lane&rsquo;. In some cases cyclists share a lane with
+the buses, which is a little better.</p>
+
+<p>The local streets are mostly car tunnels like the &lsquo;Off-Broadway&rsquo; and won&rsquo;t qualify as 8-80, but there are some exceptions like
+the local street portion of Pt. Grey Rd, where cycling is rather pleasant.</p>
+
+<iframe src="http://doodles.mountainmath.ca/bike_paths.html" width="720" height="580"></iframe>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Vancouver Assessment Data]]></title>
