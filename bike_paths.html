@@ -111,7 +111,7 @@
         });
 
         function resize() {
-            height=window.innerHeight-30;
+            height=window.innerHeight-20;
             width=window.innerWidth-20;
             mapHeight=height-40;
             svg.attr("width", width)
@@ -120,7 +120,9 @@
             g.attr("width", width)
                     .attr("height", height)
                     .attr('transform', 'translate('+width/2+','+mapHeight/2+')scale('+scale+')');
-            footer.attr('y',mapHeight+10)
+            var footerY=mapHeight;
+            if (width<480) footerY-=20;
+            footer.attr('y',footerY)
                     .attr("width", width-20);
             legend.attr('x',width-100);
         }
