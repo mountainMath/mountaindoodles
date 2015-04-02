@@ -2,6 +2,9 @@
 <head>
 <meta charset="utf-8">
 <style>
+    body{
+        margin:5px;
+    }
     path {
         stroke: black;
         stroke-width: 1px;
@@ -26,6 +29,7 @@
     #map {
         border:solid darkgray 1px;
         border-radius: 5px;
+        margin:4px;
     }
     #legend {
         text-align: right;
@@ -41,8 +45,6 @@
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 </head>
 <body>
-<div id="map"></div>
-<div id="buttons"></div>
 <script>
     var QueryString = function () {
         // This function is anonymous, is executed immediately and
@@ -73,8 +75,8 @@
     var mapHeight=height-40;
 
 
-    var svg = d3.select("#map").append("svg").attr("width", width)
-            .attr("height", height);
+    var svg = d3.select("body").append("svg").attr("width", width)
+            .attr("height", height).attr('id','map');
     var g = svg.append("g").attr("width", width)
             .attr("height", mapHeight);
 //            .attr('transform', 'translate('+width/2+','+mapHeight/2+')scale(1)');;
