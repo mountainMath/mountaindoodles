@@ -82,7 +82,7 @@
             .attr('x',10)
             .attr('y',40)
             .attr('id','title')
-            .text('Vancouver');
+            .text(QueryString.city ? QueryString.city : 'Vancouver');
     var legend=svg.append('text')
             .attr('y',40)
             .attr('text-anchor','end')
