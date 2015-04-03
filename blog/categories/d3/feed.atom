@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-04-03T14:43:16-07:00</updated>
+  <updated>2015-04-03T14:49:28-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -47,7 +47,8 @@ bike lane types on or off and the &lsquo;name&rsquo; will be displayed on hover.
 <h4>Some more <strike>Canadian</strike> cities:</h4>
 
 <p><a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary,street&amp;type=BICYCLE_CL&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">Calgary on street</a>,
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary%20pathways&amp;type=TYPE_DESCR&amp;dataUrl=http://doodles.mountainmath.ca/data/YYC_Path_BikeRoutes.geojson">Calgary pathways</a>,
+<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary,pathways&amp;type=TYPE_DESCR&amp;dataUrl=http://doodles.mountainmath.ca/data/YYC_Path_BikeRoutes.geojson">Calgary pathways</a>,
+<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary,trails&amp;type=TYPE_DESCR&amp;dataUrl=http://doodles.mountainmath.ca/data/YYC_Trail_BikeRoutes.geojson">Calgary trails</a>,
 <a href="http://doodles.mountainmath.ca/bike_paths?city=Victoria&amp;type=FullDescr&amp;dataUrl=http://doodles.mountainmath.ca/data/VicBikeRoutes.geojson">Victoria</a>,
 <a href="http://doodles.mountainmath.ca/bike_paths?city=Montreal&amp;name=PROJET_NOM&amp;dataUrl=http://doodles.mountainmath.ca/data/MontrealBikeRoutes.geojson">Montreal</a>,
 <a href="http://doodles.mountainmath.ca/bike_paths?city=Toronto&amp;type=CP_TYPE&amp;dataUrl=http://doodles.mountainmath.ca/data/TorontoBikeRoutes.geojson">Toronto</a>
@@ -57,8 +58,10 @@ bike lane types on or off and the &lsquo;name&rsquo; will be displayed on hover.
 <a href="http://doodles.mountainmath.ca/bike_paths?city=Taipei&amp;name=RDNAME&amp;dataUrl=http://doodles.mountainmath.ca/data/TPEBikeRoutes.geojson">Taipei</a></p>
 
 <p>A word of caution. I have done zero data cleaning or verification. Some of these maps are missing some type of infrastructure.
-I am familiar with cycling conditions in Calgary, and their the extensive network along the river and other areas are missing. For Taipei, I noticed that
- the off-street paths along streets are missing. So some more ground truth is needed for proper interpretation. But fun anyway.</p>
+I am familiar with cycling conditions in Calgary, and their the extensive network along the river and other areas are missing in their main file.
+I added two more separate maps for their trails and pathways, but was too lazy to merge them. For Taipei, I noticed that
+the off-street paths along streets are missing, for example the one on Dunhua Bei Lu that I was using a lot a year ago. Not sure if or where these are available.
+So some more ground truth is needed for proper interpretation. But fun anyway.</p>
 
 <p>Want to map another city&rsquo;s data? No problem, just read on.</p>
 
