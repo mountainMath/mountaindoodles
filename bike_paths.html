@@ -27,6 +27,17 @@
         font-size: 40px;
         font-family:"sans-serif";
     }
+    .buttons{
+        overflow: auto;
+        display: block;
+    }
+    label{
+        white-space: nowrap;
+        border:solid lightgray 1pt;
+        border-radius: 2px;
+        margin:2px;
+        display: inline-block;
+    }
 
 </style>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -129,7 +140,6 @@
             mapHeight = height - footerHeight;
             svg.attr("width", width).attr("height", height);
             g.attr("width", width);
-            var footerY = mapHeight;
             footer.attr('y', mapHeight-10)
                     .attr("width", width - 20);
             legend.attr('x', width - 20);
