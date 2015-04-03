@@ -55,12 +55,12 @@
         }
         return query_string;
     } ();
+    var footerHeight=QueryString.fh ? QueryString.fh : 20
 
     var height=window.innerHeight-20;
     var width=window.innerWidth-20;
 
-    var mapHeight=height-40;
-
+    var mapHeight=height-footerHeight;
 
     var svg = d3.select("body").append("svg").attr("width", width)
             .attr("height", height).attr('id','map');
@@ -77,7 +77,7 @@
             .attr('id','legend');
     var footer=svg.append("svg:foreignObject")
             .attr('x',10)
-            .attr("height",40);
+            .attr("height",footerHeight+10);
 
     var options=footer.append("xhtml:body")
             .attr('id','buttons');
@@ -124,7 +124,7 @@
         });
 
         function resize() {
-            height = window.innerHeight - 20;
+            height = window.innerHeight - footerHeight;
             width = window.innerWidth - 20;
             mapHeight = height - 40;
             svg.attr("width", width).attr("height", height);
