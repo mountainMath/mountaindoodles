@@ -135,7 +135,9 @@
         });
 
         function resize() {
-            height = window.innerHeight - 20;
+            if (QueryString.nh!='true') {
+                height = window.innerHeight - 20;
+            }
             width = window.innerWidth - 20;
             mapHeight = height - footerHeight;
             svg.attr("width", width).attr("height", height);
