@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-04-03T14:21:29-07:00</updated>
+  <updated>2015-04-03T14:24:33-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -44,7 +44,7 @@ bike lane types on or off and the &lsquo;name&rsquo; will be displayed on hover.
 
 <h3>Update</h3>
 
-<h4>Some more Canadian cities:</h4>
+<h4>Some more <strike>Canadian</strike> cities:</h4>
 
 <p><a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">Calgary</a>,
 <a href="http://doodles.mountainmath.ca/bike_paths?city=Victoria&amp;type=FullDescr&amp;dataUrl=http://doodles.mountainmath.ca/data/VicBikeRoutes.geojson">Victoria</a>,
