@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-04-03T14:41:13-07:00</updated>
+  <updated>2015-04-03T14:42:07-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -46,8 +46,8 @@ bike lane types on or off and the &lsquo;name&rsquo; will be displayed on hover.
 
 <h4>Some more <strike>Canadian</strike> cities:</h4>
 
-<p><a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary%20(on%20street">Calgary (on street)</a>&amp;type=BICYCLE_CL&amp;dataUrl=<a href="http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson</a>),
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary%20(pathways">Calgary (pathways)</a>&amp;type=TYPE_DESCR&amp;dataUrl=<a href="http://doodles.mountainmath.ca/data/YYC_Path_BikeRoutes.geojson">http://doodles.mountainmath.ca/data/YYC_Path_BikeRoutes.geojson</a>),
+<p><a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary(street">Calgary on street</a>&amp;type=BICYCLE_CL&amp;dataUrl=<a href="http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson</a>),
+<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary(pathways">Calgary pathways</a>&amp;type=TYPE_DESCR&amp;dataUrl=<a href="http://doodles.mountainmath.ca/data/YYC_Path_BikeRoutes.geojson">http://doodles.mountainmath.ca/data/YYC_Path_BikeRoutes.geojson</a>),
 <a href="http://doodles.mountainmath.ca/bike_paths?city=Victoria&amp;type=FullDescr&amp;dataUrl=http://doodles.mountainmath.ca/data/VicBikeRoutes.geojson">Victoria</a>,
 <a href="http://doodles.mountainmath.ca/bike_paths?city=Montreal&amp;name=PROJET_NOM&amp;dataUrl=http://doodles.mountainmath.ca/data/MontrealBikeRoutes.geojson">Montreal</a>,
 <a href="http://doodles.mountainmath.ca/bike_paths?city=Toronto&amp;type=CP_TYPE&amp;dataUrl=http://doodles.mountainmath.ca/data/TorontoBikeRoutes.geojson">Toronto</a>
