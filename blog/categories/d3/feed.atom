@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-04-04T20:58:54-07:00</updated>
+  <updated>2015-04-13T10:05:36-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -76,6 +76,7 @@ So some more ground truth is needed for proper interpretation. But fun anyway.</
 <li>Build a url for your map by using [<a href="http://doodles.mountainmath.ca/bike_paths">http://doodles.mountainmath.ca/bike_paths</a>] as a base url and add query strings
 
 <ul>
+<li><code>dataUrl=&lt;url to your geojson&gt;</code></li>
 <li><code>city=&lt;city name&gt;</code></li>
 <li>optionally <code>type=&lt;bikeway type property&gt;</code></li>
 <li>optionally <code>name=&lt;bikeway name property&gt;</code></li>
