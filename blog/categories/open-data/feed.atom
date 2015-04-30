@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-04-13T10:05:36-07:00</updated>
+  <updated>2015-04-30T18:29:48+08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Vancouver Bike Paths]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/04/01/bike-paths/"/>
-    <updated>2015-04-01T16:24:34-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/04/01/bike-paths</id>
+    <link href="http://doodles.mountainmath.ca/blog/2015/04/02/bike-paths/"/>
+    <updated>2015-04-02T07:24:34+08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/04/02/bike-paths</id>
     <content type="html"><![CDATA[<p>Motivated by the excellent <a href="http://www.washingtonpost.com/blogs/wonkblog/wp/2015/04/01/bleak-maps-of-how-cities-look-using-only-their-bike-lanes/">Washington Post Wonkblog</a> I
 mapped Vancouver&rsquo;s bike infrastructure. Looks good at first, but when you take out the &lsquo;fake&rsquo; &ldquo;Local Street&rdquo; bikeways more in line with Wonkblog&rsquo;s methodology it&rsquo;s looking pretty
 bleak in large portions of the city.</p>
@@ -114,9 +114,9 @@ types and the property is called <code>BICYCLE_CL</code>.</p>
   
   <entry>
     <title type="html"><![CDATA[Vancouver Assessment Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/"/>
-    <updated>2015-03-23T16:20:43-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data</id>
+    <link href="http://doodles.mountainmath.ca/blog/2015/03/24/vancouver-assessment-data/"/>
+    <updated>2015-03-24T07:20:43+08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/03/24/vancouver-assessment-data</id>
     <content type="html"><![CDATA[<p>The City of Vancouver has recently
 updated <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">their open data catalogue</a> with historic tax
 data. We figured that would
@@ -164,9 +164,9 @@ and development permit information. Some of this data is already available, albe
   
   <entry>
     <title type="html"><![CDATA[Mapping CACs]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/"/>
-    <updated>2014-11-05T12:03:25-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs</id>
+    <link href="http://doodles.mountainmath.ca/blog/2014/11/06/mapping-cacs/"/>
+    <updated>2014-11-06T04:03:25+08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2014/11/06/mapping-cacs</id>
     <content type="html"><![CDATA[<p>After reading the <a href="http://pricetags.wordpress.com/2014/11/04/the-daily-durning-back-and-forth-on-cacs/">post on Price Tags</a>,
 originally from <a href="http://karensawatzky.ca/2014/10/29/7868/">Karen Sawatzky&rsquo;s blog</a>, I got curious about getting a
 geographic overview over the CACs in Vancouver in 2010, 2011 and 2012.</p>
@@ -190,9 +190,9 @@ and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
   
   <entry>
     <title type="html"><![CDATA[Vancouver High Value Improvements Map]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2014/09/07/vancouver-high-value-improvements-map/"/>
-    <updated>2014-09-07T22:11:08-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2014/09/07/vancouver-high-value-improvements-map</id>
+    <link href="http://doodles.mountainmath.ca/blog/2014/09/08/vancouver-high-value-improvements-map/"/>
+    <updated>2014-09-08T13:11:08+08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2014/09/08/vancouver-high-value-improvements-map</id>
     <content type="html"><![CDATA[<p>After the <a href="/blog/2014/09/05/vancouver-teardown-map/">teardown map</a> that looked at the low end of Vancouver&rsquo;s building
 stock, a natural question is to look at the high end. Just as before, we are focusing on the (assessed) value of the
 building relative to the total (assessed) value of land and improvements. We defined &ldquo;highly improved&rdquo; properties to
@@ -218,9 +218,9 @@ that maybe someone else can shed some light on.</p>
   
   <entry>
     <title type="html"><![CDATA[Vancouver Teardown Map]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2014/09/05/vancouver-teardown-map/"/>
-    <updated>2014-09-05T13:27:18-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2014/09/05/vancouver-teardown-map</id>
+    <link href="http://doodles.mountainmath.ca/blog/2014/09/06/vancouver-teardown-map/"/>
+    <updated>2014-09-06T04:27:18+08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2014/09/06/vancouver-teardown-map</id>
     <content type="html"><![CDATA[<p>There has been lots of talk about old homes being torn down and replaced in Vancouver. The likeliest targets are houses
 of relatively low value sitting on expensive land. So how many teardown candidates are there in Vancouver, and where
 in Vancouver are they located?</p>
