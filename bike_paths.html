@@ -112,8 +112,10 @@
                 .attr('class', function (d) {
                     var lane_type = d.properties[(QueryString.type) ? QueryString.type : 'TYPE'];
                     if (lane_type) {
+                        if (lane_type=='-') {lane_type='none';}
                         infrastructure_types[lane_type] = (infrastructure_types[lane_type]) ? infrastructure_types[lane_type] + 1 : 1;
                         lane_type = lane_type.split(' ').join('_').toLowerCase();
+                    } else {
                     }
                     return lane_type;
                 })
