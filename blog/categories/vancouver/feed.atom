@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-06-01T01:50:01-07:00</updated>
+  <updated>2015-06-01T01:57:08-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -43,7 +43,8 @@ of lower property taxes should be applied locally instead of everything being sp
 <p>The Tax Density I mapped is simply the amount of taxes collected per m&sup2;.
 Under that measure, Downtown comes out at $127.1/m&sup2;, followed by the West End at $72.7/m&sup2; and Fairview at
 $42.7/m&sup2;. The Vancouver average is $20/m&sup2;. For this calculation I did not count the parks doward the area of
-the neighbourhoods. A complete list by neighbourhood is at the bottom.</p>
+the neighbourhoods, but school for example are included. In light of this some of the aggregated data should be viewed
+with caution. A complete list of Tax Density by neighbourhood is at the bottom.</p>
 
 <h4>Where to go from here?</h4>
 
