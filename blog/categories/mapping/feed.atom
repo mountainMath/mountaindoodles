@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapping | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapping/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-08-25T23:44:10-07:00</updated>
+  <updated>2015-08-25T23:49:27-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -89,14 +89,15 @@ turns out to be much smaller than the &lsquo;time cost&rsquo; calculated next.</
 
 <h4>Time Cost</h4>
 
-<p>To compute the &lsquo;time cost&rsquo; of commuting we need to know what people&rsquo;s time is worth. The NHS has a simple answer for that,
-we take the Median After Tax Household Income for that.</p>
+<p>To compute the &lsquo;time cost&rsquo; of commuting for the average person in each dissemination area we need to know what people&rsquo;s
+time is worth. The NHS has a simple answer for that, the Median After Tax Household Income.</p>
 
 <p><img src="/images/median_after_tax_income.jpg" alt="&quot;Median After Tax Household Income&quot;" /></p>
 
-<p>So we estimate the median time cost of the commute we assume an 8 hour work day and take the commute time (in hours)
-time two (to get to work and back again) divided by 8 times the after tax income to give us the cost of the commute time.
-If there are several people in the household contributing to the income, there will be several people spending time
+<p>We estimate the median annual time cost of the commute by taking the ratio of the daily commute time to the daily work time,
+assumed to be eight hours, and multiplying it by the annual after tax income. That&rsquo;s more or less the money the average
+person in that dissemination area makes in the time the person spent commuting. If there are several people in the
+household contributing to the income, there will be several people spending time
 commuting, so that effect roughly cancels out.</p>
 
 <h4>Annual Commute Cost</h4>
