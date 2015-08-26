@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 2011 census data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/2011-census-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-08-25T23:52:31-07:00</updated>
+  <updated>2015-08-26T00:26:49-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -25,15 +25,8 @@ due to Ian Young&rsquo;s reporting
 I talked to my friend Alejandro and we decided to set up a Census Mapper that allowes laymen to map any census variables
 of their choosing Canada wide.</p>
 
-<p>A cautious tale from all of the media attention is that Census Data is more complex than it seems at first sight, and
-there are few people out there (apart from Ian Young) who are willing to spend the time needed to understand the
-variables and their limitations. So for a while I was thinking that it might be better to leave the 2011 NHS in the box
-gather dust undisturbed by the general public and only occasionally peeked at by researchers. But that line of thought
-seems quite pretentious, so the mapping project is still on.</p>
-
 <p>Since this is only a side project, it will take some time to set this up properly. In the meantime, I get to have some
-fun to play with census data and map some variables of my choosing. All in the name of working toward the greater goal
-of empowering everyone else to map their favourite things.</p>
+fun to play with census data and map some variables of my choosing.</p>
 
 <p>For a sneak preview of what the Census Mapper will be able to do read below the fold. No interaction, no chosing your
 own variables and panning around Canada yet. Just some screenshots with a story to tie them together.</p>
@@ -145,7 +138,7 @@ underestimating commute costs for drivers, not taking into account the well unde
 transportation nor the negative health implications of driving. The commute time to money computation is very rough
 and will have to be adjusted if applied to real-world examples. But this is only meant to illustrate ageneral point.</p>
 
-<p>The takeaway should be that the &lsquo;hidden mortgage&rsquo; is real, and it&rsquo;s huge.</p>
+<p>The takeaway should be that the &lsquo;hidden mortgage&rsquo; is real, and it&rsquo;s huge. And often overlooked.</p>
 ]]></content>
   </entry>
   
