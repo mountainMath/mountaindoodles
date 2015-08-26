@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 2011 census data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/2011-census-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-08-25T23:49:27-07:00</updated>
+  <updated>2015-08-25T23:51:44-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -114,7 +114,9 @@ exactly that is to cut down on commute time.</p>
 
 <h4>The Hidden Mortgage</h4>
 
-<p>Now it&rsquo;s time to tie this back up with the price for housing. How do we combine the commute cost with the housing cost?
+<p>Now it&rsquo;s time to tie this back up with the price for housing. After all, the time you spent on your commute and your
+mode choice for that commute, are intimately tied to where you choose to live. How do we combine the commute cost with
+the housing cost?
 As a rule of thumb, one makes $400 monthly payments for each $100,000 of mortgage. Give or take, but our numbers are
 quite rough anyway. So taking the annual commute cost, dividing by 400 and multiplying by 100,000 we get the &lsquo;commute
 cost mortgage equivalent&rsquo;. If we map it it looks the same as the previous map, just with different labels. But since I
