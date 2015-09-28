@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapping | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapping/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-09-28T11:21:01-07:00</updated>
+  <updated>2015-09-28T11:40:59-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -23,6 +23,9 @@ variables from the 2011 census, or any combination of them, across 67215 geograp
 
 <p>At this stage we are opening up the <a href="http://censusmapper.ca">Census Mapper</a> to a limited public beta. Limited means that anyone
 can view maps created in CensusMapper, but we are only opening up the map creation tools to selected beta users.</p>
+
+<p>Be aware that the web app makes use of modern web technology and renders large amount of data. It will only work on
+modern browsers, best viewed in Chrome or Safari. Firefox works ok, Internet Explorer might grind to a halt and should be avoided.</p>
 
 <p>We are a little restrictive on creating maps right now for the simple reason that census data is somewhat tricky to
 understand and at this point we don&rsquo;t have a comprehensive guide explaining all the variables and warning against many
