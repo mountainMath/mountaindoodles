@@ -4,7 +4,7 @@
   <title><![CDATA[Category: canada | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/canada/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-09-28T11:43:43-07:00</updated>
+  <updated>2015-09-28T11:55:03-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -28,6 +28,8 @@ can view maps created in CensusMapper, but we are only opening up the map creati
 
 <p>Be aware that the web app makes use of modern web technology and renders large amount of data. It will only work on
 modern browsers, best viewed in Chrome or Safari. Firefox works ok, Internet Explorer might grind to a halt and should be avoided.</p>
+
+<p><a href="http://censusmapper.ca"><img src="/images/map-tools.jpg" alt="&quot;CenusMap Mapmaker&quot;" /></a></p>
 
 <p>We are a little restrictive on creating maps right now for the simple reason that census data is somewhat tricky to
 understand and at this point we don&rsquo;t have a comprehensive guide explaining all the variables and warning against many
