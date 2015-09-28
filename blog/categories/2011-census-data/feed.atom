@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 2011 census data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/2011-census-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-09-28T11:19:42-07:00</updated>
+  <updated>2015-09-28T11:21:01-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<p>The project on mapping census data for Canada is entering the next stage. We are now mapping 3875 different
 variables from the 2011 census, or any combination of them, across 67215 geographic regions covering all of Canada.</p>
 
-<p>At this stage we are opening up the <a href="censusmapper.ca">Census Mapper</a> to a limited public beta. Limited means that anyone
+<p>At this stage we are opening up the <a href="http://censusmapper.ca">Census Mapper</a> to a limited public beta. Limited means that anyone
 can view maps created in CensusMapper, but we are only opening up the map creation tools to selected beta users.</p>
 
 <p>We are a little restrictive on creating maps right now for the simple reason that census data is somewhat tricky to
