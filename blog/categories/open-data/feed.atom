@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-09-28T11:16:54-07:00</updated>
+  <updated>2015-09-28T11:19:42-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -29,6 +29,9 @@ understand and at this point we don&rsquo;t have a comprehensive guide explainin
 of the pitfalls. We are planning to slowly integrate this and open up the map creation tools to the general public.</p>
 
 <h3>Why CensusMapper?</h3>
+
+<!-- more -->
+
 
 <p>Census Canada data is extremely rich and useful in many cirumstances, but it is not being widely used. There are many
 reasons for this, the somewhat unmanageable amount of data being one of them, the difficulty of accessing and standardizing
