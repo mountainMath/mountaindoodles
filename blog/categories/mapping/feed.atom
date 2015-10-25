@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapping | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapping/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-10-24T22:25:45-07:00</updated>
+  <updated>2015-10-24T22:26:50-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -47,7 +47,7 @@ sizeable number of variables to browse through. Each arc in the census wheel rep
 variables. Selecting an arc will zoom into that arc and make it into the &ldquo;center&rdquo; of the wheel, collapsing all other
 components. That the content <em>drilldown</em> process. Once it makes sense to display data as proportions, we switch to the
 <em>proportional view</em> which shows the data as hierarchical pie chart.
-<img href="http://doodles.mountainmath.ca/images/mother_tounge.png" alt="Mother Tounge" style="max-width=400px" align="left"/>
+<img href="http://doodles.mountainmath.ca/images/mother_tounge.png" alt="Mother Tounge" style="max-width:400px" align="left"/>
 This gives a visual representation of the proportions of each of the variables. Hovering (or touching) an arc will
 display more detailed information, selecting one will drill down further. To reverse that process either select the
 center or us the <em>content breadcrumbs</em> at the top that were created during the drilldown process.</p>
@@ -76,7 +76,7 @@ the form of Census Canada not reporting any data for the region, or Census Canad
 &ldquo;are too low to be reported&rdquo;. We have not been able to find clear guidelines how this works, but often this will leave
 detectable traces in the data. For example, looking at &ldquo;African Origins&rdquo; only &ldquo;Egyptian&rdquo; had non-zero values for
 &ldquo;North African Origin&rdquo;.
-<img href="http://doodles.mountainmath.ca/images/unaccounted.png" alt="Unaccounted" style="max-width=400px" align="right"/>
+<img href="http://doodles.mountainmath.ca/images/unaccounted.png" alt="Unaccounted" style="max-width:400px" align="right"/>
 In this example there were 125 people with &ldquo;North African Origins&rdquo;, but only 105 people with &ldquo;Egyptian&rdquo; origin. That
 leaves 20 people unaccounted for. This is outside of the range that could be explained by the rounding of the variables,
 there must have been other North African origins that were too small to be reported on. We alert the user by adding in
