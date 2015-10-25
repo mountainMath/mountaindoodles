@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-10-24T23:37:07-07:00</updated>
+  <updated>2015-10-24T23:38:17-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -41,10 +41,10 @@ which is our way to navigate through census data.
 <!-- more -->
 
 
-<p><img src="http://doodles.mountainmath.ca/images/mother_tounge.png" alt="Mother Tounge" style="max-width:400px" align="left"/>
-There are almost 4,000 census variables available, right now we do not offer to split up by gender, which reduces the
+<p>There are almost 4,000 census variables available, right now we do not offer to split up by gender, which reduces the
 available variables to 1,429. To further simplify things we throw out all variables with zero values, still leaving
-sizeable number of variables to browse through. Each arc in the census wheel represents a variable, or a category of
+sizeable number of variables to browse through. <img src="http://doodles.mountainmath.ca/images/mother_tounge.png" alt="Mother Tounge" style="max-width:400px" align="left"/>
+Each arc in the census wheel represents a variable, or a category of
 variables. Selecting an arc will zoom into that arc and make it into the &ldquo;center&rdquo; of the wheel, collapsing all other
 components. That the content <em>drilldown</em> process. Once it makes sense to display data as proportions, we switch to the
 <em>proportional view</em> which shows the data as hierarchical pie chart.</p>
