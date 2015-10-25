@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-10-24T22:26:50-07:00</updated>
+  <updated>2015-10-24T22:35:35-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -47,7 +47,7 @@ sizeable number of variables to browse through. Each arc in the census wheel rep
 variables. Selecting an arc will zoom into that arc and make it into the &ldquo;center&rdquo; of the wheel, collapsing all other
 components. That the content <em>drilldown</em> process. Once it makes sense to display data as proportions, we switch to the
 <em>proportional view</em> which shows the data as hierarchical pie chart.
-<img href="http://doodles.mountainmath.ca/images/mother_tounge.png" alt="Mother Tounge" style="max-width:400px" align="left"/>
+<img src="http://doodles.mountainmath.ca/images/mother_tounge.png" alt="Mother Tounge" style="max-width:400px" align="left"/>
 This gives a visual representation of the proportions of each of the variables. Hovering (or touching) an arc will
 display more detailed information, selecting one will drill down further. To reverse that process either select the
 center or us the <em>content breadcrumbs</em> at the top that were created during the drilldown process.</p>
@@ -61,9 +61,10 @@ explain some of the inherent data problems.</p>
 
 <p>Census Canada will <a href="http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/help-aide/N2.cfm?Lang=E">round</a>
 (almost) all data to preserve anonymity and don&rsquo;t create false impressions of accuracy that
-the data does not achieve. Data is generally reported in increments of 5 or 10, but rounding is not done in the generally
-understood deterministic way but includes randomness to preserve anonymity. In most cases, the value of the real variable
-is within 5 (or 10) of the reported one. Rounding leads to situations where for example the sum of all people listed
+the data does not achieve. Data is generally reported in increments of 5, but rounding is not done in the generally
+understood deterministic way but includes randomness to preserve anonymity. The value of the measured variable
+is <a href="https://www12.statcan.gc.ca/census-recensement/2011/ref/DQ-QD/conf-eng.cfm">within 4</a> of the reported one.
+Rounding may lead to situations where, for example, the sum of all people listed
 by age bracket will not add up to the total number of people. Generally, this difference will be small and we ignore it
 in our visualization.</p>
 
@@ -76,7 +77,7 @@ the form of Census Canada not reporting any data for the region, or Census Canad
 &ldquo;are too low to be reported&rdquo;. We have not been able to find clear guidelines how this works, but often this will leave
 detectable traces in the data. For example, looking at &ldquo;African Origins&rdquo; only &ldquo;Egyptian&rdquo; had non-zero values for
 &ldquo;North African Origin&rdquo;.
-<img href="http://doodles.mountainmath.ca/images/unaccounted.png" alt="Unaccounted" style="max-width:400px" align="right"/>
+<img src="http://doodles.mountainmath.ca/images/unaccounted.png" alt="Unaccounted" style="max-width:400px" align="right"/>
 In this example there were 125 people with &ldquo;North African Origins&rdquo;, but only 105 people with &ldquo;Egyptian&rdquo; origin. That
 leaves 20 people unaccounted for. This is outside of the range that could be explained by the rounding of the variables,
 there must have been other North African origins that were too small to be reported on. We alert the user by adding in
