@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapping | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapping/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-10-24T22:14:47-07:00</updated>
+  <updated>2015-10-24T22:16:19-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -119,6 +119,9 @@ likely to return the survey than others. The return rates can give some indicati
 bias, we shade regions with a non-return rate lower than 50%, the cutoff Census Canada set for reliability of the NHS.
 This cutoff is just a guideline, the return rates should always to be taken into account when interpreting results,
 especially at the Dissemination Area level.</p>
+
+<p>If all this information did not turn you off, head over to <a href="http://censusmapper.ca">CensusMapper</a> and drill down into
+some geographic areas.</p>
 ]]></content>
   </entry>
   
