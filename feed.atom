@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-09-28T11:55:03-07:00</updated>
+  <updated>2015-10-24T22:14:47-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,115 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Census Drilldown]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown/"/>
+    <updated>2015-10-24T20:45:16-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown</id>
+    <content type="html"><![CDATA[<h4>Next steps in CensusMapper</h4>
+
+<p>The <a href="http://censusmapper.ca">Census Mapper Project</a> is moving along slowly, public beta unearthed some bugs and we gathered
+feedback (thanks to everyone reporting back!). There are still a couple of steps that need to be taken care of before
+we can unleash the full map making power to all users. We feel that the complexity of census data requires more guidance
+than the current map making system is providing. Anyone who does not mind getting there hands dirty and having to look
+up census variable definitions by themselves when making maps is welcome to contact us and we will hook you up with a
+beta mapmaking account.</p>
+
+<p>In the meantime we added one important feature to the CensusMapper.</p>
+
+<h5>Content Drilldown</h5>
+
+<p>CensusMapper is a great way to explore single census variables (or a single function built out of census variables)
+across many geographic regions and aggregation levels. But sometimes we would like to do the opposite: Drill down into
+a specific census region and explore other census variables. We have now added an easy way to do this. To access it
+simply select the &ldquo;more&rdquo; button in the basic popup when you select a census region. This brings up the <em>census wheel</em>,
+which is our way to navigate through census data.
+<img src="http://doodles.mountainmath.ca/images/wheel.png" alt="Census Wheel" /></p>
+
+<!-- more -->
+
+
+<p>There are almost 4,000 census variables available, right now we do not offer to split up by gender, which reduces the
+available variables to 1,429. To further simplify things we throw out all variables with zero values, still leaving
+sizeable number of variables to browse through. Each arc in the census wheel represents a variable, or a category of
+variables. Selecting an arc will zoom into that arc and make it into the &ldquo;center&rdquo; of the wheel, collapsing all other
+components. That the content <em>drilldown</em> process. Once it makes sense to display data as proportions, we switch to the
+<em>proportional view</em> which shows the data as hierarchical pie chart.
+<img src="http://doodles.mountainmath.ca/images/mother_tounge.png" alt="Mother Tounge" />
+This gives a visual representation of the proportions of each of the variables. Hovering (or touching) an arc will
+display more detailed information, selecting one will drill down further. To reverse that process either select the
+center or us the <em>content breadcrumbs</em> at the top that were created during the drilldown process.</p>
+
+<h5>Data Problems</h5>
+
+<p>Census data is messy. Now that all census data for each region is generally accessible in CensusMapper we need to
+explain some of the inherent data problems.</p>
+
+<h6>Rounding</h6>
+
+<p>Census Canada will <a href="http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/help-aide/N2.cfm?Lang=E">round</a>
+(almost) all data to preserve anonymity and don&rsquo;t create false impressions of accuracy that
+the data does not achieve. Data is generally reported in increments of 5 or 10, but rounding is not done in the generally
+understood deterministic way but includes randomness to preserve anonymity. In most cases, the value of the real variable
+is within 5 (or 10) of the reported one. Rounding leads to situations where for example the sum of all people listed
+by age bracket will not add up to the total number of people. Generally, this difference will be small and we ignore it
+in our visualization.</p>
+
+<h6>Omitted Data</h6>
+
+<p>Census Canada will at times not report data. This could be due to very low return rates or other problems that make data
+so unreliable that it is better not reported at all. Or it could be that releasing the information would reveal
+information that that would compromize the anonymity of the census data for some people in that area. The latter can take
+the form of Census Canada not reporting any data for the region, or Census Canada zeroing out specific variables that
+&ldquo;are too low to be reported&rdquo;. We have not been able to find clear guidelines how this works, but often this will leave
+detectable traces in the data. For example, looking at &ldquo;African Origins&rdquo; only &ldquo;Egyptian&rdquo; had non-zero values for
+&ldquo;North African Origin&rdquo;.
+<img src="http://doodles.mountainmath.ca/images/unaccounted.png" alt="Unaccounted" />
+In this example there were 125 people with &ldquo;North African Origins&rdquo;, but only 105 people with &ldquo;Egyptian&rdquo; origin. That
+leaves 20 people unaccounted for. This is outside of the range that could be explained by the rounding of the variables,
+there must have been other North African origins that were too small to be reported on. We alert the user by adding in
+a grey area for the missing 20. This also ensures that the visible representation remains accurate.</p>
+
+<h6>Multiple Responses</h6>
+
+<p>Some census questions allow for multiple responses. For exaple &ldquo;Language Spoken Most Often At Home&rdquo;. In this particular
+case the census variable breaks out single responses and multiple responses and is very transparent to the user. In
+other cases, for example &ldquo;Ethnicity&rdquo;, single and multiple responses are not reported separately but responses are all
+added up. This leads to the sum of lower level variables being higher than the base variable. We alert the user to this
+by overlaying small white dots on the base variable.
+<a href="http://doodles.mountainmath.ca/images/multiple_responses.png">Multiple Responses</a>
+In this particular case the total for for &ldquo;Ethnic Origin&rdquo; was 12,140 people. But there were 1,430 more responses at the
+next level, so up to 1,430 people had given multiple responses to this question listing more than one of the aggregate
+(mostly continent level) origins, some possibly listing more than two. The same patter repeats at different aggregation
+levels, for example 2,565 people claimed at least one of the &ldquo;British Island origins&rdquo;, but many listed more than one
+resulting in the sum of the individual regions with the British Islands exceeding the British Island count by 1,445.
+Again, we alert the user by overlaying dots over the &ldquo;British Island origins&rdquo; arc. Hovering over the arg will display
+the exact numbers of the &ldquo;overcounting&rdquo; due to multiple responses.</p>
+
+<h6>Basic Census</h6>
+
+<p>The Basic Census is generally speaking quite reliable, every single person is required to fill it
+out and return rates are generally above 95%. Serious problems will only occur if response rates are very low. We alert
+the user by shading geographic regions is this has been the case.</p>
+
+<h6>NHS</h6>
+
+<p>The National Household Survey is quite different in nature, it was only
+sent out to a smaller portion (~30%) of society and return rates were much lower (~61%). Even with 100% return rates
+there are likely to be geographic regions where the results severely misrepresent reality in that region due to sampling
+bias. For each region that bias is small, but the probability for bias grows as the number of people in the geographic
+region declines. So this is mostly a problem of Dissemination Areas. But even there, the probability of severe sampling
+bias in each region is small, but there are many regions and the probability that some of these regions suffer from
+sever sampling bias is quite large. And we don&rsquo;t know which regions they are.</p>
+
+<p>On top of this basic statistical sampling bias, we also have self selection bias due to some deomgraphics being more
+likely to return the survey than others. The return rates can give some indication of the likelyhood of self-selection
+bias, we shade regions with a non-return rate lower than 50%, the cutoff Census Canada set for reliability of the NHS.
+This cutoff is just a guideline, the return rates should always to be taken into account when interpreting results,
+especially at the Dissemination Area level.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Census Mapper]]></title>
@@ -29,7 +138,7 @@ can view maps created in CensusMapper, but we are only opening up the map creati
 <p>Be aware that the web app makes use of modern web technology and renders large amount of data. It will only work on
 modern browsers, best viewed in Chrome or Safari. Firefox works ok, Internet Explorer might grind to a halt and should be avoided.</p>
 
-<p><a href="http://censusmapper.ca"><img src="http://doodles.mountainmath.ca/images/map-tools.jpg" alt="&quot;CenusMap Mapmaker&quot;" /></a></p>
+<p><a href="http://censusmapper.ca"><img src="http://doodles.mountainmath.ca/images/map-tools.jpg" alt="CenusMap Mapmaker" /></a></p>
 
 <p>We are a little restrictive on creating maps right now for the simple reason that census data is somewhat tricky to
 understand and at this point we don&rsquo;t have a comprehensive guide explaining all the variables and warning against many
