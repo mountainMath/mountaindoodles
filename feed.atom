@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-10-24T22:19:04-07:00</updated>
+  <updated>2015-10-24T22:22:20-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -47,7 +47,7 @@ sizeable number of variables to browse through. Each arc in the census wheel rep
 variables. Selecting an arc will zoom into that arc and make it into the &ldquo;center&rdquo; of the wheel, collapsing all other
 components. That the content <em>drilldown</em> process. Once it makes sense to display data as proportions, we switch to the
 <em>proportional view</em> which shows the data as hierarchical pie chart.
-<img src="http://doodles.mountainmath.ca/images/mother_tounge.png" alt="Mother Tounge" />
+<img href="http://doodles.mountainmath.ca/images/mother_tounge.png" alt="Mother Tounge" style="max-width=400px"/>
 This gives a visual representation of the proportions of each of the variables. Hovering (or touching) an arc will
 display more detailed information, selecting one will drill down further. To reverse that process either select the
 center or us the <em>content breadcrumbs</em> at the top that were created during the drilldown process.</p>
