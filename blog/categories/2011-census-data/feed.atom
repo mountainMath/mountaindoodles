@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 2011 census data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/2011-census-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-10-25T22:02:26-07:00</updated>
+  <updated>2015-10-26T10:02:49-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -42,8 +42,10 @@ which is our way to navigate through census data.
 
 
 <p>There are almost 4,000 census variables available, right now we do not offer to split up by gender, which reduces the
-available variables to 1,429. To further simplify things we throw out all variables with zero values, still leaving
-sizeable number of variables to browse through. <img src="http://doodles.mountainmath.ca/images/mother_tounge.png" alt="Mother Tounge" style="max-width:400px" align="left"/>
+available variables to 1,429. To further simplify things we throw out all variables with zero values for the give
+geographic area, still leaving a
+sizeable number of variables to browse through.
+<img src="http://doodles.mountainmath.ca/images/mother_tounge.png" alt="Mother Tounge" style="max-width:400px;margin-right:15px;" align="left"/>
 Each arc in the census wheel represents a variable, or a category of
 variables. Selecting an arc will zoom into that arc and make it into the &ldquo;center&rdquo; of the wheel, collapsing all other
 components. That the content <em>drilldown</em> process. Once it makes sense to display data as proportions, we switch to the
@@ -76,7 +78,7 @@ so unreliable that it is better not reported at all. Or it could be that releasi
 information that that would compromize the anonymity of the census data for some people in that area. The latter can take
 the form of Census Canada not reporting any data for the region, or Census Canada zeroing out specific variables that
 &ldquo;are too low to be reported&rdquo;.
-<img src="http://doodles.mountainmath.ca/images/unaccounted.png" alt="Unaccounted" style="max-width:400px" align="right"/>
+<img src="http://doodles.mountainmath.ca/images/unaccounted.png" alt="Unaccounted" style="max-width:400px;margin-left:15px;" align="right"/>
 We have not been able to find clear guidelines how the &ldquo;zeroing&rdquo; works, but often this will leave
 detectable traces in the data. Looking at the example in the image, looking at &ldquo;Mode of Transport&rdquo; to work only
 &ldquo;Driving&rdquo; has non-zero values, the
@@ -92,7 +94,7 @@ case the census variable breaks out single responses and multiple responses and 
 other cases, for example &ldquo;Ethnicity&rdquo;, single and multiple responses are not reported separately but responses are all
 added up. This leads to the sum of lower level variables being higher than the base variable. We alert the user to this
 by overlaying small white dots on the base variable.
-<img src="http://doodles.mountainmath.ca/images/multiple_responses.png" alt="Multiple Responses" style="max-width:400px" align="left"/>
+<img src="http://doodles.mountainmath.ca/images/multiple_responses.png" alt="Multiple Responses" style="max-width:400px;margin-right:15px;" align="left"/>
 In this particular case the total for for &ldquo;Ethnic Origin&rdquo; was 12,140 people. But there were 1,430 more responses at the
 next level, so up to 1,430 people had given multiple responses to this question listing more than one of the aggregate
 (mostly continent level) origins, some possibly listing more than two. The same patter repeats at different aggregation
