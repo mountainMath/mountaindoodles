@@ -185,11 +185,17 @@ by overlaying small white dots on the base variable.
 <img src="/images/multiple_responses.png" alt="Multiple Responses" style="max-width:400px;margin-right:15px;" align="left"/>
 In this particular case the total for for &ldquo;Ethnic Origin&rdquo; was 12,140 people. But there were 1,430 more responses at the
 next level, so up to 1,430 people had given multiple responses to this question listing more than one of the aggregate
-(mostly continent level) origins, some possibly listing more than two. The same patter repeats at different aggregation
+(mostly continent level) origins, some possibly listing more than two. The same patter repeats at different ethnic
+origin aggregation
 levels, for example 2,565 people claimed at least one of the &ldquo;British Island origins&rdquo;, but many listed more than one
 resulting in the sum of the individual regions with the British Islands exceeding the British Island count by 1,445.
 Again, we alert the user by overlaying dots over the &ldquo;British Island origins&rdquo; arc. Hovering over the arg will display
 the exact numbers of the &ldquo;overcounting&rdquo; due to multiple responses.</p>
+
+<p>In these cases where mulitple repsonses are not broken out the dots will aler the user that the proportional
+representation in the hierarchical pie chart does not represent proportions out of a total given by the value of the
+variable at the centre (or lower level), but as a proportion of all responses which exceeds the value of the
+lower level variable.</p>
 
 <h6>Basic Census</h6>
 
@@ -200,17 +206,24 @@ the user by shading geographic regions is this has been the case.</p>
 <h6>NHS</h6>
 
 <p>The National Household Survey is quite different in nature, it was only
-sent out to a smaller portion (~30%) of society and return rates were much lower (~61%). Even with 100% return rates
+sent out to a smaller portion (~30%) of society and return rates were much lower (~69%). Even with 100% return rates
 there are likely to be geographic regions where the results severely misrepresent reality in that region due to sampling
 bias. For each region that bias is small, but the probability for bias grows as the number of people in the geographic
-region declines. So this is mostly a problem of Dissemination Areas. But even there, the probability of severe sampling
+region declines. So this is mostly a problem for Dissemination Areas. But even there, the probability of severe sampling
 bias in each region is small, but there are many regions and the probability that some of these regions suffer from
-sever sampling bias is quite large. And we don&rsquo;t know which regions they are.</p>
+sever sampling bias is quite large.</p>
 
 <p>On top of this basic statistical sampling bias, we also have self selection bias due to some deomgraphics being more
-likely to return the survey than others. The return rates can give some indication of the likelyhood of self-selection
+likely to return the survey than others. This bias is a product of the decision of scrapping the madatory
+&lsquo;long form census&rsquo; and replacing it with the voluntary NHS. The return rates can give some indication of the
+likelyhood of self-selection
 bias, we shade regions with a non-return rate lower than 50%, the cutoff Census Canada set for reliability of the NHS.
-This cutoff is just a guideline, the return rates should always to be taken into account when interpreting results,
+It is especially problematic when trying to detect change in variables (for example poverty) from one census to another
+as the differences in the variable over time are often small and similar in magnitude to possible self-selection bias.</p>
+
+<p>The 50% cutoff we highlight in CensusMapper is just a guideline, the exact return rates are displayed on hover or when
+selecting regions and should always to be taken into
+account when interpreting results,
 especially at the Dissemination Area level.</p>
 
 <p>If all this information did not turn you off, head over to <a href="http://censusmapper.ca">CensusMapper</a> and drill down into
