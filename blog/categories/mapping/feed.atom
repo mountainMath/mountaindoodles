@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapping | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapping/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-10-24T23:40:38-07:00</updated>
+  <updated>2015-10-25T22:02:26-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -77,13 +77,13 @@ information that that would compromize the anonymity of the census data for some
 the form of Census Canada not reporting any data for the region, or Census Canada zeroing out specific variables that
 &ldquo;are too low to be reported&rdquo;.
 <img src="http://doodles.mountainmath.ca/images/unaccounted.png" alt="Unaccounted" style="max-width:400px" align="right"/>
-We have not been able to find clear guidelines how this works, but often this will leave
-detectable traces in the data. For example, looking at &ldquo;African Origins&rdquo; only &ldquo;Egyptian&rdquo; had non-zero values for
-&ldquo;North African Origin&rdquo;.
-In this example there were 125 people with &ldquo;North African Origins&rdquo;, but only 105 people with &ldquo;Egyptian&rdquo; origin. That
-leaves 20 people unaccounted for. This is outside of the range that could be explained by the rounding of the variables,
-there must have been other North African origins that were too small to be reported on. We alert the user by adding in
-a grey area for the missing 20. This also ensures that the visible representation remains accurate.</p>
+We have not been able to find clear guidelines how the &ldquo;zeroing&rdquo; works, but often this will leave
+detectable traces in the data. Looking at the example in the image, looking at &ldquo;Mode of Transport&rdquo; to work only
+&ldquo;Driving&rdquo; has non-zero values, the
+other options &ldquo;Passenger&rdquo;, &ldquo;Transit&rdquo;, &ldquo;Bike&rdquo;, &ldquo;Walk&rdquo; and &ldquo;Other&rdquo; are all zero. There were 160 people getting to work,
+115 are listed as &ldquo;Driver&rdquo;, leaving 45 unaccounted for. This is outside of the range that could be explained by the
+rounding of variables, eaven using extreme odds in the statistical rounding. We alert the user by adding in
+a grey area for the missing 45. This also ensures that the visible representation remains accurate.</p>
 
 <h6>Multiple Responses</h6>
 
