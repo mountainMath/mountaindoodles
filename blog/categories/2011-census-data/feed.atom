@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 2011 census data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/2011-census-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-10-26T10:02:49-07:00</updated>
+  <updated>2015-10-26T10:10:16-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -47,8 +47,8 @@ geographic area, still leaving a
 sizeable number of variables to browse through.
 <img src="http://doodles.mountainmath.ca/images/mother_tounge.png" alt="Mother Tounge" style="max-width:400px;margin-right:15px;" align="left"/>
 Each arc in the census wheel represents a variable, or a category of
-variables. Selecting an arc will zoom into that arc and make it into the &ldquo;center&rdquo; of the wheel, collapsing all other
-components. That the content <em>drilldown</em> process. Once it makes sense to display data as proportions, we switch to the
+variables. Selecting an arc will zoom into that arc and turn it into the &ldquo;center&rdquo; of the wheel, collapsing all other
+components. That&rsquo;s the content <em>drilldown</em> process. Once it makes sense to display data as proportions, we switch to the
 <em>proportional view</em> which shows the data as hierarchical pie chart.</p>
 
 <p>This gives a visual representation of the proportions of each of the variables. Hovering (or touching) an arc will
@@ -64,9 +64,10 @@ explain some of the inherent data problems.</p>
 
 <p>Census Canada will <a href="http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/help-aide/N2.cfm?Lang=E">round</a>
 (almost) all data to preserve anonymity and don&rsquo;t create false impressions of accuracy that
-the data does not achieve. Data is generally reported in increments of 5, but rounding is not done in the generally
-understood deterministic way but includes randomness to preserve anonymity. The value of the measured variable
-is <a href="https://www12.statcan.gc.ca/census-recensement/2011/ref/DQ-QD/conf-eng.cfm">within 4</a> of the reported one.
+the data does not achieve. Data is generally reported in increments of 5, rounding includes randomness to preserve
+anonymity. The value of the measured value
+is <a href="https://www12.statcan.gc.ca/census-recensement/2011/ref/DQ-QD/conf-eng.cfm">within 4</a> of the reported one. And
+remember that even the measured variable is only an estimate of the actual value of the variable.
 Rounding may lead to situations where, for example, the sum of all people listed
 by age bracket will not add up to the total number of people. Generally, this difference will be small and we ignore it
 in our visualization.</p>
@@ -74,8 +75,8 @@ in our visualization.</p>
 <h6>Omitted Data</h6>
 
 <p>Census Canada will at times not report data. This could be due to very low return rates or other problems that make data
-so unreliable that it is better not reported at all. Or it could be that releasing the information would reveal
-information that that would compromize the anonymity of the census data for some people in that area. The latter can take
+so unreliable that it is better not reported at all. Or it could be that releasing the information could compromize
+the anonymity of the census data for some people in that area. The latter can take
 the form of Census Canada not reporting any data for the region, or Census Canada zeroing out specific variables that
 &ldquo;are too low to be reported&rdquo;.
 <img src="http://doodles.mountainmath.ca/images/unaccounted.png" alt="Unaccounted" style="max-width:400px;margin-left:15px;" align="right"/>
@@ -84,8 +85,8 @@ detectable traces in the data. Looking at the example in the image, looking at &
 &ldquo;Driving&rdquo; has non-zero values, the
 other options &ldquo;Passenger&rdquo;, &ldquo;Transit&rdquo;, &ldquo;Bike&rdquo;, &ldquo;Walk&rdquo; and &ldquo;Other&rdquo; are all zero. There were 160 people getting to work,
 115 are listed as &ldquo;Driver&rdquo;, leaving 45 unaccounted for. This is outside of the range that could be explained by the
-rounding of variables, eaven using extreme odds in the statistical rounding. We alert the user by adding in
-a grey area for the missing 45. This also ensures that the visible representation remains accurate.</p>
+rounding of variables. We alert the user by adding in
+a grey area for the missing 45. This also ensures that the visual representation remains accurate.</p>
 
 <h6>Multiple Responses</h6>
 
