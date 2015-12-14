@@ -56,12 +56,12 @@ layers:
     landuse:
         data: { source: osm, layer: landuse }
         parks:
-            filter: { kind: [park, cemetery, graveyard, forest] }
+            filter: { kind: [park, cemetery, graveyard, forest, wood, protected_area, recreation_ground, golf_course] }
             draw:
-                flatpolys:
+                paper:
                     order: 1
                     # tone down green as you zoom out
-                    color: [[10, [0.3, 0.4, 0.3]], [14, [0.5, 0.825, 0.5]]]
+                    color: [[10, [0.2, 0.3, 0.4]], [14, [0.3, 0.4, 0.3]]]
         playgrounds:
             filter: { kind: [pitch, playground] }
             draw:
@@ -90,7 +90,7 @@ layers:
                 flatlines:
                     order: 100
                     color: |
-                        function() {var opacity=(properties.bikelane) ? 1 : properties.faded; return [.1, .6, .1, opacity];}
+                        function() {var opacity=(properties.bikelane) ? 1 : properties.faded; return [.8, .7, .1, opacity];}
                     width: [[10, 1px], [14, 2px], [16, 3px], [17, 5m]]
                     outline:
                         color: |
@@ -102,7 +102,7 @@ layers:
                 flatlines:
                     order: 100
                     color: |
-                        function() {var opacity=(properties.shared) ? 1 : properties.faded; return [.1, .4, .1, opacity];}
+                        function() {var opacity=(properties.shared) ? 1 : properties.faded; return [.8, .3, .1, opacity];}
                     width: [[10, 1px], [14, 2px], [16, 3px], [17, 5m]]
                     outline:
                         color: |
@@ -116,7 +116,7 @@ layers:
                     order: 100
                     color: |
                         function() {var opacity=(properties.shared_path) ? 1 : properties.faded; return [.1, .8, .1, opacity];}
-                    width: [[10, 1px], [14, 1px], [16, 2px], [17, 3m]]
+                    width: [[10, 1px], [14, 2px], [16, 3px], [17, 5m]]
 
 
     roads:
