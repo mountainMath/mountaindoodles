@@ -78,33 +78,44 @@ layers:
 
     bikeways:
         data: { source: local}
+        properties:
+            shared: true
+            shared_path: true
+            bikelane: true
+            faded: 0.3
+            faded_outline: 0.1
         bikelane:
             filter: { cycleway: lane }
             draw:
                 flatlines:
                     order: 100
-                    color: [.1, .6, .1]
+                    color: |
+                        function() {var opacity=(properties.bikelane) ? 1 : properties.faded; return [.1, .6, .1, opacity];}
                     width: [[10, 1px], [14, 2px], [16, 3px], [17, 5m]]
                     outline:
-                        color: white
-                        width: [[12, 1px], [16, 2px]]
+                        color: |
+                            function() {var opacity=(properties.bikelane) ? 1 : properties.faded_outline; return [0.8,0.8,0.8,opacity];}
+                        width: [[12, 1px], [16, 1px]]
         shared:
-            filter: { [cycleway: [shared, shared_lane], highway: cycleway], not: {cycleway: lane } }
+            filter: { all: [cycleway: [shared, shared_lane], not: {cycleway: lane }] }
             draw:
                 flatlines:
                     order: 100
-                    color: [.1, .4, .1]
+                    color: |
+                        function() {var opacity=(properties.shared) ? 1 : properties.faded; return [.1, .4, .1, opacity];}
                     width: [[10, 1px], [14, 2px], [16, 3px], [17, 5m]]
                     outline:
-                        color: black
-                        width: [[12, 1px], [16, 2px]]
+                        color: |
+                            function() {var opacity=(properties.shared) ? 1 : properties.faded_outline; return [0,0,0,opacity];}
+                        width: [[12, 1px], [16, 1px]]
 
         shared_path:
-            filter: { highway: [path,pedestrian, footway], bicycle: yes}
+            filter: { highway: [path,pedestrian, footway,cycleway], bicycle: yes}
             draw:
                 flatlines:
                     order: 100
-                    color: [.1, .8, .1]
+                    color: |
+                        function() {var opacity=(properties.shared_path) ? 1 : properties.faded; return [.1, .8, .1, opacity];}
                     width: [[10, 1px], [14, 1px], [16, 2px], [17, 3m]]
 
 
