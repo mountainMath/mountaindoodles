@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapping | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapping/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-13T23:24:28-08:00</updated>
+  <updated>2015-12-13T23:25:50-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -46,9 +46,8 @@ easily consumed on the go.</li>
 <p>First let&rsquo;s start with examples of how other have tried to solve these problems. Probably one of the best maps out there
 is the <a href="https://www.crd.bc.ca/docs/default-source/crd-document-library/maps/transportation/bikemap2014-frontback-web.pdf?sfvrsn=8">Capital Regional District Bike Map</a>.
 I chatted with <a href="https://twitter.com/Burgundavia">Corey</a> who worked for CRD on these maps on how it was done. They collected all the bike infrastructure
-in the region by contacting all the municipalities. Then they meticulously
-checked that what the municipalities reported actually existed on the ground.
-<img  src="http://doodles.mountainmath.ca/images/victoria.png" style="width:50%;float:left"> Consider Fort road on their bike map where they accurately show the bike lane
+in the region by contacting all the municipalities. <img  src="http://doodles.mountainmath.ca/images/victoria.png" style="width:50%;float:left"> Then they meticulously
+checked that what the municipalities reported actually existed on the ground.  Consider Fort road on their bike map where they accurately show the bike lane
 cutting out. And they added in shortcuts and connections
 that the municipalities did not report on, like a short section of footway that may technically require walking the bike
 but shortcuts out of a suburban cul-de-sac maze.</p>
