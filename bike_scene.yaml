@@ -82,8 +82,8 @@ layers:
             shared: true
             shared_path: true
             bikelane: true
-            faded: 0.3
-            faded_outline: 0.1
+            faded: 0.15
+            faded_outline: 0.05
         bikelane:
             filter: { cycleway: lane }
             draw:

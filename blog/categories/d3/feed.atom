@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-14T10:07:16-08:00</updated>
+  <updated>2015-12-14T10:12:14-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -20,6 +20,11 @@
     <id>http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map</id>
     <content type="html"><![CDATA[<p>Here come some general thoughts on bike maps. Not throught through yet, just jotting down some ideas so that I don&rsquo;t
 forget and maybe to start a discussion.</p>
+
+<p>Bike enthusiasts, OSM folks and mapping technology wonks read on!</p>
+
+<!-- more -->
+
 
 <h4>Why make a new bike map?</h4>
 
@@ -94,7 +99,7 @@ when in real life it is everything but that.</p>
 <h4>How to make a bike map</h4>
 
 <p>So how should we make a bike map? I was always thinking about setting up my own database and somehow adding and rating
-infrastructure. Then my twitter friend <a href="https://twitter.com/alexwarrior">@alexwarrior</a> decided to start making a bike
+infrastructure. Then <a href="https://twitter.com/alexwarrior">Alex</a> decided to start making a bike
 map for the UBC area. And he chose the most straight-forward path: Editing Open Street Map data. That way the edits are
 immediately (better: after their map tile refresh cycle) available online, for example on
 <a href="http://www.opencyclemap.org/">OpenCycleMaps</a>. The map is easily accessible
@@ -112,6 +117,8 @@ them on by hand. Here is an example where only the bike routes near UBC are adde
 
 <iframe src="http://doodles.mountainmath.ca/bike_map.html" width="100%" height="550"></iframe>
 
+
+<p><a href="/bike_map.html">Full screen view</a></p>
 
 <p>One small drawback is that WebGL, the technology Tangram is based on, is not available for much of the windows world.
 WebGL requires modern browsers (IE9 does not count) and also modern hardware/graphics card drivers. A couple of years
