@@ -82,7 +82,7 @@ layers:
             filter: { cycleway: lane }
             draw:
                 flatlines:
-                    order: 10
+                    order: 100
                     color: [.1, .6, .1]
                     width: [[10, 1px], [14, 2px], [16, 3px], [17, 5m]]
                     outline:
@@ -92,7 +92,7 @@ layers:
             filter: { [cycleway: [shared, shared_lane], highway: cycleway], not: {cycleway: lane } }
             draw:
                 flatlines:
-                    order: 10
+                    order: 100
                     color: [.1, .4, .1]
                     width: [[10, 1px], [14, 2px], [16, 3px], [17, 5m]]
                     outline:
@@ -103,7 +103,7 @@ layers:
             filter: { highway: [path,pedestrian, footway], bicycle: yes}
             draw:
                 flatlines:
-                    order: 10
+                    order: 100
                     color: [.1, .8, .1]
                     width: [[10, 1px], [14, 1px], [16, 2px], [17, 3m]]
 
