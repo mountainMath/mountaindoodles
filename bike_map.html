@@ -78,19 +78,6 @@
         var map = L.map('map',
                 {"keyboardZoomOffset" : .05}
         );
-//        L.control.locate({//icon:'fa fa-location-arrow',
-//            locateOptions: {maxZoom:17},
-//            onLocationError: function(err) {alert(err.message)},
-//            onLocationOutsideMapBounds:  function(context) {
-//                alert(context.options.strings.outsideMapBoundsMsg);
-//            },
-//            strings: {
-//                title: "Pan to current location",  // title of the locate control
-//                outsideMapBoundsMsg: "You seem to be located outside the boundaries of the map"
-//            },
-//            showPopup: false
-//        }).addTo(map);
-
         function redrawBikeMap(){
             var bikeways=window.scene.config.layers["bikeways"];
             var elements=document.getElementsByName('bike');
