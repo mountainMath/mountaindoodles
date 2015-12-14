@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-14T10:34:15-08:00</updated>
+  <updated>2015-12-14T10:49:53-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -125,7 +125,12 @@ WebGL requires modern browsers (IE9 does not count) and also modern hardware/gra
 old windows machine will likely not be able to render WebGL no matter what browser you use. But the main target is
 mobile, and iOS and most android won&rsquo;t have a problem with WebGL.</p>
 
-<p>Only one problem left. OSM does not have and &ldquo;cycling comfort&rdquo; tags right now. There are two ways around that. One could
+<h4>The main problem left to solve</h4>
+
+<p>One major problem left. OSM does not have and &ldquo;cycling comfort&rdquo; tags right now. There are tags for physical infrastructure,
+and in some cases the comfort level can be correctly inferred from those. But in many cases it can&rsquo;t.</p>
+
+<p>There are two ways around that. One could
 keep those tags in a separate file, but that becomes difficult to maintain when OSM features change. Or one can add the
 tag to the OSM data. That way better bike maps can scale easily, and the information can also be used in OSM-based
 routing services where their real value lies.</p>
