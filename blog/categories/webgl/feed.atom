@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: osm | Mountain Doodles]]></title>
-  <link href="http://doodles.mountainmath.ca/blog/categories/osm/feed.atom" rel="self"/>
+  <title><![CDATA[Category: webgl | Mountain Doodles]]></title>
+  <link href="http://doodles.mountainmath.ca/blog/categories/webgl/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
   <updated>2015-12-14T21:36:55-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
