@@ -110,7 +110,7 @@ layers:
                         width: [[12, 1px], [16, 1px]]
 
         shared_path:
-            filter: { [{highway: [path,pedestrian, footway], bicycle: yes}, highway:cycleway]}
+            filter: [{highway: [path,pedestrian, footway], bicycle: yes}, {highway: cycleway, not: {bicycle: yes}}]
             draw:
                 flatlines:
                     order: 100
