@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-14T21:32:48-08:00</updated>
+  <updated>2015-12-14T21:34:24-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -18,7 +18,7 @@
     <link href="http://doodles.mountainmath.ca/blog/2015/12/14/routing/"/>
     <updated>2015-12-14T20:10:16-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2015/12/14/routing</id>
-    <content type="html"><![CDATA[<p><img  src="http://doodles.mountainmath.ca/images/routing.png" style="width:25%;float:right">Routing is a hard problem. Routing for drivers is pretty good at this point, mostly because we have been very good at
+    <content type="html"><![CDATA[<p><a href="http://doodles.mountainmath.ca/bike_routing.html"><img  src="http://doodles.mountainmath.ca/images/routing.png" style="width:25%;float:right"></a>Routing is a hard problem. Routing for drivers is pretty good at this point, mostly because we have been very good at
 designing for cars and creating predicable infrastructure. Routing for bikes is a whole other story, data quality is
 poor and the physical infrastructure is, at least in North America, not strongly predictive of cycling comfort/safety.
 And cycling comfort/safety is the top priority for the
@@ -75,7 +75,7 @@ be to hack some of these more advanced costing options into their routing engine
     <link href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/"/>
     <updated>2015-12-13T12:04:25-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map</id>
-    <content type="html"><![CDATA[<p><img  src="http://doodles.mountainmath.ca/images/bike-map.png" style="width:25%;float:right">Here come some general thoughts on bike maps. Not throught through yet, just jotting down some ideas so that I don&rsquo;t
+    <content type="html"><![CDATA[<p><a href="http://doodles.mountainmath.ca/bike_map.html"><img  src="http://doodles.mountainmath.ca/images/bike-map.png" style="width:25%;float:right"></a>Here come some general thoughts on bike maps. Not throught through yet, just jotting down some ideas so that I don&rsquo;t
 forget and maybe to start a discussion.</p>
 
 <p>Bike enthusiasts, OSM folks and mapping technology wonks read on!</p>
