@@ -4,7 +4,7 @@
   <title><![CDATA[Category: osm | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/osm/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-14T14:46:07-08:00</updated>
+  <updated>2015-12-14T21:32:48-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,63 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Routing]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2015/12/14/routing/"/>
+    <updated>2015-12-14T20:10:16-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/12/14/routing</id>
+    <content type="html"><![CDATA[<p><img  src="http://doodles.mountainmath.ca/images/routing.png" style="width:25%;float:right">Routing is a hard problem. Routing for drivers is pretty good at this point, mostly because we have been very good at
+designing for cars and creating predicable infrastructure. Routing for bikes is a whole other story, data quality is
+poor and the physical infrastructure is, at least in North America, not strongly predictive of cycling comfort/safety.
+And cycling comfort/safety is the top priority for the
+<a href="http://usa.streetsblog.org/2015/03/13/the-first-ever-nationwide-survey-of-interested-but-concerned-bikers-is-here/">vast majority of (potential) cyclists</a>.</p>
+
+<p>And it&rsquo;s the ones that don&rsquo;t cycle frequently, often out of concern for safety, that would benefit most from effective
+bike routing.</p>
+
+<p>Read on or <a href="/bike_routing.html">go directly to the routing demo</a>.</p>
+
+<!-- more -->
+
+
+<p>Google does a decent job directing a relatively experienced cyclist from A to B, but it has a hard time to learn about
+places where cyclists can go but cars can&rsquo;t. And it won&rsquo;t be able to answer my fundamental question: Can I bring my 6
+year old. And Apple doesn&rsquo;t even try and offer bike routing.</p>
+
+<h4>Routing test</h4>
+
+<p>So what&rsquo;s really needed apart from <a href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/">better bike maps</a>
+is better bike routing. So building on yesterday&rsquo;s post, I decided to take a quick look at routing. Time to try out
+<a href="https://mapzen.com/projects/valhalla">Mapzen&rsquo;s routing engine</a>:</p>
+
+<iframe src="http://doodles.mountainmath.ca/bike_routing.html" width="100%" height="550"></iframe>
+
+
+<p><a href="/bike_routing.html">Full screen view</a></p>
+
+<p>Initial testing seems to indicate that this works reasonably well. And while the engine allows for some customization
+on rider needs, right now there is no way to get the &ldquo;dad&rsquo;s routing&rdquo; that I would like to have.</p>
+
+<p>Part of the problem is of course that I still don&rsquo;t have enough information in OSM to even make a &ldquo;dad&rsquo;s map&rdquo;
+<a href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/">as I lamented earlier</a>. But at least OSM gets
+me half-way there by giving me a finer control over distinguishing infrastructure that I may deem as generally more
+suitable so that I can fade selected bike infrastructure out by checking the appropriate boxes in the map.</p>
+
+<h4>Route costing options</h4>
+
+<p>The bike routing options in Mapzen&rsquo;s routing engine allow for some level of control on wheter gravel should be avoided
+(great feature for the lycra cowed but useless for dads), whether hill should be avoided (helpful) and whether to avoid
+roads without bike infrastructure. But when I cycle with my 6 year old a bike lane between parked cars and 50 traffic
+is as good as no bike infrastructure at all. And there is currently no way to cost different types of bike
+infrastructure, so they can&rsquo;t be used as a proxy for cycling comfort.</p>
+
+<h4>Where to go from here</h4>
+
+<p>Next steps are to <a href="https://github.com/valhalla/thor">look deeper into Mapzen&rsquo;s routing engine</a> and see how hard it would
+be to hack some of these more advanced costing options into their routing engine and open up a feature request.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How to make a bike map]]></title>
