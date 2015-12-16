@@ -64,12 +64,14 @@
 <!-- Main tangram library -->
 <script src="https://mapzen.com/tangram/0.4/tangram.min.js"></script>
 
+<script src="lib/keymaster.js"></script>
+
 <!-- Demo module -->
 <script type="text/javascript">
     map = (function () {
         'use strict';
 
-        var map_start_location = [49.25, -123.22, 13]; // Vancouver
+        var map_start_location = [49.2490,-123.1470, 12]; // Vancouver
 
         /*** URL parsing ***/
 
@@ -101,9 +103,11 @@
         var info = L.control({position: 'topright'});
         info.onAdd = function (map) {
             this._div = L.DomUtil.create('div', 'info details map_menu'); // create a div with a class "info"
-            var buttons='<label><input id = "bike-path" type="checkbox" name="bike" value="shared_path"  checked="checked"/> Path</label>';
+            var buttons='<label><input id = "bike-path" type="checkbox" name="bike" value="cycleway"  checked="checked"/> Cyclepath</label>';
+            buttons+='<br><label><input id = "bike-path" type="checkbox" name="bike" value="shared_path"  checked="checked"/> Mixed Use Path</label>';
             buttons+='<br><label><input id = "bike-lane" type="checkbox" name="bike"  value="bikelane" checked="checked"/> Lane</label>';
             buttons+='<br><label><input id = "bike-shared" type="checkbox" name="bike"  value="shared" checked="checked"/> Shared</label>';
+            buttons+='<br><label><input id = "bike-shared" type="checkbox" name="bike"  value="other" checked="checked"/> Other</label>';
             info._div.innerHTML = buttons;
             setTimeout(function(){
                 var elements=document.getElementsByName('bike');
@@ -119,7 +123,7 @@
         info.addTo(map);
 
         var layer = Tangram.leafletLayer({
-            scene: 'bike_scene.yaml',
+            scene: 'bike_scene2.yaml',
             attribution: '<a href="https://mapzen.com/tangram" target="_blank">Tangram</a> | &copy; OSM contributors | <a href="https://mapzen.com/" target="_blank">Mapzen</a>'
         });
 
@@ -142,6 +146,88 @@
 
 
             var scene=layer.scene;
+
+            function clearLabel() {
+                if (selection_info.parentNode == null) return;
+                while (selection_info.firstChild) {
+                    selection_info.removeChild(selection_info.firstChild);
+                }
+                selection_info.parentNode.removeChild(selection_info);
+            }
+
+
+            function addClickEdit (){
+                map.on('click',  function (e) {
+                    var url;
+                    if (key.shift) {
+                        url = 'https://www.openstreetmap.org/edit?';
+
+                        if (scene.selection.feature && scene.selection.feature.properties.osm_id) {
+                            url += 'way=' + scene.selection.feature.properties.osm_id;
+                        }
+                        var pixel = {x: event.clientX, y: event.clientY};
+                        var point = map.layerPointToLatLng(new L.Point(pixel.x, pixel.y));
+                        var zoom=Math.max(16,scene.zoom);
+                        url += '#map=' + scene.baseZoom(zoom) + '/' + point.lat + '/' + point.lng;
+
+                        window.open(url, '_blank');
+                    }
+
+//                    if (key.command) {
+//                        url = 'http://vector.mapzen.com/osm/all/' + scene.tile_zoom + '/' + long2tile(e.latlng.lng,scene.tile_zoom)  + '/' + lat2tile(e.latlng.lat,scene.tile_zoom) + '.topojson?api_key=vector-tiles-HqUVidw';
+//                        window.open(url, '_blank');
+//                        //console.log( e );
+//                    }
+                });
+            }
+
+            function initFeatureSelection () {
+                window.selection_info = document.createElement('div');
+                selection_info.setAttribute('id', 'feature-info');
+                selection_info.style.display = 'none';
+                selection_info.style.zindex = 1000;
+                window.selectionText = document.createElement("div");
+                selection_info.appendChild(selectionText);
+
+
+
+                // Show popup when hovering over an interactive feature
+                scene.container.addEventListener('mousemove', function (event) {
+//            clearLabel();
+//            if (picking && !clicking) return;
+                    var pixel = {x: event.clientX, y: event.clientY};
+
+                    var latlng = map.layerPointToLatLng(new L.Point(pixel.x, pixel.y));
+
+                    scene.getFeatureAt(pixel).then(function (selection) {
+//                clearLabel();
+                        if (!selection) {
+                            selection_info.style.display = 'none';
+                            return;
+                        }
+                        var feature = selection.feature;
+                        if (feature != null) {
+                            if (feature.properties != null) {
+                                selection_info.style.display = 'block';
+                                selection_info.style.left = (pixel.x + 5) + 'px';
+                                selection_info.style.top = (pixel.y + 15) + 'px';
+                                scene.container.appendChild(selection_info);
+                                var keys=Object.keys(feature.properties).filter(function(k){return feature.properties[k]!=null});
+                                selectionText.innerHTML=keys.map(function(key){return  key + ': ' + feature.properties[key]}).join('<br>');
+//                        console.log(feature.properties);
+                            }
+                        } else {
+                            selection_info.style.display = 'none';
+                        }
+                    });
+
+                    // Don't show labels while panning
+
+                });
+            }
+
+            addClickEdit();
+            initFeatureSelection();
 
 
         });

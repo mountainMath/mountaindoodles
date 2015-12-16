@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Vancouver Assessment Data - Mountain Doodles</title>
+  <title>Bike Data - Mountain Doodles</title>
   <meta name="author" content="MountainMath">
 
   
-  <meta name="description" content="Mapping Vancouver open data property tax assessments. View land values, change in land or building values, zoning, building age and ratio of building &hellip;">
-  <meta name="keywords" content="vancouver, property tax, real estate, map, land value">
+  <meta name="description" content="Mapping OSM bike data.">
+  <meta name="keywords" content="bike, cycling, mapping, OSM, open street maps, infrastructure">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/">
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Vancouver Assessment Data</h1>
+      <h1 class="entry-title">Bike Data</h1>
     
     
       <p class="meta">
@@ -96,7 +96,7 @@
   
 
 
-<time datetime="2015-03-23T16:20:43-07:00" pubdate data-updated="true"></time>
+<time datetime="2015-12-15T15:16:48-08:00" pubdate data-updated="true"></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -105,48 +105,54 @@
   </header>
 
 
-<div class="entry-content"><p>The City of Vancouver has recently
-updated <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">their open data catalogue</a> with historic tax
-data. We figured that would
-be a good time to take our previous rather clumsy attempts to map tax data and polish that up a bit.</p>
+<div class="entry-content"><p><a href="/bike_map2.html"><img  src="/images/bike-routes2.png" style="width:25%;float:right"></a>Maps live and die with the quality
+of the underlying data. So I decided to dive a little deeper down the OSM bike data rabbit hole. Task number one was
+to expand display data for a wider region. My primitive workflow to pull data out of OSM only allows for extracting a quarter
+of a degree at a time. For playing around with all of Vancouver&rsquo;s data I again turned to Mapzen for their
+<a href="https://mapzen.com/data/metro-extracts">metro extracts</a> as a convenient shortcut for OSM data. For the case of Vancouver
+the word &ldquo;metro&rdquo; is a bit of an exaggeration, it just covers the City of Vancouver. But good enough for some more testing.</p>
 
-<p>This time we put in a couple of evenings to build a more responsive map with multiple options of what to map. Head
-straight for <a href="http://mountainmath.ca/map/assessment">&lsquo;the map&rsquo;</a> or read on for some background information, including
-some methodology on data cleaning and interpolation.</p>
-
-<p><a href="http://mountainmath.ca/map/assessment"><img src="/images/land_value.jpg" alt="&quot;Land Values&quot;" /></a></p>
+<h4>More data</h4>
 
 <!-- more -->
 
 
-<p>Our previous <a href="/teardown_map.html">&lsquo;teardown map&rsquo;</a> and <a href="/teardown_map.html">&lsquo;high value map&rsquo;</a> suffered from being a static
-websites, and they loaded large amounts of data all at once, 30,000 properties for the teardown map, and display
-the all at once. Options were limited for displaying more detailed data when selecting individual properties.
-For the viewer this resulted more in an exercise of patience than in an &lsquo;interactive&rsquo; experience.</p>
+<p>More data means a a larger variety of <a href="http://wiki.openstreetmap.org/wiki/Key:cycleway">bike infrastructure types</a>.
+At first glance tagging seems to be reasonably accurate, but on closer inspection one quickly spots lots of issues.
+First off, the <a href="https://twitter.com/alexwarrior/status/675820327331479552">edits Alex made earlier</a> are not
+showing up, that&rsquo;s because the metro extracts are only done weekly. Just a matter of time.</p>
 
-<p>We decided to remedy this by importing the CoV data into a database and chop the data up dynamically and serve it as vector tiles.
-For smaller zoom levels we aggregated data at the block level. There are lots of blocks in Vancouver, 4444 that contain
-properties with tax information to be precise. So again the map is a little sluggish on mobile devices and slower machines when zoomed out,
-but things get much faster as we zoom in.</p>
+<p>And then there are lots of little issues. Off street paths
+don&rsquo;t connect to roads (or anything for that matter), making the useless for routing. Some changes in the bike network
+are tagged differently, take Point Grey Road as an example. Some paths are labeled to be ok for bikes, but bikes aren&rsquo;t
+allowed there. Some tags seem off.</p>
 
-<p>Moreover, we now have the ability to easily display more detailed information once the use selects an individual
-property or block aggregate. We can display a graph with the development of land and building values and other details.
-And we integrated google streetview for good measure.</p>
+<p>And I don&rsquo;t seem to have captured all relevant bike infrastructure, will have to spend some time some day to check
+through all the different taggings in OSM to make sure I pull out all the correct ones.</p>
 
-<p>One issue that came up is that CoV historical data has lots of gaps. For example, when a particular property was
-re-developed it gets a new tax number. The tax information for the old property is lost and cannot be connected to the
-geographic site using the information provided by CoV. So when we display data showing &lsquo;value change&rsquo; between
-2006 and 2014 we color these properties in grey. This problem persists when we aggregate information at the block level.
-To avoid greying out lots of blocks we extrapolate the missing data by using citywide averages on growth rates
-of land and building values for the properties in question. This will likely underestimate the aggregate growth in building
-and land value, but will not have a big impact at the block level if the individual property value in question was
-comparatively small. But this was not always the case. Better analysis could solve some of these issues, so does
-zooming in to the individual property level.</p>
+<p>So to make more sense out of the network I made a new map, added some more categories for optionally fading them out when
+displayed. And on hover I display the tags, just for interest.</p>
 
-<p>Another issue is that CoV does not provide historic zoning information. It would be interesting to get historic zoning
-and development permit information. Some of this data is already available, albeit not in an easily consumable form.</p>
+<p>The folks at Mapzen gave me some friendly pointers to allow easy editing of features. If you hold down the shift key and
+click on a feature, it will take you automatically to OSM to edit the feature. You may have to sign in the first time
+you do this. If you hold the shift key while clicking anywhere else it also takes you to the OSM editor for that spot,
+in case you want to add something there. It takes a lot of the pain out of editing bike infrastructure, I just fixed a
+whole bunch of things in short time.</p>
 
-<p>Other than that a big thanks to the folks maintaining the CoV open data catalogue!</p>
+<iframe src="/bike_map2.html" width="100%" height="550"></iframe>
+
+
+<p><a href="/bike_map2.html">Full screen view</a></p>
+
+<h4>Where to go from here?</h4>
+
+<p>It looks like making a decent bike map with OSM data is feasible. The hard work will be to collaboratively do all the
+OSM edits required to get the data into good shape.</p>
+
+<p>One problem is that edits won&rsquo;t show up on the bike map for up to a week, that&rsquo;s the frequency at which the metro extracts
+are updated. And then I have to update the file for displaying the bike data. A minor inconvenience, in theory there
+are ways to seed this up if one wants to be serious about this. But then again, once the OSM bike data is fixed up in a
+given region, it won&rsquo;t need updating very frequently.</p>
 </div>
 
 
@@ -169,12 +175,12 @@ and development permit information. Some of this data is already available, albe
   
 
 
-<time datetime="2015-03-23T16:20:43-07:00" pubdate data-updated="true"></time>
+<time datetime="2015-12-15T15:16:48-08:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/d3/'>d3</a>, <a class='category' href='/blog/categories/open-data/'>open data</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
+    <a class='category' href='/blog/categories/mapping/'>mapping</a>, <a class='category' href='/blog/categories/mapzen/'>mapzen</a>, <a class='category' href='/blog/categories/osm/'>osm</a>, <a class='category' href='/blog/categories/routing/'>routing</a>, <a class='category' href='/blog/categories/webgl/'>webgl</a>
   
 </span>
 
@@ -183,7 +189,7 @@ and development permit information. Some of this data is already available, albe
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/" data-via="" data-counturl="http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/" data-via="" data-counturl="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -196,10 +202,8 @@ and development permit information. Some of this data is already available, albe
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/11/05/mapping-cacs/" title="Previous Post: Mapping CACs">&laquo; Mapping CACs</a>
+        <a class="basic-alignment left" href="/blog/2015/12/14/routing/" title="Previous Post: Bike Routing">&laquo; Bike Routing</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/04/01/bike-paths/" title="Next Post: Vancouver Bike Paths">Vancouver Bike Paths &raquo;</a>
       
     </p>
   </footer>
@@ -265,8 +269,8 @@ and development permit information. Some of this data is already available, albe
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/';
-        var disqus_url = 'http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/';
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/';
         var disqus_script = 'embed.js';
       
     (function () {

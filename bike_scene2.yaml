@@ -10,8 +10,9 @@ sources:
         type: TopoJSON
         url:  //vector.mapzen.com/osm/all/{z}/{x}/{y}.topojson?api_key=vector-tiles-o7hC53g
     local:
-        type: GeoJSON
-        url: data/ubc-cycleways.geojson
+        type: TopoJSON
+        url: data/van.topojson
+        #url: data/ubc-cycleways.geojson
 camera:
     type: isometric
     axis: [0, .1] # very small building extrusion
@@ -86,7 +87,7 @@ layers:
             faded: 0.15
             faded_outline: 0.05
         bikelane:
-            filter: { cycleway: lane }
+            filter: { cycleway: [lane,opposite_lane] }
             draw:
                 flatlines:
                     interactive: true
@@ -99,7 +100,7 @@ layers:
                             function() {var opacity=(properties.bikelane) ? 1 : properties.faded_outline; return [0.8,0.8,0.8,opacity];}
                         width: [[12, 1px], [16, 1px]]
         shared:
-            filter: { all: [cycleway: [shared, shared_lane], not: {cycleway: lane }] }
+            filter: { all: [cycleway: [shared, shared_lane,share_busway,opposite], not: {cycleway: lane }] }
             draw:
                 flatlines:
                     interactive: true
@@ -113,14 +114,33 @@ layers:
                         width: [[12, 1px], [16, 1px]]
 
         shared_path:
-            filter: [{highway: [path,pedestrian, footway], bicycle: yes},highway: cycleway]
+            filter: [{highway: [path, pedestrian, footway], bicycle: yes}]
             draw:
                 flatlines:
                     interactive: true
                     order: 100
                     color: |
-                        function() {var opacity=(properties.shared_path) ? 1 : properties.faded; return [.1, .6, .1, opacity];}
+                        function() {var opacity=(properties.shared_path) ? 1 : properties.faded; return [.1, .6, .9, opacity];}
                     width: [[10, 1px], [14, 2px], [16, 3px], [17, 5m]]
+        cycleway:
+            filter: [highway: cycleway, cycleway: [opposite_track]]
+            draw:
+                flatlines:
+                    interactive: true
+                    order: 100
+                    color: |
+                        function() {var opacity=(properties.shared_path) ? 1 : properties.faded; return [.1, .8, .1, opacity];}
+                    width: [[10, 1px], [14, 2px], [16, 3px], [17, 5m]]
+        everything_else:
+            filter: {all: [not: [{highway: [path,pedestrian, footway], bicycle: yes}], not: { all: [cycleway: [shared, shared_lane,share_busway], not: {cycleway: lane }] }, not: { cycleway: lane }, not: [highway: cycleway, cycleway: [opposite,opposite_lane,opposite_track]]]}
+            draw:
+                flatlines:
+                    interactive: true
+                    order: 90
+                    color: |
+                        function() {var opacity=(properties.other) ? 1 : properties.faded; return [.8, .1, .8, opacity];}
+                    width: [[10, 1px], [14, 2px], [16, 3px], [17, 5m]]
+
 
     roads:
         data: { source: osm, layer: roads }

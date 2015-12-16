@@ -4,7 +4,7 @@
   <title><![CDATA[Category: webgl | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/webgl/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-14T21:53:13-08:00</updated>
+  <updated>2015-12-15T20:10:16-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -14,7 +14,63 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Routing]]></title>
+    <title type="html"><![CDATA[Bike Data]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/"/>
+    <updated>2015-12-15T15:16:48-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/12/15/bike-data</id>
+    <content type="html"><![CDATA[<p><a href="/bike_map2.html"><img  src="http://doodles.mountainmath.ca/images/bike-routes2.png" style="width:25%;float:right"></a>Maps live and die with the quality
+of the underlying data. So I decided to dive a little deeper down the OSM bike data rabbit hole. Task number one was
+to expand display data for a wider region. My primitive workflow to pull data out of OSM only allows for extracting a quarter
+of a degree at a time. For playing around with all of Vancouver&rsquo;s data I again turned to Mapzen for their
+<a href="https://mapzen.com/data/metro-extracts">metro extracts</a> as a convenient shortcut for OSM data. For the case of Vancouver
+the word &ldquo;metro&rdquo; is a bit of an exaggeration, it just covers the City of Vancouver. But good enough for some more testing.</p>
+
+<h4>More data</h4>
+
+<!-- more -->
+
+
+<p>More data means a a larger variety of <a href="http://wiki.openstreetmap.org/wiki/Key:cycleway">bike infrastructure types</a>.
+At first glance tagging seems to be reasonably accurate, but on closer inspection one quickly spots lots of issues.
+First off, the <a href="https://twitter.com/alexwarrior/status/675820327331479552">edits Alex made earlier</a> are not
+showing up, that&rsquo;s because the metro extracts are only done weekly. Just a matter of time.</p>
+
+<p>And then there are lots of little issues. Off street paths
+don&rsquo;t connect to roads (or anything for that matter), making the useless for routing. Some changes in the bike network
+are tagged differently, take Point Grey Road as an example. Some paths are labeled to be ok for bikes, but bikes aren&rsquo;t
+allowed there. Some tags seem off.</p>
+
+<p>And I don&rsquo;t seem to have captured all relevant bike infrastructure, will have to spend some time some day to check
+through all the different taggings in OSM to make sure I pull out all the correct ones.</p>
+
+<p>So to make more sense out of the network I made a new map, added some more categories for optionally fading them out when
+displayed. And on hover I display the tags, just for interest.</p>
+
+<p>The folks at Mapzen gave me some friendly pointers to allow easy editing of features. If you hold down the shift key and
+click on a feature, it will take you automatically to OSM to edit the feature. You may have to sign in the first time
+you do this. If you hold the shift key while clicking anywhere else it also takes you to the OSM editor for that spot,
+in case you want to add something there. It takes a lot of the pain out of editing bike infrastructure, I just fixed a
+whole bunch of things in short time.</p>
+
+<iframe src="http://doodles.mountainmath.ca/bike_map2.html" width="100%" height="550"></iframe>
+
+
+<p><a href="/bike_map2.html">Full screen view</a></p>
+
+<h4>Where to go from here?</h4>
+
+<p>It looks like making a decent bike map with OSM data is feasible. The hard work will be to collaboratively do all the
+OSM edits required to get the data into good shape.</p>
+
+<p>One problem is that edits won&rsquo;t show up on the bike map for up to a week, that&rsquo;s the frequency at which the metro extracts
+are updated. And then I have to update the file for displaying the bike data. A minor inconvenience, in theory there
+are ways to seed this up if one wants to be serious about this. But then again, once the OSM bike data is fixed up in a
+given region, it won&rsquo;t need updating very frequently.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Bike Routing]]></title>
     <link href="http://doodles.mountainmath.ca/blog/2015/12/14/routing/"/>
     <updated>2015-12-14T20:10:16-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2015/12/14/routing</id>
