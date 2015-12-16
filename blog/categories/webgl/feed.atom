@@ -4,7 +4,7 @@
   <title><![CDATA[Category: webgl | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/webgl/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-15T20:22:11-08:00</updated>
+  <updated>2015-12-15T21:16:40-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -69,6 +69,45 @@ OSM edits required to get the data into good shape.</p>
 are updated. And then I have to update the file for displaying the bike data. A minor inconvenience, in theory there
 are ways to seed this up if one wants to be serious about this. But then again, once the OSM bike data is fixed up in a
 given region, it won&rsquo;t need updating very frequently.</p>
+
+<p>I guess I will have to mull this over and decide how deep down this rabbit hole I would like to go. Looking back at my
+<a href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/">rant on what&rsquo;s wrong with most bike maps</a> I am
+asking myself how much the current map has accomplished.</p>
+
+<ol>
+<li>The accuracy of the infrastructure mapped is in the hands of the OSM community. With easy access to the OSM editing
+functionality from the map (desktop only) it&rsquo;s in the hands of the people that know best: cyclists.</li>
+<li>Still coming up blank when it comes to showing comfort level. Will have to think more how to best do this, it might
+have to go into a separate database. Which is doable, but requires work to get it right and is probably a little too
+involved to do it off the side.</li>
+<li>Click and zoom is not an issue, but now I am in the opposite corner where it might be nice sometimes to actually have
+a glossy big paper map. And it&rsquo;s really easy to save the map as an image. Some tinkering should be able to produce a nice
+high-resolution one covering a large area.</li>
+<li>The map already adapts to user preferences quite well, different types of infrastructure will fade out if deselected.</li>
+<li>Not on the original list, but routing should be part of this. Routing works reasonably well to get this off the ground,
+but work is still required to make it work properly with user preferences. This may well require running a custom router,
+again a little more than I bargained for.</li>
+</ol>
+
+
+<p>So is this really worth the trouble to make yet another bike map? I am not sure. It&rsquo;s always easy to through up a quick
+proof of concept, but to do it really well requires quite a bit more work. For now I could just build one focused on
+Vancouver and see how it goes. And it would be great if the comfort level rating could somehow be automated.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/cycletrack.PNG" style="width:25%;float:right">Which brings to another one of pet projects that
+I never took beyond the testing realm. My CycleTrack App that records
+all bike trips in the background (as long as you carry your phone with you). No pressing of &ldquo;start&rdquo; or &ldquo;stop&rdquo; buttons,
+the app notices when you are moving and will take gyroscope and accelerometer readings to figure out if you are cycling,
+running, walking, driving or taking a train. Then it stores your cycling trips and computes aggregate data. It avoids
+using GPS so not to drain your battery too much, on a typical day it will consume about 3% of battery power. The downside
+is that the accuracy and frequency of the location updates is not as high, so things get a little messy. But not too bad.</p>
+
+<p>How does this fit into the bike map project? Simple. If one can collect cycling data from regular cyclists (not just
+the Strava crowd that presses start cycles in circles and presses stop again and recharges their phone while taking a shower),
+once can infer a lot about comfort levels just by looking at the data. Where do people cycle, how fast do they cycle, do
+they come back to cycle the route or just cycle it once and avoid it later&hellip;</p>
+
+<p>But then the project gets even bigger&hellip;</p>
 ]]></content>
   </entry>
   
