@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapzen | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapzen/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-15T20:10:16-08:00</updated>
+  <updated>2015-12-15T20:18:10-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -40,13 +40,16 @@ don&rsquo;t connect to roads (or anything for that matter), making the useless f
 are tagged differently, take Point Grey Road as an example. Some paths are labeled to be ok for bikes, but bikes aren&rsquo;t
 allowed there. Some tags seem off.</p>
 
-<p>And I don&rsquo;t seem to have captured all relevant bike infrastructure, will have to spend some time some day to check
+<p>And I don&rsquo;t seem to have captured all relevant bike infrastructure, will have to spend some time one of these days to check
 through all the different taggings in OSM to make sure I pull out all the correct ones.</p>
 
 <p>So to make more sense out of the network I made a new map, added some more categories for optionally fading them out when
 displayed. And on hover I display the tags, just for interest.</p>
 
-<p>The folks at Mapzen gave me some friendly pointers to allow easy editing of features. If you hold down the shift key and
+<h4>Improving data</h4>
+
+<p>This gets us to task number two. The folks at Mapzen gave me some friendly pointers to allow easy editing of features.
+So I pasted a couple of lines of code in so if you hold down the shift key and
 click on a feature, it will take you automatically to OSM to edit the feature. You may have to sign in the first time
 you do this. If you hold the shift key while clicking anywhere else it also takes you to the OSM editor for that spot,
 in case you want to add something there. It takes a lot of the pain out of editing bike infrastructure, I just fixed a
