@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapzen | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapzen/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-15T21:18:23-08:00</updated>
+  <updated>2015-12-15T21:22:42-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -102,10 +102,12 @@ running, walking, driving or taking a train. Then it stores your cycling trips a
 using GPS so not to drain your battery too much, on a typical day it will consume about 3% of battery power. The downside
 is that the accuracy and frequency of the location updates is not as high, so things get a little messy. But not too bad.</p>
 
-<p>How does this fit into the bike map project? Simple. If one can collect cycling data from regular cyclists (not just
-the Strava crowd that presses start cycles in circles and presses stop again and recharges their phone while taking a shower),
-once can infer a lot about comfort levels just by looking at the data. Where do people cycle, how fast do they cycle, do
-they come back to cycle the route or just cycle it once and avoid it later&hellip;</p>
+<p>How does this fit into the bike map project? Simple. If one can collect regular cycling data from normal people
+cycling (not just
+the lycra crowd that presses start cycles in circles and presses stop again and recharges their phone while taking a shower),
+once can infer a lot about comfort levels just by looking at the data. And to collect data from regular &ldquo;citizen cyclist&rdquo;
+one cannot expect them to press &ldquo;start&rdquo; and &ldquo;stop&rdquo; to delineate their bike trips, and one cannot have an app that will
+require them to recharge their phone after every trip.</p>
 
 <p>But then the project gets even bigger&hellip;</p>
 ]]></content>
