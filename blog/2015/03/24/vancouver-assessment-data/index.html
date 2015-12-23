@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Vancouver High Value Improvements Map - Mountain Doodles</title>
+  <title>Vancouver Assessment Data - Mountain Doodles</title>
   <meta name="author" content="MountainMath">
 
   
-  <meta name="description" content="mapping buildings in Vancouver with high improvement value compared to land value">
-  <meta name="keywords" content="vancouver, high value, improvements, real estate, map">
+  <meta name="description" content="Mapping Vancouver open data property tax assessments. View land values, change in land or building values, zoning, building age and ratio of building &hellip;">
+  <meta name="keywords" content="vancouver, property tax, real estate, map, land value">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2014/09/07/vancouver-high-value-improvements-map/">
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2015/03/24/vancouver-assessment-data/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Vancouver High Value Improvements Map</h1>
+      <h1 class="entry-title">Vancouver Assessment Data</h1>
     
     
       <p class="meta">
@@ -96,7 +96,7 @@
   
 
 
-<time datetime="2014-09-07T22:11:08-07:00" pubdate data-updated="true"></time>
+<time datetime="2015-03-24T00:20:43+01:00" pubdate data-updated="true"></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -105,26 +105,48 @@
   </header>
 
 
-<div class="entry-content"><p>After the <a href="/blog/2014/09/05/vancouver-teardown-map/">teardown map</a> that looked at the low end of Vancouver&rsquo;s building
-stock, a natural question is to look at the high end. Just as before, we are focusing on the (assessed) value of the
-building relative to the total (assessed) value of land and improvements. We defined &ldquo;highly improved&rdquo; properties to
-be properties where the ratio is at least 50%, so the building is worth at least as much as the land it is built on.</p>
+<div class="entry-content"><p>The City of Vancouver has recently
+updated <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">their open data catalogue</a> with historic tax
+data. We figured that would
+be a good time to take our previous rather clumsy attempts to map tax data and polish that up a bit.</p>
 
-<p>That&rsquo;s actually a pretty high bar in Vancouver, less than 1500 buildings pass that muster. And in concordance with the
-teardown map, the &ldquo;high value improvements&rdquo; seem to concentrate in downtown. See the map below the fold
-to explore for yourself.</p>
+<p>This time we put in a couple of evenings to build a more responsive map with multiple options of what to map. Head
+straight for <a href="http://mountainmath.ca/map/assessment">&lsquo;the map&rsquo;</a> or read on for some background information, including
+some methodology on data cleaning and interpolation.</p>
+
+<p><a href="http://mountainmath.ca/map/assessment"><img src="/images/land_value.jpg" alt="&quot;Land Values&quot;" /></a></p>
 
 <!-- more -->
 
 
-<p>When browsing the map it becomes clear that some properties have &ldquo;high value improvements&rdquo; because of an abnormally low
-land value, rather than an abnormally high improvement value. This is probably due to intricacies of zoning in Vancouver
-that maybe someone else can shed some light on.</p>
+<p>Our previous <a href="/teardown_map.html">&lsquo;teardown map&rsquo;</a> and <a href="/teardown_map.html">&lsquo;high value map&rsquo;</a> suffered from being a static
+websites, and they loaded large amounts of data all at once, 30,000 properties for the teardown map, and display
+the all at once. Options were limited for displaying more detailed data when selecting individual properties.
+For the viewer this resulted more in an exercise of patience than in an &lsquo;interactive&rsquo; experience.</p>
 
-<iframe src="/improvement_map.html" width="100%" height="500"></iframe>
+<p>We decided to remedy this by importing the CoV data into a database and chop the data up dynamically and serve it as vector tiles.
+For smaller zoom levels we aggregated data at the block level. There are lots of blocks in Vancouver, 4444 that contain
+properties with tax information to be precise. So again the map is a little sluggish on mobile devices and slower machines when zoomed out,
+but things get much faster as we zoom in.</p>
 
+<p>Moreover, we now have the ability to easily display more detailed information once the use selects an individual
+property or block aggregate. We can display a graph with the development of land and building values and other details.
+And we integrated google streetview for good measure.</p>
 
-<p><a href="/improvement_map.html">Full screen view</a></p>
+<p>One issue that came up is that CoV historical data has lots of gaps. For example, when a particular property was
+re-developed it gets a new tax number. The tax information for the old property is lost and cannot be connected to the
+geographic site using the information provided by CoV. So when we display data showing &lsquo;value change&rsquo; between
+2006 and 2014 we color these properties in grey. This problem persists when we aggregate information at the block level.
+To avoid greying out lots of blocks we extrapolate the missing data by using citywide averages on growth rates
+of land and building values for the properties in question. This will likely underestimate the aggregate growth in building
+and land value, but will not have a big impact at the block level if the individual property value in question was
+comparatively small. But this was not always the case. Better analysis could solve some of these issues, so does
+zooming in to the individual property level.</p>
+
+<p>Another issue is that CoV does not provide historic zoning information. It would be interesting to get historic zoning
+and development permit information. Some of this data is already available, albeit not in an easily consumable form.</p>
+
+<p>Other than that a big thanks to the folks maintaining the CoV open data catalogue!</p>
 </div>
 
 
@@ -133,7 +155,7 @@ that maybe someone else can shed some light on.</p>
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">MountainMath</span></span>
+<span class="byline author vcard">Posted by <span class="fn">Jens von Bergmann</span></span>
 
       
 
@@ -147,7 +169,7 @@ that maybe someone else can shed some light on.</p>
   
 
 
-<time datetime="2014-09-07T22:11:08-07:00" pubdate data-updated="true"></time>
+<time datetime="2015-03-24T00:20:43+01:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
@@ -161,7 +183,7 @@ that maybe someone else can shed some light on.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2014/09/07/vancouver-high-value-improvements-map/" data-via="" data-counturl="http://doodles.mountainmath.ca/blog/2014/09/07/vancouver-high-value-improvements-map/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2015/03/24/vancouver-assessment-data/" data-via="" data-counturl="http://doodles.mountainmath.ca/blog/2015/03/24/vancouver-assessment-data/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -174,10 +196,10 @@ that maybe someone else can shed some light on.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/09/05/vancouver-teardown-map/" title="Previous Post: Vancouver Teardown Map">&laquo; Vancouver Teardown Map</a>
+        <a class="basic-alignment left" href="/blog/2014/11/05/mapping-cacs/" title="Previous Post: Mapping CACs">&laquo; Mapping CACs</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/11/05/mapping-cacs/" title="Next Post: Mapping CACs">Mapping CACs &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2015/04/02/bike-paths/" title="Next Post: Vancouver Bike Paths">Vancouver Bike Paths &raquo;</a>
       
     </p>
   </footer>
@@ -198,11 +220,11 @@ that maybe someone else can shed some light on.</p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2015/12/15/bike-data/">Bike Data</a>
+        <a href="/blog/2015/12/16/bike-data/">Bike Data</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2015/12/14/routing/">Bike Routing</a>
+        <a href="/blog/2015/12/15/routing/">Bike Routing</a>
       </li>
     
       <li class="post">
@@ -210,7 +232,7 @@ that maybe someone else can shed some light on.</p>
       </li>
     
       <li class="post">
-        <a href="/blog/2015/10/24/census-drilldown/">Census Drilldown</a>
+        <a href="/blog/2015/10/25/census-drilldown/">Census Drilldown</a>
       </li>
     
       <li class="post">
@@ -243,8 +265,8 @@ that maybe someone else can shed some light on.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2014/09/07/vancouver-high-value-improvements-map/';
-        var disqus_url = 'http://doodles.mountainmath.ca/blog/2014/09/07/vancouver-high-value-improvements-map/';
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2015/03/24/vancouver-assessment-data/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2015/03/24/vancouver-assessment-data/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: osm | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/osm/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-16T09:36:26-08:00</updated>
+  <updated>2015-12-23T13:04:47+01:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Bike Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/"/>
-    <updated>2015-12-15T15:16:48-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/12/15/bike-data</id>
+    <link href="http://doodles.mountainmath.ca/blog/2015/12/16/bike-data/"/>
+    <updated>2015-12-16T00:16:48+01:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/12/16/bike-data</id>
     <content type="html"><![CDATA[<p><a href="/bike_map2.html"><img  src="http://doodles.mountainmath.ca/images/bike-routes2.png" style="width:25%;float:right"></a>Maps live and die with the quality
 of the underlying data. So I decided to dive a little deeper down the OSM bike data rabbit hole. Task number one was
 to expand display data for a wider region. My primitive workflow to pull data out of OSM only allows for extracting a quarter
@@ -117,9 +117,9 @@ require them to recharge their phone after every trip.</p>
   
   <entry>
     <title type="html"><![CDATA[Bike Routing]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/12/14/routing/"/>
-    <updated>2015-12-14T20:10:16-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/12/14/routing</id>
+    <link href="http://doodles.mountainmath.ca/blog/2015/12/15/routing/"/>
+    <updated>2015-12-15T05:10:16+01:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/12/15/routing</id>
     <content type="html"><![CDATA[<p><a href="/bike_routing.html"><img  src="http://doodles.mountainmath.ca/images/routing.png" style="width:25%;float:right"></a>Routing is a hard problem. Routing for drivers is pretty good at this point, mostly because we have been very good at
 designing for cars and creating predicable infrastructure. Routing for bikes is a whole other story, data quality is
 poor and the physical infrastructure is, at least in North America, not strongly predictive of cycling comfort/safety.
@@ -180,7 +180,7 @@ be to hack some of these more advanced costing options into their routing engine
   <entry>
     <title type="html"><![CDATA[How to make a bike map]]></title>
     <link href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/"/>
-    <updated>2015-12-13T12:04:25-08:00</updated>
+    <updated>2015-12-13T21:04:25+01:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map</id>
     <content type="html"><![CDATA[<p><a href="/bike_map.html"><img  src="http://doodles.mountainmath.ca/images/bike-map.png" style="width:25%;float:right"></a>Here come some general thoughts on bike maps. Not throught through yet, just jotting down some ideas so that I don&rsquo;t
 forget and maybe to start a discussion.</p>
