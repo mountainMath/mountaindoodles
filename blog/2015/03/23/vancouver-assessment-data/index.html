@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Bike Routing - Mountain Doodles</title>
+  <title>Vancouver Assessment Data - Mountain Doodles</title>
   <meta name="author" content="MountainMath">
 
   
-  <meta name="description" content="Mapping OSM bike data.">
-  <meta name="keywords" content="bike, cycling, mapping, OSM, open street maps, infrastructure">
+  <meta name="description" content="Mapping Vancouver open data property tax assessments. View land values, change in land or building values, zoning, building age and ratio of building &hellip;">
+  <meta name="keywords" content="vancouver, property tax, real estate, map, land value">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2015/12/15/routing/">
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Bike Routing</h1>
+      <h1 class="entry-title">Vancouver Assessment Data</h1>
     
     
       <p class="meta">
@@ -96,7 +96,7 @@
   
 
 
-<time datetime="2015-12-15T05:10:16+01:00" pubdate data-updated="true"></time>
+<time datetime="2015-03-23T16:20:43-07:00" pubdate data-updated="true"></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -105,60 +105,48 @@
   </header>
 
 
-<div class="entry-content"><p><a href="/bike_routing.html"><img  src="/images/routing.png" style="width:25%;float:right"></a>Routing is a hard problem. Routing for drivers is pretty good at this point, mostly because we have been very good at
-designing for cars and creating predicable infrastructure. Routing for bikes is a whole other story, data quality is
-poor and the physical infrastructure is, at least in North America, not strongly predictive of cycling comfort/safety.
-And cycling comfort/safety is the top priority for the
-<a href="http://usa.streetsblog.org/2015/03/13/the-first-ever-nationwide-survey-of-interested-but-concerned-bikers-is-here/">vast majority of (potential) cyclists</a>.</p>
+<div class="entry-content"><p>The City of Vancouver has recently
+updated <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">their open data catalogue</a> with historic tax
+data. We figured that would
+be a good time to take our previous rather clumsy attempts to map tax data and polish that up a bit.</p>
 
-<p>And it&rsquo;s the ones that don&rsquo;t cycle frequently, often out of concern for safety, that would benefit most from effective
-bike routing.</p>
+<p>This time we put in a couple of evenings to build a more responsive map with multiple options of what to map. Head
+straight for <a href="http://mountainmath.ca/map/assessment">&lsquo;the map&rsquo;</a> or read on for some background information, including
+some methodology on data cleaning and interpolation.</p>
 
-<p>Read on or <a href="/bike_routing.html">go directly to the routing demo</a>.</p>
+<p><a href="http://mountainmath.ca/map/assessment"><img src="/images/land_value.jpg" alt="&quot;Land Values&quot;" /></a></p>
 
 <!-- more -->
 
 
-<p>Google does a decent job directing a relatively experienced cyclist from A to B, but it has a hard time to learn about
-places where cyclists can go but cars can&rsquo;t. And it won&rsquo;t be able to answer my fundamental question: <em>Can I bring my 6
-year old along?</em>. And Apple doesn&rsquo;t even try and offer bike routing.</p>
+<p>Our previous <a href="/teardown_map.html">&lsquo;teardown map&rsquo;</a> and <a href="/teardown_map.html">&lsquo;high value map&rsquo;</a> suffered from being a static
+websites, and they loaded large amounts of data all at once, 30,000 properties for the teardown map, and display
+the all at once. Options were limited for displaying more detailed data when selecting individual properties.
+For the viewer this resulted more in an exercise of patience than in an &lsquo;interactive&rsquo; experience.</p>
 
-<h4>Routing test</h4>
+<p>We decided to remedy this by importing the CoV data into a database and chop the data up dynamically and serve it as vector tiles.
+For smaller zoom levels we aggregated data at the block level. There are lots of blocks in Vancouver, 4444 that contain
+properties with tax information to be precise. So again the map is a little sluggish on mobile devices and slower machines when zoomed out,
+but things get much faster as we zoom in.</p>
 
-<p>So what&rsquo;s really needed apart from <a href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/">better bike maps</a>
-is better bike routing. So building on yesterday&rsquo;s post, I decided to take a quick look at routing. Time to try out
-<a href="https://mapzen.com/projects/valhalla">Mapzen&rsquo;s routing engine</a> which, as expected, was really easy to set up:</p>
+<p>Moreover, we now have the ability to easily display more detailed information once the use selects an individual
+property or block aggregate. We can display a graph with the development of land and building values and other details.
+And we integrated google streetview for good measure.</p>
 
-<p>Feel free to drag the endpoints to test your favorite routes.</p>
+<p>One issue that came up is that CoV historical data has lots of gaps. For example, when a particular property was
+re-developed it gets a new tax number. The tax information for the old property is lost and cannot be connected to the
+geographic site using the information provided by CoV. So when we display data showing &lsquo;value change&rsquo; between
+2006 and 2014 we color these properties in grey. This problem persists when we aggregate information at the block level.
+To avoid greying out lots of blocks we extrapolate the missing data by using citywide averages on growth rates
+of land and building values for the properties in question. This will likely underestimate the aggregate growth in building
+and land value, but will not have a big impact at the block level if the individual property value in question was
+comparatively small. But this was not always the case. Better analysis could solve some of these issues, so does
+zooming in to the individual property level.</p>
 
-<iframe src="/bike_routing.html" width="100%" height="550"></iframe>
+<p>Another issue is that CoV does not provide historic zoning information. It would be interesting to get historic zoning
+and development permit information. Some of this data is already available, albeit not in an easily consumable form.</p>
 
-
-<p><a href="/bike_routing.html">Full screen view</a></p>
-
-<p>Initial testing seems to indicate that this works reasonably well. And while the engine allows for some customization
-on rider needs, right now there is no way to get the &ldquo;dad&rsquo;s routing&rdquo; that I would like to have.</p>
-
-<p>Part of the problem is of course that I still don&rsquo;t have enough information in OSM to even make a &ldquo;dad&rsquo;s map&rdquo;
-<a href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/">as I lamented earlier</a>. But at least OSM gets
-me half-way there by giving me a finer control over distinguishing infrastructure that I may deem as generally more
-suitable so that I can fade selected bike infrastructure out by checking the appropriate boxes in the map.</p>
-
-<h4>Route costing options</h4>
-
-<p>The bike routing options in Mapzen&rsquo;s routing engine allow for some level of control on wheter gravel should be avoided
-(great feature for the lycra cowed but useless for dads), whether hill should be avoided (helpful) and whether to avoid
-roads without bike infrastructure. But when I cycle with my 6 year old a bike lane between parked cars and 50 traffic
-is as good as no bike infrastructure at all. And there is currently no way to cost different types of bike
-infrastructure, so they can&rsquo;t be used as a proxy for cycling comfort.</p>
-
-<h4>Where to go from here</h4>
-
-<p>Next steps are to <a href="https://github.com/valhalla/thor">look deeper into Mapzen&rsquo;s routing engine</a> and see how hard it would
-be to hack some of these more advanced costing options into their routing engine and open up a feature request.</p>
-
-<p>Wrapping up the three-night trials in bike mapping is the
-<a href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/">post on data</a>.</p>
+<p>Other than that a big thanks to the folks maintaining the CoV open data catalogue!</p>
 </div>
 
 
@@ -181,12 +169,12 @@ be to hack some of these more advanced costing options into their routing engine
   
 
 
-<time datetime="2015-12-15T05:10:16+01:00" pubdate data-updated="true"></time>
+<time datetime="2015-03-23T16:20:43-07:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/mapping/'>mapping</a>, <a class='category' href='/blog/categories/mapzen/'>mapzen</a>, <a class='category' href='/blog/categories/osm/'>osm</a>, <a class='category' href='/blog/categories/routing/'>routing</a>, <a class='category' href='/blog/categories/webgl/'>webgl</a>
+    <a class='category' href='/blog/categories/d3/'>d3</a>, <a class='category' href='/blog/categories/open-data/'>open data</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
   
 </span>
 
@@ -195,7 +183,7 @@ be to hack some of these more advanced costing options into their routing engine
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2015/12/15/routing/" data-via="" data-counturl="http://doodles.mountainmath.ca/blog/2015/12/15/routing/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/" data-via="" data-counturl="http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -208,10 +196,10 @@ be to hack some of these more advanced costing options into their routing engine
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/12/13/how-to-make-a-bike-map/" title="Previous Post: How to make a bike map">&laquo; How to make a bike map</a>
+        <a class="basic-alignment left" href="/blog/2014/11/05/mapping-cacs/" title="Previous Post: Mapping CACs">&laquo; Mapping CACs</a>
       
       
-        <a class="basic-alignment right" href="/blog/2015/12/16/bike-data/" title="Next Post: Bike Data">Bike Data &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2015/04/01/bike-paths/" title="Next Post: Vancouver Bike Paths">Vancouver Bike Paths &raquo;</a>
       
     </p>
   </footer>
@@ -232,11 +220,11 @@ be to hack some of these more advanced costing options into their routing engine
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2015/12/16/bike-data/">Bike Data</a>
+        <a href="/blog/2015/12/15/bike-data/">Bike Data</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2015/12/15/routing/">Bike Routing</a>
+        <a href="/blog/2015/12/14/routing/">Bike Routing</a>
       </li>
     
       <li class="post">
@@ -244,7 +232,7 @@ be to hack some of these more advanced costing options into their routing engine
       </li>
     
       <li class="post">
-        <a href="/blog/2015/10/25/census-drilldown/">Census Drilldown</a>
+        <a href="/blog/2015/10/24/census-drilldown/">Census Drilldown</a>
       </li>
     
       <li class="post">
@@ -277,8 +265,8 @@ be to hack some of these more advanced costing options into their routing engine
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2015/12/15/routing/';
-        var disqus_url = 'http://doodles.mountainmath.ca/blog/2015/12/15/routing/';
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/';
         var disqus_script = 'embed.js';
       
     (function () {

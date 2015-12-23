@@ -4,7 +4,7 @@
   <title><![CDATA[Category: canada | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/canada/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-23T13:06:27+01:00</updated>
+  <updated>2015-12-23T04:14:07-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Census Drilldown]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/10/25/census-drilldown/"/>
-    <updated>2015-10-25T04:45:16+01:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/10/25/census-drilldown</id>
+    <link href="http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown/"/>
+    <updated>2015-10-24T20:45:16-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown</id>
     <content type="html"><![CDATA[<h4>Next steps in CensusMapper</h4>
 
 <p>The <a href="http://censusmapper.ca">Census Mapper Project</a> is moving along slowly, public beta unearthed some bugs and we gathered
@@ -149,7 +149,7 @@ some geographic areas.</p>
   <entry>
     <title type="html"><![CDATA[Census Mapper]]></title>
     <link href="http://doodles.mountainmath.ca/blog/2015/09/28/census-mapper/"/>
-    <updated>2015-09-28T18:23:41+02:00</updated>
+    <updated>2015-09-28T09:23:41-07:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2015/09/28/census-mapper</id>
     <content type="html"><![CDATA[<h5>We are excited to announce CensusMapper public beta launch!</h5>
 

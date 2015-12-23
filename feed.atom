@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-23T13:06:27+01:00</updated>
+  <updated>2015-12-23T04:14:07-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Bike Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/12/16/bike-data/"/>
-    <updated>2015-12-16T00:16:48+01:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/12/16/bike-data</id>
+    <link href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/"/>
+    <updated>2015-12-15T15:16:48-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/12/15/bike-data</id>
     <content type="html"><![CDATA[<p><a href="http://doodles.mountainmath.ca/bike_map2.html"><img  src="http://doodles.mountainmath.ca/images/bike-routes2.png" style="width:25%;float:right"></a>Maps live and die with the quality
 of the underlying data. So I decided to dive a little deeper down the OSM bike data rabbit hole. Task number one was
 to expand display data for a wider region. My primitive workflow to pull data out of OSM only allows for extracting a quarter
@@ -117,9 +117,9 @@ require them to recharge their phone after every trip.</p>
   
   <entry>
     <title type="html"><![CDATA[Bike Routing]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/12/15/routing/"/>
-    <updated>2015-12-15T05:10:16+01:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/12/15/routing</id>
+    <link href="http://doodles.mountainmath.ca/blog/2015/12/14/routing/"/>
+    <updated>2015-12-14T20:10:16-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/12/14/routing</id>
     <content type="html"><![CDATA[<p><a href="http://doodles.mountainmath.ca/bike_routing.html"><img  src="http://doodles.mountainmath.ca/images/routing.png" style="width:25%;float:right"></a>Routing is a hard problem. Routing for drivers is pretty good at this point, mostly because we have been very good at
 designing for cars and creating predicable infrastructure. Routing for bikes is a whole other story, data quality is
 poor and the physical infrastructure is, at least in North America, not strongly predictive of cycling comfort/safety.
@@ -180,7 +180,7 @@ be to hack some of these more advanced costing options into their routing engine
   <entry>
     <title type="html"><![CDATA[How to make a bike map]]></title>
     <link href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/"/>
-    <updated>2015-12-13T21:04:25+01:00</updated>
+    <updated>2015-12-13T12:04:25-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map</id>
     <content type="html"><![CDATA[<p><a href="http://doodles.mountainmath.ca/bike_map.html"><img  src="http://doodles.mountainmath.ca/images/bike-map.png" style="width:25%;float:right"></a>Here come some general thoughts on bike maps. Not throught through yet, just jotting down some ideas so that I don&rsquo;t
 forget and maybe to start a discussion.</p>
@@ -326,9 +326,9 @@ and <a href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/">data qua
   
   <entry>
     <title type="html"><![CDATA[Census Drilldown]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/10/25/census-drilldown/"/>
-    <updated>2015-10-25T04:45:16+01:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/10/25/census-drilldown</id>
+    <link href="http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown/"/>
+    <updated>2015-10-24T20:45:16-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown</id>
     <content type="html"><![CDATA[<h4>Next steps in CensusMapper</h4>
 
 <p>The <a href="http://censusmapper.ca">Census Mapper Project</a> is moving along slowly, public beta unearthed some bugs and we gathered
@@ -460,7 +460,7 @@ some geographic areas.</p>
   <entry>
     <title type="html"><![CDATA[Census Mapper]]></title>
     <link href="http://doodles.mountainmath.ca/blog/2015/09/28/census-mapper/"/>
-    <updated>2015-09-28T18:23:41+02:00</updated>
+    <updated>2015-09-28T09:23:41-07:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2015/09/28/census-mapper</id>
     <content type="html"><![CDATA[<h5>We are excited to announce CensusMapper public beta launch!</h5>
 
@@ -512,9 +512,9 @@ limited upload of user data to be integrated with census data, statistical and s
   
   <entry>
     <title type="html"><![CDATA[The Hidden Mortgage]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/08/26/the-hidden-mortgage/"/>
-    <updated>2015-08-26T08:18:12+02:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/08/26/the-hidden-mortgage</id>
+    <link href="http://doodles.mountainmath.ca/blog/2015/08/25/the-hidden-mortgage/"/>
+    <updated>2015-08-25T23:18:12-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/08/25/the-hidden-mortgage</id>
     <content type="html"><![CDATA[<p>Some months ago I did a little side project and put some Census Canada data for Vancouver
 <a href="https://mountainmath.ca/census">on an interactive map</a> online. After it generated quite some interest, to a large part
 due to Ian Young&rsquo;s reporting
@@ -641,9 +641,9 @@ and will have to be adjusted if applied to real-world examples. But this is only
   
   <entry>
     <title type="html"><![CDATA[Vancouver 2011 Census Data on Housing]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/06/24/vancouver-2011-census-data-on-housing/"/>
-    <updated>2015-06-24T00:26:23+02:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/06/24/vancouver-2011-census-data-on-housing</id>
+    <link href="http://doodles.mountainmath.ca/blog/2015/06/23/vancouver-2011-census-data-on-housing/"/>
+    <updated>2015-06-23T15:26:23-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/06/23/vancouver-2011-census-data-on-housing</id>
     <content type="html"><![CDATA[<p>Last week my friend Alejandro emailed me some census data. After sitting on it for a couple of days I decided one evening
 to take a look and map the dissemination areas. The dataset contained 125 fields around housing and income. So I started
 plucking some of the fields off the table and mapping them.</p>
@@ -680,9 +680,9 @@ at the dissemination area aggregation level, but if it is that one should be use
   
   <entry>
     <title type="html"><![CDATA[Tax Density in Vancouver]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/06/01/density-in-vancouver/"/>
-    <updated>2015-06-01T07:44:55+02:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/06/01/density-in-vancouver</id>
+    <link href="http://doodles.mountainmath.ca/blog/2015/05/31/density-in-vancouver/"/>
+    <updated>2015-05-31T22:44:55-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/05/31/density-in-vancouver</id>
     <content type="html"><![CDATA[<p>The other day I saw that Downtown brings in 23% of CoV tax revenue but only makes up 5% of the city area. Intrigued by that I decided to
 add a &lsquo;Tax Density&rsquo; layer to my <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a>.
 The idea was to try and understand the tax revenue generated by different areas in Vancouver. The data is already available
@@ -768,9 +768,9 @@ the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a
   
   <entry>
     <title type="html"><![CDATA[Vancouver Bike Paths]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/04/02/bike-paths/"/>
-    <updated>2015-04-02T01:24:34+02:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/04/02/bike-paths</id>
+    <link href="http://doodles.mountainmath.ca/blog/2015/04/01/bike-paths/"/>
+    <updated>2015-04-01T16:24:34-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/04/01/bike-paths</id>
     <content type="html"><![CDATA[<p>Motivated by the excellent <a href="http://www.washingtonpost.com/blogs/wonkblog/wp/2015/04/01/bleak-maps-of-how-cities-look-using-only-their-bike-lanes/">Washington Post Wonkblog</a> I
 mapped Vancouver&rsquo;s bike infrastructure. Looks good at first, but when you take out the &lsquo;fake&rsquo; &ldquo;Local Street&rdquo; bikeways more in line with Wonkblog&rsquo;s methodology it&rsquo;s looking pretty
 bleak in large portions of the city.</p>
@@ -867,9 +867,9 @@ types and the property is called <code>BICYCLE_CL</code>.</p>
   
   <entry>
     <title type="html"><![CDATA[Vancouver Assessment Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/03/24/vancouver-assessment-data/"/>
-    <updated>2015-03-24T00:20:43+01:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/03/24/vancouver-assessment-data</id>
+    <link href="http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/"/>
+    <updated>2015-03-23T16:20:43-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data</id>
     <content type="html"><![CDATA[<p>The City of Vancouver has recently
 updated <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">their open data catalogue</a> with historic tax
 data. We figured that would
@@ -918,7 +918,7 @@ and development permit information. Some of this data is already available, albe
   <entry>
     <title type="html"><![CDATA[Mapping CACs]]></title>
     <link href="http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/"/>
-    <updated>2014-11-05T21:03:25+01:00</updated>
+    <updated>2014-11-05T12:03:25-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs</id>
     <content type="html"><![CDATA[<p>After reading the <a href="http://pricetags.wordpress.com/2014/11/04/the-daily-durning-back-and-forth-on-cacs/">post on Price Tags</a>,
 originally from <a href="http://karensawatzky.ca/2014/10/29/7868/">Karen Sawatzky&rsquo;s blog</a>, I got curious about getting a
@@ -943,9 +943,9 @@ and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
   
   <entry>
     <title type="html"><![CDATA[Vancouver High Value Improvements Map]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2014/09/08/vancouver-high-value-improvements-map/"/>
-    <updated>2014-09-08T07:11:08+02:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2014/09/08/vancouver-high-value-improvements-map</id>
+    <link href="http://doodles.mountainmath.ca/blog/2014/09/07/vancouver-high-value-improvements-map/"/>
+    <updated>2014-09-07T22:11:08-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2014/09/07/vancouver-high-value-improvements-map</id>
     <content type="html"><![CDATA[<p>After the <a href="http://doodles.mountainmath.ca/blog/2014/09/05/vancouver-teardown-map/">teardown map</a> that looked at the low end of Vancouver&rsquo;s building
 stock, a natural question is to look at the high end. Just as before, we are focusing on the (assessed) value of the
 building relative to the total (assessed) value of land and improvements. We defined &ldquo;highly improved&rdquo; properties to
@@ -972,7 +972,7 @@ that maybe someone else can shed some light on.</p>
   <entry>
     <title type="html"><![CDATA[Vancouver Teardown Map]]></title>
     <link href="http://doodles.mountainmath.ca/blog/2014/09/05/vancouver-teardown-map/"/>
-    <updated>2014-09-05T22:27:18+02:00</updated>
+    <updated>2014-09-05T13:27:18-07:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2014/09/05/vancouver-teardown-map</id>
     <content type="html"><![CDATA[<p>There has been lots of talk about old homes being torn down and replaced in Vancouver. The likeliest targets are houses
 of relatively low value sitting on expensive land. So how many teardown candidates are there in Vancouver, and where

@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Vancouver High Value Improvements Map - Mountain Doodles</title>
+  <title>Bike Routing - Mountain Doodles</title>
   <meta name="author" content="MountainMath">
 
   
-  <meta name="description" content="mapping buildings in Vancouver with high improvement value compared to land value">
-  <meta name="keywords" content="vancouver, high value, improvements, real estate, map">
+  <meta name="description" content="Mapping OSM bike data.">
+  <meta name="keywords" content="bike, cycling, mapping, OSM, open street maps, infrastructure">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2014/09/08/vancouver-high-value-improvements-map/">
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2015/12/14/routing/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Vancouver High Value Improvements Map</h1>
+      <h1 class="entry-title">Bike Routing</h1>
     
     
       <p class="meta">
@@ -96,7 +96,7 @@
   
 
 
-<time datetime="2014-09-08T07:11:08+02:00" pubdate data-updated="true"></time>
+<time datetime="2015-12-14T20:10:16-08:00" pubdate data-updated="true"></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -105,26 +105,60 @@
   </header>
 
 
-<div class="entry-content"><p>After the <a href="/blog/2014/09/05/vancouver-teardown-map/">teardown map</a> that looked at the low end of Vancouver&rsquo;s building
-stock, a natural question is to look at the high end. Just as before, we are focusing on the (assessed) value of the
-building relative to the total (assessed) value of land and improvements. We defined &ldquo;highly improved&rdquo; properties to
-be properties where the ratio is at least 50%, so the building is worth at least as much as the land it is built on.</p>
+<div class="entry-content"><p><a href="/bike_routing.html"><img  src="/images/routing.png" style="width:25%;float:right"></a>Routing is a hard problem. Routing for drivers is pretty good at this point, mostly because we have been very good at
+designing for cars and creating predicable infrastructure. Routing for bikes is a whole other story, data quality is
+poor and the physical infrastructure is, at least in North America, not strongly predictive of cycling comfort/safety.
+And cycling comfort/safety is the top priority for the
+<a href="http://usa.streetsblog.org/2015/03/13/the-first-ever-nationwide-survey-of-interested-but-concerned-bikers-is-here/">vast majority of (potential) cyclists</a>.</p>
 
-<p>That&rsquo;s actually a pretty high bar in Vancouver, less than 1500 buildings pass that muster. And in concordance with the
-teardown map, the &ldquo;high value improvements&rdquo; seem to concentrate in downtown. See the map below the fold
-to explore for yourself.</p>
+<p>And it&rsquo;s the ones that don&rsquo;t cycle frequently, often out of concern for safety, that would benefit most from effective
+bike routing.</p>
+
+<p>Read on or <a href="/bike_routing.html">go directly to the routing demo</a>.</p>
 
 <!-- more -->
 
 
-<p>When browsing the map it becomes clear that some properties have &ldquo;high value improvements&rdquo; because of an abnormally low
-land value, rather than an abnormally high improvement value. This is probably due to intricacies of zoning in Vancouver
-that maybe someone else can shed some light on.</p>
+<p>Google does a decent job directing a relatively experienced cyclist from A to B, but it has a hard time to learn about
+places where cyclists can go but cars can&rsquo;t. And it won&rsquo;t be able to answer my fundamental question: <em>Can I bring my 6
+year old along?</em>. And Apple doesn&rsquo;t even try and offer bike routing.</p>
 
-<iframe src="/improvement_map.html" width="100%" height="500"></iframe>
+<h4>Routing test</h4>
+
+<p>So what&rsquo;s really needed apart from <a href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/">better bike maps</a>
+is better bike routing. So building on yesterday&rsquo;s post, I decided to take a quick look at routing. Time to try out
+<a href="https://mapzen.com/projects/valhalla">Mapzen&rsquo;s routing engine</a> which, as expected, was really easy to set up:</p>
+
+<p>Feel free to drag the endpoints to test your favorite routes.</p>
+
+<iframe src="/bike_routing.html" width="100%" height="550"></iframe>
 
 
-<p><a href="/improvement_map.html">Full screen view</a></p>
+<p><a href="/bike_routing.html">Full screen view</a></p>
+
+<p>Initial testing seems to indicate that this works reasonably well. And while the engine allows for some customization
+on rider needs, right now there is no way to get the &ldquo;dad&rsquo;s routing&rdquo; that I would like to have.</p>
+
+<p>Part of the problem is of course that I still don&rsquo;t have enough information in OSM to even make a &ldquo;dad&rsquo;s map&rdquo;
+<a href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/">as I lamented earlier</a>. But at least OSM gets
+me half-way there by giving me a finer control over distinguishing infrastructure that I may deem as generally more
+suitable so that I can fade selected bike infrastructure out by checking the appropriate boxes in the map.</p>
+
+<h4>Route costing options</h4>
+
+<p>The bike routing options in Mapzen&rsquo;s routing engine allow for some level of control on wheter gravel should be avoided
+(great feature for the lycra cowed but useless for dads), whether hill should be avoided (helpful) and whether to avoid
+roads without bike infrastructure. But when I cycle with my 6 year old a bike lane between parked cars and 50 traffic
+is as good as no bike infrastructure at all. And there is currently no way to cost different types of bike
+infrastructure, so they can&rsquo;t be used as a proxy for cycling comfort.</p>
+
+<h4>Where to go from here</h4>
+
+<p>Next steps are to <a href="https://github.com/valhalla/thor">look deeper into Mapzen&rsquo;s routing engine</a> and see how hard it would
+be to hack some of these more advanced costing options into their routing engine and open up a feature request.</p>
+
+<p>Wrapping up the three-night trials in bike mapping is the
+<a href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/">post on data</a>.</p>
 </div>
 
 
@@ -133,7 +167,7 @@ that maybe someone else can shed some light on.</p>
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">MountainMath</span></span>
+<span class="byline author vcard">Posted by <span class="fn">Jens von Bergmann</span></span>
 
       
 
@@ -147,12 +181,12 @@ that maybe someone else can shed some light on.</p>
   
 
 
-<time datetime="2014-09-08T07:11:08+02:00" pubdate data-updated="true"></time>
+<time datetime="2015-12-14T20:10:16-08:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/d3/'>d3</a>, <a class='category' href='/blog/categories/open-data/'>open data</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
+    <a class='category' href='/blog/categories/mapping/'>mapping</a>, <a class='category' href='/blog/categories/mapzen/'>mapzen</a>, <a class='category' href='/blog/categories/osm/'>osm</a>, <a class='category' href='/blog/categories/routing/'>routing</a>, <a class='category' href='/blog/categories/webgl/'>webgl</a>
   
 </span>
 
@@ -161,7 +195,7 @@ that maybe someone else can shed some light on.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2014/09/08/vancouver-high-value-improvements-map/" data-via="" data-counturl="http://doodles.mountainmath.ca/blog/2014/09/08/vancouver-high-value-improvements-map/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2015/12/14/routing/" data-via="" data-counturl="http://doodles.mountainmath.ca/blog/2015/12/14/routing/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -174,10 +208,10 @@ that maybe someone else can shed some light on.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/09/05/vancouver-teardown-map/" title="Previous Post: Vancouver Teardown Map">&laquo; Vancouver Teardown Map</a>
+        <a class="basic-alignment left" href="/blog/2015/12/13/how-to-make-a-bike-map/" title="Previous Post: How to make a bike map">&laquo; How to make a bike map</a>
       
       
-        <a class="basic-alignment right" href="/blog/2014/11/05/mapping-cacs/" title="Next Post: Mapping CACs">Mapping CACs &raquo;</a>
+        <a class="basic-alignment right" href="/blog/2015/12/15/bike-data/" title="Next Post: Bike Data">Bike Data &raquo;</a>
       
     </p>
   </footer>
@@ -198,11 +232,11 @@ that maybe someone else can shed some light on.</p>
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2015/12/16/bike-data/">Bike Data</a>
+        <a href="/blog/2015/12/15/bike-data/">Bike Data</a>
       </li>
     
       <li class="post">
-        <a href="/blog/2015/12/15/routing/">Bike Routing</a>
+        <a href="/blog/2015/12/14/routing/">Bike Routing</a>
       </li>
     
       <li class="post">
@@ -210,7 +244,7 @@ that maybe someone else can shed some light on.</p>
       </li>
     
       <li class="post">
-        <a href="/blog/2015/10/25/census-drilldown/">Census Drilldown</a>
+        <a href="/blog/2015/10/24/census-drilldown/">Census Drilldown</a>
       </li>
     
       <li class="post">
@@ -243,8 +277,8 @@ that maybe someone else can shed some light on.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2014/09/08/vancouver-high-value-improvements-map/';
-        var disqus_url = 'http://doodles.mountainmath.ca/blog/2014/09/08/vancouver-high-value-improvements-map/';
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2015/12/14/routing/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2015/12/14/routing/';
         var disqus_script = 'embed.js';
       
     (function () {
