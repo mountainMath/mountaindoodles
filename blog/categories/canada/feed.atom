@@ -4,7 +4,7 @@
   <title><![CDATA[Category: canada | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/canada/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-23T04:14:07-08:00</updated>
+  <updated>2015-12-26T21:43:30-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,109 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Canvas vs SVG]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2015/12/27/canvas-vs-svg/"/>
+    <updated>2015-12-27T15:53:02-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/12/27/canvas-vs-svg</id>
+    <content type="html"><![CDATA[<h4>CensusMapper Behind the Scenes</h4>
+
+<p>The idea behind CensusMapper is that it takes away all the technical barriers to dealing with census data. So how does
+CensusMapper work behind the scenes?</p>
+
+<p>The general setup is quite simple. We use the lean javascript open mapping platform <a href="http://leafletjs.com">leaflet</a>
+as the base for mapping information. Leaflet handles the logic of dealing with zoom and pan and keeping track of the
+geographic boundaries that should be mapped. That information gets then passed on to the CensusMapper servers.</p>
+
+<p>CensusMapper will then send the appropriate census geographic polygons to the browser for leaflet to display. Once the
+geographic data is available for mapping, some custom code checks what kind of information the user wants to display and
+requests the census data required to make the map. The census information is then assembled on the server, sent down
+and attached to the polygons and drawn
+on the browser window within leaflet. This two-tier process allows the highly dynamic mapping in CensusMapper where the
+data-heavy geographic polygons are kept separately thus can be cached and re-used.</p>
+
+<h4>Drawing Census Data</h4>
+
+<p>There are a number of ways how we can display census data in the browser. At CensusMapper we have played with three
+different technologies to map data that vary in performance and browser support. They all have in common that they
+won&rsquo;t run on Internet Explorer 8 or earlier, but we have just about reached the point where the usage of this ancient
+technology is so low that it is acceptable to ignore IE8-.</p>
+
+<h5><a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a></h5>
+
+<p>SVG is what our maps have been using so far. Think of SVG as  It&rsquo;s fairly high level, which means it&rsquo;s very little work
+to implement and map information. One simply passes a polygon to the browser, tells it how to color it, and the browser
+takes care of the rest. SVG elements can easily be styled via CSS, so there is essentially no work involved to deal with
+highlight on hover, scaling for retina displays, patterns for census data quality flags, etc. We use
+<a href="https://github.com/mbostock/d3">d3.js</a> to attach the geographic and census data right to the SVG elements for easy
+manipulation.</p>
+
+<p>While mapping data this way is very easy, for CensusMapper there are two problems.</p>
+
+<ol>
+<li>We are restricted in how we can display information by the capabilities of SVG.</li>
+<li>SVG rendering is done by the browser, and not all browsers are equal. In particular, SVG rendering in Internet
+Explorer is excruciatingly slow. So slow, that CensusMapper becomes essentially useless within Internet Explorer. We
+felt compelled to add a warning messeage that displayed when people opened CensusMapper with Internet Explorer. And
+when you do that, that&rsquo;s a sure sign that your app haves a serious problem.</li>
+</ol>
+
+
+<p><img src="/images/chrome.png" alt="Browser Warning" />
+So how to get around those issues? Enter Canvas.</p>
+
+<h5><a href="https://en.wikipedia.org/wiki/Canvas_element">Canvas</a></h5>
+
+<p>Canvas offers a way to draw images in a browser. Unlike SVG, the drawing has to be done by hand. And the result is just
+an image, with no clear way to tell where it came from. There is no way to attach any information to individual
+structures drawn on a canvas. All the logic for highlight on hover, figuring out what data is associated with the mouse
+position, dealing with retina displays, etc. needs to be added by hand.</p>
+
+<p>On the upside, a good canvas implementation is a lot faster than SVG. And it opens the door to changes in how the data
+is handled that bring additional performance improvements. In particular, we can now chop up census polygons and render
+the pieces separately, greatly cutting down on the size of the downloaded data, as well as the complexity of the
+polygons that get rendered. And the performance improvements are noticeable across all browsers and platforms.</p>
+
+<p>We flipped the switch on this last night, CensusMapper is now running using canvas instead SVG for the main maps. We
+kept the look and feel the same, so unless you dig into the code you won&rsquo;t notice the difference.
+Some parts of CensusMapper remain SVG-based, like the d3-based
+<a href="http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown/">Census Wheel</a>.</p>
+
+<h5><a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a></h5>
+
+<p>WebGL also draws on a canvas element, but the work is offloaded onto the GPU (graphics processor) giving enourmous
+speed improvements. Regular canvas rendering is fast enough for our purposes, but with WebGL we can do more complex
+renderings that previously we could not even dream of: Interactive 3D data maps. We has previously <a href="https://mountainmath.ca/census3">toyed with 3D data
+visualization</a> to explore Vancouver&rsquo;s household density in 3D using Three.js,
+but did not pursue this further because of the complexities of writing code for navigating a Canada-wide map. Then we came
+across the super-cusomizable 3D open mapping platform built by <a href="https://mapzen.com/projects/tangram/">Mapzen</a>, and that
+suddenly made it extremely easy to do interactive 3D data mapping live in the browser. A quick test
+<a href="https://mountainmath.ca/vancouver_lidar/map">using Vancouver&rsquo;s open LIDAR generated building height data</a> showed how easy Mapzen&rsquo;s
+tangram engine is to use.</p>
+
+<p>After digging deeper into tangram, and with help from the friendly people at Mapzen, we figured out a way to fit
+CensusMapper&rsquo;s two-stage data workflow into tangram&rsquo;s mapping engine. The result are real-time 3D maps where height
+and color of each geographic area can be independently (and dynamically) controlled. Here is an example where mouseover
+triggers the area to &lsquo;pop up&rsquo;.
+<img src="/images/webGL.jpg" alt="webGL" /></p>
+
+<p>At the same time we gain the ability to easily pull in all kinds of other data and map it. On our canvas or svg maps we
+added regular image tiles, either a road and label&rsquo;s overlay or a basemap (which then requires opacity to be added to
+the census data that is mapped on top of that) as orientation aid. Short of baking our own image tiles we have very
+little control over the look and feel of this. With Mapzen&rsquo;s tangram we can very easily pick and style individual
+geographic obects from Mapzen&rsquo;s OSM vector tile server, resulting in crisp and clear maps. In the above example we
+decide dynamically what level of roads to render, how to style them, what labels to display and we also added bodies of
+water, where we filter by size depending on the zoom level.</p>
+
+<p>At this stage it is still an ongoing project to get this production-ready. One obvious obstacle is that WebGL browser
+support is still lagging. And on top of that it also requires updated graphics card drivers, which is a big problem on
+windows machines that are already a couple of years old. So for now we still need to have a plain canvas or svg fallback.</p>
+
+<p>And then there are the details that need to get worked out. 3D maps sounds great, but it will take us some time to figure
+out how to best utilize this in thematic maps.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Census Drilldown]]></title>
