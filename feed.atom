@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-26T21:43:30-08:00</updated>
+  <updated>2015-12-26T21:47:03-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -22,6 +22,9 @@
 
 <p>The idea behind CensusMapper is that it takes away all the technical barriers to dealing with census data. So how does
 CensusMapper work behind the scenes?</p>
+
+<!-- more -->
+
 
 <p>The general setup is quite simple. We use the lean javascript open mapping platform <a href="http://leafletjs.com">leaflet</a>
 as the base for mapping information. Leaflet handles the logic of dealing with zoom and pan and keeping track of the
