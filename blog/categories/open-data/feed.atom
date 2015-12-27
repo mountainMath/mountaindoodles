@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-26T22:16:29-08:00</updated>
+  <updated>2015-12-26T22:18:37-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -46,9 +46,9 @@ different technologies to map data that vary in performance and browser support.
 won&rsquo;t run on Internet Explorer 8 or earlier, but we have just about reached the point in time where it is acceptable to
 ignore IE8- in products meant for the &ldquo;general internet audience&rdquo;.</p>
 
-<h5><a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a></h5>
+<h5>SVG</h5>
 
-<p>SVG is what our maps have been using so far. SVGs are fairly high level, which means it&rsquo;s very little work
+<p><a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a> is what our maps have been using so far. SVGs are fairly high level, which means it&rsquo;s very little work
 to implement and map information. One simply passes a polygon to the browser, tells it how to color it, and the browser
 takes care of the rest. SVG elements can easily be styled via CSS, so there is essentially no work involved to deal with
 highlight on hover, scaling for retina displays, patterns for census data quality flags, etc. We use
@@ -68,9 +68,9 @@ So how to get around those issues? Enter Canvas.</li>
 </ol>
 
 
-<h5><a href="https://en.wikipedia.org/wiki/Canvas_element">Canvas</a></h5>
+<h5>Canvas</h5>
 
-<p>Canvas offers a way to draw images in a browser. Unlike SVG, the drawing has to be done &ldquo;by hand&rdquo;. And the result is just
+<p><a href="https://en.wikipedia.org/wiki/Canvas_element">Canvas</a> offers a way to draw images in a browser. Unlike SVG, the drawing has to be done &ldquo;by hand&rdquo;. And the result is just
 an image, with no clear way to tell where it came from. There is no way to attach any information to individual
 structures drawn on a canvas. All the logic for highlight on hover, figuring out what data is associated with the mouse
 position, dealing with retina displays, etc. needs to be added by hand.</p>
@@ -87,9 +87,9 @@ kept the look and feel the same, so unless you dig into the code you won&rsquo;t
 Some parts of CensusMapper still utilized SVGs, like the d3-based
 <a href="http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown/">Census Wheel</a>.</p>
 
-<h5><a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a></h5>
+<h5>WebGL</h5>
 
-<p>WebGL also draws on a canvas element, but the work is offloaded onto the GPU (graphics processor) giving enormous
+<p><a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> also draws on a canvas element, but the work is offloaded onto the GPU (graphics processor) giving enormous
 speed improvements. Regular canvas rendering is fast enough for our purposes, but with WebGL we can do more complex
 renderings that previously we could not even dream of: <a href="https://en.wikipedia.org/wiki/OpenGL_Shading_Language">Shaders</a>
 and Interactive 3D data maps. We had previously
