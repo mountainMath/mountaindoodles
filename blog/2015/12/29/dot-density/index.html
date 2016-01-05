@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Mapping CACs - Mountain Doodles</title>
+  <title>dot-density - Mountain Doodles</title>
   <meta name="author" content="MountainMath">
 
   
-  <meta name="description" content="mapping CAC in Vancouver">
-  <meta name="keywords" content="vancouver, high value, improvements, real estate, map">
+  <meta name="description" content="Mapping Canada 2011 Census data, one person at a time.">
+  <meta name="keywords" content="canvas, svg, mapping census, open data">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/">
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2015/12/29/dot-density/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Mapping CACs</h1>
+      <h1 class="entry-title">Dot-density</h1>
     
     
       <p class="meta">
@@ -96,7 +96,7 @@
   
 
 
-<time datetime="2014-11-05T12:03:25-08:00" pubdate data-updated="true"></time>
+<time datetime="2015-12-29T21:28:40-08:00" pubdate data-updated="true"></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -105,24 +105,50 @@
   </header>
 
 
-<div class="entry-content"><p>After reading the <a href="http://pricetags.wordpress.com/2014/11/04/the-daily-durning-back-and-forth-on-cacs/">post on Price Tags</a>,
-originally from <a href="http://karensawatzky.ca/2014/10/29/7868/">Karen Sawatzky&rsquo;s blog</a>, I got curious about getting a
-geographic overview over the CACs in Vancouver in 2010, 2011 and 2012.</p>
+<div class="entry-content"><h4>One person at a time</h4>
 
-<p>As opposed to the <a href="/blog/2014/09/05/vancouver-teardown-map/">teardown map</a> the dataset is quite small, so there should
-be no problems viewing this on a mobile device. As always, map is below the fold.</p>
+<p><img  src="/images/bike-dot.png" style="width:25%;float:right">Dot-density maps look pretty cool.
+They have been <a href="https://www.google.com/search?q=dot-density+map+images&amp;client=safari&amp;rls=en&amp;tbm=isch&amp;tbo=u&amp;source=univ&amp;sa=X&amp;ved=0ahUKEwjuy9Ch6PjJAhUivXIKHWcvDb4QsAQIHA&amp;biw=1253&amp;bih=812">flying around the itnernet</a>
+lately, so we have been thinking about how to offer them in CensusMapper. They are great because they are so simple to
+interpret. One dot = one person. And we can color the dots by category. And they look cool.</p>
+
+<p>But once one looks closer there are lots of issues that need to be dealt with.</p>
 
 <!-- more -->
 
 
-<p>Some of the property addresses did not match any address in the CoV open data property database, probably because the
-developments are quite new and new addresses got assigned. In these cases I mapped the CAC property to a nearby property
-and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
+<h4>The devil is in the details</h4>
 
-<iframe src="/cac_map.html" width="100%" height="500"></iframe>
+<p>As simple as the the basic dot-density promise of <em>one dot = one person</em> is, it must fundamentally remain a lie for
+census maps. We simply don&rsquo;t have the level of detail that the maps suggest. We don&rsquo;t know the location of people with
+the accuracy depicted in the maps, and we certainly don&rsquo;t know the categories that give the color with the accuracy
+suggested in the maps.</p>
 
+<p>So what is going on here, and is the use of dot-density maps justified in light of the lying? Let&rsquo;s start by looking at
+the alternative.</p>
 
-<p><a href="/cac_map.html">Full screen view</a></p>
+<h4><a href="https://en.wikipedia.org/wiki/Choropleth_map">Choropleth Maps</a></h4>
+
+<p>Choropleth maps is what CensusMapper is based on. We color each geographic region based on some property from our data
+that we are interested in. The greatest advantage is that the representation is truthful to the data. But at the same
+time it suffers from low population bias.</p>
+
+<p>As an example, let&rsquo;s map child poverty. Child poverty is a serious problem and we would like to map it. Right away we
+can think of two ways of mapping this. We could map the <a href="http://censusmapper.ca/maps/132">child poverty rate</a>,
+so the percentage of children in each region
+that live in poverty, or we could map the
+<a href="http://censusmapper.ca/maps/134">number of children in each region living in poverty</a>.</p>
+
+<p>Each map has it&rsquo;s advantages and disadvantages. The poverty rate map tells the chance that a child in the given region
+lives in poverty. But we have no idea how many children live in each region, so it is difficult to gauge how sever the
+problem is. Similarly, the map of the number of children living in poverty makes it easy to see the absolute scope of
+the problem. But this number masks the relative prevalence of child poverty. And for our maps it does not adapt well
+when zooming. As we zoom past census aggregation levels the total population in each region undergoes sudden jumps, and
+so will the total number of children in poverty, forcing the user to &lsquo;rebalance&rsquo; the scales when zooming to get a
+meaningful coloring.</p>
+
+<p>We really need a way to blend the two maps into one. <a href="http://andywoodruff.com/blog/value-by-alpha-maps/">Value by Alpha</a>
+is one way to do this. Dot-density maps is another.</p>
 </div>
 
 
@@ -131,7 +157,7 @@ and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">MountainMath</span></span>
+<span class="byline author vcard">Posted by <span class="fn">Jens von Bergmann</span></span>
 
       
 
@@ -145,12 +171,12 @@ and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
   
 
 
-<time datetime="2014-11-05T12:03:25-08:00" pubdate data-updated="true"></time>
+<time datetime="2015-12-29T21:28:40-08:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/cac/'>cac</a>, <a class='category' href='/blog/categories/d3/'>d3</a>, <a class='category' href='/blog/categories/open-data/'>open data</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
+    <a class='category' href='/blog/categories/2011-census-data/'>2011 census data</a>, <a class='category' href='/blog/categories/canada/'>canada</a>, <a class='category' href='/blog/categories/canvas/'>canvas</a>, <a class='category' href='/blog/categories/d3/'>d3</a>, <a class='category' href='/blog/categories/geeky/'>geeky</a>, <a class='category' href='/blog/categories/mapping/'>mapping</a>, <a class='category' href='/blog/categories/open-data/'>open data</a>
   
 </span>
 
@@ -159,7 +185,7 @@ and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2015/12/29/dot-density/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2015/12/29/dot-density/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -172,10 +198,8 @@ and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/09/07/vancouver-high-value-improvements-map/" title="Previous Post: Vancouver High Value Improvements Map">&laquo; Vancouver High Value Improvements Map</a>
+        <a class="basic-alignment left" href="/blog/2015/12/27/canvas-vs-svg/" title="Previous Post: Canvas vs SVG">&laquo; Canvas vs SVG</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/03/23/vancouver-assessment-data/" title="Next Post: Vancouver Assessment Data">Vancouver Assessment Data &raquo;</a>
       
     </p>
   </footer>
@@ -249,8 +273,8 @@ and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/';
-        var disqus_url = 'http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/';
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2015/12/29/dot-density/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2015/12/29/dot-density/';
         var disqus_script = 'embed.js';
       
     (function () {

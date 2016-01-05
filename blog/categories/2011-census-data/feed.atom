@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 2011 census data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/2011-census-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2015-12-27T01:45:14-08:00</updated>
+  <updated>2016-01-05T05:04:16-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,58 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[dot-density]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2015/12/29/dot-density/"/>
+    <updated>2015-12-29T21:28:40-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2015/12/29/dot-density</id>
+    <content type="html"><![CDATA[<h4>One person at a time</h4>
+
+<p><img  src="http://doodles.mountainmath.ca/images/bike-dot.png" style="width:25%;float:right">Dot-density maps look pretty cool.
+They have been <a href="https://www.google.com/search?q=dot-density+map+images&amp;client=safari&amp;rls=en&amp;tbm=isch&amp;tbo=u&amp;source=univ&amp;sa=X&amp;ved=0ahUKEwjuy9Ch6PjJAhUivXIKHWcvDb4QsAQIHA&amp;biw=1253&amp;bih=812">flying around the itnernet</a>
+lately, so we have been thinking about how to offer them in CensusMapper. They are great because they are so simple to
+interpret. One dot = one person. And we can color the dots by category. And they look cool.</p>
+
+<p>But once one looks closer there are lots of issues that need to be dealt with.</p>
+
+<!-- more -->
+
+
+<h4>The devil is in the details</h4>
+
+<p>As simple as the the basic dot-density promise of <em>one dot = one person</em> is, it must fundamentally remain a lie for
+census maps. We simply don&rsquo;t have the level of detail that the maps suggest. We don&rsquo;t know the location of people with
+the accuracy depicted in the maps, and we certainly don&rsquo;t know the categories that give the color with the accuracy
+suggested in the maps.</p>
+
+<p>So what is going on here, and is the use of dot-density maps justified in light of the lying? Let&rsquo;s start by looking at
+the alternative.</p>
+
+<h4><a href="https://en.wikipedia.org/wiki/Choropleth_map">Choropleth Maps</a></h4>
+
+<p>Choropleth maps is what CensusMapper is based on. We color each geographic region based on some property from our data
+that we are interested in. The greatest advantage is that the representation is truthful to the data. But at the same
+time it suffers from low population bias.</p>
+
+<p>As an example, let&rsquo;s map child poverty. Child poverty is a serious problem and we would like to map it. Right away we
+can think of two ways of mapping this. We could map the <a href="http://censusmapper.ca/maps/132">child poverty rate</a>,
+so the percentage of children in each region
+that live in poverty, or we could map the
+<a href="http://censusmapper.ca/maps/134">number of children in each region living in poverty</a>.</p>
+
+<p>Each map has it&rsquo;s advantages and disadvantages. The poverty rate map tells the chance that a child in the given region
+lives in poverty. But we have no idea how many children live in each region, so it is difficult to gauge how sever the
+problem is. Similarly, the map of the number of children living in poverty makes it easy to see the absolute scope of
+the problem. But this number masks the relative prevalence of child poverty. And for our maps it does not adapt well
+when zooming. As we zoom past census aggregation levels the total population in each region undergoes sudden jumps, and
+so will the total number of children in poverty, forcing the user to &lsquo;rebalance&rsquo; the scales when zooming to get a
+meaningful coloring.</p>
+
+<p>We really need a way to blend the two maps into one. <a href="http://andywoodruff.com/blog/value-by-alpha-maps/">Value by Alpha</a>
+is one way to do this. Dot-density maps is another.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Canvas vs SVG]]></title>
@@ -436,45 +488,6 @@ transportation nor the negative health implications of driving. The commute time
 and will have to be adjusted if applied to real-world examples. But this is only meant to illustrate ageneral point.</p>
 
 <p>The takeaway should be that the &lsquo;hidden mortgage&rsquo; is real, and it&rsquo;s huge. And often overlooked.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vancouver 2011 Census Data on Housing]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/06/23/vancouver-2011-census-data-on-housing/"/>
-    <updated>2015-06-23T15:26:23-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/06/23/vancouver-2011-census-data-on-housing</id>
-    <content type="html"><![CDATA[<p>Last week my friend Alejandro emailed me some census data. After sitting on it for a couple of days I decided one evening
-to take a look and map the dissemination areas. The dataset contained 125 fields around housing and income. So I started
-plucking some of the fields off the table and mapping them.</p>
-
-<p>It did not take long and colorful maps started showing up. Another evening and lots of map layers later I put the
-<a href="https://mountainmath.ca/census">Vancouver Census Map</a> online
-for people interested to look through the census graphs. The number of layers became a little unwieldly, just pick and
-choose what you are interested in.</p>
-
-<p><a href="https://mountainmath.ca/census/?layer=17"><img src="/images/affordability.jpg" alt="&quot;Affordability&quot;" /></a></p>
-
-<h4>So what exactly does the Census Data show?</h4>
-
-<!-- more -->
-
-
-<p>The data is aggregated at the Dissemination Area level and rounded to protect privacy. That leaves some artefacts, but
-generally gives a very detailed picture of what is going on in different parts of the city. The biggest drawback is the
-age, the data is now 4 to 5 years old. Lots of things happened in the meantime, we will have to wait until 2016 for the
-next Census Canada dataset.</p>
-
-<h4>Where to go from here?</h4>
-
-<p>When I get around to it I might map all of Metro Van Census data. It won&rsquo;t take any time to re-run the import script for
-the larger dataset, but I will need to show higher aggregation level data at lower zoom levels to keep it repsonsive
-for slower machines, just like I did for the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a></p>
-
-<p>I should probably also take a look at what other fields are available, the &lsquo;affordability&rsquo; map linked above uses
-individual income for full-time employees instead of combined household income, which differes from how affordability
-is usually calculated. The reason is that the data I had did not have the household income. Not sure if it is available
-at the dissemination area aggregation level, but if it is that one should be used. But I am lazy, so for now that&rsquo;s it.</p>
 ]]></content>
   </entry>
   
