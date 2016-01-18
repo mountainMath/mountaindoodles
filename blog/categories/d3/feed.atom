@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-17T16:41:18-08:00</updated>
+  <updated>2016-01-17T16:42:33-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -31,7 +31,7 @@ to improve the mapping performance.</p>
 <!-- more -->
 
 
-<p><img  src="http://doodles.mountainmath.ca/images/map_menu.png" style="width:25%;margin-right:5px;float:left">The <a href="https://mountainmath.ca/map/assessment">interactive assessment map</a> offers several views. In the panel on the top
+<p><img  src="http://doodles.mountainmath.ca/images/map_menu.png" style="width:25%;margin-left:5px;float:right">The <a href="https://mountainmath.ca/map/assessment">interactive assessment map</a> offers several views. In the panel on the top
 right we can select how to view the data. It offers standard thematic maps for value change, total value, building value
 and building age and zoning. And there are some options that warrant more explanation:</p>
 
