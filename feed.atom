@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-17T21:33:11-08:00</updated>
+  <updated>2016-01-17T21:38:21-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -80,12 +80,12 @@ structures, as well as marinas with structures on them.</p>
 
 <p>Here is a quick history of the overall land and building values aggregated for Vancouver between 2006 and 2016.</p>
 
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <div id="graph" style="height:200px;max-width:640px;" data-lines="/data/vancouver_stats.json"></div>
-
-
 <div class="legend no-margin">
-  <p><i style="background:blue"></i> Land Value <span id="land_value"></span></p>
-  <p><i style="background:green"></i> Building Value <span id="building_value"></span></p>
+  <p><i style="background:blue"></i> Land Value <span style="float:right;margin-right:10px;" id="land_value"></span></p>
+  <p><i style="background:green"></i> Building Value <span style="float:right;margin-right:10px;" id="building_value"></span></p>
+</div>
 </div>
 
 
