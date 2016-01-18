@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Updated Vancouver Assessment Data - Mountain Doodles</title>
+  <meta name="author" content="MountainMath">
+
+  
+  <meta name="description" content="Mapping Vancouver open data property tax assessments. View land values, change in land or building values, zoning, building age and ratio of building &hellip;">
+  <meta name="keywords" content="vancouver, property tax, real estate, map, land value">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/feed.atom" rel="alternate" title="Mountain Doodles" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54516567-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mountain Doodles</a></h1>
+  
+    <h2>spare time data, analysis, visualization</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/feed.atom" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:doodles.mountainmath.ca" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Updated Vancouver Assessment Data</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-01-17T11:34:09-08:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="https://mountainmath.ca/map/assessment?layer=4"><img  src="/images/relative_land.jpg" style="width:25%;float:right"></a>
+The friendly folks at
+<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> just
+<a href="https://twitter.com/VanOpenData/status/688060388190097408">updated their property assessment data</a> with the fresh 2016
+property tax assessments. Time to run the script to update the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a>
+with the new data. And for good measure I pasted over some of the thematic map engine from <a href="https://censusmapper.ca">CensusMapper</a>
+to improve the mapping performance.</p>
+
+<h4>Maps</h4>
+
+<!-- more -->
+
+
+<p><img  src="/images/map_menu.png" style="width:25%;float:left">The <a href="https://mountainmath.ca/map/assessment">interactive assessment map</a> offers several views. In the panel on the top
+right we can select how to view the data. It offers standard thematic maps for value change, total value, building value
+and building age and zoning. And there are some options that warrant more explanation:</p>
+
+<ul>
+<li><a href="https://mountainmath.ca/map/assessment?layer=5"><em>Relative Land Value</em>:</a> This map is colouring each property by the
+land value per m&sup2;. We can immediately spot the east-west land gradient, as well as how zoning effects land value.
+When zooming in we also see the effect of lot size on land value.</li>
+<li><a href="https://mountainmath.ca/map/assessment?layer=4"><em>Relative Value of Building</em>:</a>
+<a href="https://mountainmath.ca/map/assessment?layer=4"><img  src="/images/teardown.jpg" style="width:25%;float:right"></a>
+This map simply divides the building value
+by the total property value. There are many ways to interpret this map, my favourite is to use this as a &ldquo;Teardown Predictor&rdquo;.
+Essentially, as the percentage of the building value approaches zero the probability that it will get torn down in the
+near future increases. Imagine someone spending $1.5m to buy a property with a house valued at $37k. Many people don&rsquo;t
+mind living in a house worth $37k, but someone who is spending $1.5m would probably prefer to buy a different property
+with a higher quality house. Or spend more money to upgrade the house. How will it be upgraded? Renovating is in most
+cases economically unsound, most people will choose to tear down and rebuild. In fact, the <em>teardown threshold</em> is
+likely higher than the 2.5% in the example given. The percentage of properties in Vancouver where the building value is
+less than 2.5% of the total value has slightyl decreaed in the last year from 17.9% to 17.8%, but the percentage of properties
+with building value less than 5% of the total value has increased from 32% to 33.5% during the last year.</li>
+<li><a href="https://mountainmath.ca/map/assessment?layer=10"><em>Tax Density</em>:</a> This map looks at the amount of tax dollars collected
+by the city per area. It tells us the relative rate at what each property is contributing to city services. We can again
+observe the impact of exclusionary zoning.</li>
+</ul>
+
+
+<h4>The Data</h4>
+
+<p>The data originates with BC Assessment, which estimates land and building values of each property based on recent sales
+of comparable properties. The assessment was done in summer 2015 and is based on sales before that, so at this point in
+time the data lags the market by about one year.</p>
+
+<p>Sadly, BC Assessment does not give out their data with a license that would allow mapping it the way I do, so we have
+to rely on municipalities to release it through their open data portals. The format of the data from each municipality is
+different, so lazy me is only importing data from City of Vancouver, although some other nearby municipalities are also releasing
+there data.</p>
+
+<p>The motivation behind the map was to understand the building stock. Some effort was made to filter out parks, but the
+algorithm is far from perfect and will often includes parks that host building
+structures, as well as marinas with structures on them.</p>
+
+<p>The new city dataset does not include the 2016 tax levy, so we still only show the 2015 tax levies until CoV updated their dataset.</p>
+
+<h4>Neighbourhoods</h4>
+
+<p>Lastly a quick overview over the neighbourhoods. Land values have increased throughout in the year, on average by 22% year
+over year. I aggregated all tax data by neighbourhood and split it into land value and building value increases.
+These numbers should be used as guidance only, they mix lots of different types of properties and include parks.</p>
+
+<p>When looking at all properties in the city, the increase in land
+value year over year was 21.4% ($45.2bn), while overall building values increasing by 7.3% ($5bn).</p>
+
+<p>Here is the breakdown by neighbourhood:</p>
+
+<ul>
+<li>Renfrew-Collingwood: Land: 30.6% ($1.2bn), Building: 5.8% ($46.0m)</li>
+<li>Sunset: Land: 26.6% ($1.6bn), Building: 5.9% ($74.2m)</li>
+<li>Oakridge: Land: 17.6% ($1.2bn), Building: 12.6% ($207.4m)</li>
+<li>Downtown: Land: 16.9% ($0.8bn), Building: 3.2% ($91.2m)</li>
+<li>Kerrisdale: Land: 18.7% ($1.3bn), Building: 3.3% ($54.1m)</li>
+<li>Victoria-Fraserview: Land: 28.0% ($1.5bn), Building: 5.6% ($65.2m)</li>
+<li>Grandview-Woodland: Land: 24.9% ($1.7bn), Building: 0.7% ($17.4m)</li>
+<li>West End: Land: 22.6% ($2.5bn), Building: 3.5% ($188.4m)</li>
+<li>Hastings-Sunrise: Land: 25.1% ($1.1bn), Building: 4.9% ($63.8m)</li>
+<li>Killarney: Land: 17.8% ($0.3bn), Building: 14.1% ($241.6m)</li>
+<li>Marpole: Land: 17.8% ($0.3bn), Building: 14.1% ($241.6m)</li>
+<li>Kitsilano: Land: 21.6% ($3.3bn), Building: 4.3% ($134.5m)</li>
+<li>Shaughnessy: Land: 18.6% ($1.7bn), Building: 7.4% ($117.7m)</li>
+<li>West Point Grey: Land: 20.2% ($2.3bn), Building: 5.2% ($88.3m)</li>
+<li>Fairview: Land: 19.4% ($2.0bn), Building: -1.0% (-$52.4m)</li>
+<li>Downtown Eastside: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
+<li>Kensington-Cedar Cottage: Land: 24.9% ($1.7bn), Building: 0.7% ($17.4m)</li>
+<li>Riley Park: Land: 26.4% ($1.0bn), Building: 4.0% ($40.2m)</li>
+<li>Mount Pleasant: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
+<li>South Cambie: Land: 20.9% ($1.5bn), Building: 21.4% ($268.1m)</li>
+<li>Strathcona: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
+<li>Dunbar Southlands: Land: 21.8% ($1.0bn), Building: 11.2% ($126.6m)</li>
+<li>Arbutus Ridge: Land: 21.4% ($1.6bn), Building: 1.1% ($17.3m)</li>
+</ul>
+
+
+<p>It becomes immediately clear that the increase in property values is mostly driven by land, note that total value increases
+for land and buildings are reported in billions and millions, respectively. The building stock does not
+have time to catch up, with the exception of South Cambie. Fairview stands out with declining overall building values.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jens von Bergmann</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-01-17T11:34:09-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/d3/'>d3</a>, <a class='category' href='/blog/categories/open-data/'>open data</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/12/27/canvas-vs-svg/" title="Previous Post: Canvas vs SVG">&laquo; Canvas vs SVG</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/17/updated-vancouver-assessment-data/">Updated Vancouver Assessment Data</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/27/canvas-vs-svg/">Canvas vs SVG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/15/bike-data/">Bike Data</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/14/routing/">Bike Routing</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/13/how-to-make-a-bike-map/">How to make a bike map</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  
+  <a class="twitter-timeline" href="https://twitter.com/vb_jens" data-widget-id="680989637721063424">Tweets by @vb_jens</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - MountainMath -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'doodlesmountainmathca';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

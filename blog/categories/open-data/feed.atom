@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-06T15:57:34-08:00</updated>
+  <updated>2016-01-17T16:38:07-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,111 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Updated Vancouver Assessment Data]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/"/>
+    <updated>2016-01-17T11:34:09-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data</id>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/assessment?layer=4"><img  src="http://doodles.mountainmath.ca/images/relative_land.jpg" style="width:25%;float:right"></a>
+The friendly folks at
+<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> just
+<a href="https://twitter.com/VanOpenData/status/688060388190097408">updated their property assessment data</a> with the fresh 2016
+property tax assessments. Time to run the script to update the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a>
+with the new data. And for good measure I pasted over some of the thematic map engine from <a href="https://censusmapper.ca">CensusMapper</a>
+to improve the mapping performance.</p>
+
+<h4>Maps</h4>
+
+<!-- more -->
+
+
+<p><img  src="http://doodles.mountainmath.ca/images/map_menu.png" style="width:25%;float:left">The <a href="https://mountainmath.ca/map/assessment">interactive assessment map</a> offers several views. In the panel on the top
+right we can select how to view the data. It offers standard thematic maps for value change, total value, building value
+and building age and zoning. And there are some options that warrant more explanation:</p>
+
+<ul>
+<li><a href="https://mountainmath.ca/map/assessment?layer=5"><em>Relative Land Value</em>:</a> This map is colouring each property by the
+land value per m&sup2;. We can immediately spot the east-west land gradient, as well as how zoning effects land value.
+When zooming in we also see the effect of lot size on land value.</li>
+<li><a href="https://mountainmath.ca/map/assessment?layer=4"><em>Relative Value of Building</em>:</a>
+<a href="https://mountainmath.ca/map/assessment?layer=4"><img  src="http://doodles.mountainmath.ca/images/teardown.jpg" style="width:25%;float:right"></a>
+This map simply divides the building value
+by the total property value. There are many ways to interpret this map, my favourite is to use this as a &ldquo;Teardown Predictor&rdquo;.
+Essentially, as the percentage of the building value approaches zero the probability that it will get torn down in the
+near future increases. Imagine someone spending $1.5m to buy a property with a house valued at $37k. Many people don&rsquo;t
+mind living in a house worth $37k, but someone who is spending $1.5m would probably prefer to buy a different property
+with a higher quality house. Or spend more money to upgrade the house. How will it be upgraded? Renovating is in most
+cases economically unsound, most people will choose to tear down and rebuild. In fact, the <em>teardown threshold</em> is
+likely higher than the 2.5% in the example given. The percentage of properties in Vancouver where the building value is
+less than 2.5% of the total value has slightyl decreaed in the last year from 17.9% to 17.8%, but the percentage of properties
+with building value less than 5% of the total value has increased from 32% to 33.5% during the last year.</li>
+<li><a href="https://mountainmath.ca/map/assessment?layer=10"><em>Tax Density</em>:</a> This map looks at the amount of tax dollars collected
+by the city per area. It tells us the relative rate at what each property is contributing to city services. We can again
+observe the impact of exclusionary zoning.</li>
+</ul>
+
+
+<h4>The Data</h4>
+
+<p>The data originates with BC Assessment, which estimates land and building values of each property based on recent sales
+of comparable properties. The assessment was done in summer 2015 and is based on sales before that, so at this point in
+time the data lags the market by about one year.</p>
+
+<p>Sadly, BC Assessment does not give out their data with a license that would allow mapping it the way I do, so we have
+to rely on municipalities to release it through their open data portals. The format of the data from each municipality is
+different, so lazy me is only importing data from City of Vancouver, although some other nearby municipalities are also releasing
+there data.</p>
+
+<p>The motivation behind the map was to understand the building stock. Some effort was made to filter out parks, but the
+algorithm is far from perfect and will often includes parks that host building
+structures, as well as marinas with structures on them.</p>
+
+<p>The new city dataset does not include the 2016 tax levy, so we still only show the 2015 tax levies until CoV updated their dataset.</p>
+
+<h4>Neighbourhoods</h4>
+
+<p>Lastly a quick overview over the neighbourhoods. Land values have increased throughout in the year, on average by 22% year
+over year. I aggregated all tax data by neighbourhood and split it into land value and building value increases.
+These numbers should be used as guidance only, they mix lots of different types of properties and include parks.</p>
+
+<p>When looking at all properties in the city, the increase in land
+value year over year was 21.4% ($45.2bn), while overall building values increasing by 7.3% ($5bn).</p>
+
+<p>Here is the breakdown by neighbourhood:</p>
+
+<ul>
+<li>Renfrew-Collingwood: Land: 30.6% ($1.2bn), Building: 5.8% ($46.0m)</li>
+<li>Sunset: Land: 26.6% ($1.6bn), Building: 5.9% ($74.2m)</li>
+<li>Oakridge: Land: 17.6% ($1.2bn), Building: 12.6% ($207.4m)</li>
+<li>Downtown: Land: 16.9% ($0.8bn), Building: 3.2% ($91.2m)</li>
+<li>Kerrisdale: Land: 18.7% ($1.3bn), Building: 3.3% ($54.1m)</li>
+<li>Victoria-Fraserview: Land: 28.0% ($1.5bn), Building: 5.6% ($65.2m)</li>
+<li>Grandview-Woodland: Land: 24.9% ($1.7bn), Building: 0.7% ($17.4m)</li>
+<li>West End: Land: 22.6% ($2.5bn), Building: 3.5% ($188.4m)</li>
+<li>Hastings-Sunrise: Land: 25.1% ($1.1bn), Building: 4.9% ($63.8m)</li>
+<li>Killarney: Land: 17.8% ($0.3bn), Building: 14.1% ($241.6m)</li>
+<li>Marpole: Land: 17.8% ($0.3bn), Building: 14.1% ($241.6m)</li>
+<li>Kitsilano: Land: 21.6% ($3.3bn), Building: 4.3% ($134.5m)</li>
+<li>Shaughnessy: Land: 18.6% ($1.7bn), Building: 7.4% ($117.7m)</li>
+<li>West Point Grey: Land: 20.2% ($2.3bn), Building: 5.2% ($88.3m)</li>
+<li>Fairview: Land: 19.4% ($2.0bn), Building: -1.0% (-$52.4m)</li>
+<li>Downtown Eastside: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
+<li>Kensington-Cedar Cottage: Land: 24.9% ($1.7bn), Building: 0.7% ($17.4m)</li>
+<li>Riley Park: Land: 26.4% ($1.0bn), Building: 4.0% ($40.2m)</li>
+<li>Mount Pleasant: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
+<li>South Cambie: Land: 20.9% ($1.5bn), Building: 21.4% ($268.1m)</li>
+<li>Strathcona: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
+<li>Dunbar Southlands: Land: 21.8% ($1.0bn), Building: 11.2% ($126.6m)</li>
+<li>Arbutus Ridge: Land: 21.4% ($1.6bn), Building: 1.1% ($17.3m)</li>
+</ul>
+
+
+<p>It becomes immediately clear that the increase in property values is mostly driven by land, note that total value increases
+for land and buildings are reported in billions and millions, respectively. The building stock does not
+have time to catch up, with the exception of South Cambie. Fairview stands out with declining overall building values.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Canvas vs SVG]]></title>
@@ -395,105 +500,6 @@ the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a
 <li>Killarney: $7.7/m&sup2;</li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vancouver Bike Paths]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/04/01/bike-paths/"/>
-    <updated>2015-04-01T16:24:34-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/04/01/bike-paths</id>
-    <content type="html"><![CDATA[<p>Motivated by the excellent <a href="http://www.washingtonpost.com/blogs/wonkblog/wp/2015/04/01/bleak-maps-of-how-cities-look-using-only-their-bike-lanes/">Washington Post Wonkblog</a> I
-mapped Vancouver&rsquo;s bike infrastructure. Looks good at first, but when you take out the &lsquo;fake&rsquo; &ldquo;Local Street&rdquo; bikeways more in line with Wonkblog&rsquo;s methodology it&rsquo;s looking pretty
-bleak in large portions of the city.</p>
-
-<p>Of course the devil is in the details and infrastructure cannot just be judged by how it&rsquo;s labeled. If one were to look for 8-80 infrastructure, then the separated lanes
-would make the cut. Some of the bike lanes would be marginal, but most would probably make the cut. Although I can&rsquo;t say that I would be particularly keen to let an 8yo cycle on
-some of them.</p>
-
-<p>Vancouver&rsquo;s &ldquo;Shared Lanes&rdquo; are not for the faint of heart. They have 50 speed limits on multi-lane roadways
-and feature sharrows to make it a little easier for cyclists to &lsquo;take the lane&rsquo;. In some cases cyclists share a lane with
-the buses, which is a little better.</p>
-
-<p>The local streets are mostly car tunnels like the &lsquo;Off-Broadway&rsquo; and won&rsquo;t qualify as 8-80, but there are some exceptions like
-the local street portion of Pt. Grey Rd, where cycling is rather pleasant.</p>
-
-<iframe src="http://doodles.mountainmath.ca/bike_paths.html?fh=50&nh=true" width="100%" height="580"></iframe>
-
-
-<p><a href="/bike_paths.html">Full screen view</a></p>
-
-<p>Methodology is simple, it&rsquo;s just the city&rsquo;s bike path data from <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">their open data catalogue</a>. The data
-comes with two fields, &lsquo;name&rsquo; and &lsquo;type&rsquo;. The &lsquo;type&rsquo; was used for the checkboxes at the bottom to selectively turn different
-bike lane types on or off and the &lsquo;name&rsquo; will be displayed on hover.</p>
-
-<h3>Update</h3>
-
-<h4>Some more <strike>Canadian</strike> cities:</h4>
-
-<p><a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary,street&amp;type=BICYCLE_CL&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">Calgary on street</a>,
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary,pathways&amp;type=PRIORITY&amp;name=LOCATION_D&amp;dataUrl=http://doodles.mountainmath.ca/data/YYC_Path_BikeRoutes.geojson">Calgary pathways</a>,
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary,trails&amp;type=TYPE_DESCR&amp;name=LOCATION_D&amp;dataUrl=http://doodles.mountainmath.ca/data/YYC_Trail_BikeRoutes.geojson">Calgary trails</a>,
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Victoria&amp;type=FullDescr&amp;dataUrl=http://doodles.mountainmath.ca/data/VicBikeRoutes.geojson">Victoria</a>,
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Montreal&amp;name=PROJET_NOM&amp;dataUrl=http://doodles.mountainmath.ca/data/MontrealBikeRoutes.geojson">Montreal</a>,
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Toronto&amp;type=CP_TYPE&amp;dataUrl=http://doodles.mountainmath.ca/data/TorontoBikeRoutes.geojson">Toronto</a>
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Portland&amp;type=FACILITYDE&amp;name=SEGMENTNAM&amp;dataUrl=http://doodles.mountainmath.ca/data/PDXBikeRoutes.geojson">Portland</a>
-<a href="http://doodles.mountainmath.ca/bike_paths?city=NYC&amp;type=TF_Facilit&amp;name=Street&amp;fh=65&amp;dataUrl=http://doodles.mountainmath.ca/data/NYCBikeRoutes.geojson">NYC</a>
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Amsterdam&amp;type=HIGHWAY&amp;name=WIDTH&amp;dataUrl=http://doodles.mountainmath.ca/data/AmsterdamBikeRoutes.geojson">Amsterdam</a>
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Taipei&amp;name=RDNAME&amp;dataUrl=http://doodles.mountainmath.ca/data/TPEBikeRoutes.geojson">Taipei</a></p>
-
-<p>A word of caution. I have done zero data cleaning or verification. Some of these maps are missing some type of infrastructure.
-I am familiar with cycling conditions in Calgary, and their the extensive network along the river and other areas are missing in their main file.
-I added two more separate maps for their trails and pathways, but was too lazy to merge them. For Taipei, I noticed that
-the off-street paths along streets are missing, for example the one on Dunhua Bei Lu that I was using a lot a year ago. Not sure if or where these are available.
-So some more ground truth is needed for proper interpretation. But fun anyway.</p>
-
-<p>Want to map another city&rsquo;s data? No problem, just read on.</p>
-
-<!-- more -->
-
-
-<ol>
-<li>Locate the city&rsquo;s bikeway data and download it.</li>
-<li>Convert the data to geojson, with coordinates in latitude and longitude.</li>
-<li>Put the geojson file online somewhere, e.g. your public dropbox folder.</li>
-<li>Optionally look at the geojson file for a bikeway type descriptor and bikeway name, if available.</li>
-<li>Build a url for your map by using [<a href="http://doodles.mountainmath.ca/bike_paths">http://doodles.mountainmath.ca/bike_paths</a>] as a base url and add query strings
-
-<ul>
-<li><code>dataUrl=&lt;url to your geojson&gt;</code></li>
-<li><code>city=&lt;city name&gt;</code></li>
-<li>optionally <code>type=&lt;bikeway type property&gt;</code></li>
-<li>optionally <code>name=&lt;bikeway name property&gt;</code></li>
-<li>optionally <code>zoom=true</code> if you want to be able to zoom and pan on the map</li>
-</ul>
-</li>
-</ol>
-
-
-<p>For example, to map Calgary&rsquo;s bike network you need to <a href="https://data.calgary.ca/opendata/Pages/DatasetListingAlphabetical.aspx#C">got to their open data website</a> and
-download the Tranportation Bikeways shapefiles (SHP). To convert them go geojson using <code>ogr2ogr</code></p>
-
-<pre><code>ogr2ogr -f GeoJSON -simplify 1 -s_srs CALGIS_TRAN_BIKEWAY.prj -t_srs "EPSG:4326" CALGIS_TRAN_BIKEWAY.geojson CALGIS_TRAN_BIKEWAY.shp
-</code></pre>
-
-<p>from the <a href="http://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries">GDAL package</a>.</p>
-
-<p>I uploaded the geojson to <code>http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson</code>, so that will be the value of the <code>dataUrl</code> query string.</p>
-
-<p>Looking at the resulting geojson file you will see that the data does not include bikeway names, but it does include
-types and the property is called <code>BICYCLE_CL</code>.</p>
-
-<p>The rather lengthy link to the map would then be
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson</a></p>
-
-<iframe src="http://doodles.mountainmath.ca/bike_paths?city=Calgary&type=BICYCLE_CL&fh=50&nh=true&dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson" width="100%" height="580"></iframe>
-
-
-<p>Or if you want to zoom into Calgary&rsquo;s sprawling suburbs, you could also enable zooming (using double-click) and panning
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;zoom=true&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;zoom=true&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson</a></p>
-
-<p>Happy Mapping!</p>
 ]]></content>
   </entry>
   

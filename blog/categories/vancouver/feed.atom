@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-06T15:57:34-08:00</updated>
+  <updated>2016-01-17T16:38:07-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,111 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Updated Vancouver Assessment Data]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/"/>
+    <updated>2016-01-17T11:34:09-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data</id>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/assessment?layer=4"><img  src="http://doodles.mountainmath.ca/images/relative_land.jpg" style="width:25%;float:right"></a>
+The friendly folks at
+<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> just
+<a href="https://twitter.com/VanOpenData/status/688060388190097408">updated their property assessment data</a> with the fresh 2016
+property tax assessments. Time to run the script to update the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a>
+with the new data. And for good measure I pasted over some of the thematic map engine from <a href="https://censusmapper.ca">CensusMapper</a>
+to improve the mapping performance.</p>
+
+<h4>Maps</h4>
+
+<!-- more -->
+
+
+<p><img  src="http://doodles.mountainmath.ca/images/map_menu.png" style="width:25%;float:left">The <a href="https://mountainmath.ca/map/assessment">interactive assessment map</a> offers several views. In the panel on the top
+right we can select how to view the data. It offers standard thematic maps for value change, total value, building value
+and building age and zoning. And there are some options that warrant more explanation:</p>
+
+<ul>
+<li><a href="https://mountainmath.ca/map/assessment?layer=5"><em>Relative Land Value</em>:</a> This map is colouring each property by the
+land value per m&sup2;. We can immediately spot the east-west land gradient, as well as how zoning effects land value.
+When zooming in we also see the effect of lot size on land value.</li>
+<li><a href="https://mountainmath.ca/map/assessment?layer=4"><em>Relative Value of Building</em>:</a>
+<a href="https://mountainmath.ca/map/assessment?layer=4"><img  src="http://doodles.mountainmath.ca/images/teardown.jpg" style="width:25%;float:right"></a>
+This map simply divides the building value
+by the total property value. There are many ways to interpret this map, my favourite is to use this as a &ldquo;Teardown Predictor&rdquo;.
+Essentially, as the percentage of the building value approaches zero the probability that it will get torn down in the
+near future increases. Imagine someone spending $1.5m to buy a property with a house valued at $37k. Many people don&rsquo;t
+mind living in a house worth $37k, but someone who is spending $1.5m would probably prefer to buy a different property
+with a higher quality house. Or spend more money to upgrade the house. How will it be upgraded? Renovating is in most
+cases economically unsound, most people will choose to tear down and rebuild. In fact, the <em>teardown threshold</em> is
+likely higher than the 2.5% in the example given. The percentage of properties in Vancouver where the building value is
+less than 2.5% of the total value has slightyl decreaed in the last year from 17.9% to 17.8%, but the percentage of properties
+with building value less than 5% of the total value has increased from 32% to 33.5% during the last year.</li>
+<li><a href="https://mountainmath.ca/map/assessment?layer=10"><em>Tax Density</em>:</a> This map looks at the amount of tax dollars collected
+by the city per area. It tells us the relative rate at what each property is contributing to city services. We can again
+observe the impact of exclusionary zoning.</li>
+</ul>
+
+
+<h4>The Data</h4>
+
+<p>The data originates with BC Assessment, which estimates land and building values of each property based on recent sales
+of comparable properties. The assessment was done in summer 2015 and is based on sales before that, so at this point in
+time the data lags the market by about one year.</p>
+
+<p>Sadly, BC Assessment does not give out their data with a license that would allow mapping it the way I do, so we have
+to rely on municipalities to release it through their open data portals. The format of the data from each municipality is
+different, so lazy me is only importing data from City of Vancouver, although some other nearby municipalities are also releasing
+there data.</p>
+
+<p>The motivation behind the map was to understand the building stock. Some effort was made to filter out parks, but the
+algorithm is far from perfect and will often includes parks that host building
+structures, as well as marinas with structures on them.</p>
+
+<p>The new city dataset does not include the 2016 tax levy, so we still only show the 2015 tax levies until CoV updated their dataset.</p>
+
+<h4>Neighbourhoods</h4>
+
+<p>Lastly a quick overview over the neighbourhoods. Land values have increased throughout in the year, on average by 22% year
+over year. I aggregated all tax data by neighbourhood and split it into land value and building value increases.
+These numbers should be used as guidance only, they mix lots of different types of properties and include parks.</p>
+
+<p>When looking at all properties in the city, the increase in land
+value year over year was 21.4% ($45.2bn), while overall building values increasing by 7.3% ($5bn).</p>
+
+<p>Here is the breakdown by neighbourhood:</p>
+
+<ul>
+<li>Renfrew-Collingwood: Land: 30.6% ($1.2bn), Building: 5.8% ($46.0m)</li>
+<li>Sunset: Land: 26.6% ($1.6bn), Building: 5.9% ($74.2m)</li>
+<li>Oakridge: Land: 17.6% ($1.2bn), Building: 12.6% ($207.4m)</li>
+<li>Downtown: Land: 16.9% ($0.8bn), Building: 3.2% ($91.2m)</li>
+<li>Kerrisdale: Land: 18.7% ($1.3bn), Building: 3.3% ($54.1m)</li>
+<li>Victoria-Fraserview: Land: 28.0% ($1.5bn), Building: 5.6% ($65.2m)</li>
+<li>Grandview-Woodland: Land: 24.9% ($1.7bn), Building: 0.7% ($17.4m)</li>
+<li>West End: Land: 22.6% ($2.5bn), Building: 3.5% ($188.4m)</li>
+<li>Hastings-Sunrise: Land: 25.1% ($1.1bn), Building: 4.9% ($63.8m)</li>
+<li>Killarney: Land: 17.8% ($0.3bn), Building: 14.1% ($241.6m)</li>
+<li>Marpole: Land: 17.8% ($0.3bn), Building: 14.1% ($241.6m)</li>
+<li>Kitsilano: Land: 21.6% ($3.3bn), Building: 4.3% ($134.5m)</li>
+<li>Shaughnessy: Land: 18.6% ($1.7bn), Building: 7.4% ($117.7m)</li>
+<li>West Point Grey: Land: 20.2% ($2.3bn), Building: 5.2% ($88.3m)</li>
+<li>Fairview: Land: 19.4% ($2.0bn), Building: -1.0% (-$52.4m)</li>
+<li>Downtown Eastside: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
+<li>Kensington-Cedar Cottage: Land: 24.9% ($1.7bn), Building: 0.7% ($17.4m)</li>
+<li>Riley Park: Land: 26.4% ($1.0bn), Building: 4.0% ($40.2m)</li>
+<li>Mount Pleasant: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
+<li>South Cambie: Land: 20.9% ($1.5bn), Building: 21.4% ($268.1m)</li>
+<li>Strathcona: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
+<li>Dunbar Southlands: Land: 21.8% ($1.0bn), Building: 11.2% ($126.6m)</li>
+<li>Arbutus Ridge: Land: 21.4% ($1.6bn), Building: 1.1% ($17.3m)</li>
+</ul>
+
+
+<p>It becomes immediately clear that the increase in property values is mostly driven by land, note that total value increases
+for land and buildings are reported in billions and millions, respectively. The building stock does not
+have time to catch up, with the exception of South Cambie. Fairview stands out with declining overall building values.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Hidden Mortgage]]></title>
@@ -365,56 +470,6 @@ types and the property is called <code>BICYCLE_CL</code>.</p>
 <a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;zoom=true&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;zoom=true&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson</a></p>
 
 <p>Happy Mapping!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vancouver Assessment Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/"/>
-    <updated>2015-03-23T16:20:43-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data</id>
-    <content type="html"><![CDATA[<p>The City of Vancouver has recently
-updated <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">their open data catalogue</a> with historic tax
-data. We figured that would
-be a good time to take our previous rather clumsy attempts to map tax data and polish that up a bit.</p>
-
-<p>This time we put in a couple of evenings to build a more responsive map with multiple options of what to map. Head
-straight for <a href="http://mountainmath.ca/map/assessment">&lsquo;the map&rsquo;</a> or read on for some background information, including
-some methodology on data cleaning and interpolation.</p>
-
-<p><a href="http://mountainmath.ca/map/assessment"><img src="/images/land_value.jpg" alt="&quot;Land Values&quot;" /></a></p>
-
-<!-- more -->
-
-
-<p>Our previous <a href="/teardown_map.html">&lsquo;teardown map&rsquo;</a> and <a href="/teardown_map.html">&lsquo;high value map&rsquo;</a> suffered from being a static
-websites, and they loaded large amounts of data all at once, 30,000 properties for the teardown map, and display
-the all at once. Options were limited for displaying more detailed data when selecting individual properties.
-For the viewer this resulted more in an exercise of patience than in an &lsquo;interactive&rsquo; experience.</p>
-
-<p>We decided to remedy this by importing the CoV data into a database and chop the data up dynamically and serve it as vector tiles.
-For smaller zoom levels we aggregated data at the block level. There are lots of blocks in Vancouver, 4444 that contain
-properties with tax information to be precise. So again the map is a little sluggish on mobile devices and slower machines when zoomed out,
-but things get much faster as we zoom in.</p>
-
-<p>Moreover, we now have the ability to easily display more detailed information once the use selects an individual
-property or block aggregate. We can display a graph with the development of land and building values and other details.
-And we integrated google streetview for good measure.</p>
-
-<p>One issue that came up is that CoV historical data has lots of gaps. For example, when a particular property was
-re-developed it gets a new tax number. The tax information for the old property is lost and cannot be connected to the
-geographic site using the information provided by CoV. So when we display data showing &lsquo;value change&rsquo; between
-2006 and 2014 we color these properties in grey. This problem persists when we aggregate information at the block level.
-To avoid greying out lots of blocks we extrapolate the missing data by using citywide averages on growth rates
-of land and building values for the properties in question. This will likely underestimate the aggregate growth in building
-and land value, but will not have a big impact at the block level if the individual property value in question was
-comparatively small. But this was not always the case. Better analysis could solve some of these issues, so does
-zooming in to the individual property level.</p>
-
-<p>Another issue is that CoV does not provide historic zoning information. It would be interesting to get historic zoning
-and development permit information. Some of this data is already available, albeit not in an easily consumable form.</p>
-
-<p>Other than that a big thanks to the folks maintaining the CoV open data catalogue!</p>
 ]]></content>
   </entry>
   
