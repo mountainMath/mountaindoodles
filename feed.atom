@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-17T21:38:21-08:00</updated>
+  <updated>2016-01-19T12:02:32-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,504 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[On Teardowns]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/"/>
+    <updated>2016-01-18T09:52:33-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment</id>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/special/17"><img  src="http://doodles.mountainmath.ca/images/teardowns.png" style="width:50%;float:left"></a>
+On the heels of the <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">new assessment data</a> we
+can start to slice the data in different ways to understand various aspects of the real estate landscape in Vancouver. The
+fact that <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> makes historic data available
+gives the ability to look for changes over time.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment">Our maps</a> explore this by visualizing some aspects of these changes for all
+properties, but it might also be useful to filter the properties we show to focus in on specific criteria. We will
+investigate the data to predict which buildings will get torn down next and map them. Long story short, we predict that
+1 in 20 buildings <a href="https://mountainmath.ca/map/special/17">on this map</a> will get torn down and rebuilt by 2026.</p>
+
+<h3>Building temporal distribution</h3>
+
+<!-- more -->
+
+
+<p>One interesting aspect is to go deeper down the road of the <a href="https://mountainmath.ca/map/assessment?layer=7">age of the building stock</a>.</p>
+
+<p>To get a better overview of the building stock through time we can graph the number of buildings by age. We look at buildings, not units. So a stratified
+building with 100 units would still count as one building in our graph. And it is not looking at how many buildings were
+built in each year, but how many buildings that were built in a given year are still standing today.</p>
+
+<p>We still have 7 buildings in Vancouver that were built before 1900 (the earliest from 1800). Skipping these we graph the
+rest to get:</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_age" style="height:200px;max-width:640px;" data-url="/data/building_age.json"></div>
+<div class="legend no-margin">
+  <p><i style="background:blue"></i> Building Age <span style="float:right;margin-right:10px;" id="building_age_value"></span></p>
+</div>
+</div>
+
+
+<p>Starting with 1950 the distribution of buildings by age is quite uniform, with a short peak around the early 1990s.</p>
+
+<p>The dip at the end is due to some lag in new buildings showing up in the property dataset. Looking at the more recent history
+it is safe to assume that the number of buildings still standing corresponds well to the buildings of units built in that year.
+So the pace of new buildings right now seems to fit in quite well with the recent history and is a little lower than the
+peak in the early 1990s.</p>
+
+<h3>Recent Building stock spacial distribution</h3>
+
+<p><a href="https://mountainmath.ca/map/special/15"><img  src="http://doodles.mountainmath.ca/images/rebuilds.png" style="width:50%;float:left"></a>
+The next question is to focus in at the spacial distribution of recent redevelopment by filtering out older buildings.
+Being too lazy to add a bush for dynamic selection of time ranges I just made a static (in time) view only showing the
+<a href="https://mountainmath.ca/map/special/15?zoom=13">6883 properties built after 2006</a>. What&rsquo;s interesting is when selecting
+<a href="https://mountainmath.ca/map/special/15?zoom=16&amp;lat=49.2341&amp;lng=-123.1824&amp;layer=4">relative building value view</a> that
+there are some properties that have been recently re-developed with increadibly low building value, like the property
+at 5649 Dunbar St. This gives a window into some of the imperfections of the BC Assessment process where the building
+value after re-development is not properly reflected in their dataset.</p>
+
+<p>It also shows that recent building activity is fairly uniform across the city, with only some areas standing out as having little
+development like the West End, parts of Kitsilano and Strathcona.</p>
+
+<h3>What gets rebuilt next?</h3>
+
+<p>The big question is of course where new buildings get built next. In a built up space like Vancouver there are few sites
+left where building a new building does not mean tearing down an old one. So another way to ask that question is: What
+gets torn down next?</p>
+
+<h3>Teardown Probability</h3>
+
+<p>Predicting which building will get torn down next is of course impossible. So what we try to do is assign a &ldquo;teardown
+probability&rdquo; to each building. And actually, we won&rsquo;t assign that probability to each building but rather try and highlight
+the buildings that are at <em>high teardown risk</em>.</p>
+
+<p>Let&rsquo;s first try to understand why a particular building might get torn down as opposed to the one next door. Typically
+buildings get torn down at the time when they change ownership. So if a building is not sold, it is far less likely to
+get torn down. So what makes a building more likely to get torn down when it is sold? One hypothesis would be that the
+value of the building relative to the land should play an important factor. Let&rsquo;s test this hypothesis using the data.</p>
+
+<p>We take the 2006 tax dataset as a baseline and check how many of the buildings have been torn down by 2016. There is some
+messiness in the data, to make things simple and clean we take all properties in the 2006 dataset that are marked as
+having been built no later than 2006 (some are not marked at all and some are marked as being built after 2006). We only
+count buildings, so we count a strata lot with 100 units in the same building as one building. Then we use the 2016 dataset
+to check how many of them are still around, identifying them by their tax coordinate and again asking they be marked as
+being built not later than 2006. In some cases we could mis-identify a building as being torn down when for example a
+unit bought the neighbouring property and unified the two into a single property without changing the building. In this
+case they would get a new tax coordinate and we could not link up the property with a corresponding one in the 2016 tax
+data. But these cases are rare.</p>
+
+<p>Next we sort the properties by their building value to total value percentage, the &ldquo;teardown coefficient&rdquo; using the
+2006 tax assessment data and we check how each group fares.</p>
+
+<p>First up a graph of the distribution of buildigs in 2006 by their <em>teardown coefficient</em>.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_buildings_by_teardown" style="height:200px;max-width:640px;" data-url="/data/buildings_by_teardown.json"></div>
+<div class="legend no-margin">
+  <p><i style="background:blue"></i> Number of Buildings by *teardown coefficient* <span style="float:right;margin-right:10px;" id="buildings_by_teardown_value"></span></p>
+</div>
+</div>
+
+
+<p>Next up the number of buildings in each category that got torn down:</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_teardowns" style="height:200px;max-width:640px;" data-url="/data/teardowns.json"></div>
+<div class="legend no-margin">
+  <p><i style="background:blue"></i> Number of Torn Down Buildings by *teardown coefficient* <span style="float:right;margin-right:10px;" id="teardowns_value"></span></p>
+</div>
+</div>
+
+
+<p>And most importantly the probability that a building in a given <em>teardown coefficeint</em> range gets torn down, where we only show
+the graph up to a <em>teardown coefficient</em> of 30%:</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_teardown_probability" style="height:200px;max-width:640px;" data-url="/data/teardown_probability.json"></div>
+<div class="legend no-margin">
+  <p><i style="background:blue"></i> Probability of Building being torn down by *teardown coefficient* <span style="float:right;margin-right:10px;" id="teardown_probability_value"></span></p>
+</div>
+</div>
+
+
+<p>So what have we learned from this? The <em>teardown coefficient</em> has high bredictive value for a building to be torn down and
+beig rebuilt in the following 10 years. Buildings with a <em>teardown coefficient</em> below 5% have a 5.5% chance, and the
+probability declines exponentially down to zero at a teardown coefficient of about 25%. If we were more serious about this
+we would fit and expontential curve to the data and compute how well it fits the data, repeat the computation for
+other timeframes, run it on individual neighbourhoods and maybe also on <a href="https://data.surrey.ca">data from other municipalities</a>
+to properly validate our model. We could also refine the model by throwing out the designated heritage properties, as
+they can&rsquo;t be torn down as easily which skews the data. But there are only 440 such properties with a teardown coefficient below 5%,
+so it won&rsquo;t have too much of an effect.</p>
+
+<h3>Predicting Teardowns</h3>
+
+<p>Now to the &ldquo;fun&rdquo; part: Predicting teardowns. How many buildings will get torn down and rebuilt in the next 10 years? Let&rsquo;s
+use what we have just learned to extrapolate.</p>
+
+<p>First up the graph of the 2016 buildings by <em>teardown coefficient</em>:</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_buildings_by_teardown_2" style="height:200px;max-width:640px;" data-url="/data/buildings_by_teardown_2.json"></div>
+<div class="legend no-margin">
+  <p><i style="background:blue"></i> 2016 Building stock by *teardown coefficient* <span style="float:right;margin-right:10px;" id="buildings_by_teardown_2_value"></span></p>
+</div>
+</div>
+
+
+<p>And then the number of buildings that we predict to be torn down in each category (up to 30% <em>teardown coefficient</em>):</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_teardowns_2" style="height:200px;max-width:640px;" data-url="/data/teardowns_2.json"></div>
+<div class="legend no-margin">
+  <p><i style="background:blue"></i> Estimate of Buildings rebuilt by 2026 <span style="float:right;margin-right:10px;" id="teardowns_2_value"></span></p>
+</div>
+</div>
+
+
+<h3>Mapping Teardowns</h3>
+
+<p><a href="https://mountainmath.ca/map/special/17"><img  src="http://doodles.mountainmath.ca/images/teardowns.png" style="width:50%;float:right"></a>Now that we
+understand how to assign a teardown probability to buildings, let&rsquo;s map them! To keep things as simple as
+possible let&rsquo;s focus in on the homes with a teardown coefficient below 5%. They make up the bulk in our prediction and
+have the simple interpretation that 1 in 20 of these will get replaced by something else by 2026. So <a href="https://mountainmath.ca/map/special/17">here is the
+interactive map</a> of just these 31301 buildings.</p>
+
+<script>
+
+
+function bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter){
+    if (!domainFormatter) domainFormatter=d3.format("d")
+    if (!rangeFormatter)
+     rangeFormatter = function (y) {
+        return y;
+     };
+     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
+
+var margin = {top: 20, right: 20, bottom: 40, left: 70},
+    width = parseInt(div.style("width")) - margin.left - margin.right,
+    height = parseInt(div.style("height")) - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickFormat(domainFormatter)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(rangeFormatter)
+    .ticks(5, rangeFormatter);
+
+var svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data_url=div[0][0].dataset.url;
+
+d3.json(data_url, function(error, json) {
+  if (error) throw error;
+  var graphData=json[0];
+  var data=graphData.data;
+  x.domain(data.map(function(d) { return d.date }));
+  y.domain([0, d3.max(data, function(d) { return d.count; })]);
+  
+  var domainTickValues=[];
+  var skip=Math.round(40/x.rangeBand());
+  if (skip<=0) skip=1;
+  for (var i=0;i<x.domain().length;i++) {
+    if (i % skip==0) domainTickValues.push(x.domain()[i]);
+  }
+  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
+  xAxis.tickValues(domainTickValues);
+
+  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(" + xShift + "," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//    .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Probability");
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", graphData.class)
+      .attr("fill", graphData.color)
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.count); })
+      .attr("height", function(d) { return height - y(d.count); })
+      .on('mouseover',function(d){
+         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeFormatter(d.count)) 
+      }).on('click',function(d){
+       d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeFormatter(d.count)) 
+      }).on('touch',function(d){
+         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeFormatter(d.count)) 
+      }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
+
+      
+});
+
+function type(d) {
+  d.frequency = +d.frequency;
+  return d;
+}
+}
+
+var ready_for_graph = function(graphs,domainFormatter,numberFormatter) {
+    var d3lines=[];
+    var padding = {top: 20, right: 20, bottom: 30, left: 90};
+    var prevChartWidth = 0, prevChartHeight = 0;
+    var updateTransistionMS = 750; // milliseconds
+    var sourceData, lineData, xScale, yScale, line;
+
+    var symbol;
+    var prefix;
+    if (!domainFormatter) domainFormatter=d3.format("d")
+    if (!numberFormatter)
+     numberFormatter = function (y) {
+        return y;
+     };
+
+    //var graphs=d3.select("#graph");
+    var div=graphs[0][0];
+    if (div==null|| div.childElementCount!=0) {return;}
+    var data_url=div.dataset.url;
+
+    // create svg and g to contain the chart contents
+    var baseSvg = graphs.append("svg");
+    var chartSvg=baseSvg
+        .append("g")
+        .attr("class", "chartContainer")
+        .attr("transform", "translate(" + padding.left + "," + padding.top + ")");
+
+    // create the x axis container
+    chartSvg.append("g")
+        .attr("class", "x axis");
+
+    // create the y axis container
+    chartSvg.append("g")
+        .attr("class", "y axis");
+    var line;
+    var largest=null;
+    var lineData;
+    if (div.dataset.lines) {
+        d3.json(div.dataset.lines,function(error,json){
+        lineData=json;
+        var domain=[null,null];
+        var range=[null,null];
+        for (var i=0;i<lineData.length;i++){
+            lineData[i].data.forEach(function(d) {
+                d.date = +d.date;
+                d.count = +d.count;
+                if (domain[0]==null || domain[0]> d.date) domain[0]= d.date;
+                if (domain[1]==null || domain[1]< d.date) domain[1]= d.date;
+                if (range[0]==null || range[0]> d.count) range[0]= d.count;
+                if (range[1]==null || range[1]< d.count) range[1]= d.count;
+            });
+        }
+        xScale=d3.scale.linear().domain(domain);
+        var toAdd=(range[1]-range[0])/10;
+        range[0]-=toAdd;
+        range[1]+=toAdd;
+        yScale=d3.scale.linear()
+            .domain(range);
+
+        line = d3.svg.line()
+            .x(function(d) { return xScale(d.date); })
+            .y(function(d) { return yScale(d.count); })
+            .interpolate("linear");
+
+        xAxis = d3.svg.axis()
+            .scale(xScale)
+            .orient("bottom")
+            .tickFormat(domainFormatter)
+            .tickValues(domain);
+
+        yAxis = d3.svg.axis()
+            .scale(yScale)
+            .orient("left")
+            .tickFormat(numberFormatter)
+            .ticks(5);
+
+        prefix = d3.formatPrefix(range[1]);
+        if (prefix.symbol=='K') {
+            symbol='k'
+        } else if (prefix.symbol=='M') {
+                symbol='m'
+        } else if (prefix.symbol=='G') {
+            symbol='bn'
+        } else if (prefix.symbol=='T') {
+            symbol='tn'
+        }
+        updateChart(true);
+        });
+
+    }
+
+
+    function updateChart(init)
+    {
+        // get the height and width subtracting the padding
+//    var innerHeight = window.innerHeight - 20;
+        var innerWidth = window.innerWidth - 20;
+        var divWidth=$(div).width();
+        if (divWidth==0) divWidth=$(div.parentElement.parentElement).width();
+        var maxWidth=parseInt($(div).css('max-width'));
+        if (divWidth==0) divWidth=innerWidth*0.8;
+        if (divWidth>maxWidth) divWidth=maxWidth;
+        var chartWidth = divWidth-padding.left-padding.right;//960 - margin.left - margin.right,
+        var chartHeight = $(div).height()-padding.top-padding.bottom;//500 - margin.top - margin.bottom;
+
+
+        // only update if chart size has changed
+        if ((prevChartWidth != chartWidth) ||
+            (prevChartHeight != chartHeight)) {
+            prevChartWidth = chartWidth;
+            prevChartHeight = chartHeight;
+
+            //set the width and height of the SVG element
+            chartSvg.attr("width", chartWidth + padding.left + padding.right)
+                .attr("height", chartHeight + padding.top + padding.bottom);
+            baseSvg.attr("width", chartWidth + padding.left + padding.right)
+                .attr("height", chartHeight + padding.top + padding.bottom);
+
+            // ranges are based on the width and height available so reset
+            xScale.range([0, chartWidth]);
+            yScale.range([chartHeight, 0]);
+
+            if (init) {
+                // if first run then just display axis with no transition
+                chartSvg.select(".x")
+                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
+                    .attr("transform", "translate(0," + chartHeight + ")")
+                    .call(xAxis);
+
+                chartSvg.select(".y")
+                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
+                    .call(yAxis);
+            }
+            else {
+                // for subsequent updates use a transistion to animate the axis to the new position
+                var t = chartSvg.transition().duration(updateTransistionMS);
+
+                t.select(".x")
+                    .attr("transform", "translate(0," + chartHeight + ")")
+                    .call(xAxis);
+
+                t.select(".y")
+                    .call(yAxis);
+            }
+
+            for (var i = 0; i < lineData.length; i++) {
+                var sourceData=lineData[i].data;
+                var color=lineData[i].color;
+                var label=lineData[i].label;
+                var className=lineData[i].class;
+
+                // bind up the data to the line
+                var lines = chartSvg.selectAll("path.line."+className)
+                    .data([lineData[i].data]); // needs to be an array (size of 1 for our data) of arrays
+
+                // transistion to new position if already exists
+                lines.transition()
+                    .duration(updateTransistionMS)
+                    .attr("d", line);
+
+                // add line if not already existing
+                lines.enter().append("path")
+                    .attr("class", "line")
+                    .attr("stroke", color)
+                    .attr("stroke-width", 2)
+                    .attr('fill','none')
+                    .attr("d", line);
+
+                // bind up the data to an array of circles
+                var circle = chartSvg.selectAll("circle."+className)
+                    .data(sourceData);
+
+                // if already existing then transistion each circle to its new position
+                circle.transition()
+                    .duration(updateTransistionMS)
+                    .attr("cx", function (d) {
+                        return xScale(d.date);
+                    })
+                    .attr("cy", function (d) {
+                        return yScale(d.count);
+                    });
+
+                // if new circle then just display
+                circle.enter().append("circle")
+                    .attr("cx", function (d) {
+                        return xScale(d.date);
+                    })
+                    .attr("cy", function (d) {
+                        return yScale(d.count);
+                    })
+                    .attr("r", 3)
+                    .attr('fill', 'transparent')
+                    .style("stroke", color)
+                    .style("stroke-width", 6)
+                    .attr("class", className)
+                    .on('mouseover',function(d){
+                       d3.select('#'+this.classList[0]+'_value').text(domainFormatter(d.date) + ': ' + numberFormatter(d.count)) 
+                    }).on('click',function(d){
+                     d3.select('#'+this.classList[0]+'_value').text(domainFormatter(d.date) + ': ' + numberFormatter(d.count)) 
+                    }).on('touch',function(d){
+                       d3.select('#'+this.classList[0]+'_value').text(domainFormatter(d.date) + ': ' + numberFormatter(d.count)) 
+                    }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
+
+            }
+        }
+    }
+
+    // look for resize but use timer to only call the update script when a resize stops
+    var resizeTimer;
+    window.onresize = function(event) {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function()
+        {
+            updateChart(false);
+        }, 100);
+    }
+
+
+};
+var percentageFormatter=d3.format(".1%");
+var binFormatter=function(d){return percentageFormatter(d-0.025) + ' - ' + percentageFormatter(d);}
+//ready_for_graph(d3.select("#graph"));
+bar_graph(d3.select("#graph_age"),false);
+//ready_for_graph(d3.select("#graph_buildings_by_teardown"),percentageFormatter);
+//ready_for_graph(d3.select("#graph_teardowns"),percentageFormatter);
+bar_graph(d3.select("#graph_buildings_by_teardown"),true,percentageFormatter,null,binFormatter);
+bar_graph(d3.select("#graph_teardowns"),true,percentageFormatter,null,binFormatter);
+bar_graph(d3.select("#graph_teardown_probability"),true,percentageFormatter,percentageFormatter,binFormatter);
+bar_graph(d3.select("#graph_buildings_by_teardown_2"),true,percentageFormatter,null,binFormatter);
+bar_graph(d3.select("#graph_teardowns_2"),true,percentageFormatter,null,binFormatter);
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Updated Vancouver Assessment Data]]></title>

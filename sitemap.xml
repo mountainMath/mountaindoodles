@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/</loc>
+    <lastmod>2016-01-18T09:52:33-08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/</loc>
     <lastmod>2016-01-17T11:34:09-08:00</lastmod>
     <priority>0.8</priority>
@@ -95,21 +101,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2016-01-17T21:38:21-08:00</lastmod>
+    <lastmod>2016-01-19T12:02:32-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2016-01-17T21:38:21-08:00</lastmod>
+    <lastmod>2016-01-19T12:02:32-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2016-01-17T21:38:21-08:00</lastmod>
+    <lastmod>2016-01-19T12:02:32-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
