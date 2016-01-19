@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-19T12:28:18-08:00</updated>
+  <updated>2016-01-19T12:53:22-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -33,7 +33,7 @@ investigate the data to undestand what buildings have been torn down recently an
 down next. And map them. Long story short, we predict that
 1 in 20 buildings <a href="https://mountainmath.ca/map/special/17">on this map</a> will get torn down and rebuilt by 2026.</p>
 
-<h3>Building temporal distribution</h3>
+<h3>Building age temporal distribution</h3>
 
 <!-- more -->
 
@@ -89,8 +89,7 @@ gets torn down next?</p>
 <h3>Teardown Probability</h3>
 
 <p>Predicting which building will get torn down next is of course impossible. So what we try to do is assign a &ldquo;teardown
-probability&rdquo; to each building. And actually, we won&rsquo;t assign that probability to each building but rather try and highlight
-the buildings that are at <em>high teardown risk</em>.</p>
+probability&rdquo; to each building.</p>
 
 <p>Let&rsquo;s first try to understand why a particular building might get torn down as opposed to the one next door. Typically
 buildings get torn down at the time when they change ownership. So if a building is not sold, it is far less likely to
@@ -102,7 +101,7 @@ messiness in the data, to make things simple and clean we take all properties in
 having been built no later than 2006 (some are not marked at all and some are marked as being built after 2006). We only
 count buildings, so we count a strata lot with 100 units in the same building as one building. Then we use the 2016 dataset
 to check how many of them are still around, identifying them by their tax coordinate and again asking they be marked as
-being built not later than 2006.</p>
+being built no later than 2006.</p>
 
 <p>These criteria capture well what we are looking for, but they are not perfect. I won&rsquo;t bore you with the details stemming
 from the intricacies of the dataset.</p>
@@ -130,8 +129,12 @@ from the intricacies of the dataset.</p>
 </div>
 
 
-<p>And most importantly the probability that a building in a given <em>teardown coefficeint</em> range gets torn down, where we only show
-the graph up to a <em>teardown coefficient</em> of 30%:</p>
+<p>We see that our initial hypothesis seems to hold up quite well. The number of buildings that got torn down and rebuilt
+decreases as the <em>teardown coefficient</em> increases. Remember that we defined the <em>teardown coefficient</em> to be the percentage
+of the building value out of the total value of the property.</p>
+
+<p>To explore this further let&rsquo;s graph the frequency with which a building in a given <em>teardown coefficeint</em> range gets torn down.
+To keep things cleaner where we only plot up to a <em>teardown coefficient</em> of 30%:</p>
 
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <div id="graph_teardown_probability" style="height:200px;max-width:640px;" data-url="/data/teardown_probability.json"></div>
@@ -141,21 +144,21 @@ the graph up to a <em>teardown coefficient</em> of 30%:</p>
 </div>
 
 
-<p>So what have we learned from this? The <em>teardown coefficient</em> has high bredictive value for a building to be torn down and
-beig rebuilt in the following 10 years. Buildings with a <em>teardown coefficient</em> below 5% have a 5.5% chance, and the
+<p>We see that the <em>teardown coefficient</em> has high predictive value for a building to be torn down and
+being rebuilt in the following 10 years. Buildings with a <em>teardown coefficient</em> below 5% have a 5.5% chance, and the
 probability declines exponentially down to zero at a <em>teardown coefficient</em> of about 25%. If we were more serious about this
-we would fit and expontential curve to the data and compute how well it fits the data, repeat the computation for
-other timeframes, run it on individual neighbourhoods and maybe also on <a href="https://data.surrey.ca">data from other municipalities</a>
+we would fit and exponential curve to the data and compute how well it fits the data, repeat the computation for
+other time frames, run it on individual neighbourhoods and maybe also on <a href="https://data.surrey.ca">data from other municipalities</a>
 to properly validate our model. We could also refine the model by throwing out the designated heritage properties, as
 they can&rsquo;t be torn down as easily which skews the data. But there are only 440 such properties with a <em>teardown coefficient</em> below 5%,
 so it won&rsquo;t have too much of an effect.</p>
 
 <h3>Predicting Teardowns</h3>
 
-<p>Now to the &ldquo;fun&rdquo; part: Predicting teardowns. How many buildings will get torn down and rebuilt in the next 10 years? Let&rsquo;s
+<p>Now to the main part: Predicting teardowns. How many buildings will get torn down and rebuilt in the next 10 years? Let&rsquo;s
 use what we have just learned to extrapolate.</p>
 
-<p>First up the graph of the 2016 buildings by <em>teardown coefficient</em>:</p>
+<p>First up the graph of the 2016 building stock by <em>teardown coefficient</em>:</p>
 
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <div id="graph_buildings_by_teardown_2" style="height:200px;max-width:640px;" data-url="/data/buildings_by_teardown_2.json"></div>
@@ -165,7 +168,8 @@ use what we have just learned to extrapolate.</p>
 </div>
 
 
-<p>And then the number of buildings that we predict to be torn down in each category (up to 30% <em>teardown coefficient</em>):</p>
+<p>To estimate how many buildings will get torn down and rebuilt in each category we simply multiply each bin with the teardown probability
+from the frequency graph above:</p>
 
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <div id="graph_teardowns_2" style="height:200px;max-width:640px;" data-url="/data/teardowns_2.json"></div>
@@ -175,13 +179,16 @@ use what we have just learned to extrapolate.</p>
 </div>
 
 
+<p>Bottom line, we predict around 2,600 buildings to be torn down and rebuilt by 2026. That&rsquo;s significantly more than the
+around 1,700 buildings that we identified as going through this process in the prior 10 years.</p>
+
 <h3>Mapping Teardowns</h3>
 
 <p><a href="https://mountainmath.ca/map/special/17"><img  src="http://doodles.mountainmath.ca/images/teardowns.png" style="width:50%;float:right"></a>Now that we
 understand how to assign a teardown probability to buildings, let&rsquo;s map them! To keep things as simple as
 possible let&rsquo;s focus in on the homes with a <em>teardown coefficient</em> below 5%. They make up the bulk in our prediction and
-have the simple interpretation that 1 in 20 of these will get replaced by something else by 2026. So <a href="https://mountainmath.ca/map/special/17">here is the
-interactive map</a> of just these 31301 buildings.</p>
+have the simple interpretation that roughly 1 in 20 of these will get replaced by something else by 2026. So
+<a href="https://mountainmath.ca/map/special/17">here is the interactive map</a> of just these 31301 buildings.</p>
 
 <script>
 
