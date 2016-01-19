@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-19T12:02:32-08:00</updated>
+  <updated>2016-01-19T12:08:30-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -18,7 +18,7 @@
     <link href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/"/>
     <updated>2016-01-18T09:52:33-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/special/17"><img  src="http://doodles.mountainmath.ca/images/teardowns.png" style="width:50%;float:left"></a>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/special/17"><img  src="http://doodles.mountainmath.ca/images/teardowns.png" style="width:50%;float:left;margin-right:10px;"></a>
 On the heels of the <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">new assessment data</a> we
 can start to slice the data in different ways to understand various aspects of the real estate landscape in Vancouver. The
 fact that <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> makes historic data available
@@ -60,7 +60,7 @@ peak in the early 1990s.</p>
 
 <h3>Recent Building stock spacial distribution</h3>
 
-<p><a href="https://mountainmath.ca/map/special/15"><img  src="http://doodles.mountainmath.ca/images/rebuilds.png" style="width:50%;float:left"></a>
+<p><a href="https://mountainmath.ca/map/special/15"><img  src="http://doodles.mountainmath.ca/images/rebuilds.png" style="width:50%;float:right"></a>
 The next question is to focus in at the spacial distribution of recent redevelopment by filtering out older buildings.
 Being too lazy to add a bush for dynamic selection of time ranges I just made a static (in time) view only showing the
 <a href="https://mountainmath.ca/map/special/15?zoom=13">6883 properties built after 2006</a>. What&rsquo;s interesting is when selecting
