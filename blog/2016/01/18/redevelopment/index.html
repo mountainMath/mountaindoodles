@@ -122,7 +122,7 @@ investigate the data to predict which buildings will get torn down next and map 
 <!-- more -->
 
 
-<p>One interesting aspect is to go deeper down the road of the <a href="https://mountainmath.ca/map/assessment?layer=7">age of the building stock</a>.</p>
+<p>To start understanding teardowns and rebuilds let&rsquo;s look at the <a href="https://mountainmath.ca/map/assessment?layer=7">age of the building stock</a>.</p>
 
 <p>To get a better overview of the building stock through time we can graph the number of buildings by age. We look at buildings, not units. So a stratified
 building with 100 units would still count as one building in our graph. And it is not looking at how many buildings were
@@ -134,7 +134,7 @@ rest to get:</p>
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <div id="graph_age" style="height:200px;max-width:640px;" data-url="/data/building_age.json"></div>
 <div class="legend no-margin">
-  <p><i style="background:blue"></i> Building Age <span style="float:right;margin-right:10px;" id="building_age_value"></span></p>
+  <p><i style="background:steelblue"></i> Number of Buildings by Building Age <span style="float:right;margin-right:10px;" id="building_age_value"></span></p>
 </div>
 </div>
 
@@ -146,21 +146,25 @@ it is safe to assume that the number of buildings still standing corresponds wel
 So the pace of new buildings right now seems to fit in quite well with the recent history and is a little lower than the
 peak in the early 1990s.</p>
 
-<h3>Recent Building stock spacial distribution</h3>
+<h3>Recent Building stock (and recent teardowns) spacial distribution</h3>
 
 <p><a href="https://mountainmath.ca/map/special/15"><img  src="/images/rebuilds.png" style="width:50%;float:right"></a>
 The next question is to focus in at the spacial distribution of recent redevelopment by filtering out older buildings.
 Being too lazy to add a bush for dynamic selection of time ranges I just made a static (in time) view only showing the
-<a href="https://mountainmath.ca/map/special/15?zoom=13">6883 properties built after 2006</a>. What&rsquo;s interesting is when selecting
+<a href="https://mountainmath.ca/map/special/15?zoom=13">6883 properties built after 2006</a>. It is quite safe to assume that most
+of those new buildings replaced older ones that were torn down. So this map of new buildings is also a map of locations
+of buildings that were torn down in the last 10 years.</p>
+
+<p>What&rsquo;s interesting is when selecting
 <a href="https://mountainmath.ca/map/special/15?zoom=16&amp;lat=49.2341&amp;lng=-123.1824&amp;layer=4">relative building value view</a> that
 there are some properties that have been recently re-developed with increadibly low building value, like the property
 at 5649 Dunbar St. This gives a window into some of the imperfections of the BC Assessment process where the building
 value after re-development is not properly reflected in their dataset.</p>
 
-<p>It also shows that recent building activity is fairly uniform across the city, with only some areas standing out as having little
+<p>It also shows that recent building (or teardown) activity is fairly uniform across the city, with only some areas standing out as having little
 development like the West End, parts of Kitsilano and Strathcona.</p>
 
-<h3>What gets rebuilt next?</h3>
+<h3>What gets torn down and rebuilt next?</h3>
 
 <p>The big question is of course where new buildings get built next. In a built up space like Vancouver there are few sites
 left where building a new building does not mean tearing down an old one. So another way to ask that question is: What
@@ -182,10 +186,10 @@ messiness in the data, to make things simple and clean we take all properties in
 having been built no later than 2006 (some are not marked at all and some are marked as being built after 2006). We only
 count buildings, so we count a strata lot with 100 units in the same building as one building. Then we use the 2016 dataset
 to check how many of them are still around, identifying them by their tax coordinate and again asking they be marked as
-being built not later than 2006. In some cases we could mis-identify a building as being torn down when for example a
-unit bought the neighbouring property and unified the two into a single property without changing the building. In this
-case they would get a new tax coordinate and we could not link up the property with a corresponding one in the 2016 tax
-data. But these cases are rare.</p>
+being built not later than 2006.</p>
+
+<p>These criteria capture well what we are looking for, but they are not perfect. I won&rsquo;t bore you with the details stemming
+from the intricacies of the dataset.</p>
 
 <p>Next we sort the properties by their building value to total value percentage, the &ldquo;teardown coefficient&rdquo; using the
 2006 tax assessment data and we check how each group fares.</p>
@@ -195,7 +199,7 @@ data. But these cases are rare.</p>
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <div id="graph_buildings_by_teardown" style="height:200px;max-width:640px;" data-url="/data/buildings_by_teardown.json"></div>
 <div class="legend no-margin">
-  <p><i style="background:blue"></i> Number of Buildings by *teardown coefficient* <span style="float:right;margin-right:10px;" id="buildings_by_teardown_value"></span></p>
+  <p><i style="background:steelblue"></i> Number of Buildings by *teardown coefficient* <span style="float:right;margin-right:10px;" id="buildings_by_teardown_value"></span></p>
 </div>
 </div>
 
@@ -205,7 +209,7 @@ data. But these cases are rare.</p>
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <div id="graph_teardowns" style="height:200px;max-width:640px;" data-url="/data/teardowns.json"></div>
 <div class="legend no-margin">
-  <p><i style="background:blue"></i> Number of Torn Down Buildings by *teardown coefficient* <span style="float:right;margin-right:10px;" id="teardowns_value"></span></p>
+  <p><i style="background:steelblue"></i> Number of Torn Down Buildings by *teardown coefficient* <span style="float:right;margin-right:10px;" id="teardowns_value"></span></p>
 </div>
 </div>
 
@@ -216,18 +220,18 @@ the graph up to a <em>teardown coefficient</em> of 30%:</p>
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <div id="graph_teardown_probability" style="height:200px;max-width:640px;" data-url="/data/teardown_probability.json"></div>
 <div class="legend no-margin">
-  <p><i style="background:blue"></i> Probability of Building being torn down by *teardown coefficient* <span style="float:right;margin-right:10px;" id="teardown_probability_value"></span></p>
+  <p><i style="background:steelblue"></i> Probability of Building being torn down<span style="float:right;margin-right:10px;" id="teardown_probability_value"></span></p>
 </div>
 </div>
 
 
 <p>So what have we learned from this? The <em>teardown coefficient</em> has high bredictive value for a building to be torn down and
 beig rebuilt in the following 10 years. Buildings with a <em>teardown coefficient</em> below 5% have a 5.5% chance, and the
-probability declines exponentially down to zero at a teardown coefficient of about 25%. If we were more serious about this
+probability declines exponentially down to zero at a <em>teardown coefficient</em> of about 25%. If we were more serious about this
 we would fit and expontential curve to the data and compute how well it fits the data, repeat the computation for
 other timeframes, run it on individual neighbourhoods and maybe also on <a href="https://data.surrey.ca">data from other municipalities</a>
 to properly validate our model. We could also refine the model by throwing out the designated heritage properties, as
-they can&rsquo;t be torn down as easily which skews the data. But there are only 440 such properties with a teardown coefficient below 5%,
+they can&rsquo;t be torn down as easily which skews the data. But there are only 440 such properties with a <em>teardown coefficient</em> below 5%,
 so it won&rsquo;t have too much of an effect.</p>
 
 <h3>Predicting Teardowns</h3>
@@ -240,7 +244,7 @@ use what we have just learned to extrapolate.</p>
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <div id="graph_buildings_by_teardown_2" style="height:200px;max-width:640px;" data-url="/data/buildings_by_teardown_2.json"></div>
 <div class="legend no-margin">
-  <p><i style="background:blue"></i> 2016 Building stock by *teardown coefficient* <span style="float:right;margin-right:10px;" id="buildings_by_teardown_2_value"></span></p>
+  <p><i style="background:steelblue"></i> 2016 Building stock by *teardown coefficient* <span style="float:right;margin-right:10px;" id="buildings_by_teardown_2_value"></span></p>
 </div>
 </div>
 
@@ -250,7 +254,7 @@ use what we have just learned to extrapolate.</p>
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <div id="graph_teardowns_2" style="height:200px;max-width:640px;" data-url="/data/teardowns_2.json"></div>
 <div class="legend no-margin">
-  <p><i style="background:blue"></i> Estimate of Buildings rebuilt by 2026 <span style="float:right;margin-right:10px;" id="teardowns_2_value"></span></p>
+  <p><i style="background:steelblue"></i> Estimate of Buildings rebuilt by 2026 <span style="float:right;margin-right:10px;" id="teardowns_2_value"></span></p>
 </div>
 </div>
 
@@ -259,7 +263,7 @@ use what we have just learned to extrapolate.</p>
 
 <p><a href="https://mountainmath.ca/map/special/17"><img  src="/images/teardowns.png" style="width:50%;float:right"></a>Now that we
 understand how to assign a teardown probability to buildings, let&rsquo;s map them! To keep things as simple as
-possible let&rsquo;s focus in on the homes with a teardown coefficient below 5%. They make up the bulk in our prediction and
+possible let&rsquo;s focus in on the homes with a <em>teardown coefficient</em> below 5%. They make up the bulk in our prediction and
 have the simple interpretation that 1 in 20 of these will get replaced by something else by 2026. So <a href="https://mountainmath.ca/map/special/17">here is the
 interactive map</a> of just these 31301 buildings.</p>
 
@@ -341,7 +345,7 @@ d3.json(data_url, function(error, json) {
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
-      .attr("class", graphData.class)
+      .attr("class", graphData.class + " bar")
       .attr("fill", graphData.color)
       .attr("x", function(d) { return x(d.date); })
       .attr("width", x.rangeBand())
