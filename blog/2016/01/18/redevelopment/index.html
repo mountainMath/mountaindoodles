@@ -234,12 +234,15 @@ To keep things cleaner where we only plot up to a <em>teardown coefficient</em> 
 
 <p>We see that the <em>teardown coefficient</em> has high predictive value for a building to be torn down and
 being rebuilt in the following 10 years. Buildings with a <em>teardown coefficient</em> below 5% have a 5.5% chance, and the
-probability declines exponentially down to zero at a <em>teardown coefficient</em> of about 25%. If we were more serious about this
+probability declines exponentially down to zero at a <em>teardown coefficient</em> of about 25%.</p>
+
+<p>If we were more serious about this
 we would fit and exponential curve to the data and compute how well it fits the data, repeat the computation for
 other time frames, run it on individual neighbourhoods and maybe also on <a href="https://data.surrey.ca">data from other municipalities</a>
 to properly validate our model. We could also refine the model by throwing out the designated heritage properties, as
 they can&rsquo;t be torn down as easily which skews the data. But there are only 440 such properties with a <em>teardown coefficient</em> below 5%,
-so it won&rsquo;t have too much of an effect.</p>
+so it won&rsquo;t have too much of an effect. Similarly we could do a better job at filtering out parks, marinas and similar properties
+that are likely to skew the lower end of our analysis.</p>
 
 <h3>Predicting Teardowns</h3>
 
