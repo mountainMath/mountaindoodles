@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-19T12:56:43-08:00</updated>
+  <updated>2016-01-19T23:38:04-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -31,7 +31,8 @@ properties, but it might also be useful to filter the properties we show to focu
 judement we will
 investigate the data to undestand what buildings have been torn down recently and predict which buildings will get torn
 down next. And map them. Long story short, we predict that
-1 in 20 buildings <a href="https://mountainmath.ca/map/special/17">on this map</a> will get torn down and rebuilt by 2026.</p>
+1 in 6 buildings <a href="https://mountainmath.ca/map/special/17">on this map</a> (and then some more with lower teardown probability)
+will get torn down and rebuilt by 2026.</p>
 
 <h3>Building age temporal distribution</h3>
 
@@ -62,10 +63,10 @@ it is safe to assume that the number of buildings still standing corresponds wel
 So the pace of new buildings right now seems to fit in quite well with the recent history and is a little lower than the
 peak in the early 1990s.</p>
 
-<h3>Recent Building stock (and recent teardowns) spacial distribution</h3>
+<h3>Recent Building stock (and recent teardowns) spatial distribution</h3>
 
 <p><a href="https://mountainmath.ca/map/special/15"><img  src="http://doodles.mountainmath.ca/images/rebuilds.png" style="width:50%;float:right"></a>
-The next question is to focus in at the spacial distribution of recent redevelopment by filtering out older buildings.
+The next question is to focus in at the spatial distribution of recent redevelopment by filtering out older buildings.
 Being too lazy to add a bush for dynamic selection of time ranges I just made a static (in time) view only showing the
 <a href="https://mountainmath.ca/map/special/15?zoom=13">6883 properties built after 2006</a>. It is quite safe to assume that most
 of those new buildings replaced older ones that were torn down. So this map of new buildings is also a map of locations
@@ -133,8 +134,10 @@ from the intricacies of the dataset.</p>
 decreases as the <em>teardown coefficient</em> increases. Remember that we defined the <em>teardown coefficient</em> to be the percentage
 of the building value out of the total value of the property.</p>
 
+<p>Refer to the methodology and data section for further information on how these numbers were extracted.</p>
+
 <p>To explore this further let&rsquo;s graph the frequency with which a building in a given <em>teardown coefficeint</em> range gets torn down.
-To keep things cleaner where we only plot up to a <em>teardown coefficient</em> of 30%:</p>
+To keep things cleaner where we only plot up to a <em>teardown coefficient</em> of 50%:</p>
 
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <div id="graph_teardown_probability" style="height:200px;max-width:640px;" data-url="/data/teardown_probability.json"></div>
@@ -145,16 +148,17 @@ To keep things cleaner where we only plot up to a <em>teardown coefficient</em> 
 
 
 <p>We see that the <em>teardown coefficient</em> has high predictive value for a building to be torn down and
-being rebuilt in the following 10 years. Buildings with a <em>teardown coefficient</em> below 5% have a 5.5% chance, and the
-probability declines exponentially down to zero at a <em>teardown coefficient</em> of about 25%.</p>
+being rebuilt in the following 10 years. Buildings with a <em>teardown coefficient</em> below 5% have about an 18% chance, and the
+probability declines exponentially down to zero at a <em>teardown coefficient</em> of about 50%.</p>
 
 <p>If we were more serious about this
 we would fit and exponential curve to the data and compute how well it fits the data, repeat the computation for
 other time frames, run it on individual neighbourhoods and maybe also on <a href="https://data.surrey.ca">data from other municipalities</a>
-to properly validate our model. We could also refine the model by throwing out the designated heritage properties, as
-they can&rsquo;t be torn down as easily which skews the data. But there are only 440 such properties with a <em>teardown coefficient</em> below 5%,
-so it won&rsquo;t have too much of an effect. Similarly we could do a better job at filtering out parks, marinas and similar properties
-that are likely to skew the lower end of our analysis.</p>
+to properly validate our model. We could also refine the model by refining our filters, see the methodology and data section for
+more details.</p>
+
+<p>And we could add other factors that likely effect the teardown probability, like building age, proximity to arterials and
+others. Of course these are not independent factors, so this kind of analysis requires more care.</p>
 
 <h3>Predicting Teardowns</h3>
 
@@ -182,16 +186,57 @@ from the frequency graph above:</p>
 </div>
 
 
-<p>Bottom line, we predict around 2,600 buildings to be torn down and rebuilt by 2026. That&rsquo;s significantly more than the
-around 1,700 buildings that we identified as going through this process during the prior 10 years.</p>
+<p>Bottom line, we predict around 8,000 buildings to be torn down and rebuilt by 2026. That&rsquo;s significantly more than the
+around 5,900 buildings that we identified as going through this process during the prior 10 years.</p>
 
 <h3>Mapping Teardowns</h3>
 
 <p><a href="https://mountainmath.ca/map/special/17"><img  src="http://doodles.mountainmath.ca/images/teardowns.png" style="width:50%;float:right"></a>Now that we
 understand how to assign a teardown probability to buildings, let&rsquo;s map them! To keep things as simple as
 possible let&rsquo;s focus in on the homes with a <em>teardown coefficient</em> below 5%. They make up the bulk in our prediction and
-have the simple interpretation that roughly 1 in 20 of these will get replaced by something else by 2026. So
-<a href="https://mountainmath.ca/map/special/17">here is the interactive map</a> of just these 31301 buildings.</p>
+have the simple interpretation that a little more than 1 in 6 of these will get replaced by something else by 2026. So
+<a href="https://mountainmath.ca/map/special/17">here is the interactive map</a> of just these 31301 buildings. And this only accounts
+for the 5,700 buildings predicted to be torn down with a <em>teardown coefficient</em> below 5% cutoff and neglects the roughly 2,000 more that
+are predicted to be torn down that have a <em>teardown coefficient</em> above 5%.</p>
+
+<h3>Methodology and Data</h3>
+
+<p>Only for people who love getting their hands dirty or who want to reproduce or expand on the analysis.</p>
+
+<p>First thing to note is that there is no way to detect &ldquo;teardowns&rdquo; in the dataset, the only way is to look at what has been
+rebuilt and what has &lsquo;dropped off&rsquo;. To be more precise, there data fields to look at is the &ldquo;land coordinate&rdquo;, which links
+a taxable property to a physical structure, and the &ldquo;year built&rdquo;. And both fields have problems.</p>
+
+<p>The &ldquo;land coordinate&rdquo;
+gets de-commissioned and re-assigned during certain re-develpments. And the city dataset provides no way to link the
+old one to the new one. One way to do that is through the polygons that mark the property boundaries, that would allow
+tracking of complex re-assemblies of land. But the city does not publish historic records of property polygons.</p>
+
+<p>The &ldquo;year built&rdquo; also has lots of issues. Sometimes it is blank even though it records the value of the building as
+greater than zero. Sometimes the &ldquo;year built&rdquo; will be set to a date later than the date of the dataset, for example the
+2006 tax dataset has buildings with &ldquo;year built&rdquo; all they way up to 2013.</p>
+
+<p>Then comes the issue of filtering. We decided to filter out parks, rail lines and marinas without structures on them. The
+algorithm is somewhat simplistic, it&rsquo;s the same one that was used to filter properties for the maps. Additionally we
+filter out properties from the heritage dataset. There is definitely
+room for improvement here, but without a clear question of what exactly to measure
+(only single family homes, or also condos or apartements, treat commercial separately, &hellip;)
+it does not make much sense to invest energy into this. After all, this is just looking for a rough model.</p>
+
+<p>So how do we detect rebuilds? We take the land coordinates from properties identified as park or heritage and sieve through
+the 2006 tax data to retrieve all records that don&rsquo;t match these land coordinates and have a &ldquo;year built&rdquo; column set
+as 2006 or earlier or don&rsquo;t have a &ldquo;year built&rdquo; set at all but change from zero to non-zero building value from 2006 to 2016.</p>
+
+<p>Pretty messy. We mapped <a href="https://mountainmath.ca/map/special/15">about 6,900 buildings were built after 2006</a>,
+but only traced 5,869 buildings in the 2006 tax dataset as
+being torn down and rebuilt. That difference is largely explained by different selection criteria. The map only considers
+properties with a &ldquo;year built&rdquo; field set, but for the analysis we also added properties that don&rsquo;t have that field set
+but go from zero building value in 2006 to non-zero building value in 2016 which gets us to 7,784 &ldquo;rebuilds&rdquo;. On the other hand
+in the analysis we don&rsquo;t consder the roughly 140 heritage buildings that would pass our filter of being built after 2006, and
+the 2016 tax dataset has 2,422 more buildings than the 2006 dataset. Without going further down this messy road, rest
+be assured that the numbers somehow add up.</p>
+
+<p>Anyway, if you want to get your hand dirty on this shoot me a message and I will hook you up with my scripts.</p>
 
 <script>
 
