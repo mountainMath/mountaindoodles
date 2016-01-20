@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-19T23:38:04-08:00</updated>
+  <updated>2016-01-19T23:52:21-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -233,8 +233,9 @@ being torn down and rebuilt. That difference is largely explained by different s
 properties with a &ldquo;year built&rdquo; field set, but for the analysis we also added properties that don&rsquo;t have that field set
 but go from zero building value in 2006 to non-zero building value in 2016 which gets us to 7,784 &ldquo;rebuilds&rdquo;. On the other hand
 in the analysis we don&rsquo;t consder the roughly 140 heritage buildings that would pass our filter of being built after 2006, and
-the 2016 tax dataset has 2,422 more buildings than the 2006 dataset. Without going further down this messy road, rest
-be assured that the numbers somehow add up.</p>
+the 2016 tax dataset has 2,422 more buildings than the 2006 dataset, some of which can be seen
+<a href="https://mountainmath.ca/map/special/13">on this map</a> and are due to subdivisions being split off of the original
+property.</p>
 
 <p>Anyway, if you want to get your hand dirty on this shoot me a message and I will hook you up with my scripts.</p>
 
