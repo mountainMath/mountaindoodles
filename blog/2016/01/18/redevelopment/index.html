@@ -437,6 +437,8 @@ d3.json(data_url, function(error, json) {
       
 });
 
+}
+
 var percentageFormatter=d3.format(".1%");
 var binFormatter=function(d){return percentageFormatter(d-0.025) + ' - ' + percentageFormatter(d);}
 //ready_for_graph(d3.select("#graph"));
