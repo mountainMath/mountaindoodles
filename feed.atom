@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-20T09:31:02-08:00</updated>
+  <updated>2016-01-20T09:57:28-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -27,11 +27,11 @@ gives the ability to look for changes over time.</p>
 <p><a href="https://mountainmath.ca/map/assessment">Our maps</a> explore this by visualizing some aspects of these changes for all
 properties, but it might also be useful to filter the properties we show to focus in on specific criteria.</p>
 
-<p>&ldquo;Teardowns&rdquo; always triggers lots of emotions in Vancouver. Without looking at the eomtional side and trying to avoid any
+<p>&ldquo;Teardowns&rdquo; always triggers lots of emotions in Vancouver. Without looking at the emotional side and trying to avoid any
 judgement we will
-investigate the data to undestand what buildings have been torn down recently and predict which buildings will get torn
+investigate the data to understand what buildings have been torn down recently and predict which buildings will get torn
 down next. And map them. Long story short, we predict that
-1 in 6 buildings <a href="https://mountainmath.ca/map/special/17">on this map</a> (and then some more with lower teardown probability)
+1 in 6 buildings <a href="https://mountainmath.ca/map/special/17?layer=4">on this map</a> (and then some more with lower teardown probability)
 will get torn down and rebuilt by 2026.</p>
 
 <h3>Building age temporal distribution</h3>
@@ -66,7 +66,7 @@ peak in the early 1990s.</p>
 <h3>Recent Building stock (and recent teardowns) spatial distribution</h3>
 
 <p><a href="https://mountainmath.ca/map/special/15"><img  src="http://doodles.mountainmath.ca/images/rebuilds.png" style="width:50%;float:right"></a>
-The next question is to focus in at the spatial distribution of recent redevelopment by filtering out older buildings.
+The next question is to focus on the spatial distribution of recent redevelopment by filtering out older buildings.
 Being too lazy to add a bush for dynamic selection of time ranges I just made a static (in time) view only showing the
 <a href="https://mountainmath.ca/map/special/15?zoom=13">6883 properties built after 2006</a>. It is quite safe to assume that most
 of those new buildings replaced older ones that were torn down. So this map of new buildings is also a map of locations
@@ -125,7 +125,7 @@ it&#8217;s the ratio of the building value by the sum of the building and land v
 </div>
 
 
-<p>Next up the number of buildings in each category that got torn down:</p>
+<p>Next up the number of buildings in each category that got torn down and rebuilt by 2016:</p>
 
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <div id="graph_teardowns" style="height:200px;max-width:640px;" data-url="/data/teardowns.json"></div>
@@ -163,7 +163,7 @@ to properly validate our model. We could also refine the model by refining our f
 more details.</p>
 
 <p>And we could add other factors that likely effect the teardown probability, like building age, proximity to arterials and
-others. Of course these are not independent factors, so this kind of analysis requires more care.</p>
+others. Of course these are not independent factors, so this kind of analysis requires more time.</p>
 
 <h3>Predicting Teardowns</h3>
 
@@ -209,7 +209,8 @@ analyzing all available tax years, and not just the two extremes of the availabl
 understand how to assign a teardown probability to buildings, let&rsquo;s map them! To keep things as simple as
 possible let&rsquo;s focus in on the homes with a <em>teardown coefficient</em> below 5%. They make up the bulk in our prediction and
 have the simple interpretation that a little more than 1 in 6 of these will get replaced by something else by 2026. So
-<a href="https://mountainmath.ca/map/special/17">here is the interactive map</a> of just these 31301 buildings. And this only accounts
+<a href="https://mountainmath.ca/map/special/17">here is the interactive map</a> of just these 31301 buildings, where we have
+filtered out some parks, marinas and rail lines. And this only accounts
 for the 5,700 buildings predicted to be torn down with a <em>teardown coefficient</em> below 5% cutoff and neglects the roughly 2,000 more that
 are predicted to be torn down that have a <em>teardown coefficient</em> above 5%.</p>
 
@@ -348,231 +349,6 @@ d3.json(data_url, function(error, json) {
       
 });
 
-function type(d) {
-  d.frequency = +d.frequency;
-  return d;
-}
-}
-
-var ready_for_graph = function(graphs,domainFormatter,numberFormatter) {
-    var d3lines=[];
-    var padding = {top: 20, right: 20, bottom: 30, left: 90};
-    var prevChartWidth = 0, prevChartHeight = 0;
-    var updateTransistionMS = 750; // milliseconds
-    var sourceData, lineData, xScale, yScale, line;
-
-    var symbol;
-    var prefix;
-    if (!domainFormatter) domainFormatter=d3.format("d")
-    if (!numberFormatter)
-     numberFormatter = function (y) {
-        return y;
-     };
-
-    //var graphs=d3.select("#graph");
-    var div=graphs[0][0];
-    if (div==null|| div.childElementCount!=0) {return;}
-    var data_url=div.dataset.url;
-
-    // create svg and g to contain the chart contents
-    var baseSvg = graphs.append("svg");
-    var chartSvg=baseSvg
-        .append("g")
-        .attr("class", "chartContainer")
-        .attr("transform", "translate(" + padding.left + "," + padding.top + ")");
-
-    // create the x axis container
-    chartSvg.append("g")
-        .attr("class", "x axis");
-
-    // create the y axis container
-    chartSvg.append("g")
-        .attr("class", "y axis");
-    var line;
-    var largest=null;
-    var lineData;
-    if (div.dataset.lines) {
-        d3.json(div.dataset.lines,function(error,json){
-        lineData=json;
-        var domain=[null,null];
-        var range=[null,null];
-        for (var i=0;i<lineData.length;i++){
-            lineData[i].data.forEach(function(d) {
-                d.date = +d.date;
-                d.count = +d.count;
-                if (domain[0]==null || domain[0]> d.date) domain[0]= d.date;
-                if (domain[1]==null || domain[1]< d.date) domain[1]= d.date;
-                if (range[0]==null || range[0]> d.count) range[0]= d.count;
-                if (range[1]==null || range[1]< d.count) range[1]= d.count;
-            });
-        }
-        xScale=d3.scale.linear().domain(domain);
-        var toAdd=(range[1]-range[0])/10;
-        range[0]-=toAdd;
-        range[1]+=toAdd;
-        yScale=d3.scale.linear()
-            .domain(range);
-
-        line = d3.svg.line()
-            .x(function(d) { return xScale(d.date); })
-            .y(function(d) { return yScale(d.count); })
-            .interpolate("linear");
-
-        xAxis = d3.svg.axis()
-            .scale(xScale)
-            .orient("bottom")
-            .tickFormat(domainFormatter)
-            .tickValues(domain);
-
-        yAxis = d3.svg.axis()
-            .scale(yScale)
-            .orient("left")
-            .tickFormat(numberFormatter)
-            .ticks(5);
-
-        prefix = d3.formatPrefix(range[1]);
-        if (prefix.symbol=='K') {
-            symbol='k'
-        } else if (prefix.symbol=='M') {
-                symbol='m'
-        } else if (prefix.symbol=='G') {
-            symbol='bn'
-        } else if (prefix.symbol=='T') {
-            symbol='tn'
-        }
-        updateChart(true);
-        });
-
-    }
-
-
-    function updateChart(init)
-    {
-        // get the height and width subtracting the padding
-//    var innerHeight = window.innerHeight - 20;
-        var innerWidth = window.innerWidth - 20;
-        var divWidth=$(div).width();
-        if (divWidth==0) divWidth=$(div.parentElement.parentElement).width();
-        var maxWidth=parseInt($(div).css('max-width'));
-        if (divWidth==0) divWidth=innerWidth*0.8;
-        if (divWidth>maxWidth) divWidth=maxWidth;
-        var chartWidth = divWidth-padding.left-padding.right;//960 - margin.left - margin.right,
-        var chartHeight = $(div).height()-padding.top-padding.bottom;//500 - margin.top - margin.bottom;
-
-
-        // only update if chart size has changed
-        if ((prevChartWidth != chartWidth) ||
-            (prevChartHeight != chartHeight)) {
-            prevChartWidth = chartWidth;
-            prevChartHeight = chartHeight;
-
-            //set the width and height of the SVG element
-            chartSvg.attr("width", chartWidth + padding.left + padding.right)
-                .attr("height", chartHeight + padding.top + padding.bottom);
-            baseSvg.attr("width", chartWidth + padding.left + padding.right)
-                .attr("height", chartHeight + padding.top + padding.bottom);
-
-            // ranges are based on the width and height available so reset
-            xScale.range([0, chartWidth]);
-            yScale.range([chartHeight, 0]);
-
-            if (init) {
-                // if first run then just display axis with no transition
-                chartSvg.select(".x")
-                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
-                    .attr("transform", "translate(0," + chartHeight + ")")
-                    .call(xAxis);
-
-                chartSvg.select(".y")
-                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
-                    .call(yAxis);
-            }
-            else {
-                // for subsequent updates use a transistion to animate the axis to the new position
-                var t = chartSvg.transition().duration(updateTransistionMS);
-
-                t.select(".x")
-                    .attr("transform", "translate(0," + chartHeight + ")")
-                    .call(xAxis);
-
-                t.select(".y")
-                    .call(yAxis);
-            }
-
-            for (var i = 0; i < lineData.length; i++) {
-                var sourceData=lineData[i].data;
-                var color=lineData[i].color;
-                var label=lineData[i].label;
-                var className=lineData[i].class;
-
-                // bind up the data to the line
-                var lines = chartSvg.selectAll("path.line."+className)
-                    .data([lineData[i].data]); // needs to be an array (size of 1 for our data) of arrays
-
-                // transistion to new position if already exists
-                lines.transition()
-                    .duration(updateTransistionMS)
-                    .attr("d", line);
-
-                // add line if not already existing
-                lines.enter().append("path")
-                    .attr("class", "line")
-                    .attr("stroke", color)
-                    .attr("stroke-width", 2)
-                    .attr('fill','none')
-                    .attr("d", line);
-
-                // bind up the data to an array of circles
-                var circle = chartSvg.selectAll("circle."+className)
-                    .data(sourceData);
-
-                // if already existing then transistion each circle to its new position
-                circle.transition()
-                    .duration(updateTransistionMS)
-                    .attr("cx", function (d) {
-                        return xScale(d.date);
-                    })
-                    .attr("cy", function (d) {
-                        return yScale(d.count);
-                    });
-
-                // if new circle then just display
-                circle.enter().append("circle")
-                    .attr("cx", function (d) {
-                        return xScale(d.date);
-                    })
-                    .attr("cy", function (d) {
-                        return yScale(d.count);
-                    })
-                    .attr("r", 3)
-                    .attr('fill', 'transparent')
-                    .style("stroke", color)
-                    .style("stroke-width", 6)
-                    .attr("class", className)
-                    .on('mouseover',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(domainFormatter(d.date) + ': ' + numberFormatter(d.count)) 
-                    }).on('click',function(d){
-                     d3.select('#'+this.classList[0]+'_value').text(domainFormatter(d.date) + ': ' + numberFormatter(d.count)) 
-                    }).on('touch',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(domainFormatter(d.date) + ': ' + numberFormatter(d.count)) 
-                    }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
-
-            }
-        }
-    }
-
-    // look for resize but use timer to only call the update script when a resize stops
-    var resizeTimer;
-    window.onresize = function(event) {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function()
-        {
-            updateChart(false);
-        }, 100);
-    }
-
-
-};
 var percentageFormatter=d3.format(".1%");
 var binFormatter=function(d){return percentageFormatter(d-0.025) + ' - ' + percentageFormatter(d);}
 //ready_for_graph(d3.select("#graph"));
