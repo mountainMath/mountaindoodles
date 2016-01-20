@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-20T08:30:21-08:00</updated>
+  <updated>2016-01-20T09:25:19-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -97,17 +97,20 @@ buildings get torn down at the time when they change ownership. So if a building
 get torn down. So what makes a building more likely to get torn down when it is sold? One hypothesis would be that the
 value of the building relative to the land should play an important factor. Let&rsquo;s test this hypothesis using the data.</p>
 
-<p>We take the 2006 tax dataset as a baseline and check how many of the buildings have been torn down by 2016. There is some
-messiness in the data, to make things simple and clean we take all properties in the 2006 dataset that are marked as
-having been built no later than 2006 (some are not marked at all and some are marked as being built after 2006). We only
+<p>We take the 2006 tax dataset as a baseline and check how many of the buildings have been torn down by 2016. Refer to the
+Methodology and Data section at the botton for the messy details. We only
 count buildings, so we count a strata lot with 100 units in the same building as one building. Then we use the 2016 dataset
 to check how many of them are still around, identifying them by their tax coordinate and again asking they be marked as
 being built no later than 2006.</p>
 
-<p>These criteria capture well what we are looking for, but they are not perfect. I won&rsquo;t bore you with the details stemming
-from the intricacies of the dataset.</p>
+<p>These criteria capture well what we are looking for, but they are not perfect. As a predictive variable we use the</p>
 
-<p>Next we sort the properties by their building value to total value percentage, the &ldquo;teardown coefficient&rdquo; using the
+<h5>Teardown Coefficient</h5>
+
+<p>The <em>teardown coefficient</em> is the percentage of the total assessed value that is attributed to the building. More formally
+it&rsquo;s the ratio of the building value by the sum of the building and land values.</p>
+
+<p>So we sort the properties by their <em>teardown coefficient</em> using the
 2006 tax assessment data and we check how each group fares.</p>
 
 <p>First up a graph of the distribution of buildigs in 2006 by their <em>teardown coefficient</em>.</p>
