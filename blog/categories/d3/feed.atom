@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-20T00:01:57-08:00</updated>
+  <updated>2016-01-20T08:30:21-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -188,6 +188,15 @@ from the frequency graph above:</p>
 
 <p>Bottom line, we predict around 8,000 buildings to be torn down and rebuilt by 2026. That&rsquo;s significantly more than the
 around 5,900 buildings that we identified as going through this process during the prior 10 years.</p>
+
+<h3>Open Question</h3>
+
+<p>There are lots of assumptions that went into this estimate. While we are confident in our analysis
+that properties with low <em>teardown coefficient</em> are the ones most likely to be torn down, it is less clear if the number
+of properties being torn down grows linearly as the properties with low <em>teardown coefficient</em> grow. In our case the number
+of properties with <em>teardown coefficient</em> below 5% grew from 20492 (21% of the 2006 stock) to 32509 (33.5% of the 2016) stock,
+which may be out of the range where our simplistic extrapolation holds. One could try to understand this by carefully
+analyzing all available tax years, and not just the two extremes of the available spectrum.</p>
 
 <h3>Mapping Teardowns</h3>
 
