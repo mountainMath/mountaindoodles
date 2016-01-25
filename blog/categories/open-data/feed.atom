@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-24T20:58:09-08:00</updated>
+  <updated>2016-01-24T21:02:38-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -38,9 +38,6 @@ was $50k (the average was $65k), although there is <a href="http://censusmapper.
 The pre-tax households incomes were $56k for the median
 and $80k for the average income.</p>
 
-<p>Depending on what we are interested in we could also focus in on families. Couple families with children took home an median income
-of $82k ($102k average) after tax, lone parent family median income was $41k ($52k average).</p>
-
 <p>Incomes have grown a bit since then, median income levels in
 Vancouver grew by 7% from 2010 to 2013 (<a href="http://www5.statcan.gc.ca/cansim/a47">the latest year Stats Canada reports on</a>)
 and will have grown a little more since then, but these are relatively small changes compared to other numbers I want
@@ -63,18 +60,18 @@ for RS that evenly divides up the land value increase between strata or duplex h
 <p>The typical RS household made $267,000 last year (so that&rsquo;s the median land value rise in RS between 2015 and 2016
 property tax assessment years, the average was $331,043), for a tity toal of $28,789,790,980. Not too shabby.
 And considering that the typical owner household
-lives in their home, these are tax-free earnings once the owners sell. That about 5 times what the average household
+lives in their home, these are tax-free earnings once the owners sell. That&rsquo;s substantially more than what the typical household
 in Vancouver takes home. The total land value increase for just the RS zone properties amounts to $22.2bn out of
 <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">the $45.2bn by which land values in Vancouver increased overall</a>. For context,
 recall that the overall income earned by all Vancouverites in 2010 was $17.8bn after tax (21.3bn before tax).</p>
 
-<p>In other words, just the RS property owners earned more moeny by twiddling their tumbs than the entire population of the
+<p>In other words, just the RS property owners earned more by twiddling their tumbs than the entire population of the
 City of Vancouver did by &ndash; actually working. Yet another
 indication of how <a href="http://censusmapper.ca/maps/37">out of touch the property market is with the local enconomy</a>.</p>
 
 <h3>Mappig the Result of Thumb Twiddling</h3>
 
-<p>I probably would not take the time to write about this otherwise. Last year&rsquo;s assessment
+<p>I have a map for that. (I probably would not take the time to write about this otherwise.) Last year&rsquo;s assessment
 increase was quite large, not every year is like this (although it looks like the coming one will also be substantial). So
 to even things out a little I mapped the average yearly gross land value increase for each property. And for good measure I, divided
 by the number of owners for strata, duplex and other properties that are tied to several owners. For properties that I
