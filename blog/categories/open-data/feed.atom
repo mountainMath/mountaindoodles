@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-24T21:02:38-08:00</updated>
+  <updated>2016-01-24T21:19:12-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -71,43 +71,44 @@ indication of how <a href="http://censusmapper.ca/maps/37">out of touch the prop
 
 <h3>Mappig the Result of Thumb Twiddling</h3>
 
-<p>I have a map for that. (I probably would not take the time to write about this otherwise.) Last year&rsquo;s assessment
-increase was quite large, not every year is like this (although it looks like the coming one will also be substantial). So
-to even things out a little I mapped the average yearly gross land value increase for each property. And for good measure I, divided
-by the number of owners for strata, duplex and other properties that are tied to several owners. For properties that I
+<p><a href="http://www.mountainmath.ca/map/assessment?zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12">There is a map for this</a>. (I probably would not take the time to write about this otherwise.) Last year&rsquo;s assessment
+increase was quite large, not every year is like this (although it looks like the coming one will also be substantial).
+To even things out a little I mapped the average yearly gross land value increase for each property. And for good measure I, divided
+by the number of households for strata, duplex and other properties that are tied to several owners. For properties that I
 could not trace back all the way to 2006 I averaged over as many years as I could find.</p>
 
-<p><a href="http://www.mountainmath.ca/map/assessment?zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/twiddling_thumbs.png" style="width:50%;float:right;"></a>And yes, <a href="http://www.mountainmath.ca/map/assessment?zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12">there is a map for this</a>.
+<p><a href="http://www.mountainmath.ca/map/assessment?zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/twiddling_thumbs.png" style="width:50%;float:right;"></a>
 <a href="http://www.mountainmath.ca/map/assessment?zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12">Looking at the map</a> we see that
-the average yearly increase depends to a large extend on the sqaure footage of the property. Large properties naturally stand
+the average yearly increase depends to a large extend on the square footage of the property. Large properties naturally stand
 out, unless they are stratified where the land value increase gets distributed across all the owners.</p>
 
-<p>Averaged over 10 years, the yearly land value increase for the typical RS property in Vancouver was $82,700, $66,600 for the
-typical east of Main and $145,100 for the typical west of Main. The average increases were $117,334, $73,294 and $175,773, respectively.</p>
+<p>Averaged over 10 years, the yearly land value increase for the typical RS property in Vancouver was $82,700. Using Main as
+a divider the numbers are $66,600 for the
+typical east of Main and $145,100 for the typical west of Main property. The average increases were $117,334, $73,294 and $175,773, respectively.</p>
 
 <p>A good portion of the east-west difference is due to larger lot size, but even the land values increase per m&sup2; for properties
-on the west side was almost twice that of properties on the
+on the west side was 35% higher than that of properties on the
 east side. These are yearly increases, to be accumulated and collected tax free in most cases when the property is sold.</p>
 
 <h3>Hourly Rate for Twiddling Thumbs</h3>
 
-<p>Just for fun we can work out the hourly rate for twiddling thumbs. All we need to do is to divide by the number of work
-hours by year. To estimate the work weeks we could get fancy and also consider the
+<p>Just for fun we can work out the hourly rate for twiddling thumbs. All we need to do is divide by the number of work
+hours by year. We can look up the average work weeks for a Vancouver worker in the 2011 census and, for style points also consider the
 number of household maintainers. After all, when we compare household income with land value increases we should consider how many
 people in the household work. 63% of Vancouver households have only one household maintainer, but
 <a href="http://censusmapper.ca/maps/223">33% have two and 4% three or more household maintainers</a> contributing to household income.
 On average a Vancouver household <a href="http://censusmapper.ca/maps/222">worked a total of 62 person-weeks per year</a> to earn
 that income. Assuming a 40 hour work week, we compute the average after-tax earning to be $26 per hour from regular work
-and average after tax earnings of $113 per hour from twiddling thumbs. That&rsquo;s assuming all household maintainers are twiddle
-the same amount of time that they dedicate to regular work. (Here we use average not median income and land value
-increases, medians don&rsquo;t lend themselves well to these kind of computations.)</p>
+and average after tax earnings of $113 per hour from twiddling thumbs. That&rsquo;s assuming all household maintainers are twiddling
+the same amount of time that they dedicate to regular work. (In this calculation we use average not median income and land value
+increases, medians don&rsquo;t lend themselves well to these kind of reasoning.)</p>
 
-<p>The 10 year averaged numbers we still get a healthy average after-tax twiddling thumbs rate of $47 per hour.</p>
+<p>Using the 10 year averaged numbers instead of focusing on just the last year we still get a healthy average after-tax twiddling thumbs rate of $47 per hour.</p>
 
-<p>I am not entirely sure why some people would like twiddling thumbs stay so lucrative and why earnings from thumb-twiddling
-should remain tax-free.</p>
+<p>I am not entirely sure why anyone would like twiddling thumbs to stay so lucrative. Unless maybe the super self-centered thumb-twiddlers.
+Or why earnings from thumb-twiddling should remain tax-free. While employment income is taxed (as it should be).</p>
 
-<p>Want to change your line work to thumb twiddling? To bad thumb twiddling is so unaffordable!</p>
+<p>Considering to change your line work to thumb twiddling? To bad thumb twiddling is so unaffordable!</p>
 ]]></content>
   </entry>
   
