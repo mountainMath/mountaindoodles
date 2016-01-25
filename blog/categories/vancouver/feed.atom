@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-24T20:49:58-08:00</updated>
+  <updated>2016-01-24T20:58:09-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -22,10 +22,10 @@
 the ongoing debade on affordability of housing in the City of Vancouver we regularly hear voices expressing concern for
 &ldquo;<a href="http://news.nationalpost.com/full-comment/andrew-coyne-dont-blame-chinese-billionaires-for-vancouver-housing-prices">elderly folks of modest means who had been counting on using their home as a pension</a>&rdquo;
 to argue against doing anything to ease the housing affordability problems many (younger) people are facing. In these
-arguments the concern for &ldquo;elderly folks of modest means&rdquo; seems curiously confined to those who own property, those who don&rsquo;t are left out
-to fend for themselves, in particularly the 20% of the elderly people in Vancouver that live in poverty (15k total).</p>
+arguments the concern for &ldquo;elderly folks of modest means&rdquo; seems curiously focused to those who own property as opposed to,
+for example, the 20% of the elderly people in Vancouver that live in poverty (15k total).</p>
 
-<p>Which got me a little thinking about &ldquo;earning money&rdquo; in this day and age. And prompted me to make <a href="http://www.mountainmath.ca/map/assessment?zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12">a new map</a>.</p>
+<p>Which got me a little thinking about &ldquo;earning money&rdquo; in this day and age.</p>
 
 <h3>Work</h3>
 
@@ -35,7 +35,7 @@ to fend for themselves, in particularly the 20% of the elderly people in Vancouv
 <p>Most people earn money by working. We are interested in after tax household income, for simplicity we will look at 2010 income
 data reported in the 2011 census. The median after-tax household income in Vancouver
 was $50k (the average was $65k), although there is <a href="http://censusmapper.ca/maps/224">large regional variability</a>.
-The pre-tax incomes were $56k for the median
+The pre-tax households incomes were $56k for the median
 and $80k for the average income.</p>
 
 <p>Depending on what we are interested in we could also focus in on families. Couple families with children took home an median income
@@ -58,7 +58,7 @@ came from outher sources, mostly investment income but also government transfer 
 calculation and focus on RS (&ldquo;One Family Dwelling&rdquo; zone) homes. We
 will consider the change in land value only, changing the building value because of renovation or rebuilding certainly
 does not happen by twiddling thumbs. And we will divide the land value rise of each property by the number of owners,
-for RS that evenly divides up the land value increase between strata or duplex owners that managed to sneak into the RS zoning.</p>
+for RS that evenly divides up the land value increase between strata or duplex households that managed to sneak into the RS zoning.</p>
 
 <p>The typical RS household made $267,000 last year (so that&rsquo;s the median land value rise in RS between 2015 and 2016
 property tax assessment years, the average was $331,043), for a tity toal of $28,789,790,980. Not too shabby.
