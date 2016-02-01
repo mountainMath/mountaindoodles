@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-31T16:10:13-08:00</updated>
+  <updated>2016-01-31T16:24:25-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -44,8 +44,7 @@ to tease out actual land use.</p>
 
 <h3>The Forgotten Single Family Houses</h3>
 
-<p><a href="https://mountainmath.ca/map/assessment?filter=sfh_not_rs&amp;layer=6"><img  src="http://doodles.mountainmath.ca/images/sfh_not_rs.png" style="width:50%;float:left;margin-right:10px;"></a>
-Single family houses have received a lot of attention lately, not least because of the
+<p>Single family houses have received a lot of attention lately, not least because of the
 <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">incredible gains in land value during the last year</a>.</p>
 
 <p>But how to narrow down the assessed properties to only single family housing? The easiest way to do this is to use zoning
@@ -56,10 +55,11 @@ of problems with that.</p>
 parks using the City of Vancouver parks dataset, but it actually does not capture all parks. And then I filtered by area
 to get rid of large properties that typically house schools or other institutions. But that keeps smaller institutions in
 and throws larger single family houses out. Using the land use data we can better focus in on all the residential properties
-in the single family housing zone. But even then, there are <a href="https://mountainmath.ca/map/assessment?filter=rs_not_sfh">1,255 residential properties in &lsquo;RS&rsquo; zoned areas that are
+in the single family housing zone. But even then, there are <a href="https://mountainmath.ca/map/assessment?filter=rs_not_sfh?layer=14">1,255 residential properties in &lsquo;RS&rsquo; zoned areas that are
 not single family houses</a>.</p>
 
-<p>Secondly, and probably more importantly, it misses
+<p><a href="https://mountainmath.ca/map/assessment?filter=sfh_not_rs&amp;layer=6"><img  src="http://doodles.mountainmath.ca/images/sfh_not_rs.png" style="width:50%;float:left;margin-right:10px;"></a>
+Secondly, and probably more importantly, it misses
 <a href="https://mountainmath.ca/map/assessment?filter=sfh_not_rs&amp;layer=6">the 15% (12,111 total) of the single family stock that is situated in other zones</a>.
 &lsquo;Upzoning&rsquo; a neighbourhood
 only means that other forms of housing are also permitted, but people can still build single family homes there if they
@@ -74,6 +74,23 @@ When adding in the land use data we can filter by actual land use. That immediat
 and at the same time it allows to find all &ldquo;single family or duplex&rdquo; properties. That gets us closer to what we are looking
 for, but it also includes duplexes. But those are easy to detect in the assessment dataset, they show up with two separate
 tax bills. So combining the two we get the actual <a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;layer=9">map of all single family homes</a>.</p>
+
+<p>Are these really <em>all</em> single family homes? Not quite. There are some issues with the land use dataset that mis-classify
+a couple of properties. In particular some RS lots without a house are classified as &lsquo;Undeveloped&rsquo;, and some are classfied as
+&lsquo;Single Detached &amp; Duplex&rsquo;, probably depending on what was there around the time the data was collected. The correct classification really
+depends on what one is interested in, and will likely be outdated fast.</p>
+
+<p>Moreover, the property assessment dataset of the City of Vancouver is to correctly link a couple of hundred properties
+to their tax data. This won&rsquo;t be an issue when analysing the tax data, but it does cause a problem when mapping the properties
+as they won&rsquo;t have any assessment or zoning data associated with them.</p>
+
+<p>And there are issues on the fringes. Some properties in Southlands are used as single family homes on large lots, rather
+than the limited agricultural that it is zoned at and labeled as in the land use dataset.</p>
+
+<p>But overall, adding in the land
+use information gives a huge improvement on narrowing down single family homes. We should remember that
+&ldquo;single family homes&rdquo; are better described as &ldquo;single owner properties that can&rsquo;t be stratified&rdquo;,
+as they may include secondary suites and laneway houses.</p>
 
 <h3>Historical Data</h3>
 
