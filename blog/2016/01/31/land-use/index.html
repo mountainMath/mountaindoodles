@@ -1,0 +1,351 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Land Use - Mountain Doodles</title>
+  <meta name="author" content="MountainMath">
+
+  
+  <meta name="description" content="Mapping Vancouver open data property tax assessments. View land values, change in land or building values, zoning, building age and ratio of building &hellip;">
+  <meta name="keywords" content="vancouver, property tax, real estate, map, land value, land use">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/feed.atom" rel="alternate" title="Mountain Doodles" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54516567-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mountain Doodles</a></h1>
+  
+    <h2>spare time data, analysis, visualization</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/feed.atom" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:doodles.mountainmath.ca" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Land Use</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-01-31T10:25:42-08:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="https://mountainmath.ca/land_use/map"><img  src="/images/land use.png" style="width:50%;float:left;margin-right:10px;"></a>
+Metro Vancouver has a <a href="http://www.metrovancouver.org/data">fairly good land use dataset</a> that I imported quite some time
+ago so that <a href="https://mountainmath.ca/land_use/map">I could take a good look at it</a>. But then I forgot about it until
+<a href="https://twitter.com/HealthyCityMaps">@HealthyCityMaps</a> <a href="https://twitter.com/HealthyCityMaps/status/692832946714050564">reminded me</a> just
+at the time when the discussions about <a href="https://mountainmath.ca/map/assessment">assessmened values</a> in Vancouver were flaring up again.</p>
+
+<p>So finally I decided to mark up the City of Vancouver assessment dataset with the land use from the Metro Vancouver land
+use dataset. And I used the occasion to update my color schemes from two years ago and gave it a dark background that
+works better with the <a href="http://colorbrewer2.org">colorbrewer</a> palettes.</p>
+
+<h3>Land Use for Assessment Data</h3>
+
+<!-- more -->
+
+
+<p>There is a strong relationship between land use and zoning. But that relationship is far from perfect, zoning is a funny
+beast. For example, zoning laws prevent low-rise apartments to be built in areas zoned for single family housing. But
+they permit single family housing in areas zoned for low-rise apartments. Or in areas zoned as commercial. The land
+use dataset allows to tag every property based on what it is actually used for.</p>
+
+<p>Of course the land use dataset is not perfect and has some issues, but overall it gives a far superior view on how land
+is used when compared to soley relying on zoning. But putting the two datasets together one can even further filter down
+to tease out actual land use.</p>
+
+<h3>The Forgotten Single Family Houses</h3>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=sfh_not_rs&amp;layer=6"><img  src="/images/sfh_not_rs.png" style="width:50%;float:left;margin-right:10px;"></a>
+Single family houses have received a lot of attention lately, not least because of the
+<a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">incredible gains in land value during the last year</a>.</p>
+
+<p>But how to narrow down the assessed properties to only single family housing? The easiest way to do this is to use zoning
+as a proxy, so <a href="https://mountainmath.ca/map/assessment?filter=rs">only use RS zoned properties</a>. But there are a number
+of problems with that.</p>
+
+<p>Firstly, only filtering by zone will still include lots of unwanted properties like schools and parks. I used to filter out
+parks using the City of Vancouver parks dataset, but it actually does not capture all parks. And then I filtered by area
+to get rid of large properties that typically house schools or other institutions. But that keeps smaller institutions in
+and throws larger single family houses out. Using the land use data we can better focus in on all the residential properties
+in the single family housing zone. But even then, there are <a href="https://mountainmath.ca/map/assessment?filter=rs_not_sfh">1,255 residential properties in &lsquo;RS&rsquo; zoned areas that are
+not single family houses</a>.</p>
+
+<p>Secondly, and probably more importantly, it misses
+<a href="https://mountainmath.ca/map/assessment?filter=sfh_not_rs&amp;layer=6">the 15% (12,111 total) of the single family stock that is situated in other zones</a>.
+&lsquo;Upzoning&rsquo; a neighbourhood
+only means that other forms of housing are also permitted, but people can still build single family homes there if they
+would like.
+<a href="https://mountainmath.ca/map/assessment?filter=sfh_not_rs&amp;layer=6">Zoom into the map</a> and choose different ways to colour
+the properties if you want to learn more about where they are.</p>
+
+<h3>All Single Family Houses</h3>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;layer=9"><img  src="/images/sfh.png" style="width:50%;float:right;"></a>
+When adding in the land use data we can filter by actual land use. That immediately takes care of parks and schools and other institutions,
+and at the same time it allows to find all &ldquo;single family or duplex&rdquo; properties. That gets us closer to what we are looking
+for, but it also includes duplexes. But those are easy to detect in the assessment dataset, they show up with two separate
+tax bills. So combining the two we get the actual <a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;layer=9">map of all single family homes</a>.</p>
+
+<h3>Historical Data</h3>
+
+<p>One shortcoming of the land use dataset is that there are no historic versions available. It would be very nice to be able
+to see how land use changed over time, but that dataset won&rsquo;t do the trick. The City of Vancouver assessment dataset
+comes with historic data all the way up to 2006, and can be used to do some fun
+<a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">analysis</a>. But the historic dataset is incomlete in that
+zoning information is only available from 2014 forward and in that historic property tax data can&rsquo;t always be linked to
+physical properties if the property has been re-developed. But overall putting the datasets together allows to refine
+the analysis previously made. For example re-running the <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">thumb twiddling rates</a>
+using only Single Family Homes, we get pretty much the same medians, but the averages are higher. We could also refine
+our <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">teardown analysis</a> to include only single family homes
+and better filter out institutional properties, although some issues with the lack of historic data remain.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">MountainMath</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-01-31T10:25:42-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/open-data/'>open data</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/01/24/work-vs-twiddling-thumbs/" title="Previous Post: Work vs Twiddling Thumbs">&laquo; Work vs Twiddling Thumbs</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/01/31/land-use/">Land Use</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/24/work-vs-twiddling-thumbs/">Work vs Twiddling Thumbs</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/18/redevelopment/">On Teardowns</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/01/17/updated-vancouver-assessment-data/">Updated Vancouver Assessment Data</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/12/27/canvas-vs-svg/">Canvas vs SVG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  
+  <a class="twitter-timeline" href="https://twitter.com/vb_jens" data-widget-id="680989637721063424">Tweets by @vb_jens</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - MountainMath -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'doodlesmountainmathca';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2016/01/31/land-use/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2016/01/31/land-use/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
