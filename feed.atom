@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-01-31T16:24:25-08:00</updated>
+  <updated>2016-01-31T16:26:23-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -28,10 +28,12 @@ at the time when the discussions about <a href="https://mountainmath.ca/map/asse
 use dataset. And I used the occasion to update my color schemes from two years ago and gave it a dark background that
 works better with the <a href="http://colorbrewer2.org">colorbrewer</a> palettes.</p>
 
-<h3>Land Use for Assessment Data</h3>
+<p>The result of the land use and assessment data mashup is a much better understanding what kind of properties we have right now in Vancouver.</p>
 
 <!-- more -->
 
+
+<h3>Land Use for Assessment Data</h3>
 
 <p>There is a strong relationship between land use and zoning. But that relationship is far from perfect, zoning is a funny
 beast. For example, zoning laws prevent low-rise apartments to be built in areas zoned for single family housing. But
