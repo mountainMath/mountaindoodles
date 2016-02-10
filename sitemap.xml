@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://doodles.mountainmath.ca/blog/2016/02/01/loss-of-character/</loc>
+    <lastmod>2016-02-01T11:16:28-08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://doodles.mountainmath.ca/blog/2016/01/31/land-use/</loc>
     <lastmod>2016-01-31T10:25:42-08:00</lastmod>
     <priority>0.8</priority>
@@ -113,21 +119,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2016-02-09T20:32:53-08:00</lastmod>
+    <lastmod>2016-02-10T08:45:02-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2016-02-09T20:32:53-08:00</lastmod>
+    <lastmod>2016-02-10T08:45:02-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2016-02-09T20:32:53-08:00</lastmod>
+    <lastmod>2016-02-10T08:45:02-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

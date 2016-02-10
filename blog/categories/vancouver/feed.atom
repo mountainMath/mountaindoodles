@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-02-09T20:32:52-08:00</updated>
+  <updated>2016-02-10T08:45:02-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,397 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Loss of Character]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/02/01/loss-of-character/"/>
+    <updated>2016-02-01T11:16:28-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/02/01/loss-of-character</id>
+    <content type="html"><![CDATA[<p>At the heart of the Vancouver affordabiliy crisis is a phrase that comes up again and again. <em>Loss of Character</em>. To effectively
+move forward I think it is important to look closely what it means and how it is used.</p>
+
+<p>And what the data can tell us about <em>loss of character</em>.</p>
+
+<!-- more -->
+
+
+<h3>Loss of Character</h3>
+
+<p>Very broadly interpreted, <em>change of character</em> is how people describe the process when
+the environment around them is changing in profound ways. And the neighbourhoods in Vancouver are indeed changing fast.</p>
+
+<p><em>Loss of character</em>, as opposed to <em>change of character</em>, adds a value judgement. It implies that the former &ldquo;character&rdquo;
+was preferable to the new one.</p>
+
+<p>I want to highlight two ways in which this change manifests itself in Vancouver: Change in buildings and change in demographics.</p>
+
+<h3>Change in buildings</h3>
+
+<p>There has been a lot of focus on buildings getting torn down and rebuilt. When a city runs out of land to build new housing,
+part of the existing stock will get increasingly cannibalized to make space for new buildings. It pays off to try and
+understand how this renewal process works.</p>
+
+<p>Let&rsquo;s take a look at the age distribution of Vancouver&rsquo;s single family homes.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_sfh" style="height:200px;max-width:640px;" data-url="/data/sfh_age.json"></div>
+<div class="legend no-margin"></div>
+</div>
+
+
+<p>We divided the building stock for each age into two groups, one with building value less than 5% of the total property
+value, and one with building value greater than 5%. The significance of that number is that historically over the last
+10 years, buildings with this precentage below 5% <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">had a 1 in 6 change of being torn down and rebuilt</a>
+over a 10 year time frame, with sharply dropping frequency of tear downs of buildings above that threshold. Check the link
+for a more detailed analysis.</p>
+
+<p>We interpret this graph as giving us a decent prediction of what part of our building stock will get torn down and rebuilt
+in the next 10 years, 1 in 6 of the red is predicted to go.</p>
+
+<p>What&rsquo;s remarkable is that essentially the entire SFH stock built between 1935 and 1965 is at high risk of being torn down,
+while the period before that has a much better chance of surviving. This comes out of purely looking at the data, it would
+be helpful if people out there that understand
+the characteristics of the homes built at different times could shed some light onto why this maybe be the case.</p>
+
+<p>Appreciating some of the economic drivers of this process, we can try to understand how people feel about the process.
+There seem to be several different reactions to and thoughts on buildings being torn down
+that can be summed up with the words &lsquo;heritage&rsquo;, &lsquo;waste&rsquo; and &lsquo;McMansion&rsquo;.</p>
+
+<h4>Heritage</h4>
+
+<p><a href="https://mountainmath.ca/map/special/11?zoom=13&amp;lat=49.264&amp;lng=-123.1276&amp;layer=4&amp;filter=sfh"><img  src="http://doodles.mountainmath.ca/images/heritage.png" style="width:50%;float:left;margin-right:10px;"></a>
+Some feel strongly about &lsquo;heritage homes&rsquo; which typically goes beyond the
+<a href="https://mountainmath.ca/map/special/11?zoom=13&amp;lat=49.264&amp;lng=-123.1276&amp;layer=4">City of Vancouver list of heritage sites</a>
+or more specifically the <a href="https://mountainmath.ca/map/special/11?zoom=13&amp;lat=49.264&amp;lng=-123.1276&amp;layer=4&amp;filter=sfh">single family houses on that list</a>.
+The term is used differently by different people and may be confined to offical heritage sites, or ones that have been
+&lsquo;overlooked&rsquo; and should be part of that list, to houses of a certain age or style (&ldquo;cottage homes&rdquo;), to including pretty
+much anything old or decent looking like this <a href="http://www.vancouversun.com/business/bulldozer+bait+million+mansion+just+another+vancouver+tear+down/11686111/story.html?__lsa=8524-b4e7">1996 building that made the news recently</a>.
+Many of those heritage sites are well kept up, with a teardown coefficient well above 5%. But there are also some in quite desolate
+state.</p>
+
+<p>Most people see value in heritage, for this term to be a more usefuly driver in the discussion it would greatly help to
+narrow it down.</p>
+
+<h4>Waste</h4>
+
+<p>Another narrative is that of &lsquo;waste&rsquo;, when a house gets sent to the landfill. And waste is an issue everyone
+is concerned about, land fill space is limited and the impact of the building industry is huge,
+<a href="http://www.bcbusiness.ca/real-estate/disposable-housing-vancouver-home-demolition">as described in this 2011 article</a>.
+The City of Vancouver has enacted some rules on <a href="http://vancouver.ca/home-property-development/demolition-permit.aspx">how much of a building needs to be recycled</a>,
+but they are very weak. In particular, there are no binding recycling requirements at all for post 1940 houses beyond recycling drywall.
+Generally the sentiment seems to be more concerned with the fact that a building is getting
+torn down, rather than focused on how to improve the process of salvaging and recycling the old home.</p>
+
+<p>The good news is that most of the teardown activity in Vancouver has been
+<a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">focusing on low relative building value properties</a>, so
+cases like the demolition of <a href="http://www.vancouversun.com/business/bulldozer+bait+million+mansion+just+another+vancouver+tear+down/11686111/story.html?__lsa=8524-b4e7">that 1996 building assessed at $1.9m</a>
+are quite rare. That building has a teardown coefficient of 25%, and historically buildings in that range had a 1 in 200
+chance of being torn down in a 10 year period.</p>
+
+<p>What&rsquo;s concerning though is that as land values increase, so do the value (dollar amount) of the buildings that move into
+the high-risk category of teardown coefficient below 5%.</p>
+
+<h4>McMansion</h4>
+
+<p>The last important word is &lsquo;McMansion&rsquo;, which tackles the question of what the building gets replaced with. Typically
+the term &lsquo;McMansion&rsquo; is used for a building whose primary concern is to maximize the allowable footprint.
+Economically speaking, this is a rational reaction to the exorbitant land values. Esthetically it can be quite jarring.</p>
+
+<p>This is where the value judgement in &ldquo;<em>loss</em> of character&rdquo; becomes most apparent. While some people feel visually offended
+by them, people that buy these properties clearly prefer them over what was there before. Either way, they serve as constant
+reminders of the change the neighbourhoods are experiencing.</p>
+
+<h3>Change in Demographics</h3>
+
+<p>Probably more important than the change in buildings is the change in demographics. Vancouver seems to be experiencing
+a gentrification process where the traditional financial elite of &lsquo;high income&rsquo; households is priced out of the market by the new
+financial elite of &lsquo;high net worth&rsquo; households. That change is dramatic and it has been going on for long enough now to
+have left very visible signs in the 2011 Census data.</p>
+
+<p><a href="http://censusmapper.ca/maps/37"><img  src="http://doodles.mountainmath.ca/images/local_affordability.png" style="width:50%;float:right;"></a>
+Looking at the <a href="http://censusmapper.ca/maps/37">&lsquo;local affordability&rsquo; in Vancouver</a> in 2011 we see that in many (not all)
+neighbourhoods the people that live there could
+not afford to buy again (based on their income). What that means is simply that the people moving in will be demographically
+very different from the ones living there right now. And yes, this problem is much worse in Vancouver than in other places in
+Canada, which can easily be seen by searching and panning in the map.</p>
+
+<p>This problem has likely gotten much worse since, as housing prices continued to climb much more steeply than income since 2011.</p>
+
+<p><a href="http://www.mountainmath.ca/map/assessment?zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/twiddling_thumbs.png" style="width:50%;float:left;margin-right:10px;"></a>
+Another indicator of just how disconnected the property market, especially that of single family homes, is from the
+local economy is that the combined rise of land value of all single family homes combined was $24.6bn, more than the entire
+population of Vancouver combined income through work, investment (other than housing) or registered retirement income and
+government transfer payments during that year. Even considering pre-tax income (although the housing price increase is tax free for all those
+living in their house the year before they sell). <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">Read here more details on this</a>
+or <a href="http://www.mountainmath.ca/map/assessment?zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12">browse through the map</a> to see
+just how much each Vancouver homeowner made last year twiddling thumbs and waiting for land values to rise.</p>
+
+<p>So how can people still buy in this market? Except for the rare cases of people with very large salaries to be able to save
+large sums for down payments and handle the mortgage payments, those purchases are founded in wealth, not income. Local wealth,
+maybe inherited or handed down from parents when they cached out on their home, or money brought in from abroad.</p>
+
+<p>What&rsquo;s clear is that this wealth-based gentrification process is real and rapidly changing the social character of the
+neighbourhoods.</p>
+
+<h3>Hard truths</h3>
+
+<ol>
+<li>We can&rsquo;t stop teardowns. The economic drivers are too strong. We can do better at designating and preserving heritage
+sites and nudging the process in other ways. Naively projecting past data forward
+<a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">we predict around 8,000 properties will be torn down and rebuilt</a>
+in the next 10 years.</li>
+<li>Affordable single family homes are a thing of the past. Demand is growing and supply is shrinking, so prices will
+remain high and nothing short of Soviet-style interventions can change that.</li>
+<li>Housing in many neighbourhoods is now out of reach for working professionals that can&rsquo;t rely on outside financial help
+like inheritance or mortgages backed by the assets of their parents.</li>
+<li>Foreign money may have played some role in getting us here, but any solution that solely revolves around dealing with
+foreign money won&rsquo;t solve the problem. (Someone should run some
+custom tabulations through Stats Canada to get a better handle on the signs of foreign money that can be picked up from the basic 2011
+Census data.)</li>
+</ol>
+
+
+<h3>Preserving and Restoring Character (my 2c)</h3>
+
+<p>Looking forward, how can the character of the neighbourhoods be preserved or restored? Most of the public discussion
+focuses on the how to preserve the build form; the question how to preserve the
+social structure of the neighbourhoods receives much less attention.</p>
+
+<p>I don&rsquo;t have a good overview about what ideas are out there, so I won&rsquo;t attempt to summarize them. Usually I try to focus
+on data and keep my opinions out of this, but I could not help myself on this one. So here comes my 2c on what should be done.</p>
+
+<h4>Character of Buildings</h4>
+
+<p>For buildings, we need to focus on what&rsquo;s important to
+preserve. We need better rules on building waste. And we need to create policies that guide what teardowns will replace.</p>
+
+<h4>Social Character</h4>
+
+<p>To preserve and restore the social character of the neighbourhoods we need to create housing for the types of people that
+used to be able to buy in the neighbourhood and are now being pushed out. That is working professionals. Given that single
+family houses will remain out of reach, the only way to do that is to allow (low rise) condos in neighbourhoods. I don&rsquo;t know
+if that means just upzoning arterials, or creating pockets of low-rise throughout neighbourhoods like it is common in my
+<img  src="http://doodles.mountainmath.ca/images/arbutus-33.png" style="width:50%;float:right;">
+native Germany. One example of this in Vancouver is the low-rise pocket at Arbutus and 33rd.
+That complex, when taken together with all of Quilchena park, still houses roughly 3 times more people per area than the typical
+single family housing neighbourhood with the same total area. And it collects the same amount of property taxes
+per square metre as the typical single family neighbourhood (without a park) while it is cheaper to service.</p>
+
+<p>Alternatives, like encouraging laneway houses and secondary suites can also increase supply and help ease the housing crunch.
+They are great at increasing rental stock. But they don&rsquo;t increase supply fast enough, don&rsquo;t serve the
+demand for home ownership and scatter up the green space into lots of tiny yards instead of freeing up space for larger
+parks that can be effectively used for kids to play and recreation. Focusing only on towers instead just intensifies the
+gentrification process, but there probably are areas where they make sense. There is no doubt that increasing supply
+has to be part of the solution, any ideas like <a href="https://pricetags.wordpress.com/2016/01/31/qa-on-the-toughest-topic-in-town/">&lsquo;downzoning&rsquo;</a>
+that fail to increase supply are counterproductive in restoring the social character of the neighbourhoods.</p>
+
+<p><a href="http://censusmapper.ca/maps/88?zoom=14&amp;lat=49.2395&amp;lng=-123.1518"><img  src="http://doodles.mountainmath.ca/images/child_household_density.png" style="width:50%;float:left;margin-right:10px;"></a>
+If we are concerned about creating space for families the question becomes where to house them. With land limited, let&rsquo;s
+map the density of households with children, so the <a href="http://censusmapper.ca/maps/88?zoom=14&amp;lat=49.2395&amp;lng=-123.1518">number of households with children per km&sup2;</a>.
+We immediately see that the existing pockets of mid and high-rise are very effective at housing children households. Using
+Census data to model presence of children in households on physical housing parameters we see that having 3 or more bedrooms
+is the single most determening factor. If accommodating families is a priority, then we need to ensure that all neighbourhoods
+have 3 bedroom options, <a href="http://censusmapper.ca/maps/97">which is currently not the case (2011 data)</a>.</p>
+
+<h4>Dealing with a Wealth-based market</h4>
+
+<p>Moving from a housing market supported by income to one supported by wealth, either of domestic or foreign origin, requires
+new rules to ensure fairness and preserve the basic social contract that our society is founded on: That everyone starts
+out with more or less the same opportunities, and work and grit can lead to social and economic upward mobility.</p>
+
+<p>Wealth, especially foreign wealth, tends to be much more mobile and can decide on short notice to leave Vancouver. This introduces
+enormous risks to the local economy, and smart policies are needed to guard against these risks.</p>
+
+<p>In Canada, people don&rsquo;t pay capital gains on their primary residence. That works fine as long as increases
+in land value are relatively low, but with current situation where people <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">earn more money sitting on their house than
+actually working</a> the idea that income from
+work should be taxes and income from twiddling thumbs should not is just ludicrous. Let&rsquo;s tax all capital gains on housing.
+We can deduct investments into improvements and can argue about details like indexing taxable gains to inflation. And
+let&rsquo;s tax it at a rate that is higher than the one on income or investments in stocks to re-focus housing as being treated
+primarily to house people and not as investment.</p>
+
+<p>This train of thought is similar in nature to the
+<a href="http://www.theglobeandmail.com/news/british-columbia/bc-professors-call-for-property-surtax-on-vacant-vancouver-housing/article28235302/">Vacant Housing Tax</a>
+in that it would have minimal direct impact
+on the market (so it in itself won&rsquo;t bring prices down in a meaningful way), but it would generate substantial amounts of revenue
+that could be used to provide relief. And the revenue is large enough that, if spent strategically (for example on building
+affordable rental), could have a meaningful impact on the overall property market. And restore fairness in a market where
+initial captial barriers are so high only the rich can participate.</p>
+
+<p>Next, with the property market driven by wealth (especially for single family houses), while the way we finance
+public services is based on income, we need to ask the question if our current taxation system is still adequate. A capital
+gains tax on housing is just one part of this, the proposal to tax vacant properties is another. We could strengthen
+legislation and enforcement on foreign income, assuming that this is a big enough issue (Give us better data!).
+Other options that should get discussed are a higher property transfer tax, progressive property taxes
+(possibly discounted against income tax) and other measures that pay more attention to the role of wealth vs income in
+the Vancouver property market. This discussion is important, but requires better data to be meaningful and effective.</p>
+
+<h4>Data</h4>
+
+<p>The profound lack of data is a major problem to find effective ways to fix the affordability crisis. Lack of clear data
+can provide a convenient excuse for inaction.</p>
+
+<p>But data does not need to be perfect.<br/>
+Much can be learned from the data at hand. A good list of data sources and reproducible findings would be a great way
+to establish a baseline, build better arguments and keep the discussion focused on the &ldquo;big fish&rdquo;.</p>
+
+<p>Maybe a dedicated github repro could provide a suitable format for this.</p>
+
+<script>
+
+function stacked_bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter){
+    if (!domainFormatter) domainFormatter=d3.format("d")
+    if (!rangeFormatter)
+     rangeFormatter = function (y) {
+        return y;
+     };
+     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
+
+var margin = {top: 20, right: 20, bottom: 40, left: 70},
+    width = parseInt(div.style("width")) - margin.left - margin.right,
+    height = parseInt(div.style("height")) - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickFormat(domainFormatter)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(rangeFormatter)
+    .ticks(5, rangeFormatter);
+
+var svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data_url=div[0][0].dataset.url;
+var legend=d3.select(div.node().parentNode).select('.legend');
+
+
+d3.json(data_url, function(error, json) {
+  if (error) throw error;
+  var graphData=json[0];
+  var data=graphData.data;
+  var color = d3.scale.ordinal().domain(graphData.colors.map(function(d,i){return i}))
+  .range(graphData.colors);
+  var domain=data.map(function(d){return d.date;});
+  x.domain(domain);
+
+  function graphValueId(i){
+      return graphData.class + '_' + i + '_value'
+  }
+
+  graphData.labels.forEach(function(text,i){
+    var color=graphData.colors[i];
+    var html='<i style="background:' + color + '"></i> ' + text + ' <span style="float:right;margin-right:10px;" id="' + graphValueId(i) + '"></span>'
+    legend.append('p').html(html);
+  });
+  
+  data.forEach(function(d) {
+      var y0 = 0;
+      d.values = color.domain().map(function(i) { return {date: d.date, y0: y0, y1: y0 += +d.count[i]}; });
+      d.total = d.values[d.values.length - 1].y1;
+  });
+  y.domain([0, d3.max(data, function(d) { return d.total; })]);
+
+  var domainTickValues=[];
+  var skip=Math.round(40/x.rangeBand());
+  if (skip<=0) skip=1;
+  for (var i=0;i<x.domain().length;i++) {
+    if (i % skip==0) domainTickValues.push(x.domain()[i]);
+  }
+  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
+  xAxis.tickValues(domainTickValues);
+
+  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(" + xShift + "," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//    .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Probability");
+
+    function updateTooltip(d,i){
+       color.domain().forEach(function(j){
+             var value=d && i==j ? (domainLabelFormatter(d.date) + ': ' +rangeFormatter(d.y1-d.y0)) : '';
+             d3.select('#'+graphValueId(j)).text( value);
+       });
+    }
+
+  var year=svg.selectAll(".year")
+    .data(data)
+        .enter().append("g")
+          .attr("class", "g");
+  year.selectAll(".color-bar")
+      .data(function(d) { return d.values; })
+    .enter().append("rect")
+      .attr("class", graphData.class + " color-bar")
+      .attr("fill", graphData.color)
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.y1); })
+      .attr("height", function(d) { return Math.max(0, y(d.y0) - y(d.y1)); })
+      .attr("fill",function(d,i) {return color(i);})
+      .on('mouseover',updateTooltip)
+      .on('click',updateTooltip)
+      .on('touch',updateTooltip) 
+      .on('mouseout',function(){updateTooltip(null,i)});
+
+      
+});
+
+}
+
+
+var priceFormatter2=d3.format("$,");
+    var priceFormatter = function (y) {
+        return y>=1000000 ? (priceFormatter2(y/1000000) + 'm') : (priceFormatter2(y/1000) + 'k');
+    };
+    var brackets=[100000,200000,300000,400000,500000,600000,700000,800000,900000,1000000,2000000,10000000,20000000,40000000]
+
+var binFormatter=function(top){
+    var bottom=0;
+    if (top<=1000000) bottom=top-100000;
+    else if (top==2000000) bottom= 1000000;
+    else if (top==10000000) bottom= 2000000;
+    else if (top=20000000) bottom= 10000000;
+    else bottom=20000000;
+    return priceFormatter(bottom) + ' - ' + priceFormatter(top);
+}
+var numberFormatter=d3.format(",");
+var numberBinFormatter=function(top){
+    var     bins=[0,1,2,4,8,10,16,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,300,400,500,700];
+    var index=0;
+    while (bins[index]<top && index<bins.length) index ++;
+    bottom=bins[index-1]+1;
+    return (bottom == top) ? numberFormatter(bottom) : numberFormatter(bottom) + ' - ' + numberFormatter(top);
+}
+stacked_bar_graph(d3.select("#graph_sfh"));
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Land Use Data]]></title>
@@ -997,135 +1388,6 @@ var ready_for_graph = function() {
 ready_for_graph();
 </script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[The Hidden Mortgage]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/08/25/the-hidden-mortgage/"/>
-    <updated>2015-08-25T23:18:12-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/08/25/the-hidden-mortgage</id>
-    <content type="html"><![CDATA[<p>Some months ago I did a little side project and put some Census Canada data for Vancouver
-<a href="https://mountainmath.ca/census">on an interactive map</a> online. After it generated quite some interest, to a large part
-due to Ian Young&rsquo;s reporting
-<a href="http://www.scmp.com/comment/blogs/article/1851003/bizarro-vancouver-25000-households-declare-less-income-they-spend">utilizing some of the data in the South China Morning Post</a>,
-I talked to my friend Alejandro and we decided to set up a Census Mapper that allowes laymen to map any census variables
-of their choosing Canada wide.</p>
-
-<p>Since this is only a side project, it will take some time to set this up properly. In the meantime, I get to have some
-fun to play with census data and map some variables of my choosing.</p>
-
-<p>For a sneak preview of what the Census Mapper will be able to do read below the fold. No interaction, no chosing your
-own variables and panning around Canada yet. Just some screenshots with a story to tie them together.</p>
-
-<!-- more -->
-
-
-<h3>Census Mapper Sneak Preview</h3>
-
-<p>One of my many pet pieves has been the Drive Until You Qualify phrase. The idea is that you buy the house closest to your
-place of work for which the bank will aprrove a loan. The obvious problem with this is that your commuting costs will
-go up the further away from work you live &ndash; and you disposable income goes down accordingly. But the bank does not
-seem to be bothered by that at all and often does not get much attention by househunting families either.</p>
-
-<p>The fix? Easy. The cost of commuting and housing should not be separated by viewed in concert with one another.
-People househunting right will have to do this based on their individual parameters, but let&rsquo;s take a look at what
-choices people have made in the past based on Census Canada&rsquo;s 2011 NHS data.</p>
-
-<h4>Dwelling Value</h4>
-
-<p>In mapping terms, let&rsquo;s start with the map of Median Dwelling Values around Vancouver, taken from the NHS. Although
-a little dated, it still serves to make the basic point.</p>
-
-<p><img src="/images/dwelling_value.jpg" alt="&quot;Median Dwelling Value&quot;" /></p>
-
-<p>The image is the familiar one, homes are expensive on the west side, a little less so toward the east. In Vancouver
-proper the downtown area is somewhat affordable with prices dipping below $300,000 for the median dwelling. We are
-considering the whole range, one bedroom condos all the way up to single family homes.</p>
-
-<h4>Commute Time</h4>
-
-<p>Next up, how much time to these people spend commuting? The NHS got you covered.</p>
-
-<p><img src="/images/commute_time.jpg" alt="&quot;Median One Way Commute Time&quot;" /></p>
-
-<p>The median one-way commute time give us a picture of how much time people spend to go to work. And we will assume they
-spend the same time coming back.</p>
-
-<p>How much does it cost to commute. We will think of the commute cost as being made up of two components. The money
-spent to get to and from work and the dollar value of the time. That leaves us with two more questions. How much money
-do people spent and how much is their time worth.</p>
-
-<h4>Transportation Cost</h4>
-
-<p>Luckily, again the NHS has something to say about this. To figure out the money spent on the commute we look at the mode
-of transport. NHS tell us how many people drive, are passengers, take transit, cycle or walk to work. To keep things
-simple we will compute the &lsquo;median commute cost&rsquo; by setting transit cost at $120 per month (roughly the price for a
-2-zone transit pass) and for driving we set the car2go rate of 41c/min (which is quite generous, most people will spent
-more if they own a car, and pay for gas, insurance, parking themselves and spent time to maintain it). For simplicit we
-set the cost for passengers, cyclists and pedestrians at zero. So we sum over the number of drivers and transit users
-and divide by the total number of commuters in each dissemination area to estimate that cost. Generally speaking it
-turns out to be much smaller than the &lsquo;time cost&rsquo; calculated next.</p>
-
-<h4>Time Cost</h4>
-
-<p>To compute the &lsquo;time cost&rsquo; of commuting for the average person in each dissemination area we need to know what people&rsquo;s
-time is worth. The NHS has a simple answer for that, the Median After Tax Household Income.</p>
-
-<p><img src="/images/median_after_tax_income.jpg" alt="&quot;Median After Tax Household Income&quot;" /></p>
-
-<p>We estimate the median annual time cost of the commute by taking the ratio of the daily commute time to the daily work time,
-assumed to be eight hours, and multiplying it by the annual after tax income. That&rsquo;s more or less the money the average
-person in that dissemination area makes in the time the person spent commuting. If there are several people in the
-household contributing to the income, there will be several people spending time
-commuting, so that effect roughly cancels out.</p>
-
-<h4>Annual Commute Cost</h4>
-
-<p>Putting it together we get the annual cost of the commute map.</p>
-
-<p><img src="/images/commute_cost.jpg" alt="&quot;Annual Cost of Commute&quot;" /></p>
-
-<p>This is only an estimate. From a technical perspective we probably should have been working with averages instead of
-median values, but the result is very similar. Translating between time and money is inherintly tricky, most people can&rsquo;t
-easily scale up or down the time they spent working to translate time into money. The easiest way to think of this is
-someone who tries to work less hours (and get less pay) in order to spend more time with their family. One way to do
-exactly that is to cut down on commute time.</p>
-
-<h4>The Hidden Mortgage</h4>
-
-<p>Now it&rsquo;s time to tie this back up with the price for housing. After all, the time you spent on your commute and your
-mode choice for that commute, are intimately tied to where you choose to live. How do we combine the commute cost with
-the housing cost?
-As a rule of thumb, one makes $400 monthly payments for each $100,000 of mortgage. Give or take, but our numbers are
-quite rough anyway. So taking the annual commute cost, dividing by 400 and multiplying by 100,000 we get the &lsquo;commute
-cost mortgage equivalent&rsquo;. If we map it it looks the same as the previous map, just with different labels. But since I
-like maps, here it is.</p>
-
-<p><img src="/images/commute_mortgage_equivalent.jpg" alt="&quot;Commute Mortgage Equivalent&quot;" /></p>
-
-<p>In other words, we translated the commute cost into &lsquo;hidden mortgage&rsquo; payments. Except, unlike a real mortgage, paying
-it off does not generate any value for you.</p>
-
-<h4>Combined Dwelling Value and Commute Cost</h4>
-
-<p>Finally we have all we need for the end result. The Combined Dwelling Value and Commute Time/Mode Value Map where we
-simply add the estimated commute mortgage cost onto the dwelling value.</p>
-
-<p><img src="/images/combined_dwelling_commute.jpg" alt="&quot;Combined Dwelling Value And Commute Cost&quot;" /></p>
-
-<p>It does not look radically different from the dwelling value map. It&rsquo;s almost the same around downtown where commute
-time tends to be low and more expensive further out, where the &lsquo;hidden mortgage&rsquo; of commute time can add up to half a
-million dollars.</p>
-
-<p>Using Census Data can only help illustrate the hidden mortgage that people are already paying. It can only highlight
-some general trends and ideas, it cannot make any statement about particular individual households, nor can the genral
-reasoning used to derive the numbers apply to everyone. Or maybe even most people. The estimates are quite rough, likely
-underestimating commute costs for drivers, not taking into account the well understood health benefits of active
-transportation nor the negative health implications of driving. The commute time to money computation is very rough
-and will have to be adjusted if applied to real-world examples. But this is only meant to illustrate ageneral point.</p>
-
-<p>The takeaway should be that the &lsquo;hidden mortgage&rsquo; is real, and it&rsquo;s huge. And often overlooked.</p>
 ]]></content>
   </entry>
   
