@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-02-10T08:46:06-08:00</updated>
+  <updated>2016-02-14T21:50:53-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,473 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[On Condos]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/02/10/on-condos/"/>
+    <updated>2016-02-10T11:01:47-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/02/10/on-condos</id>
+    <content type="html"><![CDATA[<p>Lots has been said about the upper end of owned dwellings. The movement of the &ldquo;million dollar line&rdquo;, the emergence of
+the &ldquo;two million dollar line&rdquo; and &ldquo;multi-million dollar lines&rdquo;. Most of that discussion is focused on
+<a href="http://www.mountainmath.ca/map/assessment?filter=sfh">single detached homes</a> or on proxies for &ldquo;single detached&rdquo; like
+<a href="http://www.mountainmath.ca/map/assessment?filter=rs">RS zoned properties</a>.</p>
+
+<p>But all of these maps have a clear bias toward the more expensive homes. Everyone knows by now where the most expensive properties
+are. But where are the more affordable ones?</p>
+
+<!-- more -->
+
+
+<p>Before continuing and getting disappointed at the end, we want to highlight the huge limitations when looking for affordable homes.
+There is no freely available data on the
+floor area or number of bedrooms for each dwelling unit. Next to the price and location (which we have), these are the most
+important features of a dwelling. And this limits the usefulness of all that follows.</p>
+
+<p>Why continue? It gives a glimpse of what kind of analysis could be done if the information would be <em>freely</em> available.</p>
+
+<h3>The Elephant in the Room</h3>
+
+<p>In principle all this information is available, <a href="https://twitter.com/bcassessment">BCAssessment</a> has all this data. And they even make it
+<a href="http://evaluebc.bcassessment.ca/Default.aspx#">available on their (quite nice) eValue website</a>. But their terms of use
+prevent us and others from using this information. Most of the information used in the analysis here originates from BCAssessment,
+but it comes via the City of Vancouver that has made the data available through their open data portal.</p>
+
+<p>As I understand it, the main reason why this data is not freely available is that BCAssessment is charged to recover their
+own operating cost. So they hold onto their data and try to sell it for cost recovery. In the process of which they harm
+the ability of municipalities to plan properly and the public to get a clear idea where things are at and have a fact-based
+discussion on how to move forward. Which creates large amounts of friction and may lead to social and economic damages far
+exceeding any revenue collected by BCAssessment.</p>
+
+<p>Personally, I don&rsquo;t believe that holding back data is a smart way to run a government. You might want to
+<a href="http://twitter.com/home/?status=@bcassessment Please add %23openData license to information you publish on eValue! %23giveUsData" target="_blank">ask BCAssessment to #giveUsData</a>.</p>
+
+<p>For now, let&rsquo;s put the data that we do have to the best use and see what we can tease out.</p>
+
+<h3>Locating the Most Affordable Dwellings</h3>
+
+<p><a href="https://mountainmath.ca/map/special/101"><img  src="http://doodles.mountainmath.ca/images/strata.png" style="width:50%;float:left;margin-right:10px;"></a>
+Stating the obvious, the most affordable homes aren&rsquo;t &ldquo;single detached&rdquo;, they are condos. And condos have been largely
+absent from the affordability debate, although they make up the majority of owned dwelling units in the City of Vancouver.</p>
+
+<p>Let&rsquo;s start off with a <a href="http://www.mountainmath.ca/map/special/101">map of the roughly 4,500 stratified residential or mixed use properties in Vancouver housing a total of about 10,2000 strata units</a>.
+The exact numbers are hard to pin down. (<a href="http://twitter.com/home/?status=@bcassessment Please add %23openData license to information you publish on eValue! %23giveUsData" target="_blank">#giveUsData</a>)</p>
+
+<p>The distribution of stratified units by the total number of strata units
+per building gives an idea of the types of strata units that are out there.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_strata_by_number" style="height:200px;max-width:640px;" data-url="/data/strata_by_number.json"></div>
+<div class="legend no-margin">
+  <p><i style="background:steelblue"></i> Number of strata units by size of strata <span style="float:right;margin-right:10px;" id="unit_counts_value"></span></p>
+</div>
+</div>
+
+
+<p>The horizontal axis is not linear, and the bin sizes are not equal, which makes the graph a little difficult to read. We chose bins at
+2, 4, 8, 10, 16, 20 at the low end, then of width 10 up to 200, from there width 20 up to 300 and then 400, 500 and 700 at
+the top end. Lazy me apologizes for the poor graphic.</p>
+
+<p>We immediately notice the 4,152 strata units in stratas with exactly 2 units usually referred to as &ldquo;duplexes&rdquo;.
+There are a lot of strata units are in stratas of size between 20 and 50, but
+otherwise the units are fairly well distributed over different building sizes. At the high end there are fewer buildings,
+but each with lots of units. So there our graph becomes a little jerky and heavily depends on the cutoffs we choose.</p>
+
+<p>To get a basic idea on how much these units cost we plot the number of strata units by price bracket.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_strata_by_price" style="height:200px;max-width:640px;" data-url="/data/strata_by_price.json"></div>
+<div class="legend no-margin">
+  <p><i style="background:steelblue"></i> Number of strata units by price <span style="float:right;margin-right:10px;" id="affordable_value"></span></p>
+</div>
+</div>
+
+
+<p>The distribution looks largely as one would expect. It peaks between the $400k and $500k mark, with a median value of
+$482,000. But there are a couple of things that jump out. Firstly, there are suspiciously many condos
+below $100k, more than half of which (445 to be precise), are less than $50k. There are places where one could by
+a condo for that price, but not in Vancouver. These are stratified parking spaces or other amenity spaces.</p>
+
+<p>Next let&rsquo;s focus in on the 8,313 duplex and multi-plex units with 8 or fewer units (in 2,995 buildings) and plot these
+separately.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_multiplex_by_price" style="height:200px;max-width:640px;" data-url="/data/multiplex.json"></div>
+<div class="legend no-margin">
+  <p><i style="background:steelblue"></i> Number of multiplex units by price <span style="float:right;margin-right:10px;" id="multiplex_value"></span></p>
+</div>
+</div>
+
+
+<p>We see that the price distribution for multiplex units peaks at a higher price between $800k and $900k, but the overall
+numbers are quite small when compared to all strata units.</p>
+
+<h3>Affordable Strata Units</h3>
+
+<p>Let&rsquo;s try to understand where the &ldquo;affordable&rdquo; housing stock is, which we take to be units below $500k, or roughly the
+bottom half of the distribution. We would like to map the properties containing housing
+units for each of our price brackets, but this gets tricky since the dataset does not hold
+information which units are parking spaces and which are commercial.</p>
+
+<p>We need to take care of the problem with needing to distinguish parking spaces from housing units. And from commercial units.
+(<a href="http://twitter.com/home/?status=@bcassessment Please add %23openData license to information you publish on eValue! %23giveUsData" target="_blank">#giveUsData</a>) So we are left with
+using proxies, so let&rsquo;s set a cutoff price so that most units below are parking stalls and most units above are (residential)
+units.</p>
+
+<p>Generally, parking spaces should not cost more than $50,000 to $100,000, which is roughly the cost to build underground
+parking. $50,000 if it&rsquo;s only one level, getting to $100,000 when having to go down deeper or water becomes an issue. The
+fact that some spaces go for significantly less is the result of mandatory parking minimums. Some parking spaces may be worth
+more than $100,000 as some people are willing to pay a premium for a convenient spot. That may mean a spot next to the
+elevator by the exit ramp, or simply a parking spot in a specific building that is under supplied and trekking across the
+street to a spot somewhere else is inconvenient enough.</p>
+
+<h3>Location of Affordable Condos</h3>
+
+<p><a href="https://mountainmath.ca/map/special/110"><img  src="http://doodles.mountainmath.ca/images/strata_500k.png" style="width:50%;float:left;margin-right:10px;"></a>
+Since it is impossible to pick out the housing units out of all the strata units, all we can do is map all strata units,
+understanding that
+those below $50k are most likely parking spaces, those between $50k and $100k could be parking or housing (or commercial) and the
+majority of units above $100k are housing.</p>
+
+<p>And we can&rsquo;t actually map the individual units, only the buildings that house the units. Here are maps of the buildings
+housing the units in each of the lower brackets.</p>
+
+<ul>
+<li><a href="https://mountainmath.ca/map/special/41">&lt; $100k (715 units in 17 buildings)</a></li>
+<li><a href="https://mountainmath.ca/map/special/42">$100k &ndash; $200k (2,415 units in 198 buildings)</a></li>
+<li><a href="https://mountainmath.ca/map/special/43">$200k &ndash; $300k (10,270 units in 644 buildings)</a></li>
+<li><a href="https://mountainmath.ca/map/special/44">$300k &ndash; $400k (19,128 units in 1,112 buildings)</a></li>
+<li><a href="https://mountainmath.ca/map/special/45">$400k &ndash; $500k (20,538 units in 1,219 buildings)</a></li>
+</ul>
+
+
+<h3>Makeup of Condos</h3>
+
+<p>The built quality of strata units is generally higher, dollar for dollar, than that of single family homes. This should not
+come as a surprise as land is very expensive and stata units tend to use land more efficiently. There are only 27 residential
+or mixed use strata buildings that classify as <em>teardowns</em>,
+<a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">with a teardown coefficient below 5%</a>.
+And 25 of these are duplexes, one is a 3-plex and one an 8-plex. There are no condos buildings with more than 8 units that
+fit our most restrictive definition of <em>teardown</em>.</p>
+
+<p>Next we explore what kind of buildings the affordable units are in by graphing the number of units in several price ranges
+per size of the strata building it is in.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_affordable_strata_by_number" style="height:200px;max-width:640px;" data-url="/data/affordable_strata_by_number.json"></div>
+<div class="legend no-margin">
+</div>
+</div>
+
+
+<p>It looks like buildings with 20 to 60 units are quite good at producing affordable units. Partially that&rsquo;s due to their
+abundance, but graphing the percentage of units in each price bracket confirms that these buildings tend to produce a
+nice mixture of low and high value condos. But larger condo buildings can also achieve this, although the actual performance
+of what has been built is mixed. Other factors, for example building age, are likely also at play here.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_percentage_affordable_strata_by_number" style="height:200px;max-width:640px;" data-url="/data/percentage_affordable_strata_by_number.json"></div>
+<div class="legend no-margin">
+</div>
+</div>
+
+
+<p>To see what the distribution of strata units by age is, we use the same price cutoffs and sort the strata units into age
+brackets. Since we are mostly interested in the more affordable units we sort out units in buildings with 4 or fewer units.
+These units might skew some of the age brackets.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_affordable_strata_by_age" style="height:200px;max-width:640px;" data-url="/data/affordable_strata_by_age.json"></div>
+<div class="legend no-margin">
+</div>
+</div>
+
+
+<p>To highlight the proportional makeup we again and graph this again as percentages.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_percentage_affordable_strata_by_age" style="height:200px;max-width:640px;" data-url="/data/percentage_affordable_strata_by_age.json"></div>
+<div class="legend no-margin">
+</div>
+</div>
+
+
+<p>We see how generally the percentage of more affordable units increases with the age of the building. Newer units generally
+tend to be more expensive at first and becoming more affordable over time as the building ages.</p>
+
+<h3>Taking Stock</h3>
+
+<p>If you read this far you probably agree that this exercise was mostly a waste of time. Hopefully you are earger to see this
+analysis split up by number of bedrooms and floor area. If you are all riled up at the lack of data and BCAssessment
+not giving out this information with a clean open data license you might want to drop them a line and
+<a href="http://twitter.com/home/?status=@bcassessment Please add %23openData license to information you publish on eValue! %23giveUsData" target="_blank">ask for at least the information they publish eValue to be made available with an #openData license!</a></p>
+
+<p>I am still hopeful that this might happen some day, and we can get a much better picture of the buildings in BC cities
+and check how they perform in fulfilling the needs of the community. And learn from that to make informed policy choices.</p>
+
+<script>
+
+function stacked_bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter){
+    if (!domainFormatter) domainFormatter=d3.format("d")
+    if (!rangeFormatter)
+     rangeFormatter = function (y) {
+        return y;
+     };
+     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
+
+var margin = {top: 20, right: 20, bottom: 40, left: 70},
+    width = parseInt(div.style("width")) - margin.left - margin.right,
+    height = parseInt(div.style("height")) - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickFormat(domainFormatter)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(rangeFormatter)
+    .ticks(5, rangeFormatter);
+
+var svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data_url=div[0][0].dataset.url;
+var legend=d3.select(div.node().parentNode).select('.legend');
+
+
+d3.json(data_url, function(error, json) {
+  if (error) throw error;
+  var graphData=json[0];
+  var data=graphData.data;
+  var color = d3.scale.ordinal().domain(graphData.colors.map(function(d,i){return i}))
+  .range(graphData.colors);
+  var domain=data.map(function(d){return d.date;});
+  x.domain(domain);
+
+  function graphValueId(i){
+      return graphData.class + '_' + i + '_value'
+  }
+
+  graphData.labels.forEach(function(text,i){
+    var color=graphData.colors[i];
+    var html='<i style="background:' + color + '"></i> ' + text + ' <span style="float:right;margin-right:10px;" id="' + graphValueId(i) + '"></span>'
+    legend.append('p').html(html);
+  });
+  
+  data.forEach(function(d) {
+      var y0 = 0;
+      d.values = color.domain().map(function(i) { return {date: d.date, y0: y0, y1: y0 += +d.count[i]}; });
+      d.total = d.values[d.values.length - 1].y1;
+  });
+  y.domain([0, d3.max(data, function(d) { return d.total; })]);
+
+  var domainTickValues=[];
+  var skip=Math.round(40/x.rangeBand());
+  if (skip<=0) skip=1;
+  for (var i=0;i<x.domain().length;i++) {
+    if (i % skip==0) domainTickValues.push(x.domain()[i]);
+  }
+  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
+  xAxis.tickValues(domainTickValues);
+
+  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(" + xShift + "," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//    .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Probability");
+
+    function updateTooltip(d,i){
+       color.domain().forEach(function(j){
+             var value=d && i==j ? (domainLabelFormatter(d.date) + ': ' +rangeFormatter(d.y1-d.y0)) : '';
+             d3.select('#'+graphValueId(j)).text( value);
+       });
+    }
+
+  var year=svg.selectAll(".year")
+    .data(data)
+        .enter().append("g")
+          .attr("class", "g");
+  year.selectAll(".color-bar")
+      .data(function(d) { return d.values; })
+    .enter().append("rect")
+      .attr("class", graphData.class + " color-bar")
+      .attr("fill", graphData.color)
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.y1); })
+      .attr("height", function(d) { return Math.max(0, y(d.y0) - y(d.y1)); })
+      .attr("fill",function(d,i) {return color(i);})
+      .on('mouseover',updateTooltip)
+      .on('click',updateTooltip)
+      .on('touch',updateTooltip) 
+      .on('mouseout',function(){updateTooltip(null,i)});
+
+      
+});
+
+}
+
+function bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter){
+    if (!domainFormatter) domainFormatter=d3.format("d")
+    if (!rangeFormatter)
+     rangeFormatter = function (y) {
+        return y;
+     };
+     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
+
+var margin = {top: 20, right: 20, bottom: 40, left: 70},
+    width = parseInt(div.style("width")) - margin.left - margin.right,
+    height = parseInt(div.style("height")) - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickFormat(domainFormatter)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(rangeFormatter)
+    .ticks(5, rangeFormatter);
+
+var svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data_url=div[0][0].dataset.url;
+
+d3.json(data_url, function(error, json) {
+  if (error) throw error;
+  var graphData=json[0];
+  var data=graphData.data;
+  x.domain(data.map(function(d) { return d.date }));
+  y.domain([0, d3.max(data, function(d) { return d.count; })]);
+  
+  var domainTickValues=[];
+  var skip=Math.round(40/x.rangeBand());
+  if (skip<=0) skip=1;
+  for (var i=0;i<x.domain().length;i++) {
+    if (i % skip==0) domainTickValues.push(x.domain()[i]);
+  }
+  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
+  xAxis.tickValues(domainTickValues);
+
+  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(" + xShift + "," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//    .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Probability");
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", graphData.class + " bar")
+      .attr("fill", graphData.color)
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.count); })
+      .attr("height", function(d) { return height - y(d.count); })
+      .on('mouseover',function(d){
+         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeFormatter(d.count)) 
+      }).on('click',function(d){
+       d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeFormatter(d.count)) 
+      }).on('touch',function(d){
+         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeFormatter(d.count)) 
+      }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
+
+      
+});
+
+}
+
+
+var priceFormatter2=d3.format("$,");
+    var priceFormatter = function (y) {
+        return y>=1000000 ? (priceFormatter2(y/1000000) + 'm') : (priceFormatter2(y/1000) + 'k');
+    };
+    var brackets=[100000,200000,300000,400000,500000,600000,700000,800000,900000,1000000,2000000,10000000,20000000,40000000]
+
+var binFormatter=function(top){
+    var bottom=0;
+    if (top<=1000000) bottom=top-100000;
+    else if (top==2000000) bottom= 1000000;
+    else if (top==10000000) bottom= 2000000;
+    else if (top=20000000) bottom= 10000000;
+    else bottom=20000000;
+    return priceFormatter(bottom) + ' - ' + priceFormatter(top);
+}
+var percentageFormatter=d3.format("%");
+var numberFormatter=d3.format(",");
+var numberBinFormatter=function(top){
+    var     bins=[0,1,2,4,8,10,16,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,300,400,500,700];
+    var index=0;
+    while (bins[index]<top && index<bins.length) index ++;
+    bottom=bins[index-1]+1;
+    return (bottom == top) ? numberFormatter(bottom) : numberFormatter(bottom) + ' - ' + numberFormatter(top);
+}
+var yearFormatter=d3.format();//function(d){return d;};
+var yearBinFormatter=function(top){
+     var     bins=[1970,1980,1990,1995,2000,2005,2010,2020];
+     var index=0;
+     while (bins[index]<top && index<bins.length) index ++;
+     bottom=bins[index-1]+1;
+     return (bottom == top) ? yearFormatter(bottom) : yearFormatter(bottom) + ' - ' + yearFormatter(top);
+}
+bar_graph(d3.select("#graph_strata_by_price"),true,priceFormatter,null,binFormatter);
+bar_graph(d3.select("#graph_multiplex_by_price"),true,priceFormatter,null,binFormatter);
+bar_graph(d3.select("#graph_strata_by_number"),true,numberFormatter,null,numberBinFormatter);
+stacked_bar_graph(d3.select("#graph_affordable_strata_by_number"),true,numberFormatter,null,numberBinFormatter);
+stacked_bar_graph(d3.select("#graph_percentage_affordable_strata_by_number"),true,numberFormatter,percentageFormatter,numberBinFormatter);
+stacked_bar_graph(d3.select("#graph_affordable_strata_by_age"),true,yearFormatter,null,yearBinFormatter);
+stacked_bar_graph(d3.select("#graph_percentage_affordable_strata_by_age"),true,yearFormatter,percentageFormatter,yearBinFormatter);
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Loss of Character]]></title>
@@ -1043,349 +1510,6 @@ bar_graph(d3.select("#graph_teardowns"),true,percentageFormatter,null,binFormatt
 bar_graph(d3.select("#graph_teardown_probability"),true,percentageFormatter,percentageFormatter,binFormatter);
 bar_graph(d3.select("#graph_buildings_by_teardown_2"),true,percentageFormatter,null,binFormatter);
 bar_graph(d3.select("#graph_teardowns_2"),true,percentageFormatter,null,binFormatter);
-</script>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Updated Vancouver Assessment Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/"/>
-    <updated>2016-01-17T11:34:09-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/assessment?layer=4"><img  src="http://doodles.mountainmath.ca/images/relative_land.jpg" style="width:50%;float:right"></a>
-The friendly folks at
-<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> just
-<a href="https://twitter.com/VanOpenData/status/688060388190097408">updated their property assessment data</a> with the fresh 2016
-property tax assessments. Time to run the script to update the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a>
-with the new data. And for good measure I pasted over some of the thematic map engine from <a href="https://censusmapper.ca">CensusMapper</a>
-to improve the mapping performance.</p>
-
-<h4>Maps</h4>
-
-<!-- more -->
-
-
-<p><img  src="http://doodles.mountainmath.ca/images/map_menu.png" style="width:25%;margin-left:5px;float:right">The <a href="https://mountainmath.ca/map/assessment">interactive assessment map</a> offers several views. In the panel on the top
-right we can select how to view the data. It offers standard thematic maps for value change, total value, building value
-and building age and zoning. And there are some options that warrant more explanation:</p>
-
-<ul>
-<li><a href="https://mountainmath.ca/map/assessment?layer=5"><em>Relative Land Value</em>:</a> The colours on the map show each property by the
-land value per m&sup2;. We can immediately spot the east-west land gradient, as well as how zoning affects land value.
-When zooming in we also see the effect of lot size on land value.</li>
-<li><a href="https://mountainmath.ca/map/assessment?layer=10"><em>Tax Density</em>:</a> This map looks at the tax dollars collected
-by the city by area. It tells us the relative rate at what each property is contributing to city services. We can again
-observe the impact of exclusionary zoning.</li>
-<li><a href="https://mountainmath.ca/map/assessment?layer=4"><em>Relative Value of Building</em>:</a>
-<a href="https://mountainmath.ca/map/assessment?layer=4"><img  src="http://doodles.mountainmath.ca/images/teardown.jpg" style="width:50%;float:right"></a>
-This map simply divides the building value
-by the total property value. There are many ways to interpret this map, my favourite is to use this as a &ldquo;Teardown Predictor&rdquo;.
-Essentially, as the percentage of the building value approaches zero the probability that it will get torn down in the
-near future increases. Imagine someone spending $1.5m to buy a property with a house valued at $37k. Many people don&rsquo;t
-mind living in a house worth $37k, but someone who is spending $1.5m would probably prefer to buy a different property
-with a higher quality house. Or spend more money to upgrade the house. How will it be upgraded? Renovating is in most
-cases economically unsound, most people will choose to tear down and rebuild. In fact, the <em>teardown threshold</em> is
-likely higher than the 2.5% in the example given. The percentage of properties in Vancouver where the building value is
-less than 2.5% of the total value has slightly decreaed in the last year from 17.9% to 17.8%, but the percentage of properties
-with building value less than 5% of the total value has increased from 32% to 33.5% during the last year.</li>
-</ul>
-
-
-<h4>The Data</h4>
-
-<p>The data originates with BC Assessment, which estimates land and building values of each property based on recent sales
-of comparable properties. The assessment was done in summer 2015 and is based on sales before that, so at this point in
-time the data lags the market by about one year. Values for individual properties may well be off, depending how well
-renovations and improvements were reported and how well the BC Assessment estimates work for the given property. On
-average they should reflect the market about half a year to one year ago.</p>
-
-<p>Sadly, BC Assessment does not give out their data with a license that would allow mapping it the way I do, so we have
-to rely on municipalities to release it through their open data portals. The format of the data from each municipality is
-different, so lazy me is only importing data from City of Vancouver, although some other nearby municipalities are also releasing
-there data.</p>
-
-<p>The motivation behind the map was to understand the building stock. Some effort was made to filter out parks, but the
-algorithm is far from perfect and will often includes parks that host building
-structures, as well as marinas with structures on them.</p>
-
-<p>The new city dataset does not include the 2016 tax levy, so we still only show the 2015 tax levies until CoV updated their dataset.</p>
-
-<h4>History</h4>
-
-<p>Here is a quick history of the overall land and building values aggregated for Vancouver between 2006 and 2016.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph" style="height:200px;max-width:640px;" data-lines="/data/vancouver_stats.json"></div>
-<div class="legend no-margin">
-  <p><i style="background:blue"></i> Land Value <span style="float:right;margin-right:10px;" id="land_value"></span></p>
-  <p><i style="background:green"></i> Building Value <span style="float:right;margin-right:10px;" id="building_value"></span></p>
-</div>
-</div>
-
-
-<p>When looking at all properties in the city, the increase in land
-value year over year was 21.4% ($45.2bn), while overall building values increased by 7.3% ($5bn). Hover, click or touch
-the points in the graph to get the values for the corresponding year.</p>
-
-<h4>Neighbourhoods</h4>
-
-<p>Lastly a quick overview over the neighbourhoods. Land and building values have not increased evenly throughout in the year.
-I aggregated all tax data by neighbourhood and split it into land value and building value increases.
-These numbers should be used as guidance only, they mix lots of different types of properties and include parks.</p>
-
-<p>Here is the breakdown by neighbourhood:</p>
-
-<ul>
-<li>Renfrew-Collingwood: Land: 30.6% ($1.2bn), Building: 5.8% ($46.0m)</li>
-<li>Sunset: Land: 26.6% ($1.6bn), Building: 5.9% ($74.2m)</li>
-<li>Oakridge: Land: 17.6% ($1.2bn), Building: 12.6% ($207.4m)</li>
-<li>Downtown: Land: 16.9% ($0.8bn), Building: 3.2% ($91.2m)</li>
-<li>Kerrisdale: Land: 18.7% ($1.3bn), Building: 3.3% ($54.1m)</li>
-<li>Victoria-Fraserview: Land: 28.0% ($1.5bn), Building: 5.6% ($65.2m)</li>
-<li>Grandview-Woodland: Land: 24.9% ($1.7bn), Building: 0.7% ($17.4m)</li>
-<li>West End: Land: 22.6% ($2.5bn), Building: 3.5% ($188.4m)</li>
-<li>Hastings-Sunrise: Land: 25.1% ($1.1bn), Building: 4.9% ($63.8m)</li>
-<li>Killarney: Land: 17.8% ($0.3bn), Building: 14.1% ($241.6m)</li>
-<li>Marpole: Land: 17.8% ($0.3bn), Building: 14.1% ($241.6m)</li>
-<li>Kitsilano: Land: 21.6% ($3.3bn), Building: 4.3% ($134.5m)</li>
-<li>Shaughnessy: Land: 18.6% ($1.7bn), Building: 7.4% ($117.7m)</li>
-<li>West Point Grey: Land: 20.2% ($2.3bn), Building: 5.2% ($88.3m)</li>
-<li>Fairview: Land: 19.4% ($2.0bn), Building: -1.0% (-$52.4m)</li>
-<li>Downtown Eastside: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
-<li>Kensington-Cedar Cottage: Land: 24.9% ($1.7bn), Building: 0.7% ($17.4m)</li>
-<li>Riley Park: Land: 26.4% ($1.0bn), Building: 4.0% ($40.2m)</li>
-<li>Mount Pleasant: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
-<li>South Cambie: Land: 20.9% ($1.5bn), Building: 21.4% ($268.1m)</li>
-<li>Strathcona: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
-<li>Dunbar Southlands: Land: 21.8% ($1.0bn), Building: 11.2% ($126.6m)</li>
-<li>Arbutus Ridge: Land: 21.4% ($1.6bn), Building: 1.1% ($17.3m)</li>
-</ul>
-
-
-<p>It becomes immediately clear that the increase in property values is mostly driven by land, note that total value increases
-for land and buildings are reported in billions and millions, respectively. The building stock does not
-have time to catch up, with the exception of South Cambie. Fairview stands out with declining overall building values.</p>
-
-<script>
-var ready_for_graph = function() {
-    var d3lines=[];
-    var padding = {top: 20, right: 20, bottom: 30, left: 90};
-    var prevChartWidth = 0, prevChartHeight = 0;
-    var updateTransistionMS = 750; // milliseconds
-    var sourceData, lineData, xScale, yScale, line;
-
-    var symbol;
-    var prefix;
-    var numberFormatter = function (y) {
-        return '$' + Math.round(prefix.scale(y*10))/10.0 + symbol;
-    };
-
-    var graphs=d3.select("#graph");
-    var div=graphs[0][0];
-    if (div==null|| div.childElementCount!=0) {return;}
-    var data_url=div.dataset.url;
-
-    // create svg and g to contain the chart contents
-    var baseSvg = graphs.append("svg");
-    var chartSvg=baseSvg
-        .append("g")
-        .attr("class", "chartContainer")
-        .attr("transform", "translate(" + padding.left + "," + padding.top + ")");
-
-    // create the x axis container
-    chartSvg.append("g")
-        .attr("class", "x axis");
-
-    // create the y axis container
-    chartSvg.append("g")
-        .attr("class", "y axis");
-    var line;
-    var largest=null;
-    var lineData;
-    if (div.dataset.lines) {
-        d3.json(div.dataset.lines,function(error,json){
-        lineData=json;
-        var domain=[null,null];
-        var range=[null,null];
-        for (var i=0;i<lineData.length;i++){
-            lineData[i].data.forEach(function(d) {
-                d.date = +d.date;
-                d.count = +d.count;
-                if (domain[0]==null || domain[0]> d.date) domain[0]= d.date;
-                if (domain[1]==null || domain[1]< d.date) domain[1]= d.date;
-                if (range[0]==null || range[0]> d.count) range[0]= d.count;
-                if (range[1]==null || range[1]< d.count) range[1]= d.count;
-            });
-        }
-        xScale=d3.scale.linear().domain(domain);
-        var toAdd=(range[1]-range[0])/10;
-        range[0]-=toAdd;
-        range[1]+=toAdd;
-        yScale=d3.scale.linear()
-            .domain(range);
-
-        line = d3.svg.line()
-            .x(function(d) { return xScale(d.date); })
-            .y(function(d) { return yScale(d.count); })
-            .interpolate("linear");
-
-        xAxis = d3.svg.axis()
-            .scale(xScale)
-            .orient("bottom")
-            .tickFormat(d3.format("d"))
-            .tickValues(domain);
-
-        yAxis = d3.svg.axis()
-            .scale(yScale)
-            .orient("left")
-            .tickFormat(numberFormatter)
-            .ticks(5);
-
-        prefix = d3.formatPrefix(range[1]);
-        if (prefix.symbol=='K') {
-            symbol='k'
-        } else if (prefix.symbol=='M') {
-                symbol='m'
-        } else if (prefix.symbol=='G') {
-            symbol='bn'
-        } else if (prefix.symbol=='T') {
-            symbol='tn'
-        }
-        updateChart(true);
-        });
-
-    }
-
-
-    function updateChart(init)
-    {
-        // get the height and width subtracting the padding
-//    var innerHeight = window.innerHeight - 20;
-        var innerWidth = window.innerWidth - 20;
-        var divWidth=$(div).width();
-        if (divWidth==0) divWidth=$(div.parentElement.parentElement).width();
-        var maxWidth=parseInt($(div).css('max-width'));
-        if (divWidth==0) divWidth=innerWidth*0.8;
-        if (divWidth>maxWidth) divWidth=maxWidth;
-        var chartWidth = divWidth-padding.left-padding.right;//960 - margin.left - margin.right,
-        var chartHeight = $(div).height()-padding.top-padding.bottom;//500 - margin.top - margin.bottom;
-
-
-        // only update if chart size has changed
-        if ((prevChartWidth != chartWidth) ||
-            (prevChartHeight != chartHeight)) {
-            prevChartWidth = chartWidth;
-            prevChartHeight = chartHeight;
-
-            //set the width and height of the SVG element
-            chartSvg.attr("width", chartWidth + padding.left + padding.right)
-                .attr("height", chartHeight + padding.top + padding.bottom);
-            baseSvg.attr("width", chartWidth + padding.left + padding.right)
-                .attr("height", chartHeight + padding.top + padding.bottom);
-
-            // ranges are based on the width and height available so reset
-            xScale.range([0, chartWidth]);
-            yScale.range([chartHeight, 0]);
-
-            if (init) {
-                // if first run then just display axis with no transition
-                chartSvg.select(".x")
-                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
-                    .attr("transform", "translate(0," + chartHeight + ")")
-                    .call(xAxis);
-
-                chartSvg.select(".y")
-                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
-                    .call(yAxis);
-            }
-            else {
-                // for subsequent updates use a transistion to animate the axis to the new position
-                var t = chartSvg.transition().duration(updateTransistionMS);
-
-                t.select(".x")
-                    .attr("transform", "translate(0," + chartHeight + ")")
-                    .call(xAxis);
-
-                t.select(".y")
-                    .call(yAxis);
-            }
-
-            for (var i = 0; i < lineData.length; i++) {
-                var sourceData=lineData[i].data;
-                var color=lineData[i].color;
-                var label=lineData[i].label;
-                var className=lineData[i].class;
-
-                // bind up the data to the line
-                var lines = chartSvg.selectAll("path.line."+className)
-                    .data([lineData[i].data]); // needs to be an array (size of 1 for our data) of arrays
-
-                // transistion to new position if already exists
-                lines.transition()
-                    .duration(updateTransistionMS)
-                    .attr("d", line);
-
-                // add line if not already existing
-                lines.enter().append("path")
-                    .attr("class", "line")
-                    .attr("stroke", color)
-                    .attr("stroke-width", 2)
-                    .attr('fill','none')
-                    .attr("d", line);
-
-                // bind up the data to an array of circles
-                var circle = chartSvg.selectAll("circle."+className)
-                    .data(sourceData);
-
-                // if already existing then transistion each circle to its new position
-                circle.transition()
-                    .duration(updateTransistionMS)
-                    .attr("cx", function (d) {
-                        return xScale(d.date);
-                    })
-                    .attr("cy", function (d) {
-                        return yScale(d.count);
-                    });
-
-                // if new circle then just display
-                circle.enter().append("circle")
-                    .attr("cx", function (d) {
-                        return xScale(d.date);
-                    })
-                    .attr("cy", function (d) {
-                        return yScale(d.count);
-                    })
-                    .attr("r", 4)
-                    .attr('fill', 'transparent')
-                    .style("stroke", color)
-                    .style("stroke-width", 8)
-                    .attr("class", className)
-                    .on('mouseover',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + numberFormatter(d.count)) 
-                    }).on('click',function(d){
-                     d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + numberFormatter(d.count)) 
-                    }).on('touch',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + numberFormatter(d.count)) 
-                    }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
-
-            }
-        }
-    }
-
-    // look for resize but use timer to only call the update script when a resize stops
-    var resizeTimer;
-    window.onresize = function(event) {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function()
-        {
-            updateChart(false);
-        }, 100);
-    }
-
-
-};
-ready_for_graph();
 </script>
 
 ]]></content>
