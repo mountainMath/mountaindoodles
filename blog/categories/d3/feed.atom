@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-02-14T21:57:24-08:00</updated>
+  <updated>2016-02-14T22:08:25-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -20,8 +20,8 @@
     <id>http://doodles.mountainmath.ca/blog/2016/02/10/on-condos</id>
     <content type="html"><![CDATA[<p>Lots has been said about the upper end of owned dwellings. The movement of the &ldquo;million dollar line&rdquo;, the emergence of
 the &ldquo;two million dollar line&rdquo; and &ldquo;multi-million dollar lines&rdquo;. Most of that discussion is focused on
-<a href="http://www.mountainmath.ca/map/assessment?filter=sfh">single detached homes</a> or on proxies for &ldquo;single detached&rdquo; like
-<a href="http://www.mountainmath.ca/map/assessment?filter=rs">RS zoned properties</a>.</p>
+<a href="http://www.mountainmath.ca/map/assessment?filter=sfh" target="_blank">single detached homes</a> or on proxies for &ldquo;single detached&rdquo; like
+<a href="http://www.mountainmath.ca/map/assessment?filter=rs" target="_blank">RS zoned properties</a>.</p>
 
 <p>But all of these maps have a clear bias toward the more expensive homes. Everyone knows by now where the most expensive properties
 are. But where are the more affordable ones?</p>
@@ -56,11 +56,11 @@ exceeding any revenue collected by BCAssessment.</p>
 
 <h3>Locating the Most Affordable Dwellings</h3>
 
-<p><a href="https://mountainmath.ca/map/special/101"><img  src="http://doodles.mountainmath.ca/images/strata.png" style="width:50%;float:left;margin-right:10px;"></a>
+<p><a href="https://mountainmath.ca/map/special/101" target="_blank"><img  src="http://doodles.mountainmath.ca/images/strata.png" style="width:50%;float:left;margin-right:10px;"></a>
 Stating the obvious, the most affordable homes aren&rsquo;t &ldquo;single detached&rdquo;, they are condos. And condos have been largely
 absent from the affordability debate, although they make up the majority of owned dwelling units in the City of Vancouver.</p>
 
-<p>Let&rsquo;s start off with a <a href="http://www.mountainmath.ca/map/special/101">map of the roughly 4,500 stratified residential or mixed use properties in Vancouver housing a total of about 10,2000 strata units</a>.
+<p>Let&rsquo;s start off with a <a href="http://www.mountainmath.ca/map/special/101" target="_blank">map of the roughly 4,500 stratified residential or mixed use properties in Vancouver housing a total of about 10,2000 strata units</a>.
 The exact numbers are hard to pin down. (<a href="http://twitter.com/home/?status=@bcassessment Please add %23openData license to information you publish on eValue! %23giveUsData" target="_blank">#giveUsData</a>)</p>
 
 <p>The distribution of stratified units by the total number of strata units
@@ -133,7 +133,7 @@ street to a spot somewhere else is inconvenient enough.</p>
 
 <h3>Location of Affordable Condos</h3>
 
-<p><a href="https://mountainmath.ca/map/special/110"><img  src="http://doodles.mountainmath.ca/images/strata_500k.png" style="width:50%;float:left;margin-right:10px;"></a>
+<p><a href="https://mountainmath.ca/map/special/110" target="_blank"><img  src="http://doodles.mountainmath.ca/images/strata_500k.png" style="width:50%;float:left;margin-right:10px;"></a>
 Since it is impossible to pick out the housing units out of all the strata units, all we can do is map all strata units,
 understanding that
 those below $50k are most likely parking spaces, those between $50k and $100k could be parking or housing (or commercial) and the
