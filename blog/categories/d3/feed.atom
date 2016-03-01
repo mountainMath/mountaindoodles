@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-01T11:43:05-08:00</updated>
+  <updated>2016-03-01T11:48:17-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -18,22 +18,22 @@
     <link href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/"/>
     <updated>2016-02-29T21:10:05-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2016/02/29/land-use</id>
-    <content type="html"><![CDATA[<p>The other day I attended the <a href="https://www.sfu.ca/publicsquare/upcoming-events/city-conversations/2016/Feb-18-2016.html">SFU&rsquo;s City Conversations</a>
-forum where housing affordability was discussed by several experts. I came late, but a friendly lad in the back row
-graciously made some space for me. Later he asked a question about space dedicated to roads, and how that could be unlocked
-to aid housing. He mentioned what percentage of space is currently dedicated to roads. I forgot the number he mentioned,
-but I thought to myself that I should look that up for all Metro Vancouver communities.</p>
+    <content type="html"><![CDATA[<p>The other day at the <a href="https://www.sfu.ca/publicsquare/upcoming-events/city-conversations/2016/Feb-18-2016.html">SFU&rsquo;s City Conversations</a>
+someone asked a question about space dedicated to roads, and how that could be unlocked
+to aid housing. He mentioned what percentage of space is currently dedicated to roads. I forgot the number,
+but I thought to myself that I should look that up for all Metro Vancouver communities. So here we go.</p>
 
-<p>Actually, it would be interesting to compare how land is used across Metro Vancouver. And with their excellend
+<!-- more -->
+
+
+<p>Actually, it would be interesting to compare how land is allocated to all kinds of land uses across Metro Vancouver, not just roads.
+And with their excellent
 <a href="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/">land use dataset</a> it&rsquo;s easy enough to do, justifying spending
 two hours on this. <a href="https://mountainmath.ca/land_use/map">Looking at the land use map</a>
 one can see that there are some issues with using the dataset for
 that purpose, for example the roads within
 Stanly Park are missing, as parking lots in Vancouver parks. So this slightly overestimates the green space. But when
 added up this won&rsquo;t do much to change the overall area of each land use.</p>
-
-<!-- more -->
-
 
 <h3>Land Use Breakdown</h3>
 
