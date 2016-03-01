@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-01T11:18:06-08:00</updated>
+  <updated>2016-03-01T11:20:01-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -76,7 +76,7 @@ socializing the cost we could have a discussion about using that space more effe
 would have a substantial impact on demand (and car ownership), freeing up space to be re-allocated for other uses. For
 example for housing by increasing lot sizes and making multi-unit structures more feasible, especally on corner lots.</p>
 
-<div><script src="http://doodles.mountainmath.ca/land_use_breakdown.js"></div>
+<div><script src="http://doodles.mountainmath.ca/javascipts/land_use_breakdown.js"></div>
 
 ]]></content>
   </entry>
