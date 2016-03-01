@@ -152,8 +152,7 @@ function horBarGraph(selector,selectionKeys) {
     xa.call(xAxis);
 
     var legend = d3.select(selector).append("div")
-        .attr("class", "legend2")
-        .style("height", "20px");
+        .attr("class", "legend2");
     var link = legend.append("div").attr("class", "link").style("float", "left");
     var info = legend.append("div").attr("class", "info").style("float", "right");
 

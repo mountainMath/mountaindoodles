@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-01T11:24:13-08:00</updated>
+  <updated>2016-03-01T11:43:05-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -18,9 +18,7 @@
     <link href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/"/>
     <updated>2016-02-29T21:10:05-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2016/02/29/land-use</id>
-    <content type="html"><![CDATA[
-
-<p>The other day I attended the <a href="https://www.sfu.ca/publicsquare/upcoming-events/city-conversations/2016/Feb-18-2016.html">SFU&rsquo;s City Conversations</a>
+    <content type="html"><![CDATA[<p>The other day I attended the <a href="https://www.sfu.ca/publicsquare/upcoming-events/city-conversations/2016/Feb-18-2016.html">SFU&rsquo;s City Conversations</a>
 forum where housing affordability was discussed by several experts. I came late, but a friendly lad in the back row
 graciously made some space for me. Later he asked a question about space dedicated to roads, and how that could be unlocked
 to aid housing. He mentioned what percentage of space is currently dedicated to roads. I forgot the number he mentioned,
@@ -42,7 +40,7 @@ added up this won&rsquo;t do much to change the overall area of each land use.</
 <p>Let&rsquo;s start with a simple chart summing up the land use in each of Metro Vancouver&rsquo;s Municipalities. Just select the one
 you are interested in from the dropdown.</p>
 
-<div id="land_use_breakdown"></div>
+<div id="land_use_breakdown" class="land_use"></div>
 
 
 <p>City of Vancouver stands out as the municipality with the largest proportion of area dedicated to roads right of ways.
@@ -53,7 +51,7 @@ The right of ways include nature strips, sidewalks, and of course on-street park
 <p>For some of the municipalities large &ldquo;Natural Areas&rdquo; and &ldquo;Undeveloped Area&rdquo; make it difficult to discern the makeup of
 the built up areas. So here comes the same graph with some of the large space-cosuming categories taken out.</p>
 
-<div id="land_use_breakdown2"></div>
+<div id="land_use_breakdown2" class="land_use"></div>
 
 
 <p>What&rsquo;s remarkable is that City of Vancouver still is the clear winner in terms of space taken up by roads right of ways.</p>
