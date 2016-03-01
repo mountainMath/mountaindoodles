@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-01T11:48:17-08:00</updated>
+  <updated>2016-03-01T11:51:20-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -43,8 +43,8 @@ you are interested in from the dropdown.</p>
 <div id="land_use_breakdown" class="land_use"></div>
 
 
-<p>City of Vancouver stands out as the municipality with the largest proportion of area dedicated to roads right of ways.
-The right of ways include nature strips, sidewalks, and of course on-street parking.</p>
+<p>City of Vancouver stands out as the municipality with the largest proportion of area dedicated to roads right of way.
+The right of way includes nature strips, sidewalks, and of course on-street parking.</p>
 
 <h3>Built Area Land Use</h3>
 
@@ -54,14 +54,15 @@ the built up areas. So here comes the same graph with some of the large space-co
 <div id="land_use_breakdown2" class="land_use"></div>
 
 
-<p>What&rsquo;s remarkable is that City of Vancouver still is the clear winner in terms of space taken up by roads right of ways.</p>
+<p>What&rsquo;s remarkable is that City of Vancouver still is the clear winner in terms of space taken up by roads right of way.</p>
 
-<h3>Roads right of ways</h3>
+<h3>Roads right of way</h3>
 
-<p>It might be interesting to compute more precisely how the roads right of ways are used. But that requires a lot more work.
+<p>It might be interesting to compute more precisely how the roads right of way is used. But that requires a lot more work.
 The City of Vancouver has a dataset with road widths, which would help separate area taken by roads from area taken by
 sidewalks and nature strips. One could use google maps to estimate to estimate the amount of space taking up by on-street
-parking by sampling a couple of roads and scaling this according to road area.</p>
+parking by sampling a couple of roads and scaling this according to road area. Too much work for me right now, maybe one day I will
+have a good enough reason to dedicate some time to this.</p>
 
 <h3>Parking</h3>
 
