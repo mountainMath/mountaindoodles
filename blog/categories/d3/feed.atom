@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-01T11:15:57-08:00</updated>
+  <updated>2016-03-01T11:18:06-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -33,6 +33,9 @@ one can see that there are some issues with using the dataset for
 that purpose, for example the roads within
 Stanly Park are missing, as parking lots in Vancouver parks. So this slightly overestimates the green space. But when
 added up this won&rsquo;t do much to change the overall area of each land use.</p>
+
+<!-- more -->
+
 
 <h3>Land Use Breakdown</h3>
 
@@ -73,7 +76,7 @@ socializing the cost we could have a discussion about using that space more effe
 would have a substantial impact on demand (and car ownership), freeing up space to be re-allocated for other uses. For
 example for housing by increasing lot sizes and making multi-unit structures more feasible, especally on corner lots.</p>
 
-<div><script src="http://doodles.mountainmath.ca/github/land_use_breakdown.js"></div>
+<div><script src="http://doodles.mountainmath.ca/land_use_breakdown.js"></div>
 
 ]]></content>
   </entry>
