@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-02-14T22:25:27-08:00</updated>
+  <updated>2016-03-01T11:15:57-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Land Use, Roads (and Parking)]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/"/>
+    <updated>2016-02-29T21:10:05-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/02/29/land-use</id>
+    <content type="html"><![CDATA[
+
+<p>The other day I attended the <a href="https://www.sfu.ca/publicsquare/upcoming-events/city-conversations/2016/Feb-18-2016.html">SFU&rsquo;s City Conversations</a>
+forum where housing affordability was discussed by several experts. I came late, but a friendly lad in the back row
+graciously made some space for me. Later he asked a question about space dedicated to roads, and how that could be unlocked
+to aid housing. He mentioned what percentage of space is currently dedicated to roads. I forgot the number he mentioned,
+but I thought to myself that I should look that up for all Metro Vancouver communities.</p>
+
+<p>Actually, it would be interesting to compare how land is used across Metro Vancouver. And with their excellend
+<a href="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/">land use dataset</a> it&rsquo;s easy enough to do, justifying spending
+two hours on this. <a href="https://mountainmath.ca/land_use/map">Looking at the land use map</a>
+one can see that there are some issues with using the dataset for
+that purpose, for example the roads within
+Stanly Park are missing, as parking lots in Vancouver parks. So this slightly overestimates the green space. But when
+added up this won&rsquo;t do much to change the overall area of each land use.</p>
+
+<h3>Land Use Breakdown</h3>
+
+<p>Let&rsquo;s start with a simple chart summing up the land use in each of Metro Vancouver&rsquo;s Municipalities. Just select the one
+you are interested in from the dropdown.</p>
+
+<div id="land_use_breakdown"></div>
+
+
+<p>City of Vancouver stands out as the municipality with the largest proportion of area dedicated to roads right of ways.
+The right of ways include nature strips, sidewalks, and of course on-street parking.</p>
+
+<h3>Built Area Land Use</h3>
+
+<p>For some of the municipalities large &ldquo;Natural Areas&rdquo; and &ldquo;Undeveloped Area&rdquo; make it difficult to discern the makeup of
+the built up areas. So here comes the same graph with some of the large space-cosuming categories taken out.</p>
+
+<div id="land_use_breakdown2"></div>
+
+
+<p>What&rsquo;s remarkable is that City of Vancouver still is the clear winner in terms of space taken up by roads right of ways.</p>
+
+<h3>Roads right of ways</h3>
+
+<p>It might be interesting to compute more precisely how the roads right of ways are used. But that requires a lot more work.
+The City of Vancouver has a dataset with road widths, which would help separate area taken by roads from area taken by
+sidewalks and nature strips. One could use google maps to estimate to estimate the amount of space taking up by on-street
+parking by sampling a couple of roads and scaling this according to road area.</p>
+
+<h3>Parking</h3>
+
+<p>Parking in particular is a land use that is artificially inflated. We pay lots of money to buy private property to live
+on, and then continue to pay property taxes for that privilege. But we pay nothing to store our vehicles on public roads.</p>
+
+<p>At current land values in Vancouver it just does not make any sense to socialize the cost of parking. A 12m&sup2; on-street
+parking space at a low-balled $3000/m&sup2; value is worth $36,000. If we were to price parking at value, rather than
+socializing the cost we could have a discussion about using that space more effectively. Killing the parking subsidy
+would have a substantial impact on demand (and car ownership), freeing up space to be re-allocated for other uses. For
+example for housing by increasing lot sizes and making multi-unit structures more feasible, especally on corner lots.</p>
+
+<div><script src="http://doodles.mountainmath.ca/github/land_use_breakdown.js"></div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[On Condos]]></title>
@@ -1164,361 +1229,6 @@ only on all of City of Vancouver&rsquo;s 78,740 Single Family Dwellings:</p>
 period without resorting to more tedious analysis.</p>
 
 <p>And <a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;layer=12">here is the obligatory map for the properties included in the last analysis</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[On Teardowns]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/"/>
-    <updated>2016-01-18T09:52:33-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/special/17"><img  src="http://doodles.mountainmath.ca/images/teardowns.png" style="width:50%;float:left;margin-right:10px;"></a>
-On the heels of the <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">new assessment data</a> we
-can start to slice the data in different ways to understand various aspects of the real estate landscape in Vancouver. The
-fact that <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> makes historic data available
-gives the ability to look for changes over time.</p>
-
-<p><a href="https://mountainmath.ca/map/assessment">Our maps</a> explore this by visualizing some aspects of these changes for all
-properties, but it might also be useful to filter the properties we show to focus in on specific criteria.</p>
-
-<p>&ldquo;Teardowns&rdquo; always triggers lots of emotions in Vancouver. Without looking at the emotional side and trying to avoid any
-judgement we will
-investigate the data to understand what buildings have been torn down recently and predict which buildings will get torn
-down next. And map them. Long story short, we predict that
-1 in 6 buildings <a href="https://mountainmath.ca/map/special/17?layer=4">on this map</a> (and then some more with lower teardown probability)
-will get torn down and rebuilt by 2026.</p>
-
-<h3>Building age temporal distribution</h3>
-
-<!-- more -->
-
-
-<p>To start understanding teardowns and rebuilds let&rsquo;s look at the <a href="https://mountainmath.ca/map/assessment?layer=7">age of the building stock</a>.</p>
-
-<p>To get a better overview of the building stock through time we can graph the number of buildings by age. We look at buildings, not units. So a stratified
-building with 100 units would still count as one building in our graph. And it is not looking at how many buildings were
-built in each year, but how many buildings that were built in a given year are still standing today.</p>
-
-<p>We still have 7 buildings in Vancouver that were built before 1900 (the earliest from 1800). Skipping these we graph the
-rest to get:</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_age" style="height:200px;max-width:640px;" data-url="/data/building_age.json"></div>
-<div class="legend no-margin">
-  <p><i style="background:steelblue"></i> Number of Buildings by Building Age <span style="float:right;margin-right:10px;" id="building_age_value"></span></p>
-</div>
-</div>
-
-
-<p>Starting with 1950 the distribution of buildings by age is quite uniform, with a short peak around the early 1990s.</p>
-
-<p>The dip at the end is due to some lag in new buildings showing up in the property dataset. Looking at the more recent history
-it is safe to assume that the number of buildings still standing corresponds well to the buildings of units built in that year.
-So the pace of new buildings right now seems to fit in quite well with the recent history and is a little lower than the
-peak in the early 1990s.</p>
-
-<h3>Recent Building stock (and recent teardowns) spatial distribution</h3>
-
-<p><a href="https://mountainmath.ca/map/special/15"><img  src="http://doodles.mountainmath.ca/images/rebuilds.png" style="width:50%;float:right"></a>
-The next question is to focus on the spatial distribution of recent redevelopment by filtering out older buildings.
-Being too lazy to add a bush for dynamic selection of time ranges I just made a static (in time) view only showing the
-<a href="https://mountainmath.ca/map/special/15?zoom=13">6883 properties built after 2006</a>. It is quite safe to assume that most
-of those new buildings replaced older ones that were torn down. So this map of new buildings is also a map of locations
-of buildings that were torn down in the last 10 years.</p>
-
-<p>What&rsquo;s interesting is when selecting
-<a href="https://mountainmath.ca/map/special/15?zoom=16&amp;lat=49.2341&amp;lng=-123.1824&amp;layer=4">relative building value view</a> that
-there are some properties that have been recently re-developed with increadibly low building value, like the property
-at 5649 Dunbar St. <strike>This gives a window into some of the imperfections of the BC Assessment process where the building
-value after re-development is not properly reflected in their dataset.</strike> In this case it seems to be
-<a href="https://www.google.ca/maps/@49.2351182,-123.1853038,3a,75y,264.36h,81.1t/data=!3m6!1e1!3m4!1s_weW4bEWpmcKGA-Ppk0d_Q!2e0!7i13312!8i6656">a property whose only &ldquo;improvement&rdquo; seems to be the pavement on it</a>.</p>
-
-<p>It also shows that recent building (or teardown) activity is fairly uniform across the city, with only some areas standing out as having little
-development like the West End, parts of Kitsilano and Strathcona.</p>
-
-<h3>What gets torn down and rebuilt next?</h3>
-
-<p>The big question is of course where new buildings get built next. In a built up space like Vancouver there are few sites
-left where building a new building does not mean tearing down an old one. So another way to ask that question is: What
-gets torn down next?</p>
-
-<h3>Teardown Probability</h3>
-
-<p>Predicting which building will get torn down next is of course impossible. So what we try to do is assign a &ldquo;teardown
-probability&rdquo; to each building.</p>
-
-<p>Let&rsquo;s first try to understand why a particular building might get torn down as opposed to the one next door. Typically
-buildings get torn down at the time when they change ownership. So if a building is not sold, it is far less likely to
-get torn down. So what makes a building more likely to get torn down when it is sold? One hypothesis would be that the
-value of the building relative to the land should play an important factor. Let&rsquo;s test this hypothesis using the data.</p>
-
-<p>We take the 2006 tax dataset as a baseline and check how many of the buildings have been torn down by 2016. Refer to the
-Methodology and Data section at the botton for the messy details. We only
-count buildings, so we count a strata lot with 100 units in the same building as one building. Then we use the 2016 dataset
-to check how many of them are still around, identifying them by their tax coordinate and again asking they be marked as
-being built no later than 2006.</p>
-
-<p>These criteria capture well what we are looking for, but they are not perfect. As a predictive variable we use the</p>
-
-<div style="padding:5px;border: 1px solid grey;border-radius:4px;width:80%;margin:0 auto;">
-<h5 style="text-align:center;">Teardown Coefficient</h5>
-The *teardown coefficient* is the percentage of the total assessed value that is attributed to the building. More formally
-it&#8217;s the ratio of the building value by the sum of the building and land values.
-</div>
-
-
-<p>So we sort the properties by their <em>teardown coefficient</em> using the
-2006 tax assessment data and we check how each group fares.</p>
-
-<p>First up a graph of the distribution of buildigs in 2006 by their <em>teardown coefficient</em>.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_buildings_by_teardown" style="height:200px;max-width:640px;" data-url="/data/buildings_by_teardown.json"></div>
-<div class="legend no-margin">
-  <p><i style="background:steelblue"></i> Number of Buildings by *teardown coefficient* <span style="float:right;margin-right:10px;" id="buildings_by_teardown_value"></span></p>
-</div>
-</div>
-
-
-<p>Next up the number of buildings in each category that got torn down and rebuilt by 2016:</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_teardowns" style="height:200px;max-width:640px;" data-url="/data/teardowns.json"></div>
-<div class="legend no-margin">
-  <p><i style="background:steelblue"></i> Number of Torn Down Buildings by *teardown coefficient* <span style="float:right;margin-right:10px;" id="teardowns_value"></span></p>
-</div>
-</div>
-
-
-<p>We see that our initial hypothesis seems to hold up quite well. The number of buildings that got torn down and rebuilt
-decreases as the <em>teardown coefficient</em> increases. Remember that we defined the <em>teardown coefficient</em> to be the percentage
-of the building value out of the total value of the property.</p>
-
-<p>Refer to the methodology and data section for further information on how these numbers were extracted.</p>
-
-<p>To explore this further let&rsquo;s graph the frequency with which a building in a given <em>teardown coefficeint</em> range gets torn down.
-To keep things cleaner where we only plot up to a <em>teardown coefficient</em> of 50%:</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_teardown_probability" style="height:200px;max-width:640px;" data-url="/data/teardown_probability.json"></div>
-<div class="legend no-margin">
-  <p><i style="background:steelblue"></i> Probability of Building being torn down<span style="float:right;margin-right:10px;" id="teardown_probability_value"></span></p>
-</div>
-</div>
-
-
-<p>We see that the <em>teardown coefficient</em> has high predictive value for a building to be torn down and
-being rebuilt in the following 10 years. Buildings with a <em>teardown coefficient</em> below 5% have about an 18% chance, and the
-probability declines exponentially down to zero at a <em>teardown coefficient</em> of about 50%.</p>
-
-<p>If we were more serious about this
-we would fit and exponential curve to the data and compute how well it fits the data, repeat the computation for
-other time frames, run it on individual neighbourhoods and maybe also on <a href="https://data.surrey.ca">data from other municipalities</a>
-to properly validate our model. We could also refine the model by refining our filters, see the methodology and data section for
-more details.</p>
-
-<p>And we could add other factors that likely effect the teardown probability, like building age, proximity to arterials and
-others. Of course these are not independent factors, so this kind of analysis requires more time.</p>
-
-<h3>Predicting Teardowns</h3>
-
-<p>Now to the main part: Predicting teardowns. How many buildings will get torn down and rebuilt in the next 10 years? Let&rsquo;s
-use what we have just learned to extrapolate.</p>
-
-<p>First up the graph of the 2016 building stock by <em>teardown coefficient</em>:</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_buildings_by_teardown_2" style="height:200px;max-width:640px;" data-url="/data/buildings_by_teardown_2.json"></div>
-<div class="legend no-margin">
-  <p><i style="background:steelblue"></i> 2016 Building stock by *teardown coefficient* <span style="float:right;margin-right:10px;" id="buildings_by_teardown_2_value"></span></p>
-</div>
-</div>
-
-
-<p>To estimate how many buildings will get torn down and rebuilt in each category we simply multiply each bin with the teardown probability
-from the frequency graph above:</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_teardowns_2" style="height:200px;max-width:640px;" data-url="/data/teardowns_2.json"></div>
-<div class="legend no-margin">
-  <p><i style="background:steelblue"></i> Estimate of Buildings rebuilt by 2026 <span style="float:right;margin-right:10px;" id="teardowns_2_value"></span></p>
-</div>
-</div>
-
-
-<p>Bottom line, we predict around 8,000 buildings to be torn down and rebuilt by 2026. That&rsquo;s significantly more than the
-around 5,900 buildings that we identified as going through this process during the prior 10 years.</p>
-
-<h3>Open Question</h3>
-
-<p>There are lots of assumptions that went into this estimate. While we are confident in our analysis
-that properties with low <em>teardown coefficient</em> are the ones most likely to be torn down, it is less clear if the number
-of properties being torn down grows linearly as the properties with low <em>teardown coefficient</em> grow. In our case the number
-of properties with <em>teardown coefficient</em> below 5% grew from 20492 (21% of the 2006 stock) to 32509 (33.5% of the 2016) stock,
-which may be out of the range where our simplistic extrapolation holds. One could try to understand this by carefully
-analyzing all available tax years, and not just the two extremes of the available spectrum.</p>
-
-<h3>Mapping Teardowns</h3>
-
-<p><a href="https://mountainmath.ca/map/special/17"><img  src="http://doodles.mountainmath.ca/images/teardowns.png" style="width:50%;float:right"></a>Now that we
-understand how to assign a teardown probability to buildings, let&rsquo;s map them! To keep things as simple as
-possible let&rsquo;s focus in on the homes with a <em>teardown coefficient</em> below 5%. They make up the bulk in our prediction and
-have the simple interpretation that a little more than 1 in 6 of these will get replaced by something else by 2026. So
-<a href="https://mountainmath.ca/map/special/17">here is the interactive map</a> of just these 31301 buildings, where we have
-filtered out some parks, marinas and rail lines. And this only accounts
-for the 5,700 buildings predicted to be torn down with a <em>teardown coefficient</em> below 5% cutoff and neglects the roughly 2,000 more that
-are predicted to be torn down that have a <em>teardown coefficient</em> above 5%.</p>
-
-<h3>Methodology and Data</h3>
-
-<p>Only for people who love getting their hands dirty or who want to reproduce or expand on the analysis.</p>
-
-<p>First thing to note is that there is no way to detect &ldquo;teardowns&rdquo; in the dataset, the only way is to look at what has been
-rebuilt and what has &lsquo;dropped off&rsquo;. To be more precise, there data fields to look at is the &ldquo;land coordinate&rdquo;, which links
-a taxable property to a physical structure, and the &ldquo;year built&rdquo;. And both fields have problems.</p>
-
-<p>The &ldquo;land coordinate&rdquo;
-gets de-commissioned and re-assigned during certain re-develpments. And the city dataset provides no way to link the
-old one to the new one. One way to do that is through the polygons that mark the property boundaries, that would allow
-tracking of complex re-assemblies of land. But the city does not publish historic records of property polygons.</p>
-
-<p>The &ldquo;year built&rdquo; also has lots of issues. Sometimes it is blank even though it records the value of the building as
-greater than zero. Sometimes the &ldquo;year built&rdquo; will be set to a date later than the date of the dataset, for example the
-2006 tax dataset has buildings with &ldquo;year built&rdquo; all they way up to 2013.</p>
-
-<p>Then comes the issue of filtering. We decided to filter out parks, rail lines and marinas without structures on them. The
-algorithm is somewhat simplistic, it&rsquo;s the same one that was used to filter properties for the maps. Additionally we
-filter out properties from the heritage dataset. There is definitely
-room for improvement here, but without a clear question of what exactly to measure
-(only single family homes, or also condos or apartments, treat commercial separately, &hellip;)
-it does not make much sense to invest energy into this. After all, this is just looking for a rough model.</p>
-
-<p>So how do we detect rebuilds? We take the land coordinates from properties identified as park or heritage and sieve through
-the 2006 tax data to retrieve all records that don&rsquo;t match these land coordinates and have a &ldquo;year built&rdquo; column set
-as 2006 or earlier or don&rsquo;t have a &ldquo;year built&rdquo; set at all but change from zero to non-zero building value from 2006 to 2016.</p>
-
-<p>Pretty messy. We mapped <a href="https://mountainmath.ca/map/special/15">about 6,900 buildings were built after 2006</a>,
-but only traced 5,869 buildings in the 2006 tax dataset as
-being torn down and rebuilt. That difference is largely explained by different selection criteria. The map only considers
-properties with a &ldquo;year built&rdquo; field set, but for the analysis we also added properties that don&rsquo;t have that field set
-but go from zero building value in 2006 to non-zero building value in 2016 which gets us to 7,784 &ldquo;rebuilds&rdquo;. On the other hand
-in the analysis we don&rsquo;t consder the roughly 140 heritage buildings that would pass our filter of being built after 2006, and
-the 2016 tax dataset has 2,422 more buildings than the 2006 dataset, some of which can be seen
-<a href="https://mountainmath.ca/map/special/13">on this map</a> and are due to subdivisions being split off of the original
-property.</p>
-
-<p>Anyway, if you want to get your hand dirty on this shoot me a message and I will hook you up with my scripts.</p>
-
-<script>
-
-
-function bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter){
-    if (!domainFormatter) domainFormatter=d3.format("d")
-    if (!rangeFormatter)
-     rangeFormatter = function (y) {
-        return y;
-     };
-     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
-
-var margin = {top: 20, right: 20, bottom: 40, left: 70},
-    width = parseInt(div.style("width")) - margin.left - margin.right,
-    height = parseInt(div.style("height")) - margin.top - margin.bottom;
-
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-
-var y = d3.scale.linear()
-    .range([height, 0]);
-
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .tickFormat(domainFormatter)
-    .orient("bottom");
-
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .tickFormat(rangeFormatter)
-    .ticks(5, rangeFormatter);
-
-var svg = div.append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var data_url=div[0][0].dataset.url;
-
-d3.json(data_url, function(error, json) {
-  if (error) throw error;
-  var graphData=json[0];
-  var data=graphData.data;
-  x.domain(data.map(function(d) { return d.date }));
-  y.domain([0, d3.max(data, function(d) { return d.count; })]);
-  
-  var domainTickValues=[];
-  var skip=Math.round(40/x.rangeBand());
-  if (skip<=0) skip=1;
-  for (var i=0;i<x.domain().length;i++) {
-    if (i % skip==0) domainTickValues.push(x.domain()[i]);
-  }
-  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
-  xAxis.tickValues(domainTickValues);
-
-  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
-  
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(" + xShift + "," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis);
-//    .append("text")
-//      .attr("transform", "rotate(-90)")
-//      .attr("y", 6)
-//      .attr("dy", ".71em")
-//      .style("text-anchor", "end")
-//      .text("Probability");
-
-  svg.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", graphData.class + " bar")
-      .attr("fill", graphData.color)
-      .attr("x", function(d) { return x(d.date); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.count); })
-      .attr("height", function(d) { return height - y(d.count); })
-      .on('mouseover',function(d){
-         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeFormatter(d.count)) 
-      }).on('click',function(d){
-       d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeFormatter(d.count)) 
-      }).on('touch',function(d){
-         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeFormatter(d.count)) 
-      }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
-
-      
-});
-
-}
-
-var percentageFormatter=d3.format(".1%");
-var binFormatter=function(d){return percentageFormatter(d-0.025) + ' - ' + percentageFormatter(d);}
-//ready_for_graph(d3.select("#graph"));
-bar_graph(d3.select("#graph_age"),false);
-//ready_for_graph(d3.select("#graph_buildings_by_teardown"),percentageFormatter);
-//ready_for_graph(d3.select("#graph_teardowns"),percentageFormatter);
-bar_graph(d3.select("#graph_buildings_by_teardown"),true,percentageFormatter,null,binFormatter);
-bar_graph(d3.select("#graph_teardowns"),true,percentageFormatter,null,binFormatter);
-bar_graph(d3.select("#graph_teardown_probability"),true,percentageFormatter,percentageFormatter,binFormatter);
-bar_graph(d3.select("#graph_buildings_by_teardown_2"),true,percentageFormatter,null,binFormatter);
-bar_graph(d3.select("#graph_teardowns_2"),true,percentageFormatter,null,binFormatter);
-</script>
-
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-02-14T22:25:27-08:00</updated>
+  <updated>2016-03-01T11:15:57-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Land Use, Roads (and Parking)]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/"/>
+    <updated>2016-02-29T21:10:05-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/02/29/land-use</id>
+    <content type="html"><![CDATA[
+
+<p>The other day I attended the <a href="https://www.sfu.ca/publicsquare/upcoming-events/city-conversations/2016/Feb-18-2016.html">SFU&rsquo;s City Conversations</a>
+forum where housing affordability was discussed by several experts. I came late, but a friendly lad in the back row
+graciously made some space for me. Later he asked a question about space dedicated to roads, and how that could be unlocked
+to aid housing. He mentioned what percentage of space is currently dedicated to roads. I forgot the number he mentioned,
+but I thought to myself that I should look that up for all Metro Vancouver communities.</p>
+
+<p>Actually, it would be interesting to compare how land is used across Metro Vancouver. And with their excellend
+<a href="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/">land use dataset</a> it&rsquo;s easy enough to do, justifying spending
+two hours on this. <a href="https://mountainmath.ca/land_use/map">Looking at the land use map</a>
+one can see that there are some issues with using the dataset for
+that purpose, for example the roads within
+Stanly Park are missing, as parking lots in Vancouver parks. So this slightly overestimates the green space. But when
+added up this won&rsquo;t do much to change the overall area of each land use.</p>
+
+<h3>Land Use Breakdown</h3>
+
+<p>Let&rsquo;s start with a simple chart summing up the land use in each of Metro Vancouver&rsquo;s Municipalities. Just select the one
+you are interested in from the dropdown.</p>
+
+<div id="land_use_breakdown"></div>
+
+
+<p>City of Vancouver stands out as the municipality with the largest proportion of area dedicated to roads right of ways.
+The right of ways include nature strips, sidewalks, and of course on-street parking.</p>
+
+<h3>Built Area Land Use</h3>
+
+<p>For some of the municipalities large &ldquo;Natural Areas&rdquo; and &ldquo;Undeveloped Area&rdquo; make it difficult to discern the makeup of
+the built up areas. So here comes the same graph with some of the large space-cosuming categories taken out.</p>
+
+<div id="land_use_breakdown2"></div>
+
+
+<p>What&rsquo;s remarkable is that City of Vancouver still is the clear winner in terms of space taken up by roads right of ways.</p>
+
+<h3>Roads right of ways</h3>
+
+<p>It might be interesting to compute more precisely how the roads right of ways are used. But that requires a lot more work.
+The City of Vancouver has a dataset with road widths, which would help separate area taken by roads from area taken by
+sidewalks and nature strips. One could use google maps to estimate to estimate the amount of space taking up by on-street
+parking by sampling a couple of roads and scaling this according to road area.</p>
+
+<h3>Parking</h3>
+
+<p>Parking in particular is a land use that is artificially inflated. We pay lots of money to buy private property to live
+on, and then continue to pay property taxes for that privilege. But we pay nothing to store our vehicles on public roads.</p>
+
+<p>At current land values in Vancouver it just does not make any sense to socialize the cost of parking. A 12m&sup2; on-street
+parking space at a low-balled $3000/m&sup2; value is worth $36,000. If we were to price parking at value, rather than
+socializing the cost we could have a discussion about using that space more effectively. Killing the parking subsidy
+would have a substantial impact on demand (and car ownership), freeing up space to be re-allocated for other uses. For
+example for housing by increasing lot sizes and making multi-unit structures more feasible, especally on corner lots.</p>
+
+<div><script src="http://doodles.mountainmath.ca/github/land_use_breakdown.js"></div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[On Condos]]></title>
@@ -1293,139 +1358,6 @@ windows machines that are already a couple of years old. So for now we still nee
 <p>And then there are the details that need to get worked out. 3D maps sounds great, but it will take us some time to figure
 out how to best utilize this in thematic maps. But even without utilizing 3D capabilities, the dynamic shaders and increased
 rendering performance are already pushing the boundary of what&rsquo;s possible in web maps.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Census Drilldown]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown/"/>
-    <updated>2015-10-24T20:45:16-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown</id>
-    <content type="html"><![CDATA[<h4>Next steps in CensusMapper</h4>
-
-<p>The <a href="http://censusmapper.ca">Census Mapper Project</a> is moving along slowly, public beta unearthed some bugs and we gathered
-feedback (thanks to everyone reporting back!). There are still a couple of steps that need to be taken care of before
-we can unleash the full map making power to all users. We feel that the complexity of census data requires more guidance
-than the current map making system is providing. Anyone who does not mind getting there hands dirty and having to look
-up census variable definitions by themselves when making maps is welcome to contact us and we will hook you up with a
-beta mapmaking account.</p>
-
-<p>In the meantime we added one important feature to the CensusMapper.</p>
-
-<h5>Content Drilldown</h5>
-
-<p>CensusMapper is a great way to explore single census variables (or a single function built out of census variables)
-across many geographic regions and aggregation levels. But sometimes we would like to do the opposite: Drill down into
-a specific census region and explore other census variables. We have now added an easy way to do this. To access it
-simply select the &ldquo;more&rdquo; button in the basic popup when you select a census region. This brings up the <em>census wheel</em>,
-which is our way to navigate through census data.
-<img src="/images/wheel.png" alt="Census Wheel" /></p>
-
-<p>Try it out right away on <a href="http://censusmapper.ca">CensusMapper</a> or read on for details on how this works.</p>
-
-<!-- more -->
-
-
-<p>There are almost 4,000 census variables available, right now we do not offer to split up by gender, which reduces the
-available variables to 1,429. To further simplify things we throw out all variables with zero values for the give
-geographic area, still leaving a
-sizeable number of variables to browse through.
-<img src="http://doodles.mountainmath.ca/images/mother_tounge.png" alt="Mother Tounge" style="max-width:400px;margin-right:15px;margin-top:10px;" align="left"/>
-Each arc in the census wheel represents a variable, or a category of
-variables. Selecting an arc will zoom into that arc and turn it into the &ldquo;center&rdquo; of the wheel, collapsing all other
-components. That&rsquo;s the content <em>drilldown</em> process. Once it makes sense to display data as proportions, we switch to the
-<em>proportional view</em> which shows the data as hierarchical pie chart.</p>
-
-<p>This gives a visual representation of the proportions of each of the variables. Hovering (or touching) an arc will
-display more detailed information, selecting one will drill down further. To reverse that process either select the
-center or us the <em>content breadcrumbs</em> at the top that were created during the drilldown process.</p>
-
-<h5>Data Problems</h5>
-
-<p>Census data is messy. Now that all census data for each region is generally accessible in CensusMapper we need to
-explain some of the inherent data problems.</p>
-
-<h6>Rounding</h6>
-
-<p>Census Canada will <a href="http://www12.statcan.gc.ca/census-recensement/2011/dp-pd/prof/help-aide/N2.cfm?Lang=E">round</a>
-(almost) all data to preserve anonymity and don&rsquo;t create false impressions of accuracy that
-the data does not achieve. Data is generally reported in increments of 5, rounding includes randomness to preserve
-anonymity. The value of the measured value
-is <a href="https://www12.statcan.gc.ca/census-recensement/2011/ref/DQ-QD/conf-eng.cfm">within 4</a> of the reported one. And
-remember that even the measured variable is only an estimate of the actual value of the variable.
-Rounding may lead to situations where, for example, the sum of all people listed
-by age bracket will not add up to the total number of people. Generally, this difference will be small and we ignore it
-in our visualization.</p>
-
-<h6>Omitted Data</h6>
-
-<p>Census Canada will at times not report data. This could be due to very low return rates or other problems that make data
-so unreliable that it is better not reported at all. Or it could be that releasing the information could compromize
-the anonymity of the census data for some people in that area. The latter can take
-the form of Census Canada not reporting any data for the region, or Census Canada zeroing out specific variables that
-&ldquo;are too low to be reported&rdquo;.
-<img src="http://doodles.mountainmath.ca/images/unaccounted.png" alt="Unaccounted" style="max-width:400px;margin-left:15px;margin-top:10px;" align="right"/>
-We have not been able to find clear guidelines how the &ldquo;zeroing&rdquo; works, but often this will leave
-detectable traces in the data. Looking at the example in the image, looking at &ldquo;Mode of Transport&rdquo; to work only
-&ldquo;Driving&rdquo; has non-zero values, the
-other options &ldquo;Passenger&rdquo;, &ldquo;Transit&rdquo;, &ldquo;Bike&rdquo;, &ldquo;Walk&rdquo; and &ldquo;Other&rdquo; are all zero. There were 160 people getting to work,
-115 are listed as &ldquo;Driver&rdquo;, leaving 45 unaccounted for. This is outside of the range that could be explained by the
-rounding of variables. We alert the user by adding in
-a grey area for the missing 45. This also ensures that the visual representation remains accurate.</p>
-
-<h6>Multiple Responses</h6>
-
-<p>Some census questions allow for multiple responses. For exaple &ldquo;Language Spoken Most Often At Home&rdquo;. In this particular
-case the census variable breaks out single responses and multiple responses and is very transparent to the user. In
-other cases, for example &ldquo;Ethnicity&rdquo;, single and multiple responses are not reported separately but responses are all
-added up. This leads to the sum of lower level variables being higher than the base variable. We alert the user to this
-by overlaying small white dots on the base variable.
-<img src="http://doodles.mountainmath.ca/images/multiple_responses.png" alt="Multiple Responses" style="max-width:400px;margin-right:15px;margin-top:10px;" align="left"/>
-In this particular case the total for for &ldquo;Ethnic Origin&rdquo; was 12,140 people. But there were 1,430 more responses at the
-next level, so up to 1,430 people had given multiple responses to this question listing more than one of the aggregate
-(mostly continent level) origins, some possibly listing more than two. The same patter repeats at different ethnic
-origin aggregation
-levels, for example 2,565 people claimed at least one of the &ldquo;British Island origins&rdquo;, but many listed more than one
-resulting in the sum of the individual regions with the British Islands exceeding the British Island count by 1,445.
-Again, we alert the user by overlaying dots over the &ldquo;British Island origins&rdquo; arc. Hovering over the arg will display
-the exact numbers of the &ldquo;overcounting&rdquo; due to multiple responses.</p>
-
-<p>In these cases where mulitple repsonses are not broken out the dots will aler the user that the proportional
-representation in the hierarchical pie chart does not represent proportions out of a total given by the value of the
-variable at the centre (or lower level), but as a proportion of all responses which exceeds the value of the
-lower level variable.</p>
-
-<h6>Basic Census</h6>
-
-<p>The Basic Census is generally speaking quite reliable, every single person is required to fill it
-out and return rates are generally above 95%. Serious problems will only occur if response rates are very low. We alert
-the user by shading geographic regions is this has been the case.</p>
-
-<h6>NHS</h6>
-
-<p>The National Household Survey is quite different in nature, it was only
-sent out to a smaller portion (~30%) of society and return rates were much lower (~69%). Even with 100% return rates
-there are likely to be geographic regions where the results severely misrepresent reality in that region due to sampling
-bias. For each region that bias is small, but the probability for bias grows as the number of people in the geographic
-region declines. So this is mostly a problem for Dissemination Areas. But even there, the probability of severe sampling
-bias in each region is small, but there are many regions and the probability that some of these regions suffer from
-sever sampling bias is quite large.</p>
-
-<p>On top of this basic statistical sampling bias, we also have self selection bias due to some deomgraphics being more
-likely to return the survey than others. This bias is a product of the decision of scrapping the madatory
-&lsquo;long form census&rsquo; and replacing it with the voluntary NHS. The return rates can give some indication of the
-likelyhood of self-selection
-bias, we shade regions with a non-return rate lower than 50%, the cutoff Census Canada set for reliability of the NHS.
-It is especially problematic when trying to detect change in variables (for example poverty) from one census to another
-as the differences in the variable over time are often small and similar in magnitude to possible self-selection bias.</p>
-
-<p>The 50% cutoff we highlight in CensusMapper is just a guideline, the exact return rates are displayed on hover or when
-selecting regions and should always to be taken into
-account when interpreting results,
-especially at the Dissemination Area level.</p>
-
-<p>If all this information did not turn you off, head over to <a href="http://censusmapper.ca">CensusMapper</a> and drill down into
-some geographic areas.</p>
 ]]></content>
   </entry>
   

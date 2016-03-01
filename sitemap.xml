@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://doodles.mountainmath.ca/blog/2016/02/29/land-use/</loc>
+    <lastmod>2016-02-29T21:10:05-08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://doodles.mountainmath.ca/blog/2016/02/10/on-condos/</loc>
     <lastmod>2016-02-10T11:01:47-08:00</lastmod>
     <priority>0.8</priority>
@@ -125,21 +131,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2016-02-14T22:25:27-08:00</lastmod>
+    <lastmod>2016-03-01T11:15:57-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2016-02-14T22:25:27-08:00</lastmod>
+    <lastmod>2016-03-01T11:15:57-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2016-02-14T22:25:27-08:00</lastmod>
+    <lastmod>2016-03-01T11:15:57-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

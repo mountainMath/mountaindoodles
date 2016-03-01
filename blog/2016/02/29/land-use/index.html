@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Vancouver Assessment Data - Mountain Doodles</title>
+  <title>Land Use, Roads (and Parking) - Mountain Doodles</title>
   <meta name="author" content="MountainMath">
 
   
-  <meta name="description" content="Mapping Vancouver open data property tax assessments. View land values, change in land or building values, zoning, building age and ratio of building &hellip;">
+  <meta name="description" content="Mapping Metro Vancouver land use. How much space is dedicated to what use?">
   <meta name="keywords" content="vancouver, property tax, real estate, map, land value">
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/">
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">Vancouver Assessment Data</h1>
+      <h1 class="entry-title">Land Use, Roads (and Parking)</h1>
     
     
       <p class="meta">
@@ -97,7 +97,7 @@
   
 
 
-<time datetime="2015-03-23T16:20:43-07:00" pubdate data-updated="true"></time>
+<time datetime="2016-02-29T21:10:05-08:00" pubdate data-updated="true"></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -106,48 +106,63 @@
   </header>
 
 
-<div class="entry-content"><p>The City of Vancouver has recently
-updated <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">their open data catalogue</a> with historic tax
-data. We figured that would
-be a good time to take our previous rather clumsy attempts to map tax data and polish that up a bit.</p>
+<div class="entry-content">
 
-<p>This time we put in a couple of evenings to build a more responsive map with multiple options of what to map. Head
-straight for <a href="http://mountainmath.ca/map/assessment">&lsquo;the map&rsquo;</a> or read on for some background information, including
-some methodology on data cleaning and interpolation.</p>
+<p>The other day I attended the <a href="https://www.sfu.ca/publicsquare/upcoming-events/city-conversations/2016/Feb-18-2016.html">SFU&rsquo;s City Conversations</a>
+forum where housing affordability was discussed by several experts. I came late, but a friendly lad in the back row
+graciously made some space for me. Later he asked a question about space dedicated to roads, and how that could be unlocked
+to aid housing. He mentioned what percentage of space is currently dedicated to roads. I forgot the number he mentioned,
+but I thought to myself that I should look that up for all Metro Vancouver communities.</p>
 
-<p><a href="http://mountainmath.ca/map/assessment"><img src="/images/land_value.jpg" alt="&quot;Land Values&quot;" /></a></p>
+<p>Actually, it would be interesting to compare how land is used across Metro Vancouver. And with their excellend
+<a href="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/">land use dataset</a> it&rsquo;s easy enough to do, justifying spending
+two hours on this. <a href="https://mountainmath.ca/land_use/map">Looking at the land use map</a>
+one can see that there are some issues with using the dataset for
+that purpose, for example the roads within
+Stanly Park are missing, as parking lots in Vancouver parks. So this slightly overestimates the green space. But when
+added up this won&rsquo;t do much to change the overall area of each land use.</p>
 
-<!-- more -->
+<h3>Land Use Breakdown</h3>
+
+<p>Let&rsquo;s start with a simple chart summing up the land use in each of Metro Vancouver&rsquo;s Municipalities. Just select the one
+you are interested in from the dropdown.</p>
+
+<div id="land_use_breakdown"></div>
 
 
-<p>Our previous <a href="/teardown_map.html">&lsquo;teardown map&rsquo;</a> and <a href="/teardown_map.html">&lsquo;high value map&rsquo;</a> suffered from being a static
-websites, and they loaded large amounts of data all at once, 30,000 properties for the teardown map, and display
-the all at once. Options were limited for displaying more detailed data when selecting individual properties.
-For the viewer this resulted more in an exercise of patience than in an &lsquo;interactive&rsquo; experience.</p>
+<p>City of Vancouver stands out as the municipality with the largest proportion of area dedicated to roads right of ways.
+The right of ways include nature strips, sidewalks, and of course on-street parking.</p>
 
-<p>We decided to remedy this by importing the CoV data into a database and chop the data up dynamically and serve it as vector tiles.
-For smaller zoom levels we aggregated data at the block level. There are lots of blocks in Vancouver, 4444 that contain
-properties with tax information to be precise. So again the map is a little sluggish on mobile devices and slower machines when zoomed out,
-but things get much faster as we zoom in.</p>
+<h3>Built Area Land Use</h3>
 
-<p>Moreover, we now have the ability to easily display more detailed information once the use selects an individual
-property or block aggregate. We can display a graph with the development of land and building values and other details.
-And we integrated google streetview for good measure.</p>
+<p>For some of the municipalities large &ldquo;Natural Areas&rdquo; and &ldquo;Undeveloped Area&rdquo; make it difficult to discern the makeup of
+the built up areas. So here comes the same graph with some of the large space-cosuming categories taken out.</p>
 
-<p>One issue that came up is that CoV historical data has lots of gaps. For example, when a particular property was
-re-developed it gets a new tax number. The tax information for the old property is lost and cannot be connected to the
-geographic site using the information provided by CoV. So when we display data showing &lsquo;value change&rsquo; between
-2006 and 2014 we color these properties in grey. This problem persists when we aggregate information at the block level.
-To avoid greying out lots of blocks we extrapolate the missing data by using citywide averages on growth rates
-of land and building values for the properties in question. This will likely underestimate the aggregate growth in building
-and land value, but will not have a big impact at the block level if the individual property value in question was
-comparatively small. But this was not always the case. Better analysis could solve some of these issues, so does
-zooming in to the individual property level.</p>
+<div id="land_use_breakdown2"></div>
 
-<p>Another issue is that CoV does not provide historic zoning information. It would be interesting to get historic zoning
-and development permit information. Some of this data is already available, albeit not in an easily consumable form.</p>
 
-<p>Other than that a big thanks to the folks maintaining the CoV open data catalogue!</p>
+<p>What&rsquo;s remarkable is that City of Vancouver still is the clear winner in terms of space taken up by roads right of ways.</p>
+
+<h3>Roads right of ways</h3>
+
+<p>It might be interesting to compute more precisely how the roads right of ways are used. But that requires a lot more work.
+The City of Vancouver has a dataset with road widths, which would help separate area taken by roads from area taken by
+sidewalks and nature strips. One could use google maps to estimate to estimate the amount of space taking up by on-street
+parking by sampling a couple of roads and scaling this according to road area.</p>
+
+<h3>Parking</h3>
+
+<p>Parking in particular is a land use that is artificially inflated. We pay lots of money to buy private property to live
+on, and then continue to pay property taxes for that privilege. But we pay nothing to store our vehicles on public roads.</p>
+
+<p>At current land values in Vancouver it just does not make any sense to socialize the cost of parking. A 12m&sup2; on-street
+parking space at a low-balled $3000/m&sup2; value is worth $36,000. If we were to price parking at value, rather than
+socializing the cost we could have a discussion about using that space more effectively. Killing the parking subsidy
+would have a substantial impact on demand (and car ownership), freeing up space to be re-allocated for other uses. For
+example for housing by increasing lot sizes and making multi-unit structures more feasible, especally on corner lots.</p>
+
+<div><script src="/github/land_use_breakdown.js"></div>
+
 </div>
 
 
@@ -156,7 +171,7 @@ and development permit information. Some of this data is already available, albe
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">Jens von Bergmann</span></span>
+<span class="byline author vcard">Posted by <span class="fn">MountainMath</span></span>
 
       
 
@@ -170,7 +185,7 @@ and development permit information. Some of this data is already available, albe
   
 
 
-<time datetime="2015-03-23T16:20:43-07:00" pubdate data-updated="true"></time>
+<time datetime="2016-02-29T21:10:05-08:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
@@ -184,7 +199,7 @@ and development permit information. Some of this data is already available, albe
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -197,10 +212,8 @@ and development permit information. Some of this data is already available, albe
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/11/05/mapping-cacs/" title="Previous Post: Mapping CACs">&laquo; Mapping CACs</a>
+        <a class="basic-alignment left" href="/blog/2016/02/10/on-condos/" title="Previous Post: On Condos">&laquo; On Condos</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/04/01/bike-paths/" title="Next Post: Vancouver Bike Paths">Vancouver Bike Paths &raquo;</a>
       
     </p>
   </footer>
@@ -274,8 +287,8 @@ and development permit information. Some of this data is already available, albe
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/';
-        var disqus_url = 'http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/';
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2016/02/29/land-use/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2016/02/29/land-use/';
         var disqus_script = 'embed.js';
       
     (function () {
