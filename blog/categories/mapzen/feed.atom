@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapzen | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapzen/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-01T11:52:13-08:00</updated>
+  <updated>2016-03-03T11:07:27-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,101 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Property Taxes and Land Use]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/03/02/property-taxes-and-land-use/"/>
+    <updated>2016-03-02T20:42:02-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/03/02/property-taxes-and-land-use</id>
+    <content type="html"><![CDATA[<p>Since I started thinking about <a href="http://doodles.mountainmath.ca/blog/2015/05/31/density-in-vancouver/">tax density</a>,
+the amount of property taxes collected per area, I always felt that the data presentation in the map fell short.</p>
+
+<p>Property taxes are somewhat insulated from the ups and downs of the real estate market as they are need-based and the mill
+rate changes to flatten out the crazyness of the market. But what they lacks in interesting patterns over time they more than
+makes up for in interesting patterns in space.</p>
+
+<p>To recognize these spacial patterns, one needs to switch layers in my
+<a href="https://www.mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2741&amp;lng=-123.1321&amp;layer=10">assessment maps</a> and that&rsquo;s
+a little awkward and most people won&rsquo;t do this.</p>
+
+<p>I can&rsquo;t remember where I first saw some 3D data visualization around something like this, maybe in
+<a href="http://www.strongtowns.org/journal/2015/11/18/mapping-the-effects-of-parking-minimums">this excellent Strong Towns post</a> that
+explores tax density and parking.
+When I was chatting with <a href="https://twitter.com/dnproulx">Darren Proulx</a> about this I realized this is the perfect case
+to rev up <a href="https://mapzen.com">Mapzen&rsquo;s awesone 3D map engine</a> for data visualization.</p>
+
+<!-- more -->
+
+
+<h3>3D Tax Density Maps</h3>
+
+<p><a href="http://www.mountainmath.ca/assessment_gl/map?zoom=14&lat=49.2814&lng=-123.1312" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tax_density.png" style="width:50%;float:left;margin-right:10px;"></a>
+The spacial patterns of tax density are closely related to zoning, so the obvious thing to do is to map both at the same
+time. Tax density as the height and the zoning as the colour. But the relation between tax density and zoning is indirect,
+it is given through land use. So when I
+<a href="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/">folded the Metro Vancouver land use dataset into the asessment data</a>
+I added another option to colour the map by land use. And the visualization works pretty well to show the relationship
+between the variables. <a href="https://www.mountainmath.ca/assessment_gl/map?zoom=14&amp;lat=49.2814&amp;lng=-123.1312">Check out the interactive map</a>.</p>
+
+<h3>Some Quick Observations</h3>
+
+<p>When comparing this to the <a href="http://www.strongtowns.org/journal/2015/11/18/mapping-the-effects-of-parking-minimums">Strong Towns post</a>
+mentioned above it is interesting to note that the &ldquo;tax contribution of bare pavement&rdquo; is actually quite high relative to
+many other commercial properties. For example, the giant parking lot around Safeway on 10th near UBC can&rsquo;t be discerned
+from the map. Similarly, Oakridge Mall does not stand out as a low tax area. That&rsquo;s basically because in today&rsquo;s property
+market the value of the property is dictated by the land value and few properties, even few commercial properties outside
+of downtown, have building values in the same order of magnitude as the land value.</p>
+
+<p>And that keeps the pressure on to redevelop the low building value commercial stock, typically replacing it with mixed use.
+One example is the Safeway on Granville and 70th, that went from parking lot to mixed use. The high land values make this
+kind of redevelopment attractive. Typically this redevelopment process will raise commercial rents, lower commercial
+property taxes, add housing supply and increase tax density.</p>
+
+<p><a href="https://www.mountainmath.ca/assessment_gl/map?zoom=16&lat=49.2433&lng=-123.151" target="_blank"><img  src="http://doodles.mountainmath.ca/images/triangle.png" style="width:50%;float:right;margin-left:10px;"></a>
+Another interesting area is the <a href="https://www.mountainmath.ca/assessment_gl/map?zoom=16&amp;lat=49.2433&amp;lng=-123.151">condo/apartment triangle at Arbutus and 33rd</a>.
+These condos/apartments abut Quilchena Park, have a grocery store in proximity but otherwise sit in a see of single family housing.
+I would like to highlight two alternative development models. One is the single family housing that surrounds this area,
+the other is one where one takes the condo/apartment complex and throws in the adjacent Quilchena Park. The park does not
+house any people and does not generate tax revenue but provides great general value. Overall, the tax density, that is the
+amount of taxes collected per area, of those two models are the same. So the condo complex together with the entire park
+collects the same amount of taxes per area as single family housing. On the other hand, the condo complex plus park houses
+3 to 4 times as many people per (combined) area as the surrounding single family housing.</p>
+
+<p>Presenting these as alternative
+development models one can ask how many people would prefer condo (and one dedicated rental building) plus park over
+single family housing without park. With
+condo values ranging between $448k to $2.6m with median of $745k. 56% of all units have 2 bedrooms, 9% with 3 bedrooms.
+The surrounding single family housing start at
+around $2.5m for a teardown. My guess is that there are more people interested in the condo plus park model than the
+current Vancouver market offers.</p>
+
+<h3>More Detailed Analysis</h3>
+
+<p>Now let&rsquo;s take the tax density information and measure it against city services rendered. In other words, let&rsquo;s see who
+pays their &ldquo;fair share&rdquo; of property taxes. Well, that&rsquo;s where I ran out of juice. Probably because there is lots of
+work involved to do it right.</p>
+
+<p>Some have done some
+<a href="http://mapstoryblog.thenittygritty.org/costofstreets/">really amazing work</a> trying to understand the give and take of
+property taxes and services rendered.</p>
+
+<p>Vancouver&rsquo;s situation, with the commercial property tax 5x the residential rate has it&rsquo;s own quirks to add to the
+complexity.</p>
+
+<p>If someone is interested in spending the time to sieve through the city budget and process the data I would be happy to help out
+with graphing and mapping. As long as the data is clean enough that it stays under my &ldquo;one evening side project budget&rdquo;. :-)</p>
+
+<hr>
+
+
+<h4>I can&rsquo;t view the 3D map!</h4>
+
+<p>Welcome to the world of modern web technology. If you try to look at the interactive map and don&rsquo;t see anything like the image above, then that&rsquo;s probably because
+you either have and old (windows) computer or an old (Internet Explorer) browser. If switching to Chrome or Firefox does
+not fix this for you your best option is to cramp that map into your phone screen. Your phone is probably newer and supports
+modern web technology much better than your computer. Or you can always view the 2D maps linked above.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Bike Data]]></title>
