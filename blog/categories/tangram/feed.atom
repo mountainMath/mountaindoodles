@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tangram | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/tangram/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-03T14:57:44-08:00</updated>
+  <updated>2016-03-03T16:18:27-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -33,7 +33,10 @@ a little awkward and most people won&rsquo;t do this.</p>
 <a href="http://www.strongtowns.org/journal/2015/11/18/mapping-the-effects-of-parking-minimums">this excellent Strong Towns post</a> that
 explores tax density and parking.
 When I was chatting with <a href="https://twitter.com/dnproulx">Darren Proulx</a> about this I realized this is the perfect case
-to rev up <a href="https://mapzen.com">Mapzen&rsquo;s awesone 3D map engine</a> for data visualization.</p>
+to rev up <a href="https://mapzen.com">Mapzen&rsquo;s awesone 3D map engine</a> for data visualization. Previously I had tried out the 3D
+mapping capabilities to map
+<a href="https://mountainmath.ca/vancouver_lidar/map">the physical form of Vancouver&rsquo;s buildings obtained from LIDAR data</a>,
+now it was time to map abstract data in 3D.</p>
 
 <!-- more -->
 
