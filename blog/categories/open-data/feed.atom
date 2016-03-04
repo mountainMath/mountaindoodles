@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-03T16:18:27-08:00</updated>
+  <updated>2016-03-03T16:26:37-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -49,7 +49,8 @@ time. Tax density as the height and the zoning as the colour. But the relation b
 it is given through land use. So when I
 <a href="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/">folded the Metro Vancouver land use dataset into the asessment data</a>
 I added another option to colour the map by land use. And the visualization works pretty well to show the relationship
-between the variables. <a href="https://www.mountainmath.ca/assessment_gl/map?zoom=14&amp;lat=49.2814&amp;lng=-123.1312">Check out the interactive map</a>.</p>
+between the variables.
+Check out the <a href="http://www.mountainmath.ca/assessment_gl/map?zoom=14&lat=49.2814&lng=-123.1312" target="_blank">interactive map</a>.</p>
 
 <h3>Some Quick Observations</h3>
 
@@ -66,7 +67,8 @@ kind of redevelopment attractive. Typically this redevelopment process will rais
 property taxes, add housing supply and increase tax density.</p>
 
 <p><a href="https://www.mountainmath.ca/assessment_gl/map?zoom=16&lat=49.2433&lng=-123.151" target="_blank"><img  src="http://doodles.mountainmath.ca/images/triangle.png" style="width:50%;float:right;margin-left:10px;"></a>
-Another interesting area is the <a href="https://www.mountainmath.ca/assessment_gl/map?zoom=16&amp;lat=49.2433&amp;lng=-123.151">condo/apartment triangle at Arbutus and 33rd</a>.
+Another interesting area is the
+<a href="https://www.mountainmath.ca/assessment_gl/map?zoom=16&lat=49.2433&lng=-123.151" target="_blank">condo/apartment triangle at Arbutus and 33rd</a>.
 These condos/apartments abut Quilchena Park, have a grocery store in proximity but otherwise sit in a see of single family housing.
 I would like to highlight two alternative development models. One is the single family housing that surrounds this area,
 the other is one where one takes the condo/apartment complex and throws in the adjacent Quilchena Park. The park does not
