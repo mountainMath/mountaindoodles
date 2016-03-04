@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-03T21:10:46-08:00</updated>
+  <updated>2016-03-04T13:47:04-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -74,6 +74,27 @@ parking space at a low-balled $3000/m&sup2; value is worth $36,000. If we were t
 socializing the cost we could have a discussion about using that space more effectively. Killing the parking subsidy
 would have a substantial impact on demand (and car ownership), freeing up space to be re-allocated for other uses. For
 example for housing by increasing lot sizes and making multi-unit structures more feasible, especally on corner lots.</p>
+
+<hr>
+
+
+<h3>Update</h3>
+
+<p>Saw a <a href="https://twitter.com/d3visualization/status/705421356222029824">great little data visualization fly by today</a> that
+is just the missing link in the above visualizations. A simple way to visualize where all the municipalities stand in
+relation to one another. Thought I would throw that in real quick.</p>
+
+<div>
+ <div id="radviz" class="radviz"></div>
+<div class="radviz-list-container">
+        <div class="muni"></div>
+        <div class="list"></div>
+</div>
+<div style="clear:both;"></div>
+</div>
+
+
+
 
 <div><script src="http://doodles.mountainmath.ca/javascripts/land_use_breakdown.js"></div>
 

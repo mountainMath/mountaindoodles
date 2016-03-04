@@ -243,7 +243,345 @@ function horBarGraph(selector,selectionKeys) {
     });
 }
 
-horBarGraph('#land_use_breakdown');
+
+var radvizComponent = function() {
+    var config = {
+        el: null,
+        size: 400,
+        margin: 50,
+        colorScale: d3.scale.ordinal().range(['skyblue', 'orange', 'lime']),
+        colorAccessor: null,
+        dimensions: [],
+        drawLinks: true,
+        zoomFactor: 1,
+        dotRadius: 6,
+        useRepulsion: false,
+        useTooltip: true,
+        tooltipFormatter: function(d) {
+            return d;
+        }
+    };
+
+    var events = d3.dispatch('panelEnter', 'panelLeave', 'dotEnter', 'dotLeave');
+
+    var force = d3.layout.force()
+        .chargeDistance(0)
+        .charge(-60)
+        .friction(0.5);
+
+    var render = function(data) {
+        data = addNormalizedValues(data);
+        var normalizeSuffix = '_normalized';
+        var dimensionNamesNormalized = config.dimensions.map(function(d) {
+            return d + normalizeSuffix;
+        });
+        var thetaScale = d3.scale.linear().domain([0, dimensionNamesNormalized.length]).range([0, Math.PI * 2]);
+
+        var chartRadius = config.size / 2 - config.margin;
+        var nodeCount = data.length;
+        var panelSize = config.size - config.margin * 2;
+
+        var dimensionNodes = config.dimensions.map(function(d, i) {
+            var angle = thetaScale(i);
+            var x = chartRadius + Math.cos(angle) * chartRadius * config.zoomFactor;
+            var y = chartRadius + Math.sin(angle) * chartRadius * config.zoomFactor;
+            return {
+                index: nodeCount + i,
+                x: x,
+                y: y,
+                fixed: true,
+                name: d
+            };
+        });
+
+        var linksData = [];
+        data.forEach(function(d, i) {
+            dimensionNamesNormalized.forEach(function(dB, iB) {
+                linksData.push({
+                    source: i,
+                    target: nodeCount + iB,
+                    value: d[dB]
+                });
+            });
+        });
+
+        force.size([panelSize, panelSize])
+            .linkStrength(function(d) {
+                return d.value;
+            })
+            .nodes(data.concat(dimensionNodes))
+            .links(linksData)
+            .start();
+
+        // Basic structure
+        var svg = d3.select(config.el)
+            .append('svg')
+            .attr({
+                width: config.size,
+                height: config.size
+            });
+
+        svg.append('rect')
+            .classed('bg', true)
+            .attr({
+                width: config.size,
+                height: config.size
+            });
+
+        var root = svg.append('g')
+            .attr({
+                transform: 'translate(' + [config.margin, config.margin] + ')'
+            });
+
+        var panel = root.append('circle')
+            .classed('panel', true)
+            .attr({
+                r: chartRadius,
+                cx: chartRadius,
+                cy: chartRadius
+            });
+
+        if(config.useRepulsion) {
+            root.on('mouseenter', function(d) {
+                force.chargeDistance(80).alpha(0.2);
+                events.panelEnter();
+            });
+            root.on('mouseleave', function(d) {
+                force.chargeDistance(0).resume();
+                events.panelLeave();
+            });
+        }
+
+        // Links
+        if(config.drawLinks) {
+            var links = root.selectAll('.link')
+                .data(linksData)
+                .enter().append('line')
+                .classed('link', true);
+        }
+
+        // Nodes
+        var nodes = root.selectAll('circle.dot')
+            .data(data)
+            .enter().append('circle')
+            .classed('dot', true)
+            .attr({
+                r: config.dotRadius,
+                fill: function(d) {
+                    return config.colorScale(config.colorAccessor(d));
+                }
+            })
+            .on('mouseenter', function(d) {
+                if(config.useTooltip) {
+                    var mouse = d3.mouse(config.el);
+                    tooltip.setText(config.tooltipFormatter(d)).setPosition(mouse[0], mouse[1]).show();
+                }
+                events.dotEnter(d);
+                this.classList.add('active');
+            })
+            .on('mouseout', function(d) {
+                if(config.useTooltip) {
+                    tooltip.hide();
+                }
+                events.dotLeave(d);
+                this.classList.remove('active');
+            });
+
+        // Labels
+        var labelNodes = root.selectAll('circle.label-node')
+            .data(dimensionNodes)
+            .enter().append('circle')
+            .classed('label-node', true)
+            .attr({
+                cx: function(d) {
+                    return d.x;
+                },
+                cy: function(d) {
+                    return d.y;
+                },
+                r: 4
+            });
+
+        var labels = root.selectAll('text.label')
+            .data(dimensionNodes)
+            .enter().append('text')
+            .classed('label', true)
+            .attr({
+                x: function(d) {
+                    return d.x;
+                },
+                y: function(d) {
+                    return d.y;
+                },
+                'text-anchor': function(d) {
+                    if(d.x > (panelSize * 0.4) && d.x < (panelSize * 0.6)) {
+                        return 'middle';
+                    } else {
+                        return(d.x > panelSize / 2) ? 'start' : 'end';
+                    }
+                },
+                'dominant-baseline': function(d) {
+                    return(d.y > panelSize * 0.6) ? 'hanging' : 'auto';
+                },
+                dx: function(d) {
+                    return(d.x > panelSize / 2) ? '6px' : '-6px';
+                },
+                dy: function(d) {
+                    return(d.y > panelSize * 0.6) ? '6px' : '-6px';
+                }
+            })
+            .text(function(d) {
+                return d.name;
+            });
+
+        // Update force
+        force.on('tick', function() {
+            if(config.drawLinks) {
+                links.attr({
+                    x1: function(d) {
+                        return d.source.x;
+                    },
+                    y1: function(d) {
+                        return d.source.y;
+                    },
+                    x2: function(d) {
+                        return d.target.x;
+                    },
+                    y2: function(d) {
+                        return d.target.y;
+                    }
+                });
+            }
+
+            nodes.attr({
+                cx: function(d) {
+                    return d.x;
+                },
+                cy: function(d) {
+                    return d.y;
+                }
+            });
+        });
+
+        var tooltipContainer = d3.select(config.el)
+            .append('div')
+            .attr({
+                id: 'radviz-tooltip'
+            });
+        var tooltip = tooltipComponent(tooltipContainer.node());
+
+        return this;
+    };
+
+    var setConfig = function(_config) {
+        config = utils.mergeAll(config, _config);
+        return this;
+    };
+
+    var addNormalizedValues = function(data) {
+        data.forEach(function(d) {
+            config.dimensions.forEach(function(dimension) {
+                d[dimension] = +d[dimension];
+            });
+        });
+
+        var normalizationScales = {};
+        config.dimensions.forEach(function(dimension) {
+            normalizationScales[dimension] = d3.scale.linear().domain(d3.extent(data.map(function(d, i) {
+                return d[dimension];
+            }))).range([0, 1]);
+        });
+
+        data.forEach(function(d) {
+            config.dimensions.forEach(function(dimension) {
+                d[dimension + '_normalized'] = d[dimension];//normalizationScales[dimension](d[dimension]);
+            });
+        });
+
+        return data;
+    };
+
+    var exports = {
+        config: setConfig,
+        render: render
+    };
+
+    d3.rebind(exports, events, 'on');
+
+    return exports;
+};
+var utils = {
+    merge: function(obj1, obj2) {
+        for(var p in obj2) {
+            if(obj2[p] && obj2[p].constructor == Object) {
+                if(obj1[p]) {
+                    this.merge(obj1[p], obj2[p]);
+                    continue;
+                }
+            }
+            obj1[p] = obj2[p];
+        }
+    },
+
+    mergeAll: function() {
+        var newObj = {};
+        var objs = arguments;
+        for(var i = 0; i < objs.length; i++) {
+            this.merge(newObj, objs[i]);
+        }
+        return newObj;
+    },
+
+    htmlToNode: function(htmlString, parent) {
+        while(parent.lastChild) {
+            parent.removeChild(parent.lastChild);
+        }
+        return this.appendHtmlToNode(htmlString, parent);
+    },
+
+    appendHtmlToNode: function(htmlString, parent) {
+        return parent.appendChild(document.importNode(new DOMParser().parseFromString(htmlString, 'text/html').body.childNodes[0], true));
+    }
+};
+var tooltipComponent = function(tooltipNode) {
+
+    var root = d3.select(tooltipNode)
+        .style({
+            position: 'absolute',
+            'pointer-events': 'none'
+        });
+
+    var setText = function(html) {
+        root.html(html);
+        return this;
+    };
+    var position = function(x, y) {
+        root.style({
+            left: x + 'px',
+            top: y + 'px'
+        });
+        return this;
+    };
+    var show = function() {
+        root.style({
+            display: 'block'
+        });
+        return this;
+    };
+    var hide = function() {
+        root.style({
+            display: 'none'
+        });
+        return this;
+    };
+
+    return {
+        setText: setText,
+        setPosition: position,
+        show: show,
+        hide: hide
+    };
+};
 
 var keyMap = {
     //"R100": "Recreation, Open Space, Natural Areas",
@@ -272,4 +610,149 @@ var keyMap = {
     ///"F100": "Harvesting and Research"
 };
 
+
+
+var muniList = {
+    "GVA": "Metro Vancouver",
+    "VA": "City of Vancouver",
+    "SU": "City of Surrey",
+    "BU": "City of Burnaby",
+    "RI": "City of Richmond",
+    "CNV": "City of North Vancouver",
+    "DNV": "District of North Vancouver",
+    "WV": "District of West Vancouver",
+    "QT": "City of Coquitlam",
+    "BI": "Bowen Island Municipality",
+    "AN": "Village of Anmore",
+    "MR": "City of Maple Ridge",
+    "EA": "Electoral Area A - Barnston Island",
+    "LB": "Village of Lions Bay",
+    "LC": "City of Langley",
+    "PO": "City of Port Coquitlam",
+    "PT": "City of Pitt Meadows",
+    "WR": "City of White Rock",
+    "NW": "City of New Westminster",
+    "PM": "City of Port Moody",
+    "LT": "Township of Langley",
+    "DT": "Corporation of Delta",
+    "BE": "Village of Belcarra"
+};
+
+
+
+horBarGraph('#land_use_breakdown');
 horBarGraph('#land_use_breakdown2',Object.keys(keyMap));
+
+
+var landUseForViz = [
+    "S110",
+    "S131",
+    "S120",
+    "S130",
+    "S135",
+    "S410",
+    "S200",
+    "S230",
+    "S235",
+    "S400",
+    "A500",
+    "S300",
+    "R100",
+    "S420",
+    "W400",
+    "U100",
+    "M300",
+    "S600",
+    "S650",
+    "F100",
+    "S700",
+    "S500"
+];
+
+
+
+
+var radvizMap = {
+    "Rural Residential": ["S120","S100"],
+    "Recreation": ["R100","S420","W400"],
+    "SFH + Duplex": ["S110"],
+    "Roads/Transport": ["S500","S700"],
+    "Undeveloped": ["U100"],
+    "Commercial": ["S200"],
+    "Industrial": ["S300","S600","S650","M300"],
+    "Agriculture": ["A500","F100"],
+    "Apartments": ["S135","S410","S130","S131"],
+    "Institutional":["S400"],
+    "Mixed Use": ["S230","S235"]
+};
+
+var dimensions=Object.keys(radvizMap);
+
+var renderList = function(datum) {
+    d3.select('.muni').text(muniList[datum.muni]);
+
+    var list = d3.select('.list')
+        .selectAll('div.item')
+        .data(dimensions);
+    list.enter().append('div').classed('item', true);
+    list.transition().style({
+            width: function(d) {
+                return datum[d] *200 + 'px';
+            }
+        })
+        .text(function(d) {
+            return d + ': ' + d3.format('.1%')(datum[d]);
+        });
+    list.exit().remove();
+};
+
+var radviz = radvizComponent()
+    .config({
+        el: document.querySelector('#radviz'),
+        colorAccessor: function(d){ return d.muni; },
+        dimensions: dimensions,
+        size: 450,
+        margin: 100,
+        useRepulsion: true,
+        useTooltip: true,
+        drawLinks: true,
+        tooltipFormatter: function(d){
+            return '<h1>' + muniList[d.muni]
+                + '</h1>' +dimensions.map(function(dB){
+                    return dB + ': ' + d[dB]; }).join('<br />');
+        }
+    })
+    .on('dotEnter', function(d) {
+        console.log(muniList[d.muni]);
+        renderList(d);
+        // mouse entered a dot
+    })
+    .on('dotLeave', function(d) {
+        // mouse left a dot
+    });
+
+
+
+d3.json('/data/land_use_breakdown.json', function(error, jsonData){
+    var keys=Object.keys(jsonData);
+    var allMuniData=keys.map(function(key){
+        var muniData=jsonData[key];
+        var total=0;
+        dimensions.forEach(function(k) {
+            radvizMap[k].forEach(function (kk) {
+                total += muniData[kk];
+            });
+        });
+        var hash={'muni': key};
+        dimensions.forEach(function (k) {
+            var value=0;
+            radvizMap[k].forEach(function (kk) {value+=muniData[kk]});
+            hash[k]=value/total;
+        });
+        return hash;
+    });
+    radviz.render(allMuniData);
+    var gva=allMuniData.filter(function(d){return d.muni=='GVA'})[0];
+    renderList(gva);
+});
+
