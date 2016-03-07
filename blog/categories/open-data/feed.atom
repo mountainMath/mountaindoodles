@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-07T00:44:03-08:00</updated>
+  <updated>2016-03-07T00:54:44-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -47,8 +47,10 @@ each year. For good measure, we throw in the 10 and 90 percentile whiskers.</p>
 
 
 <p>What jumps out immediately is that around 1988 there apparently was a change in zoning law that reduced site coverage
-of the main building. I don&rsquo;t know anything about the history of building codes, maybe someone that does could shed some
-light onto this.</p>
+of the main building. <strike>I don&rsquo;t know anything about the history of building codes, maybe someone that does could shed some
+light onto this.</strike> <a href="https://twitter.com/BrendanDawe/status/706737206484795392">Twitter was fast to provide the answer</a>
+it appears that changes in building code were implemented to counteract the growing footprint of houses at the time, details
+can be found in <a href="https://open.library.ubc.ca/cIRcle/collections/ubctheses/831/items/1.0086386">Barbara Pettit&rsquo;s Ph.D. thesis</a>.</p>
 
 <h3>Building Height</h3>
 
@@ -61,7 +63,7 @@ light onto this.</p>
 </div>
 
 
-<p>We observe a similar jump in the data around 1988.</p>
+<p>We observe a similar jump in the data around 1988, with building height jumping up as site coverage decreases.</p>
 
 <h3>Building Volumes</h3>
 
@@ -74,8 +76,9 @@ light onto this.</p>
 </div>
 
 
-<p>The graph does show that in general houses have gotten more massive in the late 80s, but after that have more or less
-maintained the same volume.</p>
+<p>The graph does show that in general houses have gotten more massive starting in the late 80s, but after that have more or less
+maintained the same volume. It shows that the combined effect of the regulation change in the late 80s that resulted in
+smaller building footprints and taller buildings was that buildings overall got bigger in volume.</p>
 
 <h3>Roof Type</h3>
 
