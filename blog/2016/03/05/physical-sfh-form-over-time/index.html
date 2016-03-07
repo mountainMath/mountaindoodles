@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Physical SFH Form Over Time - Mountain Doodles</title>
+  <meta name="author" content="MountainMath">
+
+  
+  <meta name="description" content="Mapping Metro Vancouver land use. How much space is dedicated to what use?">
+  <meta name="keywords" content="vancouver, property tax, real estate, map, land value">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/feed.atom" rel="alternate" title="Mountain Doodles" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54516567-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mountain Doodles</a></h1>
+  
+    <h2>spare time data, analysis, visualization</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/feed.atom" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:doodles.mountainmath.ca" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Physical SFH Form Over Time</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-03-05T22:58:06-08:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I was curious how the physical parameters of Single Family Houses changed over time.</p>
+
+<p>Using the <a href="https://mountainmath.ca/map/assessment">assessment dataset</a> merged with the <a href="https://mountainmath.ca/land_use/map">land use dataset</a>
+allows to fairly accurately pick out single family houses, and also holds the age of most properies. Together with
+the City of Vancouver LIDAR-generated building dataset <a href="https://mountainmath.ca/vancouver_lidar/map">that I have played with before</a>
+we can look at physical building parameters.</p>
+
+<!-- more -->
+
+
+<p>The city dataset is a little coarse, it only contains the main building and does not map things like garages. It&rsquo;s a little
+rough and should probably be interpreted cautiously on an individual building level. One could spend the time and derive the
+building data directly from the raw LIDAR dataset optimized for this purpose, but for some overview statistics the building
+dataset that was derived by the city is just fine. The LIDAR was taken in 2009, so we only consider houses built before that time.</p>
+
+<h3>Site coverage</h3>
+
+<p>One question is how the site coverage of the buildings have changed over time. We simply line up the buildings by the year
+they were built, compute the site coverage of the main building relative to the parcel size and graph the quintiles for
+each year. For good measure, we throw in the 10 and 90 percentile whiskers.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_coverage" style="height:200px;max-width:640px;" data-url="/data/sfh_coverage.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>What jumps out immediately is that around 1988 there apparently was a change in zoning law that reduced site coverage
+of the main building. I don&rsquo;t know anything about the history of building codes, maybe someone that does could shed some
+light onto this.</p>
+
+<h3>Building Height</h3>
+
+<p>The next obvious point of analysis is how building height, in meters, changed over time.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_height" style="height:200px;max-width:640px;" data-url="/data/sfh_height.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>We observe a similar jump in the data around 1988.</p>
+
+<h3>Building Volumes</h3>
+
+<p>Now let&rsquo;s look at how &ldquo;massive&rdquo; the buildings are, measured by volume in qubic metres.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_volume" style="height:200px;max-width:640px;" data-url="/data/sfh_volume.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>The graph does show that in general houses have gotten more massive in the late 80s, but after that have more or less
+maintained the same volume.</p>
+
+<h3>Roof Type</h3>
+
+<p>Lastly we see how the roof type changes over time, plotting the number of buildings with given roof type for each year.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_roof" style="height:200px;max-width:640px;" data-url="/data/sfh_roof.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>Flat roofs seem to have been quite popular between the mid 60s to mid 80s.</p>
+
+<h3>Next Steps</h3>
+
+<p>After starting to see what kind of data can be derived from LIDAR data we can start to explore different questions. The
+graphs open a small window into the physical parameters of single family homes over time and are only of limited general
+interest.</p>
+
+<p>For
+more serious analysis we would most likely have to start from the raw LIDAR data, which takes a little bit of effort.</p>
+
+<div><script src="/javascripts/box.js"></script></div>
+
+
+
+
+<script>
+
+function stacked_bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter){
+    if (!domainFormatter) domainFormatter=d3.format("d")
+    if (!rangeFormatter)
+     rangeFormatter = function (y) {
+        return y;
+     };
+     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
+
+var margin = {top: 20, right: 20, bottom: 40, left: 70},
+    width = parseInt(div.style("width")) - margin.left - margin.right,
+    height = parseInt(div.style("height")) - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickFormat(domainFormatter)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(rangeFormatter)
+    .ticks(5, rangeFormatter);
+
+var svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data_url=div[0][0].dataset.url;
+var legend=d3.select(div.node().parentNode).select('.legend');
+
+
+d3.json(data_url, function(error, json) {
+  if (error) throw error;
+  var graphData=json[0];
+  var data=graphData.data;
+  var color = d3.scale.ordinal().domain(graphData.colors.map(function(d,i){return i}))
+  .range(graphData.colors);
+  var domain=data.map(function(d){return d.date;});
+  x.domain(domain);
+
+  function graphValueId(i){
+      return graphData.class + '_' + i + '_value'
+  }
+
+  graphData.labels.forEach(function(text,i){
+    var color=graphData.colors[i];
+    var html='<i style="background:' + color + '"></i> ' + text + ' <span style="float:right;margin-right:10px;" id="' + graphValueId(i) + '"></span>'
+    legend.append('p').html(html);
+  });
+  
+  data.forEach(function(d) {
+      var y0 = 0;
+      d.values = color.domain().map(function(i) { return {date: d.date, y0: y0, y1: y0 += +d.count[i]}; });
+      d.total = d.values[d.values.length - 1].y1;
+  });
+  y.domain([0, d3.max(data, function(d) { return d.total; })]);
+
+  var domainTickValues=[];
+  var skip=Math.round(40/x.rangeBand());
+  if (skip<=0) skip=1;
+  for (var i=0;i<x.domain().length;i++) {
+    if (i % skip==0) domainTickValues.push(x.domain()[i]);
+  }
+  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
+  xAxis.tickValues(domainTickValues);
+
+  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(" + xShift + "," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//    .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Probability");
+
+    function updateTooltip(d,i){
+       color.domain().forEach(function(j){
+             var value=d && i==j ? (domainLabelFormatter(d.date) + ': ' +rangeFormatter(d.y1-d.y0)) : '';
+             d3.select('#'+graphValueId(j)).text( value);
+       });
+    }
+
+  var year=svg.selectAll(".year")
+    .data(data)
+        .enter().append("g")
+          .attr("class", "g");
+  year.selectAll(".color-bar")
+      .data(function(d) { return d.values; })
+    .enter().append("rect")
+      .attr("class", graphData.class + " color-bar")
+      .attr("fill", graphData.color)
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.y1); })
+      .attr("height", function(d) { return Math.max(0, y(d.y0) - y(d.y1)); })
+      .attr("fill",function(d,i) {return color(i);})
+      .on('mouseover',updateTooltip)
+      .on('click',updateTooltip)
+      .on('touch',updateTooltip) 
+      .on('mouseout',function(){updateTooltip(null,i)});
+
+      
+});
+
+}
+
+var yearFormatter=d3.format();
+stacked_bar_graph(d3.select("#sfh_roof"),true,yearFormatter,null,yearFormatter);
+</script>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">MountainMath</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-03-05T22:58:06-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/d3/'>d3</a>, <a class='category' href='/blog/categories/open-data/'>open data</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/03/02/property-taxes-and-land-use/" title="Previous Post: Property Taxes and Land Use">&laquo; Property Taxes and Land Use</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/03/05/physical-sfh-form-over-time/">Physical SFH Form Over Time</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/02/property-taxes-and-land-use/">Property Taxes and Land Use</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/29/land-use/">Land Use, Roads (and Parking)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/10/on-condos/">On Condos</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/01/loss-of-character/">Loss of Character</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  
+  <a class="twitter-timeline" href="https://twitter.com/vb_jens" data-widget-id="680989637721063424">Tweets by @vb_jens</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - MountainMath -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'doodlesmountainmathca';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

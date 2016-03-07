@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-04T13:47:04-08:00</updated>
+  <updated>2016-03-07T00:41:16-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,230 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Physical SFH Form Over Time]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/"/>
+    <updated>2016-03-05T22:58:06-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time</id>
+    <content type="html"><![CDATA[<p>I was curious how the physical parameters of Single Family Houses changed over time.</p>
+
+<p>Using the <a href="https://mountainmath.ca/map/assessment">assessment dataset</a> merged with the <a href="https://mountainmath.ca/land_use/map">land use dataset</a>
+allows to fairly accurately pick out single family houses, and also holds the age of most properies. Together with
+the City of Vancouver LIDAR-generated building dataset <a href="https://mountainmath.ca/vancouver_lidar/map">that I have played with before</a>
+we can look at physical building parameters.</p>
+
+<!-- more -->
+
+
+<p>The city dataset is a little coarse, it only contains the main building and does not map things like garages. It&rsquo;s a little
+rough and should probably be interpreted cautiously on an individual building level. One could spend the time and derive the
+building data directly from the raw LIDAR dataset optimized for this purpose, but for some overview statistics the building
+dataset that was derived by the city is just fine. The LIDAR was taken in 2009, so we only consider houses built before that time.</p>
+
+<h3>Site coverage</h3>
+
+<p>One question is how the site coverage of the buildings have changed over time. We simply line up the buildings by the year
+they were built, compute the site coverage of the main building relative to the parcel size and graph the quintiles for
+each year. For good measure, we throw in the 10 and 90 percentile whiskers.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_coverage" style="height:200px;max-width:640px;" data-url="/data/sfh_coverage.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>What jumps out immediately is that around 1988 there apparently was a change in zoning law that reduced site coverage
+of the main building. I don&rsquo;t know anything about the history of building codes, maybe someone that does could shed some
+light onto this.</p>
+
+<h3>Building Height</h3>
+
+<p>The next obvious point of analysis is how building height, in meters, changed over time.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_height" style="height:200px;max-width:640px;" data-url="/data/sfh_height.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>We observe a similar jump in the data around 1988.</p>
+
+<h3>Building Volumes</h3>
+
+<p>Now let&rsquo;s look at how &ldquo;massive&rdquo; the buildings are, measured by volume in qubic metres.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_volume" style="height:200px;max-width:640px;" data-url="/data/sfh_volume.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>The graph does show that in general houses have gotten more massive in the late 80s, but after that have more or less
+maintained the same volume.</p>
+
+<h3>Roof Type</h3>
+
+<p>Lastly we see how the roof type changes over time, plotting the number of buildings with given roof type for each year.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_roof" style="height:200px;max-width:640px;" data-url="/data/sfh_roof.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>Flat roofs seem to have been quite popular between the mid 60s to mid 80s.</p>
+
+<h3>Next Steps</h3>
+
+<p>After starting to see what kind of data can be derived from LIDAR data we can start to explore different questions. The
+graphs open a small window into the physical parameters of single family homes over time and are only of limited general
+interest.</p>
+
+<p>For
+more serious analysis we would most likely have to start from the raw LIDAR data, which takes a little bit of effort.</p>
+
+<div><script src="http://doodles.mountainmath.ca/javascripts/box.js"></script></div>
+
+
+
+
+<script>
+
+function stacked_bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter){
+    if (!domainFormatter) domainFormatter=d3.format("d")
+    if (!rangeFormatter)
+     rangeFormatter = function (y) {
+        return y;
+     };
+     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
+
+var margin = {top: 20, right: 20, bottom: 40, left: 70},
+    width = parseInt(div.style("width")) - margin.left - margin.right,
+    height = parseInt(div.style("height")) - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickFormat(domainFormatter)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(rangeFormatter)
+    .ticks(5, rangeFormatter);
+
+var svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data_url=div[0][0].dataset.url;
+var legend=d3.select(div.node().parentNode).select('.legend');
+
+
+d3.json(data_url, function(error, json) {
+  if (error) throw error;
+  var graphData=json[0];
+  var data=graphData.data;
+  var color = d3.scale.ordinal().domain(graphData.colors.map(function(d,i){return i}))
+  .range(graphData.colors);
+  var domain=data.map(function(d){return d.date;});
+  x.domain(domain);
+
+  function graphValueId(i){
+      return graphData.class + '_' + i + '_value'
+  }
+
+  graphData.labels.forEach(function(text,i){
+    var color=graphData.colors[i];
+    var html='<i style="background:' + color + '"></i> ' + text + ' <span style="float:right;margin-right:10px;" id="' + graphValueId(i) + '"></span>'
+    legend.append('p').html(html);
+  });
+  
+  data.forEach(function(d) {
+      var y0 = 0;
+      d.values = color.domain().map(function(i) { return {date: d.date, y0: y0, y1: y0 += +d.count[i]}; });
+      d.total = d.values[d.values.length - 1].y1;
+  });
+  y.domain([0, d3.max(data, function(d) { return d.total; })]);
+
+  var domainTickValues=[];
+  var skip=Math.round(40/x.rangeBand());
+  if (skip<=0) skip=1;
+  for (var i=0;i<x.domain().length;i++) {
+    if (i % skip==0) domainTickValues.push(x.domain()[i]);
+  }
+  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
+  xAxis.tickValues(domainTickValues);
+
+  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(" + xShift + "," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//    .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Probability");
+
+    function updateTooltip(d,i){
+       color.domain().forEach(function(j){
+             var value=d && i==j ? (domainLabelFormatter(d.date) + ': ' +rangeFormatter(d.y1-d.y0)) : '';
+             d3.select('#'+graphValueId(j)).text( value);
+       });
+    }
+
+  var year=svg.selectAll(".year")
+    .data(data)
+        .enter().append("g")
+          .attr("class", "g");
+  year.selectAll(".color-bar")
+      .data(function(d) { return d.values; })
+    .enter().append("rect")
+      .attr("class", graphData.class + " color-bar")
+      .attr("fill", graphData.color)
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.y1); })
+      .attr("height", function(d) { return Math.max(0, y(d.y0) - y(d.y1)); })
+      .attr("fill",function(d,i) {return color(i);})
+      .on('mouseover',updateTooltip)
+      .on('click',updateTooltip)
+      .on('touch',updateTooltip) 
+      .on('mouseout',function(){updateTooltip(null,i)});
+
+      
+});
+
+}
+
+var yearFormatter=d3.format();
+stacked_bar_graph(d3.select("#sfh_roof"),true,yearFormatter,null,yearFormatter);
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Property Taxes and Land Use]]></title>
@@ -3076,32 +3300,6 @@ zooming in to the individual property level.</p>
 and development permit information. Some of this data is already available, albeit not in an easily consumable form.</p>
 
 <p>Other than that a big thanks to the folks maintaining the CoV open data catalogue!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mapping CACs]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/"/>
-    <updated>2014-11-05T12:03:25-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs</id>
-    <content type="html"><![CDATA[<p>After reading the <a href="http://pricetags.wordpress.com/2014/11/04/the-daily-durning-back-and-forth-on-cacs/">post on Price Tags</a>,
-originally from <a href="http://karensawatzky.ca/2014/10/29/7868/">Karen Sawatzky&rsquo;s blog</a>, I got curious about getting a
-geographic overview over the CACs in Vancouver in 2010, 2011 and 2012.</p>
-
-<p>As opposed to the <a href="http://doodles.mountainmath.ca/blog/2014/09/05/vancouver-teardown-map/">teardown map</a> the dataset is quite small, so there should
-be no problems viewing this on a mobile device. As always, map is below the fold.</p>
-
-<!-- more -->
-
-
-<p>Some of the property addresses did not match any address in the CoV open data property database, probably because the
-developments are quite new and new addresses got assigned. In these cases I mapped the CAC property to a nearby property
-and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
-
-<iframe src="http://doodles.mountainmath.ca/cac_map.html" width="100%" height="500"></iframe>
-
-
-<p><a href="http://doodles.mountainmath.ca/cac_map.html">Full screen view</a></p>
 ]]></content>
   </entry>
   

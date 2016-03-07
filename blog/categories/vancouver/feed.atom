@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-04T13:47:04-08:00</updated>
+  <updated>2016-03-07T00:41:16-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,230 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Physical SFH Form Over Time]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/"/>
+    <updated>2016-03-05T22:58:06-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time</id>
+    <content type="html"><![CDATA[<p>I was curious how the physical parameters of Single Family Houses changed over time.</p>
+
+<p>Using the <a href="https://mountainmath.ca/map/assessment">assessment dataset</a> merged with the <a href="https://mountainmath.ca/land_use/map">land use dataset</a>
+allows to fairly accurately pick out single family houses, and also holds the age of most properies. Together with
+the City of Vancouver LIDAR-generated building dataset <a href="https://mountainmath.ca/vancouver_lidar/map">that I have played with before</a>
+we can look at physical building parameters.</p>
+
+<!-- more -->
+
+
+<p>The city dataset is a little coarse, it only contains the main building and does not map things like garages. It&rsquo;s a little
+rough and should probably be interpreted cautiously on an individual building level. One could spend the time and derive the
+building data directly from the raw LIDAR dataset optimized for this purpose, but for some overview statistics the building
+dataset that was derived by the city is just fine. The LIDAR was taken in 2009, so we only consider houses built before that time.</p>
+
+<h3>Site coverage</h3>
+
+<p>One question is how the site coverage of the buildings have changed over time. We simply line up the buildings by the year
+they were built, compute the site coverage of the main building relative to the parcel size and graph the quintiles for
+each year. For good measure, we throw in the 10 and 90 percentile whiskers.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_coverage" style="height:200px;max-width:640px;" data-url="/data/sfh_coverage.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>What jumps out immediately is that around 1988 there apparently was a change in zoning law that reduced site coverage
+of the main building. I don&rsquo;t know anything about the history of building codes, maybe someone that does could shed some
+light onto this.</p>
+
+<h3>Building Height</h3>
+
+<p>The next obvious point of analysis is how building height, in meters, changed over time.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_height" style="height:200px;max-width:640px;" data-url="/data/sfh_height.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>We observe a similar jump in the data around 1988.</p>
+
+<h3>Building Volumes</h3>
+
+<p>Now let&rsquo;s look at how &ldquo;massive&rdquo; the buildings are, measured by volume in qubic metres.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_volume" style="height:200px;max-width:640px;" data-url="/data/sfh_volume.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>The graph does show that in general houses have gotten more massive in the late 80s, but after that have more or less
+maintained the same volume.</p>
+
+<h3>Roof Type</h3>
+
+<p>Lastly we see how the roof type changes over time, plotting the number of buildings with given roof type for each year.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_roof" style="height:200px;max-width:640px;" data-url="/data/sfh_roof.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>Flat roofs seem to have been quite popular between the mid 60s to mid 80s.</p>
+
+<h3>Next Steps</h3>
+
+<p>After starting to see what kind of data can be derived from LIDAR data we can start to explore different questions. The
+graphs open a small window into the physical parameters of single family homes over time and are only of limited general
+interest.</p>
+
+<p>For
+more serious analysis we would most likely have to start from the raw LIDAR data, which takes a little bit of effort.</p>
+
+<div><script src="http://doodles.mountainmath.ca/javascripts/box.js"></script></div>
+
+
+
+
+<script>
+
+function stacked_bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter){
+    if (!domainFormatter) domainFormatter=d3.format("d")
+    if (!rangeFormatter)
+     rangeFormatter = function (y) {
+        return y;
+     };
+     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
+
+var margin = {top: 20, right: 20, bottom: 40, left: 70},
+    width = parseInt(div.style("width")) - margin.left - margin.right,
+    height = parseInt(div.style("height")) - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickFormat(domainFormatter)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(rangeFormatter)
+    .ticks(5, rangeFormatter);
+
+var svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data_url=div[0][0].dataset.url;
+var legend=d3.select(div.node().parentNode).select('.legend');
+
+
+d3.json(data_url, function(error, json) {
+  if (error) throw error;
+  var graphData=json[0];
+  var data=graphData.data;
+  var color = d3.scale.ordinal().domain(graphData.colors.map(function(d,i){return i}))
+  .range(graphData.colors);
+  var domain=data.map(function(d){return d.date;});
+  x.domain(domain);
+
+  function graphValueId(i){
+      return graphData.class + '_' + i + '_value'
+  }
+
+  graphData.labels.forEach(function(text,i){
+    var color=graphData.colors[i];
+    var html='<i style="background:' + color + '"></i> ' + text + ' <span style="float:right;margin-right:10px;" id="' + graphValueId(i) + '"></span>'
+    legend.append('p').html(html);
+  });
+  
+  data.forEach(function(d) {
+      var y0 = 0;
+      d.values = color.domain().map(function(i) { return {date: d.date, y0: y0, y1: y0 += +d.count[i]}; });
+      d.total = d.values[d.values.length - 1].y1;
+  });
+  y.domain([0, d3.max(data, function(d) { return d.total; })]);
+
+  var domainTickValues=[];
+  var skip=Math.round(40/x.rangeBand());
+  if (skip<=0) skip=1;
+  for (var i=0;i<x.domain().length;i++) {
+    if (i % skip==0) domainTickValues.push(x.domain()[i]);
+  }
+  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
+  xAxis.tickValues(domainTickValues);
+
+  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(" + xShift + "," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//    .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Probability");
+
+    function updateTooltip(d,i){
+       color.domain().forEach(function(j){
+             var value=d && i==j ? (domainLabelFormatter(d.date) + ': ' +rangeFormatter(d.y1-d.y0)) : '';
+             d3.select('#'+graphValueId(j)).text( value);
+       });
+    }
+
+  var year=svg.selectAll(".year")
+    .data(data)
+        .enter().append("g")
+          .attr("class", "g");
+  year.selectAll(".color-bar")
+      .data(function(d) { return d.values; })
+    .enter().append("rect")
+      .attr("class", graphData.class + " color-bar")
+      .attr("fill", graphData.color)
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.y1); })
+      .attr("height", function(d) { return Math.max(0, y(d.y0) - y(d.y1)); })
+      .attr("fill",function(d,i) {return color(i);})
+      .on('mouseover',updateTooltip)
+      .on('click',updateTooltip)
+      .on('touch',updateTooltip) 
+      .on('mouseout',function(){updateTooltip(null,i)});
+
+      
+});
+
+}
+
+var yearFormatter=d3.format();
+stacked_bar_graph(d3.select("#sfh_roof"),true,yearFormatter,null,yearFormatter);
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Property Taxes and Land Use]]></title>
@@ -1075,103 +1299,6 @@ var numberBinFormatter=function(top){
 stacked_bar_graph(d3.select("#graph_sfh"));
 </script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Land Use Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/"/>
-    <updated>2016-01-31T10:25:42-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/01/31/land-use</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/land_use/map"><img  src="http://doodles.mountainmath.ca/images/land use.png" style="width:50%;float:left;margin-right:10px;"></a>
-Metro Vancouver has a <a href="http://www.metrovancouver.org/data">fairly good land use dataset</a> that I imported quite some time
-ago so that <a href="https://mountainmath.ca/land_use/map">I could take a good look at it</a>. But then I forgot about it until
-<a href="https://twitter.com/HealthyCityMaps">@HealthyCityMaps</a> <a href="https://twitter.com/HealthyCityMaps/status/692832946714050564">reminded me</a> just
-at the time when the discussions about <a href="https://mountainmath.ca/map/assessment">assessmened values</a> in Vancouver were flaring up again.</p>
-
-<p>So finally I decided to mark up the City of Vancouver assessment dataset with the land use from the Metro Vancouver land
-use dataset. And I used the occasion to update my color schemes from two years ago and gave it a dark background that
-works better with the <a href="http://colorbrewer2.org">colorbrewer</a> palettes.</p>
-
-<p>The result of the land use and assessment data mashup is a much better understanding what kind of properties we have right now in Vancouver.</p>
-
-<!-- more -->
-
-
-<h3>Land Use for Assessment Data</h3>
-
-<p>There is a strong relationship between land use and zoning. But that relationship is far from perfect, zoning is a funny
-beast. For example, zoning laws prevent low-rise apartments to be built in areas zoned for single family housing. But
-they permit single family housing in areas zoned for low-rise apartments. Or in areas zoned as commercial. The land
-use dataset allows to tag every property based on what it is actually used for.</p>
-
-<p>Of course the land use dataset is not perfect and has some issues, but overall it gives a far superior view on how land
-is used when compared to soley relying on zoning. But putting the two datasets together one can even further filter down
-to tease out actual land use.</p>
-
-<h3>The Forgotten Single Family Houses</h3>
-
-<p>Single family houses have received a lot of attention lately, not least because of the
-<a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">incredible gains in land value during the last year</a>.</p>
-
-<p>But how to narrow down the assessed properties to only single family housing? The easiest way to do this is to use zoning
-as a proxy, so <a href="https://mountainmath.ca/map/assessment?filter=rs">only use RS zoned properties</a>. But there are a number
-of problems with that.</p>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=rs_not_sfh&amp;layer=14"><img  src="http://doodles.mountainmath.ca/images/rs_not_sfh.png" style="width:50%;float:right;"></a>
-Firstly, only filtering by zone will still include lots of unwanted properties like schools and parks. I used to filter out
-parks using the City of Vancouver parks dataset, but it actually does not capture all parks. And then I filtered by area
-to get rid of large properties that typically house schools or other institutions. But that keeps smaller institutions in
-and throws larger single family houses out. Using the land use data we can better focus in on all the residential properties
-in the single family housing zone. But even then, there are <a href="https://mountainmath.ca/map/assessment?filter=rs_not_sfh&amp;layer=14">1,255 residential properties in &lsquo;RS&rsquo; zoned areas that are
-not single family houses</a>.</p>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=sfh_not_rs&amp;layer=6"><img  src="http://doodles.mountainmath.ca/images/sfh_not_rs.png" style="width:50%;float:left;margin-right:10px;"></a>
-Secondly, and probably more importantly, it misses
-<a href="https://mountainmath.ca/map/assessment?filter=sfh_not_rs&amp;layer=6">the 15% (12,111 total) of the single family stock that is situated in other zones</a>.
-&lsquo;Upzoning&rsquo; a neighbourhood
-only means that other forms of housing are also permitted, but people can still build single family homes there if they
-would like.
-<a href="https://mountainmath.ca/map/assessment?filter=sfh_not_rs&amp;layer=6">Zoom into the map</a> and choose different ways to colour
-the properties if you want to learn more about where they are.</p>
-
-<h3>All Single Family Houses</h3>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;layer=9"><img  src="http://doodles.mountainmath.ca/images/sfh.png" style="width:50%;float:right;"></a>
-When adding in the land use data we can filter by actual land use. That immediately takes care of parks and schools and other institutions,
-and at the same time it allows to find all &ldquo;single family or duplex&rdquo; properties. That gets us closer to what we are looking
-for, but it also includes duplexes. But those are easy to detect in the assessment dataset, they show up with two separate
-tax bills. So combining the two we get the actual <a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;layer=9">map of all single family homes</a>.</p>
-
-<p>Are these really <em>all</em> single family homes? Not quite. There are some issues with the land use dataset that mis-classify
-a couple of properties. In particular some RS lots without a house are classified as &lsquo;Undeveloped&rsquo;, and some are classfied as
-&lsquo;Single Detached &amp; Duplex&rsquo;, probably depending on what was there around the time the data was collected. The correct classification really
-depends on what one is interested in, and will likely be outdated fast.</p>
-
-<p>Moreover, the property assessment dataset of the City of Vancouver is to correctly link a couple of hundred properties
-to their tax data. This won&rsquo;t be an issue when analysing the tax data, but it does cause a problem when mapping the properties
-as they won&rsquo;t have any assessment or zoning data associated with them.</p>
-
-<p>And there are issues on the fringes. Some properties in Southlands are used as single family homes on large lots, rather
-than the limited agricultural that it is zoned at and labeled as in the land use dataset.</p>
-
-<p>But overall, adding in the land
-use information gives a huge improvement on narrowing down single family homes. We should remember that
-&ldquo;single family homes&rdquo; are better described as &ldquo;single owner properties that can&rsquo;t be stratified&rdquo;,
-as they may include secondary suites and laneway houses.</p>
-
-<h3>Historical Data</h3>
-
-<p>One shortcoming of the land use dataset is that there are no historic versions available. It would be very nice to be able
-to see how land use changed over time, but that dataset won&rsquo;t do the trick. The City of Vancouver assessment dataset
-comes with historic data all the way up to 2006, and can be used to do some fun
-<a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">analysis</a>. But the historic dataset is incomlete in that
-zoning information is only available from 2014 forward and in that historic property tax data can&rsquo;t always be linked to
-physical properties if the property has been re-developed. But overall putting the datasets together allows to refine
-the analysis previously made. For example re-running the <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">thumb twiddling rates</a>
-using only Single Family Homes, we get pretty much the same medians, but the averages are higher. We could also refine
-our <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">teardown analysis</a> to include only single family homes
-and better filter out institutional properties, although some issues with the lack of historic data remain.</p>
 ]]></content>
   </entry>
   

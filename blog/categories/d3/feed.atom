@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-04T13:47:04-08:00</updated>
+  <updated>2016-03-07T00:41:16-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,230 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Physical SFH Form Over Time]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/"/>
+    <updated>2016-03-05T22:58:06-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time</id>
+    <content type="html"><![CDATA[<p>I was curious how the physical parameters of Single Family Houses changed over time.</p>
+
+<p>Using the <a href="https://mountainmath.ca/map/assessment">assessment dataset</a> merged with the <a href="https://mountainmath.ca/land_use/map">land use dataset</a>
+allows to fairly accurately pick out single family houses, and also holds the age of most properies. Together with
+the City of Vancouver LIDAR-generated building dataset <a href="https://mountainmath.ca/vancouver_lidar/map">that I have played with before</a>
+we can look at physical building parameters.</p>
+
+<!-- more -->
+
+
+<p>The city dataset is a little coarse, it only contains the main building and does not map things like garages. It&rsquo;s a little
+rough and should probably be interpreted cautiously on an individual building level. One could spend the time and derive the
+building data directly from the raw LIDAR dataset optimized for this purpose, but for some overview statistics the building
+dataset that was derived by the city is just fine. The LIDAR was taken in 2009, so we only consider houses built before that time.</p>
+
+<h3>Site coverage</h3>
+
+<p>One question is how the site coverage of the buildings have changed over time. We simply line up the buildings by the year
+they were built, compute the site coverage of the main building relative to the parcel size and graph the quintiles for
+each year. For good measure, we throw in the 10 and 90 percentile whiskers.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_coverage" style="height:200px;max-width:640px;" data-url="/data/sfh_coverage.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>What jumps out immediately is that around 1988 there apparently was a change in zoning law that reduced site coverage
+of the main building. I don&rsquo;t know anything about the history of building codes, maybe someone that does could shed some
+light onto this.</p>
+
+<h3>Building Height</h3>
+
+<p>The next obvious point of analysis is how building height, in meters, changed over time.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_height" style="height:200px;max-width:640px;" data-url="/data/sfh_height.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>We observe a similar jump in the data around 1988.</p>
+
+<h3>Building Volumes</h3>
+
+<p>Now let&rsquo;s look at how &ldquo;massive&rdquo; the buildings are, measured by volume in qubic metres.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_volume" style="height:200px;max-width:640px;" data-url="/data/sfh_volume.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>The graph does show that in general houses have gotten more massive in the late 80s, but after that have more or less
+maintained the same volume.</p>
+
+<h3>Roof Type</h3>
+
+<p>Lastly we see how the roof type changes over time, plotting the number of buildings with given roof type for each year.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_roof" style="height:200px;max-width:640px;" data-url="/data/sfh_roof.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>Flat roofs seem to have been quite popular between the mid 60s to mid 80s.</p>
+
+<h3>Next Steps</h3>
+
+<p>After starting to see what kind of data can be derived from LIDAR data we can start to explore different questions. The
+graphs open a small window into the physical parameters of single family homes over time and are only of limited general
+interest.</p>
+
+<p>For
+more serious analysis we would most likely have to start from the raw LIDAR data, which takes a little bit of effort.</p>
+
+<div><script src="http://doodles.mountainmath.ca/javascripts/box.js"></script></div>
+
+
+
+
+<script>
+
+function stacked_bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter){
+    if (!domainFormatter) domainFormatter=d3.format("d")
+    if (!rangeFormatter)
+     rangeFormatter = function (y) {
+        return y;
+     };
+     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
+
+var margin = {top: 20, right: 20, bottom: 40, left: 70},
+    width = parseInt(div.style("width")) - margin.left - margin.right,
+    height = parseInt(div.style("height")) - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickFormat(domainFormatter)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(rangeFormatter)
+    .ticks(5, rangeFormatter);
+
+var svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data_url=div[0][0].dataset.url;
+var legend=d3.select(div.node().parentNode).select('.legend');
+
+
+d3.json(data_url, function(error, json) {
+  if (error) throw error;
+  var graphData=json[0];
+  var data=graphData.data;
+  var color = d3.scale.ordinal().domain(graphData.colors.map(function(d,i){return i}))
+  .range(graphData.colors);
+  var domain=data.map(function(d){return d.date;});
+  x.domain(domain);
+
+  function graphValueId(i){
+      return graphData.class + '_' + i + '_value'
+  }
+
+  graphData.labels.forEach(function(text,i){
+    var color=graphData.colors[i];
+    var html='<i style="background:' + color + '"></i> ' + text + ' <span style="float:right;margin-right:10px;" id="' + graphValueId(i) + '"></span>'
+    legend.append('p').html(html);
+  });
+  
+  data.forEach(function(d) {
+      var y0 = 0;
+      d.values = color.domain().map(function(i) { return {date: d.date, y0: y0, y1: y0 += +d.count[i]}; });
+      d.total = d.values[d.values.length - 1].y1;
+  });
+  y.domain([0, d3.max(data, function(d) { return d.total; })]);
+
+  var domainTickValues=[];
+  var skip=Math.round(40/x.rangeBand());
+  if (skip<=0) skip=1;
+  for (var i=0;i<x.domain().length;i++) {
+    if (i % skip==0) domainTickValues.push(x.domain()[i]);
+  }
+  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
+  xAxis.tickValues(domainTickValues);
+
+  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(" + xShift + "," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//    .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Probability");
+
+    function updateTooltip(d,i){
+       color.domain().forEach(function(j){
+             var value=d && i==j ? (domainLabelFormatter(d.date) + ': ' +rangeFormatter(d.y1-d.y0)) : '';
+             d3.select('#'+graphValueId(j)).text( value);
+       });
+    }
+
+  var year=svg.selectAll(".year")
+    .data(data)
+        .enter().append("g")
+          .attr("class", "g");
+  year.selectAll(".color-bar")
+      .data(function(d) { return d.values; })
+    .enter().append("rect")
+      .attr("class", graphData.class + " color-bar")
+      .attr("fill", graphData.color)
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.y1); })
+      .attr("height", function(d) { return Math.max(0, y(d.y0) - y(d.y1)); })
+      .attr("fill",function(d,i) {return color(i);})
+      .on('mouseover',updateTooltip)
+      .on('click',updateTooltip)
+      .on('touch',updateTooltip) 
+      .on('mouseout',function(){updateTooltip(null,i)});
+
+      
+});
+
+}
+
+var yearFormatter=d3.format();
+stacked_bar_graph(d3.select("#sfh_roof"),true,yearFormatter,null,yearFormatter);
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Land Use, Roads (and Parking)]]></title>
@@ -1270,117 +1494,6 @@ var ready_for_graph = function() {
 ready_for_graph();
 </script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Canvas vs SVG]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/12/27/canvas-vs-svg/"/>
-    <updated>2015-12-27T15:53:02-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/12/27/canvas-vs-svg</id>
-    <content type="html"><![CDATA[<h4>CensusMapper Behind the Scenes</h4>
-
-<p>The idea behind <a href="https://censusmapper.ca">CensusMapper</a> is that it takes away all the technical barriers to dealing with census data. So how does
-CensusMapper work behind the scenes?</p>
-
-<h4>CensusMapper Data Workflow</h4>
-
-<!-- more -->
-
-
-<p>The general setup is quite simple. We use the lean javascript open mapping platform <a href="http://leafletjs.com">leaflet</a>
-as the base for mapping information. Leaflet handles the logic of dealing with zoom and pan and keeping track of the
-geographic boundaries that should be mapped. That information gets then passed on to the CensusMapper servers.</p>
-
-<p>CensusMapper will then send the appropriate census geographic polygons to the browser for leaflet to display. Once the
-geographic data is available for mapping, some custom code checks what kind of information the user wants to display and
-requests the census data required to make the map. The census information is then assembled on the server, sent down
-and attached to the polygons and drawn
-on the browser window within leaflet. This two-tier process allows the highly dynamic mapping in CensusMapper where the
-data-heavy geographic polygons are kept separately thus can be cached and re-used.</p>
-
-<h4>Drawing Census Data</h4>
-
-<p>There are a number of ways how we can display census data in the browser. At CensusMapper we have played with three
-different technologies to map data that vary in performance and browser support. They all have in common that they
-won&rsquo;t run on Internet Explorer 8 or earlier, but we have just about reached the point in time where it is acceptable to
-ignore IE8- in products meant for the &ldquo;general internet audience&rdquo;.</p>
-
-<h5>SVG</h5>
-
-<p><a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a> is what our maps have been using so far. SVGs are fairly high level, which means it&rsquo;s very little work
-to implement and map information. One simply passes a polygon to the browser, tells it how to color it, and the browser
-takes care of the rest. SVG elements can easily be styled via CSS, so there is essentially no work involved to deal with
-highlight on hover, scaling for retina displays, patterns for census data quality flags, etc. We use
-<a href="https://github.com/mbostock/d3">d3.js</a> to attach the geographic and census data right to the SVG elements for easy
-manipulation.</p>
-
-<p>While mapping data this way is very easy, for CensusMapper there are two problems.</p>
-
-<ol>
-<li>We are restricted in how we can display information by the capabilities of SVG.</li>
-<li>SVG rendering is done by the browser, and not all browsers are equal. Most importantly, SVG rendering in Internet
-Explorer is excruciatingly slow. So slow, that CensusMapper becomes essentially useless within Internet Explorer. We
-felt compelled to add a warning messeage that displayed when people opened CensusMapper with Internet Explorer. And
-when you do that, that&rsquo;s a sure sign that your app has a serious problem.
-<img src="/images/chrome.png" alt="Browser Warning" />
-So how to get around those issues? Enter Canvas.</li>
-</ol>
-
-
-<h5>Canvas</h5>
-
-<p><a href="https://en.wikipedia.org/wiki/Canvas_element">Canvas</a> offers a way to draw images in a browser. Unlike SVG, the drawing has to be done &ldquo;by hand&rdquo;. And the result is just
-an image, with no clear way to tell where it came from. There is no way to attach any information to individual
-structures drawn on a canvas. All the logic for highlight on hover, figuring out what data is associated with the mouse
-position, dealing with retina displays, etc. needs to be added by hand.</p>
-
-<p>On the upside, a good canvas implementation is a lot faster than SVG. And it opens the door to changes in how the data
-is handled that bring additional performance improvements. In particular, we can now chop up census polygons and render
-the pieces separately, greatly cutting down on the size of the downloaded data, as well as the complexity of the
-polygons that get rendered. And the performance improvements are noticeable across all browsers and platforms.</p>
-
-<p>At the end of the day it is actually not that much work and we flipped the switch on this just before the Christmas
-break. CensusMapper is now running using canvas instead SVG for
-the main maps. We
-kept the look and feel the same, so unless you dig into the code you won&rsquo;t notice the difference.
-Some parts of CensusMapper still utilized SVGs, like the d3-based
-<a href="http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown/">Census Wheel</a>.</p>
-
-<h5>WebGL</h5>
-
-<p><a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> also draws on a canvas element, but the work is offloaded onto the GPU (graphics processor) giving enormous
-speed improvements. Regular canvas rendering is fast enough for our purposes, but with WebGL we can do more complex
-renderings that previously we could not even dream of: <a href="https://en.wikipedia.org/wiki/OpenGL_Shading_Language">Shaders</a>
-and Interactive 3D data maps. We had previously
-<a href="https://mountainmath.ca/census3">toyed with 3D data visualization</a> to explore Vancouver&rsquo;s household density in 3D using Three.js,
-but did not pursue this further because of the complexities of writing code for navigating a Canada-wide map. Then we came
-across the super-customizable 3D open mapping platform built by <a href="https://mapzen.com/projects/tangram/">Mapzen</a>, and that
-suddenly made it extremely easy to do interactive 3D data mapping live in the browser. A quick test
-<a href="https://mountainmath.ca/vancouver_lidar/map">using Vancouver&rsquo;s open LIDAR generated building height data</a> showed how easy Mapzen&rsquo;s
-tangram engine is to use.</p>
-
-<p>After digging deeper into tangram, and with help from the friendly people at Mapzen, we figured out a way to fit
-CensusMapper&rsquo;s two-stage data workflow into tangram&rsquo;s mapping engine. The result are real-time 3D maps where height
-and color of each geographic area can be independently (and dynamically) controlled. Here is an example where mouseover
-trigged the area west of Coal Harbor to &lsquo;pop up&rsquo;.
-<img src="/images/webGL.jpg" alt="webGL" /></p>
-
-<p>At the same time we gain the ability to easily pull in all kinds of other data and map it. On our canvas or svg maps we
-added regular image tiles, either a road and label&rsquo;s overlay or a base map (which then requires opacity to be added to
-the census data that is mapped on top of that) as orientation aid. Short of baking our own image tiles we have very
-little control over the look and feel of this. With Mapzen&rsquo;s tangram we can very easily pick and style individual
-geographic objects from Mapzen&rsquo;s OSM vector tile server, resulting in crisp and clear maps. In the above example we
-decide dynamically what level of roads to render, how to style them, what labels to display and we also added bodies of
-water, where we filter by size depending on the zoom level.</p>
-
-<p>At this stage it is still an ongoing project to get this production-ready. One obvious obstacle is that WebGL browser
-support is still lagging. And on top of that it also requires updated graphics card drivers, which is a big problem on
-windows machines that are already a couple of years old. So for now we still need to have a plain canvas or svg fallback.</p>
-
-<p>And then there are the details that need to get worked out. 3D maps sounds great, but it will take us some time to figure
-out how to best utilize this in thematic maps. But even without utilizing 3D capabilities, the dynamic shaders and increased
-rendering performance are already pushing the boundary of what&rsquo;s possible in web maps.</p>
 ]]></content>
   </entry>
   
