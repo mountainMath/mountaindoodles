@@ -172,7 +172,7 @@ var yearFormatter=d3.format();
 var meterF=d3.format(".0f");
 var qubicMF=d3.format(".0f");
 var meterFormatter=function(d){return meterF(d)+'m'};
-var qubicMeterFormatter=function(d){return qubicMF(d)+'qm'};
+var qubicMeterFormatter=function(d){return qubicMF(d)+'m^3'};
 
 
 boxplot(d3.select("#sfh_coverage"),true,yearFormatter,percentageFormatter,yearFormatter);
