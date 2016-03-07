@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-07T00:41:16-08:00</updated>
+  <updated>2016-03-07T00:44:03-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -65,7 +65,7 @@ light onto this.</p>
 
 <h3>Building Volumes</h3>
 
-<p>Now let&rsquo;s look at how &ldquo;massive&rdquo; the buildings are, measured by volume in qubic metres.</p>
+<p>Now let&rsquo;s look at how &ldquo;massive&rdquo; the buildings are, measured by volume in cubic metres.</p>
 
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
 <div id="sfh_volume" style="height:200px;max-width:640px;" data-url="/data/sfh_volume.json"></div>
