@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-07T09:50:51-08:00</updated>
+  <updated>2016-03-07T21:29:51-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -92,6 +92,21 @@ smaller building footprints and taller buildings was that buildings overall got 
 
 
 <p>Flat roofs seem to have been quite popular between the mid 60s to mid 80s.</p>
+
+<h3>Length to Width Ratio (Update)</h3>
+
+<p>A question about a regulation change in 1938 <a href="https://twitter.com/GRIDSVancouver/status/706879555550613504">came up on Twitter</a>,
+so I thought I should check into the length-to-width ratio to see if anything can be seen there. A ratio of 1
+would mean a square footprint, a ratio of 2 means the house is twice as long as wide.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;" class="whiskers">
+<div id="sfh_square" style="height:200px;max-width:640px;" data-url="/data/sfh_square.json"></div>
+<div class="legend no-margin" style="padding-bottom:2em;">
+</div>
+</div>
+
+
+<p>No obvious changes around 1938, but our houses became a lot more square after the late 80s zoning changes.</p>
 
 <h3>Next Steps</h3>
 

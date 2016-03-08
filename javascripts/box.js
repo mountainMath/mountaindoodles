@@ -173,8 +173,9 @@ var meterF=d3.format(".0f");
 var qubicMF=d3.format(".0f");
 var meterFormatter=function(d){return meterF(d)+'m'};
 var qubicMeterFormatter=function(d){return qubicMF(d)+'m^3'};
-
+var ratioFormatter=d3.format(".2f");
 
 boxplot(d3.select("#sfh_coverage"),true,yearFormatter,percentageFormatter,yearFormatter);
 boxplot(d3.select("#sfh_height"),true,yearFormatter,meterFormatter,yearFormatter);
 boxplot(d3.select("#sfh_volume"),true,yearFormatter,qubicMeterFormatter,yearFormatter);
+boxplot(d3.select("#sfh_square"),true,yearFormatter,ratioFormatter,yearFormatter);
