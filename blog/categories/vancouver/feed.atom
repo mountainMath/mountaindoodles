@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-08T22:46:57-08:00</updated>
+  <updated>2016-03-08T22:56:23-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -31,7 +31,7 @@ the report in detail.</p>
 <h3>The Data</h3>
 
 <p>Smart meter data can be used to determine very accurately which units
-are occupied and which ones are not. In theory at least, in practice this is quite difficult because of the shier magnitude
+are occupied and which ones are not. In theory at least, in practice this is quite difficult because of the sheer magnitude
 of the data. That&rsquo;s why this is best left to companies who specialize in this kind of analysis, which is exactly what the
 city has done.</p>
 
@@ -41,7 +41,7 @@ does not have smart meters? That&rsquo;s where things get tricky. Some studies I
 consumption to determine which are unoccupied. The problem is to find the right cutoff. Typically these studies report
 rates computed using several cutoffs to address that uncertainty. The problem is that different cutoffs give very different
 results. For example, <a href="http://www.btaworks.com/wp-content/uploads/2009/12/btaworks_condo_study_report_final2.pdf">this study</a>
-looked at 75kWh and 100kWh as cutoffs and reported 5.5% and 8.5% unoccupancy rate, respectively. I checked my condo unit
+looked at 75kWh and 100kWh as monthly consumption cutoffs and reported 5.5% and 8.5% unoccupancy rate, respectively. I checked my condo unit
 when it was unoccupied for two months one summer, my two fridges pushed me well above the 100kWh threshold. So my unoccupied
 unit would have been counted as occupied in this study.</p>
 
@@ -51,7 +51,7 @@ by the fact that everything was done right I am reasonably comfortable to assume
 give accurate aggregate numbers.</p>
 
 <p>I am hoping that the technical report will still come out so we can be confident that the details were taken care of
-properly. In particular I would like to know how the model dealt with differnt housing types, how the housing type
+properly. In particular I would like to know how the model dealt with differnt housing types, and how the housing type
 was tied to the electricity bill. And what the ratio of dwellings of each housing type had smart meter data available.</p>
 
 <p>Bottom line on data: Solid.</p>
@@ -85,7 +85,7 @@ answer.</p>
 The City implied, <a href="http://www.theglobeandmail.com/news/british-columbia/vancouvers-vacant-homes-in-line-with-other-cities-but-condos-most-likely-empty/article29072573/">and newspapers now report</a>
 that Vancouver numbers are &ldquo;in line&rdquo; with other comparable cities. That claim is based on this graphic,
 which is included in the report and stems from a <a href="http://www.urbanfutures.com/foreign-unoccupied/">study by Urban Futures</a>.
-The study shows that the Metro Vancouver&rsquo;s rate of unoccupied apartments is not much different from other Metro regions.</p>
+The study shows that the Metro Vancouver&rsquo;s rate of unoccupied <em>apartments</em> is not much different from other Metro regions.</p>
 
 <p>The problem is that this study is read as giving the <em>overall</em> occupancy rates are similar across metro regions, which is not
 the case. This is a fine point and a little technical, let&rsquo;s take a look at the actual rates of unoccupied dwellings in
