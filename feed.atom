@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-09T11:17:32-08:00</updated>
+  <updated>2016-03-09T12:16:19-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -158,6 +158,16 @@ change that rate? In all these cases it is quite small. Then ask yourself how li
 Counting those would bring the rates of units taken out of the rental market by being unoccupied for a year or rented out
 full time via AirBnB from 4.8% to 5.3%. Noticeable, but doesn&rsquo;t make that much of a difference. Yet. That number is
 very likely to grow if left unchecked and should probably be taken seriously and regulated properly right now.</p>
+
+<h3>Update</h3>
+
+<p>A <a href="http://vancouver.ca/files/cov/stability-in-vancouver-housing-unit-occupancy-empty-homes-report.pdf">more detailed report</a>
+is now available to give more insight into the methodology. Nothing unexpected there, although the claim that the 12.5%
+rate of unoccupied condos is consistent with earlier claims of 5.5% to 8.5% is hard to follow.</p>
+
+<p>Still waiting for the technical report to get an idea of the error estimates (by housing type). Seeing the graphs for
+the 2-month and 4-month cutoffs by housing type would be nice too, as well as the respective ones using the 15 day
+criterion.</p>
 
 <div><script src="http://doodles.mountainmath.ca/javascripts/unoccupied-graph.js"></div>
 
