@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-09T00:04:06-08:00</updated>
+  <updated>2016-03-09T00:06:33-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -51,8 +51,9 @@ by the fact that everything was done right I am reasonably comfortable to assume
 give accurate aggregate numbers.</p>
 
 <p>I am hoping that the technical report will still come out so we can be confident that the details were taken care of
-properly. In particular I would like to know how the model dealt with differnt housing types, and how the housing type
-was tied to the electricity bill. And what the ratio of dwellings of each housing type had smart meter data available.</p>
+properly. In particular I would like to know how the model dealt with different housing types, and how the housing type
+was tied to the electricity bill. What ratio of dwellings of each housing type had smart meter data available? And most
+importantly, what are the uncertainty estimates on the numbers presented?</p>
 
 <p>Bottom line on data: Solid.</p>
 
