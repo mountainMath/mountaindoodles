@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Unoccupied Dwellings - Mountain Doodles</title>
+  <meta name="author" content="MountainMath">
+
+  
+  <meta name="description" content="Looking into vancouver unoccupied dwellings.">
+  <meta name="keywords" content="vancouver, unoccupied dwellings">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2016/03/08/unoccupied-dwellings/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/feed.atom" rel="alternate" title="Mountain Doodles" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54516567-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mountain Doodles</a></h1>
+  
+    <h2>spare time data, analysis, visualization</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/feed.atom" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:doodles.mountainmath.ca" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Unoccupied Dwellings</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-03-08T14:07:47-08:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Today the City of Vancouver <a href="http://council.vancouver.ca/20160308/documents/rr1presentation.pdf">released their report</a>
+on unoccupied dwelling units in the city. I watched part of the presentation and read through the report, and from all
+that I can see the methodology used is very solid.</p>
+
+<p>I have seen some confusion and even some incorrect reporting on this, so I thought it would be worthwhile to look into
+the report in detail.</p>
+
+<h3>The Data</h3>
+
+<p>Smart meter data can be used to determine very accurately which units
+are occupied and which ones are not. In theory at least, in practice this is quite difficult because of the shier magnitude
+of the data. That&rsquo;s why this is best left to companies who specialize in this kind of analysis, which is exactly what the
+city has done.</p>
+
+<p>The only problem is that not all units have smart meters. I don&rsquo;t know how far BCHydro has come with their rollout, but
+most condo units should have smart meters by now, as do newer single family units. So what to do about the housing that
+does not have smart meters? That&rsquo;s where things get tricky. Some studies I have seen use cutoffs for monthly electricity
+consumption to determine which are unoccupied. The problem is to find the right cutoff. Typically these studies report
+rates computed using several cutoffs to address that uncertainty. The problem is that different cutoffs give very different
+results. For example, <a href="http://www.btaworks.com/wp-content/uploads/2009/12/btaworks_condo_study_report_final2.pdf">this study</a>
+looked at 75kWh and 100kWh as cutoffs and reported 5.5% and 8.5% unoccupancy rate, respectively. I checked my condo unit
+when it was unoccupied for two months one summer, my two fridges pushed me well above the 100kWh threshold. So my unoccupied
+unit would have been counted as occupied in this study.</p>
+
+<p>So how did the new study deal with this problem. We did not hear technical details, but during the presentation it was
+explained that smart meter data was used to &ldquo;train&rdquo; a model to use dumb meter data. That&rsquo;s exactly the right approach. Going
+by the fact that everything was done right I am reasonably comfortable to assume that this part was also done in a way to
+give accurate aggregate numbers.</p>
+
+<p>I am hoping that the technical report will still come out so we can be confident that the details were taken care of
+properly. In particular I would like to know how the model dealt with differnt housing types, how the housing type
+was tied to the electricity bill. And what the ratio of dwellings of each housing type had smart meter data available.</p>
+
+<p>Bottom line on data: Solid.</p>
+
+<h3>Results</h3>
+
+<p>The big takeaway is this one graph:</p>
+
+<p><img src="/images/unoccupied-trends.png" alt="Unoccupied Trend" /></p>
+
+<p>It shows that no matter what timeframe is used to define &ldquo;unoccupied&rdquo;, the rate stayed flat over time. In context of
+the current affordability discussion this means that this is unlikely a driving factor of Vancouver&rsquo;s skyrocketing
+real estate prices. But the absolute numbers are still quite large and there is a lot of untapped potential. While some people
+have argued that supply has not been the main part of the cause of the price hike in Vancouver, it is clear that it must
+be a big part of any solution. Finding effective ways to get this untapped supply online should be a priority, it is easier
+and more efficient than building new housing in NIMBY-zoned Vancouver.</p>
+
+<p>The other takeaway is that unoccupied units are dominated by condos.</p>
+
+<p><img src="/images/unoccupied-apartment.png" alt="Unoccupied Trend" /></p>
+
+<p>The graph shows the rate for apartments, which also includes purpose built rentals. As the report points out, if we
+take out the purpose-built rentals, which have vacancy rates well below 1% at any given time and are extremely unlikely
+to stay vacant for two or more months, we arrive at a rate of about 12.5% of condos that are unoccupied in the City of
+Vancouver. As should be expected, that&rsquo;s significantly higher than what the non-smart meter studies picked up.</p>
+
+<h3>Are rates in Vancouver higher than elsewhere?</h3>
+
+<p>That depends exactly on what the question asks. And this is where, in my opinion, the city report fails to give a good
+answer.</p>
+
+<p><img  src="/images/unoccupied-apartment-comparison.png" style="width:50%;float:left;margin-right:10px;">
+The City implied, <a href="http://www.theglobeandmail.com/news/british-columbia/vancouvers-vacant-homes-in-line-with-other-cities-but-condos-most-likely-empty/article29072573/">and newspapers now report</a>
+that Vancouver numbers are &ldquo;in line&rdquo; with other comparable cities. That claim is based on this graphic,
+which is included in the report and stems from a <a href="http://www.urbanfutures.com/foreign-unoccupied/">study by Urban Futures</a>.
+The study shows that the Metro Vancouver&rsquo;s rate of unoccupied apartments is not much different from other Metro regions.</p>
+
+<p>The problem is that this study is read as giving the <em>overall</em> occupancy rates are similar across metro regions, which is not
+the case. This is a fine point and a little technical, let&rsquo;s take a look at the actual rates of unoccupied dwellings in
+the larges metro areas.</p>
+
+<div id="unoccupied_cma" class="land_use" style="width:300px;float:right"></div>
+
+
+<p>We took these numbers from a <a href="http://www.cmhc-schl.gc.ca/odpub/pdf/68323.pdf?lang=en">CMHC report</a> that looked into this
+question and used the same data and methodology as Urban Futures, except they based it on all dwelling units instead of
+just apartments. This difference is quite stunning, and it can be explained by the fact that e.g. Metro Vancouver&rsquo;s
+housing units are to 41% apartments, vs 20% for Metro Calgary. And that various reports showed that the
+rate of unoccupied units is much higher in condos, so we can&rsquo;t substitute comparisons for unoccupied apartments for comparisons
+of unoccupied dwellings overall.</p>
+
+<p>So what do the numbers look like when comparing the City of Vancouver to other cities in the region and across Canada.
+In short, I do not know. Without going into too much details, the number of unoccupied dwelling units is derived by taking the number of
+units that are &ldquo;not occupied by usual residents&rdquo;, which is part of the standard release of the census data, and subtracting
+the &ldquo;unusual residents&rdquo;, that is foreign or temporary residents. So residents that have a permanent address abroad or
+elsewhere in Canada and on Census day occupied in a dwelling unit that is not their primary residents. Think students
+in a dorm room. Or someone in his vacation home. Or someone that works far from home and has a second unit close to work.</p>
+
+<p>And to get the number of foreign or temporary residents requires a custom tabulation, which costs some time and money. But
+overall not that much compared to the scope of the study the city just undertook, so it is not clear why they did not do this
+and settle this question properly.</p>
+
+<h3>Geographic distribution</h3>
+
+<p>In absence of the data on the foreign and temporary residents, we can take a closer look at the publicly released census
+data on &ldquo;dwellings not occupied by usual residents&rdquo;. The percentage of dwellings occupied by foreign or temporary residents
+are quite low, in the 0.4% to 0.2% range for these metro areas we looked at above. They tend to cluster around universities,
+but may also accumulate in some other areas. Keeping that in mind we can <a href="http://censusmapper.ca/maps/104">head over to CensusMapper</a>
+and zoom, pan around and use the search bar to explore the geographic distribution. The city data has shown that there
+was not much change in the number of unoccupied dwellings over time, no matter how the data was sliced. That gives us
+some confidence that the geographic distribution has also been somewhat stable over that time frame.</p>
+
+<p>At CensusMapper we are working on adding previous censuses, so this will be a good test case to see how the 2006 and 2001
+geographic distribution of unoccupied dwellings stacks up.</p>
+
+<div><script src="/javascripts/unoccupied-graph.js"></div>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">MountainMath</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-03-08T14:07:47-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/censusmapper/'>censusmapper</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2016/03/08/unoccupied-dwellings/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2016/03/08/unoccupied-dwellings/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/03/05/physical-sfh-form-over-time/" title="Previous Post: Physical SFH Form Over Time">&laquo; Physical SFH Form Over Time</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/03/08/unoccupied-dwellings/">Unoccupied Dwellings</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/05/physical-sfh-form-over-time/">Physical SFH Form Over Time</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/02/property-taxes-and-land-use/">Property Taxes and Land Use</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/29/land-use/">Land Use, Roads (and Parking)</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/02/10/on-condos/">On Condos</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  
+  <a class="twitter-timeline" href="https://twitter.com/vb_jens" data-widget-id="680989637721063424">Tweets by @vb_jens</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - MountainMath -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'doodlesmountainmathca';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2016/03/08/unoccupied-dwellings/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2016/03/08/unoccupied-dwellings/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-07T21:29:51-08:00</updated>
+  <updated>2016-03-08T22:01:53-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,122 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Unoccupied Dwellings]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/03/08/unoccupied-dwellings/"/>
+    <updated>2016-03-08T14:07:47-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/03/08/unoccupied-dwellings</id>
+    <content type="html"><![CDATA[<p>Today the City of Vancouver <a href="http://council.vancouver.ca/20160308/documents/rr1presentation.pdf">released their report</a>
+on unoccupied dwelling units in the city. I watched part of the presentation and read through the report, and from all
+that I can see the methodology used is very solid.</p>
+
+<p>I have seen some confusion and even some incorrect reporting on this, so I thought it would be worthwhile to look into
+the report in detail.</p>
+
+<h3>The Data</h3>
+
+<p>Smart meter data can be used to determine very accurately which units
+are occupied and which ones are not. In theory at least, in practice this is quite difficult because of the shier magnitude
+of the data. That&rsquo;s why this is best left to companies who specialize in this kind of analysis, which is exactly what the
+city has done.</p>
+
+<p>The only problem is that not all units have smart meters. I don&rsquo;t know how far BCHydro has come with their rollout, but
+most condo units should have smart meters by now, as do newer single family units. So what to do about the housing that
+does not have smart meters? That&rsquo;s where things get tricky. Some studies I have seen use cutoffs for monthly electricity
+consumption to determine which are unoccupied. The problem is to find the right cutoff. Typically these studies report
+rates computed using several cutoffs to address that uncertainty. The problem is that different cutoffs give very different
+results. For example, <a href="http://www.btaworks.com/wp-content/uploads/2009/12/btaworks_condo_study_report_final2.pdf">this study</a>
+looked at 75kWh and 100kWh as cutoffs and reported 5.5% and 8.5% unoccupancy rate, respectively. I checked my condo unit
+when it was unoccupied for two months one summer, my two fridges pushed me well above the 100kWh threshold. So my unoccupied
+unit would have been counted as occupied in this study.</p>
+
+<p>So how did the new study deal with this problem. We did not hear technical details, but during the presentation it was
+explained that smart meter data was used to &ldquo;train&rdquo; a model to use dumb meter data. That&rsquo;s exactly the right approach. Going
+by the fact that everything was done right I am reasonably comfortable to assume that this part was also done in a way to
+give accurate aggregate numbers.</p>
+
+<p>I am hoping that the technical report will still come out so we can be confident that the details were taken care of
+properly. In particular I would like to know how the model dealt with differnt housing types, how the housing type
+was tied to the electricity bill. And what the ratio of dwellings of each housing type had smart meter data available.</p>
+
+<p>Bottom line on data: Solid.</p>
+
+<h3>Results</h3>
+
+<p>The big takeaway is this one graph:</p>
+
+<p><img src="http://doodles.mountainmath.ca/images/unoccupied-trends.png" alt="Unoccupied Trend" /></p>
+
+<p>It shows that no matter what timeframe is used to define &ldquo;unoccupied&rdquo;, the rate stayed flat over time. In context of
+the current affordability discussion this means that this is unlikely a driving factor of Vancouver&rsquo;s skyrocketing
+real estate prices. But the absolute numbers are still quite large and there is a lot of untapped potential. While some people
+have argued that supply has not been the main part of the cause of the price hike in Vancouver, it is clear that it must
+be a big part of any solution. Finding effective ways to get this untapped supply online should be a priority, it is easier
+and more efficient than building new housing in NIMBY-zoned Vancouver.</p>
+
+<p>The other takeaway is that unoccupied units are dominated by condos.</p>
+
+<p><img src="http://doodles.mountainmath.ca/images/unoccupied-apartment.png" alt="Unoccupied Trend" /></p>
+
+<p>The graph shows the rate for apartments, which also includes purpose built rentals. As the report points out, if we
+take out the purpose-built rentals, which have vacancy rates well below 1% at any given time and are extremely unlikely
+to stay vacant for two or more months, we arrive at a rate of about 12.5% of condos that are unoccupied in the City of
+Vancouver. As should be expected, that&rsquo;s significantly higher than what the non-smart meter studies picked up.</p>
+
+<h3>Are rates in Vancouver higher than elsewhere?</h3>
+
+<p>That depends exactly on what the question asks. And this is where, in my opinion, the city report fails to give a good
+answer.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/unoccupied-apartment-comparison.png" style="width:50%;float:left;margin-right:10px;">
+The City implied, <a href="http://www.theglobeandmail.com/news/british-columbia/vancouvers-vacant-homes-in-line-with-other-cities-but-condos-most-likely-empty/article29072573/">and newspapers now report</a>
+that Vancouver numbers are &ldquo;in line&rdquo; with other comparable cities. That claim is based on this graphic,
+which is included in the report and stems from a <a href="http://www.urbanfutures.com/foreign-unoccupied/">study by Urban Futures</a>.
+The study shows that the Metro Vancouver&rsquo;s rate of unoccupied apartments is not much different from other Metro regions.</p>
+
+<p>The problem is that this study is read as giving the <em>overall</em> occupancy rates are similar across metro regions, which is not
+the case. This is a fine point and a little technical, let&rsquo;s take a look at the actual rates of unoccupied dwellings in
+the larges metro areas.</p>
+
+<div id="unoccupied_cma" class="land_use" style="width:300px;float:right"></div>
+
+
+<p>We took these numbers from a <a href="http://www.cmhc-schl.gc.ca/odpub/pdf/68323.pdf?lang=en">CMHC report</a> that looked into this
+question and used the same data and methodology as Urban Futures, except they based it on all dwelling units instead of
+just apartments. This difference is quite stunning, and it can be explained by the fact that e.g. Metro Vancouver&rsquo;s
+housing units are to 41% apartments, vs 20% for Metro Calgary. And that various reports showed that the
+rate of unoccupied units is much higher in condos, so we can&rsquo;t substitute comparisons for unoccupied apartments for comparisons
+of unoccupied dwellings overall.</p>
+
+<p>So what do the numbers look like when comparing the City of Vancouver to other cities in the region and across Canada.
+In short, I do not know. Without going into too much details, the number of unoccupied dwelling units is derived by taking the number of
+units that are &ldquo;not occupied by usual residents&rdquo;, which is part of the standard release of the census data, and subtracting
+the &ldquo;unusual residents&rdquo;, that is foreign or temporary residents. So residents that have a permanent address abroad or
+elsewhere in Canada and on Census day occupied in a dwelling unit that is not their primary residents. Think students
+in a dorm room. Or someone in his vacation home. Or someone that works far from home and has a second unit close to work.</p>
+
+<p>And to get the number of foreign or temporary residents requires a custom tabulation, which costs some time and money. But
+overall not that much compared to the scope of the study the city just undertook, so it is not clear why they did not do this
+and settle this question properly.</p>
+
+<h3>Geographic distribution</h3>
+
+<p>In absence of the data on the foreign and temporary residents, we can take a closer look at the publicly released census
+data on &ldquo;dwellings not occupied by usual residents&rdquo;. The percentage of dwellings occupied by foreign or temporary residents
+are quite low, in the 0.4% to 0.2% range for these metro areas we looked at above. They tend to cluster around universities,
+but may also accumulate in some other areas. Keeping that in mind we can <a href="http://censusmapper.ca/maps/104">head over to CensusMapper</a>
+and zoom, pan around and use the search bar to explore the geographic distribution. The city data has shown that there
+was not much change in the number of unoccupied dwellings over time, no matter how the data was sliced. That gives us
+some confidence that the geographic distribution has also been somewhat stable over that time frame.</p>
+
+<p>At CensusMapper we are working on adding previous censuses, so this will be a good test case to see how the 2006 and 2001
+geographic distribution of unoccupied dwellings stacks up.</p>
+
+<div><script src="http://doodles.mountainmath.ca/javascripts/unoccupied-graph.js"></div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Physical SFH Form Over Time]]></title>
@@ -3268,56 +3384,6 @@ types and the property is called <code>BICYCLE_CL</code>.</p>
 <a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;zoom=true&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;zoom=true&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson</a></p>
 
 <p>Happy Mapping!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vancouver Assessment Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data/"/>
-    <updated>2015-03-23T16:20:43-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/03/23/vancouver-assessment-data</id>
-    <content type="html"><![CDATA[<p>The City of Vancouver has recently
-updated <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">their open data catalogue</a> with historic tax
-data. We figured that would
-be a good time to take our previous rather clumsy attempts to map tax data and polish that up a bit.</p>
-
-<p>This time we put in a couple of evenings to build a more responsive map with multiple options of what to map. Head
-straight for <a href="http://mountainmath.ca/map/assessment">&lsquo;the map&rsquo;</a> or read on for some background information, including
-some methodology on data cleaning and interpolation.</p>
-
-<p><a href="http://mountainmath.ca/map/assessment"><img src="http://doodles.mountainmath.ca/images/land_value.jpg" alt="&quot;Land Values&quot;" /></a></p>
-
-<!-- more -->
-
-
-<p>Our previous <a href="http://doodles.mountainmath.ca/teardown_map.html">&lsquo;teardown map&rsquo;</a> and <a href="http://doodles.mountainmath.ca/teardown_map.html">&lsquo;high value map&rsquo;</a> suffered from being a static
-websites, and they loaded large amounts of data all at once, 30,000 properties for the teardown map, and display
-the all at once. Options were limited for displaying more detailed data when selecting individual properties.
-For the viewer this resulted more in an exercise of patience than in an &lsquo;interactive&rsquo; experience.</p>
-
-<p>We decided to remedy this by importing the CoV data into a database and chop the data up dynamically and serve it as vector tiles.
-For smaller zoom levels we aggregated data at the block level. There are lots of blocks in Vancouver, 4444 that contain
-properties with tax information to be precise. So again the map is a little sluggish on mobile devices and slower machines when zoomed out,
-but things get much faster as we zoom in.</p>
-
-<p>Moreover, we now have the ability to easily display more detailed information once the use selects an individual
-property or block aggregate. We can display a graph with the development of land and building values and other details.
-And we integrated google streetview for good measure.</p>
-
-<p>One issue that came up is that CoV historical data has lots of gaps. For example, when a particular property was
-re-developed it gets a new tax number. The tax information for the old property is lost and cannot be connected to the
-geographic site using the information provided by CoV. So when we display data showing &lsquo;value change&rsquo; between
-2006 and 2014 we color these properties in grey. This problem persists when we aggregate information at the block level.
-To avoid greying out lots of blocks we extrapolate the missing data by using citywide averages on growth rates
-of land and building values for the properties in question. This will likely underestimate the aggregate growth in building
-and land value, but will not have a big impact at the block level if the individual property value in question was
-comparatively small. But this was not always the case. Better analysis could solve some of these issues, so does
-zooming in to the individual property level.</p>
-
-<p>Another issue is that CoV does not provide historic zoning information. It would be interesting to get historic zoning
-and development permit information. Some of this data is already available, albeit not in an easily consumable form.</p>
-
-<p>Other than that a big thanks to the folks maintaining the CoV open data catalogue!</p>
 ]]></content>
   </entry>
   
