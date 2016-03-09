@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-09T00:06:33-08:00</updated>
+  <updated>2016-03-09T00:34:37-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -138,9 +138,10 @@ some confidence that the geographic distribution has also been somewhat stable o
 
 <p>At CensusMapper we are working on adding previous censuses, so this will be a good test case to see how the 2006 and 2001
 geographic distribution of unoccupied dwellings stacks up. For City of Vancouver the corresponding numbers are 7.5% and
-5.1%, respectively. The 2006 number is nicely in line with Vancouver&rsquo;s 2011 rate of 7.7%. It is not immediately clear how the significantly
+5.1%, respectively. The 2006 number is nicely in line with Vancouver&rsquo;s 2011 rate of 7.7%. <strike>It is not immediately clear how the significantly
 lower 2001 rate squares with the city report showing a flat trendline, but could well be due to shifting definitions from
-one census to another. The devil is in the details.</p>
+one census to another.</strike> The 2001 Census used slightly different definitions, it requires more
+work to compare these numbers. The devil is in the details.</p>
 
 <h3>Next Steps</h3>
 
