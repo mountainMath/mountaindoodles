@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-11T22:17:11-08:00</updated>
+  <updated>2016-03-12T20:45:41-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -169,7 +169,7 @@ rate of unoccupied condos is consistent with earlier claims of 5.5% to 8.5% is h
 the 2-month and 4-month cutoffs by housing type would be nice too, as well as the respective ones using the 15 day
 criterion.</p>
 
-<div><script src="http://doodles.mountainmath.ca/javascripts/unoccupied-graph.js"></div>
+<div><script src="http://doodles.mountainmath.ca/javascripts/unoccupied-graph.js"></script></div>
 
 ]]></content>
   </entry>
