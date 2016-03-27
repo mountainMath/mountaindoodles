@@ -4,7 +4,7 @@
   <title><![CDATA[Category: surrey | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/surrey/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-27T09:12:19-07:00</updated>
+  <updated>2016-03-27T09:15:04-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -38,8 +38,8 @@ the count. Just to get an idea what the traffic data looks like.</p>
 
 <h3>What do we see?</h3>
 
-<p>Really not much at this point, it&rsquo;s just a snapshot of 15 minutes of traffic around noon on March 23. But it&rsquo;s pretty
-obvious where to go from here. Adding some dynamic way to select the time frame, adding some animations to better
+<p>Really not much at this point, it&rsquo;s just a snapshot of 15 minutes of traffic count around noon on March 23. But it&rsquo;s pretty
+obvious where to go from here. One should add some dynamic way to select the time frame. And add some animations to better
 represent car traffic and the direction in which it is moving. The cool <a href="https://tangrams.github.io/carousel/?tron#15/49.1055/-122.8244">tron demo</a>
 simulates traffic movement, maybe the loop count data could be massaged in a way to give a more accurate representation
 of actual traffic.</p>
@@ -51,7 +51,7 @@ data something interesting can be done.</p>
 <h3>Hickups and feedback</h3>
 
 <p>There were a couple of hickups along the way. The Surrey Open Data API sends down GeoJSON data in NAD 83 UTM Zone 10
-instead of the default WGS84. Not a problem in general, but when using the Mapzen Tangram engine we need to transform
+instead of the default WGS84. Which is just fine, but when using the Mapzen Tangram engine we need to transform
 it into WGS84. The fancy way would be to do that dynamically after directly consuming the Surrey API, but we were lazy
 and just downloaded and transformed the file. So now we have the loop counter locations and can map them.</p>
 
@@ -68,7 +68,8 @@ testing app, we simply downloaded the traffic loop counts for noon on March 23 a
 will cause problems when analysing data around daylight savings time changes.</p>
 
 <p>Lastly we needed to add a quick hack to the Tangram mapping engine. For some reason the <a href="https://mapzen.com/documentation/tangram/sources/#transform">transform</a>
-function does not get called when adding static (non-tiled) data sources. But that was easy to fix.</p>
+function does not get called when adding static (non-tiled) data sources. But that was easy to fix, although it took some
+sloothing to track down.</p>
 
 <h3>Want to make your own map?</h3>
 
