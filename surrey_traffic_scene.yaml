@@ -441,7 +441,7 @@ layers:
                 offset: [0, 0]
                 size: |
                     function(){
-                        return feature.TRAFFIC_COUNT ? Math.sqrt(feature.TRAFFIC_COUNT)*4 : 2;
+                        return feature.TRAFFIC_COUNT ? Math.sqrt(feature.TRAFFIC_COUNT)*2 : 2;
                     }
                 collide: false
 
