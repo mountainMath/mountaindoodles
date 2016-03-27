@@ -307,7 +307,7 @@ sources:
         transform: |
             function(data,extra_data){
                 //console.log('start processing tile');
-                var url='http://doodles.mountainmath.ca/data/trafficloopcounts-3.json';
+                var url='http://doodles.mountainmath.ca/data/trafficloopcounts.json';
                 //var url='http://gis.surrey.ca:8080/fmedatastreaming/TrafficLoopCount/TrafficLoopCounts.fmw?startdatetime=' + extra_data[0] + '&enddatetime=' + extra_data[1];
                 var request = new XMLHttpRequest();
                 request.open('GET', url, false);
