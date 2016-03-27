@@ -4,7 +4,7 @@
   <title><![CDATA[Category: surrey | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/surrey/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-27T02:02:43-07:00</updated>
+  <updated>2016-03-27T02:06:01-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -18,7 +18,7 @@
     <link href="http://doodles.mountainmath.ca/blog/2016/03/27/surrey-traffic-loop-counts/"/>
     <updated>2016-03-27T01:04:45-07:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2016/03/27/surrey-traffic-loop-counts</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/land_use/map"><img  src="http://doodles.mountainmath.ca/images/land use.png" style="width:50%;float:right;margin-left:10px;"></a>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/land_use/map"><img  src="http://doodles.mountainmath.ca/images/surrey_traffic.png" style="width:50%;float:right;margin-left:10px;"></a>
 Surrey published a <a href="http://data.surrey.ca/dataset/ff9c223a-57e2-49b8-900f-e4b9d9423b4b">beta version of their traffic loop counts</a>,
 which is pretty awesome. Real life traffic data is very exciting, and there are lots of fun things one could do with that.
 To see what they have I decided to deciate an hour to do a quick map. Nothing exciting yet, just to feel may way around
