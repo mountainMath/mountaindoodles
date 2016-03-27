@@ -307,7 +307,8 @@ sources:
         transform: |
             function(data,extra_data){
                 //console.log('start processing tile');
-                var url='http://doodles.mountainmath.ca/data/trafficloopcounts.json';
+                //var url='http://localhost:4000/data/trafficloopcounts-3.json';
+                var url='http://doodles.mountainmath.ca/data/trafficloopcounts-3.json';
                 //var url='http://gis.surrey.ca:8080/fmedatastreaming/TrafficLoopCount/TrafficLoopCounts.fmw?startdatetime=' + extra_data[0] + '&enddatetime=' + extra_data[1];
                 var request = new XMLHttpRequest();
                 request.open('GET', url, false);
@@ -315,7 +316,7 @@ sources:
                 if (request.status === 200) {
                     var array=JSON.parse(request.responseText);
                     var hash={};
-                    array.forEach(function(f){hash[f.LOOP_ID]=f.TRAFFIC_COUNT;});
+                    array.forEach(function(f){hash[f.LOOP_ID]=hash[f.LOOP_ID] ? hash[f.LOOP_ID]+f.TRAFFIC_COUNT : f.TRAFFIC_COUNT;});
                     data.features.forEach(function(f){
                         f.properties.TRAFFIC_COUNT=hash[f.properties.LOOP_ID]
                     });
@@ -434,12 +435,13 @@ layers:
         data: {source: traffic}
         draw:
             points:
+                interactive: true
                 order: 20
                 color: [1,0,0,0.4]
                 offset: [0, 0]
                 size: |
                     function(){
-                        return feature.TRAFFIC_COUNT ? 5*Math.sqrt(feature.TRAFFIC_COUNT) : 5;
+                        return feature.TRAFFIC_COUNT ? Math.sqrt(feature.TRAFFIC_COUNT)/2 : 2;
                     }
                 collide: false
 

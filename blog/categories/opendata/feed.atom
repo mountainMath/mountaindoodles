@@ -4,7 +4,7 @@
   <title><![CDATA[Category: opendata | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/opendata/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-27T09:26:07-07:00</updated>
+  <updated>2016-03-27T10:07:04-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -38,7 +38,7 @@ the count. Just to get an idea what the traffic data looks like.</p>
 
 <h3>What do we see?</h3>
 
-<p>Really not much at this point, it&rsquo;s just a snapshot of 15 minutes of traffic count around noon on March 23. But it&rsquo;s pretty
+<p>Really not much at this point, it&rsquo;s just a snapshot of one day of traffic on March 24. But it&rsquo;s pretty
 obvious where to go from here. One should add some dynamic way to select the time frame. And add some animations to better
 represent car traffic and the direction in which it is moving. The cool <a href="https://tangrams.github.io/carousel/?tron#15/49.1055/-122.8244">tron demo</a>
 simulates traffic movement, maybe the loop count data could be massaged in a way to give a more accurate representation
@@ -70,6 +70,10 @@ will cause problems when analysing data around daylight savings time changes.</p
 <p>Lastly we needed to add a quick hack to the Tangram mapping engine. For some reason the <a href="https://mapzen.com/documentation/tangram/sources/#transform">transform</a>
 function does not get called when adding static (non-tiled) data sources. But that was easy to fix, although it took some
 sloothing to track down.</p>
+
+<p>At this point it seems that not all traffic loops are hooked up to the API yet. Going through the data, on the March 23
+there are only a handful of traffic loops active, on the 24th the number of active loops jumps up significantly. Curious
+to see where this will go once out of beta mode.</p>
 
 <h3>Want to make your own map?</h3>
 

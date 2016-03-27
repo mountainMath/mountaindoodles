@@ -26,14 +26,18 @@
             border: black 1px solid;
             border-radius: 5px;
         }
-        #feature-info{
+        .feature-info{
             position:absolute;
             background: rgba(220,220,220,0.9);
             border-radius: 5px;
             border: solid 1px black;
             z-index: 10000;
             padding: 5px;
-            width: 300px;
+            width:160px;
+        }
+        .feature-info h4 {
+            margin:0px;
+            padding:0px;
         }
 
     </style>
@@ -115,14 +119,16 @@
         }
 
         function tooltipText(p){
-            var text= p.t ? '<h4>Traffic Loop ' + p.LOOP_ID   + '</h4>' : '';
-            text+='<h4>Count: '+ p.LOOP_COUNT + '</h4>';
+            var text= '<h4>Traffic Loop ' + p.LOOP_ID   + '</h4>';
+            text+='<h4>Count: '+ (p.TRAFFIC_COUNT ? p.TRAFFIC_COUNT : '?') + '</h4>';
+            text+='<h4>Direction: '+ p.LANE_DIRECTION + '</h4>';
+            text+='<h4>Intersection: '+ p.INTERSECTION_ID + '</h4>';
             return text;
         }
 
         function initFeatureSelection () {
             window.selection_info = document.createElement('div');
-            selection_info.setAttribute('class', 'building-label');
+            selection_info.setAttribute('class', 'feature-info');
             selection_info.style.display = 'none';
             selection_info.style.zindex = 1000;
             window.selectionText = document.createElement("div");
