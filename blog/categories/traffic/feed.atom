@@ -4,7 +4,7 @@
   <title><![CDATA[Category: traffic | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/traffic/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-27T10:18:14-07:00</updated>
+  <updated>2016-03-27T10:25:02-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -56,12 +56,8 @@ it into WGS84. The fancy way would be to do that dynamically after directly cons
 and just downloaded and transformed the file. So now we have the loop counter locations and can map them.</p>
 
 <p>Next up, we want to add the traffic count data to the loop counter locations. Ideally we want to consume the Surrey open
-data API and link it with the geographic loop data, but the API does not set the</p>
-
-<pre><code>Access-Control-Allow-Origin: *
-</code></pre>
-
-<p>http header to allow cross-origin requests to consume the API directly from their web app. Again, no big deal when building a small
+data API and link it with the geographic loop data, but the API does not set the <code>Access-Control-Allow-Origin: *</code>
+http header to allow cross-origin requests to consume the API directly from their web app. Again, no big deal when building a small
 testing app, we simply downloaded the traffic loop counts for noon on March 23 and threw them up on our server.</p>
 
 <p>Pretty smooth overall for a first run. Timestamps are a little funny, they are in local time. While easy to interpret, this

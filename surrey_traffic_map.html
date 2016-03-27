@@ -119,10 +119,10 @@
         }
 
         function tooltipText(p){
-            var text= '<h4>Traffic Loop ' + p.LOOP_ID   + '</h4>';
+            var text= '<h4>Traffic Loop ID: ' + p.LOOP_ID   + '</h4>';
             text+='<h4>Count: '+ (p.TRAFFIC_COUNT ? p.TRAFFIC_COUNT : '?') + '</h4>';
             text+='<h4>Direction: '+ p.LANE_DIRECTION + '</h4>';
-            text+='<h4>Intersection: '+ p.INTERSECTION_ID + '</h4>';
+            text+='<h4>Intersection ID: '+ p.INTERSECTION_ID + '</h4>';
             return text;
         }
 
