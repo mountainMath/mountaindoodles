@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-27T10:17:51-07:00</updated>
+  <updated>2016-03-27T10:18:14-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -73,7 +73,7 @@ sloothing to track down.</p>
 
 <p>At this point it seems that not all traffic loops are hooked up to the API yet. Going through the data, on the March 23
 there are only a handful of traffic loops active, on the 24th the number of active loops jumps up significantly.
-I also plotted the traffic loop locations without data, just to give
+I also plotted the traffic loop locations without data (in yellow), just to give
 and idea what will become available. Curious to see where this will go once out of beta mode.</p>
 
 <h3>Want to make your own map?</h3>
