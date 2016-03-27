@@ -20958,7 +20958,7 @@
         }, {
             key: 'parseSourceData',
             value: function parseSourceData(tile, source, response) {
-                let data = JSON.parse(response);
+                var data = JSON.parse(response);
                 if (typeof this.transform === 'function') {
                     data = this.transform(data, this.extra_data);
                 }
