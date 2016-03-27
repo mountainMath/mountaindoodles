@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-12T20:45:41-08:00</updated>
+  <updated>2016-03-27T02:01:56-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Surrey Traffic Loop Counts]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/03/27/surrey-traffic-loop-counts/"/>
+    <updated>2016-03-27T01:04:45-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/03/27/surrey-traffic-loop-counts</id>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/land_use/map"><img  src="http://doodles.mountainmath.ca/images/land use.png" style="width:50%;float:right;margin-left:10px;"></a>
+Surrey published a <a href="http://data.surrey.ca/dataset/ff9c223a-57e2-49b8-900f-e4b9d9423b4b">beta version of their traffic loop counts</a>,
+which is pretty awesome. Real life traffic data is very exciting, and there are lots of fun things one could do with that.
+To see what they have I decided to deciate an hour to do a quick map. Nothing exciting yet, just to feel may way around
+what&rsquo;s there.</p>
+
+<!-- more -->
+
+
+<p>To keep things simple I again took advantage of the <a href="https://mapzen.com/projects/tangram/">awesome Tangram mapping enginge</a>
+and turned it onto the traffic loop data. All I did was plot circles for each traffic loop with the area proportional to
+the count. Just to get an idea what the traffic data looks like.</p>
+
+<iframe src="http://doodles.mountainmath.ca/surrey_traffic_map.html" width="100%" height="550"></iframe>
+
+
+<p><a href="http://doodles.mountainmath.ca/surrey_traffic_map.html">Full screen view</a></p>
+
+<h3>What do we see?</h3>
+
+<p>Really not much at this point, it&rsquo;s just a snapshot of 15 minutes of traffic around noon on March 23. But it&rsquo;s pretty
+obvious where to go from here. Adding some dynamic way to select the time frame, adding some animations to better
+represent car traffic, possibly along the lines of the nice <a href="https://tangrams.github.io/carousel/?tron#15/49.1055/-122.8244">tron demo</a>.</p>
+
+<p>And of course one could start to run some analysis. The fifteen minute aggregates are a little rough for doing some
+traffic flow analysis, but I am sure that together with the lane direction information attached to the traffic loop geographic
+data something interesting can be done.</p>
+
+<h3>Hickups</h3>
+
+<p>There were a couple of hickups along the way. The Surrey Open Data API sends down GeoJSON data in NAD 83 UTM Zone 10
+instead of the default WGS84. Not a problem in general, but when using the Mapzen Tangram engine we need to transform
+it into WGS84. The fancy way would be to do that dynamically after directly consuming the Surrey API, but we were lazy
+and just downloaded and transformed the file. So now we have the loop counter locations and can map them.</p>
+
+<p>Next up, we want to add the traffic count data to the loop counter locations. Ideally we want to consume the Surrey open
+data API and link it with the geographic loop data, but the API does not set the</p>
+
+<pre><code>Access-Control-Allow-Origin: *
+</code></pre>
+
+<p>http header to allow cross-origin requests to consume the API directly from their web app. Again, no big deal when building a small
+testing app, we simply downloaded the traffic loop counts for noon on March 23 and threw them up on our server.</p>
+
+<p>Pretty smooth overall for a first run. Timestamps are a little funny, they are in local time. While easy to interpret, this
+will cause problems when analysing data around daylight savings time changes.</p>
+
+<h3>Want to make your own map?</h3>
+
+<p>It&rsquo;s pretty easy. Just grab the html file from the &ldquo;full screen&rdquo; link above and download the <a href="http://doodles.mountainmath.ca/surrey_traffic_scene.yaml">Tangram scene file</a>
+and add your own twist to the map.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Unoccupied Dwellings]]></title>
@@ -3330,105 +3389,6 @@ the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a
 <li>Killarney: $7.7/m&sup2;</li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vancouver Bike Paths]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/04/01/bike-paths/"/>
-    <updated>2015-04-01T16:24:34-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/04/01/bike-paths</id>
-    <content type="html"><![CDATA[<p>Motivated by the excellent <a href="http://www.washingtonpost.com/blogs/wonkblog/wp/2015/04/01/bleak-maps-of-how-cities-look-using-only-their-bike-lanes/">Washington Post Wonkblog</a> I
-mapped Vancouver&rsquo;s bike infrastructure. Looks good at first, but when you take out the &lsquo;fake&rsquo; &ldquo;Local Street&rdquo; bikeways more in line with Wonkblog&rsquo;s methodology it&rsquo;s looking pretty
-bleak in large portions of the city.</p>
-
-<p>Of course the devil is in the details and infrastructure cannot just be judged by how it&rsquo;s labeled. If one were to look for 8-80 infrastructure, then the separated lanes
-would make the cut. Some of the bike lanes would be marginal, but most would probably make the cut. Although I can&rsquo;t say that I would be particularly keen to let an 8yo cycle on
-some of them.</p>
-
-<p>Vancouver&rsquo;s &ldquo;Shared Lanes&rdquo; are not for the faint of heart. They have 50 speed limits on multi-lane roadways
-and feature sharrows to make it a little easier for cyclists to &lsquo;take the lane&rsquo;. In some cases cyclists share a lane with
-the buses, which is a little better.</p>
-
-<p>The local streets are mostly car tunnels like the &lsquo;Off-Broadway&rsquo; and won&rsquo;t qualify as 8-80, but there are some exceptions like
-the local street portion of Pt. Grey Rd, where cycling is rather pleasant.</p>
-
-<iframe src="http://doodles.mountainmath.ca/bike_paths.html?fh=50&nh=true" width="100%" height="580"></iframe>
-
-
-<p><a href="http://doodles.mountainmath.ca/bike_paths.html">Full screen view</a></p>
-
-<p>Methodology is simple, it&rsquo;s just the city&rsquo;s bike path data from <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">their open data catalogue</a>. The data
-comes with two fields, &lsquo;name&rsquo; and &lsquo;type&rsquo;. The &lsquo;type&rsquo; was used for the checkboxes at the bottom to selectively turn different
-bike lane types on or off and the &lsquo;name&rsquo; will be displayed on hover.</p>
-
-<h3>Update</h3>
-
-<h4>Some more <strike>Canadian</strike> cities:</h4>
-
-<p><a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary,street&amp;type=BICYCLE_CL&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">Calgary on street</a>,
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary,pathways&amp;type=PRIORITY&amp;name=LOCATION_D&amp;dataUrl=http://doodles.mountainmath.ca/data/YYC_Path_BikeRoutes.geojson">Calgary pathways</a>,
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary,trails&amp;type=TYPE_DESCR&amp;name=LOCATION_D&amp;dataUrl=http://doodles.mountainmath.ca/data/YYC_Trail_BikeRoutes.geojson">Calgary trails</a>,
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Victoria&amp;type=FullDescr&amp;dataUrl=http://doodles.mountainmath.ca/data/VicBikeRoutes.geojson">Victoria</a>,
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Montreal&amp;name=PROJET_NOM&amp;dataUrl=http://doodles.mountainmath.ca/data/MontrealBikeRoutes.geojson">Montreal</a>,
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Toronto&amp;type=CP_TYPE&amp;dataUrl=http://doodles.mountainmath.ca/data/TorontoBikeRoutes.geojson">Toronto</a>
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Portland&amp;type=FACILITYDE&amp;name=SEGMENTNAM&amp;dataUrl=http://doodles.mountainmath.ca/data/PDXBikeRoutes.geojson">Portland</a>
-<a href="http://doodles.mountainmath.ca/bike_paths?city=NYC&amp;type=TF_Facilit&amp;name=Street&amp;fh=65&amp;dataUrl=http://doodles.mountainmath.ca/data/NYCBikeRoutes.geojson">NYC</a>
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Amsterdam&amp;type=HIGHWAY&amp;name=WIDTH&amp;dataUrl=http://doodles.mountainmath.ca/data/AmsterdamBikeRoutes.geojson">Amsterdam</a>
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Taipei&amp;name=RDNAME&amp;dataUrl=http://doodles.mountainmath.ca/data/TPEBikeRoutes.geojson">Taipei</a></p>
-
-<p>A word of caution. I have done zero data cleaning or verification. Some of these maps are missing some type of infrastructure.
-I am familiar with cycling conditions in Calgary, and their the extensive network along the river and other areas are missing in their main file.
-I added two more separate maps for their trails and pathways, but was too lazy to merge them. For Taipei, I noticed that
-the off-street paths along streets are missing, for example the one on Dunhua Bei Lu that I was using a lot a year ago. Not sure if or where these are available.
-So some more ground truth is needed for proper interpretation. But fun anyway.</p>
-
-<p>Want to map another city&rsquo;s data? No problem, just read on.</p>
-
-<!-- more -->
-
-
-<ol>
-<li>Locate the city&rsquo;s bikeway data and download it.</li>
-<li>Convert the data to geojson, with coordinates in latitude and longitude.</li>
-<li>Put the geojson file online somewhere, e.g. your public dropbox folder.</li>
-<li>Optionally look at the geojson file for a bikeway type descriptor and bikeway name, if available.</li>
-<li>Build a url for your map by using [<a href="http://doodles.mountainmath.ca/bike_paths">http://doodles.mountainmath.ca/bike_paths</a>] as a base url and add query strings
-
-<ul>
-<li><code>dataUrl=&lt;url to your geojson&gt;</code></li>
-<li><code>city=&lt;city name&gt;</code></li>
-<li>optionally <code>type=&lt;bikeway type property&gt;</code></li>
-<li>optionally <code>name=&lt;bikeway name property&gt;</code></li>
-<li>optionally <code>zoom=true</code> if you want to be able to zoom and pan on the map</li>
-</ul>
-</li>
-</ol>
-
-
-<p>For example, to map Calgary&rsquo;s bike network you need to <a href="https://data.calgary.ca/opendata/Pages/DatasetListingAlphabetical.aspx#C">got to their open data website</a> and
-download the Tranportation Bikeways shapefiles (SHP). To convert them go geojson using <code>ogr2ogr</code></p>
-
-<pre><code>ogr2ogr -f GeoJSON -simplify 1 -s_srs CALGIS_TRAN_BIKEWAY.prj -t_srs "EPSG:4326" CALGIS_TRAN_BIKEWAY.geojson CALGIS_TRAN_BIKEWAY.shp
-</code></pre>
-
-<p>from the <a href="http://trac.osgeo.org/gdal/wiki/DownloadingGdalBinaries">GDAL package</a>.</p>
-
-<p>I uploaded the geojson to <code>http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson</code>, so that will be the value of the <code>dataUrl</code> query string.</p>
-
-<p>Looking at the resulting geojson file you will see that the data does not include bikeway names, but it does include
-types and the property is called <code>BICYCLE_CL</code>.</p>
-
-<p>The rather lengthy link to the map would then be
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson</a></p>
-
-<iframe src="http://doodles.mountainmath.ca/bike_paths?city=Calgary&type=BICYCLE_CL&fh=50&nh=true&dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson" width="100%" height="580"></iframe>
-
-
-<p>Or if you want to zoom into Calgary&rsquo;s sprawling suburbs, you could also enable zooming (using double-click) and panning
-<a href="http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;zoom=true&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson">http://doodles.mountainmath.ca/bike_paths?city=Calgary&amp;type=BICYCLE_CL&amp;zoom=true&amp;dataUrl=http://doodles.mountainmath.ca/data/CALGIS_TRAN_BIKEWAY.geojson</a></p>
-
-<p>Happy Mapping!</p>
 ]]></content>
   </entry>
   

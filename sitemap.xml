@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://doodles.mountainmath.ca/blog/2016/03/27/surrey-traffic-loop-counts/</loc>
+    <lastmod>2016-03-27T01:04:45-07:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://doodles.mountainmath.ca/blog/2016/03/08/unoccupied-dwellings/</loc>
     <lastmod>2016-03-08T14:07:47-08:00</lastmod>
     <priority>0.8</priority>
@@ -149,21 +155,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2016-03-12T20:45:41-08:00</lastmod>
+    <lastmod>2016-03-27T02:01:56-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2016-03-12T20:45:41-08:00</lastmod>
+    <lastmod>2016-03-27T02:01:56-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2016-03-12T20:45:41-08:00</lastmod>
+    <lastmod>2016-03-27T02:01:56-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -208,6 +214,12 @@
   <url>
     <loc>http://doodles.mountainmath.ca/improvement_map.html</loc>
     <lastmod>2015-03-23T15:01:29Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://doodles.mountainmath.ca/surrey_traffic_map.html</loc>
+    <lastmod>2016-03-27T01:50:11Z</lastmod>
     <priority>0.6</priority>
   </url>
   

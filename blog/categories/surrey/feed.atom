@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: surrey | Mountain Doodles]]></title>
+  <link href="http://doodles.mountainmath.ca/blog/categories/surrey/feed.atom" rel="self"/>
+  <link href="http://doodles.mountainmath.ca/"/>
+  <updated>2016-03-27T02:01:56-07:00</updated>
+  <id>http://doodles.mountainmath.ca/</id>
+  <author>
+    <name><![CDATA[MountainMath]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Surrey Traffic Loop Counts]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/03/27/surrey-traffic-loop-counts/"/>
+    <updated>2016-03-27T01:04:45-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/03/27/surrey-traffic-loop-counts</id>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/land_use/map"><img  src="http://doodles.mountainmath.ca/images/land use.png" style="width:50%;float:right;margin-left:10px;"></a>
+Surrey published a <a href="http://data.surrey.ca/dataset/ff9c223a-57e2-49b8-900f-e4b9d9423b4b">beta version of their traffic loop counts</a>,
+which is pretty awesome. Real life traffic data is very exciting, and there are lots of fun things one could do with that.
+To see what they have I decided to deciate an hour to do a quick map. Nothing exciting yet, just to feel may way around
+what&rsquo;s there.</p>
+
+<!-- more -->
+
+
+<p>To keep things simple I again took advantage of the <a href="https://mapzen.com/projects/tangram/">awesome Tangram mapping enginge</a>
+and turned it onto the traffic loop data. All I did was plot circles for each traffic loop with the area proportional to
+the count. Just to get an idea what the traffic data looks like.</p>
+
+<iframe src="http://doodles.mountainmath.ca/surrey_traffic_map.html" width="100%" height="550"></iframe>
+
+
+<p><a href="/surrey_traffic_map.html">Full screen view</a></p>
+
+<h3>What do we see?</h3>
+
+<p>Really not much at this point, it&rsquo;s just a snapshot of 15 minutes of traffic around noon on March 23. But it&rsquo;s pretty
+obvious where to go from here. Adding some dynamic way to select the time frame, adding some animations to better
+represent car traffic, possibly along the lines of the nice <a href="https://tangrams.github.io/carousel/?tron#15/49.1055/-122.8244">tron demo</a>.</p>
+
+<p>And of course one could start to run some analysis. The fifteen minute aggregates are a little rough for doing some
+traffic flow analysis, but I am sure that together with the lane direction information attached to the traffic loop geographic
+data something interesting can be done.</p>
+
+<h3>Hickups</h3>
+
+<p>There were a couple of hickups along the way. The Surrey Open Data API sends down GeoJSON data in NAD 83 UTM Zone 10
+instead of the default WGS84. Not a problem in general, but when using the Mapzen Tangram engine we need to transform
+it into WGS84. The fancy way would be to do that dynamically after directly consuming the Surrey API, but we were lazy
+and just downloaded and transformed the file. So now we have the loop counter locations and can map them.</p>
+
+<p>Next up, we want to add the traffic count data to the loop counter locations. Ideally we want to consume the Surrey open
+data API and link it with the geographic loop data, but the API does not set the</p>
+
+<pre><code>Access-Control-Allow-Origin: *
+</code></pre>
+
+<p>http header to allow cross-origin requests to consume the API directly from their web app. Again, no big deal when building a small
+testing app, we simply downloaded the traffic loop counts for noon on March 23 and threw them up on our server.</p>
+
+<p>Pretty smooth overall for a first run. Timestamps are a little funny, they are in local time. While easy to interpret, this
+will cause problems when analysing data around daylight savings time changes.</p>
+
+<h3>Want to make your own map?</h3>
+
+<p>It&rsquo;s pretty easy. Just grab the html file from the &ldquo;full screen&rdquo; link above and download the <a href="/surrey_traffic_scene.yaml">Tangram scene file</a>
+and add your own twist to the map.</p>
+]]></content>
+  </entry>
+  
+</feed>
