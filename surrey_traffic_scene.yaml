@@ -437,7 +437,11 @@ layers:
             points:
                 interactive: true
                 order: 20
-                color: [1,0,0,0.4]
+                color: |
+                    function(){
+                        return feature.TRAFFIC_COUNT ? [1,0,0,0.4] : [0,0,1,1];
+                    }
+
                 offset: [0, 0]
                 size: |
                     function(){
