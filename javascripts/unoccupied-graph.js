@@ -104,5 +104,5 @@ var t2=function(json){
     })
 };
 
-//unoccupiedBarGraph("#unoccupied_cma","/data/unoccupied_cma.json",t1,150);
+unoccupiedBarGraph("#unoccupied_cma","/data/unoccupied_cma.json",t1,150);
 //unoccupiedBarGraph("#unoccupied_csd","/data/unoccupied_csd.json",t2,200);
