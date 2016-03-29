@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-28T23:42:08-07:00</updated>
+  <updated>2016-03-28T23:43:33-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -36,8 +36,7 @@ decisions were made. Generally cities have a hard time to keep space for residen
 business district, and higher property taxes may help to uphold the zoning restrictions in place and keep residential
 properties in close proximity to commercial.</p>
 
-<p><a href="http://www.mountainmath.ca/assessment_gl/map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tax_density_mixed_use.png" style="width:50%;float:right;margin-left:10px;"></a>
-The effect of the unequal tax rates is quite stark
+<p>The effect of the unequal tax rates is quite stark
 <a href="http://www.mountainmath.ca/assessment_gl/map">when visualizing taxes collected per area</a>. And this keeps residential
 property taxes low.</p>
 
@@ -46,7 +45,8 @@ higher property taxes on to residents by charging higher prices, and offices pas
 Things get more complex when Vancouver is seen as part of metro, or Canada or in the world. But that discussion goes into
 a different direction.</p>
 
-<p>On the image we can also see that the mixed use properties in darker red generate lower total property
+<p><a href="http://www.mountainmath.ca/assessment_gl/map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tax_density_mixed_use.png" style="width:50%;float:right;margin-left:10px;"></a>
+On the <a href="http://www.mountainmath.ca/assessment_gl/map">interactive 3D tax density map</a> we can clearly see that the some mixed use properties (in darker red) generate lower total property
 taxes than comparable pure commercial properties nearby. We will explore this in more detail in the next section.</p>
 
 <p>For Vancouver it is also important to note that commercial leases are generally trip net, in particular the tenant pays
