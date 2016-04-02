@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-04-01T22:59:12-07:00</updated>
+  <updated>2016-04-01T23:28:37-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -45,6 +45,10 @@ To keep things simple and comparable we will focus on single family homes for no
 
 <p>We build three maps, one showing land and buildings on the same map, one just showing land values and one just showing building
 values. All three can be animated over time.</p>
+
+<p>We normalized all dollar amounts to 2015 by adjusting for inflation. There are good reasons for going either
+way, adjusting for inflation or keeping it in original dollar amounts. For this animation we felt the it was better to show
+real (inflation adjusted) value growth.</p>
 
 <h3>The Rub</h3>
 
