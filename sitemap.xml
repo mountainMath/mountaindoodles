@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/</loc>
+    <lastmod>2016-04-01T22:30:43-07:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://doodles.mountainmath.ca/blog/2016/03/28/on-mixed-use%20(1)/</loc>
     <lastmod>2016-03-28T23:37:16-07:00</lastmod>
     <priority>0.8</priority>
@@ -173,21 +179,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2016-04-01T23:41:47-07:00</lastmod>
+    <lastmod>2016-04-02T16:52:13-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2016-04-01T23:41:47-07:00</lastmod>
+    <lastmod>2016-04-02T16:52:13-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2016-04-01T23:41:47-07:00</lastmod>
+    <lastmod>2016-04-02T16:52:13-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
