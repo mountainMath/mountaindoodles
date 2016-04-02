@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bcassessment | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/bcassessment/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-03-29T07:48:37-07:00</updated>
+  <updated>2016-04-01T22:39:17-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,210 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[On Dirt and Houses]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/"/>
+    <updated>2016-04-01T22:30:43-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses</id>
+    <content type="html"><![CDATA[<p>The story of Vancouver real estate is mostly a story of dirt. After spending a bit of time to collect relevant data I
+am now wondering how to make better visualizations to make that data more accessible.</p>
+
+<!-- more -->
+
+
+<p>Looking at my <a href="http://www.mountainmath.ca/map/assessment">old maps based around assessment data</a>, there are a couple of things that bother me. They are not very
+good at showing changes over time. And they are not very good at highlighting the different role of dirt and the
+houses on top. Yes, they do have separate views for building value, land value and various changes over time.
+But the visuals aren&rsquo;t catchy and intuitive. When mapping building values I show the properties the buildings sit
+on, instead of the building footprint. When mapping value increases I just map a some kind of ratio of values between
+specific years. I use colours to visualize values, highlighting large differences but losing the smaller differences
+within the colour brackets.</p>
+
+<p>What would a better visual look like? I want to better explain the different roles played by dirt and houses. But
+retain interactivity and the ability to zoom and pan around.</p>
+
+<h3>Better Visualizations</h3>
+
+<p><a href="http://www.mountainmath.ca/assessment/split_map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/vanre.gif" style="width:50%;right:left;margin-left:10px;"></a>
+The idea is to map buildings and properties on the same map. Using 3D mapping we can uses height as an intuitive
+representation for value, adding colour brackets for additional reference as values push through emotionally relevant
+brackets, like the $1m barrier. To show change over time we just add a time slider and animate the whole thing.
+To keep things simple and comparable we will focus on single family homes for now.</p>
+
+<p>We build three maps, one showing land and buildings on the same map, one just showing land values and one just showing building
+values. All three can be animated over time.</p>
+
+<h3>The Rub</h3>
+
+<p>I find these maps much more intuitive and instructive than earlier maps I did. But it comes at a price &ndash; these maps
+will give your GPU a run for it&rsquo;s money. And they are only visible on modern computers and browsers. They can be viewed
+on mobile too, but don&rsquo;t try to zoom out. They eat up quite a bit of memory and may crash your mobile browser.</p>
+
+<p>Go test how &ldquo;modern&rdquo; your computer is. It&rsquo;s kind of fun to view the houses in different areas evolve over time. Try out
+the <a href="http://www.mountainmath.ca/assessment/split_map">interactive animations</a> with just the houses or with both, houses and land.</p>
+
+<h3>Stories</h3>
+
+<p><a href="http://www.mountainmath.ca/assessment/split_map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/s_vanre.gif" style="width:50%;float:left;margin-right:10px;"></a>
+Zooming into these maps we can start to see the local stories of the Vancouver single family homes during the last 11 years.
+Over time one sees where the land value is doing almost all of the lifting, but occasionally one sees re-development or
+extensive re-modeling activity that pushes up the building value as buildings try to catch up with the sharp rise in land
+value.</p>
+
+<p>And this is really the essence of the Vancouver real estate story when viewing dirt vs buildings. The land values are rising
+so fast that the building values don&rsquo;t have time to catch up. In fact, during the last year alone the aggregate land values of all single family
+homes <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">exceeded the combined pre-tax income of all Vancouverites</a>.</p>
+
+<p>The speed of the rise in land values is also driving the rapid re-development
+of buildings as explained <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">in an earlier post</a>.</p>
+
+<h3>Data</h3>
+
+<p>The data used for this consist of merging four datasets. The Vancouver property boundary data set, the Vancouver
+tax assessment dataset (for years 2006 and 2016), the Vancouver building footprint dataset (based on 2009 LIDAR data)
+and the Metro Vancouver land use dataset to help identify single family homes, especially the 15% outside of RS zoned areas.
+The tax assessment dataset gives an estimate of the values on July 1st of the year indicated in the visualization.</p>
+
+<p>The datasets all have their issues and are a little out of sync. The property dataset is for a fixed point in time and
+may not properly reflect the legal state of properties for all years (when for example properties were joined or split).
+The tax dataset is not in all cases properly linked to the properties, in particular if the tax code changed which happens
+in some but not all cases when the building gets redeveloped. There are 854 such single family home properties in Vancouver
+that we can&rsquo;t trace for the whole time period. On
+the map they will be visible as greyed out properties for earlier years that in later years spring to life as we can trace them.</p>
+
+<p>The building dataset represents a snapshot in time around
+2009. The Land Use dataset is lagging behind a bit and has for example not caught up with recent re-developments along
+the Cambie corridor.</p>
+
+<p>The land and building value data is estimated by BC Assessment and is based on sales of comparable properties in the time before and after July 1 and
+takes into account information from building permits and other evaluations. On an individual building level, especially for older buildings that
+have not been sold for a long time, the data can be somewhat inaccurate at times. But in aggregate it provides a fairly
+accurate snapshot of the property and building values.</p>
+
+<p>Neither the zoning information, not the land use have been updated to catch some of these freshly developed land assemblies.
+I have manually removed a good dozen obvious ones from the dataset, there are probably some more hidden in there.</p>
+
+<p>Most of the problems stem from the fact that BCAssessment data, which has much more comprehensive and cleaner data,
+is not directly accessible.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[On Mixed Use]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/03/28/on-mixed-use%20(1)/"/>
+    <updated>2016-03-28T23:37:16-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/03/28/on-mixed-use (1)</id>
+    <content type="html"><![CDATA[<p>Redeveloping single storey commercial properties into mixed use is taking off in Vancouver right now. It&rsquo;s a little frustrating
+to see how pretty much every story I have seen on this get the effect this has on property taxes wrong, including one on the generally quite good
+<a href="https://pricetags.wordpress.com/2016/01/25/guest-on-retail-and-an-evolving-environment-with-a-short-historic-note/">Price Tags blog</a>.
+Property taxes are an important piece of the puzzle in Vancouver, so I decided to go into a little detail on this.</p>
+
+<p>Long story short, re-developing single story commercial into mixed use lowers the commercial property taxes. Dramatically.</p>
+
+<!-- more -->
+
+
+<h3>Commercial Property Taxes</h3>
+
+<p>In Vancouver, the commercial property tax rate is five times the residential rate. Toronto also has higher property tax
+rates for commercial, 3x in their case, I don&rsquo;t know how this plays out more broadly. Nor do I know when and why these
+decisions were made. Generally cities have a hard time to keep space for residential areas in or close to the central
+business district, and higher property taxes may help to uphold the zoning restrictions in place and keep residential
+properties in close proximity to commercial.</p>
+
+<p>The effect of the unequal tax rates is quite stark
+<a href="http://www.mountainmath.ca/assessment_gl/map">when visualizing taxes collected per area</a>. And this keeps residential
+property taxes low.</p>
+
+<p>If Vancouver were isolated from everyone else it would not make much of a difference. Stores pass the
+higher property taxes on to residents by charging higher prices, and offices pass them on to employees through lower wages.
+Things get more complex when Vancouver is seen as part of metro, or Canada or in the world. But that discussion goes into
+a different direction.</p>
+
+<p><a href="http://www.mountainmath.ca/assessment_gl/map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tax_density_mixed_use.png" style="width:50%;float:right;margin-left:10px;"></a>
+On the <a href="http://www.mountainmath.ca/assessment_gl/map">interactive 3D tax density map</a> we can clearly see that the some mixed use properties (in darker red) generate lower total property
+taxes than comparable pure commercial properties nearby. We will explore this in more detail in the next section.</p>
+
+<p>For Vancouver it is also important to note that commercial leases are generally trip net, in particular the tenant pays
+the property taxes. And they are quite substantial. The important number is the gross rent, which is the sum of rent, taxes,
+utilities and other costs borne by tenants. That number is determined by the willingness of a tenant to lease the commercial
+space, which in turn determines the rent a commercial landlord can charge for the space. In theory at least, in practice
+some commercial landlords develop a relationship with their tenants and don&rsquo;t increase rents for old tenants as much as
+the market would bear.</p>
+
+<h3>Taxes for Commercial vs Mixed Use</h3>
+
+<p><img  src="http://doodles.mountainmath.ca/images/w_broadway.png" style="width:50%;float:left;margin-right:10px;">
+Let&rsquo;s look at and example, the adjacent properties at
+3071 and 3063 W Broadway. The first is single story commercial, the latter two story mixed use. They have almost identical
+lot sizes and assessed land and building values, with the mixed use property having slightly higher overall assessed value.</p>
+
+<p>How about the property taxes? In 2015, the 2016 taxes aren&rsquo;t out yet, the single story generated $47,797 in taxes, the mixed
+use only $32,031. The reason is simple. The single story property
+simply pays 5x the residential rate. For mixed use, the value gets divided up between two stories, so half the value pays
+5x residential rate, the other half gets taxes at 1x residential rate. So the effective tax rate for the mixed use is 3x
+residential rate. Well, the actual effective rate is 3.35x residential, probably because the first floor carries a little
+higher value than the second floor.</p>
+
+<p>The net effect is that the mixed use commercial tenant pays just over half of the property taxes as the pure commercial
+tenant next door. So the mixed use commercial landlord will charge exactly that much more rent, so that the gross rent
+for both commercial tenants is about the same.</p>
+
+<p>Feel free to play with the <a href="http://mountainmath.ca/map/assessment?zoom=14&amp;layer=10">tax density</a> and
+<a href="http://mountainmath.ca/map/assessment?zoom=14&amp;layer=14">land use</a> map and click into properties to see a more detailed break-down of
+taxes. Be warned that the land use dataset is not perfect in identifying every commercial vs mixed use place.</p>
+
+<h3>A Re-Developmet Example</h3>
+
+<p><img  src="http://doodles.mountainmath.ca/images/main1.png" style="width:50%;float:right;margin-left:10px;">
+Let&rsquo;s see how this works when a property gets re-developed. To keep things simple, let&rsquo;s look at something that went
+from single story commercial to two story mixed use. 6621 Main Street got re-developed around 2009/2010 and now spans
+addresses 6615, 6621 and 6623.</p>
+
+<p>Behind the original 6621 are now three stratified residential units, the other two addresses are the front doors for the
+two commercial units that replace the two commercial units behind the original 6621 address.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/main2.png" style="width:50%;float:left;margin-right:10px;">
+So what happened to property taxes from 2009 to 2010? In 2009 the combined tax levy was $22,102,
+in 2010 it was $16,859, of which $2,994 was payed by residential stratas and $13,865 by the two commercial.</p>
+
+<p>For comparison,
+the commercial property next door saw their property tax climb lightly from $20,754 in 2009 to $20,794 in 2010. So the
+decrease in property taxes we see is really due to the re-development to mixed use.</p>
+
+<h3>Bottom Line</h3>
+
+<p>So what&rsquo;s the bottom line for mixed use re-development? Depends for who, but overall it looks pretty good.</p>
+
+<h5>City bottom line</h5>
+
+<p>For conversion to two story mixed use, the city collects less
+property taxes than before and the overall mill rate goes up a tiny amount. Conversion to three stories or higher and
+total tax revenue for the property goes up and the overall mill rate goes down a tiny amount.</p>
+
+<h5>Commercial tenant bottom line</h5>
+
+<p>The property tax rate goes down substantially, but rent will go up as the gross rent is determined by the market. So not
+much changed assuming the form factor of the stores stay the same. In theory at least. If the commercial land lord was
+giving a long time tenant a break on their rent before re-development, the tenant will have a hard time to find a different
+commercial location with comparable gross rent.</p>
+
+<h5>Residential tenant bottom line</h5>
+
+<p>Added supply can only help. In some cases units will get stratified and sold off, in other cases the property owner keeps
+the residential units as rental.</p>
+
+<h5>Property owner bottom line</h5>
+
+<p>Especially with the recent change in lending practices that focus on cache flow, mixed use re-development becomes very attractive.
+After re-development, landlords can charge higher rents because commercial property taxes go down. And they can rent out
+the residential units for added cash flow. That way, when they take that property to the bank to get a loan for their
+next project they can show a large cache flow and get a bigger loan. And the re-development cycle keeps going. And with
+almost everyone re-financing their properties a couple of years ago at roughly the same time, when interest rates hit rock-bottom, everyone is
+now gearing up at the same time to re-develop.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[On Mixed Use]]></title>
