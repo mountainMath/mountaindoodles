@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-04-01T22:39:17-07:00</updated>
+  <updated>2016-04-01T22:59:12-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -37,11 +37,11 @@ retain interactivity and the ability to zoom and pan around.</p>
 
 <h3>Better Visualizations</h3>
 
-<p><a href="http://www.mountainmath.ca/assessment/split_map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/vanre.gif" style="width:50%;right:left;margin-left:10px;"></a>
-The idea is to map buildings and properties on the same map. Using 3D mapping we can uses height as an intuitive
+<p>The idea is to map buildings and properties on the same map. Using 3D mapping we can uses height as an intuitive
 representation for value, adding colour brackets for additional reference as values push through emotionally relevant
 brackets, like the $1m barrier. To show change over time we just add a time slider and animate the whole thing.
-To keep things simple and comparable we will focus on single family homes for now.</p>
+To keep things simple and comparable we will focus on single family homes for now.
+<a href="http://www.mountainmath.ca/assessment/split_map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/vanre.gif" style="margin:10px;"></a></p>
 
 <p>We build three maps, one showing land and buildings on the same map, one just showing land values and one just showing building
 values. All three can be animated over time.</p>
