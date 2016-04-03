@@ -4,7 +4,7 @@
   <title><![CDATA[Category: opendata | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/opendata/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-04-02T21:20:03-07:00</updated>
+  <updated>2016-04-02T21:22:59-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -97,7 +97,8 @@ single detached.</p>
 <h3>Data</h3>
 
 <p>The data used for this consist of merging four datasets. The Vancouver property boundary data set, the Vancouver
-tax assessment dataset (for years 2006 and 2016), the Vancouver building footprint dataset (based on 2009 LIDAR data)
+tax assessment dataset (for tax years 2006 and 2016, estimating values on July 1st of each previous year),
+the Vancouver building footprint dataset (based on 2009 LIDAR data)
 and the Metro Vancouver land use dataset to help identify single family homes, especially the 15% outside of RS zoned areas.
 The tax assessment dataset gives an estimate of the values on July 1st of the year indicated in the visualization.</p>
 
@@ -107,6 +108,9 @@ The tax dataset is not in all cases properly linked to the properties, in partic
 in some but not all cases when the building gets redeveloped. There are 854 such single family home properties in Vancouver
 that we can&rsquo;t trace for the whole time period. On
 the map they will be visible as greyed out properties for earlier years that in later years spring to life as we can trace them.</p>
+
+<p>Especially in the earlier years the dataset will not properly identify all single detached homes if they have been converted
+to duplexes or other multi-family units in the meantime.</p>
 
 <p>The building dataset represents a snapshot in time around
 2009. The Land Use dataset is lagging behind a bit and has for example not caught up with recent re-developments along
