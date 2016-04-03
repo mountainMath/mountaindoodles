@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bcassessment | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/bcassessment/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-04-02T21:22:59-07:00</updated>
+  <updated>2016-04-02T21:25:36-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -126,122 +126,6 @@ I have manually removed a good dozen obvious ones from the dataset, there are pr
 
 <p>Most of the problems stem from the fact that BCAssessment data, which has much more comprehensive and cleaner data,
 is not directly accessible.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[On Mixed Use]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/03/28/on-mixed-use%20(1)/"/>
-    <updated>2016-03-28T23:37:16-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/03/28/on-mixed-use (1)</id>
-    <content type="html"><![CDATA[<p>Redeveloping single storey commercial properties into mixed use is taking off in Vancouver right now. It&rsquo;s a little frustrating
-to see how pretty much every story I have seen on this get the effect this has on property taxes wrong, including one on the generally quite good
-<a href="https://pricetags.wordpress.com/2016/01/25/guest-on-retail-and-an-evolving-environment-with-a-short-historic-note/">Price Tags blog</a>.
-Property taxes are an important piece of the puzzle in Vancouver, so I decided to go into a little detail on this.</p>
-
-<p>Long story short, re-developing single story commercial into mixed use lowers the commercial property taxes. Dramatically.</p>
-
-<!-- more -->
-
-
-<h3>Commercial Property Taxes</h3>
-
-<p>In Vancouver, the commercial property tax rate is five times the residential rate. Toronto also has higher property tax
-rates for commercial, 3x in their case, I don&rsquo;t know how this plays out more broadly. Nor do I know when and why these
-decisions were made. Generally cities have a hard time to keep space for residential areas in or close to the central
-business district, and higher property taxes may help to uphold the zoning restrictions in place and keep residential
-properties in close proximity to commercial.</p>
-
-<p>The effect of the unequal tax rates is quite stark
-<a href="http://www.mountainmath.ca/assessment_gl/map">when visualizing taxes collected per area</a>. And this keeps residential
-property taxes low.</p>
-
-<p>If Vancouver were isolated from everyone else it would not make much of a difference. Stores pass the
-higher property taxes on to residents by charging higher prices, and offices pass them on to employees through lower wages.
-Things get more complex when Vancouver is seen as part of metro, or Canada or in the world. But that discussion goes into
-a different direction.</p>
-
-<p><a href="http://www.mountainmath.ca/assessment_gl/map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tax_density_mixed_use.png" style="width:50%;float:right;margin-left:10px;"></a>
-On the <a href="http://www.mountainmath.ca/assessment_gl/map">interactive 3D tax density map</a> we can clearly see that the some mixed use properties (in darker red) generate lower total property
-taxes than comparable pure commercial properties nearby. We will explore this in more detail in the next section.</p>
-
-<p>For Vancouver it is also important to note that commercial leases are generally trip net, in particular the tenant pays
-the property taxes. And they are quite substantial. The important number is the gross rent, which is the sum of rent, taxes,
-utilities and other costs borne by tenants. That number is determined by the willingness of a tenant to lease the commercial
-space, which in turn determines the rent a commercial landlord can charge for the space. In theory at least, in practice
-some commercial landlords develop a relationship with their tenants and don&rsquo;t increase rents for old tenants as much as
-the market would bear.</p>
-
-<h3>Taxes for Commercial vs Mixed Use</h3>
-
-<p><img  src="http://doodles.mountainmath.ca/images/w_broadway.png" style="width:50%;float:left;margin-right:10px;">
-Let&rsquo;s look at and example, the adjacent properties at
-3071 and 3063 W Broadway. The first is single story commercial, the latter two story mixed use. They have almost identical
-lot sizes and assessed land and building values, with the mixed use property having slightly higher overall assessed value.</p>
-
-<p>How about the property taxes? In 2015, the 2016 taxes aren&rsquo;t out yet, the single story generated $47,797 in taxes, the mixed
-use only $32,031. The reason is simple. The single story property
-simply pays 5x the residential rate. For mixed use, the value gets divided up between two stories, so half the value pays
-5x residential rate, the other half gets taxes at 1x residential rate. So the effective tax rate for the mixed use is 3x
-residential rate. Well, the actual effective rate is 3.35x residential, probably because the first floor carries a little
-higher value than the second floor.</p>
-
-<p>The net effect is that the mixed use commercial tenant pays just over half of the property taxes as the pure commercial
-tenant next door. So the mixed use commercial landlord will charge exactly that much more rent, so that the gross rent
-for both commercial tenants is about the same.</p>
-
-<p>Feel free to play with the <a href="http://mountainmath.ca/map/assessment?zoom=14&amp;layer=10">tax density</a> and
-<a href="http://mountainmath.ca/map/assessment?zoom=14&amp;layer=14">land use</a> map and click into properties to see a more detailed break-down of
-taxes. Be warned that the land use dataset is not perfect in identifying every commercial vs mixed use place.</p>
-
-<h3>A Re-Developmet Example</h3>
-
-<p><img  src="http://doodles.mountainmath.ca/images/main1.png" style="width:50%;float:right;margin-left:10px;">
-Let&rsquo;s see how this works when a property gets re-developed. To keep things simple, let&rsquo;s look at something that went
-from single story commercial to two story mixed use. 6621 Main Street got re-developed around 2009/2010 and now spans
-addresses 6615, 6621 and 6623.</p>
-
-<p>Behind the original 6621 are now three stratified residential units, the other two addresses are the front doors for the
-two commercial units that replace the two commercial units behind the original 6621 address.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/main2.png" style="width:50%;float:left;margin-right:10px;">
-So what happened to property taxes from 2009 to 2010? In 2009 the combined tax levy was $22,102,
-in 2010 it was $16,859, of which $2,994 was payed by residential stratas and $13,865 by the two commercial.</p>
-
-<p>For comparison,
-the commercial property next door saw their property tax climb lightly from $20,754 in 2009 to $20,794 in 2010. So the
-decrease in property taxes we see is really due to the re-development to mixed use.</p>
-
-<h3>Bottom Line</h3>
-
-<p>So what&rsquo;s the bottom line for mixed use re-development? Depends for who, but overall it looks pretty good.</p>
-
-<h5>City bottom line</h5>
-
-<p>For conversion to two story mixed use, the city collects less
-property taxes than before and the overall mill rate goes up a tiny amount. Conversion to three stories or higher and
-total tax revenue for the property goes up and the overall mill rate goes down a tiny amount.</p>
-
-<h5>Commercial tenant bottom line</h5>
-
-<p>The property tax rate goes down substantially, but rent will go up as the gross rent is determined by the market. So not
-much changed assuming the form factor of the stores stay the same. In theory at least. If the commercial land lord was
-giving a long time tenant a break on their rent before re-development, the tenant will have a hard time to find a different
-commercial location with comparable gross rent.</p>
-
-<h5>Residential tenant bottom line</h5>
-
-<p>Added supply can only help. In some cases units will get stratified and sold off, in other cases the property owner keeps
-the residential units as rental.</p>
-
-<h5>Property owner bottom line</h5>
-
-<p>Especially with the recent change in lending practices that focus on cache flow, mixed use re-development becomes very attractive.
-After re-development, landlords can charge higher rents because commercial property taxes go down. And they can rent out
-the residential units for added cash flow. That way, when they take that property to the bank to get a loan for their
-next project they can show a large cache flow and get a bigger loan. And the re-development cycle keeps going. And with
-almost everyone re-financing their properties a couple of years ago at roughly the same time, when interest rates hit rock-bottom, everyone is
-now gearing up at the same time to re-develop.</p>
 ]]></content>
   </entry>
   
