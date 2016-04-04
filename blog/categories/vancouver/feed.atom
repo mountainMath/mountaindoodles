@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-04-03T23:22:59-07:00</updated>
+  <updated>2016-04-03T23:24:02-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -116,7 +116,7 @@ building values exceed land values. I would be curious to hear what economists t
 that land values of condo buildings are inflated because of the artificial sparsity of available land for such developments
 through restrictive zoning code.</p>
 
-<h3>Data</h3>
+<h3>Data (only if you need to know)</h3>
 
 <p>The data used for this consist of merging four datasets. The Vancouver property boundary data set, the Vancouver
 tax assessment dataset (for tax years 2006 and 2016, estimating values on July 1st of each previous year),
