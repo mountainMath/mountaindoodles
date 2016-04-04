@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-04-03T12:58:57-07:00</updated>
+  <updated>2016-04-03T22:51:50-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -75,7 +75,7 @@ homes <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-
 <p>The speed of the rise in land values is also driving the rapid re-development
 of buildings as explained <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">in an earlier post</a>.</p>
 
-<h3>Unoffordable Dirt</h3>
+<h3>Unaffordable Dirt</h3>
 
 <p><a href="http://mountainmath.ca/assessment/split_map?zoom=17&lat=49.2362&lng=-123.1365&type=3&use3D=1&year=2006" target="_blank"><img  src="http://doodles.mountainmath.ca/images/b_vanre.gif" style="width:50%;float:right;margin-left:10px;"></a>
 The visualizations show that Vancouver&rsquo;s &ldquo;unaffordable housing&rdquo; is really all about &ldquo;unaffordable dirt&rdquo; and not &ldquo;unaffordable houses&rdquo;.
@@ -87,13 +87,27 @@ to make housing more affordable is to reduce the impact of the land value. Conve
 duplex immediately cuts the land value in half. If we replace it with a 4-plex, land values go down to a quarter for each
 housing unit.</p>
 
-<h3>Next Steps</h3>
+<h3>Dividing Dirt (Update)</h3>
 
-<p>This points us toward investigating how the evolution of the single detached property value compares to that of duplexes,
-4-plexes or, more generally, the &ldquo;missing middle&rdquo; (or &ldquo;sparce middle&rdquo; in the case of Vancouver).
-We should add stratified units into the visualization and see how
-they fair (taking the average over all units in each building) in terms of affordability and how this compares to
-single detached.</p>
+<p><a href="http://mountainmath.ca/assessment/split_map?zoom=15&lat=49.2665&lng=-123.1496&type=1&use3D=1&year=2015&units=[1,700]" target="_blank"><img  src="http://doodles.mountainmath.ca/images/m_vanre.gif" style="width:50%;float:left;margin-right:10px;"></a>
+Let&rsquo;s take a closer look what happens when we <em>divide dirt</em>, that is when we allow more housing units on a single property. In the RT zones
+the city allows duplexes or coach houses, so two stratified units on a single property. In other zones, like RM, some CD and
+some commercial (mixed use) the city allows for more strata units per property. We added a unit slider that allows to
+filter residential properties by how many strata units they house. If upper and lower cutoffs are set to 1, we just get single
+detached properties. If both are set to 2, we get duplexes. If the slider range is 4-20 then we see all buildings with somewhere
+between 4 and 20 units. Note that we did not map any purpose built rental buildings, that is residential buildings that
+have more than 2 units but are not stratified.</p>
+
+<p>We then use the <em>average</em> value of the land and the building per unit to map colour and height. So as switch the view from single detached
+houses to duplexes we see that the price of the properties essentially drops in half. And the reduction continues as we go
+to 4-plexes, costing about a quarter of a single detached property of similar property size. Once we hit around 20 units
+the savings seem to flatten off as building values per unit stabilize and land values also rise proportionally to the unit
+number.</p>
+
+<p>Some luxury developments stand out, but even there land values dominate. There are very few strata buildings where
+building values exceed land values. I would be curious to hear what economists think about this, to me it looks like a sign
+that land values of condo buildings are inflated because of the artificial sparsity of available land for such developments
+through restrictive zoning code.</p>
 
 <h3>Data</h3>
 
@@ -114,8 +128,13 @@ the map they will be visible as greyed out properties for earlier years that in 
 to duplexes or other multi-family units in the meantime.</p>
 
 <p>The building dataset represents a snapshot in time around
-2009. The Land Use dataset is lagging behind a bit and has for example not caught up with recent re-developments along
+2009. We don&rsquo;t show properties that did not have a building in 2009 (767 properties, 562 of which are single detached),
+and if properties have been re-built since 2009 we show the old building.
+The Land Use dataset is lagging behind a bit and has for example not caught up with recent re-developments along
 the Cambie corridor.</p>
+
+<p>We also dropped 296 residential properties that did not have a land value for 2016, most lightly because they are
+being re-developed and linking the assessment to the property failed.</p>
 
 <p>The land and building value data is estimated by BC Assessment and is based on sales of comparable properties in the time before and after July 1 and
 takes into account information from building permits and other evaluations. On an individual building level, especially for older buildings that
