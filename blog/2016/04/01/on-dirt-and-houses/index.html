@@ -244,7 +244,7 @@ is not directly accessible.</p>
 
 <script>
 function resetImages(){
-    var $('img').each(function(img){
+    $('img').each(function(img){
         imgsrc = $(img).attr('src');
         if (imgsrc.slice(imgsrc.length-4)=='.gif') {
             $('#my_image').attr('src', '');
