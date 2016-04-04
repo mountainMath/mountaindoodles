@@ -244,14 +244,20 @@ is not directly accessible.</p>
 
 <script>
 function resetImages(){
-var $('img').each(function(img){
-var imgsrc = $(img).attr('src');
-if (imgsrc.slice(imgsrc.length-4)=='.gif') {
-    $('#my_image').attr('src', '');
-    $('#my_image').attr('src', imgsrc);
+    var $('img').each(function(img){
+        imgsrc = $(img).attr('src');
+        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
+            $('#my_image').attr('src', '');
+            $('#my_image').attr('src', imgsrc);
+        }
+    });
+    setTimeout(function(){
+        resetImages();
+    },10000);
 }
-});
-}
+setTimeout(function(){
+    resetImages();
+},10000);
 </script>
 
 </div>
