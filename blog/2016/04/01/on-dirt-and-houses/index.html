@@ -246,6 +246,7 @@ is not directly accessible.</p>
 function resetImages(){
     $('img').each(function(img){
         imgsrc = $(img).attr('src');
+        console.log(imgsrc.slice(imgsrc.length-4));
         if (imgsrc.slice(imgsrc.length-4)=='.gif') {
             $('#my_image').attr('src', '');
             $('#my_image').attr('src', imgsrc);
