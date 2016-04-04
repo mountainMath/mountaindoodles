@@ -248,17 +248,18 @@ function resetImages(){
         imgsrc = $(img).attr('src');
         console.log(imgsrc.slice(imgsrc.length-4));
         if (imgsrc.slice(imgsrc.length-4)=='.gif') {
-            $('#my_image').attr('src', '');
-            $('#my_image').attr('src', imgsrc);
+            $(img).attr('src', '');
+            $(img).attr('src', imgsrc);
+            
         }
     });
     setTimeout(function(){
         resetImages();
-    },10000);
+    },15000);
 }
 setTimeout(function(){
     resetImages();
-},10000);
+},15000);
 </script>
 
 </div>
