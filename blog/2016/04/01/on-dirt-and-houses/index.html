@@ -177,8 +177,7 @@ housing unit.</p>
 
 <h3>Dividing Dirt (Update)</h3>
 
-<p><a href="http://mountainmath.ca/assessment/split_map?zoom=15&lat=49.2665&lng=-123.1496&type=1&use3D=1&year=2015&units=[1,700]" target="_blank"><img  src="/images/m_vanre.gif" style="width:50%;float:left;margin-right:10px;"></a>
-Let&rsquo;s take a closer look what happens when we <em>divide dirt</em>, that is when we allow more housing units on a single property. In the RT zones
+<p>Let&rsquo;s take a closer look what happens when we <em>divide dirt</em>, that is when we allow more housing units on a single property. In the RT zones
 the city allows duplexes or coach houses, so two stratified units on a single property. In other zones, like RM, some CD and
 some commercial (mixed use) the city allows for more strata units per property. We added a unit slider that allows to
 filter residential properties by how many strata units they house. If upper and lower cutoffs are set to 1, we just get single
@@ -186,11 +185,17 @@ detached properties. If both are set to 2, we get duplexes. If the slider range 
 between 4 and 20 units. Note that we did not map any purpose built rental buildings, that is residential buildings that
 have more than 2 units but are not stratified.</p>
 
-<p>We then use the <em>average</em> value of the land and the building per unit to map colour and height. So as switch the view from single detached
-houses to duplexes we see that the price of the properties essentially drops in half. And the reduction continues as we go
-to 4-plexes, costing about a quarter of a single detached property of similar property size. Once we hit around 20 units
-the savings seem to flatten off as building values per unit stabilize and land values also rise proportionally to the unit
-number.</p>
+<p><a href="http://mountainmath.ca/assessment/split_map?zoom=15&lat=49.2665&lng=-123.1496&type=1&use3D=1&year=2015&units=[1,700]" target="_blank"><img  src="/images/m_vanre.gif" style="width:50%;float:left;margin-right:10px;"></a>
+We then use the <em>average</em> value of the land and the building per unit to map colour and height. Starting out mapping
+only buildings with at least 40 units we see that the average price of a unit is solidly in the bottom color bracket in most units.
+As we slowly add in buildings with fewer units we see that only once we get down to 3 and 4-plexes do we see a clear increase
+in more expensive properties on our colour scale. Adding in duplexes then leaves a clear mark with, in genreal, twice the
+value of 4-plexes on a comparably sized property, and then another jump by a factor of two as we add in the single detached
+properties.</p>
+
+<p>Looking at the general condo picture, we generally see savings on a per-unit basis as we increase the number of units per property.
+Those savings are most pronounced for lower unit counts and seem to flatten out once we hit around 20 units as building values
+per unit stabilize and land values also rise proportionally to the unit number.</p>
 
 <p>Some luxury developments stand out, but even there land values dominate. There are very few strata buildings where
 building values exceed land values. I would be curious to hear what economists think about this, to me it looks like a sign
