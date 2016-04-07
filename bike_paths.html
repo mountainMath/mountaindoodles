@@ -126,7 +126,7 @@
         console.log(infrastructure_types);
         var buttons = '';
         Object.keys(infrastructure_types).map(function (i) {
-            buttons += '<label><input type="checkbox" name="' + i.split(' ').join('_').toLowerCase() + '" checked ></input>' + i + '</label>'
+            buttons += '<label><input type="checkbox" name="' + i.split(' ').join('_').toLowerCase() + '" checked >' + i + '</label>'
         });
         options.html(buttons);
         d3.selectAll("#buttons input").on('click', function (d) {

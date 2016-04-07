@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: transit | Mountain Doodles]]></title>
+  <link href="http://doodles.mountainmath.ca/blog/categories/transit/feed.atom" rel="self"/>
+  <link href="http://doodles.mountainmath.ca/"/>
+  <updated>2016-04-07T00:54:19-07:00</updated>
+  <id>http://doodles.mountainmath.ca/</id>
+  <author>
+    <name><![CDATA[MountainMath]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[TOD]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/04/06/tod/"/>
+    <updated>2016-04-06T16:22:36-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/04/06/tod</id>
+    <content type="html"><![CDATA[<p><a href="http://doodles.mountainmath.ca/skytrain_tod_map.html" target="_blank"><img  src="http://doodles.mountainmath.ca/images/skytrain_tod.png"  style="width:50%;float:right;margin-left:10px;"></a>
+Just saw <a href="http://michaelmortensenblog.com/2016/04/05/transit-oriented-development-room-for-smart-growth-in-greater-vancouver/">this excellent post looking at density around transit stations</a>
+today and though I should pull out some numbers
+to go with the pretty visuals. And with CensusMapper&rsquo;s new capabilities of populating custom geometries with census data
+estimates it&rsquo;s super-easy to do.</p>
+
+<!-- more -->
+
+
+<p>Population density is only one measure of interest here, job density or retail density would be others. But for now let&rsquo;s
+focus on population, so how many people live near the rapid transit stations. To keep things simple we checked for a 400m
+and an 800m radius circle around the stations. At least roughly, if you need to know the details check the bottom.</p>
+
+<p>To visualize this we simply map our concentric circles around the stations and use the population density as height.
+Click, touch or hover to get the exact values. And sorry again, only new computers will get a meaningful result. Most
+smart phones and tablets will have no problems.</p>
+
+<iframe src="http://doodles.mountainmath.ca/skytrain_tod_map.html" width="100%" height="550"></iframe>
+
+
+<p><a href="/skytrain_tod_map.html#11/49.2430/-123.0350">Full screen view</a></p>
+
+<p>What immediately stands out is that for some stations inner orange circle is lower than the outer yellow circle. That means
+the 400m radius area is less dense than the 800m radius area. It&rsquo;s as if
+there was an inverse-TOD development. That&rsquo;s where local knowlege becomes important to see how exectly things are like
+around the stations. Maybe the station primarily servers jobs or retail, which we did not map. This definitely deserves
+more scrutiny.</p>
+
+<p>Of course we can also view this on the <a href="http://censusmapper.ca/maps/302?zoom=12&amp;lat=49.2545&amp;lng=-123.0433">CensusMapper population density map</a>
+comes in handy, if we zoom in it breaks it down to the census block level.</p>
+
+<h3>Next steps</h3>
+
+<p>I should run the same analysis on the 2006 data to see how density around transit stations changed. Some other day.</p>
+
+<h3>Details</h3>
+
+<p>This section is only interesting for people who want to know how exactly the numbers were derived. Getting exact number
+of people in a given circle radius around a station would require a getting custom tabulation for Stats Canada. This
+would be overkill for the application we are looking at, and if we really wanted to be more precise we should probably start
+by using an isochrone, that is an area that is at a 10 minute walking distance from the station, instead of using a circle.</p>
+
+<p>In the future we bake the ability to compute isochrones right into CensusMapper. Right now CensusMapper
+estimates population data for arbitrary regions, including circular ones, by checking which census blocks intersect
+each circle and add up the populations. Actually, we have three differnt ways to do this</p>
+
+<ol type="a">
+<li>by just taking all dissemination blocks that intersect</li>
+<li>by just taking all dissemination blocks with the majority of it&rsquo;s area in the intersection with the region</li>
+<li>by scaling all properties of the dissemination block according to the proportion of it&rsquo;s area in the overlap with our region.</li>
+</ol>
+
+
+<p>Each has it&rsquo;s own advantages and disadvantages, we felt that option 2 is best suited for our purposes.</p>
+
+<p>So we end up with a slightly different areas from the circle, the area given by the
+census blocks we included, and we compute population densities based on that area. Since we visualize the circles instead
+of the union of the census blocks used the visualization is a little bit misleading, but there is some value in the simplicity
+of sticking with circles.</p>
+
+<p>Since we are only interested in population data
+we are done. In the more general case, when we are interested in estimating other census variables, for example the average rent in the
+area, CensusMapper would now go through the census geographies and match up appropriate geographies with the census blocks
+to derive the appropriate estimates. The actual algorithm gets quite complex here. Extra weights, like the proportion of
+households that rent (and not own), come into play, as well as data quality estimates. And yes, if we did opt to use area overlap
+weights in the block level computation, we would base them on households instead of population. If I am vague here it&rsquo;s
+because the algorithm is quite complex and not really fit for a blog post.</p>
+]]></content>
+  </entry>
+  
+</feed>
