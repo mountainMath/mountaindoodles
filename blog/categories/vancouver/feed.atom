@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-04-07T01:04:50-07:00</updated>
+  <updated>2016-04-07T01:10:00-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -35,10 +35,10 @@ and an 800m radius circle around the stations. At least roughly, if you need to 
 Click, touch or hover to get the exact values. And sorry again, only new computers will get a meaningful result. Most
 smart phones and tablets will have no problems.</p>
 
-<iframe src="http://doodles.mountainmath.ca/skytrain_tod_map.html" width="80%" height="500"></iframe>
+<iframe src="http://doodles.mountainmath.ca/skytrain_tod_map.html" width="80%" height="500", style="margin:5px 10%;"></iframe>
 
 
-<p><a href="/skytrain_tod_map.html#11/49.2430/-123.0350">Full screen view</a></p>
+<p><a href="http://doodles.mountainmath.ca/skytrain_tod_map.html#11/49.2430/-123.0350" class="btn btn-primary">Full screen view</a></p>
 
 <p>What immediately stands out is that for some stations inner orange circle is lower than the outer yellow circle. That means
 the 400m radius area is less dense than the 800m radius area. It&rsquo;s as if
