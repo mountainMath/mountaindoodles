@@ -4,7 +4,7 @@
   <title><![CDATA[Category: censusmapper | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/censusmapper/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-04-07T00:55:57-07:00</updated>
+  <updated>2016-04-07T00:58:27-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -46,7 +46,8 @@ there was an inverse-TOD development. That&rsquo;s where local knowlege becomes 
 around the stations. Maybe the station primarily servers jobs or retail, which we did not map. This definitely deserves
 more scrutiny.</p>
 
-<p>Of course we can also view this on the <a href="http://censusmapper.ca/maps/302?zoom=12&amp;lat=49.2545&amp;lng=-123.0433">CensusMapper population density map</a>
+<p><a href="http://censusmapper.ca/maps/302" target="_blank"><img  src="http://doodles.mountainmath.ca/images/population_density.png"  style="width:50%;float:left;margin-right:10px;"></a>
+Of course we can also view this on the <a href="http://censusmapper.ca/maps/302?zoom=12&amp;lat=49.2545&amp;lng=-123.0433">CensusMapper population density map</a>
 comes in handy, if we zoom in it breaks it down to the census block level.</p>
 
 <h3>Next steps</h3>
