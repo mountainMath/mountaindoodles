@@ -113,7 +113,7 @@
             },
             error: function (msg) {
                 console.log(msg);
-                $('#webGL-message').css('display','inherit');
+                document.getElementById('webGL-message').style.display='inherit';
                 // debugger;
             },
             warning: function (msg) {
@@ -157,11 +157,11 @@
             var text= '<h4>' + p.stop_desc   + '</h4>';
             text+='<table>';
             text+='<tr><td>Radius</td><td>400m</td><td>800m</td></tr>';
-            text+='<tr><td>Population</td><td>'+p.population_400+'</td><td>'+p.population_800+'</td></tr>';
-            text+='<tr><td>Pop Density</td><td>'+Math.round(p.population_400/p.block_area_400*1000000)+'/km&sup2</td><td>'+Math.round(p.population_800/p.block_area_800*1000000)+'/km&sup2</td></tr>';
-//            text+='<tr><td>Block Area</td><td>'+Math.round(p.block_area_400/10000)+'ha</td><td>'+Math.round(p.block_area_800/10000)+'ha</td></tr>';
-//            text+='<tr><td>Households</td><td>'+p.households_400+'</td><td>'+p.households_800+'</td></tr>';
-//            text+='<tr><td>HH Density</td><td>'+Math.round(p.households_400/p.block_area_400*1000000)+'/km&sup2</td><td>'+Math.round(p.households_800/p.block_area_800*1000000)+'/km&sup2</td></tr>';
+            text+='<tr><td>Population</td><td>'+p['population~400']+'</td><td>'+p['population~800']+'</td></tr>';
+            text+='<tr><td>Pop Density</td><td>'+Math.round(p['population~400']/p['block_area~400']*1000000)+'/km&sup2</td><td>'+Math.round(p['population~800']/p['block_area~800']*1000000)+'/km&sup2</td></tr>';
+//            text+='<tr><td>Block Area</td><td>'+Math.round(p.block_area~400/10000)+'ha</td><td>'+Math.round(p.block_area_800/10000)+'ha</td></tr>';
+//            text+='<tr><td>Households</td><td>'+p.households~400+'</td><td>'+p.households_800+'</td></tr>';
+//            text+='<tr><td>HH Density</td><td>'+Math.round(p.households~400/p.block_area~400*1000000)+'/km&sup2</td><td>'+Math.round(p.households_800/p.block_area_800*1000000)+'/km&sup2</td></tr>';
             text+='</table>';
 //            ['400','800'].forEach(function(d){
 //                text+='<h4>' + d +' metre radius: </h4>';
