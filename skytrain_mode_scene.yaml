@@ -424,29 +424,28 @@ layers:
                 paper:
                     order: 3
                     color: '#0e2a2d' # '#143c40' # '#413e3a' # '#D9CFC3'  '#292724'
-    skytrain:
-        data: {source: skytrain}
-        draw:
-            density:
-                interactive: true
-                order: 20
-                extrude: |
-                    function(){
-                        console.log('test')
-                        return feature['Transit 400']/feature['Mode Share Total 400']*1000;
-                        //return feature['Mode Share Total 400']>0 ? feature['Transit 400']/feature['Mode Share Total 400']*1000 : 0;
-                    }
-                color: [1.0,0.55,0.0]
-    skytrain2:
-        data: {source: skytrain2}
-        draw:
-            density:
-                interactive: true
-                order: 20
-                extrude: |
-                    function(){
-                        return feature['Transit 800']/feature['Mode Share Total 800']*1000;
-                        //return feature['Mode Share Total 800']>0 ? feature['Transit 800']/feature['Mode Share Total 800']*1000 : 0
-                    }
-                color: [0.8,0.8,0]
+#    skytrain:
+#        data: {source: skytrain}
+#        draw:
+#            density:
+#                interactive: true
+#                order: 20
+#                extrude: |
+#                    function(){
+#                        //return feature['Transit 400']/feature['Mode Share Total 400']*1000;
+#                        return feature['Mode Share Total 400']>0 ? feature['Transit 400']/feature['Mode Share Total 400']*1000 : 0;
+#                    }
+#                color: [1.0,0.55,0.0]
+#    skytrain2:
+#        data: {source: skytrain2}
+#        draw:
+#            density:
+#                interactive: true
+#                order: 20
+#                extrude: |
+#                    function(){
+#                        //return feature['Transit 800']/feature['Mode Share Total 800']*1000;
+#                        return feature['Mode Share Total 800']>0 ? feature['Transit 800']/feature['Mode Share Total 800']*1000 : 0
+#                    }
+#                color: [0.8,0.8,0]
 
