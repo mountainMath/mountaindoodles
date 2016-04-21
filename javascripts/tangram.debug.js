@@ -20958,11 +20958,10 @@
         }, {
             key: 'parseSourceData',
             value: function parseSourceData(tile, source, response) {
-                var data = JSON.parse(response);
                 if (typeof this.transform === 'function') {
-                    data = this.transform(data, this.extra_data);
+                    source.layers = GeoJSONSource.prototype.getLayers(this.transform(JSON.parse(response), this.extra_data));
                 }
-                source.layers = GeoJSONSource.prototype.getLayers(data);
+                source.layers = GeoJSONSource.prototype.getLayers(JSON.parse(response));
                 //source.layers = this.getLayers(JSON.parse(response));
             }
 

@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://doodles.mountainmath.ca/blog/2016/04/20/tod-mode-share/</loc>
+    <lastmod>2016-04-20T23:26:35-07:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://doodles.mountainmath.ca/blog/2016/04/06/tod/</loc>
     <lastmod>2016-04-06T16:22:36-07:00</lastmod>
     <priority>0.8</priority>
@@ -173,21 +179,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2016-04-07T23:09:24-07:00</lastmod>
+    <lastmod>2016-04-21T00:55:24-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2016-04-07T23:09:24-07:00</lastmod>
+    <lastmod>2016-04-21T00:55:24-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2016-04-07T23:09:24-07:00</lastmod>
+    <lastmod>2016-04-21T00:55:24-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -232,6 +238,12 @@
   <url>
     <loc>http://doodles.mountainmath.ca/improvement_map.html</loc>
     <lastmod>2015-03-23T15:01:29Z</lastmod>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://doodles.mountainmath.ca/skytrain_mode_map.html</loc>
+    <lastmod>2016-04-21T00:38:46Z</lastmod>
     <priority>0.6</priority>
   </url>
   
