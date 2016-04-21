@@ -315,14 +315,14 @@ layers:
 #                color: [0.271,0.267,0.243]
             polygons:
                 order: 0
-                color:  '#404040' #'#010510' # '#2c2f2f' #'#ddeeee' '#020716' #
+                color:  '#c0c0c0' #'#010510' # '#2c2f2f' #'#ddeeee' '#020716' #
 
     water:
         data: { source: osm }
         draw:
             paper:
                 order: 2
-                color:   '#061541' # '#364a5f' #'#88bbee' '#030b21' # '#040d2a' #
+                color:   '#99ccff' # '#364a5f' #'#88bbee' '#030b21' # '#040d2a' #
     transit:
         data: {source: osm }
         filter: {kind:["subway"]}
@@ -411,19 +411,19 @@ layers:
             draw:
                 paper:
                     order: 2
-                    color:  '#17290c' # '#223d12' # '#38423b' #'#bddec5' '#0c1e1a' #
+                    color:  '#99cc00' #'#17290c' # '#223d12' # '#38423b' #'#bddec5' '#0c1e1a' #
         blue:
             filter: { kind: [commercial, industrial] }
             draw:
                 paper:
                     order: 3
-                    color:  '#802020'#'#393d3d' #'#C0CDCD'  '#242626' #
+                    color:  '#ccffff'#'#393d3d' #'#C0CDCD'  '#242626' #
         orange:
             filter: { kind: [university] }
             draw:
                 paper:
                     order: 3
-                    color: '#0e2a2d' # '#143c40' # '#413e3a' # '#D9CFC3'  '#292724'
+                    color: '#ff99ff' # '#143c40' # '#413e3a' # '#D9CFC3'  '#292724'
 #    skytrain:
 #        data: {source: skytrain}
 #        draw:
