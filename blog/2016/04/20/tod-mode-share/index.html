@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Mapping CACs - Mountain Doodles</title>
+  <title>TOD Mode Share - Mountain Doodles</title>
   <meta name="author" content="MountainMath">
 
   
-  <meta name="description" content="mapping CAC in Vancouver">
-  <meta name="keywords" content="vancouver, high value, improvements, real estate, map">
+  <meta name="description" content="Mode share around transit stations">
+  <meta name="keywords" content="vancouver, stats canada, CensusMapper">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/">
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2016/04/20/tod-mode-share/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">Mapping CACs</h1>
+      <h1 class="entry-title">TOD Mode Share</h1>
     
     
       <p class="meta">
@@ -97,7 +97,7 @@
   
 
 
-<time datetime="2014-11-05T12:03:25-08:00" pubdate data-updated="true"></time>
+<time datetime="2016-04-20T23:26:35-07:00" pubdate data-updated="true"></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -106,24 +106,34 @@
   </header>
 
 
-<div class="entry-content"><p>After reading the <a href="http://pricetags.wordpress.com/2014/11/04/the-daily-durning-back-and-forth-on-cacs/">post on Price Tags</a>,
-originally from <a href="http://karensawatzky.ca/2014/10/29/7868/">Karen Sawatzky&rsquo;s blog</a>, I got curious about getting a
-geographic overview over the CACs in Vancouver in 2010, 2011 and 2012.</p>
-
-<p>As opposed to the <a href="/blog/2014/09/05/vancouver-teardown-map/">teardown map</a> the dataset is quite small, so there should
-be no problems viewing this on a mobile device. As always, map is below the fold.</p>
+<div class="entry-content"><p>Just saw a <a href="">comment on the Pricetags blog</a> pointing to a nice <a href="http://summit.sfu.ca/system/files/iritems1/9819/ETD4936.pdf">master&rsquo;s thesis</a>
+investigating various TOD metrics around skytrain stations. I got curious how the 2011 transit mode share compares to the earlier
+census years listed in the thesis. And how the mode share varies spatially.</p>
 
 <!-- more -->
 
 
-<p>Some of the property addresses did not match any address in the CoV open data property database, probably because the
-developments are quite new and new addresses got assigned. In these cases I mapped the CAC property to a nearby property
-and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
+<p>With <a href="http://censusmapper.ca/maps/316">CensusMapper</a> at my finger tips and building on the
+<a href="http://doodles.mountainmath.ca/blog/2016/04/06/tod/">visuals from the previous post</a> this is an easy exercise.</p>
 
-<iframe src="/cac_map.html" width="100%" height="500"></iframe>
+<p>We again simply map our concentric circles around the stations, this time using mode share as height. Yes, there are better
+ways to visualize mode share, but I got lazy.</p>
+
+<p>Click, touch or hover to get the exact values. And sorry again, only new computers will get a meaningful result. Most
+smart phones and tablets will have no problems.</p>
+
+<iframe src="/skytrain_mode_map.html" width="80%" height="500", style="margin:5px 10%;"></iframe>
 
 
-<p><a href="/cac_map.html">Full screen view</a></p>
+<p><a href="/skytrain_mode_map.html#11/49.2430/-123.0350" class="btn btn-primary">Full screen view</a></p>
+
+<h3>What I missed</h3>
+
+<p>The master&rsquo;s thesis was careful enough to exclude areas across the river from the analysis. That&rsquo;s good thinking, I only
+took circular buffers around the stations to do this. As indicated in the <a href="http://doodles.mountainmath.ca/blog/2016/04/06/tod/">previous post</a>,
+in the future we will add the capability to automatically generate isochrones, so areas
+within 5 or 10 minutes walking distance, and use these
+as regions, instead of using circular 400m and 800m buffers around the stations.</p>
 </div>
 
 
@@ -146,12 +156,12 @@ and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
   
 
 
-<time datetime="2014-11-05T12:03:25-08:00" pubdate data-updated="true"></time>
+<time datetime="2016-04-20T23:26:35-07:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/cac/'>cac</a>, <a class='category' href='/blog/categories/d3/'>d3</a>, <a class='category' href='/blog/categories/open-data/'>open data</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
+    <a class='category' href='/blog/categories/censusmapper/'>censusmapper</a>, <a class='category' href='/blog/categories/transit/'>transit</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
   
 </span>
 
@@ -160,7 +170,7 @@ and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2016/04/20/tod-mode-share/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2016/04/20/tod-mode-share/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -173,10 +183,8 @@ and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2014/09/07/vancouver-high-value-improvements-map/" title="Previous Post: Vancouver High Value Improvements Map">&laquo; Vancouver High Value Improvements Map</a>
+        <a class="basic-alignment left" href="/blog/2016/04/06/tod/" title="Previous Post: TOD">&laquo; TOD</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/03/23/vancouver-assessment-data/" title="Next Post: Vancouver Assessment Data">Vancouver Assessment Data &raquo;</a>
       
     </p>
   </footer>
@@ -250,8 +258,8 @@ and added the &lsquo;Mapped Address&rsquo; field in the info pane. Enjoy.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/';
-        var disqus_url = 'http://doodles.mountainmath.ca/blog/2014/11/05/mapping-cacs/';
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2016/04/20/tod-mode-share/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2016/04/20/tod-mode-share/';
         var disqus_script = 'embed.js';
       
     (function () {
