@@ -4,7 +4,7 @@
   <title><![CDATA[Category: censusmapper | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/censusmapper/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-04-21T22:07:28-07:00</updated>
+  <updated>2016-04-21T22:44:20-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -31,7 +31,9 @@ census years listed in the thesis. And how the mode share varies spatially.</p>
 <a href="http://doodles.mountainmath.ca/blog/2016/04/06/tod/">visuals from the previous post</a> this is an easy exercise.</p>
 
 <p>We again simply map our concentric circles around the stations, but this time we turn them into pie charts to show the
-commute to work mode share. And we show the values for the inner 400m circle and the 400m to 800m annulus separately.</p>
+commute to work mode share. And we show the values for the inner 400m circle and the 400m to 800m annulus separately. I
+also added some basic land use data, green for parks, pink for instututional and light blue for commercial or industrial
+to provide more context.</p>
 
 <p>What we would expect to see is that the transit mode share is larger in the 400m buffer, but curiously this is not always the case.</p>
 
