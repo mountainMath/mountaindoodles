@@ -190,9 +190,30 @@
                     return [x/scale,y/scale];
                 }
 
+
                 d3.json('/data/skytrain_mode.json',function(error, data){
                     if (error) throw error;
                     var arcIndex=0;
+                    var dataIndex=0;
+                    function highlight(d){
+                        var el=d3.select(document.getElementById('arc_'+d.id).parentElement);
+                        var datum=el.data();
+                        mainSelection.selectAll('g.pie-selection').data(datum).enter()
+                                .append("g")
+                                .attr("transform", function(d){
+                                    var pt=translate([map.latLngToLayerPoint(d.latLng).x,map.latLngToLayerPoint(d.latLng).y]);
+                                    return "translate(" + pt[0] + "," + pt[1] + ")";
+                                })
+                                .attr('id',function(d) { var id= d.id || (d.id = ++dataIndex); return "pie_"+id;})
+                                .attr("class",'pie-selection')
+                                .call(pieChart);
+                        showTooltipFor(datum[0],d3.event);
+                    }
+
+                    function downlight(){
+                        d3.selectAll('g.pie-selection').remove();
+                    }
+
                     function pieChart(selection){
                         selection.each(function(data){
                             var g=d3.select(this);
@@ -203,35 +224,11 @@
                                     .attr('id',function(d){
                                         if (!d.id) d.id=++arcIndex;
                                         return "arc_" + d.id;})
-                                    .on('mouseenter',function(d){
-                                        var el=d3.select(document.getElementById('arc_'+d.id).parentElement);
-                                        var datum=el.data();
-                                        mainSelection.selectAll('g.pie-selection').data(datum).enter()
-                                                .append("g")
-                                                .attr("transform", function(d){
-                                                    var pt=translate([map.latLngToLayerPoint(d.latLng).x,map.latLngToLayerPoint(d.latLng).y]);
-//                                                    var transform=d3.select(".d3-overlay").attr('transform');
-//                                                    var scale=transform ? parseFloat(transform.match(/scale\((.+),/)[1]) : 1;
-                                                    return "translate(" + pt[0] + "," + pt[1] + ")";
-                                                })
-                                                .attr('id',function(d) { var id= d.id || (d.id = ++dataIndex); return "pie_"+id;})
-                                                .attr("class",'pie-selection')
-                                                .call(pieChart);
-                                        showTooltipFor(datum[0],d3.event);
-//                                        var el=d3.select(document.getElementById('arc_'+d.id).parentElement);
-//                                        el.attr('opacity',1);
-//                                        var id=el.data()[0].id;
-//                                        updateSelection.selectAll("g").sort(function (a, b) { // select the parent and sort the path's
-//                                            if (a.id != id) return -1;               // a is not the hovered element, send "a" to the back
-//                                            else return 1;                             // a is the hovered element, bring "a" to the front
-//                                        });
-//
-                                    })
-                                .on('mouseleave',function(d){
-                                    d3.selectAll('g.pie-selection').remove();
-                                    //var el=d3.select(document.getElementById('arc_'+d.id).parentElement);
-                                    //el.attr('opacity',defaultOpacity);
-                            });
+                                    .on('mouseenter',highlight)
+                                    .on('click',highlight)
+                                    //.on('touch',highlight)
+                                    .on('mouseleave',downlight);
+
                             arcs
                                     .attr("d", d3.svg.arc())
                                     .attr('stroke-width',projection.unitsPerMeter*10);
@@ -257,7 +254,6 @@
                         return {latLng: latLng,station: f.properties.stop_name, pie:pies,properties: f.properties};
                     });
                     var updateSelection = mainSelection.selectAll('g.pie-chart').data(pieData);
-                    var dataIndex=0;
                     var g=updateSelection.enter()
                             .append("g")
                             .attr("transform", function(d){
