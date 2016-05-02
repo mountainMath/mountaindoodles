@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://doodles.mountainmath.ca/blog/2016/05/02/census-week/</loc>
+    <lastmod>2016-05-02T11:07:07-07:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://doodles.mountainmath.ca/blog/2016/04/20/tod-mode-share/</loc>
     <lastmod>2016-04-20T23:26:35-07:00</lastmod>
     <priority>0.8</priority>
@@ -179,21 +185,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2016-04-24T21:28:26-07:00</lastmod>
+    <lastmod>2016-05-02T13:30:51-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2016-04-24T21:28:26-07:00</lastmod>
+    <lastmod>2016-05-02T13:30:51-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2016-04-24T21:28:26-07:00</lastmod>
+    <lastmod>2016-05-02T13:30:51-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

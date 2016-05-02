@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Vancouver 2011 Census Data on Housing - Mountain Doodles</title>
+  <title>Census Week - Mountain Doodles</title>
   <meta name="author" content="MountainMath">
 
   
-  <meta name="description" content="Mapping Vancouver 2011 Census data around housing, income and affordability.">
-  <meta name="keywords" content="vancouver, density, housing, affordability, map, income">
+  <meta name="description" content="2016 Census Week">
+  <meta name="keywords" content="stats canada, CensusMapper">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2015/06/23/vancouver-2011-census-data-on-housing/">
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2016/05/02/census-week/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">Vancouver 2011 Census Data on Housing</h1>
+      <h1 class="entry-title">Census Week</h1>
     
     
       <p class="meta">
@@ -97,7 +97,7 @@
   
 
 
-<time datetime="2015-06-23T15:26:23-07:00" pubdate data-updated="true"></time>
+<time datetime="2016-05-02T11:07:07-07:00" pubdate data-updated="true"></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -106,37 +106,68 @@
   </header>
 
 
-<div class="entry-content"><p>Last week my friend Alejandro emailed me some census data. After sitting on it for a couple of days I decided one evening
-to take a look and map the dissemination areas. The dataset contained 125 fields around housing and income. So I started
-plucking some of the fields off the table and mapping them.</p>
-
-<p>It did not take long and colorful maps started showing up. Another evening and lots of map layers later I put the
-<a href="https://mountainmath.ca/census">Vancouver Census Map</a> online
-for people interested to look through the census graphs. The number of layers became a little unwieldly, just pick and
-choose what you are interested in.</p>
-
-<p><a href="https://mountainmath.ca/census/?layer=17"><img src="/images/affordability.jpg" alt="&quot;Affordability&quot;" /></a></p>
-
-<h4>So what exactly does the Census Data show?</h4>
+<div class="entry-content"><p>At CensusMapper we are super excited about Census Week 2016. Data is increasingly getting incorporated into local and
+regional decision making. At CensusMapper we have been working to facilitate this by making this wealth of information
+more accessible to everyone. To celebrate Census Week 2016 we have updated CensusMapper with 2006 census data for easy
+comparisons with the 2011 data. And we have given CensusMapper a face lift by adding a histogram widget that interacts
+with the mapping data. Watch for more exciting updates this week or read on for a sneak peak!</p>
 
 <!-- more -->
 
 
-<p>The data is aggregated at the Dissemination Area level and rounded to protect privacy. That leaves some artefacts, but
-generally gives a very detailed picture of what is going on in different parts of the city. The biggest drawback is the
-age, the data is now 4 to 5 years old. Lots of things happened in the meantime, we will have to wait until 2016 for the
-next Census Canada dataset.</p>
+<h3>2006 Census</h3>
 
-<h4>Where to go from here?</h4>
+<p><a href="http://http://censusmapper.ca/maps/37" target="_blank"><img  src="/images/affordability2011.png"  style="width:50%;float:right;margin-left:10px;"></a>
+<a href="http://http://censusmapper.ca/maps/293" target="_blank"><img  src="/images/affordability2006.png"  style="width:50%;float:left;margin-right:10px;"></a>
+We re-worked the backend to make it easy to add and map older censuses. And of course the 2016 census, once it becomes
+available. At the first step, this allows side-by-side comparisons between different census years through our map-based
+interface. As we explore this further we will add better ways to simultaneously browse two difference censuses, and we
+will add a way to map data from two censuses on one the same map. Apart from some technical challenges that we know how
+to handle, this also presents challenges when directly comparing the long form census to the 2011 NHS, which had different
+collection methods that introduced biases that can be of the same magnitude as the changes one may want to measure.</p>
 
-<p>When I get around to it I might map all of Metro Van Census data. It won&rsquo;t take any time to re-run the import script for
-the larger dataset, but I will need to show higher aggregation level data at lower zoom levels to keep it repsonsive
-for slower machines, just like I did for the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a></p>
+<h3>Widgets</h3>
 
-<p>I should probably also take a look at what other fields are available, the &lsquo;affordability&rsquo; map linked above uses
-individual income for full-time employees instead of combined household income, which differes from how affordability
-is usually calculated. The reason is that the data I had did not have the household income. Not sure if it is available
-at the dissemination area aggregation level, but if it is that one should be used. But I am lazy, so for now that&rsquo;s it.</p>
+<p>At CensusMapper we are all about interaction. We love exploring data visually, and our dynamic zoomable maps make browsing
+census data very easy. But the maps are just scratching the surface. Often it is also usefuly to view a simple graph. That&rsquo;s
+where the graph widgets come in, the first of which is the histogram that dynamically shows a histogram of the data visible
+in the current map view.
+<a href="http://censusmapper.ca/maps/76" target="_blank"><img  src="/images/animated_rent.gif" style="margin:10px;"></a></p>
+
+<p>And of course the widget is fully linked with the map. Hover over a map region, and it will show where the mapped value fits into
+histogram. Pan and zoom and the histogram updates automatically. The other way around, hover over a histogram bin and the
+corresponding regions on the map get highlighted. That makes exploring the data so much easier.</p>
+
+<h3>Make your own maps</h3>
+
+<p>We will roll out basic map making capabilities for everyone later this week. How will this work? Census data is huge, so
+it won&rsquo;t go completely without pain. But we try to make it as easy as possible. Once the new &ldquo;Make a Map&rdquo; option becomes
+available you can browse through the list of census variables and simply select which one you want to map. You will have
+the option to map the value or, if it makes sense, the value as a percentage of a &ldquo;parent&rdquo; variable.</p>
+
+<p>A click of the mouse and you have a new map. Head over to the colour scheme picker and select the colour cutoffs to customize it.
+You can even log in and save the map and write your own map story for the side bar, so that you can share and interactive
+version of your map online. We can&rsquo;t wait getting census data into everyone&rsquo;s hands!</p>
+
+<script>
+function resetImages(){
+    $('img').each(function(img){
+        imgsrc = $(img).attr('src');
+        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
+            $(img).attr('src', '');
+            $(img).attr('src', imgsrc);
+            
+        }
+    });
+    setTimeout(function(){
+        resetImages();
+    },25000);
+}
+setTimeout(function(){
+    resetImages();
+},10000);
+</script>
+
 </div>
 
 
@@ -159,12 +190,12 @@ at the dissemination area aggregation level, but if it is that one should be use
   
 
 
-<time datetime="2015-06-23T15:26:23-07:00" pubdate data-updated="true"></time>
+<time datetime="2016-05-02T11:07:07-07:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/2011-census-data/'>2011 census data</a>, <a class='category' href='/blog/categories/d3/'>d3</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
+    <a class='category' href='/blog/categories/canada/'>canada</a>, <a class='category' href='/blog/categories/census/'>census</a>, <a class='category' href='/blog/categories/censusmapper/'>censusmapper</a>
   
 </span>
 
@@ -173,7 +204,7 @@ at the dissemination area aggregation level, but if it is that one should be use
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2015/06/23/vancouver-2011-census-data-on-housing/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2015/06/23/vancouver-2011-census-data-on-housing/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2016/05/02/census-week/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2016/05/02/census-week/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -186,10 +217,8 @@ at the dissemination area aggregation level, but if it is that one should be use
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/05/31/density-in-vancouver/" title="Previous Post: Tax Density in Vancouver">&laquo; Tax Density in Vancouver</a>
+        <a class="basic-alignment left" href="/blog/2016/04/20/tod-mode-share/" title="Previous Post: TOD Mode Share">&laquo; TOD Mode Share</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/08/25/the-hidden-mortgage/" title="Next Post: The Hidden Mortgage">The Hidden Mortgage &raquo;</a>
       
     </p>
   </footer>
@@ -263,8 +292,8 @@ at the dissemination area aggregation level, but if it is that one should be use
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2015/06/23/vancouver-2011-census-data-on-housing/';
-        var disqus_url = 'http://doodles.mountainmath.ca/blog/2015/06/23/vancouver-2011-census-data-on-housing/';
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2016/05/02/census-week/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2016/05/02/census-week/';
         var disqus_script = 'embed.js';
       
     (function () {
