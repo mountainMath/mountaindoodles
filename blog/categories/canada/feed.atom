@@ -4,7 +4,7 @@
   <title><![CDATA[Category: canada | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/canada/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-05-02T13:30:51-07:00</updated>
+  <updated>2016-05-02T13:45:57-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -55,7 +55,8 @@ corresponding regions on the map get highlighted. That makes exploring the data 
 <p>We will roll out basic map making capabilities for everyone later this week. How will this work? Census data is huge, so
 it won&rsquo;t go completely without pain. But we try to make it as easy as possible. Once the new &ldquo;Make a Map&rdquo; option becomes
 available you can browse through the list of census variables and simply select which one you want to map. You will have
-the option to map the value or, if it makes sense, the value as a percentage of a &ldquo;parent&rdquo; variable.</p>
+the option to map the value or, if it makes sense, the value as a percentage of a &ldquo;parent&rdquo; variable.
+<a href="http://censusmapper.ca" target="_blank"><img  src="http://doodles.mountainmath.ca/images/animated_simple.gif" style="margin:10px;"></a></p>
 
 <p>A click of the mouse and you have a new map. Head over to the colour scheme picker and select the colour cutoffs to customize it.
 You can even log in and save the map and write your own map story for the side bar, so that you can share and interactive
