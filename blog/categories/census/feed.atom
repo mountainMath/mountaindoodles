@@ -4,7 +4,7 @@
   <title><![CDATA[Category: census | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/census/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-05-04T21:17:19-07:00</updated>
+  <updated>2016-05-05T16:43:57-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -31,7 +31,8 @@ for anyone to use, but the sheer volume of available data and complexities of ma
 inaccessible to many.</p>
 
 <p>By opening up basic map making capabilities to everyone we are putting the liberating that data from depth of spreadsheets and
-database servers and opening it up to everyone. One map at a time.</p>
+database servers and opening it up to everyone. One map at a time.  Read on for tips and tricks or head right on over
+to <a href="https://censusmapper.ca" class="btn btn-primary">Censusmapper</a> to make your first CensusMapper map!</p>
 
 <!-- more -->
 
@@ -82,6 +83,8 @@ to create deeply integrated map stories. Rich map stories can provide powerful i
 <p>If you want to share your map with others, make sure you set the map visibility from &ldquo;Private&rdquo; to &ldquo;Published&rdquo;. Otherwise
 others will get an &ldquo;access denied&rdquo; message when they attempt to view the map. Published maps will automatically appear on
 the extended map list, so please take some time and write appropriate descriptions that others can enjoy them.</p>
+
+<p>Head on over to <a href="https://censusmapper.ca" class="btn btn-primary">Censusmapper</a> to get started.</p>
 
 <h3>Advanced Maps</h3>
 
