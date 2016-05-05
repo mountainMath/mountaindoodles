@@ -4,7 +4,7 @@
   <title><![CDATA[Category: censusmapper | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/censusmapper/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-05-02T14:37:18-07:00</updated>
+  <updated>2016-05-04T21:06:38-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,92 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Census Mapping for Everyone]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone/"/>
+    <updated>2016-05-04T11:45:39-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone</id>
+    <content type="html"><![CDATA[<p>At CensusMapper, we have come a long way from first <a href="http://doodles.mountainmath.ca/blog/2015/06/23/vancouver-2011-census-data-on-housing/">dabbling in census data</a> to
+building out a <a href="http://doodles.mountainmath.ca/blog/2015/09/28/census-mapper/">platform to map data Canada wide</a>, adding
+the ability to <a href="http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown/">easily drill down into individual census regions</a>,
+<a href="http://doodles.mountainmath.ca/blog/2015/12/27/canvas-vs-svg/">improving mapping efficiency</a>, adding the ability to
+<a href="http://doodles.mountainmath.ca/blog/2016/04/20/tod-mode-share/">automatically populate custom geographic data with census variables</a>
+and <a href="http://doodles.mountainmath.ca/blog/2016/05/02/census-week/">adding older census data</a>.</p>
+
+<p>We believe all of these are comparatively small steps compared to the opening up of map making capabilities for everyone
+that we are rolling out today. Free to use, free of charge. Statistic Canada <a href="http://www.statcan.gc.ca/eng/reference/licence-eng">opened up census data</a>
+for anyone to use, but the sheer volume of available data and complexities of mapping geographic data has kept this
+inaccessible to many.</p>
+
+<p>By opening up basic map making capabilities to everyone we are putting the liberating that data from depth of spreadsheets and
+database servers and opening it up to everyone. One map at a time.</p>
+
+<!-- more -->
+
+
+<h3>Simple Maps</h3>
+
+<p><img  src="http://doodles.mountainmath.ca/images/make_a_map.png"  style="width:30%;float:right;margin-left:10px;">
+To make your own map, start by choosing &ldquo;Start New 2011 Map&rdquo; from the &ldquo;Make a Map&rdquo; menu. If you are planning on saving
+and sharing your map you should log in or create an account first, but you can play with mapping census data without an account.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/signin.png"  style="width:25%;float:left;margin-right:10px;">
+We tried to make logging in super simple by providing oAuth signup with popular providers, but you can also go the old
+fashioned way and create an account manually by providing username (email) and custom password.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/census_variables_menu.png"  style="width:30%;float:right;margin-left:10px;">
+To start your new map, navigate down to the census variable picker at the bottom of the sidebar. Click the bars
+to expand or collapse them. Once you found a variable you want to map, click
+the &lsquo;globe&rsquo; icon and select how you want to map the variable.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/map_variable.png"  style="width:50%;float:left;margin-right:10px;">
+Depending on what variable you choose you have the option to map simply map the variable, in this case the total number
+of people that are married or living with a common law partner, or map the variable as a percentage of a &ldquo;parent&rdquo; variable,
+so in this case map the percentage of people that are married or living with a common law partner out of all people 15 years
+or over. If in doubt what the variables mean, head over to the
+<a href="https://www12.statcan.gc.ca/census-recensement/2011/ref/dict/98-301-X2011001-eng.pdf">Census Dictionary</a>
+to look up the definitions.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/finished_map_1.png"  style="width:50%;float:right;margin-left:10px;">
+Once you press the button CensusMapper will do it&rsquo;s magic and map the data for you. Zoom pan and use the search bar to expore
+the data across different regions and geographic aggregation levels in Canada. You may want to edit the automatically
+generated map label to make it more concise.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/map_variable.png_2"  style="width:30%;float:left;margin-right:10px;">
+To style your map you can select the &ldquo;Colors&rdquo; option in the orange map editor menu in the sidebar.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/finished_map_3.png"  style="width:50%;float:right;margin-left:10px;">
+There you can style your map by selecting a custom color scheme and fine tune your domain cutoffs.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/map_variable.png_2"  style="width:50%;float:left;margin-right:10px;">
+If you were signed in you could now select the &ldquo;Save Map&rdquo; option from the map editor menu and add a map title and a map
+description. Map descriptions can be styled in <a href="https://daringfireball.net/projects/markdown/">markdown</a>.</p>
+
+<p>Maps can tell many different stories, use the map description to give some background and rational for your
+map. A good map story might link to different views of the map to support the story telling. You can use the &ldquo;Paste link
+to current view into description&rdquo; button to link to different map views. You can also link to different CensusMapper maps
+to create deeply integrated map stories. Rich map stories can provide powerful insights into our communities.</p>
+
+<p>If you want to share your map with others, make sure you set the map visibility from &ldquo;Private&rdquo; to &ldquo;Published&rdquo;. Otherwise
+others will get an &ldquo;access denied&rdquo; message when they attempt to view the map. Published maps will automatically appear on
+the extended map list, so please take some time and write appropriate descriptions that others can enjoy them.</p>
+
+<h3>Advanced Maps</h3>
+
+<p>The ability to quickly map any census variable is quite liberating. At the same time it is also restrictive. Imagine
+all the things that could be mapped if you could combine census variables in other ways. And CensusMapper has that
+capability to dynamically weave a number of census variables into a function to be mapped. But with that comes another
+level of complexity and potential pitfalls that, at the moment, prevents us from opening this up to the general public.</p>
+
+<p>At the same time, we are still trying to figure out the overall funding model at CensusMapper. We believe that we have
+plenty of value in our advanced mapping capabilities, as well as in our ability to
+<a href="http://doodles.mountainmath.ca/blog/2016/04/20/tod-mode-share/">automatically populate custom geographic data with census variables</a>
+and our backend data analysis capabilities to focus on paid products that allows us to open up the Simple Map model
+for everyone for free. At CensusMapper, we love open data. And with time as we refine our funding model we may open up
+more advanced mapping capabilities to put more data into the palm of everyone&rsquo;s hands.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Census Week]]></title>

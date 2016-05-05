@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone/</loc>
+    <lastmod>2016-05-04T11:45:39-07:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://doodles.mountainmath.ca/blog/2016/05/02/census-week/</loc>
     <lastmod>2016-05-02T11:07:07-07:00</lastmod>
     <priority>0.8</priority>
@@ -185,21 +191,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2016-05-02T14:37:18-07:00</lastmod>
+    <lastmod>2016-05-04T21:06:38-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2016-05-02T14:37:18-07:00</lastmod>
+    <lastmod>2016-05-04T21:06:38-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2016-05-02T14:37:18-07:00</lastmod>
+    <lastmod>2016-05-04T21:06:38-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
