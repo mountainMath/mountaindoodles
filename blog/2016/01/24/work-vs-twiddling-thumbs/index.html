@@ -156,6 +156,9 @@ recall that the overall income earned by all Vancouverites in 2010 was $17.8bn a
 City of Vancouver did by &ndash; actually working. And in most cases homeowners don&rsquo;t even have to pay taxes on their thumb-twiddle earnings. Yet another
 indication of how <a href="http://censusmapper.ca/maps/37">out of touch the property market is with the local enconomy</a>.</p>
 
+<p>The numbers are just meant to provide a genreal frame of reference, they are not adjusted for inflation, and costs like
+property taxes and property transfer tax are not taken into account.</p>
+
 <h3>Mapping the Result of Thumb Twiddling</h3>
 
 <p><a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12">There is a map for this</a>.
@@ -176,6 +179,14 @@ typical east of Main and $141,700 for the typical west of Main property (using m
 <p>A good portion of the east-west difference is due to larger lot size, but even the land values increase per m&sup2; for properties
 on the west side was 35% higher than that of properties on the
 east side. These are yearly increases, to be accumulated and collected tax free in most cases when the property is sold.</p>
+
+<h3>Twiddling in 3D</h3>
+
+<p><a href="http://mountainmath.ca/assessment/split_map?zoom=17&lat=49.2362&lng=-123.1365&type=1&use3D=1&year=2015" target="_blank"><img  src="/images/s_vanre.gif" loop="0" style="width:50%;float:left;margin-right:10px;"></a>
+We can get even more fancy and show the effect the thumb-twiddling has on land values by <a href="http://www.mountainmath.ca/assessment/split_map">animating the land and building
+value rise over time</a>. You will need a modern computer to view this.
+If you are interesed there is <a href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/">some background</a>
+on the visualization. I put a little more work into this, the numbers in the animation are inflation adjusted.</p>
 
 <h3>Hourly Rate for Twiddling Thumbs</h3>
 
@@ -221,6 +232,26 @@ Or why earnings from thumb-twiddling should remain tax-free. While employment in
 
 <p>The total number of units for the 2006 to 2016 analysis are a little lower since not all properties can be traced over that time
 period without resorting to more tedious analysis.</p>
+
+<script>
+function resetImages(){
+    $('img').each(function(img){
+        imgsrc = $(img).attr('src');
+        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
+            $(img).attr('src', '');
+            $(img).attr('src', imgsrc);
+            
+        }
+    });
+    setTimeout(function(){
+        resetImages();
+    },25000);
+}
+setTimeout(function(){
+    resetImages();
+},25000);
+</script>
+
 </div>
 
 
