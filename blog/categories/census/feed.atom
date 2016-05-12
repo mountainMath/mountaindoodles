@@ -4,7 +4,7 @@
   <title><![CDATA[Category: census | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/census/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-05-12T14:44:44-07:00</updated>
+  <updated>2016-05-12T14:50:05-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -270,9 +270,12 @@ east side. These are yearly increases, to be accumulated and collected tax free 
 
 <p><a href="http://mountainmath.ca/assessment/split_map?zoom=17&lat=49.2362&lng=-123.1365&type=1&use3D=1&year=2015" target="_blank"><img  src="http://doodles.mountainmath.ca/images/s_vanre.gif" loop="0" style="width:50%;float:left;margin-right:10px;"></a>
 We can get even more fancy and show the effect the thumb-twiddling has on land values by <a href="http://www.mountainmath.ca/assessment/split_map">animating the land and building
-value rise over time</a>. You will need a modern computer to view this.
-If you are interesed there is <a href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/">some background</a>
-on the visualization. I put a little more work into this, the numbers in the animation are inflation adjusted.</p>
+value rise over time</a>. You will need a modern computer to view this.</p>
+
+<p>If you are interested there is <a href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/">more background</a>
+on the visualization. I put a little more work into this, the numbers in the animation are inflation adjusted and it also
+includes duplexes and stratified condo units. There is a slider to filter by number of strata units in each building to
+explore the effects of stratifying a standard lot into several units has on affordability.</p>
 
 <h3>Hourly Rate for Twiddling Thumbs</h3>
 
