@@ -4,7 +4,7 @@
   <title><![CDATA[Category: assessment | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/assessment/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-05-12T12:29:31-07:00</updated>
+  <updated>2016-05-12T13:52:18-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -18,7 +18,7 @@
     <link href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/"/>
     <updated>2016-01-24T10:28:37-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs</id>
-    <content type="html"><![CDATA[<p><a href="http://www.mountainmath.ca/map/assessment?zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/twiddling_thumbs.png" style="width:50%;float:left;margin-right:10px;"></a>In
+    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/map/assessment?zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/twiddling_thumbs.png" style="width:50%;float:left;margin-right:10px;"></a>In
 the ongoing debade on affordability of housing in the City of Vancouver we regularly hear voices expressing concern for
 &ldquo;<a href="http://news.nationalpost.com/full-comment/andrew-coyne-dont-blame-chinese-billionaires-for-vancouver-housing-prices">elderly folks of modest means who had been counting on using their home as a pension</a>&rdquo;
 to argue against doing anything to ease the housing affordability problems many (younger) people are facing. In these
@@ -52,40 +52,38 @@ came from outher sources, mostly investment income but also government transfer 
 <h3>Twiddling Thumbs</h3>
 
 <p>Let&rsquo;s compare this to how much Vancouver home owner households earned last year by twiddling thumbs. Let&rsquo;s do a simple
-calculation and focus on RS (&ldquo;One Family Dwelling&rdquo; zone) homes. We
+calculation and focus on SFH (&ldquo;Single Family&rdquo; or &ldquo;Single Detached&rdquo;) homes. We
 will consider the change in land value only, changing the building value because of renovation or rebuilding certainly
-does not happen by twiddling thumbs. And we will divide the land value rise of each property by the number of owners,
-for RS that evenly divides up the land value increase between strata or duplex households that managed to sneak into the RS zoning.</p>
+does not happen by twiddling thumbs.</p>
 
-<p>The typical RS household made $267,000 last year (so that&rsquo;s the median land value rise in RS between 2015 and 2016
-property tax assessment years, the average was $331,043), for a tity toal of $28,789,790,980. Not too shabby.
+<p>The typical SFH household made $262,000 last year (so that&rsquo;s the median land value rise for SFH homes between 2015 and 2016
+property tax assessment years, the average was $318,877), for a tidy toal of $24,651,312,001. Not too shabby.
 And considering that the typical owner household
 lives in their home, these are tax-free earnings once the owners sell. That&rsquo;s substantially more than what the typical household
-in Vancouver takes home. The total land value increase for just the RS zone properties amounts to $22.2bn out of
+in Vancouver takes home. The total land value increase for just the SFH properties amounts to $24bn out of
 <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">the $45.2bn by which land values in Vancouver increased overall</a>. For context,
 recall that the overall income earned by all Vancouverites in 2010 was $17.8bn after tax (21.3bn before tax).</p>
 
-<p>In other words, just the RS property owners earned more by twiddling their tumbs than the entire population of the
-City of Vancouver did by &ndash; actually working. Yet another
+<p>In other words, just the SFH property owners earned more by twiddling their tumbs than the entire population of the
+City of Vancouver did by &ndash; actually working. And in most cases don&rsquo;t even have to pay taxes on that. Yet another
 indication of how <a href="http://censusmapper.ca/maps/37">out of touch the property market is with the local enconomy</a>.</p>
 
-<h3>Mappig the Result of Thumb Twiddling</h3>
+<h3>Mapping the Result of Thumb Twiddling</h3>
 
-<p><a href="http://www.mountainmath.ca/map/assessment?zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12">There is a map for this</a>. (I probably would not take the time to write about this otherwise.) Last year&rsquo;s assessment
+<p><a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12">There is a map for this</a>.
+(I probably would not take the time to write about this otherwise.) Last year&rsquo;s assessment
 increase was quite large, not every year is like this (although it looks like the coming one will also be substantial).
-To even things out a little I mapped the average yearly gross land value increase for each property. And for good measure I, divided
-by the number of households for strata, duplex and other properties that are tied to several owners. For properties that I
+To even things out a little I mapped the average yearly gross land value increase for each property. For properties that I
 could not trace back all the way to 2006 I averaged over as many years as I could find.</p>
 
-<p><a href="http://www.mountainmath.ca/map/assessment?zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/twiddling_thumbs.png" style="width:50%;float:right;"></a>
-<a href="http://www.mountainmath.ca/map/assessment?zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12">Looking at the map</a> we see that
+<p><a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/sfh_rise.png" style="width:50%;float:right;"></a>
+<a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12">Looking at the map</a> we see that
 the average yearly increase depends to a large extend on the square footage of the property. Large properties naturally stand
 out, unless they are stratified where the land value increase gets distributed across all the owners.</p>
 
-<p>Averaged over 10 years, the yearly land value increase for the typical RS property in Vancouver was $82,700. Using Main as
-a divider the numbers are $66,600 for the
-typical east of Main and $145,100 for the typical west of Main property (using median increases). The average increases were $117,334 city wide,
-$73,294 east and $175,773 west of Main.</p>
+<p>Averaged over 10 years, the yearly land value increase for the typical SFH property in Vancouver was $79,800. Using Main as
+a divider the numbers are $66,700 for the
+typical east of Main and $141,700 for the typical west of Main property (using median increases).</p>
 
 <p>A good portion of the east-west difference is due to larger lot size, but even the land values increase per m&sup2; for properties
 on the west side was 35% higher than that of properties on the
@@ -100,58 +98,20 @@ people in the household work. 63% of Vancouver households have only one househol
 <a href="http://censusmapper.ca/maps/223">33% have two and 4% three or more household maintainers</a> contributing to household income.
 On average a Vancouver household <a href="http://censusmapper.ca/maps/222">worked a total of 62 person-weeks per year</a> to earn
 that income. Assuming a 40 hour work week, we compute the average after-tax earning to be $26 per hour from regular work
-and average after tax earnings of $113 per hour from twiddling thumbs. That&rsquo;s assuming all household maintainers are twiddling
+and average after tax earnings of $126 per hour from twiddling thumbs. That&rsquo;s assuming all household maintainers are twiddling
 the same amount of time that they dedicate to regular work. (In this calculation we use average not median income and land value
 increases, medians don&rsquo;t lend themselves well to these kind of reasoning.)</p>
 
-<p>Using the 10 year averaged numbers instead of focusing on just the last year we still get a healthy average after-tax twiddling thumbs rate of $47 per hour.</p>
+<p>Using the 10 year averaged numbers instead of focusing on just the last year we still get a healthy average after-tax twiddling thumbs rate of $44 per hour.</p>
 
 <p>I am not entirely sure why anyone would want twiddling thumbs to stay so lucrative. Unless maybe the super self-centered thumb-twiddlers.
 Or why earnings from thumb-twiddling should remain tax-free. While employment income is taxed (as it should be).</p>
 
 <p>Considering to change your line work to thumb twiddling? To bad thumb twiddling is so unaffordable!</p>
 
-<h2>Update</h2>
+<h3>Data Dump</h3>
 
-<p><a href="http://www.mountainmath.ca/map/assessment?filter=rs&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/RS_original.png" style="width:50%;float:right;"></a>
-I got some good feedback on the post so I decided to clear some things up and re-run the analysis with some small changes.</p>
-
-<p>Linking a map of all properties when the analysis was only done on RS properties was a little confusing. So I added a map
-<a href="http://www.mountainmath.ca/map/assessment?filter=rs&amp;layer=12">of all RS zoned properties only</a> that the analysis was based on.</p>
-
-<p>Some people correctly pointed out that there are some schools and other large properties that are RS zone but probably
-should not be included in the analysis. So I decided to quickly re-run the analysis where I excluded properties with
-area larger than 10,000m&amp;sup2. The cutoff is somewhat arbitrary, but it seemed about right so that schools and other large
-properties are excluded, but most large single family lots are still included. The filter is not perfect, but probably
-better than running the analysis without the filter. Here is the raw output with the area cutoff:</p>
-
-<h5>Land Value Rise in RS (2015 - 2016)</h5>
-
-<ul>
-<li>City Wide: Average $318,877 Median $267,000, Count: 67269, Total: $21,450,566,401, Hourly: $128</li>
-<li>East of Main: Average $235,871 Median $231,000, Count: 38319, Total: $9,038,373,901, Hourly: $95</li>
-<li>West of Main: Average $428,745 Median $381,000, Count: 28950, Total: $12,412,192,500, Hourly: $172</li>
-</ul>
-
-
-<p>As expected, the area cutoff had almost no effect on the median, but did push the average down a bit.</p>
-
-<p><a href="http://www.mountainmath.ca/map/assessment?filter=rs&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/RS.png" style="width:50%;float:left;margin-right:10px;"></a>
-The map shows the average increases over a 10 year timeframe, here are the numbers with the <a href="http://www.mountainmath.ca/map/assessment?filter=rs&amp;layer=12">larger properties exluded</a>:</p>
-
-<ul>
-<li>City Wide: Average $112,588 Median $82,500, Count: 66556, Total: $7,493,456,449, Hourly: $45</li>
-<li>East of Main: Average $70,109 Median $66,600, Count: 37960, Total: $2,661,346,243, Hourly: $28</li>
-<li>West of Main: Average $168,978 Median $145,100, Count: 28596, Total: $4,832,110,206, Hourly: $68</li>
-</ul>
-
-
-<h2>Update</h2>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/sfh_rise.png" style="width:50%;float:right;"></a>
-After importing the <a href="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/">Metro Vancouver land use data</a> we can
-now pinpoint all Single Familiy Dwellings and don&rsquo;t have to use zoning as a proxy. Here are the numbers when running them
-only on all of City of Vancouver&rsquo;s 78,740 Single Family Dwellings:</p>
+<p>Here is the raw output of the stats run on the single family properties for ayone interested.</p>
 
 <h5>SFH Land Value Rise (2015 - 2016)</h5>
 
@@ -173,8 +133,6 @@ only on all of City of Vancouver&rsquo;s 78,740 Single Family Dwellings:</p>
 
 <p>The total number of units for the 2006 to 2016 analysis are a little lower since not all properties can be traced over that time
 period without resorting to more tedious analysis.</p>
-
-<p>And <a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;layer=12">here is the obligatory map for the properties included in the last analysis</a>.</p>
 ]]></content>
   </entry>
   
