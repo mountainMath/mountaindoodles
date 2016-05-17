@@ -66,7 +66,7 @@
         }
         return query_string;
     } ();
-    var footerHeight=QueryString.fh ? QueryString.fh : 40
+    var footerHeight=QueryString.fh ? QueryString.fh : 40;
 
     var height=window.innerHeight-20;
     var width=window.innerWidth-20;
@@ -94,6 +94,8 @@
             .attr('id','buttons');
 
     var dataURL=(QueryString.dataUrl)? QueryString.dataUrl : 'http://doodles.mountainmath.ca/data/bikeways.geojson';
+    dataURL=dataURL.replace('%3A',':');
+    while (dataURL.match('%2F')) dataURL=dataURL.replace('%2F','/');
 
     d3.json(dataURL, function(error, collection) {
         var bbox = d3.geo.bounds(collection);
