@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>My Global Bike Map - Mountain Doodles</title>
+  <meta name="author" content="MountainMath">
+
+  
+  <meta name="description" content="Mapping OSM bike data.">
+  <meta name="keywords" content="bike, cycling, mapping, OSM, open street maps, infrastructure">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2016/05/16/my-global-bike-map/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/feed.atom" rel="alternate" title="Mountain Doodles" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54516567-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mountain Doodles</a></h1>
+  
+    <h2>spare time data, analysis, visualization</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/feed.atom" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:doodles.mountainmath.ca" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">My Global Bike Map</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-05-16T21:39:07-07:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="/bike_global.html#14/49.2775/-123.1292" target="_blank"><img  src="/images/vancouver_bike.png"  style="width:50%;float:right;margin-left:10px;"></a>
+Last week Mapzen <a href="https://twitter.com/mapzen/status/730782107685912576">announced</a> that they included bike data in their OSM vector tiles. That&rsquo;s just what the doctor ordered
+to continue on my path towards the perfect bike map that I <a href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/">started on</a>,
+<a href="http://doodles.mountainmath.ca/blog/2015/12/14/routing/">explored routing</a> and <a href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/">looked at improving OSM bike data</a>.
+Now that I don&rsquo;t need to extract bike data myself any more it is time to take these maps global. And maybe add some minor
+improvements.</p>
+
+<!-- more -->
+
+
+<p>To make the bike map boils down to deciding what OSM roads, paths, etc to map and how to map them. And what contextual
+information to display.</p>
+
+<p>The only choices we have to make is how to organize the bike related data that exists in open street maps. Let&rsquo;s be a little
+radical! Our emphasis will be on safety and cycling comfort for the casual rider.</p>
+
+<p>We will emphasise separated cycletracks by making them brightest and thickest. Shared pedestrian/bike infrastructure will
+get a separate colour and be a little bit thinner. Next we layer on designated bike infrastructure by prioritizing lanes
+on residential roads, then &ldquo;shared&rdquo; residential roads, then residential roads, then lanes and &ldquo;shared&rdquo; designations on
+increasingly busy roads. Lastly we add residential and larger roads. And we only label roads that we are actually interested in.</p>
+
+<p>We allow some customization by emphasizing or de-emphasizing certain types of infrastructure. By default, roads without
+special bike designation are de-emphasized.</p>
+
+<p>For good measure we added basic land use categories to highlight possible destinations, and we add building footprints
+for reference as available.</p>
+
+<p>This scheme is geared toward the safety conscious and motor-traffic-adverse cyclist in North America. In Europe other
+designations exist that might call for a different priority. MAMILs might want a different colour scheme altogether.</p>
+
+<iframe src="/bike_global.html#14/49.2775/-123.1292" width="80%" height="450" style="margin: 5px 10%;"></iframe>
+
+
+<p>Go for it and fix some problems that you see, either by shift-clicking on the embedded map or by
+<a href="/bike_global.html" target="_blank" class='btn btn-default'>taking the map full-screen first</a>. Remember that some of the issues may be fixed already, the bike map will not reflect
+updates until a week later or so.</p>
+
+<h3>Global</h3>
+
+<p><a href="/bike_global.html#13/52.3617/4.9051" target="_blank"><img  src="/images/amsterdam_bike.png"  style="width:50%;float:left;margin-right:10px;"></a>
+And this bike map is global. The quality of the map depends on the quality of OSM data, in the case of Amsterdam it makes
+it abundantly clear why casual cyclists keep dreaming about the infrastructure in this city.</p>
+
+<p>The choice of emphasis for the
+maps are based on North America, or more narrowly Vancouver, where I live. So this might need adjusting for local context
+to better fit local OSM conventions. Use the search bar and explore your region.</p>
+
+<h3>The Real Deal</h3>
+
+<p><a href="https://ride.report" target="_blank"><img  src="/images/ride_report.png"  style="width:50%;float:right;margin-left:10px;"></a>
+Sadly, all of this effort is really coming at things from the wrong angle. The best way to do this,
+<a href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/">as we outlined earlier</a>, is to base a bike map
+on how cyclists actually use the roads and pathways, instead of how they got classified in Open Street Map or what
+municipalities think they should be classified. The problem is that we don&rsquo;t have that data. At least not yet. But
+there are really cool efforts out there to get that data and make it available.</p>
+
+<p>I really like the approach that <a href="https://ride.report" target="_blank">Ride Report</a> has taken. Strava works
+reasonably well for recreational cyclists, but it does a terrible job at capturing where transportation cyclists go and
+makes no effort in understanding their comfort level. Ride Report takes a different approach by automagically figuring
+out what you are doing and recording your cycling trips. All without you ever having to press a &ldquo;start&rdquo; or &ldquo;stop&rdquo; button,
+which is key if you want to understand where transportation cyclists go. On top of that it prompts you to simply rate your
+bike trip once you are done, and you can do this easily from your lock screen. Then Ride Report aggregates the data
+to produce stress maps, and possibly other important data that can guide infrastructure improvements.</p>
+
+<p>In this day and age of data driven decision making I would really like more municipalities to support efforts like Ride Report
+that generate real meaningful data on transportation cycling. And as a by-product one could take cycling maps to the
+next level and add actual cycling usage and comfort.</p>
+
+<h3>Issues</h3>
+
+<p>There are still some issues. Some bike infrastructure, for example OSM paths, only become visible at zoom level 13 or higher.
+That&rsquo;s just the way the vector tile service works. Secondary roads are only visible at zoom level 12 or higher, and this
+includes &ldquo;bike boulevards&rdquo;. Cyclepaths are only visible at zoom level 11 or higher. If one wants to have high-level bike
+maps one probably needs a dedicated vector tile service for bike infrastructure.</p>
+
+<h3>Apologies</h3>
+
+<p>Since this is just a blog post I have not gone out of my way to make sure this map works on every computer and browser.
+Basically, I am leaveraging off of <a href="https://mapzen.com">Mapzen&rsquo;s</a> awesome <a href="https://mapzen.com/projects/tangram/">Tangram</a>
+mapping engine to keep things simple on my end, but that means the maps will only show on modern computers
+(and modern browsers, so no IE). If your computer is having trouble displaying the map just pull out your phone, chances
+are it it is much better equipped to handle modern web technology.</p>
+
+<p>Also, I made a bunch of choices how to display bike infrastructure. These are just a function of my personal preferences
+and what OSM data has to offer. If you notice issues with the OSM data, you can fix it in OSM and it will show on the map
+once the changes have filtered through to Mapzen&rsquo;s tile service. If you don&rsquo;t like my personal prefernces, just grab the
+html for the map and the scene file and change it at your heart&rsquo;s content. You don&rsquo;t need any special server to host these
+files, I dumped them on my static blog. Even a public dropbox folder can host these maps.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jens von Bergmann</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-05-16T21:39:07-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/mapping/'>mapping</a>, <a class='category' href='/blog/categories/mapzen/'>mapzen</a>, <a class='category' href='/blog/categories/osm/'>osm</a>, <a class='category' href='/blog/categories/webgl/'>webgl</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2016/05/16/my-global-bike-map/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2016/05/16/my-global-bike-map/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/05/04/census-mapping-for-everyone/" title="Previous Post: Census Mapping for Everyone">&laquo; Census Mapping for Everyone</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/05/16/my-global-bike-map/">My Global Bike Map</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/05/04/census-mapping-for-everyone/">Census Mapping for Everyone</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/05/02/census-week/">Census Week</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/20/tod-mode-share/">TOD Mode Share</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/06/tod/">TOD</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/01/on-dirt-and-houses/">On Houses and Dirt</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/28/on-mixed-use/">On Mixed Use</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/27/surrey-traffic-loop-counts/">Surrey Traffic Loop Counts</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/08/unoccupied-dwellings/">Unoccupied Dwellings</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/05/physical-sfh-form-over-time/">Physical SFH Form Over Time</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  
+  <a class="twitter-timeline" href="https://twitter.com/vb_jens" data-widget-id="680989637721063424">Tweets by @vb_jens</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - MountainMath -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'doodlesmountainmathca';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2016/05/16/my-global-bike-map/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2016/05/16/my-global-bike-map/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
