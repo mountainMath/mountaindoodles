@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapzen | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapzen/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-05-17T17:35:21-07:00</updated>
+  <updated>2016-05-17T17:43:12-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -50,7 +50,7 @@ designations exist that might call for a different priority. MAMILs might want a
 
 
 <p>To get a better view you can also
-<a href="http://doodles.mountainmath.ca/bike_global.html" target="_blank" class='btn btn-default'>take the map full-screen first</a>.</p>
+<a href="http://doodles.mountainmath.ca/bike_global.html" target="_blank" class='btn btn-default'>take the map full-screen</a>.</p>
 
 <h3>Data Quality</h3>
 
@@ -113,6 +113,9 @@ and what OSM data has to offer. If you notice issues with the OSM data, you can 
 once the changes have filtered through to Mapzen&rsquo;s tile service. If you don&rsquo;t like my personal prefernces, just grab the
 html for the map and the scene file and change it at your heart&rsquo;s content. You don&rsquo;t need any special server to host these
 files, I dumped them on my static blog. Even a public dropbox folder can host these maps.</p>
+
+<p>So grab the code and customize it at your heart&rsquo;s content. Take full control on how to display bike infrastructure and
+roads, and what amenities to show and how to style them.</p>
 ]]></content>
   </entry>
   
