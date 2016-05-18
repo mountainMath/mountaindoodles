@@ -4,7 +4,7 @@
   <title><![CDATA[Category: webgl | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/webgl/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-05-17T17:20:15-07:00</updated>
+  <updated>2016-05-17T17:26:11-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -29,9 +29,7 @@ improvements.</p>
 
 
 <p>To make the bike map boils down to deciding what OSM roads, paths, etc to map and how to map them. And what contextual
-information to display.</p>
-
-<p>The only choices we have to make is how to organize the bike related data that exists in open street maps. Let&rsquo;s be a little
+information to display. The only choices we have to make is how to organize the bike related data that exists in open street maps. Let&rsquo;s be a little
 radical! Our emphasis will be on safety and cycling comfort for the casual rider.</p>
 
 <p>We will emphasise separated cycletracks by making them brightest and thickest. Shared pedestrian/bike infrastructure will
@@ -51,9 +49,18 @@ designations exist that might call for a different priority. MAMILs might want a
 <iframe src="http://doodles.mountainmath.ca/bike_global.html#14/49.2775/-123.1292" width="80%" height="450" style="margin: 5px 10%;"></iframe>
 
 
-<p>Go for it and fix some problems that you see, either by shift-clicking on the embedded map or by
-<a href="http://doodles.mountainmath.ca/bike_global.html" target="_blank" class='btn btn-default'>taking the map full-screen first</a>. Remember that some of the issues may be fixed already, the bike map will not reflect
-updates until a week later or so.</p>
+<p>To get a better view you can also
+<a href="http://doodles.mountainmath.ca/bike_global.html" target="_blank" class='btn btn-default'>take the map full-screen first</a>.</p>
+
+<h3>Data Quality</h3>
+
+<p>The data for the map comes right out of Open Streets Map. That means that if something is missing or not right you can
+just go and fix it! To make things a little easier when you are on a desktop computer, just &ldquo;shift-click&rdquo; where the problem
+is and it will bring the open street map editor up for that position. You might have to log in first or create a free
+account before you can help improve the bike map.</p>
+
+<p>There is a bit of a lag between changes being made in open street map and them filtering down to the mapzen tiles so that
+they will show up on the map on the map, so don&rsquo;t fret if things aren&rsquo;t up to date immediately.</p>
 
 <h3>Global</h3>
 
