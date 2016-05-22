@@ -9,8 +9,8 @@
   <meta name="author" content="MountainMath">
 
   
-  <meta name="description" content="Last week Mapzen announced that they included bike data in their OSM vector tiles. That&rsquo;s just what the doctor ordered
-to continue on my path &hellip;">
+  <meta name="description" content="Ever since I played with the LIDAR-generated building height data I thought
+that I should use that to map gross floor area (GFA) and floor space &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,65 @@ to continue on my path &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/05/20/density/">FSR</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-05-20T22:51:29-07:00" pubdate data-updated="true"></time>
+        
+         | <a href="/blog/2016/05/20/density/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://mountainmath.ca/map/assessment?layer=16" target="_blank"><img  src="/images/fsr.png" style="width:50%;float:right;margin-left:10px;"></a>
+Ever since I played with the <a href="http://mountainmath.ca/vancouver_lidar/map">LIDAR-generated building height data</a> I thought
+that I should use that to map gross floor area (GFA) and floor space ratio (FSR). Gross floor area is the total floor area
+inside the building envelope. So for a three story building, it is the area of the footprint times three.
+Floor space ratio is the GFA divided by the area of the parcel it sits on. There are several reasons why this may be
+interesting.</p>
+
+<p>GFA is the currency of the developer. Especially once we enter the world of apartment or commercial buildings,
+gross floor area is directly proportional to the amount of money a developer can charge for a property, either when stratified
+and sold or when rented out.</p>
+
+<p>FSR on the other hand is a measure of density, and it is the currency of the zoning code. Height and site coverage are
+also regulated in the zoning code and there is an obvious relationship to FSR. But because GFA is so important to the
+developer, FSR usually receives more attention in public discussions.</p>
+
+<p>Read on or <a href="https://mountainmath.ca/map/assessment?layer=16" target="_blank" class='btn btn-default'>head straight for the map</a> to browse
+Vancouver by FSR.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/05/20/density/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -515,54 +574,6 @@ the report in detail.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2016/03/05/physical-sfh-form-over-time/">Physical SFH Form Over Time</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2016-03-05T22:58:06-08:00" pubdate data-updated="true"></time>
-        
-         | <a href="/blog/2016/03/05/physical-sfh-form-over-time/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I was curious how the physical parameters of Single Family Houses changed over time.</p>
-
-<p>Using the <a href="https://mountainmath.ca/map/assessment">assessment dataset</a> merged with the <a href="https://mountainmath.ca/land_use/map">land use dataset</a>
-allows to fairly accurately pick out single family houses, and also holds the age of most properies. Together with
-the City of Vancouver LIDAR-generated building dataset <a href="https://mountainmath.ca/vancouver_lidar/map">that I have played with before</a>
-we can look at physical building parameters.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2016/03/05/physical-sfh-form-over-time/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -576,6 +587,10 @@ we can look at physical building parameters.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/05/20/density/">FSR</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2016/05/16/my-global-bike-map/">My Global Bike Map</a>
@@ -611,10 +626,6 @@ we can look at physical building parameters.</p>
     
       <li class="post">
         <a href="/blog/2016/03/08/unoccupied-dwellings/">Unoccupied Dwellings</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2016/03/05/physical-sfh-form-over-time/">Physical SFH Form Over Time</a>
       </li>
     
   </ul>

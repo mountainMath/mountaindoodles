@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-05-17T17:43:12-07:00</updated>
+  <updated>2016-05-21T22:14:15-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,106 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[FSR]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/05/20/density/"/>
+    <updated>2016-05-20T22:51:29-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/05/20/density</id>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/assessment?layer=16" target="_blank"><img  src="http://doodles.mountainmath.ca/images/fsr.png" style="width:50%;float:right;margin-left:10px;"></a>
+Ever since I played with the <a href="http://mountainmath.ca/vancouver_lidar/map">LIDAR-generated building height data</a> I thought
+that I should use that to map gross floor area (GFA) and floor space ratio (FSR). Gross floor area is the total floor area
+inside the building envelope. So for a three story building, it is the area of the footprint times three.
+Floor space ratio is the GFA divided by the area of the parcel it sits on. There are several reasons why this may be
+interesting.</p>
+
+<p>GFA is the currency of the developer. Especially once we enter the world of apartment or commercial buildings,
+gross floor area is directly proportional to the amount of money a developer can charge for a property, either when stratified
+and sold or when rented out.</p>
+
+<p>FSR on the other hand is a measure of density, and it is the currency of the zoning code. Height and site coverage are
+also regulated in the zoning code and there is an obvious relationship to FSR. But because GFA is so important to the
+developer, FSR usually receives more attention in public discussions.</p>
+
+<p>Read on or <a href="https://mountainmath.ca/map/assessment?layer=16" target="_blank" class='btn btn-default'>head straight for the map</a> to browse
+Vancouver by FSR.</p>
+
+<!-- more -->
+
+
+<h3>Maximum Allowable FSR and Spot Zoning.</h3>
+
+<p>The maximum allowable FSR is set by the zoning code. Because land is so valuable in Vancouver, most people will try
+to maximize GFA when building a new building, so they typically go right up to the maximum allowable FSR. Previously we have
+<a href="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/">examined the effects of various related metrics like height and site coverage</a>
+for single family homes.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?zoom=15&lat=49.2599&lng=-123.1583&layer=6" target="_blank"><img  src="http://doodles.mountainmath.ca/images/spot-zoning.png" style="width:30%;float:right;margin-left:10px;"></a>
+This is how it works for at least for RS/RT zones. If you are looking to develop a different property, say a mixed use or
+an apartment building or commercial building you will probably be looking to up-zone. That is, you will try to convince
+the city (and the local population) to allow you to build more GFA than zoning would allow. If successful the city will
+create a new zone just for your property and ask for some compensation in form of CACs in return. That process is called
+spot zoning and it can be seen in form of the little &ldquo;Comprehensive Development&rdquo; zones shown in yellow on the map.</p>
+
+<p>In reality the process of up-zoning a property is a lot more complex, arduous and time consuming, which favours larger
+developers with deep pockets that can take the risk and sit out the long process of eventually obtaining higher GFA.</p>
+
+<h3>Mapping Density</h3>
+
+<p><a href="https://censusmapper.ca/maps/302#16/49.2375/-123.1573" target="_blank"><img  src="http://doodles.mountainmath.ca/images/kerrisdale_people.png" style="width:30%;float:left;margin-right:10px;"></a>
+From Census data we know the <a href="https://censusmapper.ca/maps/302">nighttime density</a>, that is where people live and sleep.
+But we don&rsquo;t know where they are
+during the daytime. We also know household density or <a href="https://censusmapper.ca/maps/359">the density of private dwelling units</a>.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?zoom=16&lat=49.238&lng=-123.154&layer=16" target="_blank"><img  src="http://doodles.mountainmath.ca/images/kerrisdale_fsr.png" style="width:30%;float:right;margin-left:10px;"></a>
+FSR is also often seen as such a measure of density, although it only focuses on density on property parcels and neglects
+all the space between parcels, like roads right of ways and parks.</p>
+
+<p>In mostly residential neighbourhoods the two densities correspond quite closely, but in areas with large commercial buildings
+(nighttime) population density can be quite low while FSR is very high as can easily be seen by comparing the two maps.</p>
+
+<p><a href="https://mountainmath.ca/assessment_gl/map">Tax density</a>, that is property taxes collected per area, give another view of
+&ldquo;density&rdquo; in the city that highlights relative property values and emphasises commercial land use that pays five times
+the residential tax rate.</p>
+
+<h3>Next Steps</h3>
+
+<p>There are several directions I want to take this. One is that FSR is available for all properties, this gives me a way
+to for example compare purpose built rental buildings to strata buildings. For example, in my
+<a href="http://mountainmath.ca/assessment/split_map">Buildings and Dirt map</a> I can&rsquo;t integrate purpose
+built rentals because I don&rsquo;t know how many rental units they have. But I can make a similar map based on GFA instead of
+number of units and examine
+how GFA effect land and building values across different land uses. Or just make a straight-up map of total assessed value
+per GFA.</p>
+
+<p>Another interesting application is to use this data to do something along the lines of this
+<a href="http://www.nytimes.com/interactive/2016/05/19/upshot/forty-percent-of-manhattans-buildings-could-not-be-built-today.html?_r=0">excellent analysis the New York Times published</a>
+for Vancouver.</p>
+
+<p>Lastly, having data on building GFA, together with assessment open data, allows for reverse-engineering of the GFA of individual
+strata units. That makes the analysis of condo assessment data more meaningful as we can analyse assessed condo values by
+unit size. One of the reasons why we are only talking about single family homes (or in some cases RS zoned homes) and
+not condos is that it is very easy to compare single family homes. But comparing condos doesn&rsquo;t make much sense unless
+one also has data on the size of each condo. And this has probably focused the public debate too much on single family
+homes when we should be paying a lot more attention to condos. And purpose built rental units.</p>
+
+<h3>Disclaimer</h3>
+
+<p>The FSR was estimated using coarse building data extracted from LIDAR data. Secondary buildings like
+garages or laneway houses are only inconsistently detected and mapped. The data is from 2009, buildings built after that
+are greyed out.</p>
+
+<p>The algorithm to compute FSR
+from this building data is rather crude and only makes rudimentary attempts to adjust for varying floor heights of buildings
+different for land uses and dealing with pitched roofs.</p>
+
+<p>Building data was clipped to property polygons to deal with cases of buildings spanning several legal lots or not properly
+separated.</p>
+
+<p>The FSR computed only roughly resembles the FSR defined in building
+codes, and this map should not be used to as an authoritative source for individual any building FSR.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My Global Bike Map]]></title>
@@ -3296,109 +3396,6 @@ windows machines that are already a couple of years old. So for now we still nee
 <p>And then there are the details that need to get worked out. 3D maps sounds great, but it will take us some time to figure
 out how to best utilize this in thematic maps. But even without utilizing 3D capabilities, the dynamic shaders and increased
 rendering performance are already pushing the boundary of what&rsquo;s possible in web maps.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Bike Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/"/>
-    <updated>2015-12-15T15:16:48-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/12/15/bike-data</id>
-    <content type="html"><![CDATA[<p><a href="http://doodles.mountainmath.ca/bike_map2.html"><img  src="http://doodles.mountainmath.ca/images/bike-routes2.png" style="width:25%;float:right"></a>Maps live and die with the quality
-of the underlying data. So I decided to dive a little deeper down the OSM bike data rabbit hole. Task number one was
-to expand display data for a wider region. My primitive workflow to pull data out of OSM only allows for extracting a quarter
-of a degree at a time. For playing around with all of Vancouver&rsquo;s data I again turned to Mapzen for their
-<a href="https://mapzen.com/data/metro-extracts">metro extracts</a> as a convenient shortcut for OSM data. For the case of Vancouver
-the word &ldquo;metro&rdquo; is a bit of an exaggeration, it just covers the City of Vancouver. But good enough for some more testing.</p>
-
-<h4>More data</h4>
-
-<!-- more -->
-
-
-<p>More data means a a larger variety of <a href="http://wiki.openstreetmap.org/wiki/Key:cycleway">bike infrastructure types</a>.
-At first glance tagging seems to be reasonably accurate, but on closer inspection one quickly spots lots of issues.
-First off, the <a href="https://twitter.com/alexwarrior/status/675820327331479552">edits Alex made earlier</a> are <strike>not
-showing up, that&rsquo;s because the metro extracts are only done weekly. Just a matter of time.</strike> showing up now after
-updating with new OSM data.</p>
-
-<p>And then there are lots of little issues. Off street paths
-don&rsquo;t connect to roads (or anything for that matter), making the useless for routing. Some changes in the bike network
-are tagged differently, take Point Grey Road as an example. Some paths are labeled to be ok for bikes, but bikes aren&rsquo;t
-allowed there. Some tags seem off.</p>
-
-<p>And I don&rsquo;t seem to have captured all relevant bike infrastructure, will have to spend some time one of these days to check
-through all the different taggings in OSM to make sure I pull out all the correct ones.</p>
-
-<p>So to make more sense out of the network I made a new map, added some more categories for optionally fading them out when
-displayed. And on hover I display the tags, just for interest.</p>
-
-<h4>Improving data</h4>
-
-<p>This gets us to task number two. The folks at Mapzen gave me some friendly pointers to allow easy editing of features.
-So I pasted a couple of lines of code in so if you hold down the shift key and
-click on a feature, it will take you automatically to OSM to edit the feature. You may have to sign in the first time
-you do this. If you hold the shift key while clicking anywhere else it also takes you to the OSM editor for that spot,
-in case you want to add something there. It takes a lot of the pain out of editing bike infrastructure, I just fixed a
-whole bunch of things in short time.</p>
-
-<iframe src="http://doodles.mountainmath.ca/bike_map2.html" width="100%" height="550"></iframe>
-
-
-<p>Go for it and fix some problems that you see, either by shift-clicking on the embedded map or by
-<a href="http://doodles.mountainmath.ca/bike_map2.html">taking the map full-screen first</a>. Remember that some of the issues may be fixed already, the bike map will not reflect
-updates until a week later or so.</p>
-
-<h4>Where to go from here?</h4>
-
-<p>It looks like making a decent bike map with OSM data is feasible. The hard work will be to collaboratively do all the
-OSM edits required to get the data into good shape.</p>
-
-<p>One problem is that edits won&rsquo;t show up on the bike map for up to a week, that&rsquo;s the frequency at which the metro extracts
-are updated. And then I have to update the file for displaying the bike data. A minor inconvenience, in theory there
-are ways to seed this up if one wants to be serious about this. But then again, once the OSM bike data is fixed up in a
-given region, it won&rsquo;t need updating very frequently.</p>
-
-<p>I guess I will have to mull this over and decide how deep down this rabbit hole I would like to go. Looking back at my
-<a href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/">rant on what&rsquo;s wrong with most bike maps</a> I am
-asking myself how much the current map has accomplished.</p>
-
-<ol>
-<li>The accuracy of the infrastructure mapped is in the hands of the OSM community. With easy access to the OSM editing
-functionality from the map (desktop only) it&rsquo;s in the hands of the people that know best: cyclists.</li>
-<li>Still coming up blank when it comes to showing comfort level. Will have to think more how to best do this, it might
-have to go into a separate database. Which is doable, but requires work to get it right and is probably a little too
-involved to do it off the side.</li>
-<li>Click and zoom is not an issue, but now I am in the opposite corner where it might be nice sometimes to actually have
-a glossy big paper map. And it&rsquo;s really easy to save the map as an image. Some tinkering should be able to produce a nice
-high-resolution one covering a large area.</li>
-<li>The map already adapts to user preferences quite well, different types of infrastructure will fade out if deselected.</li>
-<li>Not on the original list, but routing should be part of this. Routing works reasonably well to get this off the ground,
-but work is still required to make it work properly with user preferences. This may well require running a custom router,
-again a little more than I bargained for.</li>
-</ol>
-
-
-<p>So is this really worth the trouble to make yet another bike map? I am not sure. It&rsquo;s always easy to through up a quick
-proof of concept, but to do it really well requires quite a bit more work. For now I could just build one focused on
-Vancouver and see how it goes. And it would be great if the comfort level rating could somehow be automated.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/cycletrack.PNG" style="width:50%;float:right">Which brings to another one of pet projects that
-I never took beyond the testing realm. My CycleTrack App that records
-all bike trips in the background (as long as you carry your phone with you). No pressing of &ldquo;start&rdquo; or &ldquo;stop&rdquo; buttons,
-the app notices when you are moving and will take gyroscope and accelerometer readings to figure out if you are cycling,
-running, walking, driving or taking a train. Then it stores your cycling trips and computes aggregate data. It avoids
-using GPS so not to drain your battery too much, on a typical day it will consume about 3% of battery power. The downside
-is that the accuracy and frequency of the location updates is not as high, so things get a little messy. But not too bad.</p>
-
-<p>How does this fit into the bike map project? Simple. If one can collect regular cycling data from normal people
-cycling (not just
-the lycra crowd that presses start cycles in circles and presses stop again and recharges their phone while taking a shower),
-once can infer a lot about comfort levels just by looking at the data. And to collect data from regular &ldquo;citizen cyclist&rdquo;
-one cannot expect them to press &ldquo;start&rdquo; and &ldquo;stop&rdquo; to delineate their bike trips, and one cannot have an app that will
-require them to recharge their phone after every trip.</p>
-
-<p>But then the project gets even bigger&hellip;</p>
 ]]></content>
   </entry>
   
