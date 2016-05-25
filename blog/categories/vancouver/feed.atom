@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-05-25T14:21:25-07:00</updated>
+  <updated>2016-05-25T14:25:49-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -64,7 +64,7 @@ of the many reasons why the &ldquo;missing middle&rdquo; is missing.</p>
 <p><a href="https://censusmapper.ca/maps/302#16/49.2375/-123.1573" target="_blank"><img  src="http://doodles.mountainmath.ca/images/kerrisdale_people.png" style="width:30%;float:left;margin-right:10px;"></a>
 From Census data we know the <a href="https://censusmapper.ca/maps/302">nighttime density</a>, that is where people live and sleep.
 But we don&rsquo;t know where they are
-during the daytime. We also know household density or <a href="https://censusmapper.ca/maps/359">the density of private dwelling units</a>.</p>
+during the daytime.</p>
 
 <p><a href="https://mountainmath.ca/map/assessment?zoom=16&lat=49.238&lng=-123.154&layer=16" target="_blank"><img  src="http://doodles.mountainmath.ca/images/kerrisdale_fsr.png" style="width:30%;float:right;margin-left:10px;"></a>
 FSR is also often seen as such a measure of density, although it only focuses on density on property parcels and neglects
@@ -77,6 +77,10 @@ all the space between parcels, like roads right of ways and parks.</p>
 <a href="https://mountainmath.ca/assessment_gl/map">Tax density</a>, that is property taxes collected per area, give another view of
 &ldquo;density&rdquo; in the city that highlights relative property values and emphasises commercial land use that pays five times
 the residential tax rate.</p>
+
+<p>There are lots of other measures of density that are important for different purposes, for example <a href="http://mountainmath.ca/census3">household density</a>
+(in full 3D, requires modern computer),
+<a href="https://censusmapper.ca/maps/359">the density of private dwelling units</a> or <a href="https://censusmapper.ca/maps/35">toddler density</a>.</p>
 
 <h3>Next Steps</h3>
 
