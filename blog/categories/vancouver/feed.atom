@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-05-21T22:15:06-07:00</updated>
+  <updated>2016-05-25T14:17:13-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,125 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[FSR]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/05/20/density/"/>
+    <updated>2016-05-20T22:51:29-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/05/20/density</id>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/assessment?layer=16" target="_blank"><img  src="http://doodles.mountainmath.ca/images/fsr.png" style="width:50%;float:right;margin-left:10px;"></a>
+Ever since I played with the <a href="http://mountainmath.ca/vancouver_lidar/map">LIDAR-generated building height data</a> I thought
+that I should use that to map gross floor area (GFA) and floor space ratio (FSR). Gross floor area is the total floor area
+inside the building envelope. So for a three storey building, it is the area of the footprint times three.
+Floor space ratio is the GFA divided by the area of the parcel it sits on. There are several reasons why this may be
+interesting.</p>
+
+<p>GFA is the currency of the developer. Especially once we enter the world of apartment or commercial buildings,
+gross floor area is directly proportional to the amount of money a developer can charge for a property, either when stratified
+and sold or when rented out.</p>
+
+<p>FSR on the other hand is a measure of density, and it is the currency of the zoning code. Height and site coverage are
+also regulated in the zoning code and there is an obvious relationship to FSR. But because GFA is so important to the
+developer, FSR usually receives more attention in public discussions.</p>
+
+<p>Read on or <a href="https://mountainmath.ca/map/assessment?layer=16" target="_blank" class='btn btn-default'>head straight for the interactive map</a> to browse
+Vancouver by FSR. Read the disclaimer at the bottom before using any data for purposes other than general reference.</p>
+
+<!-- more -->
+
+
+<h3>Maximum Allowable FSR and Spot Zoning.</h3>
+
+<p>The maximum allowable FSR is set by the zoning code. Because land is so valuable in Vancouver, most people will try
+to maximize GFA when building a new building, so they typically go right up to the maximum allowable FSR. Previously we have
+<a href="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/">examined the effects of various related metrics like height and site coverage</a>
+for single family homes.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?zoom=15&lat=49.2599&lng=-123.1583&layer=6" target="_blank"><img  src="http://doodles.mountainmath.ca/images/spot-zoning.png" style="width:30%;float:right;margin-left:10px;"></a>
+At least this is how it works for RS/RT zones. If you are looking to develop a different property, say a mixed use or
+an apartment building or commercial building you will probably be looking to up-zone. That is, you will try to convince
+the city (and the local population) to allow you to build more GFA than zoning would allow. If successful the city will
+create a new zone just for your property and ask for some compensation in form of CACs (aiming to recoup about 80% of the
+uplift in value the up-zoning creates) in return. That process is called
+spot zoning and it can be seen in form of the little &ldquo;Comprehensive Development&rdquo; zones that are visible as yellow
+sprinkles in the otherwise quite uniform zones on the map.</p>
+
+<p>In reality the process of up-zoning a property is a lot more complex, arduous and time consuming, which favours larger
+developers with deep pockets that can take the risk and sit out the long process of eventually obtaining higher GFA. One
+of the many reasons why the &ldquo;missing middle&rdquo; is missing.</p>
+
+<h3>Mapping Density</h3>
+
+<p><a href="https://censusmapper.ca/maps/302#16/49.2375/-123.1573" target="_blank"><img  src="http://doodles.mountainmath.ca/images/kerrisdale_people.png" style="width:30%;float:left;margin-right:10px;"></a>
+From Census data we know the <a href="https://censusmapper.ca/maps/302">nighttime density</a>, that is where people live and sleep.
+But we don&rsquo;t know where they are
+during the daytime. We also know household density or <a href="https://censusmapper.ca/maps/359">the density of private dwelling units</a>.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?zoom=16&lat=49.238&lng=-123.154&layer=16" target="_blank"><img  src="http://doodles.mountainmath.ca/images/kerrisdale_fsr.png" style="width:30%;float:right;margin-left:10px;"></a>
+FSR is also often seen as such a measure of density, although it only focuses on density on property parcels and neglects
+all the space between parcels, like roads right of ways and parks.</p>
+
+<p>In mostly residential neighbourhoods the two densities correspond quite closely, but in areas with large commercial buildings
+(nighttime) population density can be quite low while FSR is very high as can easily be seen by comparing the two maps.</p>
+
+<p><a href="https://mountainmath.ca/assessment_gl/map?zoom=16&lat=49.2384&lng=-123.1567" target="_blank"><img  src="http://doodles.mountainmath.ca/images/kerrisdale_tax.png" style="width:30%;float:left;margin-right:10px;"></a>
+<a href="https://mountainmath.ca/assessment_gl/map">Tax density</a>, that is property taxes collected per area, give another view of
+&ldquo;density&rdquo; in the city that highlights relative property values and emphasises commercial land use that pays five times
+the residential tax rate.</p>
+
+<h3>Next Steps</h3>
+
+<p>There are several directions I want to take this. Now that FSR is available for all properties, I can
+compare purpose built rental buildings to strata buildings. For example, in my
+<a href="http://mountainmath.ca/assessment/split_map">Buildings and Dirt map</a> I can&rsquo;t integrate purpose
+built rentals because I don&rsquo;t know how many rental units they have. The assessment data from the Vancouver Open Data portal,
+does not have that information, and BC Assessment won&rsquo;t share it (in a hassle-free way). But I can make a similar map based on GFA instead of
+number of units and examine
+how GFA effect land and building values across different land uses. And in many ways GFA may be a better unit for comparisons
+than number of suites.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?zoom=13&lat=49.2488&lng=-123.1211&layer=17&filter=res" target="_blank"><img  src="http://doodles.mountainmath.ca/images/value_per_gfa.png" style="width:30%;float:right;margin-left:10px;"></a>
+Or I can just make a <a href="https://mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2684&amp;lng=-123.1354&amp;layer=17">straight-up map of total assessed value per GFA</a>.
+And maybe add a filter to only show this for <a href="https://mountainmath.ca/map/assessment?zoom=13&amp;lat=49.2488&amp;lng=-123.1211&amp;layer=17&amp;filter=res">residential and mixed use units</a>
+like in the image if that&rsquo;s what we are interested in.</p>
+
+<p>Another interesting application is to use this data to do something along the lines of this
+<a href="http://www.nytimes.com/interactive/2016/05/19/upshot/forty-percent-of-manhattans-buildings-could-not-be-built-today.html?_r=0">excellent analysis the New York Times published</a>
+for Vancouver. FSR, next to building heights and lot coverage that I
+<a href="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/">have already analysed from a different angle</a>,
+is an important metric to detect buildings that could not be rebuilt under regular zoning.</p>
+
+<p>Lastly, having data on building GFA, together with assessment open data, allows for reverse-engineering of the GFA of individual
+strata units. That makes the analysis of condo assessment data more meaningful as we can analyse assessed condo values by
+unit size. One of the reasons why we are only talking about single family homes (or in some cases RS zoned homes) and
+not condos is that it is very easy to compare single family homes. But comparing condos doesn&rsquo;t make much sense unless
+one also has data on the size of each condo. And this has probably focused the public debate too much on single family
+homes when we should be paying a lot more attention to condos. And purpose built rental units.</p>
+
+<h3>Disclaimer</h3>
+
+<p>The FSR was estimated using coarse building data extracted from LIDAR data. The motivation was to use the FSR for aggregate
+analysis and not for getting accurate estimates of individual buildings.</p>
+
+<p>Secondary buildings like garages or laneway houses are only inconsistently detected and mapped. The data is from 2009,
+buildings built after that are greyed out.</p>
+
+<p>The algorithm to compute FSR
+from this building data is rather crude and only makes rudimentary attempts to adjust for varying floor heights of buildings
+different for land uses, overhangs and eyebrows and dealing with pitched roofs or mechanical units.</p>
+
+<p>Building data was clipped to property polygons to deal with cases of buildings spanning several legal lots or not properly
+separated.</p>
+
+<p>The FSR computed only roughly resembles the FSR defined in building codes. In particular our model with grossly
+overestimate the FSR for buildings with overhanging features like
+the Lookout on the Harbour Centre.</p>
+
+<p>Block level aggregates will underestimate FSR in the presence of properties excluded from the FSR calculation.</p>
+
+<p>Do not be use the FSR estimates as an authoritative source for any individual building FSR.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[TOD Mode Share]]></title>
@@ -419,167 +538,6 @@ the residential units for added cash flow. That way, when they take that propert
 next project they can show a large cache flow and get a bigger loan. And the re-development cycle keeps going. And with
 almost everyone re-financing their properties a couple of years ago at roughly the same time, when interest rates hit rock-bottom, everyone is
 now gearing up at the same time to re-develop.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Unoccupied Dwellings]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/03/08/unoccupied-dwellings/"/>
-    <updated>2016-03-08T14:07:47-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/03/08/unoccupied-dwellings</id>
-    <content type="html"><![CDATA[<p>Today the City of Vancouver <a href="http://council.vancouver.ca/20160308/documents/rr1presentation.pdf">released their report</a>
-on unoccupied dwelling units in the city. I watched part of the presentation and read through the report, and from all
-that I can see the methodology used is very solid.</p>
-
-<p>I have seen some confusion and even some incorrect reporting on this, so I thought it would be worthwhile to look into
-the report in detail.</p>
-
-<!-- more -->
-
-
-<h3>The Data</h3>
-
-<p>Smart meter data can be used to determine very accurately which units
-are occupied and which ones are not. In theory at least, in practice this is quite difficult because of the sheer magnitude
-of the data. That&rsquo;s why this is best left to companies who specialize in this kind of analysis, which is exactly what the
-city has done.</p>
-
-<p>The only problem is that not all units have smart meters. I don&rsquo;t know how far BCHydro has come with their rollout, but
-most condo units should have smart meters by now, as do newer single family units. So what to do about the housing that
-does not have smart meters? That&rsquo;s where things get tricky. Some studies I have seen use cutoffs for monthly electricity
-consumption to determine which are unoccupied. The problem is to find the right cutoff. Typically these studies report
-rates computed using several cutoffs to address that uncertainty. The problem is that different cutoffs give very different
-results. For example, <a href="http://www.btaworks.com/wp-content/uploads/2009/12/btaworks_condo_study_report_final2.pdf">this study</a>
-looked at 75kWh and 100kWh as monthly consumption cutoffs and reported 5.5% and 8.5% unoccupancy rate, respectively. I checked my condo unit
-when it was unoccupied for two months one summer, my two fridges pushed me well above the 100kWh threshold. So my unoccupied
-unit would have been counted as occupied in this study.</p>
-
-<p>So how did the new study deal with this problem. We did not hear technical details, but during the presentation it was
-explained that smart meter data was used to &ldquo;train&rdquo; a model to use dumb meter data. That&rsquo;s exactly the right approach. Going
-by the fact that everything was done right I am reasonably comfortable to assume that this part was also done in a way to
-give accurate aggregate numbers.</p>
-
-<p>I am hoping that the technical report will still come out so we can be confident that the details were taken care of
-properly. In particular I would like to know how the model dealt with different housing types, and how the housing type
-was tied to the electricity bill. What ratio of dwellings of each housing type had smart meter data available? And most
-importantly, what are the uncertainty estimates on the numbers presented?</p>
-
-<p>Bottom line on data: Solid.</p>
-
-<h3>Results</h3>
-
-<p>The big takeaway is this one graph:</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/unoccupied-trends.png" style="width:50%;float:left;margin-right:10px;">
-It shows that no matter what timeframe is used to define &ldquo;unoccupied&rdquo;, the rate stayed flat over time. In context of
-the current affordability discussion this means that this is unlikely a driving factor of Vancouver&rsquo;s skyrocketing
-real estate prices. But the absolute numbers are still quite large and there is a lot of untapped potential. While some people
-have argued that supply has not been the main part of the cause of the price hike in Vancouver, it is clear that it must
-be a big part of any solution. Finding effective ways to get this untapped supply online should be a priority, it is easier
-and more efficient than building new housing in NIMBY-zoned Vancouver.</p>
-
-<p>The other takeaway is that unoccupied units are dominated by condos.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/unoccupied-apartment.png" style="width:50%;float:right;margin-left:10px;">
-The graph shows the rate for apartments, which also includes purpose built rentals. As the report points out, if we
-take out the purpose-built rentals, which have vacancy rates well below 1% at any given time and are extremely unlikely
-to stay vacant for two or more months, we arrive at a rate of about 12.5% of condos that are unoccupied in the City of
-Vancouver. As should be expected, that&rsquo;s significantly higher than what the non-smart meter studies picked up.</p>
-
-<h3>Are rates in Vancouver higher than elsewhere?</h3>
-
-<p>That depends exactly on what the question asks. And this is where, in my opinion, the city report fails to give a good
-answer.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/unoccupied-apartment-comparison.png" style="width:50%;float:left;margin-right:10px;">
-The City implied, <a href="http://www.theglobeandmail.com/news/british-columbia/vancouvers-vacant-homes-in-line-with-other-cities-but-condos-most-likely-empty/article29072573/">and newspapers now report</a>
-that Vancouver numbers are &ldquo;in line&rdquo; with other comparable cities. That claim is based on this graphic,
-which is included in the report and stems from a <a href="http://www.urbanfutures.com/foreign-unoccupied/">study by Urban Futures</a>.
-The study shows that the Metro Vancouver&rsquo;s rate of unoccupied <em>apartments</em> is not much different from other Metro regions.</p>
-
-<p>The problem is that this study is read as giving the <em>overall</em> occupancy rates are similar across metro regions, which is not
-the case. This is a fine point and a little technical, let&rsquo;s take a look at the actual rates of unoccupied dwellings in
-the larges metro areas.</p>
-
-<div id="unoccupied_cma" class="land_use" style="width:300px;float:right"></div>
-
-
-<p>We took these numbers from a <a href="http://www.cmhc-schl.gc.ca/odpub/pdf/68323.pdf?lang=en">CMHC report</a> that looked into this
-question and used the same data and methodology as Urban Futures, except they based it on all dwelling units instead of
-just apartments. This difference is quite stunning, and it can be explained by the fact that e.g. Metro Vancouver&rsquo;s
-housing units are to 41% apartments, vs 20% for Metro Calgary. And that various reports showed that the
-rate of unoccupied units is much higher in condos, so we can&rsquo;t substitute comparisons for unoccupied apartments for comparisons
-of unoccupied dwellings overall.</p>
-
-<p>So what do the numbers look like when comparing the City of Vancouver to other cities in the region and across Canada.
-In short, I do not know. Without going into too much details, the number of unoccupied dwelling units is derived by taking the number of
-units that are &ldquo;not occupied by usual residents&rdquo;, which is part of the standard release of the census data, and subtracting
-the &ldquo;unusual residents&rdquo;, that is foreign or temporary residents. So residents that have a permanent address abroad or
-elsewhere in Canada and on Census day occupied in a dwelling unit that is not their primary residents. Think students
-in a dorm room. Or someone in his vacation home. Or someone that works far from home and has a second unit close to work.</p>
-
-<p>And to get the number of foreign or temporary residents requires a custom tabulation, which costs some time and money. But
-overall not that much compared to the scope of the study the city just undertook, so it is not clear why they did not do this
-and settle this question properly.</p>
-
-<h3>Why do I see so many different unoccupancy rates?</h3>
-
-<p>Again, that depends exactly on the question asked. The report offers a variety of different rates, using the definition
-of unoccupied for 2 months, 6 months or 12 months. Each one gives a different rate. Then there is also the definitions
-used by Stats Canada, the building being unoccupied on census day (and the questionnaire was not returned).
-Again resulting in a differnt number. Then we can throw in the &ldquo;unusual residents&rdquo;, getting yet another number. Confused?
-You should be! Difficult questions often don&rsquo;t have an easy answer.</p>
-
-<p>The most important thing is to be consistent when comparing these numbers. Has the problem gotten worse? Use numbers that
-were derived using the same methodology at different times. Is is worse here than elsewhere? Use numbers derived using
-the same methodology across geographies.</p>
-
-<h3>Geographic distribution</h3>
-
-<p><a href="https://censusmapper.ca/maps/104" target="_blank"><img  src="http://doodles.mountainmath.ca/images/unoccupied.png" style="width:50%;float:left;margin-right:10px;"></a>
-In absence of the data on the foreign and temporary residents, we can take a closer look at the publicly released census
-data on &ldquo;dwellings not occupied by usual residents&rdquo;. The percentage of dwellings occupied by foreign or temporary residents
-are quite low, in the 0.4% to 0.2% range for these metro areas we looked at above. They tend to cluster around universities,
-but may also accumulate in some other areas. Keeping that in mind we can <a href="http://censusmapper.ca/maps/104">head over to CensusMapper</a>
-and zoom, pan around and use the search bar to explore the geographic distribution. The city data has shown that there
-was not much change in the number of unoccupied dwellings over time, no matter how the data was sliced. That gives us
-some confidence that the geographic distribution has also been somewhat stable over that time frame.</p>
-
-<p>At CensusMapper we are working on adding previous censuses, so this will be a good test case to see how the 2006 and 2001
-geographic distribution of unoccupied dwellings stacks up. For City of Vancouver the corresponding numbers are 7.5% and
-5.1%, respectively. The 2006 number is nicely in line with Vancouver&rsquo;s 2011 rate of 7.7%. <strike>It is not immediately clear how the significantly
-lower 2001 rate squares with the city report showing a flat trendline, but could well be due to shifting definitions from
-one census to another.</strike> The 2001 Census used slightly different definitions, it requires more
-work to compare these numbers. The devil is in the details.</p>
-
-<h3>Next Steps</h3>
-
-<p>The city study settles an important questions. The rates of unoccupied homes have not gone up. Perceptions often don&rsquo;t
-match facts. And there are lots of little things to poke at of course. What about people having a cleaning person stop
-by every other week? How about homes awaiting renovation or demolition permits? How about AirBnB?</p>
-
-<p>Now all these are valid questions. But before using this to discount the study do some estimates to see how large of an effect
-your porposed hole actually has. How does it compare to the number of units that were found unoccupied and how would it
-change that rate? In all these cases it is quite small. Then ask yourself how likely it is that the problem would be growing.</p>
-
-<p>Then you find that AirBnB probably needs more scrutiny. Best current estimates that I have seen
-<a href="https://twitter.com/karensawa/status/707288630444699650">peg entire units rented fulltime at AirBnB at 1200 in Vancouver</a>.
-Counting those would bring the rates of units taken out of the rental market by being unoccupied for a year or rented out
-full time via AirBnB from 4.8% to 5.3%. Noticeable, but doesn&rsquo;t make that much of a difference. Yet. That number is
-very likely to grow if left unchecked and should probably be taken seriously and regulated properly right now.</p>
-
-<h3>Update</h3>
-
-<p>A <a href="http://vancouver.ca/files/cov/stability-in-vancouver-housing-unit-occupancy-empty-homes-report.pdf">more detailed report</a>
-is now available to give more insight into the methodology. Nothing unexpected there, although the claim that the 12.5%
-rate of unoccupied condos is consistent with earlier claims of 5.5% to 8.5% is hard to follow.</p>
-
-<p>Still waiting for the technical report to get an idea of the error estimates (by housing type). Seeing the graphs for
-the 2-month and 4-month cutoffs by housing type would be nice too, as well as the respective ones using the 15 day
-criterion.</p>
-
-<div><script src="http://doodles.mountainmath.ca/javascripts/unoccupied-graph.js"></script></div>
-
 ]]></content>
   </entry>
   
