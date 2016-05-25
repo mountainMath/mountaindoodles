@@ -4,7 +4,7 @@
   <title><![CDATA[Category: assessment | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/assessment/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-05-25T14:17:13-07:00</updated>
+  <updated>2016-05-25T14:21:25-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -89,7 +89,7 @@ number of units and examine
 how GFA effect land and building values across different land uses. And in many ways GFA may be a better unit for comparisons
 than number of suites.</p>
 
-<p><a href="https://mountainmath.ca/map/assessment?zoom=13&lat=49.2488&lng=-123.1211&layer=17&filter=res" target="_blank"><img  src="http://doodles.mountainmath.ca/images/value_per_gfa.png" style="width:30%;float:right;margin-left:10px;"></a>
+<p><a href="https://mountainmath.ca/map/assessment?zoom=13&lat=49.2488&lng=-123.1211&layer=17&filter=res" target="_blank"><img  src="http://doodles.mountainmath.ca/images/value_per_gfa.png" style="width:50%;float:right;margin-left:10px;"></a>
 Or I can just make a <a href="https://mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2684&amp;lng=-123.1354&amp;layer=17">straight-up map of total assessed value per GFA</a>.
 And maybe add a filter to only show this for <a href="https://mountainmath.ca/map/assessment?zoom=13&amp;lat=49.2488&amp;lng=-123.1211&amp;layer=17&amp;filter=res">residential and mixed use units</a>
 like in the image if that&rsquo;s what we are interested in.</p>
