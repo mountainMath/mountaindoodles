@@ -4,7 +4,7 @@
   <title><![CDATA[Category: zoning | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/zoning/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-06-17T16:30:35-07:00</updated>
+  <updated>2016-06-17T16:44:59-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -67,7 +67,8 @@ than 75,000 households living on these properties once we account for secondary 
 
 <h3>Zoning</h3>
 
-<p>Vancouver is divided up into zones that determine what can (and cannot) be legally built on the land.
+<p><a href="http://vancouver.ca/files/cov/Zoning-Map-Vancouver.pdf" target="_blank"><img  src="http://doodles.mountainmath.ca/images/zoning_van_pdf.png" style="width:50%;float:right;margin-left:10px;"></a>
+Vancouver is divided up into zones that determine what can (and cannot) be legally built on the land.
 If one is primarily concerned with the area of land that where only single detached houses can be built, then zoning is
 the right metric to look at.</p>
 
@@ -76,11 +77,13 @@ to some extent, First Shaughnessy. Each of these has it&rsquo;s own pitfalls. Th
 RS, but one cannot build single family homes in parks. Moreover, while RS does not allow residential land uses other
 than single detached houses, it does allow for other land uses, like parks, schools, assisted living and other institutional
 uses. So RS zoned land area is a poor proxy for the question of where single family houses could be built. At the very
+<a href="https://mountainmath.ca/map/assessment?zoom=13&lat=49.2517&lng=-123.1232&layer=6" target="_blank"><img  src="http://doodles.mountainmath.ca/images/zoning_van.png" style="width:50%;float:left;margin-right:10px;"></a>
 least we should exclude parks from the equation, but probably also schools and other institutional land uses. After all,
 it is delusional to think that even if a school were to close down and the land be sold for development that single
 detached dwelling would be built on that land. Next comes the question if we should only include the lots that single
 family homes could be built on, or also include the surrounding roads. After all, the roads are needed to serve the lots.
-But they also serve the schools and parks, so maybe only a certain portion of the roads should be included? It gets messy.</p>
+But they also serve the schools and parks, so maybe only a certain portion of the roads should be included? It gets messy,
+the second image shows only non-institutional and non-park properties (no roads) coloured by zone, interactive version <a href="http://mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2517&amp;lng=-123.1232&amp;layer=6">here</a>.</p>
 
 <p>At the end of this though process, we are starting to gravitate away from zoning and toward land use.</p>
 
@@ -92,6 +95,10 @@ to this is 33%. I have previously written about the
 single detached homes were not broken out separately, single detached and duplex properties combined take up 34% of
 Vancouver&rsquo;s land. One can play the numbers a little more, maybe only look at single detached properties within RS zoning.
 That puts the number at 28%. Throw in Shaugnessy and it rises to 29%. Recall that this excludes roads right of way.</p>
+
+<p><a href="https://mountainmath.ca/land_use/map?zoom=13&lat=49.2544&lng=-123.1268&mu_filter=[%22VA%22]&lu_filter_n=[]" target="_blank"><img  src="http://doodles.mountainmath.ca/images/land_use_van.png" style="width:50%;float:right;margin-left:10px;"></a>
+Here is an interactive (data-heavy) map that shows the land use for
+<a href="https://mountainmath.ca/land_use/map?zoom=13&amp;lat=49.2544&amp;lng=-123.1268&amp;mu_filter=[%22VA%22]&amp;lu_filter_n=[]">just for the City of Vancouver (plus Musqueam 2)</a>.</p>
 
 <h3>Multi-Unit Housing</h3>
 
