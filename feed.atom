@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-05-25T14:26:12-07:00</updated>
+  <updated>2016-06-17T16:30:35-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,127 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[SDH Zoning and Land Use]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use/"/>
+    <updated>2016-06-17T09:34:37-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use</id>
+    <content type="html"><![CDATA[<p>Recently the question around the amount of space taken up (exclusively) by single detached houses has show up on my
+Twitter feed citing that
+SFH take up <a href="https://twitter.com/WayneFougere/status/743211599821844481">70%</a>,
+<a href="https://twitter.com/MitchellReardon/status/739957295564476416">66%</a>,
+and <a href="https://twitter.com/karensawa/status/743235428011020288">57%</a>,
+<a href="http://www.cknw.com/2016/06/02/the-lynda-steele-show-bob-rennie-on-supply-and-demand/">56% (timestamp 3:50)</a>.
+I personally have thrown in
+<a href="https://twitter.com/vb_jens/status/738608945741238272">34%</a> as a contender. And, just for the fun of it, by the end of
+this post I will have thrown 33% and 28% and my favorite, 81%, into the mix.</p>
+
+<p>What&rsquo;s going on, how can there be such a large range of estimates for what seems to be a simple question? The answer
+lies in the details of what exactly the question is asking, all of the above numbers are correct answers to one particular
+version of very similar questions.</p>
+
+<h3>TL;DR</h3>
+
+<p>The takeaway I think is most useful for general purposes:</p>
+
+<pre><code>35% of all households live on single family and duplex properties making up 81% of Vancouver's residential land,
+while the remaining 75% of households live on 19% of the residential land. 
+</code></pre>
+
+<!-- more -->
+
+
+<p>There are two fundamental ways to attack the question. One is through zoning, that is to look at area where only SDH can
+be built. The other is through land use, that is looking at what area is currently occupied by SDH lots.</p>
+
+<h3>Single Detached Houses</h3>
+
+<p>First we need to understand what we mean by single detached house. There are two common, but quite different definitions
+out there. One stems from the zoning code and refers to a property that is not stratified and has a single main structure
+on it, possibly with one suite, and possibly a laneway house. This is the definition most commonly used. When someone says
+they own a single family house, this is what they are talking about. Let&rsquo;s call them <em>single detached properties</em>.
+There are around 75,000 of these in the City of Vancouver.</p>
+
+<p>Stats Canada employs a different definition. To them a <em>single detached dwelling</em> is single dwelling unit comprised of a
+free-standing (detached) structure. A <em>single detached property</em> may contain exactly one dwelling unit, in which case
+Stats Canada would also call it a <em>single detached dwelling</em>. If the house has a secondary suite, Stats Canda would
+classify it as a <em>duplex</em>. If it has a laneway house, Stats Canada would classify the laneway house as a separate
+<em>single detached dwelling</em>. Stats Canada reports 47,530 <em>single detached dwellings</em> in the City of Vancouver.</p>
+
+<p>Because of this discrepancy, sometimes it is useful to look as single family houses and duplexes combined. Especially
+if one wants to mix in census data to for example look at the number of households that live in these dwellings. While
+there are about 75,000 <em>single detached properties</em> in Vancouver, it is fair to assume that there are significantly more
+than 75,000 households living on these properties once we account for secondary suites and laneway houses.</p>
+
+<h3>Zoning</h3>
+
+<p>Vancouver is divided up into zones that determine what can (and cannot) be legally built on the land.
+If one is primarily concerned with the area of land that where only single detached houses can be built, then zoning is
+the right metric to look at.</p>
+
+<p>There are two zones that essentially only allow single family houses as residential properties, the RS zones and,
+to some extent, First Shaughnessy. Each of these has it&rsquo;s own pitfalls. The first issue is that parks are generally zoned
+RS, but one cannot build single family homes in parks. Moreover, while RS does not allow residential land uses other
+than single detached houses, it does allow for other land uses, like parks, schools, assisted living and other institutional
+uses. So RS zoned land area is a poor proxy for the question of where single family houses could be built. At the very
+least we should exclude parks from the equation, but probably also schools and other institutional land uses. After all,
+it is delusional to think that even if a school were to close down and the land be sold for development that single
+detached dwelling would be built on that land. Next comes the question if we should only include the lots that single
+family homes could be built on, or also include the surrounding roads. After all, the roads are needed to serve the lots.
+But they also serve the schools and parks, so maybe only a certain portion of the roads should be included? It gets messy.</p>
+
+<p>At the end of this though process, we are starting to gravitate away from zoning and toward land use.</p>
+
+<h3>Land Use</h3>
+
+<p>We can simplify the discussion by asking how much space currently is taken up by single family properties. The answer
+to this is 33%. I have previously written about the
+<a href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/">land use breakdown</a> for Metro Vancouver municipalities, but
+single detached homes were not broken out separately, single detached and duplex properties combined take up 34% of
+Vancouver&rsquo;s land. One can play the numbers a little more, maybe only look at single detached properties within RS zoning.
+That puts the number at 28%. Throw in Shaugnessy and it rises to 29%. Recall that this excludes roads right of way.</p>
+
+<h3>Multi-Unit Housing</h3>
+
+<p>One can ask the same question about other housing types, and we can read off the numbers from the
+<a href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/">land use breakdown</a>. 3.2% of land is taken up with low rise
+apartments, 1.9% with townhouses, 1.2% with high rise, 0.3% by non-market housing, 0.9% by mixed use low rise and 0.7%
+by mixed use high rise. Adding all of this up we get that 8.2% of land is taken up by housing that is not single detached
+or duplex. And it also includes some commercial space in the mixed use developments.</p>
+
+<p>That means that overall in Vancouver 42.2% of the land is used for residential purposes, 81% of which is occupied by
+single detached and duplex properties and the remaining 9% is occupied by all other building forms.</p>
+
+<h3>Share of Households in Different Land Uses</h3>
+
+<p>We may be interested in the population density these differnt land use patterns entail. That&rsquo;s where things get a little
+tricky, we will turn to the census for answers. From the standard census releases we can only discern the share of
+dwellings that are single detached and duplex properties combined, and that number is 93,370 dwelling units. Overall
+there are 264,575 dwelling units, so single family and duplex units make up 35% of all dwelling units in CoV. Glossing
+over the issue that some of these may not be occupied we conclude that 35% of all households live on single family and
+duplex properties making up 81% of Vancouver&rsquo;s residential land,
+while the remaining 75% of households live on 19% of the residential land.</p>
+
+<h3>Fine Print</h3>
+
+<p>There are a number of issues with the data that might change the numbers slightly, but not by much. The first is that
+the land use dataset I use lump the City of Vancouver together with Musqueam 2. That slightly changes the land use mix
+and areas reported, but the effect on all numbers mentioned here is very small. Next up is the number of dwelling units
+on single detached or duplex properties. The census number is likely to under report some secondary suites (although it
+captures more than BCAssessment does), and properties with more than one secondary suite (so some illegal suites) will
+show up as an apartment building in census data. Moreover, the census data is from 2011, the land use data we used is
+about a year old, and we have manually adjusted for some recent upzoning. So there is some give or take in the numbers,
+I would not expect more than a one percent move in the numbers I reported as a result.</p>
+
+<h3>Further Questions</h3>
+
+<p>This does not answer the question what percentage of the population lives on single family or duplex properties. To
+estimate that one would have to first estimate the number of people per houshold for the different land uses, as we
+expect them to differ significantly. One can start exploring how the number of people per dwelling unit varies
+<a href="https://censusmapper.ca/maps/391">on CensusMapper</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[FSR]]></title>
@@ -1973,7 +2094,7 @@ stacked_bar_graph(d3.select("#graph_percentage_affordable_strata_by_age"),true,y
     <link href="http://doodles.mountainmath.ca/blog/2016/02/01/loss-of-character/"/>
     <updated>2016-02-01T11:16:28-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2016/02/01/loss-of-character</id>
-    <content type="html"><![CDATA[<p>At the heart of the Vancouver affordabiliy crisis is a phrase that comes up again and again. <em>Loss of Character</em>. To effectively
+    <content type="html"><![CDATA[<p>At the heart of the Vancouver affordability crisis is a phrase that comes up again and again. <em>Loss of Character</em>. To effectively
 move forward I think it is important to look closely what it means and how it is used.</p>
 
 <p>And what the data can tell us about <em>loss of character</em>.</p>
@@ -2007,7 +2128,7 @@ understand how this renewal process works.</p>
 
 <p>We divided the building stock for each age into two groups, one with building value less than 5% of the total property
 value, and one with building value greater than 5%. The significance of that number is that historically over the last
-10 years, buildings with this precentage below 5% <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">had a 1 in 6 change of being torn down and rebuilt</a>
+10 years, buildings with this percentage below 5% <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">had a 1 in 6 change of being torn down and rebuilt</a>
 over a 10 year time frame, with sharply dropping frequency of tear downs of buildings above that threshold. Check the link
 for a more detailed analysis.</p>
 
@@ -2182,7 +2303,7 @@ in that it would have minimal direct impact
 on the market (so it in itself won&rsquo;t bring prices down in a meaningful way), but it would generate substantial amounts of revenue
 that could be used to provide relief. And the revenue is large enough that, if spent strategically (for example on building
 affordable rental), could have a meaningful impact on the overall property market. And restore fairness in a market where
-initial captial barriers are so high only the rich can participate.</p>
+initial capital barriers are so high only the rich can participate.</p>
 
 <p>Next, with the property market driven by wealth (especially for single family houses), while the way we finance
 public services is based on income, we need to ask the question if our current taxation system is still adequate. A capital
@@ -2201,7 +2322,7 @@ can provide a convenient excuse for inaction.</p>
 Much can be learned from the data at hand. A good list of data sources and reproducible findings would be a great way
 to establish a baseline, build better arguments and keep the discussion focused on the &ldquo;big fish&rdquo;.</p>
 
-<p>Maybe a dedicated github repro could provide a suitable format for this.</p>
+<p>Maybe a dedicated GitHub repo could provide a suitable format for this.</p>
 
 <script>
 
@@ -3308,117 +3429,6 @@ var ready_for_graph = function() {
 ready_for_graph();
 </script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Canvas vs SVG]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/12/27/canvas-vs-svg/"/>
-    <updated>2015-12-27T15:53:02-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/12/27/canvas-vs-svg</id>
-    <content type="html"><![CDATA[<h4>CensusMapper Behind the Scenes</h4>
-
-<p>The idea behind <a href="https://censusmapper.ca">CensusMapper</a> is that it takes away all the technical barriers to dealing with census data. So how does
-CensusMapper work behind the scenes?</p>
-
-<h4>CensusMapper Data Workflow</h4>
-
-<!-- more -->
-
-
-<p>The general setup is quite simple. We use the lean javascript open mapping platform <a href="http://leafletjs.com">leaflet</a>
-as the base for mapping information. Leaflet handles the logic of dealing with zoom and pan and keeping track of the
-geographic boundaries that should be mapped. That information gets then passed on to the CensusMapper servers.</p>
-
-<p>CensusMapper will then send the appropriate census geographic polygons to the browser for leaflet to display. Once the
-geographic data is available for mapping, some custom code checks what kind of information the user wants to display and
-requests the census data required to make the map. The census information is then assembled on the server, sent down
-and attached to the polygons and drawn
-on the browser window within leaflet. This two-tier process allows the highly dynamic mapping in CensusMapper where the
-data-heavy geographic polygons are kept separately thus can be cached and re-used.</p>
-
-<h4>Drawing Census Data</h4>
-
-<p>There are a number of ways how we can display census data in the browser. At CensusMapper we have played with three
-different technologies to map data that vary in performance and browser support. They all have in common that they
-won&rsquo;t run on Internet Explorer 8 or earlier, but we have just about reached the point in time where it is acceptable to
-ignore IE8- in products meant for the &ldquo;general internet audience&rdquo;.</p>
-
-<h5>SVG</h5>
-
-<p><a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a> is what our maps have been using so far. SVGs are fairly high level, which means it&rsquo;s very little work
-to implement and map information. One simply passes a polygon to the browser, tells it how to color it, and the browser
-takes care of the rest. SVG elements can easily be styled via CSS, so there is essentially no work involved to deal with
-highlight on hover, scaling for retina displays, patterns for census data quality flags, etc. We use
-<a href="https://github.com/mbostock/d3">d3.js</a> to attach the geographic and census data right to the SVG elements for easy
-manipulation.</p>
-
-<p>While mapping data this way is very easy, for CensusMapper there are two problems.</p>
-
-<ol>
-<li>We are restricted in how we can display information by the capabilities of SVG.</li>
-<li>SVG rendering is done by the browser, and not all browsers are equal. Most importantly, SVG rendering in Internet
-Explorer is excruciatingly slow. So slow, that CensusMapper becomes essentially useless within Internet Explorer. We
-felt compelled to add a warning messeage that displayed when people opened CensusMapper with Internet Explorer. And
-when you do that, that&rsquo;s a sure sign that your app has a serious problem.
-<img src="http://doodles.mountainmath.ca/images/chrome.png" alt="Browser Warning" />
-So how to get around those issues? Enter Canvas.</li>
-</ol>
-
-
-<h5>Canvas</h5>
-
-<p><a href="https://en.wikipedia.org/wiki/Canvas_element">Canvas</a> offers a way to draw images in a browser. Unlike SVG, the drawing has to be done &ldquo;by hand&rdquo;. And the result is just
-an image, with no clear way to tell where it came from. There is no way to attach any information to individual
-structures drawn on a canvas. All the logic for highlight on hover, figuring out what data is associated with the mouse
-position, dealing with retina displays, etc. needs to be added by hand.</p>
-
-<p>On the upside, a good canvas implementation is a lot faster than SVG. And it opens the door to changes in how the data
-is handled that bring additional performance improvements. In particular, we can now chop up census polygons and render
-the pieces separately, greatly cutting down on the size of the downloaded data, as well as the complexity of the
-polygons that get rendered. And the performance improvements are noticeable across all browsers and platforms.</p>
-
-<p>At the end of the day it is actually not that much work and we flipped the switch on this just before the Christmas
-break. CensusMapper is now running using canvas instead SVG for
-the main maps. We
-kept the look and feel the same, so unless you dig into the code you won&rsquo;t notice the difference.
-Some parts of CensusMapper still utilized SVGs, like the d3-based
-<a href="http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown/">Census Wheel</a>.</p>
-
-<h5>WebGL</h5>
-
-<p><a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> also draws on a canvas element, but the work is offloaded onto the GPU (graphics processor) giving enormous
-speed improvements. Regular canvas rendering is fast enough for our purposes, but with WebGL we can do more complex
-renderings that previously we could not even dream of: <a href="https://en.wikipedia.org/wiki/OpenGL_Shading_Language">Shaders</a>
-and Interactive 3D data maps. We had previously
-<a href="https://mountainmath.ca/census3">toyed with 3D data visualization</a> to explore Vancouver&rsquo;s household density in 3D using Three.js,
-but did not pursue this further because of the complexities of writing code for navigating a Canada-wide map. Then we came
-across the super-customizable 3D open mapping platform built by <a href="https://mapzen.com/projects/tangram/">Mapzen</a>, and that
-suddenly made it extremely easy to do interactive 3D data mapping live in the browser. A quick test
-<a href="https://mountainmath.ca/vancouver_lidar/map">using Vancouver&rsquo;s open LIDAR generated building height data</a> showed how easy Mapzen&rsquo;s
-tangram engine is to use.</p>
-
-<p>After digging deeper into tangram, and with help from the friendly people at Mapzen, we figured out a way to fit
-CensusMapper&rsquo;s two-stage data workflow into tangram&rsquo;s mapping engine. The result are real-time 3D maps where height
-and color of each geographic area can be independently (and dynamically) controlled. Here is an example where mouseover
-trigged the area west of Coal Harbor to &lsquo;pop up&rsquo;.
-<img src="http://doodles.mountainmath.ca/images/webGL.jpg" alt="webGL" /></p>
-
-<p>At the same time we gain the ability to easily pull in all kinds of other data and map it. On our canvas or svg maps we
-added regular image tiles, either a road and label&rsquo;s overlay or a base map (which then requires opacity to be added to
-the census data that is mapped on top of that) as orientation aid. Short of baking our own image tiles we have very
-little control over the look and feel of this. With Mapzen&rsquo;s tangram we can very easily pick and style individual
-geographic objects from Mapzen&rsquo;s OSM vector tile server, resulting in crisp and clear maps. In the above example we
-decide dynamically what level of roads to render, how to style them, what labels to display and we also added bodies of
-water, where we filter by size depending on the zoom level.</p>
-
-<p>At this stage it is still an ongoing project to get this production-ready. One obvious obstacle is that WebGL browser
-support is still lagging. And on top of that it also requires updated graphics card drivers, which is a big problem on
-windows machines that are already a couple of years old. So for now we still need to have a plain canvas or svg fallback.</p>
-
-<p>And then there are the details that need to get worked out. 3D maps sounds great, but it will take us some time to figure
-out how to best utilize this in thematic maps. But even without utilizing 3D capabilities, the dynamic shaders and increased
-rendering performance are already pushing the boundary of what&rsquo;s possible in web maps.</p>
 ]]></content>
   </entry>
   
