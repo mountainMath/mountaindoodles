@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-06-17T17:25:27-07:00</updated>
+  <updated>2016-06-17T17:59:53-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -84,7 +84,12 @@ it is delusional to think that even if a school were to close down and the land 
 detached dwelling would be built on that land. Next comes the question if we should only include the lots that single
 family homes could be built on, or also include the surrounding roads. After all, the roads are needed to serve the lots.
 But they also serve the schools and parks, so maybe only a certain portion of the roads should be included? It gets messy,
-the second image shows only non-institutional and non-park properties (no roads) coloured by zone, interactive version <a href="http://mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2517&amp;lng=-123.1232&amp;layer=6">here</a>.</p>
+the second image shows only non-institutional and non-park properties (no roads) coloured by zone, interactive version
+<a href="http://mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2517&amp;lng=-123.1232&amp;layer=6">here</a>.</p>
+
+<p>The numbers between 70% and 56% mentioned up top are (probably) derived using some version of zoned area, possibly excluding
+parks or schools for some, but including roads within RS zoning. It is easy to underestimate
+the space roads take up in the City of Vancouver, overall roads right of ways make up 28% of City of Vancouver land.</p>
 
 <p>At the end of this though process, we are starting to gravitate away from zoning and toward land use.</p>
 
