@@ -4,7 +4,7 @@
   <title><![CDATA[Category: land use | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/land-use/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-06-17T17:59:53-07:00</updated>
+  <updated>2016-06-17T19:19:08-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -38,7 +38,7 @@ version of very similar questions.</p>
 
 <pre><code>35% of all households live on single family and duplex properties
 making up 81% of Vancouver's residential land, while the     
-remaining 75% of households live on 19% of the residential land. 
+remaining 65% of households live on 19% of the residential land. 
 </code></pre>
 
 <!-- more -->
@@ -119,7 +119,7 @@ single detached and duplex properties and the remaining 9% is occupied by all ot
 
 <h3>Share of Households in Different Land Uses</h3>
 
-<p>We may be interested in the population density these differnt land use patterns entail. That&rsquo;s where things get a little
+<p>We may be interested in the population density these different land use patterns entail. That&rsquo;s where things get a little
 tricky, we will turn to the census for answers. From the standard census releases we can only discern the share of
 dwellings that are single detached and duplex properties combined, and that number is 93,370 dwelling units. Overall
 there are 264,575 dwelling units, so single family and duplex units make up 35% of all dwelling units in CoV. Glossing
