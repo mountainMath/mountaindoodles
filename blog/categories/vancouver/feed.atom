@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-07-08T13:53:54-07:00</updated>
+  <updated>2016-07-08T13:55:21-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -105,7 +105,8 @@ geographies and Dwelling Characteristic data from CensusMapper and mash it up wi
 to explore the <a href="http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use/">differences in how single family properties are classified</a>.</p>
 
 <p><a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=0" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh_unit_count.png" style="width:50%;float:right;margin-left:10px;"></a>
-For example we can compare BCAssessment single family lot count to Stats Canada unit count in the dissemination areas
+For example we can <a href="https://mountainmath.ca/census_mix/map?mapBase=2&amp;layer=0">compare BCAssessment single family lot count to Stats Canada unit count</a>
+in the dissemination areas
 that are exclusively made up of single family lots. This gives an indication of how many suites and laneway houses there
 are in those areas. The census is prone to under count units, but generally does a better job than others counting them.</p>
 
