@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-07-08T13:46:17-07:00</updated>
+  <updated>2016-07-08T13:49:28-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -59,7 +59,7 @@ but we have automated this at CensusMapper.</p>
 To showcase how this works we turn to elementary school catchments in the City of Vancouver. The
 <a href="http://data.vancouver.ca/datacatalogue/publicPlaces.htm">Vancouver Open Data Catalogue</a> for the catchment areas. The
 areas are quite out of date, but that suits us well since we will compare it to 2011 census data. We will look at the
-school aged population in each catchment.</p>
+<a href="https://censusmapper.ca/maps/419">school aged population</a> in each catchment.</p>
 
 <p>The general census release data does not fit our task perfectly, the census splits by age in early May 2011 and not by
 year born and it does not have fine enough age brackets to estimating accurate school catchment numbers.
