@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-07-08T13:49:28-07:00</updated>
+  <updated>2016-07-08T13:50:43-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -65,7 +65,7 @@ areas are quite out of date, but that suits us well since we will compare it to 
 year born and it does not have fine enough age brackets to estimating accurate school catchment numbers.
 <a href="http://www.bcstats.gov.bc.ca/StatisticsBySubject/Demography/PopulationEstimates.aspx">BC Stats</a> has finer age brackets
 computed to school district (not catchment) boundaries, but their estimates are ridiculously far off of census numbers
-when using matching age brackets and years that this is sure to give useless results.</p>
+when using matching age brackets and years that their usefulness is highly questionable.</p>
 
 <p>Using the visual overlay we notice that the catchment areas do fit boundaries of Dissemination Areas shown on the map
 reasonably well, with some exceptions. The same cannot be said for Census Tracts, and since we are using only census
@@ -105,7 +105,7 @@ to explore the <a href="http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zonin
 <p><a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=0" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh_unit_count.png" style="width:50%;float:right;margin-left:10px;"></a>
 For example we can compare BCAssessment single family lot count to Stats Canada unit count in the dissemination areas
 that are exclusively made up of single family lots. This gives an indication of how many suites and laneway houses there
-are in those areas. The census is prone to undercount units, but generally does a better job than others counting them.</p>
+are in those areas. The census is prone to under count units, but generally does a better job than others counting them.</p>
 
 <p><a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=5" target="_blank"><img  src="http://doodles.mountainmath.ca/images/illegal_units.png" style="width:50%;float:left;margin-right:10px;"></a>
 One of the reasons why census unit counts come up higher than other methods is that the census also counts illegal units,
