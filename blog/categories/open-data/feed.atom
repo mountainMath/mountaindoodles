@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-06-17T22:25:27-07:00</updated>
+  <updated>2016-07-08T13:46:17-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,113 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mixing Data]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data/"/>
+    <updated>2016-07-06T09:19:04-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data</id>
+    <content type="html"><![CDATA[<p>Census data is very rich and with <a href="https://censusmapper.ca">CensusMapper</a> we now have about 1 billion fields right at
+our fingertips. And we managed to open up some of our interfaces for everyone to <a href="http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone/">explore data and make their own maps
+and freely share them</a>.</p>
+
+<p>Things really get interesting when one mixes custom data with census data. While, at this point, these are not part of
+the freely available CensusMapper functionality we still wanted to share what can be done.</p>
+
+<p>At CensusMapper we have developed three basic ways to rapidly mix custom data with census data. So this is really three
+blog posts in one.</p>
+
+<!-- more -->
+
+
+<h3>Overlay Mapping</h3>
+
+<p>First up, advanced users can upload custom datasets and map them on top of census data.
+<a href="http://doodles.mountainmath.ca/images/restaurants_2.png"><img  src="http://doodles.mountainmath.ca/images/restaurants_2.png" style="width:50%;float:right;margin-left:10px;"></a>
+For example, we took the
+<a href="http://data.vancouver.ca/datacatalogue/businessLicence.htm">business license dataset</a> from the City of Vancouver open
+data catalogue, filtered it by the <em>BusinessType</em> field to only include anything starting with &ldquo;Restaurant&rdquo; or
+&ldquo;Liquor Establishment&rdquo; and uploaded them to CensusMapper to map it on top of census data. In this case we used a map
+for <em>median age</em> that was <a href="https://twitter.com/jofu_/status/750564269796823041">recently created using the public interface</a>
+(have you made <a href="https://censusmapper.ca/maps/new">your own CensusMapper map</a> yet?),
+and we faded out areas outside of Vancouver and colored <em>Liquor Establishments</em> in red and <em>Restaurants</em> in blue.</p>
+
+<p>Giving a visual impression of your own dataset in relation to census data is the first step to location analysis.</p>
+
+<h3>Populate Custom Data with Census Data</h3>
+
+<p>Next
+up is to populate your own dataset with census data for further analysis. For the restaurants, we may be interested in
+attaching population in 5 minute walking distance to each location. Or maybe specific age brackets, recent immigrants
+from specific countries we may want to target with a restaurant, or income data.</p>
+
+<p>This can be a time consuming and painful process,
+but we have automated this at CensusMapper.</p>
+
+<p><a href="http://doodles.mountainmath.ca/images/e-schools.png"><img  src="http://doodles.mountainmath.ca/images/e-schools.png" style="width:50%;float:left;margin-right:10px;"></a>
+To showcase how this works we turn to elementary school catchments in the City of Vancouver. The
+<a href="http://data.vancouver.ca/datacatalogue/publicPlaces.htm">Vancouver Open Data Catalogue</a> for the catchment areas. The
+areas are quite out of date, but that suits us well since we will compare it to 2011 census data. We will look at the
+school aged population in each catchment.</p>
+
+<p>The general census release data does not fit our task perfectly, the census splits by age in early May 2011 and not by
+year born and it does not have fine enough age brackets to estimating accurate school catchment numbers.
+<a href="http://www.bcstats.gov.bc.ca/StatisticsBySubject/Demography/PopulationEstimates.aspx">BC Stats</a> has finer age brackets
+computed to school district (not catchment) boundaries, but their estimates are ridiculously far off of census numbers
+when using matching age brackets and years that this is sure to give useless results.</p>
+
+<p>Using the visual overlay we notice that the catchment areas do fit boundaries of Dissemination Areas shown on the map
+reasonably well, with some exceptions. The same cannot be said for Census Tracts, and since we are using only census
+data and not NHS data we can be reasonably confident that Dissemination Area data is fairly accurate.</p>
+
+<p>Next we use the built-in CensusMapper functionality to automatically populate the catchment areas with the census
+data we are interested
+in. When Dissemination Areas don&rsquo;t line up with the catchment boundaries we go down to Dissemination Blocks to estimate
+how many children live on what side of the catchment boundary. We
+<a href="http://doodles.mountainmath.ca/blog/2016/04/06/tod/">previously explained this process in more detail</a>, the result is
+a spreadsheet with the population data by age for each catchment area.</p>
+
+<div id='schools'></div>
+
+
+<div><script src="http://doodles.mountainmath.ca/javascripts/colorbrewer.js" charset="utf-8"></script></div>
+
+
+<div><script src="http://doodles.mountainmath.ca/javascripts/school_bar_graph.js" charset="utf-8"></script></div>
+
+
+<p>Pretty simple, just a couple of mouse clicks.</p>
+
+<h3>Custom Census Data Mapping</h3>
+
+<p>Sometimes it is not practical to map custom data on CensusMapper. Maybe the custom data is too sensitive to be uploaded
+to CensusMapper servers. Or it is quite complex and is better mapped separately. So we created an API to pull in
+census data from CensusMapper to easily show census data on custom maps. And dynamically mix in your own data. As an
+example we mix census data with data from BCAssessment, again obtained through the
+<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data Catalogue</a> (and enriched with
+<a href="http://www.metrovancouver.org/data">open data from Metro Vancouver</a>).
+For demonstration purposes take Dissemination Area
+geographies and Dwelling Characteristic data from CensusMapper and mash it up with our
+<a href="http://mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2604&amp;lng=-123.1417&amp;layer=14&amp;mapBase=2">processed assessment data</a>
+to explore the <a href="http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use/">differences in how single family properties are classified</a>.</p>
+
+<p><a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=0" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh_unit_count.png" style="width:50%;float:right;margin-left:10px;"></a>
+For example we can compare BCAssessment single family lot count to Stats Canada unit count in the dissemination areas
+that are exclusively made up of single family lots. This gives an indication of how many suites and laneway houses there
+are in those areas. The census is prone to undercount units, but generally does a better job than others counting them.</p>
+
+<p><a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=5" target="_blank"><img  src="http://doodles.mountainmath.ca/images/illegal_units.png" style="width:50%;float:left;margin-right:10px;"></a>
+One of the reasons why census unit counts come up higher than other methods is that the census also counts illegal units,
+which naturally are not part of other official government counts. There are different reasons why a suite may be illegal.
+It could simply be that the owner has not made the effort to register it, more likely the suite may not be up to code.
+And in some cases, a property may have more than one suite in the main building, which is illegal in the City of Vancouver.
+The latter ones we can pick out in census data, since a house with two units &ndash; so three dwelling units in one house in
+total &ndash; is classified as being an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. So in dissemination areas that
+only have duplex or single family lots as residential land uses based on assessment and land use data, we can look for
+how many dwelling units the census places in an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. And
+<a href="https://mountainmath.ca/census_mix/map?mapBase=2&amp;layer=5">map them</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SDH Zoning and Land Use]]></title>
@@ -621,94 +728,6 @@ accessible I expect these kind of questions to gain more traction.</p>
 you either have and old (windows?) computer and/or an old (Internet Explorer) browser. If switching to Chrome or Firefox does
 not fix this for you your best option is to cramp that map into your phone screen. Your phone is probably newer and supports
 modern web technology much better than your computer. Or you can always view the 2D maps linked above.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Land Use, Roads (and Parking)]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/"/>
-    <updated>2016-02-29T21:10:05-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/02/29/land-use</id>
-    <content type="html"><![CDATA[<p>The other day at the <a href="https://www.sfu.ca/publicsquare/upcoming-events/city-conversations/2016/Feb-18-2016.html">SFU&rsquo;s City Conversations</a>
-someone asked a question about space dedicated to roads, and how that could be unlocked
-to aid housing. He mentioned what percentage of space is currently dedicated to roads. I forgot the number,
-but I thought to myself that I should look that up for all Metro Vancouver communities. So here we go.</p>
-
-<!-- more -->
-
-
-<p>Actually, it would be interesting to compare how land is allocated to all kinds of land uses across Metro Vancouver, not just roads.
-And with their excellent
-<a href="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/">land use dataset</a> it&rsquo;s easy enough to do, justifying spending
-two hours on this. <a href="https://mountainmath.ca/land_use/map">Looking at the land use map</a>
-one can see that there are some issues with using the dataset for
-that purpose, for example the roads within
-Stanly Park are missing, as parking lots in Vancouver parks. So this slightly overestimates the green space. But when
-added up this won&rsquo;t do much to change the overall area of each land use.</p>
-
-<h3>Land Use Breakdown</h3>
-
-<p>Let&rsquo;s start with a simple chart summing up the land use in each of Metro Vancouver&rsquo;s Municipalities. Just select the one
-you are interested in from the dropdown.</p>
-
-<div id="land_use_breakdown" class="land_use"></div>
-
-
-<p>City of Vancouver stands out as the municipality with the largest proportion of area dedicated to roads right of way.
-The right of way includes nature strips, sidewalks, and of course on-street parking.</p>
-
-<h3>Built Area Land Use</h3>
-
-<p>For some of the municipalities large &ldquo;Natural Areas&rdquo; and &ldquo;Undeveloped Area&rdquo; make it difficult to discern the makeup of
-the built up areas. So here comes the same graph with some of the large space-cosuming categories taken out.</p>
-
-<div id="land_use_breakdown2" class="land_use"></div>
-
-
-<p>What&rsquo;s remarkable is that City of Vancouver still is the clear winner in terms of space taken up by roads right of way.</p>
-
-<h3>Roads right of way</h3>
-
-<p>It might be interesting to compute more precisely how the roads right of way is used. But that requires a lot more work.
-The City of Vancouver has a dataset with road widths, which would help separate area taken by roads from area taken by
-sidewalks and nature strips. One could use google maps to estimate to estimate the amount of space taking up by on-street
-parking by sampling a couple of roads and scaling this according to road area. Too much work for me right now, maybe one day I will
-have a good enough reason to dedicate some time to this.</p>
-
-<h3>Parking</h3>
-
-<p>Parking in particular is a land use that is artificially inflated. We pay lots of money to buy private property to live
-on, and then continue to pay property taxes for that privilege. But we pay nothing to store our vehicles on public roads.</p>
-
-<p>At current land values in Vancouver it just does not make any sense to socialize the cost of parking. A 12m&sup2; on-street
-parking space at a low-balled $3000/m&sup2; value is worth $36,000. If we were to price parking at value, rather than
-socializing the cost we could have a discussion about using that space more effectively. Killing the parking subsidy
-would have a substantial impact on demand (and car ownership), freeing up space to be re-allocated for other uses. For
-example for housing by increasing lot sizes and making multi-unit structures more feasible, especally on corner lots.</p>
-
-<hr>
-
-
-<h3>Update</h3>
-
-<p>Saw a <a href="https://twitter.com/d3visualization/status/705421356222029824">great little data visualization fly by today</a> that
-is just the missing link in the above visualizations. A simple way to visualize where all the municipalities stand in
-relation to one another. Thought I would throw that in real quick.</p>
-
-<div>
- <div id="radviz" class="radviz"></div>
-<div class="radviz-list-container">
-        <div class="muni"></div>
-        <div class="list"></div>
-</div>
-<div style="clear:both;"></div>
-</div>
-
-
-
-
-<div><script src="http://doodles.mountainmath.ca/javascripts/land_use_breakdown.js"></div>
-
 ]]></content>
   </entry>
   

@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mixing Data - Mountain Doodles</title>
+  <meta name="author" content="MountainMath">
+
+  
+  <meta name="description" content="Mixing census data with other data">
+  <meta name="keywords" content="vancouver, real estate, map, density, FSR">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/feed.atom" rel="alternate" title="Mountain Doodles" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54516567-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mountain Doodles</a></h1>
+  
+    <h2>spare time data, analysis, visualization</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/feed.atom" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:doodles.mountainmath.ca" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Mixing Data</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-07-06T09:19:04-07:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Census data is very rich and with <a href="https://censusmapper.ca">CensusMapper</a> we now have about 1 billion fields right at
+our fingertips. And we managed to open up some of our interfaces for everyone to <a href="http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone/">explore data and make their own maps
+and freely share them</a>.</p>
+
+<p>Things really get interesting when one mixes custom data with census data. While, at this point, these are not part of
+the freely available CensusMapper functionality we still wanted to share what can be done.</p>
+
+<p>At CensusMapper we have developed three basic ways to rapidly mix custom data with census data. So this is really three
+blog posts in one.</p>
+
+<!-- more -->
+
+
+<h3>Overlay Mapping</h3>
+
+<p>First up, advanced users can upload custom datasets and map them on top of census data.
+<a href="/images/restaurants_2.png"><img  src="/images/restaurants_2.png" style="width:50%;float:right;margin-left:10px;"></a>
+For example, we took the
+<a href="http://data.vancouver.ca/datacatalogue/businessLicence.htm">business license dataset</a> from the City of Vancouver open
+data catalogue, filtered it by the <em>BusinessType</em> field to only include anything starting with &ldquo;Restaurant&rdquo; or
+&ldquo;Liquor Establishment&rdquo; and uploaded them to CensusMapper to map it on top of census data. In this case we used a map
+for <em>median age</em> that was <a href="https://twitter.com/jofu_/status/750564269796823041">recently created using the public interface</a>
+(have you made <a href="https://censusmapper.ca/maps/new">your own CensusMapper map</a> yet?),
+and we faded out areas outside of Vancouver and colored <em>Liquor Establishments</em> in red and <em>Restaurants</em> in blue.</p>
+
+<p>Giving a visual impression of your own dataset in relation to census data is the first step to location analysis.</p>
+
+<h3>Populate Custom Data with Census Data</h3>
+
+<p>Next
+up is to populate your own dataset with census data for further analysis. For the restaurants, we may be interested in
+attaching population in 5 minute walking distance to each location. Or maybe specific age brackets, recent immigrants
+from specific countries we may want to target with a restaurant, or income data.</p>
+
+<p>This can be a time consuming and painful process,
+but we have automated this at CensusMapper.</p>
+
+<p><a href="/images/e-schools.png"><img  src="/images/e-schools.png" style="width:50%;float:left;margin-right:10px;"></a>
+To showcase how this works we turn to elementary school catchments in the City of Vancouver. The
+<a href="http://data.vancouver.ca/datacatalogue/publicPlaces.htm">Vancouver Open Data Catalogue</a> for the catchment areas. The
+areas are quite out of date, but that suits us well since we will compare it to 2011 census data. We will look at the
+school aged population in each catchment.</p>
+
+<p>The general census release data does not fit our task perfectly, the census splits by age in early May 2011 and not by
+year born and it does not have fine enough age brackets to estimating accurate school catchment numbers.
+<a href="http://www.bcstats.gov.bc.ca/StatisticsBySubject/Demography/PopulationEstimates.aspx">BC Stats</a> has finer age brackets
+computed to school district (not catchment) boundaries, but their estimates are ridiculously far off of census numbers
+when using matching age brackets and years that this is sure to give useless results.</p>
+
+<p>Using the visual overlay we notice that the catchment areas do fit boundaries of Dissemination Areas shown on the map
+reasonably well, with some exceptions. The same cannot be said for Census Tracts, and since we are using only census
+data and not NHS data we can be reasonably confident that Dissemination Area data is fairly accurate.</p>
+
+<p>Next we use the built-in CensusMapper functionality to automatically populate the catchment areas with the census
+data we are interested
+in. When Dissemination Areas don&rsquo;t line up with the catchment boundaries we go down to Dissemination Blocks to estimate
+how many children live on what side of the catchment boundary. We
+<a href="http://doodles.mountainmath.ca/blog/2016/04/06/tod/">previously explained this process in more detail</a>, the result is
+a spreadsheet with the population data by age for each catchment area.</p>
+
+<div id='schools'></div>
+
+
+<div><script src="/javascripts/colorbrewer.js" charset="utf-8"></script></div>
+
+
+<div><script src="/javascripts/school_bar_graph.js" charset="utf-8"></script></div>
+
+
+<p>Pretty simple, just a couple of mouse clicks.</p>
+
+<h3>Custom Census Data Mapping</h3>
+
+<p>Sometimes it is not practical to map custom data on CensusMapper. Maybe the custom data is too sensitive to be uploaded
+to CensusMapper servers. Or it is quite complex and is better mapped separately. So we created an API to pull in
+census data from CensusMapper to easily show census data on custom maps. And dynamically mix in your own data. As an
+example we mix census data with data from BCAssessment, again obtained through the
+<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data Catalogue</a> (and enriched with
+<a href="http://www.metrovancouver.org/data">open data from Metro Vancouver</a>).
+For demonstration purposes take Dissemination Area
+geographies and Dwelling Characteristic data from CensusMapper and mash it up with our
+<a href="http://mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2604&amp;lng=-123.1417&amp;layer=14&amp;mapBase=2">processed assessment data</a>
+to explore the <a href="http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use/">differences in how single family properties are classified</a>.</p>
+
+<p><a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=0" target="_blank"><img  src="/images/sfh_unit_count.png" style="width:50%;float:right;margin-left:10px;"></a>
+For example we can compare BCAssessment single family lot count to Stats Canada unit count in the dissemination areas
+that are exclusively made up of single family lots. This gives an indication of how many suites and laneway houses there
+are in those areas. The census is prone to undercount units, but generally does a better job than others counting them.</p>
+
+<p><a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=5" target="_blank"><img  src="/images/illegal_units.png" style="width:50%;float:left;margin-right:10px;"></a>
+One of the reasons why census unit counts come up higher than other methods is that the census also counts illegal units,
+which naturally are not part of other official government counts. There are different reasons why a suite may be illegal.
+It could simply be that the owner has not made the effort to register it, more likely the suite may not be up to code.
+And in some cases, a property may have more than one suite in the main building, which is illegal in the City of Vancouver.
+The latter ones we can pick out in census data, since a house with two units &ndash; so three dwelling units in one house in
+total &ndash; is classified as being an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. So in dissemination areas that
+only have duplex or single family lots as residential land uses based on assessment and land use data, we can look for
+how many dwelling units the census places in an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. And
+<a href="https://mountainmath.ca/census_mix/map?mapBase=2&amp;layer=5">map them</a>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">MountainMath</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-07-06T09:19:04-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/assessment/'>assessment</a>, <a class='category' href='/blog/categories/census/'>census</a>, <a class='category' href='/blog/categories/open-data/'>open data</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/06/17/sdh-zoning-and-land-use/" title="Previous Post: SDH Zoning and Land Use">&laquo; SDH Zoning and Land Use</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/07/06/mixing-data/">Mixing Data</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/06/17/sdh-zoning-and-land-use/">SDH Zoning and Land Use</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/05/20/density/">FSR</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/05/16/my-global-bike-map/">My Global Bike Map</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/05/04/census-mapping-for-everyone/">Census Mapping for Everyone</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/05/02/census-week/">Census Week</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/20/tod-mode-share/">TOD Mode Share</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/06/tod/">TOD</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/04/01/on-dirt-and-houses/">On Houses and Dirt</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/03/28/on-mixed-use/">On Mixed Use</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  
+  <a class="twitter-timeline" href="https://twitter.com/vb_jens" data-widget-id="680989637721063424">Tweets by @vb_jens</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - MountainMath -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'doodlesmountainmathca';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

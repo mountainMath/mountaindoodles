@@ -4,7 +4,7 @@
   <title><![CDATA[Category: census | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/census/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-06-17T22:25:27-07:00</updated>
+  <updated>2016-07-08T13:46:17-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,113 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mixing Data]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data/"/>
+    <updated>2016-07-06T09:19:04-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data</id>
+    <content type="html"><![CDATA[<p>Census data is very rich and with <a href="https://censusmapper.ca">CensusMapper</a> we now have about 1 billion fields right at
+our fingertips. And we managed to open up some of our interfaces for everyone to <a href="http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone/">explore data and make their own maps
+and freely share them</a>.</p>
+
+<p>Things really get interesting when one mixes custom data with census data. While, at this point, these are not part of
+the freely available CensusMapper functionality we still wanted to share what can be done.</p>
+
+<p>At CensusMapper we have developed three basic ways to rapidly mix custom data with census data. So this is really three
+blog posts in one.</p>
+
+<!-- more -->
+
+
+<h3>Overlay Mapping</h3>
+
+<p>First up, advanced users can upload custom datasets and map them on top of census data.
+<a href="http://doodles.mountainmath.ca/images/restaurants_2.png"><img  src="http://doodles.mountainmath.ca/images/restaurants_2.png" style="width:50%;float:right;margin-left:10px;"></a>
+For example, we took the
+<a href="http://data.vancouver.ca/datacatalogue/businessLicence.htm">business license dataset</a> from the City of Vancouver open
+data catalogue, filtered it by the <em>BusinessType</em> field to only include anything starting with &ldquo;Restaurant&rdquo; or
+&ldquo;Liquor Establishment&rdquo; and uploaded them to CensusMapper to map it on top of census data. In this case we used a map
+for <em>median age</em> that was <a href="https://twitter.com/jofu_/status/750564269796823041">recently created using the public interface</a>
+(have you made <a href="https://censusmapper.ca/maps/new">your own CensusMapper map</a> yet?),
+and we faded out areas outside of Vancouver and colored <em>Liquor Establishments</em> in red and <em>Restaurants</em> in blue.</p>
+
+<p>Giving a visual impression of your own dataset in relation to census data is the first step to location analysis.</p>
+
+<h3>Populate Custom Data with Census Data</h3>
+
+<p>Next
+up is to populate your own dataset with census data for further analysis. For the restaurants, we may be interested in
+attaching population in 5 minute walking distance to each location. Or maybe specific age brackets, recent immigrants
+from specific countries we may want to target with a restaurant, or income data.</p>
+
+<p>This can be a time consuming and painful process,
+but we have automated this at CensusMapper.</p>
+
+<p><a href="http://doodles.mountainmath.ca/images/e-schools.png"><img  src="http://doodles.mountainmath.ca/images/e-schools.png" style="width:50%;float:left;margin-right:10px;"></a>
+To showcase how this works we turn to elementary school catchments in the City of Vancouver. The
+<a href="http://data.vancouver.ca/datacatalogue/publicPlaces.htm">Vancouver Open Data Catalogue</a> for the catchment areas. The
+areas are quite out of date, but that suits us well since we will compare it to 2011 census data. We will look at the
+school aged population in each catchment.</p>
+
+<p>The general census release data does not fit our task perfectly, the census splits by age in early May 2011 and not by
+year born and it does not have fine enough age brackets to estimating accurate school catchment numbers.
+<a href="http://www.bcstats.gov.bc.ca/StatisticsBySubject/Demography/PopulationEstimates.aspx">BC Stats</a> has finer age brackets
+computed to school district (not catchment) boundaries, but their estimates are ridiculously far off of census numbers
+when using matching age brackets and years that this is sure to give useless results.</p>
+
+<p>Using the visual overlay we notice that the catchment areas do fit boundaries of Dissemination Areas shown on the map
+reasonably well, with some exceptions. The same cannot be said for Census Tracts, and since we are using only census
+data and not NHS data we can be reasonably confident that Dissemination Area data is fairly accurate.</p>
+
+<p>Next we use the built-in CensusMapper functionality to automatically populate the catchment areas with the census
+data we are interested
+in. When Dissemination Areas don&rsquo;t line up with the catchment boundaries we go down to Dissemination Blocks to estimate
+how many children live on what side of the catchment boundary. We
+<a href="http://doodles.mountainmath.ca/blog/2016/04/06/tod/">previously explained this process in more detail</a>, the result is
+a spreadsheet with the population data by age for each catchment area.</p>
+
+<div id='schools'></div>
+
+
+<div><script src="http://doodles.mountainmath.ca/javascripts/colorbrewer.js" charset="utf-8"></script></div>
+
+
+<div><script src="http://doodles.mountainmath.ca/javascripts/school_bar_graph.js" charset="utf-8"></script></div>
+
+
+<p>Pretty simple, just a couple of mouse clicks.</p>
+
+<h3>Custom Census Data Mapping</h3>
+
+<p>Sometimes it is not practical to map custom data on CensusMapper. Maybe the custom data is too sensitive to be uploaded
+to CensusMapper servers. Or it is quite complex and is better mapped separately. So we created an API to pull in
+census data from CensusMapper to easily show census data on custom maps. And dynamically mix in your own data. As an
+example we mix census data with data from BCAssessment, again obtained through the
+<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data Catalogue</a> (and enriched with
+<a href="http://www.metrovancouver.org/data">open data from Metro Vancouver</a>).
+For demonstration purposes take Dissemination Area
+geographies and Dwelling Characteristic data from CensusMapper and mash it up with our
+<a href="http://mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2604&amp;lng=-123.1417&amp;layer=14&amp;mapBase=2">processed assessment data</a>
+to explore the <a href="http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use/">differences in how single family properties are classified</a>.</p>
+
+<p><a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=0" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh_unit_count.png" style="width:50%;float:right;margin-left:10px;"></a>
+For example we can compare BCAssessment single family lot count to Stats Canada unit count in the dissemination areas
+that are exclusively made up of single family lots. This gives an indication of how many suites and laneway houses there
+are in those areas. The census is prone to undercount units, but generally does a better job than others counting them.</p>
+
+<p><a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=5" target="_blank"><img  src="http://doodles.mountainmath.ca/images/illegal_units.png" style="width:50%;float:left;margin-right:10px;"></a>
+One of the reasons why census unit counts come up higher than other methods is that the census also counts illegal units,
+which naturally are not part of other official government counts. There are different reasons why a suite may be illegal.
+It could simply be that the owner has not made the effort to register it, more likely the suite may not be up to code.
+And in some cases, a property may have more than one suite in the main building, which is illegal in the City of Vancouver.
+The latter ones we can pick out in census data, since a house with two units &ndash; so three dwelling units in one house in
+total &ndash; is classified as being an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. So in dissemination areas that
+only have duplex or single family lots as residential land uses based on assessment and land use data, we can look for
+how many dwelling units the census places in an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. And
+<a href="https://mountainmath.ca/census_mix/map?mapBase=2&amp;layer=5">map them</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SDH Zoning and Land Use]]></title>
@@ -421,163 +528,6 @@ the option to map the value or, if it makes sense, the value as a percentage of 
 <p>A click of the mouse and you have a new map. Head over to the colour scheme picker and select the colour cutoffs to customize it.
 You can even log in and save the map and write your own map story for the side bar, so that you can share and interactive
 version of your map online. We can&rsquo;t wait getting census data into everyone&rsquo;s hands!</p>
-
-<script>
-function resetImages(){
-    $('img').each(function(img){
-        imgsrc = $(img).attr('src');
-        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
-            $(img).attr('src', '');
-            $(img).attr('src', imgsrc);
-            
-        }
-    });
-    setTimeout(function(){
-        resetImages();
-    },25000);
-}
-setTimeout(function(){
-    resetImages();
-},25000);
-</script>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Work vs Twiddling Thumbs]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/"/>
-    <updated>2016-01-24T10:28:37-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs</id>
-    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/map/assessment?zoom=12&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/twiddling_thumbs.png" style="width:50%;float:left;margin-right:10px;"></a>In
-the ongoing debade on affordability of housing in the City of Vancouver we regularly hear voices expressing concern for
-&ldquo;<a href="http://news.nationalpost.com/full-comment/andrew-coyne-dont-blame-chinese-billionaires-for-vancouver-housing-prices">elderly folks of modest means who had been counting on using their home as a pension</a>&rdquo;
-to argue against doing anything to ease the housing affordability problems many (younger) people are facing. In these
-arguments the concern for &ldquo;elderly folks of modest means&rdquo; seems curiously focused to those who own property as opposed to,
-for example, the 20% of the elderly people in Vancouver that live in poverty (15k total).</p>
-
-<p>Which got me a little thinking about &ldquo;earning money&rdquo; in this day and age.</p>
-
-<h3>Work</h3>
-
-<!-- more -->
-
-
-<p>Most people earn money by working. We are interested in after tax household income, for simplicity we will look at 2010 income
-data reported in the 2011 census. The median after-tax household income in Vancouver
-was $50k (the average was $65k), although there is <a href="http://censusmapper.ca/maps/224">large regional variability</a>.
-The pre-tax households incomes were $56k for the median
-and $80k for the average income.</p>
-
-<p>Incomes have grown a bit since then, median income levels in
-Vancouver grew by 7% from 2010 to 2013 (<a href="http://www5.statcan.gc.ca/cansim/a47">the latest year Stats Canada reports on</a>)
-and will have grown a little more since then, but these are relatively small changes compared to other numbers I want
-to talk about.</p>
-
-<p><a href="http://censusmapper.ca/maps/189">Most of this income stems from employment income</a> which also includes self-employment,
-but 22% of pre-tax income in Vancouver
-came from outher sources, mostly investment income but also government transfer payments like child benefits.</p>
-
-<p>Cumulative, the after tax income put $17.8bn into Vancouverite&rsquo;s pockets.</p>
-
-<h3>Twiddling Thumbs</h3>
-
-<p>Let&rsquo;s compare this to how much Vancouver home owner households earned last year by twiddling thumbs while sitting on their
-property. For simplicity we focus on SFH (&ldquo;Single Family&rdquo; or &ldquo;Single Detached&rdquo;) homes. We
-will consider the change in land value only, changing the building value because of renovation or rebuilding certainly
-does not happen by twiddling thumbs.</p>
-
-<p>The typical SFH household made $262,000 last year by twiddling thumbs (so that&rsquo;s the median land value rise for SFH homes between 2015 and 2016
-property tax assessment years, the average was $318,877), for a tidy total of $24,651,312,001. Not too shabby.
-And considering that the typical owner household
-lives in their home, these are tax-free earnings once the owners sell. That&rsquo;s substantially more than what the typical household
-in Vancouver takes home. The total land value increase for just the SFH properties amounts to $24bn out of
-<a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">the $45.2bn by which land values in Vancouver increased overall</a>. For context,
-recall that the overall income earned by all Vancouverites in 2010 was $17.8bn after tax (21.3bn before tax).</p>
-
-<p>In other words, <span style="font-weight:bolder;">just the SFH property owners alone earned more by twiddling their thumbs than the entire population of the
-City of Vancouver did by &ndash; actually working</span>. And in most cases homeowners don&rsquo;t even have to pay taxes on their thumb-twiddle earnings. Yet another
-indication of how <a href="http://censusmapper.ca/maps/37">out of touch the property market is with the local enconomy</a>.</p>
-
-<p>The numbers are just meant to provide a general frame of reference, they are not adjusted for inflation, and costs like
-property taxes and property transfer tax are not taken into account.</p>
-
-<h3>Mapping the Result of Thumb Twiddling</h3>
-
-<p><a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12">There is a map for this</a>.
-(I probably would not take the time to write about this otherwise.) Last year&rsquo;s assessment
-increase was quite large, not every year is like this (although it looks like the coming one will also be substantial).
-To even things out a little I mapped the average yearly gross land value increase for each property. For properties that I
-could not trace back all the way to 2006 I averaged over as many years as I could find.</p>
-
-<p><a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/sfh_rise.png" style="width:50%;float:right;"></a>
-<a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12">Looking at the map</a> we see that
-the average yearly increase depends to a large extend on the square footage of the property. Large properties naturally stand
-out, unless they are stratified where the land value increase gets distributed across all the owners.</p>
-
-<p>Averaged over 10 years, the yearly land value increase for the typical SFH property in Vancouver was $79,800. Using Main as
-a divider the numbers are $66,700 for the
-typical east of Main and $141,700 for the typical west of Main property (using median increases).</p>
-
-<p>A good portion of the east-west difference is due to larger lot size, but even the land values increase per m&sup2; for properties
-on the west side was 35% higher than that of properties on the
-east side. These are yearly increases, to be accumulated and collected tax free in most cases when the property is sold.</p>
-
-<h3>Twiddling in 3D</h3>
-
-<p><a href="http://mountainmath.ca/assessment/split_map?zoom=17&lat=49.2362&lng=-123.1365&type=1&use3D=1&year=2015" target="_blank"><img  src="http://doodles.mountainmath.ca/images/s_vanre.gif" loop="0" style="width:50%;float:left;margin-right:10px;"></a>
-We can get even more fancy and show the effect the thumb-twiddling has on land values by <a href="http://www.mountainmath.ca/assessment/split_map">animating the land and building
-value rise over time</a>. You will need a modern computer to view this.</p>
-
-<p>If you are interested there is <a href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/">more background</a>
-on the visualization. I put a little more work into this, the numbers in the animation are inflation adjusted and it also
-includes duplexes and stratified condo units. There is a slider to filter by number of strata units in each building to
-explore the effects of stratifying a standard lot into several units has on affordability.</p>
-
-<h3>Hourly Rate for Twiddling Thumbs</h3>
-
-<p>Just for fun we can work out the hourly rate for twiddling thumbs. All we need to do is divide by the number of work
-hours by year. We can look up the average work weeks for a Vancouver worker in the 2011 census and, for style points also consider the
-number of household maintainers. After all, when we compare household income with land value increases we should consider how many
-people in the household work. 63% of Vancouver households have only one household maintainer, but
-<a href="http://censusmapper.ca/maps/223">33% have two and 4% three or more household maintainers</a> contributing to household income.
-On average a Vancouver household <a href="http://censusmapper.ca/maps/222">worked a total of 62 person-weeks per year</a> to earn
-that income. Assuming a 40 hour work week, we compute the average after-tax earning to be $26 per hour from regular work
-and average after tax earnings of $126 per hour from twiddling thumbs. That&rsquo;s assuming all household maintainers are twiddling
-the same amount of time that they dedicate to regular work. (In this calculation we use average not median income and land value
-increases, medians don&rsquo;t lend themselves well to these kind of reasoning.)</p>
-
-<p>Using the 10 year averaged numbers instead of focusing on just the last year we still get a healthy average after-tax twiddling thumbs rate of $44 per hour.</p>
-
-<p>I am not entirely sure why anyone would want twiddling thumbs to stay so lucrative. Unless maybe the super self-centered thumb-twiddlers.
-Or why earnings from thumb-twiddling should remain tax-free. While employment income is taxed (as it should be).</p>
-
-<p>Considering to change your line work to thumb twiddling? To bad thumb twiddling is so unaffordable!</p>
-
-<h3>Data Dump</h3>
-
-<p>Here is the raw output of the stats run on the single family properties for ayone interested.</p>
-
-<h5>SFH Land Value Rise (2015 - 2016)</h5>
-
-<ul>
-<li>City Wide: Average $313,072 Median $262,000, Count: 78740, Total: $24,651,312,001, Hourly: $126</li>
-<li>East of Main: Average $230,106 Median $230,000, Count: 46014, Total: $10,588,122,001, Hourly: $92</li>
-<li>West of Main: Average $429,725 Median $375,000, Count: 32726, Total: $14,063,190,000, Hourly: $173</li>
-</ul>
-
-
-<h5>SFH Land Value Rise (2006 - 2016)</h5>
-
-<ul>
-<li>City Wide: Average $109,969 Median $79,800, Count: 77981, Total: $8,575,547,711, Hourly: $44</li>
-<li>East of Main: Average $68,656 Median $66,700, Count: 45647, Total: $3,133,947,703, Hourly: $27</li>
-<li>West of Main: Average $168,293 Median $141,700, Count: 32334, Total: $5,441,600,008, Hourly: $67</li>
-</ul>
-
-
-<p>The total number of units for the 2006 to 2016 analysis are a little lower since not all properties can be traced over that time
-period without resorting to more tedious analysis.</p>
 
 <script>
 function resetImages(){

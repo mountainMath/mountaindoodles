@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-06-17T22:25:27-07:00</updated>
+  <updated>2016-07-08T13:46:17-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,113 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mixing Data]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data/"/>
+    <updated>2016-07-06T09:19:04-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data</id>
+    <content type="html"><![CDATA[<p>Census data is very rich and with <a href="https://censusmapper.ca">CensusMapper</a> we now have about 1 billion fields right at
+our fingertips. And we managed to open up some of our interfaces for everyone to <a href="http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone/">explore data and make their own maps
+and freely share them</a>.</p>
+
+<p>Things really get interesting when one mixes custom data with census data. While, at this point, these are not part of
+the freely available CensusMapper functionality we still wanted to share what can be done.</p>
+
+<p>At CensusMapper we have developed three basic ways to rapidly mix custom data with census data. So this is really three
+blog posts in one.</p>
+
+<!-- more -->
+
+
+<h3>Overlay Mapping</h3>
+
+<p>First up, advanced users can upload custom datasets and map them on top of census data.
+<a href="http://doodles.mountainmath.ca/images/restaurants_2.png"><img  src="http://doodles.mountainmath.ca/images/restaurants_2.png" style="width:50%;float:right;margin-left:10px;"></a>
+For example, we took the
+<a href="http://data.vancouver.ca/datacatalogue/businessLicence.htm">business license dataset</a> from the City of Vancouver open
+data catalogue, filtered it by the <em>BusinessType</em> field to only include anything starting with &ldquo;Restaurant&rdquo; or
+&ldquo;Liquor Establishment&rdquo; and uploaded them to CensusMapper to map it on top of census data. In this case we used a map
+for <em>median age</em> that was <a href="https://twitter.com/jofu_/status/750564269796823041">recently created using the public interface</a>
+(have you made <a href="https://censusmapper.ca/maps/new">your own CensusMapper map</a> yet?),
+and we faded out areas outside of Vancouver and colored <em>Liquor Establishments</em> in red and <em>Restaurants</em> in blue.</p>
+
+<p>Giving a visual impression of your own dataset in relation to census data is the first step to location analysis.</p>
+
+<h3>Populate Custom Data with Census Data</h3>
+
+<p>Next
+up is to populate your own dataset with census data for further analysis. For the restaurants, we may be interested in
+attaching population in 5 minute walking distance to each location. Or maybe specific age brackets, recent immigrants
+from specific countries we may want to target with a restaurant, or income data.</p>
+
+<p>This can be a time consuming and painful process,
+but we have automated this at CensusMapper.</p>
+
+<p><a href="http://doodles.mountainmath.ca/images/e-schools.png"><img  src="http://doodles.mountainmath.ca/images/e-schools.png" style="width:50%;float:left;margin-right:10px;"></a>
+To showcase how this works we turn to elementary school catchments in the City of Vancouver. The
+<a href="http://data.vancouver.ca/datacatalogue/publicPlaces.htm">Vancouver Open Data Catalogue</a> for the catchment areas. The
+areas are quite out of date, but that suits us well since we will compare it to 2011 census data. We will look at the
+school aged population in each catchment.</p>
+
+<p>The general census release data does not fit our task perfectly, the census splits by age in early May 2011 and not by
+year born and it does not have fine enough age brackets to estimating accurate school catchment numbers.
+<a href="http://www.bcstats.gov.bc.ca/StatisticsBySubject/Demography/PopulationEstimates.aspx">BC Stats</a> has finer age brackets
+computed to school district (not catchment) boundaries, but their estimates are ridiculously far off of census numbers
+when using matching age brackets and years that this is sure to give useless results.</p>
+
+<p>Using the visual overlay we notice that the catchment areas do fit boundaries of Dissemination Areas shown on the map
+reasonably well, with some exceptions. The same cannot be said for Census Tracts, and since we are using only census
+data and not NHS data we can be reasonably confident that Dissemination Area data is fairly accurate.</p>
+
+<p>Next we use the built-in CensusMapper functionality to automatically populate the catchment areas with the census
+data we are interested
+in. When Dissemination Areas don&rsquo;t line up with the catchment boundaries we go down to Dissemination Blocks to estimate
+how many children live on what side of the catchment boundary. We
+<a href="http://doodles.mountainmath.ca/blog/2016/04/06/tod/">previously explained this process in more detail</a>, the result is
+a spreadsheet with the population data by age for each catchment area.</p>
+
+<div id='schools'></div>
+
+
+<div><script src="http://doodles.mountainmath.ca/javascripts/colorbrewer.js" charset="utf-8"></script></div>
+
+
+<div><script src="http://doodles.mountainmath.ca/javascripts/school_bar_graph.js" charset="utf-8"></script></div>
+
+
+<p>Pretty simple, just a couple of mouse clicks.</p>
+
+<h3>Custom Census Data Mapping</h3>
+
+<p>Sometimes it is not practical to map custom data on CensusMapper. Maybe the custom data is too sensitive to be uploaded
+to CensusMapper servers. Or it is quite complex and is better mapped separately. So we created an API to pull in
+census data from CensusMapper to easily show census data on custom maps. And dynamically mix in your own data. As an
+example we mix census data with data from BCAssessment, again obtained through the
+<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data Catalogue</a> (and enriched with
+<a href="http://www.metrovancouver.org/data">open data from Metro Vancouver</a>).
+For demonstration purposes take Dissemination Area
+geographies and Dwelling Characteristic data from CensusMapper and mash it up with our
+<a href="http://mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2604&amp;lng=-123.1417&amp;layer=14&amp;mapBase=2">processed assessment data</a>
+to explore the <a href="http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use/">differences in how single family properties are classified</a>.</p>
+
+<p><a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=0" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh_unit_count.png" style="width:50%;float:right;margin-left:10px;"></a>
+For example we can compare BCAssessment single family lot count to Stats Canada unit count in the dissemination areas
+that are exclusively made up of single family lots. This gives an indication of how many suites and laneway houses there
+are in those areas. The census is prone to undercount units, but generally does a better job than others counting them.</p>
+
+<p><a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=5" target="_blank"><img  src="http://doodles.mountainmath.ca/images/illegal_units.png" style="width:50%;float:left;margin-right:10px;"></a>
+One of the reasons why census unit counts come up higher than other methods is that the census also counts illegal units,
+which naturally are not part of other official government counts. There are different reasons why a suite may be illegal.
+It could simply be that the owner has not made the effort to register it, more likely the suite may not be up to code.
+And in some cases, a property may have more than one suite in the main building, which is illegal in the City of Vancouver.
+The latter ones we can pick out in census data, since a house with two units &ndash; so three dwelling units in one house in
+total &ndash; is classified as being an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. So in dissemination areas that
+only have duplex or single family lots as residential land uses based on assessment and land use data, we can look for
+how many dwelling units the census places in an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. And
+<a href="https://mountainmath.ca/census_mix/map?mapBase=2&amp;layer=5">map them</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SDH Zoning and Land Use]]></title>
@@ -3097,349 +3204,6 @@ bar_graph(d3.select("#graph_teardowns"),true,percentageFormatter,null,binFormatt
 bar_graph(d3.select("#graph_teardown_probability"),true,percentageFormatter,percentageFormatter,binFormatter);
 bar_graph(d3.select("#graph_buildings_by_teardown_2"),true,percentageFormatter,null,binFormatter);
 bar_graph(d3.select("#graph_teardowns_2"),true,percentageFormatter,null,binFormatter);
-</script>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Updated Vancouver Assessment Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/"/>
-    <updated>2016-01-17T11:34:09-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/assessment?layer=4"><img  src="http://doodles.mountainmath.ca/images/relative_land.jpg" style="width:50%;float:right"></a>
-The friendly folks at
-<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> just
-<a href="https://twitter.com/VanOpenData/status/688060388190097408">updated their property assessment data</a> with the fresh 2016
-property tax assessments. Time to run the script to update the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a>
-with the new data. And for good measure I pasted over some of the thematic map engine from <a href="https://censusmapper.ca">CensusMapper</a>
-to improve the mapping performance.</p>
-
-<h4>Maps</h4>
-
-<!-- more -->
-
-
-<p><img  src="http://doodles.mountainmath.ca/images/map_menu.png" style="width:25%;margin-left:5px;float:right">The <a href="https://mountainmath.ca/map/assessment">interactive assessment map</a> offers several views. In the panel on the top
-right we can select how to view the data. It offers standard thematic maps for value change, total value, building value
-and building age and zoning. And there are some options that warrant more explanation:</p>
-
-<ul>
-<li><a href="https://mountainmath.ca/map/assessment?layer=5"><em>Relative Land Value</em>:</a> The colours on the map show each property by the
-land value per m&sup2;. We can immediately spot the east-west land gradient, as well as how zoning affects land value.
-When zooming in we also see the effect of lot size on land value.</li>
-<li><a href="https://mountainmath.ca/map/assessment?layer=10"><em>Tax Density</em>:</a> This map looks at the tax dollars collected
-by the city by area. It tells us the relative rate at what each property is contributing to city services. We can again
-observe the impact of exclusionary zoning.</li>
-<li><a href="https://mountainmath.ca/map/assessment?layer=4"><em>Relative Value of Building</em>:</a>
-<a href="https://mountainmath.ca/map/assessment?layer=4"><img  src="http://doodles.mountainmath.ca/images/teardown.jpg" style="width:50%;float:right"></a>
-This map simply divides the building value
-by the total property value. There are many ways to interpret this map, my favourite is to use this as a &ldquo;Teardown Predictor&rdquo;.
-Essentially, as the percentage of the building value approaches zero the probability that it will get torn down in the
-near future increases. Imagine someone spending $1.5m to buy a property with a house valued at $37k. Many people don&rsquo;t
-mind living in a house worth $37k, but someone who is spending $1.5m would probably prefer to buy a different property
-with a higher quality house. Or spend more money to upgrade the house. How will it be upgraded? Renovating is in most
-cases economically unsound, most people will choose to tear down and rebuild. In fact, the <em>teardown threshold</em> is
-likely higher than the 2.5% in the example given. The percentage of properties in Vancouver where the building value is
-less than 2.5% of the total value has slightly decreaed in the last year from 17.9% to 17.8%, but the percentage of properties
-with building value less than 5% of the total value has increased from 32% to 33.5% during the last year.</li>
-</ul>
-
-
-<h4>The Data</h4>
-
-<p>The data originates with BC Assessment, which estimates land and building values of each property based on recent sales
-of comparable properties. The assessment was done in summer 2015 and is based on sales before that, so at this point in
-time the data lags the market by about one year. Values for individual properties may well be off, depending how well
-renovations and improvements were reported and how well the BC Assessment estimates work for the given property. On
-average they should reflect the market about half a year to one year ago.</p>
-
-<p>Sadly, BC Assessment does not give out their data with a license that would allow mapping it the way I do, so we have
-to rely on municipalities to release it through their open data portals. The format of the data from each municipality is
-different, so lazy me is only importing data from City of Vancouver, although some other nearby municipalities are also releasing
-there data.</p>
-
-<p>The motivation behind the map was to understand the building stock. Some effort was made to filter out parks, but the
-algorithm is far from perfect and will often includes parks that host building
-structures, as well as marinas with structures on them.</p>
-
-<p>The new city dataset does not include the 2016 tax levy, so we still only show the 2015 tax levies until CoV updated their dataset.</p>
-
-<h4>History</h4>
-
-<p>Here is a quick history of the overall land and building values aggregated for Vancouver between 2006 and 2016.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph" style="height:200px;max-width:640px;" data-lines="/data/vancouver_stats.json"></div>
-<div class="legend no-margin">
-  <p><i style="background:blue"></i> Land Value <span style="float:right;margin-right:10px;" id="land_value"></span></p>
-  <p><i style="background:green"></i> Building Value <span style="float:right;margin-right:10px;" id="building_value"></span></p>
-</div>
-</div>
-
-
-<p>When looking at all properties in the city, the increase in land
-value year over year was 21.4% ($45.2bn), while overall building values increased by 7.3% ($5bn). Hover, click or touch
-the points in the graph to get the values for the corresponding year.</p>
-
-<h4>Neighbourhoods</h4>
-
-<p>Lastly a quick overview over the neighbourhoods. Land and building values have not increased evenly throughout in the year.
-I aggregated all tax data by neighbourhood and split it into land value and building value increases.
-These numbers should be used as guidance only, they mix lots of different types of properties and include parks.</p>
-
-<p>Here is the breakdown by neighbourhood:</p>
-
-<ul>
-<li>Renfrew-Collingwood: Land: 30.6% ($1.2bn), Building: 5.8% ($46.0m)</li>
-<li>Sunset: Land: 26.6% ($1.6bn), Building: 5.9% ($74.2m)</li>
-<li>Oakridge: Land: 17.6% ($1.2bn), Building: 12.6% ($207.4m)</li>
-<li>Downtown: Land: 16.9% ($0.8bn), Building: 3.2% ($91.2m)</li>
-<li>Kerrisdale: Land: 18.7% ($1.3bn), Building: 3.3% ($54.1m)</li>
-<li>Victoria-Fraserview: Land: 28.0% ($1.5bn), Building: 5.6% ($65.2m)</li>
-<li>Grandview-Woodland: Land: 24.9% ($1.7bn), Building: 0.7% ($17.4m)</li>
-<li>West End: Land: 22.6% ($2.5bn), Building: 3.5% ($188.4m)</li>
-<li>Hastings-Sunrise: Land: 25.1% ($1.1bn), Building: 4.9% ($63.8m)</li>
-<li>Killarney: Land: 17.8% ($0.3bn), Building: 14.1% ($241.6m)</li>
-<li>Marpole: Land: 17.8% ($0.3bn), Building: 14.1% ($241.6m)</li>
-<li>Kitsilano: Land: 21.6% ($3.3bn), Building: 4.3% ($134.5m)</li>
-<li>Shaughnessy: Land: 18.6% ($1.7bn), Building: 7.4% ($117.7m)</li>
-<li>West Point Grey: Land: 20.2% ($2.3bn), Building: 5.2% ($88.3m)</li>
-<li>Fairview: Land: 19.4% ($2.0bn), Building: -1.0% (-$52.4m)</li>
-<li>Downtown Eastside: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
-<li>Kensington-Cedar Cottage: Land: 24.9% ($1.7bn), Building: 0.7% ($17.4m)</li>
-<li>Riley Park: Land: 26.4% ($1.0bn), Building: 4.0% ($40.2m)</li>
-<li>Mount Pleasant: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
-<li>South Cambie: Land: 20.9% ($1.5bn), Building: 21.4% ($268.1m)</li>
-<li>Strathcona: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
-<li>Dunbar Southlands: Land: 21.8% ($1.0bn), Building: 11.2% ($126.6m)</li>
-<li>Arbutus Ridge: Land: 21.4% ($1.6bn), Building: 1.1% ($17.3m)</li>
-</ul>
-
-
-<p>It becomes immediately clear that the increase in property values is mostly driven by land, note that total value increases
-for land and buildings are reported in billions and millions, respectively. The building stock does not
-have time to catch up, with the exception of South Cambie. Fairview stands out with declining overall building values.</p>
-
-<script>
-var ready_for_graph = function() {
-    var d3lines=[];
-    var padding = {top: 20, right: 20, bottom: 30, left: 90};
-    var prevChartWidth = 0, prevChartHeight = 0;
-    var updateTransistionMS = 750; // milliseconds
-    var sourceData, lineData, xScale, yScale, line;
-
-    var symbol;
-    var prefix;
-    var numberFormatter = function (y) {
-        return '$' + Math.round(prefix.scale(y*10))/10.0 + symbol;
-    };
-
-    var graphs=d3.select("#graph");
-    var div=graphs[0][0];
-    if (div==null|| div.childElementCount!=0) {return;}
-    var data_url=div.dataset.url;
-
-    // create svg and g to contain the chart contents
-    var baseSvg = graphs.append("svg");
-    var chartSvg=baseSvg
-        .append("g")
-        .attr("class", "chartContainer")
-        .attr("transform", "translate(" + padding.left + "," + padding.top + ")");
-
-    // create the x axis container
-    chartSvg.append("g")
-        .attr("class", "x axis");
-
-    // create the y axis container
-    chartSvg.append("g")
-        .attr("class", "y axis");
-    var line;
-    var largest=null;
-    var lineData;
-    if (div.dataset.lines) {
-        d3.json(div.dataset.lines,function(error,json){
-        lineData=json;
-        var domain=[null,null];
-        var range=[null,null];
-        for (var i=0;i<lineData.length;i++){
-            lineData[i].data.forEach(function(d) {
-                d.date = +d.date;
-                d.count = +d.count;
-                if (domain[0]==null || domain[0]> d.date) domain[0]= d.date;
-                if (domain[1]==null || domain[1]< d.date) domain[1]= d.date;
-                if (range[0]==null || range[0]> d.count) range[0]= d.count;
-                if (range[1]==null || range[1]< d.count) range[1]= d.count;
-            });
-        }
-        xScale=d3.scale.linear().domain(domain);
-        var toAdd=(range[1]-range[0])/10;
-        range[0]-=toAdd;
-        range[1]+=toAdd;
-        yScale=d3.scale.linear()
-            .domain(range);
-
-        line = d3.svg.line()
-            .x(function(d) { return xScale(d.date); })
-            .y(function(d) { return yScale(d.count); })
-            .interpolate("linear");
-
-        xAxis = d3.svg.axis()
-            .scale(xScale)
-            .orient("bottom")
-            .tickFormat(d3.format("d"))
-            .tickValues(domain);
-
-        yAxis = d3.svg.axis()
-            .scale(yScale)
-            .orient("left")
-            .tickFormat(numberFormatter)
-            .ticks(5);
-
-        prefix = d3.formatPrefix(range[1]);
-        if (prefix.symbol=='K') {
-            symbol='k'
-        } else if (prefix.symbol=='M') {
-                symbol='m'
-        } else if (prefix.symbol=='G') {
-            symbol='bn'
-        } else if (prefix.symbol=='T') {
-            symbol='tn'
-        }
-        updateChart(true);
-        });
-
-    }
-
-
-    function updateChart(init)
-    {
-        // get the height and width subtracting the padding
-//    var innerHeight = window.innerHeight - 20;
-        var innerWidth = window.innerWidth - 20;
-        var divWidth=$(div).width();
-        if (divWidth==0) divWidth=$(div.parentElement.parentElement).width();
-        var maxWidth=parseInt($(div).css('max-width'));
-        if (divWidth==0) divWidth=innerWidth*0.8;
-        if (divWidth>maxWidth) divWidth=maxWidth;
-        var chartWidth = divWidth-padding.left-padding.right;//960 - margin.left - margin.right,
-        var chartHeight = $(div).height()-padding.top-padding.bottom;//500 - margin.top - margin.bottom;
-
-
-        // only update if chart size has changed
-        if ((prevChartWidth != chartWidth) ||
-            (prevChartHeight != chartHeight)) {
-            prevChartWidth = chartWidth;
-            prevChartHeight = chartHeight;
-
-            //set the width and height of the SVG element
-            chartSvg.attr("width", chartWidth + padding.left + padding.right)
-                .attr("height", chartHeight + padding.top + padding.bottom);
-            baseSvg.attr("width", chartWidth + padding.left + padding.right)
-                .attr("height", chartHeight + padding.top + padding.bottom);
-
-            // ranges are based on the width and height available so reset
-            xScale.range([0, chartWidth]);
-            yScale.range([chartHeight, 0]);
-
-            if (init) {
-                // if first run then just display axis with no transition
-                chartSvg.select(".x")
-                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
-                    .attr("transform", "translate(0," + chartHeight + ")")
-                    .call(xAxis);
-
-                chartSvg.select(".y")
-                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
-                    .call(yAxis);
-            }
-            else {
-                // for subsequent updates use a transistion to animate the axis to the new position
-                var t = chartSvg.transition().duration(updateTransistionMS);
-
-                t.select(".x")
-                    .attr("transform", "translate(0," + chartHeight + ")")
-                    .call(xAxis);
-
-                t.select(".y")
-                    .call(yAxis);
-            }
-
-            for (var i = 0; i < lineData.length; i++) {
-                var sourceData=lineData[i].data;
-                var color=lineData[i].color;
-                var label=lineData[i].label;
-                var className=lineData[i].class;
-
-                // bind up the data to the line
-                var lines = chartSvg.selectAll("path.line."+className)
-                    .data([lineData[i].data]); // needs to be an array (size of 1 for our data) of arrays
-
-                // transistion to new position if already exists
-                lines.transition()
-                    .duration(updateTransistionMS)
-                    .attr("d", line);
-
-                // add line if not already existing
-                lines.enter().append("path")
-                    .attr("class", "line")
-                    .attr("stroke", color)
-                    .attr("stroke-width", 2)
-                    .attr('fill','none')
-                    .attr("d", line);
-
-                // bind up the data to an array of circles
-                var circle = chartSvg.selectAll("circle."+className)
-                    .data(sourceData);
-
-                // if already existing then transistion each circle to its new position
-                circle.transition()
-                    .duration(updateTransistionMS)
-                    .attr("cx", function (d) {
-                        return xScale(d.date);
-                    })
-                    .attr("cy", function (d) {
-                        return yScale(d.count);
-                    });
-
-                // if new circle then just display
-                circle.enter().append("circle")
-                    .attr("cx", function (d) {
-                        return xScale(d.date);
-                    })
-                    .attr("cy", function (d) {
-                        return yScale(d.count);
-                    })
-                    .attr("r", 4)
-                    .attr('fill', 'transparent')
-                    .style("stroke", color)
-                    .style("stroke-width", 8)
-                    .attr("class", className)
-                    .on('mouseover',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + numberFormatter(d.count)) 
-                    }).on('click',function(d){
-                     d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + numberFormatter(d.count)) 
-                    }).on('touch',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + numberFormatter(d.count)) 
-                    }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
-
-            }
-        }
-    }
-
-    // look for resize but use timer to only call the update script when a resize stops
-    var resizeTimer;
-    window.onresize = function(event) {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function()
-        {
-            updateChart(false);
-        }, 100);
-    }
-
-
-};
-ready_for_graph();
 </script>
 
 ]]></content>
