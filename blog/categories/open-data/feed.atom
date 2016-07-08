@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-07-08T13:56:35-07:00</updated>
+  <updated>2016-07-08T13:57:08-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -111,9 +111,9 @@ that are exclusively made up of single family lots. This gives an indication of 
 are in those areas. The census is prone to under count units, but generally does a better job counting them than others,
 like the city or BC Assessment.</p>
 
-<p><a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=5" target="_blank"><img  src="http://doodles.mountainmath.ca/images/illegal_units.png" style="width:50%;float:left;margin-right:10px;"></a>
-One of the reasons why census unit counts come up higher than other methods is that the census also counts illegal units,
+<p>One of the reasons why census unit counts come up higher than other methods is that the census also counts illegal units,
 which naturally are not part of other official government counts. There are different reasons why a suite may be illegal.
+<a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=5" target="_blank"><img  src="http://doodles.mountainmath.ca/images/illegal_units.png" style="width:50%;float:left;margin-right:10px;"></a>
 It could simply be that the owner has not made the effort to register it, more likely the suite may not be up to code.
 And in some cases, a property may have more than one suite in the main building, which is illegal in the City of Vancouver.
 The latter ones we can pick out in census data, since a house with two units &ndash; so three dwelling units in one house in
