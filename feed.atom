@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-07-08T13:51:18-07:00</updated>
+  <updated>2016-07-08T13:53:54-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -87,7 +87,9 @@ a spreadsheet with the population data by age for each catchment area.</p>
 <div><script src="http://doodles.mountainmath.ca/javascripts/school_bar_graph.js" charset="utf-8"></script></div>
 
 
-<p>Pretty simple, just a couple of mouse clicks.</p>
+<p>Here we show the results by school, the select element can be used to select any school of interest. The whole process
+of populating the school data with census data just required uploading the catchment boundaries and selecting which
+variables to attach.</p>
 
 <h3>Custom Census Data Mapping</h3>
 
