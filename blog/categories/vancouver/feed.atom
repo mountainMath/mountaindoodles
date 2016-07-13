@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-07-08T13:57:08-07:00</updated>
+  <updated>2016-07-13T08:18:57-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -18,8 +18,8 @@
     <link href="http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data/"/>
     <updated>2016-07-06T09:19:04-07:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data</id>
-    <content type="html"><![CDATA[<p>Census data is very rich and with <a href="https://censusmapper.ca">CensusMapper</a> we now have about 1 billion fields right at
-our fingertips. And we managed to open up some of our interfaces for everyone to <a href="http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone/">explore data and make their own maps
+    <content type="html"><![CDATA[<p>Census data is very rich and with <a href="https://censusmapper.ca">CensusMapper</a> we now have about 1 billion data points right at
+our fingertips. And we have managed to open up some of our interfaces for everyone to <a href="http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone/">explore data and make their own maps
 and freely share them</a>.</p>
 
 <p>Things really get interesting when one mixes custom data with census data. While, at this point, these are not part of
@@ -31,45 +31,49 @@ blog posts in one.</p>
 <!-- more -->
 
 
-<h3>Overlay Mapping</h3>
+<h3>1. Overlay Mapping</h3>
 
 <p>First up, advanced users can upload custom datasets and map them on top of census data.
 <a href="http://doodles.mountainmath.ca/images/restaurants_2.png"><img  src="http://doodles.mountainmath.ca/images/restaurants_2.png" style="width:50%;float:right;margin-left:10px;"></a>
-For example, we took the
+For example, we took a
 <a href="http://data.vancouver.ca/datacatalogue/businessLicence.htm">business license dataset</a> from the City of Vancouver open
-data catalogue, filtered it by the <em>BusinessType</em> field to only include anything starting with &ldquo;Restaurant&rdquo; or
-&ldquo;Liquor Establishment&rdquo; and uploaded them to CensusMapper to map it on top of census data. In this case we used a map
-for <em>median age</em> that was <a href="https://twitter.com/jofu_/status/750564269796823041">recently created using the public interface</a>
-(have you made <a href="https://censusmapper.ca/maps/new">your own CensusMapper map</a> yet?),
-and we faded out areas outside of Vancouver and colored <em>Liquor Establishments</em> in red and <em>Restaurants</em> in blue.</p>
+data catalogue, filtered it by the <em>BusinessType</em> field to only include businesses starting with &ldquo;Restaurant&rdquo; or
+&ldquo;Liquor Establishment&rdquo; and uploaded them to CensusMapper to map it on top of census data. We have used a map
+for <em>median age</em> that was <a href="https://twitter.com/jofu_/status/750564269796823041">recently created using CensusMapper&rsquo;s free public interface</a>
+(have you made <a href="https://censusmapper.ca/maps/new">your own CensusMapper map</a> yet?), we have faded out areas outside of
+Vancouver and coloured <em>Liquor Establishments</em> in red and <em>Restaurants</em> in blue.</p>
 
 <p>Giving a visual impression of your own dataset in relation to census data is the first step to location analysis.</p>
 
-<h3>Populate Custom Data with Census Data</h3>
+<h3>2. Populate Custom Data with Census Data</h3>
 
 <p>Next
 up is to populate your own dataset with census data for further analysis. For the restaurants, we may be interested in
-attaching population in 5 minute walking distance to each location. Or maybe specific age brackets, recent immigrants
-from specific countries we may want to target with a restaurant, or income data.</p>
+attaching population estimates in 5 minute walking distance from each location. We might also be interested in specific
+age brackets, or numbers of recent immigrants
+from specific countries that we may want to target with a new restaurant, or maybe even     income data.</p>
 
 <p>This can be a time consuming and painful process,
 but we have automated this at CensusMapper.</p>
 
-<p>To showcase how this works we turn to elementary school catchments in the City of Vancouver. The
-<a href="http://data.vancouver.ca/datacatalogue/publicPlaces.htm">Vancouver Open Data Catalogue</a> for the catchment areas. The
-areas are quite out of date, but that suits us well since we will compare it to 2011 census data. We will look at the
+<p>To showcase how this works we will show an example using elementary school catchment areas in the City of Vancouver. The
+areas we have (from the <a href="http://data.vancouver.ca/datacatalogue/publicPlaces.htm">Vancouver Open Data Catalogue</a>) are
+quite out of date, but for the purpose of this example they work as we will compare them to 2011 census data. We will look at the
 <a href="https://censusmapper.ca/maps/419">school aged population</a> in each catchment.</p>
 
-<p>The general census release data does not fit our task perfectly, the census splits by age in early May 2011 and not by
+<!--
+The general census release data does not fit our task perfectly, the census splits by age in early May 2011 and not by
 year born and it does not have fine enough age brackets to estimating accurate school catchment numbers.
-<a href="http://www.bcstats.gov.bc.ca/StatisticsBySubject/Demography/PopulationEstimates.aspx">BC Stats</a> has finer age brackets
+[BC Stats](http://www.bcstats.gov.bc.ca/StatisticsBySubject/Demography/PopulationEstimates.aspx) has finer age brackets
 computed to school district (not catchment) boundaries, but their estimates are ridiculously far off of census numbers
-when using matching age brackets and years that their usefulness is highly questionable.</p>
+when using matching age brackets and years that their usefulness is highly questionable. 
+-->
+
 
 <p><a href="http://doodles.mountainmath.ca/images/e-schools.png"><img  src="http://doodles.mountainmath.ca/images/e-schools.png" style="width:50%;float:left;margin-right:10px;"></a>
 Using the visual overlay we notice that the catchment areas do fit boundaries of Dissemination Areas shown on the map
-reasonably well, with some exceptions. The same cannot be said for Census Tracts, and since we are using only census
-data and not NHS data we can be reasonably confident that Dissemination Area data is fairly accurate.</p>
+reasonably well, with some exceptions. The same cannot be said for Census Tracts, we can be reasonably confident that
+Dissemination Area data is fairly accurate.</p>
 
 <p>Next we use the built-in CensusMapper functionality to automatically populate the catchment areas with the census
 data we are interested
@@ -91,7 +95,7 @@ a spreadsheet with the population data by age for each catchment area.</p>
 of populating the school data with census data just required uploading the catchment boundaries and selecting which
 variables to attach.</p>
 
-<h3>Custom Census Data Mapping</h3>
+<h3>3. Custom Census Data Mapping</h3>
 
 <p>Sometimes it is not practical to map custom data on CensusMapper. Maybe the custom data is too sensitive to be uploaded
 to CensusMapper servers. Or it is quite complex and is better mapped separately. So we created an API to pull in
@@ -108,16 +112,16 @@ to explore the <a href="http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zonin
 For example we can <a href="https://mountainmath.ca/census_mix/map?mapBase=2&amp;layer=0">compare BC Assessment single family lot count to Stats Canada unit count</a>
 in the dissemination areas
 that are exclusively made up of single family lots. This gives an indication of how many suites and laneway houses there
-are in those areas. The census is prone to under count units, but generally does a better job counting them than others,
+are in those areas. The census is prone to undercount units, but still does a better job at estimating them than other data sources,
 like the city or BC Assessment.</p>
 
 <p>One of the reasons why census unit counts come up higher than other methods is that the census also counts illegal units,
-which naturally are not part of other official government counts. There are different reasons why a suite may be illegal.
+which naturally are not part of other official government counts. There are different reasons why a suite may be illegal:
 <a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=5" target="_blank"><img  src="http://doodles.mountainmath.ca/images/illegal_units.png" style="width:50%;float:left;margin-right:10px;"></a>
-It could simply be that the owner has not made the effort to register it, more likely the suite may not be up to code.
+It could simply be that the owner has not made the effort to register it. Or the suite may not be up to code.
 And in some cases, a property may have more than one suite in the main building, which is illegal in the City of Vancouver.
-The latter ones we can pick out in census data, since a house with two units &ndash; so three dwelling units in one house in
-total &ndash; is classified as being an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. So in dissemination areas that
+The latter ones we can pick out in census data, since a house with two secondary suites &ndash; so three dwelling units in one building in
+total &ndash; is classified as being an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. So, in census dissemination areas that
 only have duplex or single family lots as residential land uses based on assessment and land use data, we can look for
 how many dwelling units the census places in an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. And
 <a href="https://mountainmath.ca/census_mix/map?mapBase=2&amp;layer=5">map them</a>.</p>
