@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapzen | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapzen/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-07-26T15:55:02-07:00</updated>
+  <updated>2016-07-26T16:44:41-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -26,7 +26,8 @@ this is going.</p>
 <a href="http://doodles.mountainmath.ca/blog/2016/05/16/my-global-bike-map/">old bike infrastructure maps</a>, polished them up a
 bit using <a href="https://mapzen.com/blog/targeted-editing-cycleways/">Mapzen&rsquo;s bike map style</a> and adapted it for our purposes.</p>
 
-<p>The result is our <a href="https://mountainmath.ca/mobi" class="btn btn-primary">Vancouver Bike Share Map</a>.</p>
+<p>The result is our <a href="https://mountainmath.ca/mobi" class="btn btn-primary">Vancouver Bike Share Map</a>. (Fair
+warning. While this map works great on your iOS and Android phone, it may not work on old desktop computers.)</p>
 
 <p>Add it to your phone home screen, and it will be right at your fingertips when you need it!</p>
 
@@ -57,18 +58,22 @@ presentation by only revealing it on user interaction.</p>
 
 <h3>Bike Infrastructure</h3>
 
-<p>The bike data we are using comes straight out of Open Streetmaps. That has some disadvantages as it can be less accurate
-as the city bike data. But it also has a huge advantage. Anyone can edit Open Streetmaps to fix incorrect or missing
+<p>The bike data we are using comes straight out of <a href="http://www.openstreetmap.org/search?query=vancouver%2C%20bc#map=12/49.2497/-123.1193">OpenStreetMap</a>.
+That has some disadvantages as it can be less accurate
+as the city bike data. But it also has a huge advantage. Anyone can edit OpenStreetMap to fix incorrect or missing
 infrastructure designations. We kept some of the targeted editing capabilities intact on our map, if you view it on desktop
-and <em>shift-click</em> anywhere, it will take you right into the Open Streetmap editor at the position you clicked so you can
+and <em>shift-click</em> anywhere, it will take you right into the OpenStreetMap editor at the position you clicked so you can
 edit the infrastructure there.</p>
 
-<p>If you are planning on helping out and improve Open Streetmaps bike data, you may want to read the
+<p>If you are planning on helping out and improve OpenStreetMap bike data, you may want to read the
 <a href="https://mapzen.com/blog/targeted-editing-cycleways/">excellent targeted editing post from Mapzen</a> and use their
 <a href="https://mapzen-data.github.io/te-bike-lrm-mapzen/#point0lat=49.2820&amp;point0lng=-123.1204&amp;point1lat=49.2708&amp;point1lng=-123.1341&amp;mode=bicycle">map to brouse OSM tags</a>.
 You may notice the similarity to our map, we borrowed heavily from that one.</p>
 
-<p>And the other big advantage of Open Street Maps is that the map is automatically global. For this map we still focus on
+<p>Data in OpenStreetMap is automatically accessible to other services too, so improving OSM will help out everyone. And not
+just by making the maps better, routing gets better too!</p>
+
+<p>And the other big advantage of OpenStreetMap is that our map is automatically global. Right now we still focus on
 Vancouver, and we restrict the search function to Vancouver addresses. But in principle the infrastructure part of the
 map works for anywhere on the planet.</p>
 
@@ -86,6 +91,11 @@ infrastructure based on what modes are preferred, and routing will do routing fo
 
 <p>Using the great work of the <a href="https://bikeshare-research.org">Bike Share Research website</a> we can also parse the feeds
 for all global bike share systems registered there and expand the bike share map to other systems around the world.</p>
+
+<h3>Feedback</h3>
+
+<p>Got ideas how to make the map better? Want some pointers how to adapt this map for your own purposes? Send us a tweet
+or a message!</p>
 ]]></content>
   </entry>
   
