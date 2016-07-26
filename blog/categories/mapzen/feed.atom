@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapzen | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapzen/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-07-26T15:48:14-07:00</updated>
+  <updated>2016-07-26T15:55:02-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -49,7 +49,7 @@ donut-style presentation to visualize available bikes to check out and empty slo
 information for a bike share user. Where can I check out a bike, and where can I return one. There is nothing more frustrating
 than having to go to a meeting and being unable to check the bike back into a station because it is full. The map gives
 a quick visual guide for this, although the Mobi data lags quite a bit right now. Hopefully that will change in the future
-once they get their API up and runnning.</p>
+once they get their API up and running.</p>
 
 <p>On touch/hover the bike stations expand to give exact counts and the station name. Station sizes vary and counts can be
 useful at times. We opted to keep the icon size independent of station size, trading added information for a cleaner
@@ -62,6 +62,11 @@ as the city bike data. But it also has a huge advantage. Anyone can edit Open St
 infrastructure designations. We kept some of the targeted editing capabilities intact on our map, if you view it on desktop
 and <em>shift-click</em> anywhere, it will take you right into the Open Streetmap editor at the position you clicked so you can
 edit the infrastructure there.</p>
+
+<p>If you are planning on helping out and improve Open Streetmaps bike data, you may want to read the
+<a href="https://mapzen.com/blog/targeted-editing-cycleways/">excellent targeted editing post from Mapzen</a> and use their
+<a href="https://mapzen-data.github.io/te-bike-lrm-mapzen/#point0lat=49.2820&amp;point0lng=-123.1204&amp;point1lat=49.2708&amp;point1lng=-123.1341&amp;mode=bicycle">map to brouse OSM tags</a>.
+You may notice the similarity to our map, we borrowed heavily from that one.</p>
 
 <p>And the other big advantage of Open Street Maps is that the map is automatically global. For this map we still focus on
 Vancouver, and we restrict the search function to Vancouver addresses. But in principle the infrastructure part of the
