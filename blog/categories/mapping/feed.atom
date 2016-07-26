@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapping | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapping/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-07-13T08:18:57-07:00</updated>
+  <updated>2016-07-26T15:44:49-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,76 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Bike Share Map]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/07/26/bike-share-map/"/>
+    <updated>2016-07-26T15:12:06-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/07/26/bike-share-map</id>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/mobi" target="_blank"><img  src="http://doodles.mountainmath.ca/images/bike-share-image-large.png"  style="width:50%;float:right;margin-left:10px;"></a>
+It is no secret that we at MountainMath like bikes. And maps. And open data and sharing. We guess you know where
+this is going.</p>
+
+<p>Vancouver has finally gotten a bike share system, and we are loving it. So we took the occasion to take our
+<a href="http://doodles.mountainmath.ca/blog/2016/05/16/my-global-bike-map/">old bike infrastructure maps</a>, polished them up a
+bit using <a href="https://mapzen.com/blog/targeted-editing-cycleways/">Mapzen&rsquo;s bike map style</a> and adapted it for our purposes.</p>
+
+<p>The result is our <a href="https://mountainmath.ca/mobi" class="btn btn-primary">Vancouver Bike Share Map</a>.</p>
+
+<p>Add it to your phone home screen, and it will be right at your fingertips when you need it!</p>
+
+<!-- more -->
+
+
+<p>And we threw the <a href="https://www.mobibikes.ca/">Mobi Bike Share</a> station data on top. That last part turned out a little
+more messy than expected, the API that was <a href="https://bikeshare-research.org/#bssid:vancouver">linked at the Bike Share Research website</a>
+is broken, and the Mobi redirects are malformed and no guesswork would yield a working API. Luckily
+the <a href="https://twitter.com/oobr">bike share map wizard</a> on
+Twitter <a href="https://twitter.com/oobr/status/756211668141547520">had the answer</a> how to tease out the station data.</p>
+
+<p>We tried to keep our map as simple as possible. This iteration highlights three types of infrastructure, separated, bike lanes and
+shared lanes. The map has some hill-shading for reference, and at high zoom level it shows some bike points-of-interest.
+The rest is kept clean and simple.</p>
+
+<p>For the stations, we weren&rsquo;t fans of the icons and presentation used on many other maps. We decided on a simple
+donut-style presentation to visualize available bikes to check out and empty slots to return them. This is the most crucial
+information for a bike share user. Where can I check out a bike, and where can I return one. There is nothing more frustrating
+than having to go to a meeting and being unable to check the bike back into a station because it is full. The map gives
+a quick visual guide for this, although the Mobi data lags quite a bit right now. Hopefully that will change in the future
+once they get their API up and runnning.</p>
+
+<p>On touch/hover the bike stations expand to give exact counts and the station name. Station sizes vary and counts can be
+useful at times. We opted to keep the icon size independent of station size, trading added information for a cleaner
+presentation by only revealing it on user interaction.</p>
+
+<h3>Bike Infrastructure</h3>
+
+<p>The bike data we are using comes straight out of Open Streetmaps. That has some disadvantages as it can be less accurate
+as the city bike data. But it also has a huge advantage. Anyone can edit Open Streetmaps to fix incorrect or missing
+infrastructure designations. We kept some of the targeted editing capabilities intact on our map, if you view it on desktop
+and <em>shift-click</em> anywhere, it will take you right into the Open Streetmap editor at the position you clicked so you can
+edit the infrastructure there.</p>
+
+<p>And the other big advantage of Open Street Maps is that the map is automatically global. For this map we still focus on
+Vancouver, and we restrict the search function to Vancouver addresses. But in principle the infrastructure part of the
+map works for anywhere on the planet.</p>
+
+<h3>Next Steps</h3>
+
+<p>If you have been following our previous bike map posts you can guess where this could go next. Adding bike routing is an
+obvious one. And there are lots of other refinements we can think of.</p>
+
+<p>Hill shading has some issues right now, only some
+hill aspects are visible right now. We may have to add some colour to hill shading to visualize all hill aspects better,
+but that requires care to ensure the map retains it&rsquo;s clean looks.</p>
+
+<p>The next step in the map evolution is to make a multi-modal map, toghet with multi-modal routing. The map will highlight
+infrastructure based on what modes are preferred, and routing will do routing for these modes.</p>
+
+<p>Using the great work of the <a href="https://bikeshare-research.org">Bike Share Research website</a> we can also parse the feeds
+for all global bike share systems registered there and expand the bike share map to other systems around the world.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My Global Bike Map]]></title>
@@ -392,153 +462,6 @@ be to hack some of these more advanced costing options into their routing engine
 
 <p>Wrapping up the three-night trials in bike mapping is the
 <a href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/">post on data</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to make a bike map]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/"/>
-    <updated>2015-12-13T12:04:25-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map</id>
-    <content type="html"><![CDATA[<p><a href="/bike_map.html"><img  src="http://doodles.mountainmath.ca/images/bike-map.png" style="width:25%;float:right"></a>Here come some general thoughts on bike maps. Not throught through yet, just jotting down some ideas so that I don&rsquo;t
-forget and maybe to start a discussion.</p>
-
-<p>Bike enthusiasts, OSM folks and mapping technology wonks read on!</p>
-
-<!-- more -->
-
-
-<h4>Why make a new bike map?</h4>
-
-<p>Plainly put, I don&rsquo;t like a lot of the bike maps out there. Time for my little bike map rant:</p>
-
-<ol>
-<li>Lots of maps don&rsquo;t accomplish their core mission:
-accurately map bike infrastructure. For example, when in real life a bike lane vanishes 100m in front of an intersection
-and reappears 100m after the intersection, leaving cyclists exposed right where protection is needed the most, most
-bike maps will mark the entire section as having a bike lane.</li>
-<li>Most bike maps focus on the wrong issue. They focus on physical infrastructure, as a cyclist I am interested in
-cycling comfort level. Can I take my 6 year old along that route? Can I cycle leisurely or will I feel hastened by a
-car breathing down my neck? Will I arrive at my destination relaxed or will I be riled up by 3 near misses and 5 drivers
-swearing at me? Some of these questions can be answered by mapping infrastructure. A physically separated bike path will
-give me the comfort I need to bing my 6 year old and enjoy my ride. But when it comes to &ldquo;bike lane&rdquo; or &ldquo;shared road&rdquo;
-designations, I have no idea what it will feel like until I get there.</li>
-<li>Most bike maps have not yet made the transition from paper/PDF based maps to clickable and zoomable maps that can be
-easily consumed on the go.</li>
-<li>Most maps are static, they don&rsquo;t adapt to the needs of the user. Why do I have to deal with 5 different colors and
-3 types of shading when reading a bike map, when all I want to know is if I can bring my 6 year old along for the ride.
-I want an &ldquo;AAA&rdquo; button that fades out all routes that are not suitable for all ages and abilities. For that purpose I
-don&rsquo;t care if a road has infrastructure like a bike lane wedged between parked cars and 50km/h traffic. If we absolutely
-have to ride that way it will be on the sidewalk.</li>
-</ol>
-
-
-<h4>How to make a new bike map?</h4>
-
-<p>First let&rsquo;s start with examples of how other have tried to solve these problems. Probably one of the best maps out there
-is the <a href="https://www.crd.bc.ca/docs/default-source/crd-document-library/maps/transportation/bikemap2014-frontback-web.pdf?sfvrsn=8">Capital Regional District Bike Map</a>.
-I chatted with <a href="https://twitter.com/Burgundavia">Corey</a> who worked for CRD on these maps on how it was done. They collected all the bike infrastructure
-in the region by contacting all the municipalities. <img  src="http://doodles.mountainmath.ca/images/victoria.png" style="width:50%;float:left"> Then they meticulously
-checked that what the municipalities reported actually existed on the ground.  Consider Fort road on their bike map where they accurately show the bike lane
-cutting out. And they added in shortcuts and connections
-that the municipalities did not report on, like a short section of footway that may technically require walking the bike
-but shortcuts out of a suburban cul-de-sac maze.</p>
-
-<p>Next the CRD map does not only map infrastructure, but color-codes it to show cycling comfort. <img  src="http://doodles.mountainmath.ca/images/victoria-legend.png" style="width:50%;float:right">
-This gives me a good idea how comfortable the rider will feel. Unfortunately all that complexity starts to make it difficult to
-read the bike map.</p>
-
-<p>That&rsquo;s where technology could come to the rescure. The CRD map is a PDF map and suffers the usual limitations that come
-with it. The map cannot adapt to the needs of the reader. So how about moving the map online and letting the user decide
-how to display it?</p>
-
-<h4>Bike maps that adapt to the user</h4>
-
-<p>The <a href="http://www.washingtonpost.com/blogs/wonkblog/wp/2015/04/01/bleak-maps-of-how-cities-look-using-only-their-bike-lanes/">Washington Post Wonkblog</a>
-had an excellent feature mapping only the bike infrastructure, nothing else. And for good measure, they removed the
-shared streets bike infrastructure. The rational was that in most cases, comfort level on shared street bike routes is really no different from
-cycling on a parallel road. Inspired by that I decided <a href="/blog/2015/04/01/bike-paths/">map Vancouver and a couple of other cities</a>
-and I added in some button to allow selectively turning on or off typed of infrastructure.</p>
-
-<iframe src="http://doodles.mountainmath.ca/bike_paths.html?fh=50&nh=true" width="50%" height="300" style="float:left;"></iframe>
-
-
-<p>That&rsquo;s getting one step closer to adaptable bike maps, but it is still missing the main point that as a cyclist I am
-most interested in comfort level, and infrastructure type is only a proxy for that. And a poor one in many cases.</p>
-
-<h4>Inspiration</h4>
-
-<p>Not convinced we need a new bike map? Let&rsquo;s draw on some local (for me) maps that inspired this effort.</p>
-
-<p>UBC Campus Planning <a href="https://twitter.com/ubc_candcp/status/662027568204357633">keeps tweeting out a bike map</a>
-that lists several dangerous roads as &ldquo;designated on street cycling routes&rdquo;, including an unlit divided 4 lane highway
-with a posted speed limit of 60km/h and typical traffic speeds significantly exceeding that. And all of that apparently
-aimed at people that don&rsquo;t cycle to campus yet but are considering doing so.</p>
-
-<p>TransLink just <a href="http://www.translink.ca/-/media/Documents/cycling/cycling_routes/full_maps/TransLink%20Regional%20Cycling%20Map%20West.pdf">updated their bike map</a>
-and marks said highway as &ldquo;recommended by cyclists&rdquo;. The do acknowlege that the road &ldquo;does not have special treatment
-for cyclists&rdquo;. So why include it on the map? Filling in the the gaps in the cycling network should happen in real life,
-not just on the map.</p>
-
-<p>Even HUB keeps <a href="https://bikehub.ca/about-us/our-positions/ungapthemap">marking Wesbrook Mall north of Agronomy as &ldquo;existing cycling route&rdquo;</a>
-when in real life it is everything but that.</p>
-
-<h4>How to make a bike map</h4>
-
-<p>So how should we make a bike map? I was always thinking about setting up my own database and somehow adding and rating
-infrastructure. Then <a href="https://twitter.com/alexwarrior">Alex</a> decided to start making a bike
-map for the UBC area. And he chose the most straight-forward path: Editing Open Street Map data. That way the edits are
-immediately (better: after their map tile refresh cycle) available online, for example on
-<a href="http://www.opencyclemap.org/">OpenCycleMaps</a>. The map is easily accessible
-on the go, it zooms and scrolls. It is missing a &lsquo;locate me&rsquo; button (which is easy to fix). The look and feel is a little
-dated. But most importantly, it does not adapt to the user&rsquo;s needs. I can&rsquo;t ask it to display the &ldquo;dad&rsquo;s version&rdquo; of the
-cycle network, showing me only pieces that I will be comfortable cycling with my 6 year old.</p>
-
-<p>Technology has moved along since that map was built. A very easy way to solve these issues is to
-utilized the awesome tools built by the folks at <a href="https://mapzen.com">Mapzen</a>. Their
-<a href="https://mapzen.com/projects/tangram">tangram mapping engine</a> taps into their
-<a href="https://mapzen.com/projects/vector-tiles">OSM vector tile service</a> to make flexible mapping of bike data a breeze. And
-to top things off, they offer very easy to use and extremely powerful ways to style the map. Only problem: Mapzen&rsquo;s
-OSM extracts don&rsquo;t have cycling information. Not a big problem though, we can just pull them out separately and add
-them on by hand. Here is an example where only the bike routes near UBC are added.</p>
-
-<iframe src="http://doodles.mountainmath.ca/bike_map.html" width="100%" height="550"></iframe>
-
-
-<p><a href="/bike_map.html">Full screen view</a></p>
-
-<p>One small drawback is that WebGL, the technology Tangram is based on, is not available for much of the windows world.
-WebGL requires modern browsers (IE9 does not count) and also modern hardware/graphics card drivers. A couple of years
-old windows machine will likely not be able to render WebGL no matter what browser you use. But the main target is
-mobile, and iOS and most android won&rsquo;t have a problem with WebGL. If really needed, could add a fallback or use older
-and web technology to make the map, but Mapzen&rsquo;s Tangram makes it so ridiculously easy to make and style nice maps&hellip;</p>
-
-<h4>The main problem left to solve</h4>
-
-<p>One major problem left. OSM does not have and &ldquo;cycling comfort&rdquo; tags right now. There are tags for physical infrastructure,
-and in some cases the comfort level can be correctly inferred from those. But in many cases it can&rsquo;t.</p>
-
-<p>There are two ways around that. One could
-keep those tags in a separate file, but that becomes difficult to maintain when OSM features change. Or one can add the
-tag to the OSM data. That way better bike maps can scale easily, and the information can also be used in OSM-based
-routing services where their real value lies.</p>
-
-<p>Not sure which is the way to go here, a similar tag
-<a href="http://wiki.openstreetmap.org/wiki/Proposed_features/bike_safety">has been proposed before</a> but apparently did not
-go anywhere. Looking at the <a href="http://wiki.openstreetmap.org/wiki/Any_tags_you_like">tag guidelines</a> the fact they these
-new tags are very useful for routing seems to speak for adding them to OSM, but the fact that they are measuring
-something explicitly non-geographic by going beyond the already existing physical infrastructure markers might mean
-they are better kept in an external database. Will have to think this over, feedback appreciated.</p>
-
-<h4>Where to go from here.</h4>
-
-<p>The logical next step is to add routing. Again, Mapzen&rsquo;s <a href="https://mapzen.com/projects/valhalla/">flexible routing service</a>
-seems to be a natural match. Also, adding editing capabilities right onto the map would be quite useful. The bike map is
-where data issues are best seen, and saving the step to head over to OSM to fix it (after creating an account) and then
-waiting for the data to update on the map seems like a workflow that will discourage wide participation.</p>
-
-<p>We follow up by <a href="http://doodles.mountainmath.ca/blog/2015/12/14/routing/">exploring routing</a>
-and <a href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/">data quality</a>.</p>
 ]]></content>
   </entry>
   

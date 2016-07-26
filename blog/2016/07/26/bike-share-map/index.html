@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Surrey Traffic Loop Counts - Mountain Doodles</title>
+  <title>Bike Share Map - Mountain Doodles</title>
   <meta name="author" content="MountainMath">
 
   
-  <meta name="description" content="A first look at traffic loop counts.">
-  <meta name="keywords" content="surrey, open data, traffic, counts">
+  <meta name="description" content="Mapping OSM bike data.">
+  <meta name="keywords" content="bike, cycling, mapping, OSM, open street maps, infrastructure">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2016/03/27/surrey-traffic-loop-counts/">
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2016/07/26/bike-share-map/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">Surrey Traffic Loop Counts</h1>
+      <h1 class="entry-title">Bike Share Map</h1>
     
     
       <p class="meta">
@@ -97,7 +97,7 @@
   
 
 
-<time datetime="2016-03-27T01:04:45-07:00" pubdate data-updated="true"></time>
+<time datetime="2016-07-26T15:12:06-07:00" pubdate data-updated="true"></time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -106,64 +106,68 @@
   </header>
 
 
-<div class="entry-content"><p><a href="https://mountainmath.ca/land_use/map"><img  src="/images/surrey_traffic.png" style="width:50%;float:right;margin-left:10px;"></a>
-Surrey published a <a href="http://data.surrey.ca/dataset/ff9c223a-57e2-49b8-900f-e4b9d9423b4b">beta version of their traffic loop counts</a>,
-which is pretty awesome. Real life traffic data is very exciting, and there are lots of fun things one could do with that.
-So last night I decided to take a look and make a quick map. Nothing exciting yet, just to feel may way around
-what&rsquo;s there.</p>
+<div class="entry-content"><p><a href="https://mountainmath.ca/mobi" target="_blank"><img  src="/images/bike-share-image-large.png"  style="width:50%;float:right;margin-left:10px;"></a>
+It is no secret that we at MountainMath like bikes. And maps. And open data and sharing. We guess you know where
+this is going.</p>
+
+<p>Vancouver has finally gotten a bike share system, and we are loving it. So we took the occasion to take our
+<a href="http://doodles.mountainmath.ca/blog/2016/05/16/my-global-bike-map/">old bike infrastructure maps</a>, polished them up a
+bit using <a href="https://mapzen.com/blog/targeted-editing-cycleways/">Mapzen&rsquo;s bike map style</a> and adapted it for our purposes.</p>
+
+<p>The result is our <a href="https://mountainmath.ca/mobi" class="btn btn-primary">Vancouver Bike Share Map</a>.</p>
+
+<p>Add it to your phone home screen, and it will be right at your fingertips when you need it!</p>
 
 <!-- more -->
 
 
-<p>To keep things simple I again took advantage of the <a href="https://mapzen.com/projects/tangram/">awesome Tangram mapping enginge</a>
-and turned it onto the traffic loop data. All I did was plot circles for each traffic loop with the area proportional to
-the count. Just to get an idea what the traffic data looks like.</p>
+<p>And we threw the <a href="https://www.mobibikes.ca/">Mobi Bike Share</a> station data on top. That last part turned out a little
+more messy than expected, the API that was <a href="https://bikeshare-research.org/#bssid:vancouver">linked at the Bike Share Research website</a>
+is broken, and the Mobi redirects are malformed and no guesswork would yield a working API. Luckily
+the <a href="https://twitter.com/oobr">bike share map wizard</a> on
+Twitter <a href="https://twitter.com/oobr/status/756211668141547520">had the answer</a> how to tease out the station data.</p>
 
-<iframe src="/surrey_traffic_map.html" width="100%" height="550"></iframe>
+<p>We tried to keep our map as simple as possible. This iteration highlights three types of infrastructure, separated, bike lanes and
+shared lanes. The map has some hill-shading for reference, and at high zoom level it shows some bike points-of-interest.
+The rest is kept clean and simple.</p>
 
+<p>For the stations, we weren&rsquo;t fans of the icons and presentation used on many other maps. We decided on a simple
+donut-style presentation to visualize available bikes to check out and empty slots to return them. This is the most crucial
+information for a bike share user. Where can I check out a bike, and where can I return one. There is nothing more frustrating
+than having to go to a meeting and being unable to check the bike back into a station because it is full. The map gives
+a quick visual guide for this, although the Mobi data lags quite a bit right now. Hopefully that will change in the future
+once they get their API up and runnning.</p>
 
-<p><a href="/surrey_traffic_map.html">Full screen view</a></p>
+<p>On touch/hover the bike stations expand to give exact counts and the station name. Station sizes vary and counts can be
+useful at times. We opted to keep the icon size independent of station size, trading added information for a cleaner
+presentation by only revealing it on user interaction.</p>
 
-<h3>What do we see?</h3>
+<h3>Bike Infrastructure</h3>
 
-<p>Really not much at this point, it&rsquo;s just a snapshot of one hour of traffic on March 24 between 9am and 10am. But it&rsquo;s pretty
-obvious where to go from here. One should add some dynamic way to select the time frame. And add some animations to better
-represent car traffic and the direction in which it is moving. The cool <a href="https://tangrams.github.io/carousel/?tron#15/49.1055/-122.8244">tron demo</a>
-simulates traffic movement, maybe the loop count data could be massaged in a way to give a more accurate representation
-of actual traffic.</p>
+<p>The bike data we are using comes straight out of Open Streetmaps. That has some disadvantages as it can be less accurate
+as the city bike data. But it also has a huge advantage. Anyone can edit Open Streetmaps to fix incorrect or missing
+infrastructure designations. We kept some of the targeted editing capabilities intact on our map, if you view it on desktop
+and <em>shift-click</em> anywhere, it will take you right into the Open Streetmap editor at the position you clicked so you can
+edit the infrastructure there.</p>
 
-<p>And of course one could start to run some analysis. The fifteen minute aggregates which the server sends down are a little rough for doing some
-traffic flow analysis, but I am sure that together with the lane direction information attached to the traffic loop geographic
-data something interesting can be done.</p>
+<p>And the other big advantage of Open Street Maps is that the map is automatically global. For this map we still focus on
+Vancouver, and we restrict the search function to Vancouver addresses. But in principle the infrastructure part of the
+map works for anywhere on the planet.</p>
 
-<h3>Hickups and feedback</h3>
+<h3>Next Steps</h3>
 
-<p>There were a couple of hickups along the way. The Surrey Open Data API sends down GeoJSON data in NAD 83 UTM Zone 10
-instead of the default WGS84. Which is just fine, but when using the Mapzen Tangram engine we need to transform
-it into WGS84. The fancy way would be to do that dynamically after directly consuming the Surrey API, but we were lazy
-and just downloaded and transformed the file. So now we have the loop counter locations and can map them.</p>
+<p>If you have been following our previous bike map posts you can guess where this could go next. Adding bike routing is an
+obvious one. And there are lots of other refinements we can think of.</p>
 
-<p>Next up, we want to add the traffic count data to the loop counter locations. Ideally we want to consume the Surrey open
-data API and link it with the geographic loop data, but the API does not set the <code>Access-Control-Allow-Origin: *</code>
-http header to allow cross-origin requests to consume the API directly from their web app. Again, no big deal when building a small
-testing app, we simply downloaded the traffic loop counts for noon on March 23 and threw them up on our server.</p>
+<p>Hill shading has some issues right now, only some
+hill aspects are visible right now. We may have to add some colour to hill shading to visualize all hill aspects better,
+but that requires care to ensure the map retains it&rsquo;s clean looks.</p>
 
-<p>Pretty smooth overall for a first run. Timestamps are a little funny, they are in local time. While easy to interpret, this
-will cause problems when analysing data around daylight savings time changes.</p>
+<p>The next step in the map evolution is to make a multi-modal map, toghet with multi-modal routing. The map will highlight
+infrastructure based on what modes are preferred, and routing will do routing for these modes.</p>
 
-<p>Lastly we needed to add a quick hack to the Tangram mapping engine. For some reason the <a href="https://mapzen.com/documentation/tangram/sources/#transform">transform</a>
-function does not get called when adding static (non-tiled) data sources. But that was easy to fix, although it took some
-sloothing to track down.</p>
-
-<p>At this point it seems that not all traffic loops are hooked up to the API yet. Going through the data, on the March 23
-there are only a handful of traffic loops active, on the 24th the number of active loops jumps up significantly.
-I also plotted the traffic loop locations without data (in yellow), just to give
-and idea what will become available. Curious to see where this will go once out of beta mode.</p>
-
-<h3>Want to make your own map?</h3>
-
-<p>It&rsquo;s pretty easy. Just grab the html file from the &ldquo;full screen&rdquo; link above and download the <a href="/surrey_traffic_scene.yaml">Tangram scene file</a>
-and add your own twist to the map. Also grab a copy of the tangram engine <a href="http://doodles.mountainmath.ca/javascripts/tangram.debug.js">with the quick-fix for the transform function</a>.</p>
+<p>Using the great work of the <a href="https://bikeshare-research.org">Bike Share Research website</a> we can also parse the feeds
+for all global bike share systems registered there and expand the bike share map to other systems around the world.</p>
 </div>
 
 
@@ -172,7 +176,7 @@ and add your own twist to the map. Also grab a copy of the tangram engine <a hre
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">MountainMath</span></span>
+<span class="byline author vcard">Posted by <span class="fn">Jens von Bergmann</span></span>
 
       
 
@@ -186,12 +190,12 @@ and add your own twist to the map. Also grab a copy of the tangram engine <a hre
   
 
 
-<time datetime="2016-03-27T01:04:45-07:00" pubdate data-updated="true"></time>
+<time datetime="2016-07-26T15:12:06-07:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/opendata/'>opendata</a>, <a class='category' href='/blog/categories/surrey/'>surrey</a>, <a class='category' href='/blog/categories/traffic/'>traffic</a>
+    <a class='category' href='/blog/categories/mapping/'>mapping</a>, <a class='category' href='/blog/categories/mapzen/'>mapzen</a>, <a class='category' href='/blog/categories/osm/'>osm</a>, <a class='category' href='/blog/categories/webgl/'>webgl</a>
   
 </span>
 
@@ -200,7 +204,7 @@ and add your own twist to the map. Also grab a copy of the tangram engine <a hre
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2016/03/27/surrey-traffic-loop-counts/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2016/03/27/surrey-traffic-loop-counts/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2016/07/26/bike-share-map/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2016/07/26/bike-share-map/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -213,10 +217,8 @@ and add your own twist to the map. Also grab a copy of the tangram engine <a hre
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2016/03/08/unoccupied-dwellings/" title="Previous Post: Unoccupied Dwellings">&laquo; Unoccupied Dwellings</a>
+        <a class="basic-alignment left" href="/blog/2016/07/06/mixing-data/" title="Previous Post: Mixing Data">&laquo; Mixing Data</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2016/03/28/on-mixed-use/" title="Next Post: On Mixed Use">On Mixed Use &raquo;</a>
       
     </p>
   </footer>
@@ -310,8 +312,8 @@ and add your own twist to the map. Also grab a copy of the tangram engine <a hre
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2016/03/27/surrey-traffic-loop-counts/';
-        var disqus_url = 'http://doodles.mountainmath.ca/blog/2016/03/27/surrey-traffic-loop-counts/';
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2016/07/26/bike-share-map/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2016/07/26/bike-share-map/';
         var disqus_script = 'embed.js';
       
     (function () {
