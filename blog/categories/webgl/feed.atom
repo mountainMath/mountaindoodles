@@ -4,7 +4,7 @@
   <title><![CDATA[Category: webgl | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/webgl/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-07-26T15:44:49-07:00</updated>
+  <updated>2016-07-26T15:48:14-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -37,7 +37,8 @@ bit using <a href="https://mapzen.com/blog/targeted-editing-cycleways/">Mapzen&r
 more messy than expected, the API that was <a href="https://bikeshare-research.org/#bssid:vancouver">linked at the Bike Share Research website</a>
 is broken, and the Mobi redirects are malformed and no guesswork would yield a working API. Luckily
 the <a href="https://twitter.com/oobr">bike share map wizard</a> on
-Twitter <a href="https://twitter.com/oobr/status/756211668141547520">had the answer</a> how to tease out the station data.</p>
+Twitter <a href="https://twitter.com/oobr/status/756211668141547520">had the answer</a> how to tease out the station data. And some
+of the stations are duplicate, so it took some time to clean up the data properly.</p>
 
 <p>We tried to keep our map as simple as possible. This iteration highlights three types of infrastructure, separated, bike lanes and
 shared lanes. The map has some hill-shading for reference, and at high zoom level it shows some bike points-of-interest.
