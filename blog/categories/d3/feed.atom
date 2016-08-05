@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-07-26T17:04:42-07:00</updated>
+  <updated>2016-08-04T23:19:08-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,294 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[What's up with RT?]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/08/04/downzoning/"/>
+    <updated>2016-08-04T13:18:51-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/08/04/downzoning</id>
+    <content type="html"><![CDATA[<p>RT is Vancouver&rsquo;s zoning for duplexes. Over time, various areas have been zoned to allow duplexes. Examples are
+Kits Point, much of Point Grey Road reaching up to Broadway, much of Granview-Woodlands, parts of Mount Pleasant and many
+other areas.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT,residential]&zoom=13&lat=49.245&lng=-123.1166&layer=4&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rt_teardowns.png" style="width:50%;float:right;margin-left:10px;"></a>
+Recently I have had some interesting conversations <a href="https://twitter.com/fixbced/status/748196970783637504">on Twitter regarding RM-6</a>
+and over BBQ dinner about RT-7. Then the
+<a href="http://vancouver.ca/home-property-development/grandview-woodland-community-plan.aspx">Granview-Woodland plan</a>
+passed by council, and it contains a curious provision of reducing the outright FSR for the
+RT-zoned properties from 0.6 to 0.5.</p>
+
+<p>All of which got me thinking. What is RT supposed to accomplish, how does the diverse RT-zoning rules influence development
+and how is RT overall performing?</p>
+
+<!-- more -->
+
+
+<p>To make things complicated many RT zoning rules contain provisions to allow for higher FSR, and more than two units,
+under the &ldquo;heritage preservation&rdquo; program. Most people like the multi-plex developments that come out of this process,
+but the road there is quite adurous. Permitting takes a long time and is marred by uncertainty. Those projects are
+done by small developers, that are ill-equipped to deal with risky and drawn-out rezoning processes.</p>
+
+<p>These would be great projects carried out by small developers that lead to gentle and affordable density,
+as this kind of re-development does not require land-assembly and does not lead
+to crazy land-value lifts that require CACs to claw back some of that value rise
+<a href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/">as we explained before</a>.</p>
+
+<p>We have some ideas what a refreshed RT (and RS) should look like, and there are
+<a href="https://pricetags.wordpress.com/2016/07/29/open-letter-on-the-downzoning-of-grandview-woodland-rt/">some efforts to push for changes</a>.
+We leave the details of this to the experts and take a little field expedition to
+see how the different flavours of RT (and RM) perform in data.</p>
+
+<h3>Why RT?</h3>
+
+<p>One central question to ask is: What is the purpose of RT (or any) zoning? The initial idea was to allow higher density
+than RS, with two stratified properties on one lot. But since the creation of RT the RS zoning has undergone significant
+changes and allows, in many cases, for higher FSR and higher unit count, although not stratified. In much of RS three
+units are allowed on each lot, the main house, a secondary suite and a laneway house.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT_RS_FSD,residential]&zoom=13&lat=49.245&lng=-123.1166&layer=5&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rs_rt_land.png" style="width:50%;float:left;margin-right:10px;"></a>
+So how does RT perform in the wild? There seems to be little effect RT vs RS zoning has on land values. The
+<a href="http://mountainmath.ca/map/assessment?filter=[zone_RT_RS_FSD,residential]&amp;zoom=13&amp;lat=49.245&amp;lng=-123.1166&amp;layer=6&amp;mapBase=2">boundaries between RS and RT</a>
+can&rsquo;t be discerned from a
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT_RS_FSD,residential]&amp;zoom=13&amp;lat=49.245&amp;lng=-123.1166&amp;layer=5&amp;mapBase=2">land value map of all residential properties in RS, RT (and First Shaugnessey) zones</a>.</p>
+
+<p>How good are RT lots at realizing &ldquo;zone capacity&rdquo;, that is how many of the historically SFH get turned over into duplexes,
+or in some cases multi-plexes (through the heritage presercation program)?
+That depends as the following graph shows.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_sfh" style="height:200px;max-width:640px;" data-url="/data/zone_sfh.json"></div>
+</div>
+
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT]&zoom=13&lat=49.2581&lng=-123.1166&layer=20&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/types_rt.png" style="width:50%;float:left;margin-right:10px;"></a>
+We can also study this by mapping out
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT]&amp;zoom=13&amp;lat=49.2581&amp;lng=-123.1166&amp;layer=20&amp;mapBase=2">all residential lots in RT zones</a>,
+and color them depending if they are single family lots, duplexes or multi-plexes.</p>
+
+<p>Some RT areas are essentially indistinguishable from RS areas, they are almost entirely comprised of single family lots.
+A good example is the
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-4,residential]&amp;zoom=14&amp;lat=49.2733&amp;lng=-123.0646&amp;layer=20&amp;mapBase=2">RT-4, most of which is in Grandview-Woodlands</a>.
+And being in RT rathern than RS they often don&rsquo;t even get the benefits of a laneway house. Coach houses, which are legal
+in many RT areas and could be stratified, come with such onerous side setbacks that they are very hard to build on
+regular lots.</p>
+
+<p>There is a lot of untapped &ldquo;zoned capacity&rdquo;. Similarly, some of the
+newer RM zones show little appetite for realizing &ldquo;zoned capacity&rdquo;, possibly due to the added difficulty of having to
+assemble lots to do so.</p>
+
+<p>One can argue about whether this is good or bad. Or one can look at the variation between the different types of RT and RM
+zones to see what causes the difference.</p>
+
+<h3>Downzoning</h3>
+
+<p>To understand how downzoning works we want to consider two different types on analysis. One is to look at what happened
+after RS zone was changed to reduce site coverage in the 1980 in response to concerns about &lsquo;monster homes&rsquo;. We ran
+an analysis using LIDAR data to understand the effect on the physical form of SFH and found that while site coverage
+indeed decreased sharply, the <a href="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/">bulk of the building remained unchanged</a>.
+and the rule change seems to have done little in easing concerns about &lsquo;monster homes&rsquo;, it simply changed some of the
+parameters determining what &lsquo;monster homes&rsquo; look like.</p>
+
+<p>Another way to look at the matter is to compare how re-development happened in difference zones. This is very hard, since
+there are many factors other than zoning that determine if a building gets re-developed. To get some idea we compiled two
+numbers for each of the RS, RT and RM zones (ignoring some of the delicacies in the zoning code and lumping together all
+sub-zones with the same leading number. So for example we lumped RT-4, RT-4A, RT-4N and RT-4AN into one category we simply
+label &ldquo;RT-4&rdquo;.</p>
+
+<p>First we check how many properties got re-developed since 2000.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_redevelopment" style="height:200px;max-width:640px;" data-url="/data/zone_redevelopment.json"></div>
+</div>
+
+
+<p>Next we take a look what percentage of the existing stock is in immediate danger of being torn down, using the
+<a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">methodology developed earlier</a>.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_teardown" style="height:200px;max-width:640px;" data-url="/data/zone_teardowns.json"></div>
+</div>
+
+
+<p>While there is some correspondence between re-development activity and ratio of teardowns, there are a number of notable
+exceptions. RT-1 and RM-9 stand out, but these are
+<a href="https://mountainmath.ca/map/assessment?filter=[zoneE_RM-9_RT-1]&amp;zoom=14&amp;lat=49.2146&amp;lng=-123.1282&amp;layer=5&amp;mapBase=2">oddball cases with just a few properties</a>.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT,years_2000]&zoom=13&lat=49.2581&lng=-123.1166&layer=20&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/new_types_rt.png" style="width:50%;float:right;margin-left:10px;"></a>
+We can also map just <a href="https://mountainmath.ca/map/assessment?filter=[zone_RT,years_2000]&amp;zoom=13&amp;lat=49.2581&amp;lng=-123.1166&amp;layer=20&amp;mapBase=2">residential properties in RT that were re-developed since 2000</a>
+and colour them by SFH, Duplex and Multi-plex status. We can clearly see how some RT areas, like RT-7, don&rsquo;t see much
+re-development, others, like RT-6 see mostly multi-plexes being developed. Some zones, like RT-10, 11, 12 are too new
+to be judged on development happening since 2000. For example, zooming in on
+<a href="http://mountainmath.ca/map/assessment?filter=[zone_RT-10,residential,years_2009]&amp;zoom=15&amp;lat=49.2485&amp;lng=-123.0734&amp;layer=20&amp;mapBase=2">developments in RT-10 since 2009 paints a very different picture</a>.</p>
+
+<p>There is lots of stuff to explore, but for today I want to look at RT-7 and RT-6 in more detail.</p>
+
+<h4>RT-7</h4>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-7,residential]&zoom=15&lat=49.2617&lng=-123.1654&layer=20&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rt-7.png" style="width:50%;float:left;margin-right:10px;"></a>
+A much more interesting case is RT-7, with 35% of properties teardowns but only 4.1% of properties re-developed since 2000.
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-7,residential]&amp;zoom=15&amp;lat=49.2617&amp;lng=-123.1654&amp;layer=4&amp;mapBase=2">Looking at the map</a>
+we see that RT-7 is comprised of two pockets on the west side, and the teardown candidates stand out in red and orange.
+Filtering further to see what
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-7,residential,years_2000]&amp;zoom=15&amp;lat=49.2617&amp;lng=-123.1654&amp;layer=20&amp;mapBase=2">has been re-developed since 2000</a>
+we see that, considering the size of the two pockets, re-development favours the eastern pocket near 16th and Arbutus. We
+can clearly see that that the eastern pocket has an overall more valuable building stock, although it is not clear if that
+is due to higher rates of re-development or for other reasons, for example the presence of some slightly larger lots. We
+also note that re-development does produce duplex units and even some multi-plex.</p>
+
+<p>So what is going on here? Looking at the <a href="http://former.vancouver.ca/commsvcs/BYLAWS/zoning/rt-7.pdf">RT-7 zoning</a> we
+see that the area has been downzoned to 0.4 FSR as was rencently pointed out to me, which can conditionally be upzoned
+to 0.6 FSR. Additionally, there are caps on the number of units per hectar to further restrict density.</p>
+
+<h4>RT-6</h4>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6,residential]&zoom=16&lat=49.2606&lng=-123.1097&layer=20&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rt-6.png" style="width:50%;float:right;margin-left:10px;"></a>
+Another interesting example is RT-6. RT-6 has seen modest levels of re-develpment and has a <a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6,residential]&amp;zoom=16&amp;lat=49.2606&amp;lng=-123.1097&amp;layer=4&amp;mapBase=2">relatively healthy building
+stock</a>.
+What&rsquo;s even more interesting is that it contains
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6,residential]&amp;zoom=16&amp;lat=49.2597&amp;lng=-123.1101&amp;layer=20&amp;mapBase=2">many multi-plexes</a>.
+And more importantly, <a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6,residential,years_2000]&amp;zoom=16&amp;lat=49.2597&amp;lng=-123.1101&amp;layer=20&amp;mapBase=2">developments since 2000 have mostly produced multi-plexes</a>.</p>
+
+<p>Prime examples of the <em>gentle density</em> that we keep hearing about. I would say that something is working very well here.</p>
+
+<p>So what&rsquo;s the difference? In contrast to RT-7 <a href="http://former.vancouver.ca/commsvcs/BYLAWS/zoning/rt-6.pdf">RT-6 zoning</a> allows for 0.6 FSR
+outright, conditionally increased to 0.75. But there are other important differences too. The RT-7 lots are typically
+smaller with many at about 340m&sup2; compared to the 580m&sup2; typical RT-6 lots.
+(Although RT-7 also contains some 580m&sup2; lots).</p>
+
+<h3>Conclusion</h3>
+
+<p>Does downzoning work? It depends what the goal is. Looking at the RT-7 example, downzoning has slowed re-development compared
+to other areas in the city, but it also lead to a deterioration in building stock in RT-7. This is a stop-gap measure,
+eventually that lower value building stock will get re-developed.</p>
+
+<p>The combination of larger lots and the heritage retention program in the RT-6 zoning seems to work in producing
+gentle density, except that the permitting process takes too long and it is not immediately clear what purpose the
+heritage preservation has that allows stripping the building down to the studs and possibly moving it to the front and
+then building an infill in the back. There must be a better way to deal with concerns behind
+heritage preservation (not much is &ldquo;preserved&rdquo; in this process) and at the same time cut down on the time it
+takes to jump through all the permit hoops involved.</p>
+
+<p>It is clear that RS and RT (and RM) zoning would hugely profit from a clearer vision what these zonings should accomplish
+and by using data to benchmark how these targets are met.</p>
+
+<div><script>
+
+function bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter,rangeLabelFormatter){
+    if (!domainFormatter) domainFormatter=d3.format("d");
+    if (!rangeLabelFormatter) rangeLabelFormatter=rangeFormatter;
+    if (!rangeFormatter)
+     rangeFormatter = function (y) {
+        return y;
+     };
+     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
+
+var margin = {top: 20, right: 20, bottom: 40, left: 70},
+    width = parseInt(div.style("width")) - margin.left - margin.right,
+    height = parseInt(div.style("height")) - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickFormat(domainFormatter)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(rangeFormatter)
+    .ticks(5, rangeFormatter);
+
+var svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data_url=div[0][0].dataset.url;
+
+d3.json(data_url, function(error, json) {
+  if (error) throw error;
+  var graphData=json[0];
+  var data=graphData.data;
+  
+  var container=d3.select(div.node().parentNode);
+  container.selectAll('.legend.no-margin').remove();
+  var legend=container.append('div').attr('class',"legend no-margin");
+  legend.append('p').html('<i style="background:'+graphData.color + '"></i>' + graphData.label +  '<span style="float:right;margin-right:10px;" id="' + graphData.class+'_value"></span>');
+  
+  x.domain(data.map(function(d) { return d.date }));
+  y.domain([0, d3.max(data, function(d) { return d.count; })]);
+  
+  var domainTickValues=[];
+  var skip=Math.round(40/x.rangeBand());
+  if (skip<=0) skip=1;
+  for (var i=0;i<x.domain().length;i++) {
+    if (i % skip==0) domainTickValues.push(x.domain()[i]);
+  }
+  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
+  xAxis.tickValues(domainTickValues);
+
+  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(" + xShift + "," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//    .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Probability");
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", graphData.class + " bar")
+      .style("fill", graphData.color)
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.count); })
+      .attr("height", function(d) { return height - y(d.count); })
+      .on('mouseover',function(d){
+         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
+      }).on('click',function(d){
+       d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
+      }).on('touch',function(d){
+         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
+      }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
+
+      
+});
+
+}
+
+
+
+var percentageFormatter=d3.format(".1%");
+var textFormatter=function(d){return d};
+var teardownLabelFormatter=function(d){return percentageFormatter(d) + " teardowns"};
+var sfhLabelFormatter=function(d){return percentageFormatter(d) + " SFH"};
+var redeveopmentLabelFormatter=function(d){return percentageFormatter(d) + " built since 2000"};
+bar_graph(d3.select("#graph_redevelopment"),false,textFormatter,percentageFormatter,textFormatter,redeveopmentLabelFormatter);
+bar_graph(d3.select("#graph_teardown"),false,textFormatter,percentageFormatter,textFormatter,teardownLabelFormatter);
+bar_graph(d3.select("#graph_sfh"),false,textFormatter,percentageFormatter,textFormatter,sfhLabelFormatter);
+</script></div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Physical SFH Form Over Time]]></title>
@@ -1167,349 +1455,6 @@ bar_graph(d3.select("#graph_teardowns"),true,percentageFormatter,null,binFormatt
 bar_graph(d3.select("#graph_teardown_probability"),true,percentageFormatter,percentageFormatter,binFormatter);
 bar_graph(d3.select("#graph_buildings_by_teardown_2"),true,percentageFormatter,null,binFormatter);
 bar_graph(d3.select("#graph_teardowns_2"),true,percentageFormatter,null,binFormatter);
-</script>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Updated Vancouver Assessment Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/"/>
-    <updated>2016-01-17T11:34:09-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/assessment?layer=4"><img  src="http://doodles.mountainmath.ca/images/relative_land.jpg" style="width:50%;float:right"></a>
-The friendly folks at
-<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> just
-<a href="https://twitter.com/VanOpenData/status/688060388190097408">updated their property assessment data</a> with the fresh 2016
-property tax assessments. Time to run the script to update the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a>
-with the new data. And for good measure I pasted over some of the thematic map engine from <a href="https://censusmapper.ca">CensusMapper</a>
-to improve the mapping performance.</p>
-
-<h4>Maps</h4>
-
-<!-- more -->
-
-
-<p><img  src="http://doodles.mountainmath.ca/images/map_menu.png" style="width:25%;margin-left:5px;float:right">The <a href="https://mountainmath.ca/map/assessment">interactive assessment map</a> offers several views. In the panel on the top
-right we can select how to view the data. It offers standard thematic maps for value change, total value, building value
-and building age and zoning. And there are some options that warrant more explanation:</p>
-
-<ul>
-<li><a href="https://mountainmath.ca/map/assessment?layer=5"><em>Relative Land Value</em>:</a> The colours on the map show each property by the
-land value per m&sup2;. We can immediately spot the east-west land gradient, as well as how zoning affects land value.
-When zooming in we also see the effect of lot size on land value.</li>
-<li><a href="https://mountainmath.ca/map/assessment?layer=10"><em>Tax Density</em>:</a> This map looks at the tax dollars collected
-by the city by area. It tells us the relative rate at what each property is contributing to city services. We can again
-observe the impact of exclusionary zoning.</li>
-<li><a href="https://mountainmath.ca/map/assessment?layer=4"><em>Relative Value of Building</em>:</a>
-<a href="https://mountainmath.ca/map/assessment?layer=4"><img  src="http://doodles.mountainmath.ca/images/teardown.jpg" style="width:50%;float:right"></a>
-This map simply divides the building value
-by the total property value. There are many ways to interpret this map, my favourite is to use this as a &ldquo;Teardown Predictor&rdquo;.
-Essentially, as the percentage of the building value approaches zero the probability that it will get torn down in the
-near future increases. Imagine someone spending $1.5m to buy a property with a house valued at $37k. Many people don&rsquo;t
-mind living in a house worth $37k, but someone who is spending $1.5m would probably prefer to buy a different property
-with a higher quality house. Or spend more money to upgrade the house. How will it be upgraded? Renovating is in most
-cases economically unsound, most people will choose to tear down and rebuild. In fact, the <em>teardown threshold</em> is
-likely higher than the 2.5% in the example given. The percentage of properties in Vancouver where the building value is
-less than 2.5% of the total value has slightly decreaed in the last year from 17.9% to 17.8%, but the percentage of properties
-with building value less than 5% of the total value has increased from 32% to 33.5% during the last year.</li>
-</ul>
-
-
-<h4>The Data</h4>
-
-<p>The data originates with BC Assessment, which estimates land and building values of each property based on recent sales
-of comparable properties. The assessment was done in summer 2015 and is based on sales before that, so at this point in
-time the data lags the market by about one year. Values for individual properties may well be off, depending how well
-renovations and improvements were reported and how well the BC Assessment estimates work for the given property. On
-average they should reflect the market about half a year to one year ago.</p>
-
-<p>Sadly, BC Assessment does not give out their data with a license that would allow mapping it the way I do, so we have
-to rely on municipalities to release it through their open data portals. The format of the data from each municipality is
-different, so lazy me is only importing data from City of Vancouver, although some other nearby municipalities are also releasing
-there data.</p>
-
-<p>The motivation behind the map was to understand the building stock. Some effort was made to filter out parks, but the
-algorithm is far from perfect and will often includes parks that host building
-structures, as well as marinas with structures on them.</p>
-
-<p>The new city dataset does not include the 2016 tax levy, so we still only show the 2015 tax levies until CoV updated their dataset.</p>
-
-<h4>History</h4>
-
-<p>Here is a quick history of the overall land and building values aggregated for Vancouver between 2006 and 2016.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph" style="height:200px;max-width:640px;" data-lines="/data/vancouver_stats.json"></div>
-<div class="legend no-margin">
-  <p><i style="background:blue"></i> Land Value <span style="float:right;margin-right:10px;" id="land_value"></span></p>
-  <p><i style="background:green"></i> Building Value <span style="float:right;margin-right:10px;" id="building_value"></span></p>
-</div>
-</div>
-
-
-<p>When looking at all properties in the city, the increase in land
-value year over year was 21.4% ($45.2bn), while overall building values increased by 7.3% ($5bn). Hover, click or touch
-the points in the graph to get the values for the corresponding year.</p>
-
-<h4>Neighbourhoods</h4>
-
-<p>Lastly a quick overview over the neighbourhoods. Land and building values have not increased evenly throughout in the year.
-I aggregated all tax data by neighbourhood and split it into land value and building value increases.
-These numbers should be used as guidance only, they mix lots of different types of properties and include parks.</p>
-
-<p>Here is the breakdown by neighbourhood:</p>
-
-<ul>
-<li>Renfrew-Collingwood: Land: 30.6% ($1.2bn), Building: 5.8% ($46.0m)</li>
-<li>Sunset: Land: 26.6% ($1.6bn), Building: 5.9% ($74.2m)</li>
-<li>Oakridge: Land: 17.6% ($1.2bn), Building: 12.6% ($207.4m)</li>
-<li>Downtown: Land: 16.9% ($0.8bn), Building: 3.2% ($91.2m)</li>
-<li>Kerrisdale: Land: 18.7% ($1.3bn), Building: 3.3% ($54.1m)</li>
-<li>Victoria-Fraserview: Land: 28.0% ($1.5bn), Building: 5.6% ($65.2m)</li>
-<li>Grandview-Woodland: Land: 24.9% ($1.7bn), Building: 0.7% ($17.4m)</li>
-<li>West End: Land: 22.6% ($2.5bn), Building: 3.5% ($188.4m)</li>
-<li>Hastings-Sunrise: Land: 25.1% ($1.1bn), Building: 4.9% ($63.8m)</li>
-<li>Killarney: Land: 17.8% ($0.3bn), Building: 14.1% ($241.6m)</li>
-<li>Marpole: Land: 17.8% ($0.3bn), Building: 14.1% ($241.6m)</li>
-<li>Kitsilano: Land: 21.6% ($3.3bn), Building: 4.3% ($134.5m)</li>
-<li>Shaughnessy: Land: 18.6% ($1.7bn), Building: 7.4% ($117.7m)</li>
-<li>West Point Grey: Land: 20.2% ($2.3bn), Building: 5.2% ($88.3m)</li>
-<li>Fairview: Land: 19.4% ($2.0bn), Building: -1.0% (-$52.4m)</li>
-<li>Downtown Eastside: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
-<li>Kensington-Cedar Cottage: Land: 24.9% ($1.7bn), Building: 0.7% ($17.4m)</li>
-<li>Riley Park: Land: 26.4% ($1.0bn), Building: 4.0% ($40.2m)</li>
-<li>Mount Pleasant: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
-<li>South Cambie: Land: 20.9% ($1.5bn), Building: 21.4% ($268.1m)</li>
-<li>Strathcona: Land: 21.9% ($2.6bn), Building: 4.9% ($194.9m)</li>
-<li>Dunbar Southlands: Land: 21.8% ($1.0bn), Building: 11.2% ($126.6m)</li>
-<li>Arbutus Ridge: Land: 21.4% ($1.6bn), Building: 1.1% ($17.3m)</li>
-</ul>
-
-
-<p>It becomes immediately clear that the increase in property values is mostly driven by land, note that total value increases
-for land and buildings are reported in billions and millions, respectively. The building stock does not
-have time to catch up, with the exception of South Cambie. Fairview stands out with declining overall building values.</p>
-
-<script>
-var ready_for_graph = function() {
-    var d3lines=[];
-    var padding = {top: 20, right: 20, bottom: 30, left: 90};
-    var prevChartWidth = 0, prevChartHeight = 0;
-    var updateTransistionMS = 750; // milliseconds
-    var sourceData, lineData, xScale, yScale, line;
-
-    var symbol;
-    var prefix;
-    var numberFormatter = function (y) {
-        return '$' + Math.round(prefix.scale(y*10))/10.0 + symbol;
-    };
-
-    var graphs=d3.select("#graph");
-    var div=graphs[0][0];
-    if (div==null|| div.childElementCount!=0) {return;}
-    var data_url=div.dataset.url;
-
-    // create svg and g to contain the chart contents
-    var baseSvg = graphs.append("svg");
-    var chartSvg=baseSvg
-        .append("g")
-        .attr("class", "chartContainer")
-        .attr("transform", "translate(" + padding.left + "," + padding.top + ")");
-
-    // create the x axis container
-    chartSvg.append("g")
-        .attr("class", "x axis");
-
-    // create the y axis container
-    chartSvg.append("g")
-        .attr("class", "y axis");
-    var line;
-    var largest=null;
-    var lineData;
-    if (div.dataset.lines) {
-        d3.json(div.dataset.lines,function(error,json){
-        lineData=json;
-        var domain=[null,null];
-        var range=[null,null];
-        for (var i=0;i<lineData.length;i++){
-            lineData[i].data.forEach(function(d) {
-                d.date = +d.date;
-                d.count = +d.count;
-                if (domain[0]==null || domain[0]> d.date) domain[0]= d.date;
-                if (domain[1]==null || domain[1]< d.date) domain[1]= d.date;
-                if (range[0]==null || range[0]> d.count) range[0]= d.count;
-                if (range[1]==null || range[1]< d.count) range[1]= d.count;
-            });
-        }
-        xScale=d3.scale.linear().domain(domain);
-        var toAdd=(range[1]-range[0])/10;
-        range[0]-=toAdd;
-        range[1]+=toAdd;
-        yScale=d3.scale.linear()
-            .domain(range);
-
-        line = d3.svg.line()
-            .x(function(d) { return xScale(d.date); })
-            .y(function(d) { return yScale(d.count); })
-            .interpolate("linear");
-
-        xAxis = d3.svg.axis()
-            .scale(xScale)
-            .orient("bottom")
-            .tickFormat(d3.format("d"))
-            .tickValues(domain);
-
-        yAxis = d3.svg.axis()
-            .scale(yScale)
-            .orient("left")
-            .tickFormat(numberFormatter)
-            .ticks(5);
-
-        prefix = d3.formatPrefix(range[1]);
-        if (prefix.symbol=='K') {
-            symbol='k'
-        } else if (prefix.symbol=='M') {
-                symbol='m'
-        } else if (prefix.symbol=='G') {
-            symbol='bn'
-        } else if (prefix.symbol=='T') {
-            symbol='tn'
-        }
-        updateChart(true);
-        });
-
-    }
-
-
-    function updateChart(init)
-    {
-        // get the height and width subtracting the padding
-//    var innerHeight = window.innerHeight - 20;
-        var innerWidth = window.innerWidth - 20;
-        var divWidth=$(div).width();
-        if (divWidth==0) divWidth=$(div.parentElement.parentElement).width();
-        var maxWidth=parseInt($(div).css('max-width'));
-        if (divWidth==0) divWidth=innerWidth*0.8;
-        if (divWidth>maxWidth) divWidth=maxWidth;
-        var chartWidth = divWidth-padding.left-padding.right;//960 - margin.left - margin.right,
-        var chartHeight = $(div).height()-padding.top-padding.bottom;//500 - margin.top - margin.bottom;
-
-
-        // only update if chart size has changed
-        if ((prevChartWidth != chartWidth) ||
-            (prevChartHeight != chartHeight)) {
-            prevChartWidth = chartWidth;
-            prevChartHeight = chartHeight;
-
-            //set the width and height of the SVG element
-            chartSvg.attr("width", chartWidth + padding.left + padding.right)
-                .attr("height", chartHeight + padding.top + padding.bottom);
-            baseSvg.attr("width", chartWidth + padding.left + padding.right)
-                .attr("height", chartHeight + padding.top + padding.bottom);
-
-            // ranges are based on the width and height available so reset
-            xScale.range([0, chartWidth]);
-            yScale.range([chartHeight, 0]);
-
-            if (init) {
-                // if first run then just display axis with no transition
-                chartSvg.select(".x")
-                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
-                    .attr("transform", "translate(0," + chartHeight + ")")
-                    .call(xAxis);
-
-                chartSvg.select(".y")
-                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
-                    .call(yAxis);
-            }
-            else {
-                // for subsequent updates use a transistion to animate the axis to the new position
-                var t = chartSvg.transition().duration(updateTransistionMS);
-
-                t.select(".x")
-                    .attr("transform", "translate(0," + chartHeight + ")")
-                    .call(xAxis);
-
-                t.select(".y")
-                    .call(yAxis);
-            }
-
-            for (var i = 0; i < lineData.length; i++) {
-                var sourceData=lineData[i].data;
-                var color=lineData[i].color;
-                var label=lineData[i].label;
-                var className=lineData[i].class;
-
-                // bind up the data to the line
-                var lines = chartSvg.selectAll("path.line."+className)
-                    .data([lineData[i].data]); // needs to be an array (size of 1 for our data) of arrays
-
-                // transistion to new position if already exists
-                lines.transition()
-                    .duration(updateTransistionMS)
-                    .attr("d", line);
-
-                // add line if not already existing
-                lines.enter().append("path")
-                    .attr("class", "line")
-                    .attr("stroke", color)
-                    .attr("stroke-width", 2)
-                    .attr('fill','none')
-                    .attr("d", line);
-
-                // bind up the data to an array of circles
-                var circle = chartSvg.selectAll("circle."+className)
-                    .data(sourceData);
-
-                // if already existing then transistion each circle to its new position
-                circle.transition()
-                    .duration(updateTransistionMS)
-                    .attr("cx", function (d) {
-                        return xScale(d.date);
-                    })
-                    .attr("cy", function (d) {
-                        return yScale(d.count);
-                    });
-
-                // if new circle then just display
-                circle.enter().append("circle")
-                    .attr("cx", function (d) {
-                        return xScale(d.date);
-                    })
-                    .attr("cy", function (d) {
-                        return yScale(d.count);
-                    })
-                    .attr("r", 4)
-                    .attr('fill', 'transparent')
-                    .style("stroke", color)
-                    .style("stroke-width", 8)
-                    .attr("class", className)
-                    .on('mouseover',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + numberFormatter(d.count)) 
-                    }).on('click',function(d){
-                     d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + numberFormatter(d.count)) 
-                    }).on('touch',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + numberFormatter(d.count)) 
-                    }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
-
-            }
-        }
-    }
-
-    // look for resize but use timer to only call the update script when a resize stops
-    var resizeTimer;
-    window.onresize = function(event) {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function()
-        {
-            updateChart(false);
-        }, 100);
-    }
-
-
-};
-ready_for_graph();
 </script>
 
 ]]></content>

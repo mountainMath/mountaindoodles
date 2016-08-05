@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-07-26T17:04:42-07:00</updated>
+  <updated>2016-08-04T23:19:08-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,294 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[What's up with RT?]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/08/04/downzoning/"/>
+    <updated>2016-08-04T13:18:51-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/08/04/downzoning</id>
+    <content type="html"><![CDATA[<p>RT is Vancouver&rsquo;s zoning for duplexes. Over time, various areas have been zoned to allow duplexes. Examples are
+Kits Point, much of Point Grey Road reaching up to Broadway, much of Granview-Woodlands, parts of Mount Pleasant and many
+other areas.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT,residential]&zoom=13&lat=49.245&lng=-123.1166&layer=4&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rt_teardowns.png" style="width:50%;float:right;margin-left:10px;"></a>
+Recently I have had some interesting conversations <a href="https://twitter.com/fixbced/status/748196970783637504">on Twitter regarding RM-6</a>
+and over BBQ dinner about RT-7. Then the
+<a href="http://vancouver.ca/home-property-development/grandview-woodland-community-plan.aspx">Granview-Woodland plan</a>
+passed by council, and it contains a curious provision of reducing the outright FSR for the
+RT-zoned properties from 0.6 to 0.5.</p>
+
+<p>All of which got me thinking. What is RT supposed to accomplish, how does the diverse RT-zoning rules influence development
+and how is RT overall performing?</p>
+
+<!-- more -->
+
+
+<p>To make things complicated many RT zoning rules contain provisions to allow for higher FSR, and more than two units,
+under the &ldquo;heritage preservation&rdquo; program. Most people like the multi-plex developments that come out of this process,
+but the road there is quite adurous. Permitting takes a long time and is marred by uncertainty. Those projects are
+done by small developers, that are ill-equipped to deal with risky and drawn-out rezoning processes.</p>
+
+<p>These would be great projects carried out by small developers that lead to gentle and affordable density,
+as this kind of re-development does not require land-assembly and does not lead
+to crazy land-value lifts that require CACs to claw back some of that value rise
+<a href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/">as we explained before</a>.</p>
+
+<p>We have some ideas what a refreshed RT (and RS) should look like, and there are
+<a href="https://pricetags.wordpress.com/2016/07/29/open-letter-on-the-downzoning-of-grandview-woodland-rt/">some efforts to push for changes</a>.
+We leave the details of this to the experts and take a little field expedition to
+see how the different flavours of RT (and RM) perform in data.</p>
+
+<h3>Why RT?</h3>
+
+<p>One central question to ask is: What is the purpose of RT (or any) zoning? The initial idea was to allow higher density
+than RS, with two stratified properties on one lot. But since the creation of RT the RS zoning has undergone significant
+changes and allows, in many cases, for higher FSR and higher unit count, although not stratified. In much of RS three
+units are allowed on each lot, the main house, a secondary suite and a laneway house.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT_RS_FSD,residential]&zoom=13&lat=49.245&lng=-123.1166&layer=5&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rs_rt_land.png" style="width:50%;float:left;margin-right:10px;"></a>
+So how does RT perform in the wild? There seems to be little effect RT vs RS zoning has on land values. The
+<a href="http://mountainmath.ca/map/assessment?filter=[zone_RT_RS_FSD,residential]&amp;zoom=13&amp;lat=49.245&amp;lng=-123.1166&amp;layer=6&amp;mapBase=2">boundaries between RS and RT</a>
+can&rsquo;t be discerned from a
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT_RS_FSD,residential]&amp;zoom=13&amp;lat=49.245&amp;lng=-123.1166&amp;layer=5&amp;mapBase=2">land value map of all residential properties in RS, RT (and First Shaugnessey) zones</a>.</p>
+
+<p>How good are RT lots at realizing &ldquo;zone capacity&rdquo;, that is how many of the historically SFH get turned over into duplexes,
+or in some cases multi-plexes (through the heritage presercation program)?
+That depends as the following graph shows.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_sfh" style="height:200px;max-width:640px;" data-url="/data/zone_sfh.json"></div>
+</div>
+
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT]&zoom=13&lat=49.2581&lng=-123.1166&layer=20&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/types_rt.png" style="width:50%;float:left;margin-right:10px;"></a>
+We can also study this by mapping out
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT]&amp;zoom=13&amp;lat=49.2581&amp;lng=-123.1166&amp;layer=20&amp;mapBase=2">all residential lots in RT zones</a>,
+and color them depending if they are single family lots, duplexes or multi-plexes.</p>
+
+<p>Some RT areas are essentially indistinguishable from RS areas, they are almost entirely comprised of single family lots.
+A good example is the
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-4,residential]&amp;zoom=14&amp;lat=49.2733&amp;lng=-123.0646&amp;layer=20&amp;mapBase=2">RT-4, most of which is in Grandview-Woodlands</a>.
+And being in RT rathern than RS they often don&rsquo;t even get the benefits of a laneway house. Coach houses, which are legal
+in many RT areas and could be stratified, come with such onerous side setbacks that they are very hard to build on
+regular lots.</p>
+
+<p>There is a lot of untapped &ldquo;zoned capacity&rdquo;. Similarly, some of the
+newer RM zones show little appetite for realizing &ldquo;zoned capacity&rdquo;, possibly due to the added difficulty of having to
+assemble lots to do so.</p>
+
+<p>One can argue about whether this is good or bad. Or one can look at the variation between the different types of RT and RM
+zones to see what causes the difference.</p>
+
+<h3>Downzoning</h3>
+
+<p>To understand how downzoning works we want to consider two different types on analysis. One is to look at what happened
+after RS zone was changed to reduce site coverage in the 1980 in response to concerns about &lsquo;monster homes&rsquo;. We ran
+an analysis using LIDAR data to understand the effect on the physical form of SFH and found that while site coverage
+indeed decreased sharply, the <a href="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/">bulk of the building remained unchanged</a>.
+and the rule change seems to have done little in easing concerns about &lsquo;monster homes&rsquo;, it simply changed some of the
+parameters determining what &lsquo;monster homes&rsquo; look like.</p>
+
+<p>Another way to look at the matter is to compare how re-development happened in difference zones. This is very hard, since
+there are many factors other than zoning that determine if a building gets re-developed. To get some idea we compiled two
+numbers for each of the RS, RT and RM zones (ignoring some of the delicacies in the zoning code and lumping together all
+sub-zones with the same leading number. So for example we lumped RT-4, RT-4A, RT-4N and RT-4AN into one category we simply
+label &ldquo;RT-4&rdquo;.</p>
+
+<p>First we check how many properties got re-developed since 2000.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_redevelopment" style="height:200px;max-width:640px;" data-url="/data/zone_redevelopment.json"></div>
+</div>
+
+
+<p>Next we take a look what percentage of the existing stock is in immediate danger of being torn down, using the
+<a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">methodology developed earlier</a>.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_teardown" style="height:200px;max-width:640px;" data-url="/data/zone_teardowns.json"></div>
+</div>
+
+
+<p>While there is some correspondence between re-development activity and ratio of teardowns, there are a number of notable
+exceptions. RT-1 and RM-9 stand out, but these are
+<a href="https://mountainmath.ca/map/assessment?filter=[zoneE_RM-9_RT-1]&amp;zoom=14&amp;lat=49.2146&amp;lng=-123.1282&amp;layer=5&amp;mapBase=2">oddball cases with just a few properties</a>.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT,years_2000]&zoom=13&lat=49.2581&lng=-123.1166&layer=20&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/new_types_rt.png" style="width:50%;float:right;margin-left:10px;"></a>
+We can also map just <a href="https://mountainmath.ca/map/assessment?filter=[zone_RT,years_2000]&amp;zoom=13&amp;lat=49.2581&amp;lng=-123.1166&amp;layer=20&amp;mapBase=2">residential properties in RT that were re-developed since 2000</a>
+and colour them by SFH, Duplex and Multi-plex status. We can clearly see how some RT areas, like RT-7, don&rsquo;t see much
+re-development, others, like RT-6 see mostly multi-plexes being developed. Some zones, like RT-10, 11, 12 are too new
+to be judged on development happening since 2000. For example, zooming in on
+<a href="http://mountainmath.ca/map/assessment?filter=[zone_RT-10,residential,years_2009]&amp;zoom=15&amp;lat=49.2485&amp;lng=-123.0734&amp;layer=20&amp;mapBase=2">developments in RT-10 since 2009 paints a very different picture</a>.</p>
+
+<p>There is lots of stuff to explore, but for today I want to look at RT-7 and RT-6 in more detail.</p>
+
+<h4>RT-7</h4>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-7,residential]&zoom=15&lat=49.2617&lng=-123.1654&layer=20&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rt-7.png" style="width:50%;float:left;margin-right:10px;"></a>
+A much more interesting case is RT-7, with 35% of properties teardowns but only 4.1% of properties re-developed since 2000.
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-7,residential]&amp;zoom=15&amp;lat=49.2617&amp;lng=-123.1654&amp;layer=4&amp;mapBase=2">Looking at the map</a>
+we see that RT-7 is comprised of two pockets on the west side, and the teardown candidates stand out in red and orange.
+Filtering further to see what
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-7,residential,years_2000]&amp;zoom=15&amp;lat=49.2617&amp;lng=-123.1654&amp;layer=20&amp;mapBase=2">has been re-developed since 2000</a>
+we see that, considering the size of the two pockets, re-development favours the eastern pocket near 16th and Arbutus. We
+can clearly see that that the eastern pocket has an overall more valuable building stock, although it is not clear if that
+is due to higher rates of re-development or for other reasons, for example the presence of some slightly larger lots. We
+also note that re-development does produce duplex units and even some multi-plex.</p>
+
+<p>So what is going on here? Looking at the <a href="http://former.vancouver.ca/commsvcs/BYLAWS/zoning/rt-7.pdf">RT-7 zoning</a> we
+see that the area has been downzoned to 0.4 FSR as was rencently pointed out to me, which can conditionally be upzoned
+to 0.6 FSR. Additionally, there are caps on the number of units per hectar to further restrict density.</p>
+
+<h4>RT-6</h4>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6,residential]&zoom=16&lat=49.2606&lng=-123.1097&layer=20&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rt-6.png" style="width:50%;float:right;margin-left:10px;"></a>
+Another interesting example is RT-6. RT-6 has seen modest levels of re-develpment and has a <a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6,residential]&amp;zoom=16&amp;lat=49.2606&amp;lng=-123.1097&amp;layer=4&amp;mapBase=2">relatively healthy building
+stock</a>.
+What&rsquo;s even more interesting is that it contains
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6,residential]&amp;zoom=16&amp;lat=49.2597&amp;lng=-123.1101&amp;layer=20&amp;mapBase=2">many multi-plexes</a>.
+And more importantly, <a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6,residential,years_2000]&amp;zoom=16&amp;lat=49.2597&amp;lng=-123.1101&amp;layer=20&amp;mapBase=2">developments since 2000 have mostly produced multi-plexes</a>.</p>
+
+<p>Prime examples of the <em>gentle density</em> that we keep hearing about. I would say that something is working very well here.</p>
+
+<p>So what&rsquo;s the difference? In contrast to RT-7 <a href="http://former.vancouver.ca/commsvcs/BYLAWS/zoning/rt-6.pdf">RT-6 zoning</a> allows for 0.6 FSR
+outright, conditionally increased to 0.75. But there are other important differences too. The RT-7 lots are typically
+smaller with many at about 340m&sup2; compared to the 580m&sup2; typical RT-6 lots.
+(Although RT-7 also contains some 580m&sup2; lots).</p>
+
+<h3>Conclusion</h3>
+
+<p>Does downzoning work? It depends what the goal is. Looking at the RT-7 example, downzoning has slowed re-development compared
+to other areas in the city, but it also lead to a deterioration in building stock in RT-7. This is a stop-gap measure,
+eventually that lower value building stock will get re-developed.</p>
+
+<p>The combination of larger lots and the heritage retention program in the RT-6 zoning seems to work in producing
+gentle density, except that the permitting process takes too long and it is not immediately clear what purpose the
+heritage preservation has that allows stripping the building down to the studs and possibly moving it to the front and
+then building an infill in the back. There must be a better way to deal with concerns behind
+heritage preservation (not much is &ldquo;preserved&rdquo; in this process) and at the same time cut down on the time it
+takes to jump through all the permit hoops involved.</p>
+
+<p>It is clear that RS and RT (and RM) zoning would hugely profit from a clearer vision what these zonings should accomplish
+and by using data to benchmark how these targets are met.</p>
+
+<div><script>
+
+function bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter,rangeLabelFormatter){
+    if (!domainFormatter) domainFormatter=d3.format("d");
+    if (!rangeLabelFormatter) rangeLabelFormatter=rangeFormatter;
+    if (!rangeFormatter)
+     rangeFormatter = function (y) {
+        return y;
+     };
+     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
+
+var margin = {top: 20, right: 20, bottom: 40, left: 70},
+    width = parseInt(div.style("width")) - margin.left - margin.right,
+    height = parseInt(div.style("height")) - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickFormat(domainFormatter)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(rangeFormatter)
+    .ticks(5, rangeFormatter);
+
+var svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data_url=div[0][0].dataset.url;
+
+d3.json(data_url, function(error, json) {
+  if (error) throw error;
+  var graphData=json[0];
+  var data=graphData.data;
+  
+  var container=d3.select(div.node().parentNode);
+  container.selectAll('.legend.no-margin').remove();
+  var legend=container.append('div').attr('class',"legend no-margin");
+  legend.append('p').html('<i style="background:'+graphData.color + '"></i>' + graphData.label +  '<span style="float:right;margin-right:10px;" id="' + graphData.class+'_value"></span>');
+  
+  x.domain(data.map(function(d) { return d.date }));
+  y.domain([0, d3.max(data, function(d) { return d.count; })]);
+  
+  var domainTickValues=[];
+  var skip=Math.round(40/x.rangeBand());
+  if (skip<=0) skip=1;
+  for (var i=0;i<x.domain().length;i++) {
+    if (i % skip==0) domainTickValues.push(x.domain()[i]);
+  }
+  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
+  xAxis.tickValues(domainTickValues);
+
+  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(" + xShift + "," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//    .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Probability");
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", graphData.class + " bar")
+      .style("fill", graphData.color)
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.count); })
+      .attr("height", function(d) { return height - y(d.count); })
+      .on('mouseover',function(d){
+         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
+      }).on('click',function(d){
+       d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
+      }).on('touch',function(d){
+         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
+      }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
+
+      
+});
+
+}
+
+
+
+var percentageFormatter=d3.format(".1%");
+var textFormatter=function(d){return d};
+var teardownLabelFormatter=function(d){return percentageFormatter(d) + " teardowns"};
+var sfhLabelFormatter=function(d){return percentageFormatter(d) + " SFH"};
+var redeveopmentLabelFormatter=function(d){return percentageFormatter(d) + " built since 2000"};
+bar_graph(d3.select("#graph_redevelopment"),false,textFormatter,percentageFormatter,textFormatter,redeveopmentLabelFormatter);
+bar_graph(d3.select("#graph_teardown"),false,textFormatter,percentageFormatter,textFormatter,teardownLabelFormatter);
+bar_graph(d3.select("#graph_sfh"),false,textFormatter,percentageFormatter,textFormatter,sfhLabelFormatter);
+</script></div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Bike Share Map]]></title>
@@ -2791,163 +3079,6 @@ the analysis previously made. For example re-running the <a href="http://doodles
 using only Single Family Homes, we get pretty much the same medians, but the averages are higher. We could also refine
 our <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">teardown analysis</a> to include only single family homes
 and better filter out institutional properties, although some issues with the lack of historic data remain.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Work vs Twiddling Thumbs]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/"/>
-    <updated>2016-01-24T10:28:37-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs</id>
-    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/map/assessment?zoom=12&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/twiddling_thumbs.png" style="width:50%;float:left;margin-right:10px;"></a>In
-the ongoing debade on affordability of housing in the City of Vancouver we regularly hear voices expressing concern for
-&ldquo;<a href="http://news.nationalpost.com/full-comment/andrew-coyne-dont-blame-chinese-billionaires-for-vancouver-housing-prices">elderly folks of modest means who had been counting on using their home as a pension</a>&rdquo;
-to argue against doing anything to ease the housing affordability problems many (younger) people are facing. In these
-arguments the concern for &ldquo;elderly folks of modest means&rdquo; seems curiously focused to those who own property as opposed to,
-for example, the 20% of the elderly people in Vancouver that live in poverty (15k total).</p>
-
-<p>Which got me a little thinking about &ldquo;earning money&rdquo; in this day and age.</p>
-
-<h3>Work</h3>
-
-<!-- more -->
-
-
-<p>Most people earn money by working. We are interested in after tax household income, for simplicity we will look at 2010 income
-data reported in the 2011 census. The median after-tax household income in Vancouver
-was $50k (the average was $65k), although there is <a href="http://censusmapper.ca/maps/224">large regional variability</a>.
-The pre-tax households incomes were $56k for the median
-and $80k for the average income.</p>
-
-<p>Incomes have grown a bit since then, median income levels in
-Vancouver grew by 7% from 2010 to 2013 (<a href="http://www5.statcan.gc.ca/cansim/a47">the latest year Stats Canada reports on</a>)
-and will have grown a little more since then, but these are relatively small changes compared to other numbers I want
-to talk about.</p>
-
-<p><a href="http://censusmapper.ca/maps/189">Most of this income stems from employment income</a> which also includes self-employment,
-but 22% of pre-tax income in Vancouver
-came from outher sources, mostly investment income but also government transfer payments like child benefits.</p>
-
-<p>Cumulative, the after tax income put $17.8bn into Vancouverite&rsquo;s pockets.</p>
-
-<h3>Twiddling Thumbs</h3>
-
-<p>Let&rsquo;s compare this to how much Vancouver home owner households earned last year by twiddling thumbs while sitting on their
-property. For simplicity we focus on SFH (&ldquo;Single Family&rdquo; or &ldquo;Single Detached&rdquo;) homes. We
-will consider the change in land value only, changing the building value because of renovation or rebuilding certainly
-does not happen by twiddling thumbs.</p>
-
-<p>The typical SFH household made $262,000 last year by twiddling thumbs (so that&rsquo;s the median land value rise for SFH homes between 2015 and 2016
-property tax assessment years, the average was $318,877), for a tidy total of $24,651,312,001. Not too shabby.
-And considering that the typical owner household
-lives in their home, these are tax-free earnings once the owners sell. That&rsquo;s substantially more than what the typical household
-in Vancouver takes home. The total land value increase for just the SFH properties amounts to $24bn out of
-<a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">the $45.2bn by which land values in Vancouver increased overall</a>. For context,
-recall that the overall income earned by all Vancouverites in 2010 was $17.8bn after tax (21.3bn before tax).</p>
-
-<p>In other words, <span style="font-weight:bolder;">just the SFH property owners alone earned more by twiddling their thumbs than the entire population of the
-City of Vancouver did by &ndash; actually working</span>. And in most cases homeowners don&rsquo;t even have to pay taxes on their thumb-twiddle earnings. Yet another
-indication of how <a href="http://censusmapper.ca/maps/37">out of touch the property market is with the local enconomy</a>.</p>
-
-<p>The numbers are just meant to provide a general frame of reference, they are not adjusted for inflation, and costs like
-property taxes and property transfer tax are not taken into account.</p>
-
-<h3>Mapping the Result of Thumb Twiddling</h3>
-
-<p><a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12">There is a map for this</a>.
-(I probably would not take the time to write about this otherwise.) Last year&rsquo;s assessment
-increase was quite large, not every year is like this (although it looks like the coming one will also be substantial).
-To even things out a little I mapped the average yearly gross land value increase for each property. For properties that I
-could not trace back all the way to 2006 I averaged over as many years as I could find.</p>
-
-<p><a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/sfh_rise.png" style="width:50%;float:right;"></a>
-<a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12">Looking at the map</a> we see that
-the average yearly increase depends to a large extend on the square footage of the property. Large properties naturally stand
-out, unless they are stratified where the land value increase gets distributed across all the owners.</p>
-
-<p>Averaged over 10 years, the yearly land value increase for the typical SFH property in Vancouver was $79,800. Using Main as
-a divider the numbers are $66,700 for the
-typical east of Main and $141,700 for the typical west of Main property (using median increases).</p>
-
-<p>A good portion of the east-west difference is due to larger lot size, but even the land values increase per m&sup2; for properties
-on the west side was 35% higher than that of properties on the
-east side. These are yearly increases, to be accumulated and collected tax free in most cases when the property is sold.</p>
-
-<h3>Twiddling in 3D</h3>
-
-<p><a href="http://mountainmath.ca/assessment/split_map?zoom=17&lat=49.2362&lng=-123.1365&type=1&use3D=1&year=2015" target="_blank"><img  src="http://doodles.mountainmath.ca/images/s_vanre.gif" loop="0" style="width:50%;float:left;margin-right:10px;"></a>
-We can get even more fancy and show the effect the thumb-twiddling has on land values by <a href="http://www.mountainmath.ca/assessment/split_map">animating the land and building
-value rise over time</a>. You will need a modern computer to view this.</p>
-
-<p>If you are interested there is <a href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/">more background</a>
-on the visualization. I put a little more work into this, the numbers in the animation are inflation adjusted and it also
-includes duplexes and stratified condo units. There is a slider to filter by number of strata units in each building to
-explore the effects of stratifying a standard lot into several units has on affordability.</p>
-
-<h3>Hourly Rate for Twiddling Thumbs</h3>
-
-<p>Just for fun we can work out the hourly rate for twiddling thumbs. All we need to do is divide by the number of work
-hours by year. We can look up the average work weeks for a Vancouver worker in the 2011 census and, for style points also consider the
-number of household maintainers. After all, when we compare household income with land value increases we should consider how many
-people in the household work. 63% of Vancouver households have only one household maintainer, but
-<a href="http://censusmapper.ca/maps/223">33% have two and 4% three or more household maintainers</a> contributing to household income.
-On average a Vancouver household <a href="http://censusmapper.ca/maps/222">worked a total of 62 person-weeks per year</a> to earn
-that income. Assuming a 40 hour work week, we compute the average after-tax earning to be $26 per hour from regular work
-and average after tax earnings of $126 per hour from twiddling thumbs. That&rsquo;s assuming all household maintainers are twiddling
-the same amount of time that they dedicate to regular work. (In this calculation we use average not median income and land value
-increases, medians don&rsquo;t lend themselves well to these kind of reasoning.)</p>
-
-<p>Using the 10 year averaged numbers instead of focusing on just the last year we still get a healthy average after-tax twiddling thumbs rate of $44 per hour.</p>
-
-<p>I am not entirely sure why anyone would want twiddling thumbs to stay so lucrative. Unless maybe the super self-centered thumb-twiddlers.
-Or why earnings from thumb-twiddling should remain tax-free. While employment income is taxed (as it should be).</p>
-
-<p>Considering to change your line work to thumb twiddling? To bad thumb twiddling is so unaffordable!</p>
-
-<h3>Data Dump</h3>
-
-<p>Here is the raw output of the stats run on the single family properties for ayone interested.</p>
-
-<h5>SFH Land Value Rise (2015 - 2016)</h5>
-
-<ul>
-<li>City Wide: Average $313,072 Median $262,000, Count: 78740, Total: $24,651,312,001, Hourly: $126</li>
-<li>East of Main: Average $230,106 Median $230,000, Count: 46014, Total: $10,588,122,001, Hourly: $92</li>
-<li>West of Main: Average $429,725 Median $375,000, Count: 32726, Total: $14,063,190,000, Hourly: $173</li>
-</ul>
-
-
-<h5>SFH Land Value Rise (2006 - 2016)</h5>
-
-<ul>
-<li>City Wide: Average $109,969 Median $79,800, Count: 77981, Total: $8,575,547,711, Hourly: $44</li>
-<li>East of Main: Average $68,656 Median $66,700, Count: 45647, Total: $3,133,947,703, Hourly: $27</li>
-<li>West of Main: Average $168,293 Median $141,700, Count: 32334, Total: $5,441,600,008, Hourly: $67</li>
-</ul>
-
-
-<p>The total number of units for the 2006 to 2016 analysis are a little lower since not all properties can be traced over that time
-period without resorting to more tedious analysis.</p>
-
-<script>
-function resetImages(){
-    $('img').each(function(img){
-        imgsrc = $(img).attr('src');
-        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
-            $(img).attr('src', '');
-            $(img).attr('src', imgsrc);
-            
-        }
-    });
-    setTimeout(function(){
-        resetImages();
-    },25000);
-}
-setTimeout(function(){
-    resetImages();
-},25000);
-</script>
-
 ]]></content>
   </entry>
   
