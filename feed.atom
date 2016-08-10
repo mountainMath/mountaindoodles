@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-08-04T23:23:56-07:00</updated>
+  <updated>2016-08-09T23:25:24-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -106,14 +106,14 @@ numbers for each of the RS, RT and RM zones (ignoring some of the delicacies in 
 sub-zones with the same leading number. So for example we lumped RT-4, RT-4A, RT-4N and RT-4AN into one category we simply
 label &ldquo;RT-4&rdquo;.</p>
 
-<p>First we check how many properties got re-developed since 2000.</p>
+<p>First we check how many residential properties got re-developed since 2000.</p>
 
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <div id="graph_redevelopment" style="height:200px;max-width:640px;" data-url="/data/zone_redevelopment.json"></div>
 </div>
 
 
-<p>Next we take a look what percentage of the existing stock is in immediate danger of being torn down, using the
+<p>Next we take a look what percentage of the existing residential stock is in immediate danger of being torn down, using the
 <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">methodology developed earlier</a>.</p>
 
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
