@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-08-09T23:25:24-07:00</updated>
+  <updated>2016-08-16T23:13:32-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,284 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mobi -- a First Look]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/08/16/mobi-a-first-look/"/>
+    <updated>2016-08-16T13:06:58-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/08/16/mobi-a-first-look</id>
+    <content type="html"><![CDATA[<p><a href="http://mountainmath.ca/mobi#14.287582005629245/49.2742/-123.1277" target="_blank"><img  src="http://doodles.mountainmath.ca/images/mobi_main.png"  style="width:50%;float:right;margin-left:10px;"></a>
+Vancouver finally has a bikeshare system. And everyone is hoping it will succeed, despite the obstacles BC&rsquo;s mandatory
+helmet law poses for the system. So we are eager to find out how things are going with Mobi.</p>
+
+<p>To set the background, consider that
+<a href="http://www.seattlemet.com/articles/2016/3/21/the-rise-and-fall-and-possible-rise-again-of-pronto">Seattle&rsquo;s Pronto is getting less than 1 ride per bike per day</a>
+after half a year in operation. In comparison, bike shares that are considered &lsquo;successful&rsquo; in North America get 3 to 5
+rides per bike per day. Taipei&rsquo;s system, which I am particularly fond of, gets over 11 rides per bike per day.</p>
+
+<p>So how about Mobi? It barely started, and it&rsquo;s not really fair to run the numbers right now. But we just couldn&rsquo;t hold
+our curiosity back.</p>
+
+<!-- more -->
+
+
+<h3>Data</h3>
+
+<p>First off, some caveats. Mobi does not have an official API for their system. In fact, they only provide a barely usable
+<a href="https://www.mobibikes.ca">map of station statuses at the bottom of their landing page</a>. So we decided to
+jump in and scape their data to <a href="http://doodles.mountainmath.ca/blog/2016/07/26/bike-share-map/">make our own map</a>. In
+absence of better alternatives, the <em>official</em> Mobi smartphone app is still not released, the map has gotten quite popular.
+And in absence of an official Mobi API there are now others, like <a href="http://transitapp.com/">TransitApp</a>, that are consuming our
+<a href="http://mountainmath.ca/mobi/stations">station data shadow API</a>.</p>
+
+<p>What that means in terms of data quality is that while we get fairly accurate station bike counts at about a 1-minute
+interval, there are some issues with using the data for rigorous analysis. If a bike gets checked in while another one
+gets checked out at about the same time there is a good chance that we will miss it. And we can&rsquo;t distinguish rebalancing
+from a group of people checking out or dropping off a bunch of bikes at the same time. And we don&rsquo;t have individual bike
+data to look at travel patterns, for example what popular trip patterns are.</p>
+
+<p>That pretty much rules out anything but high level analysis.</p>
+
+<h3>Station History</h3>
+
+<p>To get an initial idea we started to look at station history. We only started recording Saturday 13th. For the fun of it
+we added one day history to our <a href="https://mountainmath.ca/mobi">Mobi bike station and bike infrastructure map</a>. Drop me
+a line if you are interested in longer timeframes.</p>
+
+<p>Taking a look at the daily overall usage patterns</p>
+
+<div style="padding:2px;border: 1px solid black;border-radius:5px;">
+<div id="graph_mobi_hourly" style="height:200px;max-width:640px;" data-url="/data/mobi_hourly.json"></div>
+</div>
+
+
+<p>things are pretty much as expected. Nice Gaussians for the weekend usage, and some commute spikes for the weekday usage.
+Squinting really hard one might want to make out a slight lunchtime boost, we will have to collect more data to confirm
+that.</p>
+
+<p>Another thing we see is that usage seems to hit a low point around 4am, so that&rsquo;s a good time to divide up the days when
+looking at daily usage. Adding up the rides we get around 1400 rides a day. At around 3am we detect 460 bikes in the
+stations, so that makes a clean 3 rides per bike per day. On average. That a pretty impressive number for a system that is
+just getting off the ground. And that&rsquo;s while still in &ldquo;members only&rdquo; mode. The nice weather has helped, but there is no
+getting around the fact that Mobi is off to a great start!</p>
+
+<p>Of course not every bike is getting 3 rides. Some get more, some get less. For example, a bike parked at the
+<a href="http://mountainmath.ca/mobi#17/49.27147/-123.10407">Ontario &amp; Seawall</a> station has been very popular, here is live data
+on the most recent days of usage.
+ <div id="station_graph_os" style="height:150px;"></div></p>
+
+<p>On the other hand, bikes at <a href="http://mountainmath.ca/mobi#19/49.26084/-123.11418">Yukon &amp; 12th</a> have been having a hard
+time to find riders. Both stations are at the
+current boundary of the system, it is hard to say what makes the difference. The particular location of the least used
+station will surely get some people excited.
+<a href="http://mountainmath.ca/mobi#19/49.26084/-123.11418" target="_blank"><img  src="http://doodles.mountainmath.ca/images/yukon_12.png"  style="width:50%;float:right;margin-left:10px;"></a></p>
+
+<p>Mobi is undoubtedly carefully
+analyzing their station usage and incorporating that into their strategic planning how to expand their network. And
+hopefully publish a useful API for all the data geeks out there.</p>
+
+<div><script>
+
+function graphBikeStation(selector,station_id){
+  var outerHeight=$(selector).height(),
+      outerWidth=$($(selector)[0].parentNode).width();
+  var margin = {top: 20, right: 20, bottom: 30, left: 50},
+      width = outerWidth - margin.left - margin.right,
+      height = outerHeight - margin.top - margin.bottom;
+
+  var formatDate = d3.time.format("%X");
+  var x = d3.time.scale()
+      .range([0, width]);
+
+  var y = d3.scale.linear()
+      .range([height, 0]);
+
+  var xAxis = d3.svg.axis().scale(x).orient('bottom');
+
+  var yAxis = d3.svg.axis().scale(y).orient('left').ticks(5);
+
+  var line = d3.svg.line()
+      .x(function(d) { return x(d.created_at); })
+      .y(function(d) { return y(d.available_bikes); })
+      .interpolate('step-after');
+  var bikeArea = d3.svg.area()
+      .x(function(d, i) { return x(d.created_at); })
+      .y0(function(d) { return y(d.available_bikes); })
+      .y1(function(d) { return height; })
+      .interpolate('step-after');
+  var dockArea = d3.svg.area()
+      .x(function(d, i) { return x(d.created_at); })
+      .y0(function(d) { return 0; })
+      .y1(function(d) { return y(d.available_bikes); })
+      .interpolate('step-after');
+
+
+  var svg = d3.select(selector).append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  d3.json('http://mountainmath.ca/bike_providers/1/bike_stations/' + station_id + '.json?days=7',function(error,data){
+  data=data[0].stations[0].statuses;
+  data.forEach(function(d){type(d)});
+  var last=data[data.length-1];
+  var lastTime=new Date(d3.time.format.iso.parse(last.updated_at).getTime() + 5*60000);
+  data.push({id:last.id,available_bikes:last.available_bikes,free_docks:last.free_docks,created_at:lastTime,updated_at:lastTime});
+
+  x.domain(d3.extent(data, function(d) { return d.created_at; }));
+  y.domain([0,data[0].available_bikes+data[0].free_docks]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//      .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Available Bikes");
+
+  svg.append("path")
+      .datum(data)
+      .attr("class", "area bike")
+      .style("fill",'rgba(33, 139, 51, 0.7)')
+      .attr("d", bikeArea);
+  svg.append("path")
+      .datum(data)
+      .attr("class", "area dock")
+      .style("fill",'rgba(212, 10, 44, 0.7')
+      .attr("d", dockArea);
+
+
+  function type(d) {
+    d.created_at = d3.time.format.iso.parse(d.created_at);
+    d.available_bikes = +d.available_bikes;
+    return d;
+  }
+  });
+}
+
+
+
+function bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter,rangeLabelFormatter){
+    if (!domainFormatter) domainFormatter=d3.format("d");
+    if (!rangeLabelFormatter) rangeLabelFormatter=rangeFormatter;
+    if (!rangeFormatter)
+     rangeFormatter = function (y) {
+        return y;
+     };
+     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
+
+var margin = {top: 20, right: 20, bottom: 40, left: 70},
+    width = parseInt(div.style("width")) - margin.left - margin.right,
+    height = parseInt(div.style("height")) - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickFormat(domainFormatter)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(rangeFormatter)
+    .ticks(5, rangeFormatter);
+
+var svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data_url=div[0][0].dataset.url;
+
+d3.json(data_url, function(error, json) {
+  if (error) throw error;
+  var graphData=json[0];
+  var data=graphData.data;
+  
+  data.forEach(function(d,i){d.date= d3.time.format.iso.parse(d.date)});
+  
+  var container=d3.select(div.node().parentNode);
+  container.selectAll('.legend.no-margin').remove();
+  var legend=container.append('div').attr('class',"legend no-margin");
+  legend.append('p').html('<i style="background:'+graphData.color + '"></i>' + graphData.label +  '<span style="float:right;margin-right:10px;" id="' + graphData.class+'_value"></span>');
+  
+  x.domain(data.map(function(d) {return d.date }));
+  y.domain([0, d3.max(data, function(d) { return d.count; })]);
+  
+  var domainTickValues=[];
+  var skip=Math.round(60/x.rangeBand());
+  if (skip<=0) skip=1;
+  for (var i=0;i<x.domain().length;i++) {
+    if (i % skip==0) domainTickValues.push(x.domain()[i]);
+  }
+  //if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
+  xAxis.tickValues(domainTickValues);
+
+  var xShift=shiftAxis ?  -x.rangeBand()/2.0 * 1.1 : 0;
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(" + xShift + "," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//    .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Probability");
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", graphData.class + " bar")
+      .style("fill", graphData.color)
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.count); })
+      .attr("height", function(d) { return height - y(d.count); })
+      .on('mouseover',function(d){
+         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
+      }).on('click',function(d){
+       d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
+      }).on('touch',function(d){
+         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
+      }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
+
+      
+});
+
+}
+
+
+
+var numberFormatter=d3.format(",");
+var dateFormatter=d3.time.format("%a %I%p");//d3.time.format("%a %H:%M"); //d3.format(",");//
+bar_graph(d3.select("#graph_mobi_hourly"),true,dateFormatter,numberFormatter);
+
+graphBikeStation('#station_graph_os',1);
+</script></div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[What's up with RT?]]></title>
@@ -2982,103 +3260,6 @@ var numberBinFormatter=function(top){
 stacked_bar_graph(d3.select("#graph_sfh"));
 </script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Land Use Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/"/>
-    <updated>2016-01-31T10:25:42-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/01/31/land-use</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/land_use/map"><img  src="http://doodles.mountainmath.ca/images/land use.png" style="width:50%;float:left;margin-right:10px;"></a>
-Metro Vancouver has a <a href="http://www.metrovancouver.org/data">fairly good land use dataset</a> that I imported quite some time
-ago so that <a href="https://mountainmath.ca/land_use/map">I could take a good look at it</a>. But then I forgot about it until
-<a href="https://twitter.com/HealthyCityMaps">@HealthyCityMaps</a> <a href="https://twitter.com/HealthyCityMaps/status/692832946714050564">reminded me</a> just
-at the time when the discussions about <a href="https://mountainmath.ca/map/assessment">assessmened values</a> in Vancouver were flaring up again.</p>
-
-<p>So finally I decided to mark up the City of Vancouver assessment dataset with the land use from the Metro Vancouver land
-use dataset. And I used the occasion to update my color schemes from two years ago and gave it a dark background that
-works better with the <a href="http://colorbrewer2.org">colorbrewer</a> palettes.</p>
-
-<p>The result of the land use and assessment data mashup is a much better understanding what kind of properties we have right now in Vancouver.</p>
-
-<!-- more -->
-
-
-<h3>Land Use for Assessment Data</h3>
-
-<p>There is a strong relationship between land use and zoning. But that relationship is far from perfect, zoning is a funny
-beast. For example, zoning laws prevent low-rise apartments to be built in areas zoned for single family housing. But
-they permit single family housing in areas zoned for low-rise apartments. Or in areas zoned as commercial. The land
-use dataset allows to tag every property based on what it is actually used for.</p>
-
-<p>Of course the land use dataset is not perfect and has some issues, but overall it gives a far superior view on how land
-is used when compared to soley relying on zoning. But putting the two datasets together one can even further filter down
-to tease out actual land use.</p>
-
-<h3>The Forgotten Single Family Houses</h3>
-
-<p>Single family houses have received a lot of attention lately, not least because of the
-<a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">incredible gains in land value during the last year</a>.</p>
-
-<p>But how to narrow down the assessed properties to only single family housing? The easiest way to do this is to use zoning
-as a proxy, so <a href="https://mountainmath.ca/map/assessment?filter=rs">only use RS zoned properties</a>. But there are a number
-of problems with that.</p>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=rs_not_sfh&amp;layer=14"><img  src="http://doodles.mountainmath.ca/images/rs_not_sfh.png" style="width:50%;float:right;"></a>
-Firstly, only filtering by zone will still include lots of unwanted properties like schools and parks. I used to filter out
-parks using the City of Vancouver parks dataset, but it actually does not capture all parks. And then I filtered by area
-to get rid of large properties that typically house schools or other institutions. But that keeps smaller institutions in
-and throws larger single family houses out. Using the land use data we can better focus in on all the residential properties
-in the single family housing zone. But even then, there are <a href="https://mountainmath.ca/map/assessment?filter=rs_not_sfh&amp;layer=14">1,255 residential properties in &lsquo;RS&rsquo; zoned areas that are
-not single family houses</a>.</p>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=sfh_not_rs&amp;layer=6"><img  src="http://doodles.mountainmath.ca/images/sfh_not_rs.png" style="width:50%;float:left;margin-right:10px;"></a>
-Secondly, and probably more importantly, it misses
-<a href="https://mountainmath.ca/map/assessment?filter=sfh_not_rs&amp;layer=6">the 15% (12,111 total) of the single family stock that is situated in other zones</a>.
-&lsquo;Upzoning&rsquo; a neighbourhood
-only means that other forms of housing are also permitted, but people can still build single family homes there if they
-would like.
-<a href="https://mountainmath.ca/map/assessment?filter=sfh_not_rs&amp;layer=6">Zoom into the map</a> and choose different ways to colour
-the properties if you want to learn more about where they are.</p>
-
-<h3>All Single Family Houses</h3>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;layer=9"><img  src="http://doodles.mountainmath.ca/images/sfh.png" style="width:50%;float:right;"></a>
-When adding in the land use data we can filter by actual land use. That immediately takes care of parks and schools and other institutions,
-and at the same time it allows to find all &ldquo;single family or duplex&rdquo; properties. That gets us closer to what we are looking
-for, but it also includes duplexes. But those are easy to detect in the assessment dataset, they show up with two separate
-tax bills. So combining the two we get the actual <a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;layer=9">map of all single family homes</a>.</p>
-
-<p>Are these really <em>all</em> single family homes? Not quite. There are some issues with the land use dataset that mis-classify
-a couple of properties. In particular some RS lots without a house are classified as &lsquo;Undeveloped&rsquo;, and some are classfied as
-&lsquo;Single Detached &amp; Duplex&rsquo;, probably depending on what was there around the time the data was collected. The correct classification really
-depends on what one is interested in, and will likely be outdated fast.</p>
-
-<p>Moreover, the property assessment dataset of the City of Vancouver is to correctly link a couple of hundred properties
-to their tax data. This won&rsquo;t be an issue when analysing the tax data, but it does cause a problem when mapping the properties
-as they won&rsquo;t have any assessment or zoning data associated with them.</p>
-
-<p>And there are issues on the fringes. Some properties in Southlands are used as single family homes on large lots, rather
-than the limited agricultural that it is zoned at and labeled as in the land use dataset.</p>
-
-<p>But overall, adding in the land
-use information gives a huge improvement on narrowing down single family homes. We should remember that
-&ldquo;single family homes&rdquo; are better described as &ldquo;single owner properties that can&rsquo;t be stratified&rdquo;,
-as they may include secondary suites and laneway houses.</p>
-
-<h3>Historical Data</h3>
-
-<p>One shortcoming of the land use dataset is that there are no historic versions available. It would be very nice to be able
-to see how land use changed over time, but that dataset won&rsquo;t do the trick. The City of Vancouver assessment dataset
-comes with historic data all the way up to 2006, and can be used to do some fun
-<a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">analysis</a>. But the historic dataset is incomlete in that
-zoning information is only available from 2014 forward and in that historic property tax data can&rsquo;t always be linked to
-physical properties if the property has been re-developed. But overall putting the datasets together allows to refine
-the analysis previously made. For example re-running the <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">thumb twiddling rates</a>
-using only Single Family Homes, we get pretty much the same medians, but the averages are higher. We could also refine
-our <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">teardown analysis</a> to include only single family homes
-and better filter out institutional properties, although some issues with the lack of historic data remain.</p>
 ]]></content>
   </entry>
   

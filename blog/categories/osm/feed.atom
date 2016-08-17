@@ -4,7 +4,7 @@
   <title><![CDATA[Category: osm | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/osm/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-08-09T23:25:24-07:00</updated>
+  <updated>2016-08-16T23:13:32-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,284 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mobi -- a First Look]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/08/16/mobi-a-first-look/"/>
+    <updated>2016-08-16T13:06:58-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/08/16/mobi-a-first-look</id>
+    <content type="html"><![CDATA[<p><a href="http://mountainmath.ca/mobi#14.287582005629245/49.2742/-123.1277" target="_blank"><img  src="http://doodles.mountainmath.ca/images/mobi_main.png"  style="width:50%;float:right;margin-left:10px;"></a>
+Vancouver finally has a bikeshare system. And everyone is hoping it will succeed, despite the obstacles BC&rsquo;s mandatory
+helmet law poses for the system. So we are eager to find out how things are going with Mobi.</p>
+
+<p>To set the background, consider that
+<a href="http://www.seattlemet.com/articles/2016/3/21/the-rise-and-fall-and-possible-rise-again-of-pronto">Seattle&rsquo;s Pronto is getting less than 1 ride per bike per day</a>
+after half a year in operation. In comparison, bike shares that are considered &lsquo;successful&rsquo; in North America get 3 to 5
+rides per bike per day. Taipei&rsquo;s system, which I am particularly fond of, gets over 11 rides per bike per day.</p>
+
+<p>So how about Mobi? It barely started, and it&rsquo;s not really fair to run the numbers right now. But we just couldn&rsquo;t hold
+our curiosity back.</p>
+
+<!-- more -->
+
+
+<h3>Data</h3>
+
+<p>First off, some caveats. Mobi does not have an official API for their system. In fact, they only provide a barely usable
+<a href="https://www.mobibikes.ca">map of station statuses at the bottom of their landing page</a>. So we decided to
+jump in and scape their data to <a href="http://doodles.mountainmath.ca/blog/2016/07/26/bike-share-map/">make our own map</a>. In
+absence of better alternatives, the <em>official</em> Mobi smartphone app is still not released, the map has gotten quite popular.
+And in absence of an official Mobi API there are now others, like <a href="http://transitapp.com/">TransitApp</a>, that are consuming our
+<a href="http://mountainmath.ca/mobi/stations">station data shadow API</a>.</p>
+
+<p>What that means in terms of data quality is that while we get fairly accurate station bike counts at about a 1-minute
+interval, there are some issues with using the data for rigorous analysis. If a bike gets checked in while another one
+gets checked out at about the same time there is a good chance that we will miss it. And we can&rsquo;t distinguish rebalancing
+from a group of people checking out or dropping off a bunch of bikes at the same time. And we don&rsquo;t have individual bike
+data to look at travel patterns, for example what popular trip patterns are.</p>
+
+<p>That pretty much rules out anything but high level analysis.</p>
+
+<h3>Station History</h3>
+
+<p>To get an initial idea we started to look at station history. We only started recording Saturday 13th. For the fun of it
+we added one day history to our <a href="https://mountainmath.ca/mobi">Mobi bike station and bike infrastructure map</a>. Drop me
+a line if you are interested in longer timeframes.</p>
+
+<p>Taking a look at the daily overall usage patterns</p>
+
+<div style="padding:2px;border: 1px solid black;border-radius:5px;">
+<div id="graph_mobi_hourly" style="height:200px;max-width:640px;" data-url="/data/mobi_hourly.json"></div>
+</div>
+
+
+<p>things are pretty much as expected. Nice Gaussians for the weekend usage, and some commute spikes for the weekday usage.
+Squinting really hard one might want to make out a slight lunchtime boost, we will have to collect more data to confirm
+that.</p>
+
+<p>Another thing we see is that usage seems to hit a low point around 4am, so that&rsquo;s a good time to divide up the days when
+looking at daily usage. Adding up the rides we get around 1400 rides a day. At around 3am we detect 460 bikes in the
+stations, so that makes a clean 3 rides per bike per day. On average. That a pretty impressive number for a system that is
+just getting off the ground. And that&rsquo;s while still in &ldquo;members only&rdquo; mode. The nice weather has helped, but there is no
+getting around the fact that Mobi is off to a great start!</p>
+
+<p>Of course not every bike is getting 3 rides. Some get more, some get less. For example, a bike parked at the
+<a href="http://mountainmath.ca/mobi#17/49.27147/-123.10407">Ontario &amp; Seawall</a> station has been very popular, here is live data
+on the most recent days of usage.
+ <div id="station_graph_os" style="height:150px;"></div></p>
+
+<p>On the other hand, bikes at <a href="http://mountainmath.ca/mobi#19/49.26084/-123.11418">Yukon &amp; 12th</a> have been having a hard
+time to find riders. Both stations are at the
+current boundary of the system, it is hard to say what makes the difference. The particular location of the least used
+station will surely get some people excited.
+<a href="http://mountainmath.ca/mobi#19/49.26084/-123.11418" target="_blank"><img  src="http://doodles.mountainmath.ca/images/yukon_12.png"  style="width:50%;float:right;margin-left:10px;"></a></p>
+
+<p>Mobi is undoubtedly carefully
+analyzing their station usage and incorporating that into their strategic planning how to expand their network. And
+hopefully publish a useful API for all the data geeks out there.</p>
+
+<div><script>
+
+function graphBikeStation(selector,station_id){
+  var outerHeight=$(selector).height(),
+      outerWidth=$($(selector)[0].parentNode).width();
+  var margin = {top: 20, right: 20, bottom: 30, left: 50},
+      width = outerWidth - margin.left - margin.right,
+      height = outerHeight - margin.top - margin.bottom;
+
+  var formatDate = d3.time.format("%X");
+  var x = d3.time.scale()
+      .range([0, width]);
+
+  var y = d3.scale.linear()
+      .range([height, 0]);
+
+  var xAxis = d3.svg.axis().scale(x).orient('bottom');
+
+  var yAxis = d3.svg.axis().scale(y).orient('left').ticks(5);
+
+  var line = d3.svg.line()
+      .x(function(d) { return x(d.created_at); })
+      .y(function(d) { return y(d.available_bikes); })
+      .interpolate('step-after');
+  var bikeArea = d3.svg.area()
+      .x(function(d, i) { return x(d.created_at); })
+      .y0(function(d) { return y(d.available_bikes); })
+      .y1(function(d) { return height; })
+      .interpolate('step-after');
+  var dockArea = d3.svg.area()
+      .x(function(d, i) { return x(d.created_at); })
+      .y0(function(d) { return 0; })
+      .y1(function(d) { return y(d.available_bikes); })
+      .interpolate('step-after');
+
+
+  var svg = d3.select(selector).append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  d3.json('http://mountainmath.ca/bike_providers/1/bike_stations/' + station_id + '.json?days=7',function(error,data){
+  data=data[0].stations[0].statuses;
+  data.forEach(function(d){type(d)});
+  var last=data[data.length-1];
+  var lastTime=new Date(d3.time.format.iso.parse(last.updated_at).getTime() + 5*60000);
+  data.push({id:last.id,available_bikes:last.available_bikes,free_docks:last.free_docks,created_at:lastTime,updated_at:lastTime});
+
+  x.domain(d3.extent(data, function(d) { return d.created_at; }));
+  y.domain([0,data[0].available_bikes+data[0].free_docks]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//      .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Available Bikes");
+
+  svg.append("path")
+      .datum(data)
+      .attr("class", "area bike")
+      .style("fill",'rgba(33, 139, 51, 0.7)')
+      .attr("d", bikeArea);
+  svg.append("path")
+      .datum(data)
+      .attr("class", "area dock")
+      .style("fill",'rgba(212, 10, 44, 0.7')
+      .attr("d", dockArea);
+
+
+  function type(d) {
+    d.created_at = d3.time.format.iso.parse(d.created_at);
+    d.available_bikes = +d.available_bikes;
+    return d;
+  }
+  });
+}
+
+
+
+function bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter,rangeLabelFormatter){
+    if (!domainFormatter) domainFormatter=d3.format("d");
+    if (!rangeLabelFormatter) rangeLabelFormatter=rangeFormatter;
+    if (!rangeFormatter)
+     rangeFormatter = function (y) {
+        return y;
+     };
+     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
+
+var margin = {top: 20, right: 20, bottom: 40, left: 70},
+    width = parseInt(div.style("width")) - margin.left - margin.right,
+    height = parseInt(div.style("height")) - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickFormat(domainFormatter)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(rangeFormatter)
+    .ticks(5, rangeFormatter);
+
+var svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data_url=div[0][0].dataset.url;
+
+d3.json(data_url, function(error, json) {
+  if (error) throw error;
+  var graphData=json[0];
+  var data=graphData.data;
+  
+  data.forEach(function(d,i){d.date= d3.time.format.iso.parse(d.date)});
+  
+  var container=d3.select(div.node().parentNode);
+  container.selectAll('.legend.no-margin').remove();
+  var legend=container.append('div').attr('class',"legend no-margin");
+  legend.append('p').html('<i style="background:'+graphData.color + '"></i>' + graphData.label +  '<span style="float:right;margin-right:10px;" id="' + graphData.class+'_value"></span>');
+  
+  x.domain(data.map(function(d) {return d.date }));
+  y.domain([0, d3.max(data, function(d) { return d.count; })]);
+  
+  var domainTickValues=[];
+  var skip=Math.round(60/x.rangeBand());
+  if (skip<=0) skip=1;
+  for (var i=0;i<x.domain().length;i++) {
+    if (i % skip==0) domainTickValues.push(x.domain()[i]);
+  }
+  //if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
+  xAxis.tickValues(domainTickValues);
+
+  var xShift=shiftAxis ?  -x.rangeBand()/2.0 * 1.1 : 0;
+  
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(" + xShift + "," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//    .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Probability");
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", graphData.class + " bar")
+      .style("fill", graphData.color)
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.count); })
+      .attr("height", function(d) { return height - y(d.count); })
+      .on('mouseover',function(d){
+         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
+      }).on('click',function(d){
+       d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
+      }).on('touch',function(d){
+         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
+      }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
+
+      
+});
+
+}
+
+
+
+var numberFormatter=d3.format(",");
+var dateFormatter=d3.time.format("%a %I%p");//d3.time.format("%a %H:%M"); //d3.format(",");//
+bar_graph(d3.select("#graph_mobi_hourly"),true,dateFormatter,numberFormatter);
+
+graphBikeStation('#station_graph_os',1);
+</script></div>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Bike Share Map]]></title>
@@ -370,153 +648,6 @@ be to hack some of these more advanced costing options into their routing engine
 
 <p>Wrapping up the three-night trials in bike mapping is the
 <a href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/">post on data</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How to make a bike map]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/"/>
-    <updated>2015-12-13T12:04:25-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map</id>
-    <content type="html"><![CDATA[<p><a href="/bike_map.html"><img  src="http://doodles.mountainmath.ca/images/bike-map.png" style="width:25%;float:right"></a>Here come some general thoughts on bike maps. Not throught through yet, just jotting down some ideas so that I don&rsquo;t
-forget and maybe to start a discussion.</p>
-
-<p>Bike enthusiasts, OSM folks and mapping technology wonks read on!</p>
-
-<!-- more -->
-
-
-<h4>Why make a new bike map?</h4>
-
-<p>Plainly put, I don&rsquo;t like a lot of the bike maps out there. Time for my little bike map rant:</p>
-
-<ol>
-<li>Lots of maps don&rsquo;t accomplish their core mission:
-accurately map bike infrastructure. For example, when in real life a bike lane vanishes 100m in front of an intersection
-and reappears 100m after the intersection, leaving cyclists exposed right where protection is needed the most, most
-bike maps will mark the entire section as having a bike lane.</li>
-<li>Most bike maps focus on the wrong issue. They focus on physical infrastructure, as a cyclist I am interested in
-cycling comfort level. Can I take my 6 year old along that route? Can I cycle leisurely or will I feel hastened by a
-car breathing down my neck? Will I arrive at my destination relaxed or will I be riled up by 3 near misses and 5 drivers
-swearing at me? Some of these questions can be answered by mapping infrastructure. A physically separated bike path will
-give me the comfort I need to bing my 6 year old and enjoy my ride. But when it comes to &ldquo;bike lane&rdquo; or &ldquo;shared road&rdquo;
-designations, I have no idea what it will feel like until I get there.</li>
-<li>Most bike maps have not yet made the transition from paper/PDF based maps to clickable and zoomable maps that can be
-easily consumed on the go.</li>
-<li>Most maps are static, they don&rsquo;t adapt to the needs of the user. Why do I have to deal with 5 different colors and
-3 types of shading when reading a bike map, when all I want to know is if I can bring my 6 year old along for the ride.
-I want an &ldquo;AAA&rdquo; button that fades out all routes that are not suitable for all ages and abilities. For that purpose I
-don&rsquo;t care if a road has infrastructure like a bike lane wedged between parked cars and 50km/h traffic. If we absolutely
-have to ride that way it will be on the sidewalk.</li>
-</ol>
-
-
-<h4>How to make a new bike map?</h4>
-
-<p>First let&rsquo;s start with examples of how other have tried to solve these problems. Probably one of the best maps out there
-is the <a href="https://www.crd.bc.ca/docs/default-source/crd-document-library/maps/transportation/bikemap2014-frontback-web.pdf?sfvrsn=8">Capital Regional District Bike Map</a>.
-I chatted with <a href="https://twitter.com/Burgundavia">Corey</a> who worked for CRD on these maps on how it was done. They collected all the bike infrastructure
-in the region by contacting all the municipalities. <img  src="http://doodles.mountainmath.ca/images/victoria.png" style="width:50%;float:left"> Then they meticulously
-checked that what the municipalities reported actually existed on the ground.  Consider Fort road on their bike map where they accurately show the bike lane
-cutting out. And they added in shortcuts and connections
-that the municipalities did not report on, like a short section of footway that may technically require walking the bike
-but shortcuts out of a suburban cul-de-sac maze.</p>
-
-<p>Next the CRD map does not only map infrastructure, but color-codes it to show cycling comfort. <img  src="http://doodles.mountainmath.ca/images/victoria-legend.png" style="width:50%;float:right">
-This gives me a good idea how comfortable the rider will feel. Unfortunately all that complexity starts to make it difficult to
-read the bike map.</p>
-
-<p>That&rsquo;s where technology could come to the rescure. The CRD map is a PDF map and suffers the usual limitations that come
-with it. The map cannot adapt to the needs of the reader. So how about moving the map online and letting the user decide
-how to display it?</p>
-
-<h4>Bike maps that adapt to the user</h4>
-
-<p>The <a href="http://www.washingtonpost.com/blogs/wonkblog/wp/2015/04/01/bleak-maps-of-how-cities-look-using-only-their-bike-lanes/">Washington Post Wonkblog</a>
-had an excellent feature mapping only the bike infrastructure, nothing else. And for good measure, they removed the
-shared streets bike infrastructure. The rational was that in most cases, comfort level on shared street bike routes is really no different from
-cycling on a parallel road. Inspired by that I decided <a href="/blog/2015/04/01/bike-paths/">map Vancouver and a couple of other cities</a>
-and I added in some button to allow selectively turning on or off typed of infrastructure.</p>
-
-<iframe src="http://doodles.mountainmath.ca/bike_paths.html?fh=50&nh=true" width="50%" height="300" style="float:left;"></iframe>
-
-
-<p>That&rsquo;s getting one step closer to adaptable bike maps, but it is still missing the main point that as a cyclist I am
-most interested in comfort level, and infrastructure type is only a proxy for that. And a poor one in many cases.</p>
-
-<h4>Inspiration</h4>
-
-<p>Not convinced we need a new bike map? Let&rsquo;s draw on some local (for me) maps that inspired this effort.</p>
-
-<p>UBC Campus Planning <a href="https://twitter.com/ubc_candcp/status/662027568204357633">keeps tweeting out a bike map</a>
-that lists several dangerous roads as &ldquo;designated on street cycling routes&rdquo;, including an unlit divided 4 lane highway
-with a posted speed limit of 60km/h and typical traffic speeds significantly exceeding that. And all of that apparently
-aimed at people that don&rsquo;t cycle to campus yet but are considering doing so.</p>
-
-<p>TransLink just <a href="http://www.translink.ca/-/media/Documents/cycling/cycling_routes/full_maps/TransLink%20Regional%20Cycling%20Map%20West.pdf">updated their bike map</a>
-and marks said highway as &ldquo;recommended by cyclists&rdquo;. The do acknowlege that the road &ldquo;does not have special treatment
-for cyclists&rdquo;. So why include it on the map? Filling in the the gaps in the cycling network should happen in real life,
-not just on the map.</p>
-
-<p>Even HUB keeps <a href="https://bikehub.ca/about-us/our-positions/ungapthemap">marking Wesbrook Mall north of Agronomy as &ldquo;existing cycling route&rdquo;</a>
-when in real life it is everything but that.</p>
-
-<h4>How to make a bike map</h4>
-
-<p>So how should we make a bike map? I was always thinking about setting up my own database and somehow adding and rating
-infrastructure. Then <a href="https://twitter.com/alexwarrior">Alex</a> decided to start making a bike
-map for the UBC area. And he chose the most straight-forward path: Editing Open Street Map data. That way the edits are
-immediately (better: after their map tile refresh cycle) available online, for example on
-<a href="http://www.opencyclemap.org/">OpenCycleMaps</a>. The map is easily accessible
-on the go, it zooms and scrolls. It is missing a &lsquo;locate me&rsquo; button (which is easy to fix). The look and feel is a little
-dated. But most importantly, it does not adapt to the user&rsquo;s needs. I can&rsquo;t ask it to display the &ldquo;dad&rsquo;s version&rdquo; of the
-cycle network, showing me only pieces that I will be comfortable cycling with my 6 year old.</p>
-
-<p>Technology has moved along since that map was built. A very easy way to solve these issues is to
-utilized the awesome tools built by the folks at <a href="https://mapzen.com">Mapzen</a>. Their
-<a href="https://mapzen.com/projects/tangram">tangram mapping engine</a> taps into their
-<a href="https://mapzen.com/projects/vector-tiles">OSM vector tile service</a> to make flexible mapping of bike data a breeze. And
-to top things off, they offer very easy to use and extremely powerful ways to style the map. Only problem: Mapzen&rsquo;s
-OSM extracts don&rsquo;t have cycling information. Not a big problem though, we can just pull them out separately and add
-them on by hand. Here is an example where only the bike routes near UBC are added.</p>
-
-<iframe src="http://doodles.mountainmath.ca/bike_map.html" width="100%" height="550"></iframe>
-
-
-<p><a href="/bike_map.html">Full screen view</a></p>
-
-<p>One small drawback is that WebGL, the technology Tangram is based on, is not available for much of the windows world.
-WebGL requires modern browsers (IE9 does not count) and also modern hardware/graphics card drivers. A couple of years
-old windows machine will likely not be able to render WebGL no matter what browser you use. But the main target is
-mobile, and iOS and most android won&rsquo;t have a problem with WebGL. If really needed, could add a fallback or use older
-and web technology to make the map, but Mapzen&rsquo;s Tangram makes it so ridiculously easy to make and style nice maps&hellip;</p>
-
-<h4>The main problem left to solve</h4>
-
-<p>One major problem left. OSM does not have and &ldquo;cycling comfort&rdquo; tags right now. There are tags for physical infrastructure,
-and in some cases the comfort level can be correctly inferred from those. But in many cases it can&rsquo;t.</p>
-
-<p>There are two ways around that. One could
-keep those tags in a separate file, but that becomes difficult to maintain when OSM features change. Or one can add the
-tag to the OSM data. That way better bike maps can scale easily, and the information can also be used in OSM-based
-routing services where their real value lies.</p>
-
-<p>Not sure which is the way to go here, a similar tag
-<a href="http://wiki.openstreetmap.org/wiki/Proposed_features/bike_safety">has been proposed before</a> but apparently did not
-go anywhere. Looking at the <a href="http://wiki.openstreetmap.org/wiki/Any_tags_you_like">tag guidelines</a> the fact they these
-new tags are very useful for routing seems to speak for adding them to OSM, but the fact that they are measuring
-something explicitly non-geographic by going beyond the already existing physical infrastructure markers might mean
-they are better kept in an external database. Will have to think this over, feedback appreciated.</p>
-
-<h4>Where to go from here.</h4>
-
-<p>The logical next step is to add routing. Again, Mapzen&rsquo;s <a href="https://mapzen.com/projects/valhalla/">flexible routing service</a>
-seems to be a natural match. Also, adding editing capabilities right onto the map would be quite useful. The bike map is
-where data issues are best seen, and saving the step to head over to OSM to fix it (after creating an account) and then
-waiting for the data to update on the map seems like a workflow that will discourage wide participation.</p>
-
-<p>We follow up by <a href="http://doodles.mountainmath.ca/blog/2015/12/14/routing/">exploring routing</a>
-and <a href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/">data quality</a>.</p>
 ]]></content>
   </entry>
   
