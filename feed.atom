@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-08-17T13:44:58-07:00</updated>
+  <updated>2016-08-18T08:02:00-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -37,7 +37,7 @@ our curiosity back.</p>
 
 <p>First off, some caveats. Mobi does not have an official API for their system. In fact, they only provide a barely usable
 <a href="https://www.mobibikes.ca">map of station statuses at the bottom of their landing page</a>. So we decided to
-jump in and scape their data to <a href="http://doodles.mountainmath.ca/blog/2016/07/26/bike-share-map/">make our own map</a>. In
+jump in and scrape their data to <a href="http://doodles.mountainmath.ca/blog/2016/07/26/bike-share-map/">make our own map</a>. In
 absence of better alternatives, the <em>official</em> Mobi smartphone app is still not released, the map has gotten quite popular.
 And in absence of an official Mobi API there are now others, like <a href="http://transitapp.com/">TransitApp</a>, that are consuming our
 <a href="http://mountainmath.ca/mobi/stations">station data shadow API</a>.</p>
