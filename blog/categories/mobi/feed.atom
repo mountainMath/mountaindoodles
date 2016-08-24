@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mobi | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mobi/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-08-24T13:38:06-07:00</updated>
+  <updated>2016-08-24T13:40:05-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -41,7 +41,7 @@ live usage graphs.</p>
 (starting from August 12, 2016).</p>
 
 <div style="margin:5px  0 20px 0;padding:2px;border: 1px solid black;border-radius:5px;width:100%;">
-  <div id="graph_daily" style="height:200px;" data-url="http://localhost:3000/bike_providers/1/daily.json"></div>
+  <div id="graph_daily" style="height:200px;" data-url="http://mountainmath.ca/bike_providers/1/daily.json"></div>
 </div>
 
 
@@ -50,7 +50,7 @@ live usage graphs.</p>
 <p>This graphs shows the hourly total counts of bikes checked out (with the usual data quality caveats) for the past week.</p>
 
 <div style="margin:5px  0 20px 0;padding:2px;border: 1px solid black;border-radius:5px;width:100%;">
-  <div id="graph_hourly" style="height:200px;" data-url="http://localhost:3000/bike_providers/1/hourly.json"></div>
+  <div id="graph_hourly" style="height:200px;" data-url="http://mountainmath.ca/bike_providers/1/hourly.json"></div>
 </div>
 
 
