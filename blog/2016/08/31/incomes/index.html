@@ -1,0 +1,509 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Quick Guide to Incomes - Mountain Doodles</title>
+  <meta name="author" content="MountainMath">
+
+  
+  <meta name="description" content="Guide to incomes in Vancouver.">
+  <meta name="keywords" content="Census, CANSIM, incomes, Vancouver">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2016/08/31/incomes/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/feed.atom" rel="alternate" title="Mountain Doodles" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54516567-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mountain Doodles</a></h1>
+  
+    <h2>spare time data, analysis, visualization</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/feed.atom" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:doodles.mountainmath.ca" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Quick Guide to Incomes</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-08-31T09:17:12-07:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>The news media has an extraordinarily difficult time with income data. And that&rsquo;s only partially the media&rsquo;s fault.
+In general, income data is a funny beast. So I decided to give a quick overview over income data that&rsquo;s available through
+Statistics Canada. To make things a little more concrete I focused on Vancouver as an example, but everything applies
+equally well to any other area in Canada.</p>
+
+<p>Most journalists I talked to care about accurate and relevant statements. If that&rsquo;s you, you will need to keep reading
+and dive down the slightly wonkish income rabbit hole.</p>
+
+<p>For those that don&rsquo;t really care, I made a
+<em>quotable random income generator</em>. Just hit the &ldquo;generate&rdquo; button copy &amp; paste the result and link this post as source.
+(Use at own risk!)</p>
+
+<!-- more -->
+
+
+
+
+<div class='income-generator'>
+    <div class='income-choices'>
+        <div class="geo"></div>
+        <div class="med_av"></div>
+        <div class="tax"></div>
+        <div class="hh"></div>
+        <div> income is </div>
+        <div class="income"></div>
+    </div>
+    <a class="btn btn-default">Generate random income numbers</a>
+</div>
+
+
+<p>The income numbers don&rsquo;t fit the story? No problem, just play again until you get something you like!</p>
+
+<h3>Geographic Regions</h3>
+
+<p>The first thing to do when quoting income numbers of any sort is to decide what region to use. Seems straight forward
+enough, but in reality <a href="https://twitter.com/vb_jens/status/744407354867736576">hardly ever done</a>. In the Vancouver
+context, it simply comes down to deciding if one wants to
+report on income for the City of Vancouver or Metro Vancouver. Both are frequently referred to as just &ldquo;Vancouver&rdquo;. Which
+is just fine as long as it is clear from the context which region we are talking about. And more importantly, whatever
+the income is compared to (e.g. housing price data) are taken for the same region.</p>
+
+<h3>Base Demographics</h3>
+
+<p>Next we have to choose a base demographic we are interested in, choose which income distribution is relevant for our context.
+In some cases this choice is obvious. If we are writing a story on lone parents in the City of Vancouver, we would want
+to look at the income distribution of lone parent households. If we are looking at the development of wages, we should
+consider individual incomes. For a story on consumer spending we may want to look at after-tax income.</p>
+
+<p>We may also be interested in specific type of income, for example only in investment income. Or the net capital gains
+and losses. Or pension benefits. Or self-employment income.</p>
+
+<h3>Statistic</h3>
+
+<p>Often we would like to distill everything down to a single number. Typically we would choose the average or median
+income from the distribution we are interested in, but we may also choose other statistics, for example the top quintile.
+Which one we choose really depends on the story. As a rule of thumb, choose median incomes if you are interested in the
+&lsquo;typical&rsquo; person or household. Choose average income if you are interested in the questions relating to the total amount
+of money earned in a given area. Income quantiles are great to focus in on certain subgroups of the population.</p>
+
+<h3>Availability</h3>
+
+<p>Generally we also have to consider the availability of information. The census has very detailed income data in their
+standard release that allow us to be very specific about what kind of incomes we are interested in. And if that&rsquo;s not
+enough we can pull a custom tabulation to narrow the incomes down to a group we are interested in, for example incomes
+of renter households as was done in the <a href="http://rentalhousingindex.ca">rental housing index</a>.</p>
+
+<p>Annual income data is available from CANSIM, but the geography is coarser than in the census. Generally we can only
+expect to get annual data for the whole country, provinces, census metropolitan areas or census divisions, but not census
+subdivisions (municipalities) or finer geographies.</p>
+
+<h3>Sources and Comparability</h3>
+
+<p>All income data eventually come down to CRA taxfiler data. But the devil is in the details. For the 2006 and 2011
+censuses, there was a mixture between self-reporting and cross-referencing of individual level income data with CRA data.
+And even self-reported data would again undergo quality control and get somewhat adjusted according to CRA data.</p>
+
+<p>But there are important differences in the data, both on what kind of income is included and also what people are included.</p>
+
+<p>The details are endless, many of them won&rsquo;t matter. Here are a couple to look out for:</p>
+
+<ul>
+<li>CANSIM is a comprehensive sample, census data is roughly a 1 in 5 subsample which may lead to sampling bias especially
+in small geographies.</li>
+<li>CENSUS data is sensitive to non-return bias. Not just no-return bias introduced by the NHS, but also by census undercounts
+which, for example, were in the 10% range for the 25 to 29 year old demographic in both the 2006 and 2011 censuses.</li>
+<li>CANSIM and the Census have different denominators for reporting average or median incomes. CANSIM reports on all
+T1 taxfilers, as well as various family types. Some data can be broken out into age groups at
+the 15 and 65 year cutoffs,
+whereas Census reports only on people (15 or older) (or families or households) in &ldquo;private households&rdquo; with income greater
+than zero.</li>
+<li>the definition of &ldquo;private household&rdquo; changed between 2006 and 2011 censuses.</li>
+<li>2011 and 2006 censuses differ slightly in what is included as income, for example
+<a href="http://www12.statcan.gc.ca/census-recensement/2006/ref/dict/pop123-eng.cfm">2006 included RRSP withdrawls</a>,
+<a href="https://www12.statcan.gc.ca/nhs-enm/2011/ref/dict/pop123-eng.cfm">2011 didn&rsquo;t</a> (both include pensions and RRIFs).
+2011 includes net capital gains and losses as a percentage of total income in a separate category, 2006 did not
+include any information on capital gains.</li>
+</ul>
+
+
+<p>So even when comparing CANSIM income data to census income data for the appropriate year we should expect some differences.
+Or comparing 2006 to 2011 income, even if hypothetically an area had identical tax returns, we would still see differences.
+Generally speaking, CANSIM average and median income estimates are lower than census estimates as it includes a larger pool
+of people that are likely to have lower income.</p>
+
+<h3>Where to get the goods?</h3>
+
+<p><img  src="/images/yvr_income.png" style="width:50%;float:right;margin-left:10px;">
+The latest census income numbers are available via <a href="https://www12.statcan.gc.ca/nhs-enm/2011/dp-pd/prof/index.cfm">Statistics Canada</a>.
+I am biased and prefer the <a href="https://censusmapper.ca/maps/467">CensusMapper</a> interface. For 2011 data, choose any
+2011 CensusMapper map, select the geographic
+region you are interested in and press the &ldquo;more&rdquo; button on the popup to bring up the &ldquo;census wheel&rdquo;. Then drill into the
+&ldquo;income&rdquo; section, the last NHS variable in the widget.</p>
+
+<p>CANSIM has annual data based on taxfiler information for coarser geographies. So you won&rsquo;t be able to get data for the City of Vancouver
+or neighbourhoods within the city like with census data, but you can get data for Metro Vancouver. And you can get it for
+more recent years. Things get complex very fast there are
+<a href="http://www5.statcan.gc.ca/cansim/a33?themeID=3868&amp;spMode=tables&amp;chunkSize=213">213 CANSIM tables with income data</a></p>
+
+<p>At CensusMapper we are still firmly planning integrate CANSIM data into the CensusMapper interface, but their API refresh got pushed back
+to sometime 2018 and we can&rsquo;t justify the extra resources to integrate CANSIM data temporarily using the old API just
+to switch it over a year later.</p>
+
+<h3>Example</h3>
+
+<p>To conclude this let&rsquo;s go through the motions of how these choices can lead to different stories. Some general choices
+what income to use is often pretty obvious. Others are more subtle and a matter of judgement. For simplicity we focus
+entirely on the situation in 2010, because that&rsquo;s the last year we have detailed income data for the City of Vancouver
+and we also have detailed publicly available single family housing price data.</p>
+
+<p>If we are doing
+a story on housing affordability the first starting point is to look at income of (private) households. We may also want
+to consider the owner-renter split in the region we are interested in.</p>
+
+<p>Households are as diverse as
+dwelling types. If we write a story about single family housing, household income of all households is too broad to be
+relevant. For example,
+in the city of Vancouver there are about 75,500 single family lots, but 264,573 households. So at most 28% of households
+can live in the main house on a single family lot. Taking the median household income makes no sense in this situation.
+We need to narrow down the target group. In Calgary on the other hand,
+59% of the dwelling stock is single detached (and there are more properties if we count the ones with suites like we
+did for Vancouver), so in that case the assumption that the median household is looking to buy a single family home is
+more reasonable. Although the median household probably won&rsquo;t be looking to buy the median single family home but a lower-priced one.</p>
+
+<p>So how should we measure the affordability of single family properties? That&rsquo;s not an easy question. A natural choice may
+be to focus in on the 151,330 census families in Vancouver. Again, there are more than twice as many candidates as single
+family properties. So maybe narrow it down even further an only look at the 88,515 census
+families with children at home. Or the 63,790 couple families with children at home. Realistically speaking, even
+going with couple families with children at home there just aren&rsquo;t enough single family properties to go around. Unless we
+are willing to force out all of the roughly 45% of the occupants of the main house on single family lots that currently only have
+1 or 2 people living in there. But overall, couple families with children is probably a better metric for affordability
+for single family homes. Others will of course also buy single family homes, but maybe we will be less worried if
+they can&rsquo;t afford one.</p>
+
+<p>To complete the example, in 2010 the median single family property cost $848,000 (average $1,133,000) and the median
+couple family with children income in private households was $92,068 (average $123,252).
+That gives a dwelling value to income ratio of around 9.2, showing that the median single family property is not
+affordable for the median couple family with children. By affordable we mean that with a 20% down payment the shelter
+costs stay below 30% of pre-tax income, which requires a ratio of at most 6.6 assuming an interest rate of 3% and 25
+years amortization.
+If we were to more realistically assume that the median income couple family with children were to look to buy a single
+family property priced at the 10 percentile level of $606,100 we get a dwelling value to income ratio of 6.6, barely
+squeezing in below our affordability cutoff.</p>
+
+<p>Another way to slice the data is to look at the household income distribution. By definition there are 37,750
+single family homes more expensive than the median single family home. From the income distribution there are 44,215
+households with income over $125,000. Taking $125,000 as our income we get a median dwelling value to income ratio of 6.8.
+Only when throwing in some secondary suite rental income can we get to the
+&lsquo;barely affordable&rsquo; 6.6 ratio. Adding rental income is double-dipping though, rental income should already be
+included in our total income numbers. Assuming secondary suite rental income is correctly reported.</p>
+
+<p>Using the household income instead we would have gotten a ratio of 13.4, which is ridiculously unaffordable. But then
+again, the notion that the median household should be able to purchase the median single family property
+(or even a low-value single family property) is also ridiculous.</p>
+
+<p>This analysis assumes that all these households are comfortable to max out when buying a home and that there are no other
+competing significant financial obligations like heavy student loans. And, just as a reminder, we were looking at 2010.
+As of 2015 the price of the median single family home has increased 67%. We don&rsquo;t have 2015 income numbers for the City of
+Vancouver (yet), but Couple Family median income for Metro Vancouver has increased 13% between 2010 and 2014, the last
+year with available data. Extrapolating out that trend to 2015, and assuming that whatever other income metrics we were
+looking at, we get an estimated income increase by 16%. So any affordabiliy ratio is about 1.4 times worse in 2015 compared
+to the 2010 ratio. What may have been &lsquo;barely affordable&rsquo; in 2010 is clearly unaffordable in 2015.</p>
+
+<p><a href="https://censusmapper.ca/maps/478" target="_blank"><img  src="/images/tenant_and_qualifying.png" style="width:50%;float:left;margin-right:10px;"></a>
+Going to 2010 income (mixed with 2011 census housing data), we can take a different look into the data. Many people
+have bought into the market when it was cheaper and have lower mortgages to serve, which is
+evident when comparing <a href="https://censusmapper.ca/maps/399">running shelter costs to income</a> (which considers tenant as
+well as owner households). But if we check <a href="https://censusmapper.ca/maps/465">what portion
+of households in each region qualifies to buy the median dwelling in that region</a>, and
+especially the ones when we even <a href="https://censusmapper.ca/maps/478">add on the portion of rental households</a>, we
+see that 2010 (reported) incomes cannot sustain the census 2011 housing prices even if we assume that all owner households are
+willing to stretch themselves to the limits of our affordability definition.</p>
+
+<script>
+var geoData=['City of Vancouver','Metro Vancouver'];
+var med_avData=['medium','average'];
+var taxData=['pre-tax','after-tax'];
+var hhData=['individual','household','family','family with children'];
+$('.income-generator .btn').on('click',function(e){
+     $('.income-generator').addClass('active');
+     $('.income-choices .geo').text(geoData[Math.round(Math.random())]);
+     $('.income-choices .med_av').text(med_avData[Math.round(Math.random())]);
+     $('.income-choices .tax').text(taxData[Math.round(Math.random())]);
+     $('.income-choices .hh').text(hhData[Math.round(3.9999*Math.random()-0.5)]);
+     $('.income-choices .income').text('$' + Math.round(80*Math.random()+40)+',000');
+});
+</script>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jens von Bergmann</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-08-31T09:17:12-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/cansim/'>cansim</a>, <a class='category' href='/blog/categories/census/'>census</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2016/08/31/incomes/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2016/08/31/incomes/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/08/24/mobi-running-stats/" title="Previous Post: Mobi Running Stats">&laquo; Mobi Running Stats</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/08/31/incomes/">Quick Guide to Incomes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/24/mobi-running-stats/">Mobi Running Stats</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/16/mobi-a-first-look/">Mobi &#8211; a First Look</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/04/rt/">What&#8217;s up with RT?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/07/26/bike-share-map/">Bike Share Map</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/07/06/mixing-data/">Mixing Data</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/06/17/sdh-zoning-and-land-use/">SDH Zoning and Land Use</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/05/20/density/">FSR</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/05/16/my-global-bike-map/">My Global Bike Map</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/05/04/census-mapping-for-everyone/">Census Mapping for Everyone</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  
+  <a class="twitter-timeline" href="https://twitter.com/vb_jens" data-widget-id="680989637721063424">Tweets by @vb_jens</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - MountainMath -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'doodlesmountainmathca';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2016/08/31/incomes/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2016/08/31/incomes/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
