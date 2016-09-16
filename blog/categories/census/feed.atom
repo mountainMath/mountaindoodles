@@ -4,7 +4,7 @@
   <title><![CDATA[Category: census | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/census/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-09-15T20:23:35-07:00</updated>
+  <updated>2016-09-16T10:36:43-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -32,7 +32,7 @@ we turn to the never dying question of affordability of single family homes.</p>
 
 
 <p><a href="https://mountainmath.ca/assessment/split_map?year=2010" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh_price_2010.png" style="width:50%;float:left;margin-right:10px;"></a>
-Let&rsquo;s go through the motions of how different choices in income data can lead to different stories. Some general choices
+Let&rsquo;s go through the motions of how different choices in income data can lead to different stories. Some general choices of
 what income to use is often pretty obvious. Others are more subtle and a matter of judgement. For simplicity we focus
 entirely on the situation in 2010, because that&rsquo;s the last year we have detailed income data for the City of Vancouver
 and we also have <a href="https://mountainmath.ca/assessment/split_map?year=2010">detailed publicly available single family housing price data</a>.</p>
@@ -114,20 +114,6 @@ to the 2010 ratio. What may have been &lsquo;barely affordable&rsquo; in 2010 is
 <p>So we used the detailed income data available for 2010 to get very good understanding of the affordability situation in 2010.
 Then we used regional income trends to extrapolate that data to 2015 and matched it with 2015 housing data to get more up-to-date
 estimates. This is generally an effective method that yields good results.</p>
-
-<!-- 
-###Mapping 
-<a href="https://censusmapper.ca/maps/478" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tenant_and_qualifying.png" style="width:50%;float:left;margin-right:10px;"></a> 
-Going to 2010 income (mixed with 2011 census housing data), we can take a different look into the data. Many people
-have bought into the market when it was cheaper and have lower mortgages to serve, which is
-evident when comparing [running shelter costs to income](https://censusmapper.ca/maps/399) (which considers tenant as
-well as owner households). But if we check [what portion
-of households in each region qualifies to buy the median dwelling in that region](https://censusmapper.ca/maps/465), and
-especially the ones when we even [add on the portion of rental households](https://censusmapper.ca/maps/478), we
-see that 2010 (reported) incomes cannot sustain the census 2011 housing prices even if we assume that all owner households are
-willing to stretch themselves to the limits of our affordability definition. 
-&#8211;>
-
 ]]></content>
   </entry>
   
