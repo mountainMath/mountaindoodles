@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-09-14T12:09:25-07:00</updated>
+  <updated>2016-09-15T19:25:31-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,120 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Measuring Housing Affordability]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/09/14/measuring-housing-affordability/"/>
+    <updated>2016-09-14T12:06:06-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/09/14/measuring-housing-affordability</id>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/assessment/split_map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh_price.png" style="width:50%;float:right;margin-left:10px;"></a>
+Housing affordability is a serious issue that deserves attention. Affordability is generally defined comparing incomes
+to housing costs. And ideally also factoring in transportation cost, although that&rsquo;s seldom done and we will not attempt
+today.</p>
+
+<p>Recently we <a href="http://doodles.mountainmath.ca/blog/2016/08/31/incomes/">took a detailed look at income data</a>. Using what we
+learned, together with our
+<a href="https://mountainmath.ca/assessment/split_map">detailed data on the development of prices of single family properties in Vancouver</a>,
+we turn to the never dying question of affordability of single family homes.</p>
+
+<!-- more -->
+
+
+<p><a href="https://mountainmath.ca/assessment/split_map?year=2010" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh_price_2010.png" style="width:50%;float:left;margin-right:10px;"></a>
+Let&rsquo;s go through the motions of how different choices in income data can lead to different stories. Some general choices
+what income to use is often pretty obvious. Others are more subtle and a matter of judgement. For simplicity we focus
+entirely on the situation in 2010, because that&rsquo;s the last year we have detailed income data for the City of Vancouver
+and we also have <a href="https://mountainmath.ca/assessment/split_map?year=2010">detailed publicly available single family housing price data</a>.</p>
+
+<p>When talking about housing, the starting point is to look at income of (private) households (as opposed to individual income).
+We may also want to consider the owner-renter split in the region we are interested in. For simplicity we will skip this.</p>
+
+<h3>Household Income</h3>
+
+<p>Households are as diverse as
+dwelling types. If we write a story about single family housing, household income of all households is too broad to be
+relevant. For example,
+in the city of Vancouver there are about 75,500 single family lots, but 264,573 households. So at most 28% of households
+can live in the main house on a single family lot. Taking the median household income makes no sense in this situation.
+We need to narrow down the target group. In Calgary on the other hand,
+59% of the dwelling stock is single detached (and there are more properties if we count the ones with suites like we
+did for Vancouver), so in that case the assumption that the median household is looking to buy a single family home is
+more reasonable. Although the median household probably won&rsquo;t be looking to buy the median single family home but a lower-priced one.</p>
+
+<h3>Family Income</h3>
+
+<p>So how should we measure the affordability of single family properties? That&rsquo;s not an easy question. A natural choice may
+be to focus in on the 151,330 census families in Vancouver. Again, there are more than twice as many candidates as single
+family properties. So maybe narrow it down even further an only look at the 88,515 census
+families with children at home. Or the 63,790 couple families with children at home. Realistically speaking, even
+going with couple families with children at home there just aren&rsquo;t enough single family properties to go around. Unless we
+are willing to force out all of the roughly 45% of the occupants of the main house on single family lots that currently only have
+1 or 2 people living in there. But overall, couple families with children is probably a better metric for affordability
+for single family homes. Others will of course also buy single family homes, but maybe we will be less worried if
+they can&rsquo;t afford one.</p>
+
+<h3>Family with Children Income</h3>
+
+<p>To complete the example, in 2010 the median single family property cost $848,000 (average $1,133,000) and the median
+couple family with children income in private households was $92,068 (average $123,252).
+That gives a dwelling value to income ratio of around 9.2, showing that the median single family property is not
+affordable for the median couple family with children. By affordable we mean that with a 20% down payment the shelter
+costs stay below 30% of pre-tax income, which requires a ratio of at most 6.6 assuming an interest rate of 3% and 25
+years amortization.</p>
+
+<p>If we were to more realistically assume that the median income couple family with children were to look to buy a single
+family property priced at the 10 percentile level of $606,100 we get a dwelling value to income ratio of 6.6, barely
+squeezing in below our affordability cutoff.</p>
+
+<h3>Matching Income Quantiles with Housing Quantiles</h3>
+
+<p>Another way to slice the data is to look at the household income distribution. By definition there are 37,750
+single family homes more expensive than the median single family home. From the income distribution there are 44,215
+households with income over $125,000. Taking $125,000 as our income we get a median dwelling value to income ratio of 6.8.
+Only when throwing in some secondary suite rental income can we get to the
+&lsquo;barely affordable&rsquo; 6.6 ratio. Adding rental income is double-dipping though, rental income should already be
+included in our total income numbers. Assuming secondary suite rental income is correctly reported.</p>
+
+<h3>Using Median Household Income</h3>
+
+<p>Using the household income instead we would have gotten a ratio of 13.4, which is ridiculously unaffordable. But then
+again, the notion that the median household should be able to purchase the median single family property
+(or even a low-value single family property) is also ridiculous.</p>
+
+<p><a href="https://censusmapper.ca/maps/37" target="_blank"><img  src="http://doodles.mountainmath.ca/images/local_affordability_index.png" style="width:50%;float:right;margin-left:10px;"></a>
+Somewhat more reasonable is to compare household income to all housing, not just single family. This still ignores that
+half of the population in Vancouver is renting, but still can yield some interesting insights if one is interested in
+more detailed spatial distribution of affordability and compare it to other cities.</p>
+
+<h3>What about Affordability Today?</h3>
+
+<p>This analysis assumes that all these households are comfortable to max out when buying a home and that there are no other
+competing significant financial obligations like heavy student loans. And, just as a reminder, we were looking at 2010.
+As of 2015 the price of the median single family home has increased 67%. We don&rsquo;t have 2015 income numbers for the City of
+Vancouver (yet), but Couple Family median income for Metro Vancouver has increased 13% between 2010 and 2014, the last
+year with available data. Extrapolating out that trend to 2015, and assuming that whatever other income metrics we were
+looking at, we get an estimated income increase by 16%. So any affordability ratio is about 1.4 times worse in 2015 compared
+to the 2010 ratio. What may have been &lsquo;barely affordable&rsquo; in 2010 is clearly unaffordable in 2015.</p>
+
+<p>So we used the detailed income data available for 2010 to get very good understanding of the affordability situation in 2010.
+Then we used regional income trends to extrapolate that data to 2015 and matched it with 2015 housing data to get more up-to-date
+estimates. This is generally an effective method that yields good results.</p>
+
+<!-- 
+###Mapping 
+<a href="https://censusmapper.ca/maps/478" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tenant_and_qualifying.png" style="width:50%;float:left;margin-right:10px;"></a> 
+Going to 2010 income (mixed with 2011 census housing data), we can take a different look into the data. Many people
+have bought into the market when it was cheaper and have lower mortgages to serve, which is
+evident when comparing [running shelter costs to income](https://censusmapper.ca/maps/399) (which considers tenant as
+well as owner households). But if we check [what portion
+of households in each region qualifies to buy the median dwelling in that region](https://censusmapper.ca/maps/465), and
+especially the ones when we even [add on the portion of rental households](https://censusmapper.ca/maps/478), we
+see that 2010 (reported) incomes cannot sustain the census 2011 housing prices even if we assume that all owner households are
+willing to stretch themselves to the limits of our affordability definition. 
+&#8211;>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Quick Guide to Income Data]]></title>
@@ -2717,94 +2831,6 @@ accessible I expect these kind of questions to gain more traction.</p>
 you either have and old (windows?) computer and/or an old (Internet Explorer) browser. If switching to Chrome or Firefox does
 not fix this for you your best option is to cramp that map into your phone screen. Your phone is probably newer and supports
 modern web technology much better than your computer. Or you can always view the 2D maps linked above.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Land Use, Roads (and Parking)]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/"/>
-    <updated>2016-02-29T21:10:05-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/02/29/land-use</id>
-    <content type="html"><![CDATA[<p>The other day at the <a href="https://www.sfu.ca/publicsquare/upcoming-events/city-conversations/2016/Feb-18-2016.html">SFU&rsquo;s City Conversations</a>
-someone asked a question about space dedicated to roads, and how that could be unlocked
-to aid housing. He mentioned what percentage of space is currently dedicated to roads. I forgot the number,
-but I thought to myself that I should look that up for all Metro Vancouver communities. So here we go.</p>
-
-<!-- more -->
-
-
-<p>Actually, it would be interesting to compare how land is allocated to all kinds of land uses across Metro Vancouver, not just roads.
-And with their excellent
-<a href="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/">land use dataset</a> it&rsquo;s easy enough to do, justifying spending
-two hours on this. <a href="https://mountainmath.ca/land_use/map">Looking at the land use map</a>
-one can see that there are some issues with using the dataset for
-that purpose, for example the roads within
-Stanly Park are missing, as parking lots in Vancouver parks. So this slightly overestimates the green space. But when
-added up this won&rsquo;t do much to change the overall area of each land use.</p>
-
-<h3>Land Use Breakdown</h3>
-
-<p>Let&rsquo;s start with a simple chart summing up the land use in each of Metro Vancouver&rsquo;s Municipalities. Just select the one
-you are interested in from the dropdown.</p>
-
-<div id="land_use_breakdown" class="land_use"></div>
-
-
-<p>City of Vancouver stands out as the municipality with the largest proportion of area dedicated to roads right of way.
-The right of way includes nature strips, sidewalks, and of course on-street parking.</p>
-
-<h3>Built Area Land Use</h3>
-
-<p>For some of the municipalities large &ldquo;Natural Areas&rdquo; and &ldquo;Undeveloped Area&rdquo; make it difficult to discern the makeup of
-the built up areas. So here comes the same graph with some of the large space-cosuming categories taken out.</p>
-
-<div id="land_use_breakdown2" class="land_use"></div>
-
-
-<p>What&rsquo;s remarkable is that City of Vancouver still is the clear winner in terms of space taken up by roads right of way.</p>
-
-<h3>Roads right of way</h3>
-
-<p>It might be interesting to compute more precisely how the roads right of way is used. But that requires a lot more work.
-The City of Vancouver has a dataset with road widths, which would help separate area taken by roads from area taken by
-sidewalks and nature strips. One could use google maps to estimate to estimate the amount of space taking up by on-street
-parking by sampling a couple of roads and scaling this according to road area. Too much work for me right now, maybe one day I will
-have a good enough reason to dedicate some time to this.</p>
-
-<h3>Parking</h3>
-
-<p>Parking in particular is a land use that is artificially inflated. We pay lots of money to buy private property to live
-on, and then continue to pay property taxes for that privilege. But we pay nothing to store our vehicles on public roads.</p>
-
-<p>At current land values in Vancouver it just does not make any sense to socialize the cost of parking. A 12m&sup2; on-street
-parking space at a low-balled $3000/m&sup2; value is worth $36,000. If we were to price parking at value, rather than
-socializing the cost we could have a discussion about using that space more effectively. Killing the parking subsidy
-would have a substantial impact on demand (and car ownership), freeing up space to be re-allocated for other uses. For
-example for housing by increasing lot sizes and making multi-unit structures more feasible, especally on corner lots.</p>
-
-<hr>
-
-
-<h3>Update</h3>
-
-<p>Saw a <a href="https://twitter.com/d3visualization/status/705421356222029824">great little data visualization fly by today</a> that
-is just the missing link in the above visualizations. A simple way to visualize where all the municipalities stand in
-relation to one another. Thought I would throw that in real quick.</p>
-
-<div>
- <div id="radviz" class="radviz"></div>
-<div class="radviz-list-container">
-        <div class="muni"></div>
-        <div class="list"></div>
-</div>
-<div style="clear:both;"></div>
-</div>
-
-
-
-
-<div><script src="http://doodles.mountainmath.ca/javascripts/land_use_breakdown.js"></div>
-
 ]]></content>
   </entry>
   
