@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-10-02T22:46:35-07:00</updated>
+  <updated>2016-10-02T22:48:01-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -26,7 +26,7 @@ has their flood assessment and detailed plans on how to deal with sea level rise
 
 <p>The web is awash with sea level rise maps, some static, some interactive, <a href="http://geology.com/sea-level-rise/">some global ones</a>
 and some <a href="https://coast.noaa.gov/slr/">national maps</a>. Data sources range from high detail LIDAR data to satellite data
-and other datasets. When Mapzen put out their <a href="https://mapzen.com/blog/elevation/">elevation tiles</a> I gave it a quick
+and other datasets. When Mapzen put out their <a href="https://mapzen.com/blog/elevation/">global elevation tiles</a> I gave it a quick
 test drive to check it out and then forgot about it. When the topic inevitably
 <a href="https://twitter.com/toddsmithdesign/status/782273909265620992">bubbled up on my twitter feed</a> I decided to do some
 minimal styling using Mapzen&rsquo;s <a href="https://mapzen.com/products/tangram/">ridiculously easy to use Tangram map engine</a> and
@@ -34,8 +34,8 @@ added a search bar to make it easier to jump to different locations on the globe
 
 <p>That&rsquo;s all there is to this. Check out <a class="btn btn-default" href="https://mountainmath.ca/elevation/map?sea_level=10&zoom=12&lat=49.2629&lng=-123.1176">yet another interactive global seal level rise map</a>.</p>
 
-<p><a href="https://mountainmath.ca/elevation/map?sea_level=0&zoom=9&lat=52.8774&lng=5.5701" target="_blank"><img  src="http://doodles.mountainmath.ca/images/holland_sea_level.png" style="width:50%;float:legt;margin-right:10px;"></a>
-The map is global, and it&rsquo;s worthwhile to compare Vancouver&rsquo;s sea level threat to that of other places, for example
+<p>The <a href="https://mountainmath.ca/elevation/map?sea_level=0&zoom=9&lat=52.8774&lng=5.5701" target="_blank"><img  src="http://doodles.mountainmath.ca/images/holland_sea_level.png" style="width:50%;float:legt;margin-right:10px;"></a>
+map is global, and it&rsquo;s worthwhile to compare Vancouver&rsquo;s sea level threat to that of other places, for example
 <a href="https://mountainmath.ca/elevation/map?sea_level=0&amp;zoom=9&amp;lat=52.8774&amp;lng=5.5701">Holland where 21% of the country is below current sea level</a>,
 not counting any future sea level rise.</p>
 ]]></content>
