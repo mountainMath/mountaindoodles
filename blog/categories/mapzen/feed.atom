@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapzen | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapzen/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-10-03T11:28:47-07:00</updated>
+  <updated>2016-10-03T17:55:55-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -33,6 +33,9 @@ minimal styling using Mapzen&rsquo;s <a href="https://mapzen.com/products/tangra
 added a search bar to make it easier to jump to different locations on the globe.</p>
 
 <p>That&rsquo;s all there is to this. Check out <a class="btn btn-default" href="https://mountainmath.ca/elevation/map?sea_level=10&zoom=12&lat=49.2629&lng=-123.1176">yet another interactive global seal level rise map</a>.</p>
+
+<p>The preset for the sea level rise is 10m, which is a little excessive. Current predictions hover around 1m until 2100.
+Adjust the slider to see how the flooded areas change depending on the simulated sea level rise.</p>
 
 <p>The map is global, and it&rsquo;s worthwhile to compare Vancouver&rsquo;s sea level threat to that of other places, for example
 <a href="https://mountainmath.ca/elevation/map?sea_level=0&amp;zoom=9&amp;lat=52.8774&amp;lng=5.5701">Holland where 21% of the country is below current sea level</a>,
