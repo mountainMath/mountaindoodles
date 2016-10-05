@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-10-05T09:56:06-07:00</updated>
+  <updated>2016-10-05T10:11:51-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -184,7 +184,7 @@ Adjust to fit your own assumptions.</p>
 <h4>Assumptions</h4>
 
 <table style="border-spacing:1em 0;border-collapse:separate;margin-bottom:20px;">
-<tr><td>SFH with Secondary Suite</td><td><input type="range" id="suite"></td><td id="suiteValue"></td></tr>
+<tr><td>Secondary Suites</td><td><input type="range" id="suite"></td><td id="suiteValue"></td></tr>
 <tr><td>Average Portion of House Taken by Suite</td><td> <input type="range" id="area"></td><td id="areaValue"></td></tr>
 <tr><td>Average Rent</td><td> <input type="range" id="rent"></td><td id="rentValue"></td></tr>
 <tr><td>Average Rent Deductions</td><td> <input type="range" id="deductions"></td><td id="deductionsValue"></td></tr>
