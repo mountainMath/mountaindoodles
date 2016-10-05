@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: taxes | Mountain Doodles]]></title>
+  <link href="http://doodles.mountainmath.ca/blog/categories/taxes/feed.atom" rel="self"/>
+  <link href="http://doodles.mountainmath.ca/"/>
+  <updated>2016-10-04T21:07:13-07:00</updated>
+  <id>http://doodles.mountainmath.ca/</id>
+  <author>
+    <name><![CDATA[MountainMath]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Secondary Suites and Taxes]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/10/04/secondary-suites-and-taxes/"/>
+    <updated>2016-10-04T14:59:20-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/10/04/secondary-suites-and-taxes</id>
+    <content type="html"><![CDATA[<p>A couple fo weeks ago I started thinking about secondary suites, laneway houses and taxes in Vancouver. According to the 2011 census numbers, about
+40% of the roughly 75,500 single family homes in the City of Vancouver have at least one active secondary suite. Rental income
+is probably one of the main reasons people choose to activate a secondary suite. What are the tax implications?</p>
+
+<h3>Secondary Suites</h3>
+
+<p>The number of secondary suites
+have increased over time, from 35% of homes with secondary suites in 2006 to 40% in 2011 and probably more now. These
+estimates are derived from census data and likely conservative, as the census may have missed suites. For simplicity we
+also assume that each property that has suites only has one suite. That gives (a lower bound of) 30,000 secondary suites
+in the City of Vancouver. Probably more in the recent 5 years, maybe fewer in the years between 2006 and 2011.</p>
+
+<p>Additionally over 2,000 laneway houses have been built.</p>
+
+<h3>Income Tax</h3>
+
+<p>Secondary suite rental income needs to be recorded on
+<a href="http://www.cra-arc.gc.ca/E/pbg/tf/t776/t776-15e.pdf">CRA form T776</a> and, after claiming deductions, taxed.</p>
+
+<p>Estimating the average suite rental income at $1,000, claiming $200 in deductions leaves us with $800 or $9,600 in
+monthly taxable income. With single family homeowners generally above the median income we use a marginal tax rate of 35%
+to estimate $3,360 of taxes per secondary suite, so cumulative $100,800,000 in income taxes payed on secondary suite
+rental income in the City of Vancouver.</p>
+
+<h3>Capital Gains Tax</h3>
+
+<p>Assessing the capital gains implications is more complex. The capital gains exemption applies to a <em>housing unit</em>. If a
+property with several housing units is sold, only the capital gains attributed to the unit used as principal residence
+is exempt from taxation. Typically the portion of taxable gains is determined by the relative areas of the rented and
+principal residence parts of the home.</p>
+
+<p>So the question whether the portion of a house taken up by a secondary suites is exempt from capital gains essentially
+boils down to the question whether or not the secondary suite counts as a &ldquo;self–contained domestic establishment
+for earning rental income&rdquo; or as &ldquo;one or more rooms in the home&rdquo;. I have asked the CRA to clarify how this would apply
+to someone converting a portion to a house to secondary suite or building a laneway house, to which I got the following
+response.</p>
+
+<blockquote><p>The conversion of a portion of a house that otherwise is the taxpayer’s principal residence for the purpose of earning income or the creation of a separate building or structure on land that forms part of the taxpayer’s principal residence for the purpose of earning income are examples of structural changes that would result in a deemed disposition and reacquisition of a portion of the property.</p></blockquote>
+
+<p>Similarly, when a homeowner deactivate a suite and absorbes it into their main residence that would trigger another
+&ldquo;deemed disposition (and reacquisition) thereof at fair market value&rdquo;. Which then would trigger a &ldquo;taxable capital
+gain attributable to the period of use of such portion of the property for income–producing purposes&rdquo;, just like it
+would at a sale of the property.</p>
+
+<p>In the case when the homeowner rents out their entire home and later moves back in again, the homeowner can, under
+certain circumstances, make an election that he can maintain the primary residence status for most recent 4 years during
+which the home was rented out. I have asked the CRA to clarify if a similar election could be made for a secondary suite,
+when for example after four years of renting the suite is deactivated and again absorbed in the main house and the response
+was that &ldquo;such an election cannot be made where there is only a partial change in use of the property.&rdquo;</p>
+
+<p>Based on this I am fairly convinced that the portion of a home used as a secondary suite or laneway house is not exempt
+from capital gains tax. There is a chance that I might still be reading this wrong, in which case I would love to have
+an expert weight in on this.</p>
+
+<p>To estimate the amount of capital gains tax based on secondary suites expected to accrue annually in the City of Vancouver
+we use the land value gain of a home as a
+proxy for the portion of the appreciation of the property that is not due to improvements the owner made to the home, i.e.
+the portion that would be subject to capital gains tax if this wasn&rsquo;t a primary residence.</p>
+
+<p>To compute the taxable gains for an individual property we take the difference between the current land value and the
+(inflation-adjusted) present land value at the time the property was bought. To simplify things a little we will consider the
+current average (over SFH with suite) land value, the average holding period (years between buy and sell), and the
+average inflation-adjusted land value gains. This can be refined, but should suffice for our purposes.</p>
+
+<p>Going back to our estimate, the current (July 2015) average land value of single family homes was $1,640,000. Suites skew toward
+the east, where average land value was $1,080,000. We roughly average these and take $1,300,000 as our base value. As
+average holing period we take 10 years, and we compute the average inflation-adjusted land value gain between 2005
+and 2015 at 10.4% (9.7% on east side). So let&rsquo;s use 10%.</p>
+
+<p>That gives an estimate of the annual land value gain of $850,000 over 10 years, or $85,000 on average per year.
+As a sanity check, this is in line with estimates of average annual land value gain for single family properties
+<a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">we have done before</a>, although these weren&rsquo;t
+inflation-adjusted.</p>
+
+<p>Roughly estimating that on
+average a secondary suite takes up about a quarter of the area of a
+house, we attribute $21,250 of the $85,000 annual land value gains to the secondary suite for tax purposes.</p>
+
+<p>Of course capital gains tax are only payable when the property sells, but the yearly average gains accumulate and eventually
+properties will sell. In which case we expect capital gains taxes to be payed on $21,250 per year the suite was rented.
+So if a person sells a home with a suite that was rented for the last 10 years, the person will have to pay capital gains
+taxes on $212,500. On average, we expect $21,250 of taxable capital gains income per house with suite per year.</p>
+
+<p>The way capital gains tax works is that half of the gains are taxed at the marginal tax rate. As these tend to be large
+sums of money at a time, it is safe to assume that the the effective tax rate on the gains is relatively high, say 35% or
+more. Some of the taxes could be deferred by e.g. transferring the gains into RRSPs and later taxes at a lower rate, but
+we will ignore this for now. This will effect the taxes ultimately collected but lowering the effective tax rate on the gains,
+but will not effect the overall amount of capital gains declared.</p>
+
+<p>Assuming an effective tax rate of 35% on the gains we expect on average $3,700 of taxes payed per home with suite per
+year through this mechanism. With
+conservatively estimated 30,000 secondary suites in Vancouver that adds up to a tidy sum of $111,000,000 for captial gains
+taxes paid due to secondary suites in the City of Vancouver. Per year.</p>
+
+<h3>To Rent or Not to Rent</h3>
+
+<p>Since a rental suite incurs both income and capital gains tax obligations the question arises what minimum rent is required
+to offset the capital gains obligations in a particular year. Typically homeowners don&rsquo;t know the annual value value gains
+ahead of time, so this is more of an academic exercise than a practical questions. The important takeaway is that the
+capital gains exemption has the effect of dramatically lowering the cap rate for converting part of a principal residence
+into a rental unit.</p>
+
+<p>The math is quite simple, we need to compare the net rental income (rent minus deductions) to the capital gains taxes
+payable due to the rental. To answer this question we should assume a holding period of 1 year to assess if a suite should
+better be rented or left vacant, and set the annual land value gains to the value for the particular year we are interested
+in. Taking the particular time frame between July 2014 to July 2015 as an example, the latest interval for which I have
+good data and which happens to sport comparatively large inflation-adjusted value gains of 20% (24% on the east side).</p>
+
+<p>If we make these two adjustments and keeping our other assumptions fixed we arrive at a minimum rent of $1,180 in order
+to offset the capital gains tax payable for that year. A more comprehensive way to look at this is to look at the
+CAP rate based on land value investment, in this case the net rental income (after-tax rental income minus deductions)
+per land value attributed to the suite. With our standard assumptions this sits at 1.9%.</p>
+
+<p>This we can compare to the effective tax rate on the capital gains, which is given by multiplying half of the tax rate
+(as only half the gains are taxed at that rate) with the rate of land value rise, which comes in at 1.75% with our standard assumptions.</p>
+
+<p>To conclude this calculation we define the net cap rate as the difference between the cap rate and the effective tax rate
+on the captial gains. If this is positive, it is the advantageous to rent. If it is negative, leaving the property vacant
+will yield higher returns.</p>
+
+<h3>Taxes Collected</h3>
+
+<p>It would be interesting to compare these estimates with actual taxes collected. But this won&rsquo;t be easy without internal
+CRA data. The census for example does not break out rental income. But it does break out capital gains income. Not all
+capital gains income stems from selling homes with secondary suites of course and again, the census does not break out
+the sources of the capital gains income. But capital gains income is rare enough, especially on the suite-heavy east side,
+to yield some information.</p>
+
+<p>In the City of Vancouver, a total of
+$830 million of net capital gains and losses was reported to the CRA in 2010,
+most of which
+was claimed by people living on the west side. When comparing
+to 2010 taxes we should adjust our calculation to the average east side single family land value of $620,000 in 2010 and
+might want to assume a very conservative inflation-adjusted land value gain of 5% per year (I have no data before 2005,
+but one could use sales data to estimate this better). This would yield an expected taxable annual capital gains of $10,000
+per suite in each area (with expected annual taxes generated of $1,750 per suite), adding up to over one third of all
+capital gains reported in the City of Vancouver that year. So for a census tract with 500 suites
+we would expect on average $5m of capital gains declared per year resulting from property transactions of some
+of these properties and attributed to the portion of the properties taken up by a suites (resulting in $1.75m of expected taxes).</p>
+
+<p><a href="https://censusmapper.ca/maps/480">Eyeballing the total capital gains reported</a>
+in areas that have a high density of secondary suites suggests that tax compliance could be improved. It seems that the
+changes in requiring the reporting of a sale of a principal residence that were announced yesterday will do just that.</p>
+
+<h3>Interactive</h3>
+
+<p>For people interested in adjusting the assumptions made for these estimates I made a quick interactive to facilitate this.
+Adjust to fit your own assumptions. If you want to account for multiple suites or laneway houses, you can interpret the
+<em>SFH with Secondary Suite</em> lever as <em>suite + LWH to SFH property ratio</em> and increase the percentage according you your
+estimates.</p>
+
+<h4>Assumptions</h4>
+
+<table style="border-spacing:1em 0;border-collapse:separate;margin-bottom:20px;">
+<tr><td>SFH with Secondary Suite</td><td><input type="range" id="suite"></td><td id="suiteValue"></td></tr>
+<tr><td>Average Portion of House Taken by Suite</td><td> <input type="range" id="area"></td><td id="areaValue"></td></tr>
+<tr><td>Average Rent</td><td> <input type="range" id="rent"></td><td id="rentValue"></td></tr>
+<tr><td>Average Rent Deductions</td><td> <input type="range" id="deductions"></td><td id="deductionsValue"></td></tr>
+<tr><td>Average Marginal Tax Rate</td><td><input type="range" id="tax"></td><td id="taxValue"></td></tr>
+<tr><td>Average SFH Land Value</td><td><input type="range" id="land"></td><td id="landValue"></td></tr>
+<tr><td>Average SFH Holding Period</td><td><input type="range" id="years"></td><td id="yearsValue"></td></tr>
+<tr><td>Average Inflation-Adjusted Land Value Gain</td><td><input type="range" id="gain"></td><td id="gainValue"></td></tr>
+</table>
+
+
+<h4>Computed Quantities of Interest</h4>
+
+<table style="border-spacing:1em 0;border-collapse:separate;margin-bottom:20px;">
+<tr><td>CAP Rate</td><td id="cap_rate"></td></tr>
+<tr><td>Effective Cap Gains Tax Rate</td><td id="effective_tax_rate"></td></tr>
+<tr><td>Net CAP Rate</td><td id="net_cap_rate"></td></tr>
+<tr><td>Break-Even Rent</td><td id="minimal_rent"></td></tr>
+</table>
+
+
+<h4>Annual Taxes Generated</h4>
+
+<table style="border-spacing:1em 0;border-collapse:separate;margin-bottom:20px;">
+<tr><td>Annual Income Tax Generated</td><td id="income_tax"></td></tr>
+<tr style="display:none;"><td>Average Annual Adjusted Total Land Value Gain</td><td id="av_lv_gain"></td></tr>
+<tr><td>Annual Cap Gains Tax Generated</td><td id="cap_gains_tax"></td></tr>
+<tr><td>Annual Total Tax Generated</td><td id="total_tax"></td></tr>
+</table>
+
+
+
+
+<div><script>
+var percentageFormatter=d3.format(".1%");
+var currencyFormatter=d3.format("$,.3r");
+var numberFormatter=d3.format(",.0f");
+
+var suiteValue=0.4,
+    rentValue=1000,
+    deductionsValue=0.2,
+    landValue=1300000,
+    gainValue=0.1,
+    yearsValue=10.0,
+    areaValue=0.25,
+    minimalRentValue=1000,
+    taxValue=0.35;
+document.getElementById('suite').value=suiteValue*100;
+document.getElementById('rent').value=(rentValue-500)/20;
+document.getElementById('deductions').value=deductionsValue*100;
+document.getElementById('area').value=areaValue*100;
+document.getElementById('tax').value=taxValue*100;
+document.getElementById('gain').value=(gainValue+0.1)/0.6*100;
+document.getElementById('land').value=(landValue-200000)/20000;
+document.getElementById('years').value=yearsValue*5;
+
+function updateResults(){
+   $('#suiteValue').html(percentageFormatter(suiteValue));
+   $('#rentValue').html(currencyFormatter(rentValue));
+   $('#deductionsValue').html(percentageFormatter(deductionsValue));
+   $('#areaValue').html(percentageFormatter(areaValue));
+   $('#taxValue').html(percentageFormatter(taxValue));
+   $('#landValue').html(currencyFormatter(landValue));
+   $('#gainValue').html(percentageFormatter(gainValue));
+   $('#yearsValue').html(numberFormatter(yearsValue));
+
+   var value1=suiteValue*75500*rentValue*(1-deductionsValue)*taxValue*12.0;
+   $('#income_tax').html(currencyFormatter(value1));
+   var lvGain=landValue*(1-(1-gainValue)**yearsValue)/yearsValue;
+   var value2=suiteValue*75500.0*taxValue*areaValue*lvGain/2.0;
+   $('#av_lv_gain').html(currencyFormatter(lvGain));
+   $('#cap_gains_tax').html(currencyFormatter(value2));
+   $('#total_tax').html(currencyFormatter(value1+value2));
+   var minimalRent=landValue*areaValue*gainValue/2*taxValue/(1-taxValue)/(1-deductionsValue)/12.0;
+   $('#minimal_rent').html(currencyFormatter(minimalRent));
+   var capRate=rentValue*12*(1-deductionsValue)*(1-taxValue)/(landValue*areaValue);
+   $('#cap_rate').html(percentageFormatter(capRate));
+   var effectiveRate=taxValue/2.0*gainValue;
+   $('#effective_tax_rate').html(percentageFormatter(effectiveRate));
+   $('#net_cap_rate').html(percentageFormatter(capRate-effectiveRate));
+}
+
+$('#suite').on('change',function(){
+    suiteValue=parseFloat(this.value)/100.0;
+    updateResults();
+});
+$('#area').on('change',function(){
+    areaValue=parseFloat(this.value)/100.0;
+    updateResults();
+});
+$('#rent').on('change',function(){
+    rentValue=parseFloat(this.value)*20+500;
+    updateResults();
+});
+$('#land').on('change',function(){
+    landValue=parseFloat(this.value)*20000+200000;
+    updateResults();
+});
+$('#deductions').on('change',function(){
+    deductionsValue=parseFloat(this.value)/100.0;
+    updateResults();
+});
+$('#gain').on('change',function(){
+    gainValue=parseFloat(this.value)/100.0*0.6-0.1;
+    updateResults();
+});
+$('#years').on('change',function(){
+    yearsValue=Math.round(parseFloat(this.value)/5);
+    document.getElementById('years').value=yearsValue*5;
+    updateResults();
+});
+$('#tax').on('change',function(){
+    taxValue=parseFloat(this.value)/100.0;
+    updateResults();
+});
+
+updateResults();
+</script></div>
+
+]]></content>
+  </entry>
+  
+</feed>
