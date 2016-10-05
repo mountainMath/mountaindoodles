@@ -4,7 +4,7 @@
   <title><![CDATA[Category: secondary suites | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/secondary-suites/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-10-05T11:55:56-07:00</updated>
+  <updated>2016-10-05T15:40:31-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -254,7 +254,7 @@ function updateResults(){
 
    var value1=suiteValue*rentValue*(1-deductionsValue)*taxValue*12.0;
    $('#income_tax').html(currencyFormatter(value1));
-   var lvGain=landValue*(1-(1-gainValue)**yearsValue)/yearsValue;
+   var lvGain=landValue*(1-Math.pow(1-gainValue,yearsValue))/yearsValue;
    var value2=suiteValue*taxValue*areaValue*lvGain/2.0;
    $('#av_lv_gain').html(currencyFormatter(lvGain));
    $('#cap_gains_tax').html(currencyFormatter(value2));

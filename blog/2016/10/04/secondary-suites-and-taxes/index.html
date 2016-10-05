@@ -342,7 +342,7 @@ function updateResults(){
 
    var value1=suiteValue*rentValue*(1-deductionsValue)*taxValue*12.0;
    $('#income_tax').html(currencyFormatter(value1));
-   var lvGain=landValue*(1-(1-gainValue)**yearsValue)/yearsValue;
+   var lvGain=landValue*(1-Math.pow(1-gainValue,yearsValue))/yearsValue;
    var value2=suiteValue*taxValue*areaValue*lvGain/2.0;
    $('#av_lv_gain').html(currencyFormatter(lvGain));
    $('#cap_gains_tax').html(currencyFormatter(value2));
