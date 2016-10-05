@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-10-04T21:37:06-07:00</updated>
+  <updated>2016-10-05T09:50:29-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -18,8 +18,8 @@
     <link href="http://doodles.mountainmath.ca/blog/2016/10/04/secondary-suites-and-taxes/"/>
     <updated>2016-10-04T14:59:20-07:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2016/10/04/secondary-suites-and-taxes</id>
-    <content type="html"><![CDATA[<p>A couple fo weeks ago I started thinking about secondary suites, laneway houses and taxes in Vancouver. According to the 2011 census numbers, about
-40% of the roughly 75,500 single family homes in the City of Vancouver have at least one active secondary suite. Rental income
+    <content type="html"><![CDATA[<p>A couple fo weeks ago I started thinking about secondary suites, laneway houses and taxes in the City of Vancouver. The number
+of secondary suites and laneway houses has been continuously growing. Rental income
 is probably one of the main reasons people choose to activate a secondary suite. What are the tax implications?</p>
 
 <!-- more -->
@@ -27,18 +27,22 @@ is probably one of the main reasons people choose to activate a secondary suite.
 
 <h2>Secondary Suites</h2>
 
-<p>The number of secondary suites
-have increased over time, from 35% of homes with secondary suites in 2006 to 40% in 2011 and probably more now. These
-estimates are derived from census data and likely conservative, as the census may have missed suites. For simplicity we
-also assume that each property that has suites only has one suite. That gives (a lower bound of) 30,000 secondary suites
-in the City of Vancouver. Probably more in the recent 5 years, maybe fewer in the years between 2006 and 2011.</p>
+<p>How many secondary suites are out there? Nobody really knows, but we have some estimates. Comparing single family properties
+from the assessment roll to census counts provides one estimate. This is likely a lower bound as the census is prone to
+under count suites. Using this method, we arrive at a lower bound of 30,000 single family properties with a suite in 2011,
+up from about 27000 in 2006.</p>
 
-<p>Additionally over 2,000 laneway houses have been built, most of them after 2011.</p>
+<p>Of these we estimate that 9,000 had more than one suite in 2011, up from 7,000 in 2006. The number of laneway houses was
+quite small in 2011, likely less than 400. But by now the number has grown to over 2,000.</p>
 
-<p>One can refine the estimates somewhat by also looking at single family properties with more than one
-suite. A rough estimate based on census data pegs this at roughly 9,000 out of the 30,000 properties with at least one
-suite. So that would bring the total number of suites up to 39,000. To be on the conservative side, we will work with
-30,000 suites.</p>
+<p>In total that adds up to an estimated around 39,000 suites in the city of Vancouver in 2011. Probably more in the
+recent 5 years, maybe fewer in the years between 2006 and 2011. Most of these will be operated as suites, with the main
+unit serving as a principal residence of the property owner. But this also includes investment properties where each
+unit, including the main unit in the house, are rented out.</p>
+
+<p>For this post we will focus entirely on the suites. We might expand on this analysis at some later point and separate
+out owner-occupied homes from investment properties. Moreover we will use the more conservative estimate of 30,000
+suites. Feel free to adjust that estimate in the interactive at the bottom see how this effects the estimates we make.</p>
 
 <h2>Income Tax</h2>
 
@@ -175,9 +179,7 @@ changes in requiring the reporting of a sale of a principal residence that were 
 <h2>Interactive</h2>
 
 <p>For people interested in adjusting the assumptions made for these estimates I made a quick interactive to facilitate this.
-Adjust to fit your own assumptions. If you want to account for multiple suites or laneway houses, you can interpret the
-<em>SFH with Secondary Suite</em> lever as <em>suite + LWH to SFH property ratio</em> and increase the percentage according you your
-estimates.</p>
+Adjust to fit your own assumptions.</p>
 
 <h4>Assumptions</h4>
 
@@ -220,7 +222,7 @@ var percentageFormatter=d3.format(".1%");
 var currencyFormatter=d3.format("$,.3r");
 var numberFormatter=d3.format(",.0f");
 
-var suiteValue=0.4,
+var suiteValue=30000,
     rentValue=1000,
     deductionsValue=0.2,
     landValue=1300000,
@@ -229,7 +231,7 @@ var suiteValue=0.4,
     areaValue=0.25,
     minimalRentValue=1000,
     taxValue=0.35;
-document.getElementById('suite').value=suiteValue*100;
+document.getElementById('suite').value=(suiteValue-20000.0)/400.0;
 document.getElementById('rent').value=(rentValue-500)/20;
 document.getElementById('deductions').value=deductionsValue*100;
 document.getElementById('area').value=areaValue*100;
@@ -239,7 +241,7 @@ document.getElementById('land').value=(landValue-200000)/20000;
 document.getElementById('years').value=yearsValue*5;
 
 function updateResults(){
-   $('#suiteValue').html(percentageFormatter(suiteValue));
+   $('#suiteValue').html(numberFormatter(suiteValue));
    $('#rentValue').html(currencyFormatter(rentValue));
    $('#deductionsValue').html(percentageFormatter(deductionsValue));
    $('#areaValue').html(percentageFormatter(areaValue));
@@ -248,10 +250,10 @@ function updateResults(){
    $('#gainValue').html(percentageFormatter(gainValue));
    $('#yearsValue').html(numberFormatter(yearsValue));
 
-   var value1=suiteValue*75500*rentValue*(1-deductionsValue)*taxValue*12.0;
+   var value1=suiteValue*rentValue*(1-deductionsValue)*taxValue*12.0;
    $('#income_tax').html(currencyFormatter(value1));
    var lvGain=landValue*(1-(1-gainValue)**yearsValue)/yearsValue;
-   var value2=suiteValue*75500.0*taxValue*areaValue*lvGain/2.0;
+   var value2=suiteValue*taxValue*areaValue*lvGain/2.0;
    $('#av_lv_gain').html(currencyFormatter(lvGain));
    $('#cap_gains_tax').html(currencyFormatter(value2));
    $('#total_tax').html(currencyFormatter(value1+value2));
@@ -265,7 +267,7 @@ function updateResults(){
 }
 
 $('#suite').on('change',function(){
-    suiteValue=parseFloat(this.value)/100.0;
+    suiteValue=parseFloat(this.value)*400.0+20000.0;
     updateResults();
 });
 $('#area').on('change',function(){
