@@ -4,7 +4,7 @@
   <title><![CDATA[Category: secondary suites | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/secondary-suites/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-10-05T10:39:49-07:00</updated>
+  <updated>2016-10-05T10:51:38-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -119,13 +119,13 @@ taxes on $212,500. On average, we expect $21,250 of taxable capital gains income
 
 <p>The way capital gains tax works is that half of the gains are taxed at the marginal tax rate. As these tend to be large
 sums of money at a time, it is safe to assume that the the effective tax rate on the gains is relatively high, say 35% or
-more. Some of the taxes could be deferred by e.g. transferring the gains into RRSPs and later taxes at a lower rate, but
-we will ignore this for now. This will effect the taxes ultimately collected but lowering the effective tax rate on the gains,
+more. Some of the taxes could be deferred by e.g. transferring the gains into RRSPs and later taxed at a lower rate. But
+we will ignore this, it has the effect of lowering the effective tax rate on the gains and move the tax payments into the future,
 but will not effect the overall amount of capital gains declared.</p>
 
 <p>Assuming an effective tax rate of 35% on the gains we expect on average $3,700 of taxes payed per home with suite per
 year through this mechanism. With
-conservatively estimated 30,000 secondary suites in Vancouver that adds up to a tidy sum of $111,000,000 for captial gains
+conservatively estimated 30,000 secondary suites in Vancouver that adds up to a tidy sum of $111,000,000 for capital gains
 taxes paid due to secondary suites in the City of Vancouver. Per year.</p>
 
 <h2>To Rent or Not to Rent Out a Suite</h2>
@@ -137,13 +137,7 @@ capital gains exemption has the effect of dramatically lowering the cap rate for
 into a rental unit.</p>
 
 <p>The math is quite simple, we need to compare the net rental income (rent minus deductions) to the capital gains taxes
-payable due to the rental. To answer this question we should assume a holding period of 1 year to assess if a suite should
-better be rented or left vacant, and set the annual land value gains to the value for the particular year we are interested
-in. Taking the particular time frame between July 2014 to July 2015 as an example, the most recent interval for which I have
-good data and which happens to sport comparatively large inflation-adjusted value gains of 20% (24% on the east side).</p>
-
-<p>If we make these two adjustments and keeping our other assumptions fixed we arrive at a minimum rent of $1,180 in order
-to offset the capital gains tax payable for that year. A more comprehensive way to look at this is to look at the
+payable due to the rental. A more comprehensive way to look at this is to look at the
 CAP rate based on land value investment, in this case the net rental income (after-tax rental income minus deductions)
 per land value attributed to the suite. With our standard assumptions this sits at 1.9%.</p>
 
@@ -153,6 +147,11 @@ per land value attributed to the suite. With our standard assumptions this sits 
 <p>To conclude this calculation we define the net cap rate as the difference between the cap rate and the effective tax rate
 on the capital gains. If this is positive, it is the advantageous to rent. If it is negative, leaving the property vacant
 will yield higher returns.</p>
+
+<p>More specifically if we want to understand if it was advantageous to rent out a suite in a particular year for a particular
+property we can adjust the assumptions in the interactive at the bottom accordingly. For example, in the year 2015 we
+saw an average land value gain of about 20%. Adjusting the rate in the interactive, and setting the holding period to 1 year,
+we get a net CAP rate of -1.6%. The break-even rent, above which it is advantageous to rent out the suite, was $1,820.</p>
 
 <h2>Taxes Collected</h2>
 
