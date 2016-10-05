@@ -4,7 +4,7 @@
   <title><![CDATA[Category: taxes | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/taxes/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-10-05T11:10:01-07:00</updated>
+  <updated>2016-10-05T11:22:44-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -239,7 +239,7 @@ document.getElementById('area').value=areaValue*100;
 document.getElementById('tax').value=taxValue*100;
 document.getElementById('gain').value=(gainValue+0.1)/0.6*100;
 document.getElementById('land').value=(landValue-200000)/20000;
-document.getElementById('years').value=yearsValue*5;
+document.getElementById('years').value=(yearsValue-1)*5;
 
 function updateResults(){
    $('#suiteValue').html(numberFormatter(suiteValue));
@@ -292,8 +292,8 @@ $('#gain').on('change',function(){
     updateResults();
 });
 $('#years').on('change',function(){
-    yearsValue=Math.round(parseFloat(this.value)/5);
-    document.getElementById('years').value=yearsValue*5;
+    yearsValue=Math.round(parseFloat(this.value)/5.0 + 1.0);
+    document.getElementById('years').value=(yearsValue-1)*5;
     updateResults();
 });
 $('#tax').on('change',function(){
