@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-10-05T15:40:31-07:00</updated>
+  <updated>2016-10-06T20:08:48-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -170,12 +170,10 @@ to 2010 taxes we should adjust our calculation to the average east side single f
 might want to assume a very conservative inflation-adjusted land value gain of 5% per year (I have no data before 2005,
 but one could use sales data to estimate this better). This would yield an expected taxable annual capital gains of $10,000
 per suite in each area (with expected annual taxes generated of $1,750 per suite), adding up to over one third of all
-capital gains reported in the City of Vancouver that year. So for a census tract with 500 suites
-we would expect on average $5m of capital gains declared per year resulting from property transactions of some
-of these properties and attributed to the portion of the properties taken up by a suites (resulting in $1.75m of expected taxes).</p>
+capital gains reported in the City of Vancouver that year. And that&rsquo;s not counting taxable capital gains from selling
+investment properties that were not used as principal residence at all and where all the gains are taxable.</p>
 
-<p><a href="https://censusmapper.ca/maps/480">Eyeballing the total capital gains reported</a>
-in areas that have a high density of secondary suites suggests that tax compliance could be improved. It seems that the
+<p><a href="https://censusmapper.ca/maps/480">Eyeballing the total capital gains reported</a>  suggests that tax compliance could be improved. It seems that the
 changes in requiring the reporting of a sale of a principal residence that were announced yesterday will do just that.</p>
 
 <h2>Interactive</h2>
