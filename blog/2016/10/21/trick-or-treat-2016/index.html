@@ -1,0 +1,453 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Trick-or-Treat 2016 - Mountain Doodles</title>
+  <meta name="author" content="MountainMath">
+
+  
+  <meta name="description" content="Mapping the Trick-or-Treat action">
+  <meta name="keywords" content="Canada, Census, Halloween">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2016/10/21/trick-or-treat-2016/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/feed.atom" rel="alternate" title="Mountain Doodles" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54516567-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mountain Doodles</a></h1>
+  
+    <h2>spare time data, analysis, visualization</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/feed.atom" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:doodles.mountainmath.ca" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Trick-or-Treat 2016</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-10-21T20:38:14-07:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><a href="https://censusmapper.ca/maps/529" target="_blank"><img  src="/images/tot_density.png" style="width:50%;float:right;margin-left:10px;"></a>
+A year ago, as were were just getting CensusMapper up and running, we put out three Halloween-themed census maps. Those
+maps almost broke our servers when they went viral. At least as viral as census data goes. They were viewed by over
+150,000 Canadians over the course of three days. And many of those came back to view the maps more than once.</p>
+
+<p>Lots of things have happened at CensusMapper since last year, and we heeded the call and put some of CensusMapper&rsquo;s prowess
+to use to make some important improvements for this Halloween.</p>
+
+<!-- more -->
+
+
+<p>We are stuck in a weired place this year. We just completed the
+<a href="https://twitter.com/NavdeepSBains/status/770281404848566273">most successful census in the Canadian history</a> this May,
+but the results are still undergoing quality control and will only get released starting this coming spring. The 2011
+census, that last year&rsquo;s maps are based on, is now 5 years old. Some children that were of prime trick-or-treating age
+(which we take as 5 to 14 years old) in 2011 are now in College. And some that weren&rsquo;t even borne in 2011 will be out
+knocking on doors this Halloween.</p>
+
+<p>As people move around, the composition of neighbourhoods does not change all that much over time. Young kids grow up to take
+the place of the older kids in the neighbourhood. That was our take last year, as we were still mapping 2011 data to
+give people an idea how many kids would show up on their door or where to expect the most foot traffic.</p>
+
+<h3>The maps</h3>
+
+<p>Last year we made three maps, the
+<a href="https://censusmapper.ca/maps/137">Trick-or-Treat Density map</a> that visualized the expected trick-or-treat foot traffic,
+the <a href="https://censusmapper.ca/maps/136">Trick-or-Treat Onslaught Map</a> that visualized how many kids to expect at your
+door and the <a href="https://censusmapper.ca/maps/138">Haunted House Map</a>
+that&rsquo;s mapping ghosts and other &ldquo;unusual residents&rdquo;.</p>
+
+<p>This year we improved on those maps by building a dynamic estimator that estimates conditions on the ground this Halloween. We
+have:</p>
+
+<ul>
+<li><p><a class='btn btn-success' href="https://censusmapper.ca/maps/529" target="_blank">Trick-or-Treat Density Estimator</a>
+that estimates the number of children of prime trick-or-treat age per area, so the expected trick-or-treat foot traffic
+in each area. Use this map if you plan on taking your kids out trick-or-treating and want to make sure you find the area
+in your neighbourhood with the most kids out on the street.</p></li>
+<li><p><a class='btn btn-success' href="https://censusmapper.ca/maps/528" target="_blank">Trick-or-Treat Onslaught Estimator</a>
+that estimates the number of children of prime trick-or-treat age per doorbell. Use this map if you are guarding the door
+and want to know how much candy you should have ready.</p></li>
+<li><p><a class='btn btn-success' href="https://censusmapper.ca/maps/528" target="_blank">Haunted Houses Map</a> that shows
+the houses that were occupied only by ghosts or <em>unusual residents</em> in May 2011. As ghosts and <em>unusual residents</em> tend
+to be restless we were not comfortable making estimates where they may be now,
+even with all of CensusMapper&rsquo;s power behind it. So we only have the 2011 map to give some inspiration where the best
+chances might be to run into ghosts or cross paths with <em>unusual residents</em>.</p></li>
+</ul>
+
+
+<table>
+<tr>
+<td style="width:25%;padding:3%">
+<a href="https://censusmapper.ca/maps/529" target="_blank"><img  src="/images/tot_density.png" style="width:100%"></a>
+</td>
+<td style="width:25%;padding:3%">
+<a href="https://censusmapper.ca/maps/528" target="_blank"><img  src="/images/tot_onslaught.png" style="width:100%"></a>
+</td>
+<td style="width:25%;padding:3%">
+<a href="https://censusmapper.ca/maps/138" target="_blank"><img  src="/images/tot_haunted_houses.png" style="width:100%"></a>
+</td>
+<tr> 
+</table>
+
+
+<h3>How did we estimate things for 2016 Halloween?</h3>
+
+<p>An skillful estimator strikes a balance between simplicity and effectiveness. We decided to make use of the
+following data:</p>
+
+<ul>
+<li>The number of children in the age brackets 0-4, 5-9 and 10-14 in each area in 2011.</li>
+<li>The number of children in the age brackets 0-4, 5-9 and 10-14 in each area in 2006.</li>
+<li>The percentage of the population in each area in 2011 that did not move between 2006 and 2011.</li>
+</ul>
+
+
+<p>Based on this, we split the estimate of the number of children in each area in 2016 into two groups. Children that
+already lived in the are in 2011 and still live there in 2016, and children that moved into the area between 2011 and 2016.
+We estimate the proportion by using the proportion of people that did not move between 2006 and 2011 as a proxy.</p>
+
+<p>Then estimating the number of children that did not move is easy, we simply age the children we saw in 2011 forward by
+five years and weight them by the proportion of non-movers.</p>
+
+<p>To estimate the number of children moving into the area take into account at the trends from 2006 to 2011 in each area
+and extrapolate from there to 2016. And weight the number by the proportion of the population that did move and also
+allow for some population growth according to the 2006 to 2011 trend.</p>
+
+<p>I will spare you the exact formula. It is possible that refining the model and adding in more variables could make some
+improvements to the estimates, but overcomplicating the model also leads to risks of exaggeratig biases. We feel that
+our simplistic model strikes a good balance between simplicity and effectiveness. It will be interesting to see how we
+did when 2016 data comes in.</p>
+
+<h3>The Super Nerdy Details</h3>
+
+<p>For the data nerds still reading, the CensusMapper servers actually don&rsquo;t do any of that work. They just server straight-up
+census data. All the computations and drawings are then done locally on each user&rsquo;s browser. That&rsquo;s what keeps our servers
+lean, responsive, and most importantly maintains maximum flexibility. With the same process we can easily map any function
+built from census variables. Canada-wide and across all the entire geographical census hierarchy, from all of Canada down
+to Dissemination Areas and, for some data, even Dissemination Blocks. Bwetween the 2006 and 2011 census
+variables and all the different geographic regions we have about 1 billion fields in our database that we can map
+dynamically. Still a far cry from &ldquo;big data&rdquo;, but enough to require some careful architecture choices.</p>
+
+<h3>Census Mapping for Everyone</h3>
+
+<p>Census data can be very complex and mixing various variables is powerful yet prone to produce meaningless maps due to
+misinterpretation of the census variables. Since last Halloween and now we are proud to have been able to open up some
+of CensusMapper&rsquo;s capabilities to the general public. Everyone can now make Canada-wide interactive maps based on single
+2011 census variables via a couple of mouse clicks and share the freely. You can read more about this
+<a href="http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone/">in a previous blog post</a> or
+<a href="https://censusmapper.ca/maps/new">jump right in and make your own map</a>.</p>
+
+<h3>FAQ</h3>
+
+<p>Here are some of the questions we got most last year:</p>
+
+<h5>Are the maps only for Vancouver?</h5>
+
+<p>No. All CensusMapper maps are fully interactive and by default Canada-wide. Use the search function or geo-location
+button to switch to any place in Canada that tickles your interest. Pan and zoom around to explore. You can always share
+the current view of the map with your friends by grabbing the URL in your browser address bar or using the build in share buttons.</p>
+
+<h5>What&rsquo;s the difference between the Trick-or-Treat Density and the Trick-or-Treat Onslaught map?</h5>
+
+<p>The maps are related, both map the number of children of prime trick-or-treat age, but they are normalized differently.
+The Density map considers the number of children per area. This estimates how many you will see out on the street in the area.
+The Onslaught map considers the number of children per door, so you can estimate how many will come knocking.
+The difference can be seen in high density areas like Yaletown in Vancouver. There are a lot of kids living in Yaletown
+in a fairly small area, so the expected foot traffic is high. But these kids distribute over the units in the highrises
+there and on a per household (or per door) basis, the number of kids per household does not stand out.</p>
+
+<h5>How accurate are the predictions?</h5>
+
+<p>Accuracy of predictions vary. Some parents will drive their kids halfway across town to find the best area for
+trick-or-treating. Some areas change too fast for our estimator to catch on. And some neighbourhoods have traditions and
+local areas where kids congregate that we don&rsquo;t have data for. So these maps are best use in conjunction with local data.</p>
+
+<h5>Won&rsquo;t your maps lead to more people trick-or-treating outside of their neighbourhood?</h5>
+
+<p>While our maps can be used to facilitate driving kids across town to trick-or-treat, we encourage everyone to also
+use the map to find areas near
+where they live, and where the kids can walk to. We believe an important part of the Halloween experience is for everyone
+to get to know their own neighbourhood better, see things in a new light and experience the
+joys of running into friends and acquaintances, and making new friends, along the way.</p>
+
+<h5>I am running out of candy / I got way too much candy!</h5>
+
+<p>The Onslaught map just estimates the average number of children that knock on doors in each area. Some doors will see a
+lot more kids than others. Take the Yaletown example from above. Most
+of the action happens on the street. So while on average people can only expect a moderate number of trick-or-treaters
+at their door, the ones at ground level will be <em>very</em> busy, while the ones higher up will likely just see one or two
+neighbour kids from the same floor.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jens von Bergmann</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-10-21T20:38:14-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/censusmapper/'>censusmapper</a>, <a class='category' href='/blog/categories/fun/'>fun</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2016/10/21/trick-or-treat-2016/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2016/10/21/trick-or-treat-2016/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/10/04/secondary-suites-and-taxes/" title="Previous Post: Secondary Suites and Taxes">&laquo; Secondary Suites and Taxes</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2016/10/21/trick-or-treat-2016/">Trick-or-Treat 2016</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/10/04/secondary-suites-and-taxes/">Secondary Suites and Taxes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/10/02/sea-level-rise/">Sea Level Rise</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/09/14/measuring-housing-affordability/">Measuring Housing Affordability</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/31/incomes/">Quick Guide to Income Data</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/24/mobi-running-stats/">Mobi Running Stats</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/16/mobi-a-first-look/">Mobi &#8211; a First Look</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/08/04/rt/">What&#8217;s up with RT?</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/07/26/bike-share-map/">Bike Share Map</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/07/06/mixing-data/">Mixing Data</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  
+  <a class="twitter-timeline" href="https://twitter.com/vb_jens" data-widget-id="680989637721063424">Tweets by @vb_jens</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2016 - MountainMath -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'doodlesmountainmathca';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2016/10/21/trick-or-treat-2016/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2016/10/21/trick-or-treat-2016/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

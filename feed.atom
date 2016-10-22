@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-10-06T21:36:47-07:00</updated>
+  <updated>2016-10-22T00:30:30-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,165 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Trick-or-Treat 2016]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/10/21/trick-or-treat-2016/"/>
+    <updated>2016-10-21T20:38:14-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/10/21/trick-or-treat-2016</id>
+    <content type="html"><![CDATA[<p><a href="https://censusmapper.ca/maps/529" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tot_density.png" style="width:50%;float:right;margin-left:10px;"></a>
+A year ago, as were were just getting CensusMapper up and running, we put out three Halloween-themed census maps. Those
+maps almost broke our servers when they went viral. At least as viral as census data goes. They were viewed by over
+150,000 Canadians over the course of three days. And many of those came back to view the maps more than once.</p>
+
+<p>Lots of things have happened at CensusMapper since last year, and we heeded the call and put some of CensusMapper&rsquo;s prowess
+to use to make some important improvements for this Halloween.</p>
+
+<!-- more -->
+
+
+<p>We are stuck in a weired place this year. We just completed the
+<a href="https://twitter.com/NavdeepSBains/status/770281404848566273">most successful census in the Canadian history</a> this May,
+but the results are still undergoing quality control and will only get released starting this coming spring. The 2011
+census, that last year&rsquo;s maps are based on, is now 5 years old. Some children that were of prime trick-or-treating age
+(which we take as 5 to 14 years old) in 2011 are now in College. And some that weren&rsquo;t even borne in 2011 will be out
+knocking on doors this Halloween.</p>
+
+<p>As people move around, the composition of neighbourhoods does not change all that much over time. Young kids grow up to take
+the place of the older kids in the neighbourhood. That was our take last year, as we were still mapping 2011 data to
+give people an idea how many kids would show up on their door or where to expect the most foot traffic.</p>
+
+<h3>The maps</h3>
+
+<p>Last year we made three maps, the
+<a href="https://censusmapper.ca/maps/137">Trick-or-Treat Density map</a> that visualized the expected trick-or-treat foot traffic,
+the <a href="https://censusmapper.ca/maps/136">Trick-or-Treat Onslaught Map</a> that visualized how many kids to expect at your
+door and the <a href="https://censusmapper.ca/maps/138">Haunted House Map</a>
+that&rsquo;s mapping ghosts and other &ldquo;unusual residents&rdquo;.</p>
+
+<p>This year we improved on those maps by building a dynamic estimator that estimates conditions on the ground this Halloween. We
+have:</p>
+
+<ul>
+<li><p><a class='btn btn-success' href="https://censusmapper.ca/maps/529" target="_blank">Trick-or-Treat Density Estimator</a>
+that estimates the number of children of prime trick-or-treat age per area, so the expected trick-or-treat foot traffic
+in each area. Use this map if you plan on taking your kids out trick-or-treating and want to make sure you find the area
+in your neighbourhood with the most kids out on the street.</p></li>
+<li><p><a class='btn btn-success' href="https://censusmapper.ca/maps/528" target="_blank">Trick-or-Treat Onslaught Estimator</a>
+that estimates the number of children of prime trick-or-treat age per doorbell. Use this map if you are guarding the door
+and want to know how much candy you should have ready.</p></li>
+<li><p><a class='btn btn-success' href="https://censusmapper.ca/maps/528" target="_blank">Haunted Houses Map</a> that shows
+the houses that were occupied only by ghosts or <em>unusual residents</em> in May 2011. As ghosts and <em>unusual residents</em> tend
+to be restless we were not comfortable making estimates where they may be now,
+even with all of CensusMapper&rsquo;s power behind it. So we only have the 2011 map to give some inspiration where the best
+chances might be to run into ghosts or cross paths with <em>unusual residents</em>.</p></li>
+</ul>
+
+
+<table>
+<tr>
+<td style="width:25%;padding:3%">
+<a href="https://censusmapper.ca/maps/529" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tot_density.png" style="width:100%"></a>
+</td>
+<td style="width:25%;padding:3%">
+<a href="https://censusmapper.ca/maps/528" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tot_onslaught.png" style="width:100%"></a>
+</td>
+<td style="width:25%;padding:3%">
+<a href="https://censusmapper.ca/maps/138" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tot_haunted_houses.png" style="width:100%"></a>
+</td>
+<tr> 
+</table>
+
+
+<h3>How did we estimate things for 2016 Halloween?</h3>
+
+<p>An skillful estimator strikes a balance between simplicity and effectiveness. We decided to make use of the
+following data:</p>
+
+<ul>
+<li>The number of children in the age brackets 0-4, 5-9 and 10-14 in each area in 2011.</li>
+<li>The number of children in the age brackets 0-4, 5-9 and 10-14 in each area in 2006.</li>
+<li>The percentage of the population in each area in 2011 that did not move between 2006 and 2011.</li>
+</ul>
+
+
+<p>Based on this, we split the estimate of the number of children in each area in 2016 into two groups. Children that
+already lived in the are in 2011 and still live there in 2016, and children that moved into the area between 2011 and 2016.
+We estimate the proportion by using the proportion of people that did not move between 2006 and 2011 as a proxy.</p>
+
+<p>Then estimating the number of children that did not move is easy, we simply age the children we saw in 2011 forward by
+five years and weight them by the proportion of non-movers.</p>
+
+<p>To estimate the number of children moving into the area take into account at the trends from 2006 to 2011 in each area
+and extrapolate from there to 2016. And weight the number by the proportion of the population that did move and also
+allow for some population growth according to the 2006 to 2011 trend.</p>
+
+<p>I will spare you the exact formula. It is possible that refining the model and adding in more variables could make some
+improvements to the estimates, but overcomplicating the model also leads to risks of exaggeratig biases. We feel that
+our simplistic model strikes a good balance between simplicity and effectiveness. It will be interesting to see how we
+did when 2016 data comes in.</p>
+
+<h3>The Super Nerdy Details</h3>
+
+<p>For the data nerds still reading, the CensusMapper servers actually don&rsquo;t do any of that work. They just server straight-up
+census data. All the computations and drawings are then done locally on each user&rsquo;s browser. That&rsquo;s what keeps our servers
+lean, responsive, and most importantly maintains maximum flexibility. With the same process we can easily map any function
+built from census variables. Canada-wide and across all the entire geographical census hierarchy, from all of Canada down
+to Dissemination Areas and, for some data, even Dissemination Blocks. Bwetween the 2006 and 2011 census
+variables and all the different geographic regions we have about 1 billion fields in our database that we can map
+dynamically. Still a far cry from &ldquo;big data&rdquo;, but enough to require some careful architecture choices.</p>
+
+<h3>Census Mapping for Everyone</h3>
+
+<p>Census data can be very complex and mixing various variables is powerful yet prone to produce meaningless maps due to
+misinterpretation of the census variables. Since last Halloween and now we are proud to have been able to open up some
+of CensusMapper&rsquo;s capabilities to the general public. Everyone can now make Canada-wide interactive maps based on single
+2011 census variables via a couple of mouse clicks and share the freely. You can read more about this
+<a href="http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone/">in a previous blog post</a> or
+<a href="https://censusmapper.ca/maps/new">jump right in and make your own map</a>.</p>
+
+<h3>FAQ</h3>
+
+<p>Here are some of the questions we got most last year:</p>
+
+<h5>Are the maps only for Vancouver?</h5>
+
+<p>No. All CensusMapper maps are fully interactive and by default Canada-wide. Use the search function or geo-location
+button to switch to any place in Canada that tickles your interest. Pan and zoom around to explore. You can always share
+the current view of the map with your friends by grabbing the URL in your browser address bar or using the build in share buttons.</p>
+
+<h5>What&rsquo;s the difference between the Trick-or-Treat Density and the Trick-or-Treat Onslaught map?</h5>
+
+<p>The maps are related, both map the number of children of prime trick-or-treat age, but they are normalized differently.
+The Density map considers the number of children per area. This estimates how many you will see out on the street in the area.
+The Onslaught map considers the number of children per door, so you can estimate how many will come knocking.
+The difference can be seen in high density areas like Yaletown in Vancouver. There are a lot of kids living in Yaletown
+in a fairly small area, so the expected foot traffic is high. But these kids distribute over the units in the highrises
+there and on a per household (or per door) basis, the number of kids per household does not stand out.</p>
+
+<h5>How accurate are the predictions?</h5>
+
+<p>Accuracy of predictions vary. Some parents will drive their kids halfway across town to find the best area for
+trick-or-treating. Some areas change too fast for our estimator to catch on. And some neighbourhoods have traditions and
+local areas where kids congregate that we don&rsquo;t have data for. So these maps are best use in conjunction with local data.</p>
+
+<h5>Won&rsquo;t your maps lead to more people trick-or-treating outside of their neighbourhood?</h5>
+
+<p>While our maps can be used to facilitate driving kids across town to trick-or-treat, we encourage everyone to also
+use the map to find areas near
+where they live, and where the kids can walk to. We believe an important part of the Halloween experience is for everyone
+to get to know their own neighbourhood better, see things in a new light and experience the
+joys of running into friends and acquaintances, and making new friends, along the way.</p>
+
+<h5>I am running out of candy / I got way too much candy!</h5>
+
+<p>The Onslaught map just estimates the average number of children that knock on doors in each area. Some doors will see a
+lot more kids than others. Take the Yaletown example from above. Most
+of the action happens on the street. So while on average people can only expect a moderate number of trick-or-treaters
+at their door, the ones at ground level will be <em>very</em> busy, while the ones higher up will likely just see one or two
+neighbour kids from the same floor.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Secondary Suites and Taxes]]></title>
@@ -2636,167 +2795,6 @@ and idea what will become available. Curious to see where this will go once out 
 
 <p>It&rsquo;s pretty easy. Just grab the html file from the &ldquo;full screen&rdquo; link above and download the <a href="http://doodles.mountainmath.ca/surrey_traffic_scene.yaml">Tangram scene file</a>
 and add your own twist to the map. Also grab a copy of the tangram engine <a href="http://doodles.mountainmath.ca/javascripts/tangram.debug.js">with the quick-fix for the transform function</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Unoccupied Dwellings]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/03/08/unoccupied-dwellings/"/>
-    <updated>2016-03-08T14:07:47-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/03/08/unoccupied-dwellings</id>
-    <content type="html"><![CDATA[<p>Today the City of Vancouver <a href="http://council.vancouver.ca/20160308/documents/rr1presentation.pdf">released their report</a>
-on unoccupied dwelling units in the city. I watched part of the presentation and read through the report, and from all
-that I can see the methodology used is very solid.</p>
-
-<p>I have seen some confusion and even some incorrect reporting on this, so I thought it would be worthwhile to look into
-the report in detail.</p>
-
-<!-- more -->
-
-
-<h3>The Data</h3>
-
-<p>Smart meter data can be used to determine very accurately which units
-are occupied and which ones are not. In theory at least, in practice this is quite difficult because of the sheer magnitude
-of the data. That&rsquo;s why this is best left to companies who specialize in this kind of analysis, which is exactly what the
-city has done.</p>
-
-<p>The only problem is that not all units have smart meters. I don&rsquo;t know how far BCHydro has come with their rollout, but
-most condo units should have smart meters by now, as do newer single family units. So what to do about the housing that
-does not have smart meters? That&rsquo;s where things get tricky. Some studies I have seen use cutoffs for monthly electricity
-consumption to determine which are unoccupied. The problem is to find the right cutoff. Typically these studies report
-rates computed using several cutoffs to address that uncertainty. The problem is that different cutoffs give very different
-results. For example, <a href="http://www.btaworks.com/wp-content/uploads/2009/12/btaworks_condo_study_report_final2.pdf">this study</a>
-looked at 75kWh and 100kWh as monthly consumption cutoffs and reported 5.5% and 8.5% unoccupancy rate, respectively. I checked my condo unit
-when it was unoccupied for two months one summer, my two fridges pushed me well above the 100kWh threshold. So my unoccupied
-unit would have been counted as occupied in this study.</p>
-
-<p>So how did the new study deal with this problem. We did not hear technical details, but during the presentation it was
-explained that smart meter data was used to &ldquo;train&rdquo; a model to use dumb meter data. That&rsquo;s exactly the right approach. Going
-by the fact that everything was done right I am reasonably comfortable to assume that this part was also done in a way to
-give accurate aggregate numbers.</p>
-
-<p>I am hoping that the technical report will still come out so we can be confident that the details were taken care of
-properly. In particular I would like to know how the model dealt with different housing types, and how the housing type
-was tied to the electricity bill. What ratio of dwellings of each housing type had smart meter data available? And most
-importantly, what are the uncertainty estimates on the numbers presented?</p>
-
-<p>Bottom line on data: Solid.</p>
-
-<h3>Results</h3>
-
-<p>The big takeaway is this one graph:</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/unoccupied-trends.png" style="width:50%;float:left;margin-right:10px;">
-It shows that no matter what timeframe is used to define &ldquo;unoccupied&rdquo;, the rate stayed flat over time. In context of
-the current affordability discussion this means that this is unlikely a driving factor of Vancouver&rsquo;s skyrocketing
-real estate prices. But the absolute numbers are still quite large and there is a lot of untapped potential. While some people
-have argued that supply has not been the main part of the cause of the price hike in Vancouver, it is clear that it must
-be a big part of any solution. Finding effective ways to get this untapped supply online should be a priority, it is easier
-and more efficient than building new housing in NIMBY-zoned Vancouver.</p>
-
-<p>The other takeaway is that unoccupied units are dominated by condos.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/unoccupied-apartment.png" style="width:50%;float:right;margin-left:10px;">
-The graph shows the rate for apartments, which also includes purpose built rentals. As the report points out, if we
-take out the purpose-built rentals, which have vacancy rates well below 1% at any given time and are extremely unlikely
-to stay vacant for two or more months, we arrive at a rate of about 12.5% of condos that are unoccupied in the City of
-Vancouver. As should be expected, that&rsquo;s significantly higher than what the non-smart meter studies picked up.</p>
-
-<h3>Are rates in Vancouver higher than elsewhere?</h3>
-
-<p>That depends exactly on what the question asks. And this is where, in my opinion, the city report fails to give a good
-answer.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/unoccupied-apartment-comparison.png" style="width:50%;float:left;margin-right:10px;">
-The City implied, <a href="http://www.theglobeandmail.com/news/british-columbia/vancouvers-vacant-homes-in-line-with-other-cities-but-condos-most-likely-empty/article29072573/">and newspapers now report</a>
-that Vancouver numbers are &ldquo;in line&rdquo; with other comparable cities. That claim is based on this graphic,
-which is included in the report and stems from a <a href="http://www.urbanfutures.com/foreign-unoccupied/">study by Urban Futures</a>.
-The study shows that the Metro Vancouver&rsquo;s rate of unoccupied <em>apartments</em> is not much different from other Metro regions.</p>
-
-<p>The problem is that this study is read as giving the <em>overall</em> occupancy rates are similar across metro regions, which is not
-the case. This is a fine point and a little technical, let&rsquo;s take a look at the actual rates of unoccupied dwellings in
-the larges metro areas.</p>
-
-<div id="unoccupied_cma" class="land_use" style="width:300px;float:right"></div>
-
-
-<p>We took these numbers from a <a href="http://www.cmhc-schl.gc.ca/odpub/pdf/68323.pdf?lang=en">CMHC report</a> that looked into this
-question and used the same data and methodology as Urban Futures, except they based it on all dwelling units instead of
-just apartments. This difference is quite stunning, and it can be explained by the fact that e.g. Metro Vancouver&rsquo;s
-housing units are to 41% apartments, vs 20% for Metro Calgary. And that various reports showed that the
-rate of unoccupied units is much higher in condos, so we can&rsquo;t substitute comparisons for unoccupied apartments for comparisons
-of unoccupied dwellings overall.</p>
-
-<p>So what do the numbers look like when comparing the City of Vancouver to other cities in the region and across Canada.
-In short, I do not know. Without going into too much details, the number of unoccupied dwelling units is derived by taking the number of
-units that are &ldquo;not occupied by usual residents&rdquo;, which is part of the standard release of the census data, and subtracting
-the &ldquo;unusual residents&rdquo;, that is foreign or temporary residents. So residents that have a permanent address abroad or
-elsewhere in Canada and on Census day occupied in a dwelling unit that is not their primary residents. Think students
-in a dorm room. Or someone in his vacation home. Or someone that works far from home and has a second unit close to work.</p>
-
-<p>And to get the number of foreign or temporary residents requires a custom tabulation, which costs some time and money. But
-overall not that much compared to the scope of the study the city just undertook, so it is not clear why they did not do this
-and settle this question properly.</p>
-
-<h3>Why do I see so many different unoccupancy rates?</h3>
-
-<p>Again, that depends exactly on the question asked. The report offers a variety of different rates, using the definition
-of unoccupied for 2 months, 6 months or 12 months. Each one gives a different rate. Then there is also the definitions
-used by Stats Canada, the building being unoccupied on census day (and the questionnaire was not returned).
-Again resulting in a differnt number. Then we can throw in the &ldquo;unusual residents&rdquo;, getting yet another number. Confused?
-You should be! Difficult questions often don&rsquo;t have an easy answer.</p>
-
-<p>The most important thing is to be consistent when comparing these numbers. Has the problem gotten worse? Use numbers that
-were derived using the same methodology at different times. Is is worse here than elsewhere? Use numbers derived using
-the same methodology across geographies.</p>
-
-<h3>Geographic distribution</h3>
-
-<p><a href="https://censusmapper.ca/maps/104" target="_blank"><img  src="http://doodles.mountainmath.ca/images/unoccupied.png" style="width:50%;float:left;margin-right:10px;"></a>
-In absence of the data on the foreign and temporary residents, we can take a closer look at the publicly released census
-data on &ldquo;dwellings not occupied by usual residents&rdquo;. The percentage of dwellings occupied by foreign or temporary residents
-are quite low, in the 0.4% to 0.2% range for these metro areas we looked at above. They tend to cluster around universities,
-but may also accumulate in some other areas. Keeping that in mind we can <a href="http://censusmapper.ca/maps/104">head over to CensusMapper</a>
-and zoom, pan around and use the search bar to explore the geographic distribution. The city data has shown that there
-was not much change in the number of unoccupied dwellings over time, no matter how the data was sliced. That gives us
-some confidence that the geographic distribution has also been somewhat stable over that time frame.</p>
-
-<p>At CensusMapper we are working on adding previous censuses, so this will be a good test case to see how the 2006 and 2001
-geographic distribution of unoccupied dwellings stacks up. For City of Vancouver the corresponding numbers are 7.5% and
-5.1%, respectively. The 2006 number is nicely in line with Vancouver&rsquo;s 2011 rate of 7.7%. <strike>It is not immediately clear how the significantly
-lower 2001 rate squares with the city report showing a flat trendline, but could well be due to shifting definitions from
-one census to another.</strike> The 2001 Census used slightly different definitions, it requires more
-work to compare these numbers. The devil is in the details.</p>
-
-<h3>Next Steps</h3>
-
-<p>The city study settles an important questions. The rates of unoccupied homes have not gone up. Perceptions often don&rsquo;t
-match facts. And there are lots of little things to poke at of course. What about people having a cleaning person stop
-by every other week? How about homes awaiting renovation or demolition permits? How about AirBnB?</p>
-
-<p>Now all these are valid questions. But before using this to discount the study do some estimates to see how large of an effect
-your porposed hole actually has. How does it compare to the number of units that were found unoccupied and how would it
-change that rate? In all these cases it is quite small. Then ask yourself how likely it is that the problem would be growing.</p>
-
-<p>Then you find that AirBnB probably needs more scrutiny. Best current estimates that I have seen
-<a href="https://twitter.com/karensawa/status/707288630444699650">peg entire units rented fulltime at AirBnB at 1200 in Vancouver</a>.
-Counting those would bring the rates of units taken out of the rental market by being unoccupied for a year or rented out
-full time via AirBnB from 4.8% to 5.3%. Noticeable, but doesn&rsquo;t make that much of a difference. Yet. That number is
-very likely to grow if left unchecked and should probably be taken seriously and regulated properly right now.</p>
-
-<h3>Update</h3>
-
-<p>A <a href="http://vancouver.ca/files/cov/stability-in-vancouver-housing-unit-occupancy-empty-homes-report.pdf">more detailed report</a>
-is now available to give more insight into the methodology. Nothing unexpected there, although the claim that the 12.5%
-rate of unoccupied condos is consistent with earlier claims of 5.5% to 8.5% is hard to follow.</p>
-
-<p>Still waiting for the technical report to get an idea of the error estimates (by housing type). Seeing the graphs for
-the 2-month and 4-month cutoffs by housing type would be nice too, as well as the respective ones using the 15 day
-criterion.</p>
-
-<div><script src="http://doodles.mountainmath.ca/javascripts/unoccupied-graph.js"></script></div>
-
 ]]></content>
   </entry>
   
