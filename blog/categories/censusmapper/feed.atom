@@ -4,7 +4,7 @@
   <title><![CDATA[Category: censusmapper | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/censusmapper/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-10-22T00:33:33-07:00</updated>
+  <updated>2016-10-22T09:29:42-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -46,7 +46,7 @@ give people an idea how many kids would show up on their door or where to expect
 <a href="https://censusmapper.ca/maps/137">Trick-or-Treat Density map</a> that visualized the expected trick-or-treat foot traffic,
 the <a href="https://censusmapper.ca/maps/136">Trick-or-Treat Onslaught Map</a> that visualized how many kids to expect at your
 door and the <a href="https://censusmapper.ca/maps/138">Haunted House Map</a>
-that&rsquo;s mapping ghosts and other &ldquo;unusual residents&rdquo;.</p>
+that&rsquo;s mapping homes occupied by ghosts and other &ldquo;unusual residents&rdquo;.</p>
 
 <p>This year we improved on those maps by building a dynamic estimator that estimates conditions on the ground this Halloween. We
 have:</p>
