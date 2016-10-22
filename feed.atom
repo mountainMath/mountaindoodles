@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-10-22T09:29:42-07:00</updated>
+  <updated>2016-10-22T09:34:12-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -113,7 +113,8 @@ did when 2016 data comes in.</p>
 <h3>The Super Nerdy Details</h3>
 
 <p>For the data nerds still reading, the CensusMapper servers actually don&rsquo;t do any of that work. They just server straight-up
-census data. All the computations and drawings are then done locally on each user&rsquo;s browser. That&rsquo;s what keeps our servers
+census data. Plus the instructions of how to use the data to make the map. All the computations and drawings are then
+done locally on each user&rsquo;s browser. That&rsquo;s what keeps our servers
 lean, responsive, and most importantly maintains maximum flexibility. With the same process we can easily map any function
 built from census variables. Canada-wide and across all the entire geographical census hierarchy, from all of Canada down
 to Dissemination Areas and, for some data, even Dissemination Blocks. Bwetween the 2006 and 2011 census
