@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-11-18T11:49:18-08:00</updated>
+  <updated>2016-11-18T11:57:58-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -39,6 +39,68 @@ walksheds when the user clicks on the map.</p>
 register for your <a href="https://mapzen.com/developers/sign_in">free Mapzen API key</a> and replace the key in the downloaded
 html file with yours. Refer to the <a href="https://mapzen.com/documentation/mobility">Mobility API</a> to customize this for your
 needs.</p>
+
+<p>Here is the relevant code to generate the isochrones:</p>
+
+<div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var mapzenApiKey="&lt;your api key&gt;";
+</span><span class='line'>var marker,isochrone;
+</span><span class='line'>
+</span><span class='line'>function httpGetAsync(theUrl, callback)
+</span><span class='line'>{
+</span><span class='line'>    var xmlHttp = new XMLHttpRequest();
+</span><span class='line'>    xmlHttp.onreadystatechange = function() {
+</span><span class='line'>        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+</span><span class='line'>            callback(xmlHttp.responseText);
+</span><span class='line'>    };
+</span><span class='line'>    xmlHttp.open("GET", theUrl, true); // true for asynchronous
+</span><span class='line'>    xmlHttp.send(null);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>map.on('click',function(e) {
+</span><span class='line'>    if (marker) marker.removeFrom(map);
+</span><span class='line'>    marker = L.marker(e.latlng).addTo(map);
+</span><span class='line'>    var json={locations:[{lat:e.latlng.lat,lon:e.latlng.lng}],costing:"pedestrian",contours:[{time:5,color:"006400"},{time:10,color:"006400"},{time:15,color:"006400"}]};
+</span><span class='line'>    var url='http://matrix.mapzen.com/isochrone?json='+JSON.stringify(json)+'&api_key='+mapzenApiKey;
+</span><span class='line'>    httpGetAsync(url,function(data){
+</span><span class='line'>        var geojsonFeatures=JSON.parse(data);
+</span><span class='line'>        geojsonFeatures.features.forEach(function(f){
+</span><span class='line'>            f.geometry.type="Polygon";
+</span><span class='line'>            f.geometry.coordinates=[f.geometry.coordinates];
+</span><span class='line'>        });
+</span><span class='line'>        if (isochrone) isochrone.removeFrom(map);
+</span><span class='line'>        isochrone=L.geoJSON(geojsonFeatures, {style: function(feature){return {color:'#'+feature.properties.color, opacity:feature.properties.opacity}}}).addTo(map);
+</span><span class='line'>    });
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure></notextile></div>
+
 
 <p>Happy mapping.</p>
 ]]></content>
