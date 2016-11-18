@@ -25,6 +25,11 @@
             width: 100%;
             position: absolute;
         }
+        .geojson {
+            color: "#ffffff";
+            weight: 0;
+            fillOpacity: .75;
+        }
     </style>
 </head>
 
@@ -87,15 +92,23 @@
         xmlHttp.send(null);
     }
 
+    function geojsonStyle(feature){
+        return {color:'#'+feature.properties.color, opacity:feature.properties.opacity};
+    }
+
     function onMapClick(e) {
         if (marker) marker.removeFrom(map);
         marker = L.marker(e.latlng).addTo(map);
-        var json={locations:[{lat:e.latlng.lat,lon:e.latlng.lng}],costing:"pedestrian",contours:[{time:5,color:"00ff00"},{time:10,color:"80ff80"}]};
+        var json={locations:[{lat:e.latlng.lat,lon:e.latlng.lng}],costing:"pedestrian",contours:[{time:5,color:"006400"},{time:10,color:"006400"},{time:15,color:"006400"}]};
         var url='http://matrix.mapzen.com/isochrone?json='+JSON.stringify(json)+'&api_key='+mapzenApiKey;
         httpGetAsync(url,function(data){
             var geojsonFeatures=JSON.parse(data);
+            geojsonFeatures.features.forEach(function(f){
+                f.geometry.type="Polygon";
+                f.geometry.coordinates=[f.geometry.coordinates];
+            });
             if (isochrone) isochrone.removeFrom(map);
-            isochrone=L.geoJSON(geojsonFeatures).addTo(map);
+            isochrone=L.geoJSON(geojsonFeatures, {style: geojsonStyle}).addTo(map);
         });
     }
 
