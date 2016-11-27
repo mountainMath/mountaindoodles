@@ -3,12 +3,6 @@
   
   
   <url>
-    <loc>http://doodles.mountainmath.ca/blog/2016/11/26/character-retention/</loc>
-    <lastmod>2016-11-26T20:28:45-08:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  
-  <url>
     <loc>http://doodles.mountainmath.ca/blog/2016/11/18/interactive-isochrones/</loc>
     <lastmod>2016-11-18T10:22:29-08:00</lastmod>
     <priority>0.8</priority>
@@ -281,21 +275,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2016-11-27T01:54:27-08:00</lastmod>
+    <lastmod>2016-11-27T10:06:59-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2016-11-27T01:54:27-08:00</lastmod>
+    <lastmod>2016-11-27T10:06:59-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2016-11-27T01:54:27-08:00</lastmod>
+    <lastmod>2016-11-27T10:06:59-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
