@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-11-18T12:00:16-08:00</updated>
+  <updated>2016-11-27T01:33:04-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,326 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Character Retention]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2016/11/26/character-retention/"/>
+    <updated>2016-11-26T20:28:45-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2016/11/26/character-retention</id>
+    <content type="html"><![CDATA[<p>Today I went to the City of Vancouver Character Retention open house. It was quite informative, city staff were helpful and knowledgeable,
+and the display board and feedback form asked many good questions. But I came away with three grievances:</p>
+
+<ul>
+<li><p>The proposed retention policies hold gentle, ground-oriented density hostage to character retention.</p></li>
+<li><p>Some of the character retention policy proposals seem to ignore underlying economic drivers.</p></li>
+<li><p>The effort is entirely focused on RS and excludes RT.</p></li>
+</ul>
+
+
+<h3>RT</h3>
+
+<p>Lets start with the simple one, the focus on RS and exclusion of RT. This seems to be motivated by the fact that RT already
+has character retention guidelines. The way it works is that much of RT is downzoned, with extra density conditional on
+character retention. This seems to be the basic blueprint of the proposal for RS, so let&rsquo;s take a close look how this works.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6]&layer=20&zoom=16&lat=49.2587&lng=-123.1063&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rt-6.png" style="width:50%;float:right;margin-left:10px;"></a>
+Mount Pleasant gives a good example of what this can look like. In
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6]&amp;layer=20&amp;zoom=16&amp;lat=49.2587&amp;lng=-123.1063&amp;mapBase=2">RT-6 zoning</a>
+we have allowed stratified 4 and 5-plexes on single family lots under the character retention policies. We have
+<a href="http://doodles.mountainmath.ca/blog/2016/08/04/rt/">looked at this before</a>, what this essentially entails is a &ldquo;character home&rdquo;
+being gutted down to the studs (in most cases), potentially moved to a corner of the property and a foundation added. Then
+the entire house gets build up again and infill added to the back. The whole thing gets sliced up and stratified, resulting
+in 4 to 5 family-sized ground-oriented units. In terms of prices, the assessments pegged at July 2015
+(which became surprisingly accurate again) pegs single family lots between $1m and $6m (median $1.9m), and units in those
+multiplexes between $300k and $1.8m (median $800k).</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-7]&layer=20&zoom=15&lat=49.2636&lng=-123.1706&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rt-7.png" style="width:50%;float:left;margin-right:10px;"></a>
+This kind of development is great. We need more of that, much more.
+But this same model can&rsquo;t be immediately taken and expanded across the city. One look across town to
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-7]&amp;layer=20&amp;zoom=15&amp;lat=49.2636&amp;lng=-123.1706&amp;mapBase=2">RT-7</a>,
+where similar guidelines are in place, shows that multi-plexes only appear in the pocket at 16th and Arbutus. That&rsquo;s
+mainly because the Mt Pleasant model of character &ldquo;retention&rdquo; requires large lots, and most of RT-7 is on smaller lots
+that make the process of &ldquo;retention&rdquo; into multi-plexes according to current city rules unattractive. The rules need to
+be amended to take lots size (and other parameters) into account to unlock this kind of development across the city.</p>
+
+<p>This resulted in RT-6 only having 12% of the building stock currently facing high teardown pressure, compared to 34% of
+RT-7. In the pocket of RT east of McDonald, where lots are larger and more properties underwent the character retention
+process, only 17% of the building stock faces high teardown pressure.</p>
+
+<p>So even if this worked in parts of RT, RT-6 in particular, it does not seem to be &ldquo;working&rdquo; in other parts in the sense
+that hardly any properties undergo this process. Take a look at
+<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT,years_2000,nzone_RT-11]&amp;layer=20&amp;zoom=13&amp;lat=49.2497&amp;lng=-123.1232&amp;mapBase=2">all the properties that have been built since 2000 in RT</a>,
+keyed by whether it was a single family, duplex or multi-plex that got built. We removed RT-11 from the map, it is too
+new to be meaningful. It&rsquo;s amazing to me how in some pockets almost no multi-plexes get built. We should try and fine-tune
+this process before transplanting it to RS.</p>
+
+<p>RT-11 offers a cautionary tale. Looking at what got <a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-11,years_2000]&amp;layer=20&amp;zoom=15&amp;lat=49.2393&amp;lng=-123.0509&amp;mapBase=2">built after 2000</a>
+we see lots of single family homes. A huge missed opportunity. If we had upzoned that area a decade earlier we could
+have allowed for homes that suit our families much better.</p>
+
+<h3>Hostage Taking</h3>
+
+<p>In my mind, holding gentle, ground-oriented density hostage to character retention is terrible thing to do. Whatever the
+question is, downzoning can&rsquo;t be part of the answer any more. Vancouver is starved for gentle, sensible, ground-oriented
+family-friendly development.</p>
+
+<p>Originally, when the character retention guidelines for RT were made, this kind of gentle density came in the Trojan horse
+of character retention. And even if much of that was faux character, I don&rsquo;t mind. I take that kind of density any way I can.</p>
+
+<p>But we are quite a bit further along now. Unaffordability skyrocketed. Families are starved for housing options.
+We need to scale this process up. And just expanding
+the area where we deploy it to also cover RS won&rsquo;t do the trick. We average about 10 of those character retention projects
+a year. Out of 11k RT properties. If we scale that up to all 68k RS properties, we will increase that number to about 70
+a year. Just for perspective to see how inadequate that is, we tear down around 1000 single family homes a year.
+And replace them with single family homes.</p>
+
+<p>What we need is a program that brings this type of density to RS and RT independent of the character retention program.
+There is not much that is being &ldquo;retained&rdquo; in some of the character retention projects, so let&rsquo;s do away with that
+&ldquo;retention&rdquo; pretence. In most of these examples, there is actually not all that much that got retained. In some
+cases just a pillar or two, in many cases at least most of the outside studs. But everything else is brand new, including
+all the static elements. What is &ldquo;retained&rdquo; (or better &ldquo;re-created&rdquo;) is the exterior appearance of a character home. And
+if that&rsquo;s what Vancouverites want in return for gentle density, then this can easily be handle in the design review process
+that dictates the exterior look of new-builts too.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/4-plex.png" style="width:50%;float:right;margin-left:10px;"></a>
+If we value real retention, offer some extra FSR over and above what&rsquo;s being given in Mt Pleasant if there is meaningful
+retention. But let&rsquo;s not hold that kind of gentle density hostage to the retention process.
+I have yet to find someone who does not like the Mt Pleasant style infill density, like the 4-plex pictured here. This kind of development
+should be encouraged city wide, also for new-builts. And not taken hostage under the process of (faux) character retention.</p>
+
+<h3>Economics</h3>
+
+<p>Character retention is hard to do. It will need incentives to make it happen. The more the character retention process
+can leverage some underlying economic drivers, the more effective it will be.</p>
+
+<p>We ran some analysis on 11 years of property-level assessment data in the City of Vancouver that was made available
+through the open data catalogue. The upshot is that the single most important factor that predicts if a building gets
+torn down is the (assessed) value of the building alone relative to the total value of the property. We call this
+quotient the &ldquo;teardown coefficient&rdquo; and found that if it is below 5%, the building has a 1/6 chance to get torn down
+within 8 to 10 years. More details and background on this
+<a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">can be found here</a>, a refinement of this analysis is works in progress.</p>
+
+<p>Currently, 34% of the SFH building stock in Vancouver fall into that category. Often people assume that the risk of a
+building getting torn down simply depends on the building age. But the relationship is not that simple as the following graph shows.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<div id="graph_sfh" style="height:200px;max-width:640px;" data-url="/data/sfh_age.json"></div>
+<div class="legend no-margin"></div>
+</div>
+
+
+<p>The blue denotes properties facing little teardown pressure, the red is for properties with high teardown pressure.
+We can see that the pre-1920 building stock holds up reasonably well. In fact, 33% of the pre-1920 building stock with
+high teardown risk. For the 1920 to 1935 stock we have 59% of buildings in teardown territory, and for 1935 to 1965
+buildings that number jumps to 78%. This makes the particular choice of the character cutoff year 1940 a bit of a head-scratcher.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[sfh,teardowns]&layer=100&zoom=13&lat=49.2489&lng=-123.1081&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/teardowns.png" style="width:50%;float:right;margin-left:10px;"></a>
+This informs the scale of the teardown pressure the building stock of a particular vintage is facing. We can similarly
+map the individual properties to understand their geographic distribution. One should note that assessment data, while
+unbiased in aggregate, can be quite off when looking at specific buildings. So when mapping for example
+<a href="https://mountainmath.ca/map/assessment?filter=[sfh,teardowns]&amp;layer=4">all single family homes with high teardown pressure</a>
+it might mis-identify some buildings as teardown candidates, or miss others. However, in aggregate the data will be
+quite robust and one can easily see that there are no obvious geographic biases in teardown risk. To quantify some of
+this, 31% of eastside SFH vs 39% of westside SFH face high teardown risk.</p>
+
+<p>Understanding the teardown pressure, as well as the geographic distribution and the pressures by vintage, gives an
+important baseline to the heritage and the character discussions. Houses far above the 5% threshold face little
+teardown pressure, and they need little, if any, policy protection to retain them. On the other hand, for houses
+significantly below the teardown cutoff it makes very little economic sense to retain a building, and will require a
+lot of effort and policy protection to try and retain them. And even with these protections, there is a good chance
+that the building will eventually go or face &ldquo;demolition by neglect&rdquo;.</p>
+
+<p>One example of this is the property at 4755 Belmont Ave, which the city lists as heritage building of primary significance.
+<img  src="http://doodles.mountainmath.ca/images/demo_by_neglect.png" style="width:50%;float:right;margin-left:10px;"></p>
+
+<p>Effective retention policies are likely going to aim at the building stock around and somewhat above the teardown
+threshold of 5%. Plus select buildings of significant heritage value below the 5% threshold, with the understanding
+that these will likely require public investment to make them viable and successfully retain them for the long term.</p>
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[sfh,years__1935]&layer=110&zoom=13&lat=49.2489&lng=-123.1148&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/teardowns.png" style="width:50%;float:right;margin-left:10px;"></a>
+With this in mind, and setting the age cutoff to 1935 instead of 1940, we can investigate the existing pre-1935 building
+stock by teardown pressure, separating out the stock that faces
+<a href="https://mountainmath.ca/map/assessment?filter=[sfh,years_1935,tdc__0.05]&amp;layer=100&amp;zoom=13&amp;lat=49.2489&amp;lng=-123.1081&amp;mapBase=2">high teardown pressure</a>
+from the <a href="https://mountainmath.ca/map/assessment?filter=[sfh,years__1935,tdc_0.05_0.1]&amp;layer=101&amp;zoom=13&amp;lat=49.2489&amp;lng=-123.1081&amp;mapBase=2">stock with moderate teardown pressure</a>
+and the <a href="https://mountainmath.ca/map/assessment?filter=[sfh,years__1935,tdc_0.1]&amp;layer=102&amp;zoom=13&amp;lat=49.2489&amp;lng=-123.1081&amp;mapBase=2">stock with low teardown pressure</a>.
+And we can view <a href="https://mountainmath.ca/map/assessment?filter=[sfh,years__1935]&amp;layer=110&amp;zoom=13&amp;lat=49.2489&amp;lng=-123.1148&amp;mapBase=2">all three at the same time</a>.</p>
+
+<p>Without taking these underlying economic factors into consideration, heritage and character retention policies are
+likely to be less effective at retention than they otherwise would be. And have broader adverse effects on buildings
+without significant heritage or character merit.</p>
+
+<h3>New Carrots</h3>
+
+<p>If density won&rsquo;t be the main carrot (or a stick) for character retention, than what can pull up the slack? Property taxes is an obvious one.
+The owner could be allowed to re-claim property taxes against improvements and maintenance that aim to maintain or
+underline the character merit of the home. And these re-claimed taxes become cumulatively payable, with interest, in the
+event of demolition. Of course this would raise everyone else&rsquo;s property taxes, but I think that&rsquo;s only fair in return
+for the community dictating character-homeowners the exterior look of their home.</p>
+
+<p>Density can of course still be part of the mix, but not in a way that it precludes smart gentle density to be built without
+it. The reality is that much of our building stock will go, the economic drivers are just too strong. And we all know that
+we should not replace those single family homes with yet another single family home that at best the top 5% income households
+can afford. We should allow these houses to be replaced with ground-oriented units a much larger portion of Vancouver
+families can afford.</p>
+
+<p>Smarter people than me have probably though about this for quite some time now. I would love to hear more ideas how
+character retention can be structured so that it does not get in the way of gentle density for new builts.</p>
+
+<script>
+
+function stacked_bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter){
+    if (!domainFormatter) domainFormatter=d3.format("d")
+    if (!rangeFormatter)
+     rangeFormatter = function (y) {
+        return y;
+     };
+     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
+
+var margin = {top: 20, right: 20, bottom: 40, left: 70},
+    width = parseInt(div.style("width")) - margin.left - margin.right,
+    height = parseInt(div.style("height")) - margin.top - margin.bottom;
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .tickFormat(domainFormatter)
+    .orient("bottom");
+
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(rangeFormatter)
+    .ticks(5, rangeFormatter);
+
+var svg = div.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var data_url=div[0][0].dataset.url;
+var legend=d3.select(div.node().parentNode).select('.legend');
+
+
+d3.json(data_url, function(error, json) {
+  if (error) throw error;
+  var graphData=json[0];
+  var data=graphData.data;
+  var color = d3.scale.ordinal().domain(graphData.colors.map(function(d,i){return i}))
+  .range(graphData.colors);
+  var domain=data.map(function(d){return d.date;});
+  x.domain(domain);
+
+  function graphValueId(i){
+      return graphData.class + '_' + i + '_value'
+  }
+
+  graphData.labels.forEach(function(text,i){
+    var color=graphData.colors[i];
+    var html='<i style="background:' + color + '"></i> ' + text + ' <span style="float:right;margin-right:10px;" id="' + graphValueId(i) + '"></span>'
+    legend.append('p').html(html);
+  });
+
+  data.forEach(function(d) {
+      var y0 = 0;
+      d.values = color.domain().map(function(i) { return {date: d.date, y0: y0, y1: y0 += +d.count[i]}; });
+      d.total = d.values[d.values.length - 1].y1;
+  });
+  y.domain([0, d3.max(data, function(d) { return d.total; })]);
+
+  var domainTickValues=[];
+  var skip=Math.round(40/x.rangeBand());
+  if (skip<=0) skip=1;
+  for (var i=0;i<x.domain().length;i++) {
+    if (i % skip==0) domainTickValues.push(x.domain()[i]);
+  }
+  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
+  xAxis.tickValues(domainTickValues);
+
+  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(" + xShift + "," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+//    .append("text")
+//      .attr("transform", "rotate(-90)")
+//      .attr("y", 6)
+//      .attr("dy", ".71em")
+//      .style("text-anchor", "end")
+//      .text("Probability");
+
+    function updateTooltip(d,i){
+       color.domain().forEach(function(j){
+             var value=d && i==j ? (domainLabelFormatter(d.date) + ': ' +rangeFormatter(d.y1-d.y0)) : '';
+             d3.select('#'+graphValueId(j)).text( value);
+       });
+    }
+
+  var year=svg.selectAll(".year")
+    .data(data)
+        .enter().append("g")
+          .attr("class", "g");
+  year.selectAll(".color-bar")
+      .data(function(d) { return d.values; })
+    .enter().append("rect")
+      .attr("class", graphData.class + " color-bar")
+      .attr("fill", graphData.color)
+      .attr("x", function(d) { return x(d.date); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.y1); })
+      .attr("height", function(d) { return Math.max(0, y(d.y0) - y(d.y1)); })
+      .attr("fill",function(d,i) {return color(i);})
+      .on('mouseover',updateTooltip)
+      .on('click',updateTooltip)
+      .on('touch',updateTooltip)
+      .on('mouseout',function(){updateTooltip(null,i)});
+
+
+});
+
+}
+
+
+var priceFormatter2=d3.format("$,");
+    var priceFormatter = function (y) {
+        return y>=1000000 ? (priceFormatter2(y/1000000) + 'm') : (priceFormatter2(y/1000) + 'k');
+    };
+    var brackets=[100000,200000,300000,400000,500000,600000,700000,800000,900000,1000000,2000000,10000000,20000000,40000000]
+
+var binFormatter=function(top){
+    var bottom=0;
+    if (top<=1000000) bottom=top-100000;
+    else if (top==2000000) bottom= 1000000;
+    else if (top==10000000) bottom= 2000000;
+    else if (top=20000000) bottom= 10000000;
+    else bottom=20000000;
+    return priceFormatter(bottom) + ' - ' + priceFormatter(top);
+}
+var numberFormatter=d3.format(",");
+var numberBinFormatter=function(top){
+    var     bins=[0,1,2,4,8,10,16,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,300,400,500,700];
+    var index=0;
+    while (bins[index]<top && index<bins.length) index ++;
+    bottom=bins[index-1]+1;
+    return (bottom == top) ? numberFormatter(bottom) : numberFormatter(bottom) + ' - ' + numberFormatter(top);
+}
+stacked_bar_graph(d3.select("#graph_sfh"));
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Interactive Isochrones]]></title>
@@ -2705,124 +3025,6 @@ setTimeout(function(){
 },25000);
 </script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[On Mixed Use]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/03/28/on-mixed-use/"/>
-    <updated>2016-03-28T23:37:16-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/03/28/on-mixed-use</id>
-    <content type="html"><![CDATA[<p>Redeveloping single storey commercial properties into mixed use is taking off in Vancouver right now. It&rsquo;s a little frustrating
-to see how pretty much every story I have seen on this get the effect this has on property taxes wrong, including one on the generally quite good
-<a href="https://pricetags.wordpress.com/2016/01/25/guest-on-retail-and-an-evolving-environment-with-a-short-historic-note/">Price Tags blog</a>. People
-claim that converting single story commercial to mixed use pushes up the property taxes for the commercial tenants.
-Property taxes are an important piece of the puzzle in Vancouver, so I decided to go into a little detail on this.</p>
-
-<p>Long story short, re-developing single story commercial into mixed use lowers the commercial property taxes. Dramatically.</p>
-
-<!-- more -->
-
-
-<h3>Commercial Property Taxes</h3>
-
-<p>In Vancouver, the commercial property tax rate is five times the residential rate. Toronto also has higher property tax
-rates for commercial, 3x in their case, I don&rsquo;t know how this plays out more broadly. Nor do I know when and why these
-decisions were made. Generally cities have a hard time to keep space for residential areas in or close to the central
-business district, and higher property taxes may help to uphold the zoning restrictions in place and keep residential
-properties in close proximity to commercial.</p>
-
-<p>The effect of the unequal tax rates is quite stark
-<a href="http://www.mountainmath.ca/assessment_gl/map">when visualizing taxes collected per area</a>. And this keeps residential
-property taxes low.</p>
-
-<p>If Vancouver were isolated from everyone else it would not make much of a difference. Stores pass the
-higher property taxes on to residents by charging higher prices, and offices pass them on to employees through lower wages.
-Things get more complex when Vancouver is seen as part of metro, or Canada or in the world. But that discussion goes into
-a different direction.</p>
-
-<p><a href="http://www.mountainmath.ca/assessment_gl/map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tax_density_mixed_use.png" style="width:50%;float:right;margin-left:10px;"></a>
-On the <a href="http://www.mountainmath.ca/assessment_gl/map">interactive 3D tax density map</a> we can clearly see that the some mixed use properties (in darker red) generate lower total property
-taxes than comparable pure commercial properties nearby. We will explore this in more detail in the next section.</p>
-
-<p>For Vancouver it is also important to note that commercial leases are generally trip net, in particular the tenant pays
-the property taxes. And they are quite substantial. The important number is the gross rent, which is the sum of rent, taxes,
-utilities and other costs borne by tenants. That number is determined by the willingness of a tenant to lease the commercial
-space, which in turn determines the rent a commercial landlord can charge for the space. In theory at least, in practice
-some commercial landlords develop a relationship with their tenants and don&rsquo;t increase rents for old tenants as much as
-the market would bear.</p>
-
-<h3>Taxes for Commercial vs Mixed Use</h3>
-
-<p><img  src="http://doodles.mountainmath.ca/images/w_broadway.png" style="width:50%;float:left;margin-right:10px;">
-Let&rsquo;s look at and example, the adjacent properties at
-3071 and 3063 W Broadway. The first is single story commercial, the latter two story mixed use. They have almost identical
-lot sizes and assessed land and building values, with the mixed use property having slightly higher overall assessed value.</p>
-
-<p>How about the property taxes? In 2015, the 2016 taxes aren&rsquo;t out yet, the single story generated $47,797 in taxes, the mixed
-use only $32,031. The reason is simple. The single story property
-simply pays 5x the residential rate. For mixed use, the value gets divided up between two stories, so half the value pays
-5x residential rate, the other half gets taxes at 1x residential rate. So the effective tax rate for the mixed use is 3x
-residential rate. Well, the actual effective rate is 3.35x residential, probably because the first floor carries a little
-higher value than the second floor.</p>
-
-<p>The net effect is that the mixed use commercial tenant pays just over half of the property taxes as the pure commercial
-tenant next door. So the mixed use commercial landlord will charge exactly that much more rent, so that the gross rent
-for both commercial tenants is about the same.</p>
-
-<p>Feel free to play with the <a href="http://mountainmath.ca/map/assessment?zoom=14&amp;layer=10">tax density</a> and
-<a href="http://mountainmath.ca/map/assessment?zoom=14&amp;layer=14">land use</a> map and click into properties to see a more detailed break-down of
-taxes. Be warned that the land use dataset is not perfect in identifying every commercial vs mixed use place.</p>
-
-<h3>A Re-Developmet Example</h3>
-
-<p><img  src="http://doodles.mountainmath.ca/images/main1.png" style="width:50%;float:right;margin-left:10px;">
-Let&rsquo;s see how this works when a property gets re-developed. To keep things simple, let&rsquo;s look at something that went
-from single story commercial to two story mixed use. 6621 Main Street got re-developed around 2009/2010 and now spans
-addresses 6615, 6621 and 6623.</p>
-
-<p>Behind the original 6621 are now three stratified residential units, the other two addresses are the front doors for the
-two commercial units that replace the two commercial units behind the original 6621 address.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/main2.png" style="width:50%;float:left;margin-right:10px;">
-So what happened to property taxes from 2009 to 2010? In 2009 the combined tax levy was $22,102,
-in 2010 it was $16,859, of which $2,994 was payed by residential stratas and $13,865 by the two commercial.</p>
-
-<p>For comparison,
-the commercial property next door saw their property tax climb lightly from $20,754 in 2009 to $20,794 in 2010. So the
-decrease in property taxes we see is really due to the re-development to mixed use.</p>
-
-<h3>Bottom Line</h3>
-
-<p>So what&rsquo;s the bottom line for mixed use re-development? Overall it looks pretty good, let&rsquo;s go down the list of all
-parties involved.</p>
-
-<h5>City bottom line</h5>
-
-<p>For conversion to two story mixed use, the city collects less
-property taxes than before and the overall mill rate goes up a tiny amount. Conversion to three stories or higher and
-total tax revenue for the property goes up and the overall mill rate goes down a tiny amount.</p>
-
-<h5>Commercial tenant bottom line</h5>
-
-<p>The property tax rate goes down substantially, but rent will go up as the gross rent is determined by the market. So not
-much changed assuming the form factor of the stores stay the same. In theory at least. If the commercial land lord was
-giving a long time tenant a break on their rent before re-development, the tenant will have a hard time to find a different
-commercial location with comparable gross rent.</p>
-
-<h5>Residential tenant bottom line</h5>
-
-<p>Added supply can only help. In some cases units will get stratified and sold off, in other cases the property owner keeps
-the residential units as rental.</p>
-
-<h5>Property owner bottom line</h5>
-
-<p>Especially with the recent change in lending practices that focus on cache flow, mixed use re-development becomes very attractive.
-After re-development, landlords can charge higher rents because commercial property taxes go down. And they can rent out
-the residential units for added cash flow. That way, when they take that property to the bank to get a loan for their
-next project they can show a large cache flow and get a bigger loan. And the re-development cycle keeps going. And with
-almost everyone re-financing their properties a couple of years ago at roughly the same time, when interest rates hit rock-bottom, everyone is
-now gearing up at the same time to re-develop.</p>
 ]]></content>
   </entry>
   
