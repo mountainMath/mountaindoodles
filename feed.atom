@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-11-27T21:28:36-08:00</updated>
+  <updated>2016-11-27T21:36:32-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -25,7 +25,8 @@ and the display board and feedback form asked many good questions. But I came aw
 <li>Faux character retention vs character design guidelines. </li>
 <li>Understanding economic drivers of teardown decisions.</li>
 <li>Evaluation of RT character retention policies.</li>
-<li>Need to separate character retention from gentle ground-oriented density. * New Carrots</li>
+<li>Need to separate character retention from gentle ground-oriented density. </li>
+<li>New Carrots</li>
 </ul>
 
 
@@ -36,7 +37,9 @@ and the display board and feedback form asked many good questions. But I came aw
 
 <p><img  src="http://doodles.mountainmath.ca/images/4-plex.png" style="width:50%;float:right;margin-left:10px;"> 
 The existing character retention guidelines in RT, which seem to serve as a model for the expansion of character retention 
-to RS, often don&rsquo;t &ldquo;retain&rdquo; all that much. What the existing character retention process entails is essentially a &ldquo;character home&#8221; 
+to RS, often don&rsquo;t &ldquo;retain&rdquo; all that much. </p>
+
+<p>What the existing character retention process entails is essentially a &ldquo;character home&#8221; 
 being gutted down to the studs (in most cases), potentially moved to a corner of the property and a foundation added. Then 
 the entire house, including structural elements, gets build up again and infill added to the back.  </p>
 
@@ -50,7 +53,8 @@ as can easily be seen when comparing the new built infill to the &ldquo;retained
 <p>  Character retention is hard to do. It takes incentives to make it happen. The more the character retention process 
 can leverage some underlying economic drivers, the more effective it will be.</p>
 
-<p>  We ran some analysis on 11 years of property-level assessment data in the City of Vancouver that was made available 
+<p>  A while back <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">we ran some analysis</a>
+on 11 years of property-level assessment data in the City of Vancouver that was made available 
 through the open data catalogue. The upshot is that the single most important factor that predicts if a building gets
  torn down is the (assessed) value of the building alone relative to the total value of the property. We call this 
 quotient the &ldquo;teardown coefficient&rdquo; and found that if it is below 5%, the building has a 1/6 chance to get torn down 
@@ -95,12 +99,12 @@ One example of this is the property at 4755 Belmont Ave, which the city lists as
 threshold of 5%. Ideally character retention policies should aim to strengthen the economic viability of buildings with
 character merit so that they don’t fall into the range where the teardown pressure becomes overwhelming.</p>
 
-<p>  <a href="https://mountainmath.ca/map/assessment?filter=[sfh,years__1935]&layer=110&zoom=13&lat=49.2489&lng=-123.1148&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/teardown_pressure.png" style="width:50%;float:right;margin-left:10px;"></a> 
-With this in mind, and setting the age cutoff to 1935 instead of 1940, we can investigate the existing pre-1935 building
+<p>With this in mind, and setting the age cutoff to 1935 instead of 1940, we can investigate the existing pre-1935 building
  stock by teardown pressure, separating out the stock that faces 
 <a href="https://mountainmath.ca/map/assessment?filter=[sfh,years_1935,tdc__0.05]&amp;layer=100&amp;zoom=13&amp;lat=49.2489&amp;lng=-123.1081&amp;mapBase=2">high teardown pressure</a> 
 from the <a href="https://mountainmath.ca/map/assessment?filter=[sfh,years__1935,tdc_0.05_0.1]&amp;layer=101&amp;zoom=13&amp;lat=49.2489&amp;lng=-123.1081&amp;mapBase=2">stock with moderate teardown pressure</a> 
 and the <a href="https://mountainmath.ca/map/assessment?filter=[sfh,years__1935,tdc_0.1]&amp;layer=102&amp;zoom=13&amp;lat=49.2489&amp;lng=-123.1081&amp;mapBase=2">stock with low teardown pressure</a>. 
+  <a href="https://mountainmath.ca/map/assessment?filter=[sfh,years__1935]&layer=110&zoom=13&lat=49.2489&lng=-123.1148&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/teardown_pressure.png" style="width:50%;float:right;margin-left:10px;"></a> 
 And we can view <a href="https://mountainmath.ca/map/assessment?filter=[sfh,years__1935]&amp;layer=110&amp;zoom=13&amp;lat=49.2489&amp;lng=-123.1148&amp;mapBase=2">all three at the same time</a>.   </p>
 
 <p>Without taking these underlying economic factors into consideration, character (as well as heritage) retention policies are 
@@ -111,8 +115,9 @@ likely to be less effective at retention than they otherwise would be. And have 
 indiscriminate of what shape the buildings are in. In the next days the consultant report the city ordered will become
 available, maybe there are some nuggets in there that make this whole endeavour sound reasonable.</p>
 
-<p> ### RT 
-The current character retention effort is entirely focused on RS.  This seems to be motivated by the fact that RT already
+<h3>RT </h3>
+
+<p>The current character retention effort is entirely focused on RS.  This seems to be motivated by the fact that RT already
  has character retention guidelines. The way it works is that much of RT is downzoned, with extra density conditional on
  character retention. This seems to be the basic blueprint of the proposal for RS, so let&rsquo;s take a close look how this works.  </p>
 
