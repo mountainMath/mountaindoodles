@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-16T23:13:06-08:00</updated>
+  <updated>2017-01-16T23:14:23-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -18,7 +18,7 @@
     <link href="http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data/"/>
     <updated>2017-01-16T19:04:19-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/values?filter=[sfh]&amp;zoom=13&amp;layer=9"><img  src="http://doodles.mountainmath.ca/images/value_animation.gif" style="width:50%;float:right"></a>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/values?filter=[sfh]&amp;zoom=13&amp;layer=9"><img  src="http://doodles.mountainmath.ca/images/value_animated.gif" style="width:50%;float:right"></a>
 The friendly folks at
 <a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> just
 <a href="https://twitter.com/VanOpenData/status/688060388190097408">updated their property assessment data</a> with the fresh 2017
