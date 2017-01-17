@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-17T08:04:11-08:00</updated>
+  <updated>2017-01-17T08:06:55-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -61,7 +61,7 @@ different, so lazy me is only importing data from City of Vancouver. Sadly, BC A
 generally available province wide for us to make province wide maps.</p>
 
 <p>While BC Assessment makes this data available on their <a href="https://evaluebc.bcassessment.ca">eValue website</a> for browsing individual
-properties and also provides it in bulk to researchers, the attached license does not allow the mapping of individual properties.</p>
+properties and also provides it in bulk to researchers, the attached license does not allow the thematic mapping of individual properties.</p>
 
 <p>The motivation behind the map was to understand the building stock, so in the maps as well as the summary statistics below
 we filter out parks and some other properties.</p>
