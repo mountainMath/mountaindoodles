@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-16T23:28:40-08:00</updated>
+  <updated>2017-01-17T08:04:11-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -25,14 +25,15 @@ The friendly folks at
 property tax assessments. Time to run the script to update the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a>
 with the new data, just <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">like we did last year</a>.</p>
 
-<p>For now we just updated our standard visuals. We will take a closer look at the data over the coming days.</p>
+<p>For now we just updated our standard visuals and computed some overall statistics. We will take a closer look at the data over the coming days.</p>
 
 <h4>Maps</h4>
 
 <!-- more -->
 
 
-<p>By now we have a variety of maps that highlight different aspects of Vancouver real estate. Our basic
+<p>By now we have a variety of maps that highlight different aspects of Vancouver real estate, and after running the import scripts they
+automatically serve the newest data. Our basic
 <a href="https://mountainmath.ca/map/assessment">interactive assessment map</a> offers a variety of ways to slice and display the data. It&rsquo;s
 mostly focused on functionality, some of which we described in
 <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">last year&rsquo;s post</a>, as well as other posts like
@@ -43,7 +44,7 @@ that separates out the values of the structures and the land, and also allows to
 
 <p>For people that like simpler maps we also have a <a href="https://mountainmath.ca/map/values?filter=[sfh]&amp;zoom=13&amp;layer=9">plain total value over time map</a>
 that allows to interactively step through the years and see how single family housing in Vancouver changed over time. Here we also
-added the ability to visualize year-over-year value changes, which also make for good studying how BCAssessment changed their valuation
+added the ability to visualize year-over-year value changes, which also hints at how BC Assessment changed their valuation
 algorithm over the years.</p>
 
 <h4>The Data</h4>
@@ -54,27 +55,32 @@ The estimates for the values do not reflect changes in the market since then. Mo
 property level, but are unbiased. That means that any statistics derived from a large subsample should fairly accurately
 reflect actual market conditions for July 1st. Lastly, the assessed values will still change a bit as some will be successfully appealed.</p>
 
-<p>While City of Vancouver, as well as the City of Surrey, make this data available for general use through their open data portal,
-BC Assessment does not give out their data with a license that would allow mapping of individual properties. They also make data
-on individual properties available through their <a href="https://evaluebc.bcassessment.ca">eValue website</a>,</p>
+<p>City of Vancouver, as well as the City of Surrey, make this data available for general use through their open data portal, which
+allows us to create these maps. The format of the data the municipalities are giving out through their open data portal is
+different, so lazy me is only importing data from City of Vancouver. Sadly, BC Assessment does not make this data
+generally available province wide for us to make province wide maps.</p>
 
-<p>The format of the data the municipalities are giving out through their open data portal is
-different, so lazy me is only importing data from City of Vancouver.</p>
+<p>While BC Assessment makes this data available on their <a href="https://evaluebc.bcassessment.ca">eValue website</a> for browsing individual
+properties and also provides it in bulk to researchers, the attached license does not allow the mapping of individual properties.</p>
 
-<p>The motivation behind the map was to understand the building stock, so we filter out parks and some other properties.</p>
+<p>The motivation behind the map was to understand the building stock, so in the maps as well as the summary statistics below
+we filter out parks and some other properties.</p>
 
-<p>The new city dataset does not include the 2017 tax levy, so we still only show the 2016 tax levies until CoV updated their dataset.</p>
+<p>The new city dataset does not include the 2017 tax levy, so our maps still only show the 2016 tax levies until CoV updated their dataset.</p>
 
 <h4>History</h4>
 
-<p>Here is a quick history of the overall land and building values aggregated for Vancouver between 2006 and 2017. The last year again
+<p>In the spirit of <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">last year&rsquo;s post</a> we ran some
+quick summary statistics to break down the numbers by neighbourhood. Instead of listing the most recent land and building value
+increases by neighbourhood we stuck everything into an interactive graph for the entire time span between 2006 and 2017 tax years.
+Use the dropdown menus to drill down
+into city neighbourhoods, view values for all properties or just residential properties and display as total value or year-over-year
+percentage change.</p>
+
+<p>The last year again
 saw an huge increase in property values. For the City of Vancouver land values were up 35% and building values 10%, with the land
 value increase setting a record for the timeframe for which we have data. The increases become even more pronounced when we zero in
 on residential property only.</p>
-
-<p>We upped our game a bit from last year and added a bit of interactivity. Use the dropdown menus to drill down
-into city neighbourhoods, view values for all properties or just residential properties and display as total value or year-over-year
-percentage change.</p>
 
 <div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
 <select id="nbhd-select"></select>
