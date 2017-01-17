@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-16T23:14:23-08:00</updated>
+  <updated>2017-01-16T23:22:38-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -187,8 +187,9 @@ var ready_for_graph = function() {
         xAxis = d3.svg.axis()
             .scale(xScale)
             .orient("bottom")
-            .tickFormat(d3.format("d"))
-            .tickValues(domain);
+            .tickFormat(d3.format("d"));
+            //.ticks(5);
+            //.tickValues(domain);
 
         yAxis = d3.svg.axis()
             .scale(yScale)
@@ -306,6 +307,8 @@ var ready_for_graph = function() {
                 chartSvg.select(".y")
                     .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
                     .call(yAxis);
+
+                chartSvg.select('.x.axis path').style('display','inherit');
             }
             else {
                 // for subsequent updates use a transistion to animate the axis to the new position
