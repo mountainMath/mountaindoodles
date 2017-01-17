@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-16T23:22:38-08:00</updated>
+  <updated>2017-01-16T23:28:40-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -24,6 +24,8 @@ The friendly folks at
 <a href="https://twitter.com/VanOpenData/status/688060388190097408">updated their property assessment data</a> with the fresh 2017
 property tax assessments. Time to run the script to update the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a>
 with the new data, just <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">like we did last year</a>.</p>
+
+<p>For now we just updated our standard visuals. We will take a closer look at the data over the coming days.</p>
 
 <h4>Maps</h4>
 
@@ -65,7 +67,10 @@ different, so lazy me is only importing data from City of Vancouver.</p>
 
 <h4>History</h4>
 
-<p>Here is a quick history of the overall land and building values aggregated for Vancouver between 2006 and 2017.</p>
+<p>Here is a quick history of the overall land and building values aggregated for Vancouver between 2006 and 2017. The last year again
+saw an huge increase in property values. For the City of Vancouver land values were up 35% and building values 10%, with the land
+value increase setting a record for the timeframe for which we have data. The increases become even more pronounced when we zero in
+on residential property only.</p>
 
 <p>We upped our game a bit from last year and added a bit of interactivity. Use the dropdown menus to drill down
 into city neighbourhoods, view values for all properties or just residential properties and display as total value or year-over-year
