@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-12-14T13:25:22-08:00</updated>
+  <updated>2017-01-16T23:01:23-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,427 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2017 Vancouver Assessment Data]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data/"/>
+    <updated>2017-01-16T19:04:19-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data</id>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/values?filter=[sfh]&amp;zoom=13&amp;layer=9"><img  src="http://doodles.mountainmath.ca/images/values_animation.gif" style="width:50%;float:right"></a>
+The friendly folks at
+<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> just
+<a href="https://twitter.com/VanOpenData/status/688060388190097408">updated their property assessment data</a> with the fresh 2017
+property tax assessments. Time to run the script to update the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a>
+with the new data, just <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">like we did last year</a>.</p>
+
+<h4>Maps</h4>
+
+<!-- more -->
+
+
+<p>By now we have a variety of maps that highlight different aspects of Vancouver real estate. Our basic
+<a href="https://mountainmath.ca/map/assessment">interactive assessment map</a> offers a variety of ways to slice and display the data. It&rsquo;s
+mostly focused on functionality, some of which we described in
+<a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">last year&rsquo;s post</a>, as well as other posts like
+the one on <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">twiddling thumbs vs working</a>.</p>
+
+<p>We also have interactive views focusing on how real estate prices varied over time, for example the <a href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/">houses and dirt map</a>
+that separates out the values of the structures and the land, and also allows to filter by type of housing, to animate changes over time.</p>
+
+<p>For people that like simpler maps we also have a <a href="https://mountainmath.ca/map/values?filter=[sfh]&amp;zoom=13&amp;layer=9">plain total value over time map</a>
+that allows to interactively step through the years and see how single family housing in Vancouver changed over time. Here we also
+added the ability to visualize year-over-year value changes, which also make for good studying how BCAssessment changed their valuation
+algorithm over the years.</p>
+
+<h4>The Data</h4>
+
+<p>The data originates with BC Assessment, which estimates land and building values of each property based on recent sales
+of comparable properties. The values are pegged at July 1 of each year, with the the most recent available now being July 1 2016.
+The estimates for the values do not reflect changes in the market since then. Moreover, the estimates can be quite off on an individual
+property level, but are unbiased. That means that any statistics derived from a large subsample should fairly accurately
+reflect actual market conditions for July 1st.</p>
+
+<p>While City of Vancouver, as well as the City of Surrey, make this data available for general use through their open data portal,
+BC Assessment does not give out their data with a license that would allow mapping of individual properties. They also make data
+on individual properties available through their <a href="https://evaluebc.bcassessment.ca">eValue website</a>,</p>
+
+<p>The format of the data the municipalities are giving out through their open data portal is
+different, so lazy me is only importing data from City of Vancouver.</p>
+
+<p>The motivation behind the map was to understand the building stock, so we filter out parks and some other properties.</p>
+
+<p>The new city dataset does not include the 2017 tax levy, so we still only show the 2016 tax levies until CoV updated their dataset.</p>
+
+<h4>History</h4>
+
+<p>Here is a quick history of the overall land and building values aggregated for Vancouver between 2006 and 2017.</p>
+
+<p>We upped our game a bit from last year and added a bit of interactivity. Use the dropdown menus to drill down
+into city neighbourhoods, view values for all properties or just residential properties and display as total value or year-over-year
+percentage change.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<select id="nbhd-select"></select>
+<select id="keys-select"></select>
+<select id="type-select">
+<option value='total'>Total Value</option>
+<option value='percent'>Percentage Change</option>
+</select>
+<div id="graph" style="height:200px;max-width:640px;" data-lines="/data/detail_history.json"></div>
+<div class="legend no-margin">
+</div>
+</div>
+
+
+<p>When looking at all properties in the city, the increase in land
+value year over year was 21.4% ($45.2bn), while overall building values increased by 7.3% ($5bn). Hover, click or touch
+the points in the graph to get the values for the corresponding year.</p>
+
+<script>
+var ready_for_graph = function() {
+    var d3lines=[];
+    var padding = {top: 20, right: 20, bottom: 30, left: 90};
+    var prevChartWidth = 0, prevChartHeight = 0;
+    var updateTransistionMS = 750; // milliseconds
+    var jsonData, xScale, yScale, line,neighbourhoods;
+
+    var currentValue='City of Vancouver';
+    var currentKeys=['land','building'];
+    var currentModePercentage=false;
+
+    var hash={
+            land: {label:"Land Value", color:"green"},
+              building: {label:"Building Value", color:"blue"},
+              res_land: {label:"Residential Land Value", color:"darkgreen"},
+              res_building: {label:"Residential Building Value", color:"darkblue"},
+              land_p: {label:"Land Value Increase", color:"green"},
+              building_p: {label:"Building Value Increase", color:"blue"},
+              res_land_p: {label:"Residential Land Value Increase", color:"darkgreen"},
+              res_building_p: {label:"Residential Building Value Increase", color:"darkblue"}
+                };
+    var keys=Object.keys(hash);
+
+    var symbol;
+    var prefix;
+    var numberFormatter = function (y) {
+        return '$' + Math.round(prefix.scale(y*10))/10.0 + symbol;
+    };
+
+    var graphs=d3.select("#graph");
+    var div=graphs[0][0];
+    if (div==null|| div.childElementCount!=0) {return;}
+    var data_url=div.dataset.url;
+
+    // create svg and g to contain the chart contents
+    var baseSvg = graphs.append("svg");
+    var chartSvg=baseSvg
+        .append("g")
+        .attr("class", "chartContainer")
+        .attr("transform", "translate(" + padding.left + "," + padding.top + ")");
+
+    // create the x axis container
+    chartSvg.append("g")
+        .attr("class", "x axis");
+
+    // create the y axis container
+    chartSvg.append("g")
+        .attr("class", "y axis");
+    var line;
+    var largest=null;
+    var lineData;
+    if (div.dataset.lines) {
+        d3.json(div.dataset.lines,function(error,json){
+        jsonData=json;
+        neighbourhoods=Object.keys(jsonData);
+        var keyHash={all:{label: 'All Properties',data:['land','building']},res:{label: 'Residential Properties',data:['res_land','res_building']}};
+        var keyOptions=Object.keys(keyHash);
+        d3.select('#nbhd-select').selectAll('option').data(neighbourhoods).enter().append('option').attr('value',function(d){return d}).text(function(d){return d});
+        $('#nbhd-select').on('change',function(d){
+            currentValue=this.value;
+            updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage})
+        });
+        d3.select('#keys-select').selectAll('option').data(keyOptions).enter().append('option').attr('value',function(d){return d}).text(function(d){return keyHash[d].label});
+        $('#keys-select').on('change',function(d){
+            currentKeys=keyHash[this.value].data;
+            updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage})
+        });
+        $('#type-select').on('change',function(d){
+            currentModePercentage=this.value=='percent';
+            updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage})
+        });
+        lineData=json[currentValue];
+        var domain=[null,null];
+        var range=[null,null];
+        lineData.forEach(function(d) {
+             d.date = +d.date;
+             if (domain[0]==null || domain[0]> d.date) domain[0]= d.date;
+             if (domain[1]==null || domain[1]< d.date) domain[1]= d.date;
+             keys.forEach(function(k){
+                d[k]=+d[k];
+                if (range[0]==null || range[0]> d[k]) range[0]= d[k];
+                if (range[1]==null || range[1]< d[k]) range[1]= d[k];
+            });
+        });
+        xScale=d3.scale.linear().domain(domain);
+        var toAdd=(range[1]-range[0])/10;
+        range[0]-=toAdd;
+        range[1]+=toAdd;
+        yScale=d3.scale.linear()
+            .domain(range);
+
+        line = d3.svg.line()
+            .x(function(d) { return xScale(d.date); })
+            .y(function(d) { return yScale(0); })
+            .interpolate("linear");
+        xAxis = d3.svg.axis()
+            .scale(xScale)
+            .orient("bottom")
+            .tickFormat(d3.format("d"))
+            .tickValues(domain);
+
+        yAxis = d3.svg.axis()
+            .scale(yScale)
+            .orient("left")
+            .tickFormat(numberFormatter)
+            .ticks(5);
+
+        prefix = d3.formatPrefix(range[1]);
+        if (prefix.symbol=='K') {
+            symbol='k'
+        } else if (prefix.symbol=='M') {
+                symbol='m'
+        } else if (prefix.symbol=='G') {
+            symbol='bn'
+        } else if (prefix.symbol=='T') {
+            symbol='tn'
+        }
+        updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage});
+        });
+
+    }
+
+
+    function updateChart(options)
+    {
+        var lineData=options.data;
+        var init=options.init;
+        var keys=options.keys;
+
+        lineData.forEach(function(d,i) {
+             keys.forEach(function(k){
+                d[k]=+d[k];
+                if (i>0) d[k+'_p']=d[k]/lineData[i-1][k]-1;
+             });
+        });
+
+        if (options.percentage) {
+            keys=keys.map(function(k){return k+'_p'});
+            lineData=lineData.slice(1);
+        }
+
+        var domain=[null,null];
+        var range=[null,null];
+        lineData.forEach(function(d,i) {
+             d.date = +d.date;
+             if (domain[0]==null || domain[0]> d.date) domain[0]= d.date;
+             if (domain[1]==null || domain[1]< d.date) domain[1]= d.date;
+             keys.forEach(function(k){
+                if (range[0]==null || range[0]> d[k]) range[0]= d[k];
+                if (range[1]==null || range[1]< d[k]) range[1]= d[k];
+            });
+        });
+
+        //if (options.percentage) domain[0]+=1;
+
+        var toAdd=(range[1]-range[0])/10;
+        range[0]-=toAdd;
+        if (!options.percentage) range[0]=Math.max(0,range[0]);
+        range[1]+=toAdd;
+        yScale.domain(range);
+        xScale.domain(domain);
+        var formatter;
+        if (options.percentage) {
+            formatter=d3.format('.1%');
+        } else {
+            formatter=numberFormatter;
+        }
+        yAxis.tickFormat(formatter);
+
+        var legend=d3.select('.legend');
+        legend.empty();
+        legend.selectAll('.item').data(keys)
+            .enter().append('p').attr('class','item')
+            .html(function(k){return '<i style="background:'+hash[k].color+'"></i> '+hash[k].label+' <span style="float:right;margin-right:10px;" id="'+k+'_value"></span>'});
+        //legend.selectAll('.item').exit().remove();
+
+
+        // get the height and width subtracting the padding
+//    var innerHeight = window.innerHeight - 20;
+        var innerWidth = window.innerWidth - 20;
+        var divWidth=$(div).width();
+        if (divWidth==0) divWidth=$(div.parentElement.parentElement).width();
+        var maxWidth=parseInt($(div).css('max-width'));
+        if (divWidth==0) divWidth=innerWidth*0.8;
+        if (divWidth>maxWidth) divWidth=maxWidth;
+        var chartWidth = divWidth-padding.left-padding.right;//960 - margin.left - margin.right,
+        var chartHeight = $(div).height()-padding.top-padding.bottom;//500 - margin.top - margin.bottom;
+
+
+        // only update if chart size has changed
+        if (true || (prevChartWidth != chartWidth) || (prevChartHeight != chartHeight)) {
+            prevChartWidth = chartWidth;
+            prevChartHeight = chartHeight;
+
+            //set the width and height of the SVG element
+            chartSvg.attr("width", chartWidth + padding.left + padding.right)
+                .attr("height", chartHeight + padding.top + padding.bottom);
+            baseSvg.attr("width", chartWidth + padding.left + padding.right)
+                .attr("height", chartHeight + padding.top + padding.bottom);
+
+            // ranges are based on the width and height available so reset
+            xScale.range([0, chartWidth]);
+            yScale.range([chartHeight, 0]);
+
+
+
+
+            if (init) {
+                // if first run then just display axis with no transition
+                chartSvg.select(".x")
+                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
+                    .attr("transform", "translate(0," + chartHeight + ")")
+                    .call(xAxis);
+
+                chartSvg.select(".y")
+                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
+                    .call(yAxis);
+            }
+            else {
+                // for subsequent updates use a transistion to animate the axis to the new position
+                var t = chartSvg.transition().duration(updateTransistionMS);
+
+                t.select(".x")
+                    .attr("transform", "translate(0," + chartHeight + ")")
+                    .call(xAxis);
+
+                t.select(".y")
+                    .call(yAxis);
+            }
+
+            var sourceData=lineData;
+
+            function addSeries(key){
+                var g=d3.select(this);
+                var color=hash[key].color;
+                var label=hash[key].label;
+                var className=key;
+
+                // bind up the data to the line
+                var lines = g.selectAll("path.line")
+                    .data([sourceData]); // needs to be an array (size of 1 for our data) of arrays
+
+                var valueFunction=function(d){return d[key]};
+                var yFunction=function(d){return yScale(valueFunction(d))};
+                var ff=key[key.length-1]=='p' ? d3.format('.1%') : numberFormatter;
+                var formatFunction=function(d){return ff(valueFunction(d))};
+                 var line=d3.svg.line()
+                      .x(function(d) { return xScale(d.date); })
+                      .y(yFunction)
+                      .interpolate("linear");
+
+               // transistion to new position if already exists
+                lines.transition()
+                    .duration(updateTransistionMS)
+                    .attr("d", line);
+
+
+                // add line if not already existing
+                lines.enter().append("path")
+                    .attr("class", "line")
+                    .attr("stroke", color)
+                    .attr("stroke-width", 2)
+                    .attr('fill','none')
+                    .attr("d", line);
+
+                lines.exit().remove();
+
+                // bind up the data to an array of circles
+                var circles = g.selectAll("circle")
+                    .data(sourceData);
+
+                // if already existing then transition each circle to its new position
+                circles.transition()
+                    .duration(updateTransistionMS)
+                    .attr("cx", function (d) {
+                        return xScale(d.date);
+                    })
+                    .attr("cy", yFunction);
+
+                // if new circle then just display
+                circles.enter().append("circle")
+                    .attr("class", className)
+                    .attr("cx", function (d) {
+                        return xScale(d.date);
+                    })
+                    .attr("cy", yFunction)
+                    .attr("r", 4)
+                    .attr('fill', 'transparent')
+                    .style("stroke", color)
+                    .style("stroke-width", 8)
+                    .on('mouseover',function(d){
+                       d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + formatFunction(d))
+                    }).on('click',function(d){
+                       d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + formatFunction(d))
+                    }).on('touch',function(d){
+                       d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + formatFunction(d))
+                    }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
+                circles.exit().remove();
+                }
+            }
+
+            var selection=chartSvg.selectAll('g.series').data(keys);
+            selection.exit().remove();
+            selection.enter().append('g').attr('class','series');
+            chartSvg.selectAll('g.series').each(addSeries);
+    }
+
+    // look for resize but use timer to only call the update script when a resize stops
+    var resizeTimer;
+    window.onresize = function(event) {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function()
+        {
+                updateChart({init:false,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage});
+        }, 100);
+    }
+
+
+};
+ready_for_graph();
+
+
+
+function resetImages(){
+    $('img').each(function(img){
+        imgsrc = $(img).attr('src');
+        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
+            $(img).attr('src', '');
+            $(img).attr('src', imgsrc);
+
+        }
+    });
+    setTimeout(function(){
+        resetImages();
+    },25000);
+}
+setTimeout(function(){
+    resetImages();
+},25000);
+
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Updated Property Tax Data]]></title>
@@ -834,140 +1255,6 @@ total &ndash; is classified as being an &ldquo;Apartment, building that has fewe
 only have duplex or single family lots as residential land uses based on assessment and land use data, we can look for
 how many dwelling units the census places in an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. And
 <a href="https://mountainmath.ca/census_mix/map?mapBase=2&amp;layer=5">map them</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SDH Zoning and Land Use]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use/"/>
-    <updated>2016-06-17T09:34:37-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use</id>
-    <content type="html"><![CDATA[<p>Recently the question around the amount of space taken up (exclusively) by single detached houses has show up on my
-Twitter feed citing that
-SFH take up <a href="https://twitter.com/WayneFougere/status/743211599821844481">70%</a>,
-<a href="https://twitter.com/MitchellReardon/status/739957295564476416">66%</a>,
-and <a href="https://twitter.com/karensawa/status/743235428011020288">57%</a>,
-<a href="http://www.cknw.com/2016/06/02/the-lynda-steele-show-bob-rennie-on-supply-and-demand/">56% (timestamp 3:50)</a>.
-I personally have thrown in
-<a href="https://twitter.com/vb_jens/status/738608945741238272">34%</a> as a contender. And, just for the fun of it, by the end of
-this post I will have thrown 33% and 28% and my favorite, 81%, into the mix.</p>
-
-<p>What&rsquo;s going on, how can there be such a large range of estimates for what seems to be a simple question? The answer
-lies in the details of what exactly the question is asking, all of the above numbers are correct answers to one particular
-version of very similar questions.</p>
-
-<h3>TL;DR</h3>
-
-<p>The takeaway I think is most useful for general purposes:</p>
-
-<pre><code>35% of all households live on single family and duplex properties
-making up 81% of Vancouver's residential land, while the     
-remaining 65% of households live on 19% of the residential land. 
-</code></pre>
-
-<!-- more -->
-
-
-<p>There are two fundamental ways to attack the question. One is through zoning, that is to look at area where only SDH can
-be built. The other is through land use, that is looking at what area is currently occupied by SDH lots.</p>
-
-<h3>Single Detached Houses</h3>
-
-<p>First we need to understand what we mean by single detached house. There are two common, but quite different definitions
-out there. One stems from the zoning code and refers to a property that is not stratified and has a single main structure
-on it, possibly with one suite, and possibly a laneway house. This is the definition most commonly used. When someone says
-they own a single family house, this is what they are talking about. Let&rsquo;s call them <em>single detached properties</em>.
-There are around 75,000 of these in the City of Vancouver.</p>
-
-<p>Stats Canada employs a different definition. To them a <em>single detached dwelling</em> is single dwelling unit comprised of a
-free-standing (detached) structure. A <em>single detached property</em> may contain exactly one dwelling unit, in which case
-Stats Canada would also call it a <em>single detached dwelling</em>. If the house has a secondary suite, Stats Canda would
-classify it as a <em>duplex</em>. If it has a laneway house, Stats Canada would classify the laneway house as a separate
-<em>single detached dwelling</em>. Stats Canada reports 47,530 <em>single detached dwellings</em> in the City of Vancouver.</p>
-
-<p>Because of this discrepancy, sometimes it is useful to look as single family houses and duplexes combined. Especially
-if one wants to mix in census data to for example look at the number of households that live in these dwellings. While
-there are about 75,000 <em>single detached properties</em> in Vancouver, it is fair to assume that there are significantly more
-than 75,000 households living on these properties once we account for secondary suites and laneway houses.</p>
-
-<h3>Zoning</h3>
-
-<p><a href="http://vancouver.ca/files/cov/Zoning-Map-Vancouver.pdf" target="_blank"><img  src="http://doodles.mountainmath.ca/images/zoning_van_pdf.png" style="width:50%;float:right;margin-left:10px;"></a>
-Vancouver is divided up into zones that determine what can (and cannot) be legally built on the land.
-If one is primarily concerned with the area of land that where only single detached houses can be built, then zoning is
-the right metric to look at.</p>
-
-<p>There are two zones that essentially only allow single family houses as residential properties, the RS zones and,
-to some extent, First Shaughnessy. Each of these has it&rsquo;s own pitfalls. The first issue is that parks are generally zoned
-RS, but one cannot build single family homes in parks. Moreover, while RS does not allow residential land uses other
-than single detached houses, it does allow for other land uses, like parks, schools, assisted living and other institutional
-uses. So RS zoned land area is a poor proxy for the question of where single family houses could be built. At the very
-<a href="https://mountainmath.ca/map/assessment?zoom=13&lat=49.2517&lng=-123.1232&layer=6" target="_blank"><img  src="http://doodles.mountainmath.ca/images/zoning_van.png" style="width:50%;float:left;margin-right:10px;"></a>
-least we should exclude parks from the equation, but probably also schools and other institutional land uses. After all,
-it is delusional to think that even if a school were to close down and the land be sold for development that single
-detached dwelling would be built on that land. Next comes the question if we should only include the lots that single
-family homes could be built on, or also include the surrounding roads. After all, the roads are needed to serve the lots.
-But they also serve the schools and parks, so maybe only a certain portion of the roads should be included? It gets messy,
-the second image shows only non-institutional and non-park properties (no roads) coloured by zone, interactive version
-<a href="http://mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2517&amp;lng=-123.1232&amp;layer=6">here</a>.</p>
-
-<p>The numbers between 70% and 56% mentioned up top are (probably) derived using some version of zoned area, possibly excluding
-parks or schools for some, but including roads within RS zoning. It is easy to underestimate
-the space roads take up in the City of Vancouver, overall roads right of ways make up 28% of City of Vancouver land.</p>
-
-<p>At the end of this though process, we are starting to gravitate away from zoning and toward land use.</p>
-
-<h3>Land Use</h3>
-
-<p>We can simplify the discussion by asking how much space currently is taken up by single family properties. The answer
-to this is 33%. I have previously written about the
-<a href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/">land use breakdown</a> for Metro Vancouver municipalities, but
-single detached homes were not broken out separately, single detached and duplex properties combined take up 34% of
-Vancouver&rsquo;s land. One can play the numbers a little more, maybe only look at single detached properties within RS zoning.
-That puts the number at 28%. Throw in Shaugnessy and it rises to 29%. Recall that this excludes roads right of way.</p>
-
-<p><a href="https://mountainmath.ca/land_use/map?zoom=13&lat=49.2544&lng=-123.1268&mu_filter=[%22VA%22]&lu_filter_n=[]" target="_blank"><img  src="http://doodles.mountainmath.ca/images/land_use_van.png" style="width:50%;float:right;margin-left:10px;"></a>
-Here is an interactive (data-heavy) map that shows the land use for
-<a href="https://mountainmath.ca/land_use/map?zoom=13&amp;lat=49.2544&amp;lng=-123.1268&amp;mu_filter=[%22VA%22]&amp;lu_filter_n=[]">just for the City of Vancouver (plus Musqueam 2)</a>.</p>
-
-<h3>Multi-Unit Housing</h3>
-
-<p>One can ask the same question about other housing types, and we can read off the numbers from the
-<a href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/">land use breakdown</a>. 3.2% of land is taken up with low rise
-apartments, 1.9% with townhouses, 1.2% with high rise, 0.3% by non-market housing, 0.9% by mixed use low rise and 0.7%
-by mixed use high rise. Adding all of this up we get that 8.2% of land is taken up by housing that is not single detached
-or duplex. And it also includes some commercial space in the mixed use developments.</p>
-
-<p>That means that overall in Vancouver 42.2% of the land is used for residential purposes, 81% of which is occupied by
-single detached and duplex properties and the remaining 19% is occupied by all other building forms.</p>
-
-<h3>Share of Households in Different Land Uses</h3>
-
-<p>We may be interested in the population density these different land use patterns entail. That&rsquo;s where things get a little
-tricky, we will turn to the census for answers. From the standard census releases we can only discern the share of
-dwellings that are single detached and duplex properties combined, and that number is 93,370 dwelling units. Overall
-there are 264,575 dwelling units, so single family and duplex units make up 35% of all dwelling units in CoV. Glossing
-over the issue that some of these may not be occupied we conclude that 35% of all households live on single family and
-duplex properties making up 81% of Vancouver&rsquo;s residential land,
-while the remaining 65% of households live on 19% of the residential land.</p>
-
-<h3>Fine Print</h3>
-
-<p>There are a number of issues with the data that might change the numbers slightly, but not by much. The first is that
-the land use dataset I use lump the City of Vancouver together with Musqueam 2. That slightly changes the land use mix
-and areas reported, but the effect on all numbers mentioned here is very small. Next up is the number of dwelling units
-on single detached or duplex properties. The census number is likely to under report some secondary suites (although it
-captures more than BCAssessment does), and properties with more than one secondary suite (so some illegal suites) will
-show up as an apartment building in census data. Moreover, the census data is from 2011, the land use data we used is
-about a year old, and we have manually adjusted for some recent upzoning. So there is some give or take in the numbers,
-I would not expect more than a one percent move in the numbers I reported as a result.</p>
-
-<h3>Further Questions</h3>
-
-<p>This does not answer the question what percentage of the population lives on single family or duplex properties. To
-estimate that one would have to first estimate the number of people per houshold for the different land uses, as we
-expect them to differ significantly. One can start exploring how the number of people per dwelling unit varies
-<a href="https://censusmapper.ca/maps/391">on CensusMapper</a>.</p>
 ]]></content>
   </entry>
   

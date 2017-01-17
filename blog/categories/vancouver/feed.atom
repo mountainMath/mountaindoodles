@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2016-12-14T13:25:22-08:00</updated>
+  <updated>2017-01-16T23:01:23-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,427 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2017 Vancouver Assessment Data]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data/"/>
+    <updated>2017-01-16T19:04:19-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data</id>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/values?filter=[sfh]&amp;zoom=13&amp;layer=9"><img  src="http://doodles.mountainmath.ca/images/values_animation.gif" style="width:50%;float:right"></a>
+The friendly folks at
+<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> just
+<a href="https://twitter.com/VanOpenData/status/688060388190097408">updated their property assessment data</a> with the fresh 2017
+property tax assessments. Time to run the script to update the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a>
+with the new data, just <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">like we did last year</a>.</p>
+
+<h4>Maps</h4>
+
+<!-- more -->
+
+
+<p>By now we have a variety of maps that highlight different aspects of Vancouver real estate. Our basic
+<a href="https://mountainmath.ca/map/assessment">interactive assessment map</a> offers a variety of ways to slice and display the data. It&rsquo;s
+mostly focused on functionality, some of which we described in
+<a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">last year&rsquo;s post</a>, as well as other posts like
+the one on <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">twiddling thumbs vs working</a>.</p>
+
+<p>We also have interactive views focusing on how real estate prices varied over time, for example the <a href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/">houses and dirt map</a>
+that separates out the values of the structures and the land, and also allows to filter by type of housing, to animate changes over time.</p>
+
+<p>For people that like simpler maps we also have a <a href="https://mountainmath.ca/map/values?filter=[sfh]&amp;zoom=13&amp;layer=9">plain total value over time map</a>
+that allows to interactively step through the years and see how single family housing in Vancouver changed over time. Here we also
+added the ability to visualize year-over-year value changes, which also make for good studying how BCAssessment changed their valuation
+algorithm over the years.</p>
+
+<h4>The Data</h4>
+
+<p>The data originates with BC Assessment, which estimates land and building values of each property based on recent sales
+of comparable properties. The values are pegged at July 1 of each year, with the the most recent available now being July 1 2016.
+The estimates for the values do not reflect changes in the market since then. Moreover, the estimates can be quite off on an individual
+property level, but are unbiased. That means that any statistics derived from a large subsample should fairly accurately
+reflect actual market conditions for July 1st.</p>
+
+<p>While City of Vancouver, as well as the City of Surrey, make this data available for general use through their open data portal,
+BC Assessment does not give out their data with a license that would allow mapping of individual properties. They also make data
+on individual properties available through their <a href="https://evaluebc.bcassessment.ca">eValue website</a>,</p>
+
+<p>The format of the data the municipalities are giving out through their open data portal is
+different, so lazy me is only importing data from City of Vancouver.</p>
+
+<p>The motivation behind the map was to understand the building stock, so we filter out parks and some other properties.</p>
+
+<p>The new city dataset does not include the 2017 tax levy, so we still only show the 2016 tax levies until CoV updated their dataset.</p>
+
+<h4>History</h4>
+
+<p>Here is a quick history of the overall land and building values aggregated for Vancouver between 2006 and 2017.</p>
+
+<p>We upped our game a bit from last year and added a bit of interactivity. Use the dropdown menus to drill down
+into city neighbourhoods, view values for all properties or just residential properties and display as total value or year-over-year
+percentage change.</p>
+
+<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
+<select id="nbhd-select"></select>
+<select id="keys-select"></select>
+<select id="type-select">
+<option value='total'>Total Value</option>
+<option value='percent'>Percentage Change</option>
+</select>
+<div id="graph" style="height:200px;max-width:640px;" data-lines="/data/detail_history.json"></div>
+<div class="legend no-margin">
+</div>
+</div>
+
+
+<p>When looking at all properties in the city, the increase in land
+value year over year was 21.4% ($45.2bn), while overall building values increased by 7.3% ($5bn). Hover, click or touch
+the points in the graph to get the values for the corresponding year.</p>
+
+<script>
+var ready_for_graph = function() {
+    var d3lines=[];
+    var padding = {top: 20, right: 20, bottom: 30, left: 90};
+    var prevChartWidth = 0, prevChartHeight = 0;
+    var updateTransistionMS = 750; // milliseconds
+    var jsonData, xScale, yScale, line,neighbourhoods;
+
+    var currentValue='City of Vancouver';
+    var currentKeys=['land','building'];
+    var currentModePercentage=false;
+
+    var hash={
+            land: {label:"Land Value", color:"green"},
+              building: {label:"Building Value", color:"blue"},
+              res_land: {label:"Residential Land Value", color:"darkgreen"},
+              res_building: {label:"Residential Building Value", color:"darkblue"},
+              land_p: {label:"Land Value Increase", color:"green"},
+              building_p: {label:"Building Value Increase", color:"blue"},
+              res_land_p: {label:"Residential Land Value Increase", color:"darkgreen"},
+              res_building_p: {label:"Residential Building Value Increase", color:"darkblue"}
+                };
+    var keys=Object.keys(hash);
+
+    var symbol;
+    var prefix;
+    var numberFormatter = function (y) {
+        return '$' + Math.round(prefix.scale(y*10))/10.0 + symbol;
+    };
+
+    var graphs=d3.select("#graph");
+    var div=graphs[0][0];
+    if (div==null|| div.childElementCount!=0) {return;}
+    var data_url=div.dataset.url;
+
+    // create svg and g to contain the chart contents
+    var baseSvg = graphs.append("svg");
+    var chartSvg=baseSvg
+        .append("g")
+        .attr("class", "chartContainer")
+        .attr("transform", "translate(" + padding.left + "," + padding.top + ")");
+
+    // create the x axis container
+    chartSvg.append("g")
+        .attr("class", "x axis");
+
+    // create the y axis container
+    chartSvg.append("g")
+        .attr("class", "y axis");
+    var line;
+    var largest=null;
+    var lineData;
+    if (div.dataset.lines) {
+        d3.json(div.dataset.lines,function(error,json){
+        jsonData=json;
+        neighbourhoods=Object.keys(jsonData);
+        var keyHash={all:{label: 'All Properties',data:['land','building']},res:{label: 'Residential Properties',data:['res_land','res_building']}};
+        var keyOptions=Object.keys(keyHash);
+        d3.select('#nbhd-select').selectAll('option').data(neighbourhoods).enter().append('option').attr('value',function(d){return d}).text(function(d){return d});
+        $('#nbhd-select').on('change',function(d){
+            currentValue=this.value;
+            updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage})
+        });
+        d3.select('#keys-select').selectAll('option').data(keyOptions).enter().append('option').attr('value',function(d){return d}).text(function(d){return keyHash[d].label});
+        $('#keys-select').on('change',function(d){
+            currentKeys=keyHash[this.value].data;
+            updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage})
+        });
+        $('#type-select').on('change',function(d){
+            currentModePercentage=this.value=='percent';
+            updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage})
+        });
+        lineData=json[currentValue];
+        var domain=[null,null];
+        var range=[null,null];
+        lineData.forEach(function(d) {
+             d.date = +d.date;
+             if (domain[0]==null || domain[0]> d.date) domain[0]= d.date;
+             if (domain[1]==null || domain[1]< d.date) domain[1]= d.date;
+             keys.forEach(function(k){
+                d[k]=+d[k];
+                if (range[0]==null || range[0]> d[k]) range[0]= d[k];
+                if (range[1]==null || range[1]< d[k]) range[1]= d[k];
+            });
+        });
+        xScale=d3.scale.linear().domain(domain);
+        var toAdd=(range[1]-range[0])/10;
+        range[0]-=toAdd;
+        range[1]+=toAdd;
+        yScale=d3.scale.linear()
+            .domain(range);
+
+        line = d3.svg.line()
+            .x(function(d) { return xScale(d.date); })
+            .y(function(d) { return yScale(0); })
+            .interpolate("linear");
+        xAxis = d3.svg.axis()
+            .scale(xScale)
+            .orient("bottom")
+            .tickFormat(d3.format("d"))
+            .tickValues(domain);
+
+        yAxis = d3.svg.axis()
+            .scale(yScale)
+            .orient("left")
+            .tickFormat(numberFormatter)
+            .ticks(5);
+
+        prefix = d3.formatPrefix(range[1]);
+        if (prefix.symbol=='K') {
+            symbol='k'
+        } else if (prefix.symbol=='M') {
+                symbol='m'
+        } else if (prefix.symbol=='G') {
+            symbol='bn'
+        } else if (prefix.symbol=='T') {
+            symbol='tn'
+        }
+        updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage});
+        });
+
+    }
+
+
+    function updateChart(options)
+    {
+        var lineData=options.data;
+        var init=options.init;
+        var keys=options.keys;
+
+        lineData.forEach(function(d,i) {
+             keys.forEach(function(k){
+                d[k]=+d[k];
+                if (i>0) d[k+'_p']=d[k]/lineData[i-1][k]-1;
+             });
+        });
+
+        if (options.percentage) {
+            keys=keys.map(function(k){return k+'_p'});
+            lineData=lineData.slice(1);
+        }
+
+        var domain=[null,null];
+        var range=[null,null];
+        lineData.forEach(function(d,i) {
+             d.date = +d.date;
+             if (domain[0]==null || domain[0]> d.date) domain[0]= d.date;
+             if (domain[1]==null || domain[1]< d.date) domain[1]= d.date;
+             keys.forEach(function(k){
+                if (range[0]==null || range[0]> d[k]) range[0]= d[k];
+                if (range[1]==null || range[1]< d[k]) range[1]= d[k];
+            });
+        });
+
+        //if (options.percentage) domain[0]+=1;
+
+        var toAdd=(range[1]-range[0])/10;
+        range[0]-=toAdd;
+        if (!options.percentage) range[0]=Math.max(0,range[0]);
+        range[1]+=toAdd;
+        yScale.domain(range);
+        xScale.domain(domain);
+        var formatter;
+        if (options.percentage) {
+            formatter=d3.format('.1%');
+        } else {
+            formatter=numberFormatter;
+        }
+        yAxis.tickFormat(formatter);
+
+        var legend=d3.select('.legend');
+        legend.empty();
+        legend.selectAll('.item').data(keys)
+            .enter().append('p').attr('class','item')
+            .html(function(k){return '<i style="background:'+hash[k].color+'"></i> '+hash[k].label+' <span style="float:right;margin-right:10px;" id="'+k+'_value"></span>'});
+        //legend.selectAll('.item').exit().remove();
+
+
+        // get the height and width subtracting the padding
+//    var innerHeight = window.innerHeight - 20;
+        var innerWidth = window.innerWidth - 20;
+        var divWidth=$(div).width();
+        if (divWidth==0) divWidth=$(div.parentElement.parentElement).width();
+        var maxWidth=parseInt($(div).css('max-width'));
+        if (divWidth==0) divWidth=innerWidth*0.8;
+        if (divWidth>maxWidth) divWidth=maxWidth;
+        var chartWidth = divWidth-padding.left-padding.right;//960 - margin.left - margin.right,
+        var chartHeight = $(div).height()-padding.top-padding.bottom;//500 - margin.top - margin.bottom;
+
+
+        // only update if chart size has changed
+        if (true || (prevChartWidth != chartWidth) || (prevChartHeight != chartHeight)) {
+            prevChartWidth = chartWidth;
+            prevChartHeight = chartHeight;
+
+            //set the width and height of the SVG element
+            chartSvg.attr("width", chartWidth + padding.left + padding.right)
+                .attr("height", chartHeight + padding.top + padding.bottom);
+            baseSvg.attr("width", chartWidth + padding.left + padding.right)
+                .attr("height", chartHeight + padding.top + padding.bottom);
+
+            // ranges are based on the width and height available so reset
+            xScale.range([0, chartWidth]);
+            yScale.range([chartHeight, 0]);
+
+
+
+
+            if (init) {
+                // if first run then just display axis with no transition
+                chartSvg.select(".x")
+                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
+                    .attr("transform", "translate(0," + chartHeight + ")")
+                    .call(xAxis);
+
+                chartSvg.select(".y")
+                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
+                    .call(yAxis);
+            }
+            else {
+                // for subsequent updates use a transistion to animate the axis to the new position
+                var t = chartSvg.transition().duration(updateTransistionMS);
+
+                t.select(".x")
+                    .attr("transform", "translate(0," + chartHeight + ")")
+                    .call(xAxis);
+
+                t.select(".y")
+                    .call(yAxis);
+            }
+
+            var sourceData=lineData;
+
+            function addSeries(key){
+                var g=d3.select(this);
+                var color=hash[key].color;
+                var label=hash[key].label;
+                var className=key;
+
+                // bind up the data to the line
+                var lines = g.selectAll("path.line")
+                    .data([sourceData]); // needs to be an array (size of 1 for our data) of arrays
+
+                var valueFunction=function(d){return d[key]};
+                var yFunction=function(d){return yScale(valueFunction(d))};
+                var ff=key[key.length-1]=='p' ? d3.format('.1%') : numberFormatter;
+                var formatFunction=function(d){return ff(valueFunction(d))};
+                 var line=d3.svg.line()
+                      .x(function(d) { return xScale(d.date); })
+                      .y(yFunction)
+                      .interpolate("linear");
+
+               // transistion to new position if already exists
+                lines.transition()
+                    .duration(updateTransistionMS)
+                    .attr("d", line);
+
+
+                // add line if not already existing
+                lines.enter().append("path")
+                    .attr("class", "line")
+                    .attr("stroke", color)
+                    .attr("stroke-width", 2)
+                    .attr('fill','none')
+                    .attr("d", line);
+
+                lines.exit().remove();
+
+                // bind up the data to an array of circles
+                var circles = g.selectAll("circle")
+                    .data(sourceData);
+
+                // if already existing then transition each circle to its new position
+                circles.transition()
+                    .duration(updateTransistionMS)
+                    .attr("cx", function (d) {
+                        return xScale(d.date);
+                    })
+                    .attr("cy", yFunction);
+
+                // if new circle then just display
+                circles.enter().append("circle")
+                    .attr("class", className)
+                    .attr("cx", function (d) {
+                        return xScale(d.date);
+                    })
+                    .attr("cy", yFunction)
+                    .attr("r", 4)
+                    .attr('fill', 'transparent')
+                    .style("stroke", color)
+                    .style("stroke-width", 8)
+                    .on('mouseover',function(d){
+                       d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + formatFunction(d))
+                    }).on('click',function(d){
+                       d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + formatFunction(d))
+                    }).on('touch',function(d){
+                       d3.select('#'+this.classList[0]+'_value').text(d.date + ': ' + formatFunction(d))
+                    }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
+                circles.exit().remove();
+                }
+            }
+
+            var selection=chartSvg.selectAll('g.series').data(keys);
+            selection.exit().remove();
+            selection.enter().append('g').attr('class','series');
+            chartSvg.selectAll('g.series').each(addSeries);
+    }
+
+    // look for resize but use timer to only call the update script when a resize stops
+    var resizeTimer;
+    window.onresize = function(event) {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function()
+        {
+                updateChart({init:false,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage});
+        }, 100);
+    }
+
+
+};
+ready_for_graph();
+
+
+
+function resetImages(){
+    $('img').each(function(img){
+        imgsrc = $(img).attr('src');
+        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
+            $(img).attr('src', '');
+            $(img).attr('src', imgsrc);
+
+        }
+    });
+    setTimeout(function(){
+        resetImages();
+    },25000);
+}
+setTimeout(function(){
+    resetImages();
+},25000);
+
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Updated Property Tax Data]]></title>
@@ -830,157 +1251,6 @@ to the 2010 ratio. What may have been &lsquo;barely affordable&rsquo; in 2010 is
 <p>So we used the detailed income data available for 2010 to get very good understanding of the affordability situation in 2010.
 Then we used regional income trends to extrapolate that data to 2015 and matched it with 2015 housing data to get more up-to-date
 estimates. This is generally an effective method that yields good results.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Quick Guide to Income Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/08/31/incomes/"/>
-    <updated>2016-08-31T09:17:12-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/08/31/incomes</id>
-    <content type="html"><![CDATA[<p>The news media has an extraordinarily difficult time with income data. And that&rsquo;s only partially the media&rsquo;s fault.
-In general, income data is a funny beast. So I decided to give a quick overview over income data that&rsquo;s available through
-Statistics Canada. To make things a little more concrete I focused on Vancouver as an example, but everything applies
-equally well to any other area in Canada.</p>
-
-<p>Most journalists I talked to care about accurate and relevant statements. If that&rsquo;s you, you will need to keep reading
-and dive down the slightly wonkish income rabbit hole.</p>
-
-<p>For those that don&rsquo;t really care, I made a
-<em>quotable random income generator</em>. Just hit the &ldquo;generate&rdquo; button copy &amp; paste the result and link this post as source.
-(Use at own risk!)</p>
-
-<!-- more -->
-
-
-
-
-<div class='income-generator'>
-    <div class='income-choices'>
-        <div class="geo"></div>
-        <div class="med_av"></div>
-        <div class="tax"></div>
-        <div class="hh"></div>
-        <div> income is </div>
-        <div class="income"></div>
-    </div>
-    <a class="btn btn-default" style="background:orange;">Click to Generate Random Income Numbers</a>
-</div>
-
-
-<p>The income numbers don&rsquo;t fit the story? No problem, just play again until you get something you like!</p>
-
-<h3>Geographic Regions</h3>
-
-<p>The first thing to do when quoting income numbers of any sort is to decide what region to use. Seems straight forward
-enough, but in reality <a href="https://twitter.com/vb_jens/status/744407354867736576">hardly ever done</a>. In the Vancouver
-context, it simply comes down to deciding if one wants to
-report on income for the City of Vancouver or Metro Vancouver. Both are frequently referred to as just &ldquo;Vancouver&rdquo;. Which
-is just fine as long as it is clear from the context which region we are talking about. And more importantly, whatever
-the income is compared to (e.g. housing price data) are taken for the same region.</p>
-
-<h3>Base Demographics</h3>
-
-<p>Next we have to choose a base demographic we are interested in, choose which income distribution is relevant for our context.
-In some cases this choice is obvious. If we are writing a story on lone parents in the City of Vancouver, we would want
-to look at the income distribution of lone parent households. If we are looking at the development of wages, we should
-consider individual incomes. For a story on consumer spending we may want to look at after-tax income.</p>
-
-<p>We may also be interested in specific type of income, for example only in investment income. Or the net capital gains
-and losses. Or pension benefits. Or self-employment income.</p>
-
-<h3>Statistic</h3>
-
-<p>Often we would like to distill everything down to a single number. Typically we would choose the average or median
-income from the distribution we are interested in, but we may also choose other statistics, for example the top quintile.
-Which one we choose really depends on the story. As a rule of thumb, choose median incomes if you are interested in the
-&lsquo;typical&rsquo; person or household. Choose average income if you are interested in the questions relating to the total amount
-of money earned in a given area. Income quantiles are great to focus in on certain subgroups of the population.</p>
-
-<h3>Availability</h3>
-
-<p>Generally we also have to consider the availability of information. The census has very detailed income data in their
-standard release that allow us to be very specific about what kind of incomes we are interested in. And if that&rsquo;s not
-enough we can make a special request to StatsCan to narrow the incomes down to a group we are interested in, for example incomes
-of renter households as was done in the <a href="http://rentalhousingindex.ca">rental housing index</a>.</p>
-
-<p>Annual income data is available from CANSIM (Statistics Canada&rsquo;s socioeconomic database), but the geography is coarser
-than in the census. Generally we can only
-expect to get annual data for the whole country, provinces, census metropolitan areas, but not census
-subdivisions (municipalities) or finer geographies.</p>
-
-<h3>Sources and Comparability</h3>
-
-<p>All income data eventually come down to CRA taxfiler data. But the devil is in the details. For the 2006 and 2011
-censuses, there was a mixture between self-reporting and cross-referencing of individual level income data with CRA data.
-And even self-reported data would again undergo quality control and get somewhat adjusted according to CRA data.</p>
-
-<p>But there are important differences in the data, both on what kind of income is included and also what people are included.</p>
-
-<p>The details are endless, many of them won&rsquo;t matter. Here are a couple to look out for:</p>
-
-<ul>
-<li>CANSIM is a comprehensive sample, census data is roughly a 1 in 5 subsample which may lead to sampling bias especially
-in small geographies.</li>
-<li>CENSUS data is sensitive to non-return bias. Not just no-return bias introduced by the NHS, but also by census undercounts
-which, for example, were in the 10% range for the 25 to 29 year old demographic in both the 2006 and 2011 censuses.</li>
-<li>CANSIM and the Census have different denominators for reporting average or median incomes. CANSIM reports on all
-T1 taxfilers, as well as various family types. Some data can be broken out into age groups at
-the 15 and 65 year cutoffs,
-whereas Census reports only on people (15 or older) (or families or households) in &ldquo;private households&rdquo; with income greater
-than zero.</li>
-<li>the definition of &ldquo;private household&rdquo; changed between 2006 and 2011 censuses.</li>
-<li>2011 and 2006 censuses differ slightly in what is included as income, for example
-<a href="http://www12.statcan.gc.ca/census-recensement/2006/ref/dict/pop123-eng.cfm">2006 included RRSP withdrawls</a>,
-<a href="https://www12.statcan.gc.ca/nhs-enm/2011/ref/dict/pop123-eng.cfm">2011 didn&rsquo;t</a> (both include pensions and RRIFs).
-2011 includes net capital gains and losses as a percentage of total income in a separate category, 2006 did not
-include any information on capital gains.</li>
-</ul>
-
-
-<p>So even when comparing CANSIM income data to census income data for the appropriate year we should expect some differences.
-Or comparing 2006 to 2011 income, even if hypothetically an area had identical tax returns, we would still see differences.
-Generally speaking, CANSIM average and median income estimates are lower than census estimates as it includes a larger pool
-of people that are likely to have lower income.</p>
-
-<h3>Where to get the goods?</h3>
-
-<p><img  src="http://doodles.mountainmath.ca/images/yvr_income.png" style="width:50%;float:right;margin-left:10px;">
-The latest census income numbers are available via <a href="https://www12.statcan.gc.ca/nhs-enm/2011/dp-pd/prof/index.cfm">Statistics Canada</a>.
-I am biased and prefer the <a href="https://censusmapper.ca/maps/467">CensusMapper</a> interface. For 2011 data, choose any
-2011 CensusMapper map, select the geographic
-region you are interested in and press the &ldquo;more&rdquo; button on the popup to bring up the &ldquo;census wheel&rdquo;. Then drill into the
-&ldquo;income&rdquo; section, the last NHS variable in the widget.</p>
-
-<p>CANSIM has annual data based on taxfiler information for coarser geographies. So you won&rsquo;t be able to get data for the City of Vancouver
-or neighbourhoods within the city like with census data, but you can get data for Metro Vancouver. And you can get it for
-more recent years. Things get complex very fast there are
-<a href="http://www5.statcan.gc.ca/cansim/a33?themeID=3868&amp;spMode=tables&amp;chunkSize=213">213 CANSIM tables with income data</a></p>
-
-<p>At CensusMapper we are still firmly planning integrate CANSIM data into the CensusMapper interface, but their API refresh got pushed back
-to sometime 2018 and we can&rsquo;t justify the extra resources to integrate CANSIM data temporarily using the old API just
-to switch it over a year later.</p>
-
-<h3>Too Abstract?</h3>
-
-<p>Want to see how this works on an example? Just read the
-<a href="http://doodles.mountainmath.ca/blog/2016/09/14/measuring-housing-affordability/">next post on using income data for housing affordability</a>.</p>
-
-<script>
-var geoData=['City of Vancouver','Metro Vancouver'];
-var med_avData=['median','average'];
-var taxData=['pre-tax','after-tax'];
-var hhData=['individual','household','family','family with children'];
-$('.income-generator .btn').on('click',function(e){
-     $('.income-generator').addClass('active');
-     $('.income-choices .geo').text(geoData[Math.round(Math.random())]);
-     $('.income-choices .med_av').text(med_avData[Math.round(Math.random())]);
-     $('.income-choices .tax').text(taxData[Math.round(Math.random())]);
-     $('.income-choices .hh').text(hhData[Math.round(3.9999*Math.random()-0.5)]);
-     $('.income-choices .income').text('$' + Math.round(80*Math.random()+40)+',000');
-});
-</script>
-
 ]]></content>
   </entry>
   
