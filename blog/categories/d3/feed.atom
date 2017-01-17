@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-17T08:06:55-08:00</updated>
+  <updated>2017-01-17T08:27:22-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -40,10 +40,10 @@ mostly focused on functionality, some of which we described in
 the one on <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">twiddling thumbs vs working</a>.</p>
 
 <p>We also have interactive views focusing on how real estate prices varied over time, for example the <a href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/">houses and dirt map</a>
-that separates out the values of the structures and the land, and also allows to filter by type of housing, to animate changes over time.</p>
+that separates out (inflation adjusted) values of the structures and the land, and also allows to filter by type of housing, to animate changes over time.</p>
 
-<p>For people that like simpler maps we also have a <a href="https://mountainmath.ca/map/values?filter=[sfh]&amp;zoom=13&amp;layer=9">plain total value over time map</a>
-that allows to interactively step through the years and see how single family housing in Vancouver changed over time. Here we also
+<p>For people that like simpler maps we also have a <a href="https://mountainmath.ca/map/values?filter=[sfh]&amp;zoom=13&amp;layer=9">plain total (nominal) value over time map</a>
+that allows to interactively step through the years and see how single family house values in Vancouver changed over time. Here we also
 added the ability to visualize year-over-year value changes, which also hints at how BC Assessment changed their valuation
 algorithm over the years.</p>
 
