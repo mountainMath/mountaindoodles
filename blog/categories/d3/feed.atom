@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-17T08:36:02-08:00</updated>
+  <updated>2017-01-17T17:35:01-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,52 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The Coveted .2m - .6m Vote]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/01/17/the-coveted-2m-6m-vote/"/>
+    <updated>2017-01-17T16:19:03-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/01/17/the-coveted-2m-6m-vote</id>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/special/81?layer=101&amp;mapBase=2"><img  src="http://doodles.mountainmath.ca/images/coveted_vote.png" style="width:50%;float:right"></a>
+Earlier this month the province increased the threshold for the homeowner grant from $1.2 million to 1.6 million dollars.
+With the BC Assessment data for the City of Vancouver now being available we can ask who exactly this move was targeting.</p>
+
+<p>Restricted to the City of Vancouver, the answer is quite simple. There are about 24,000 single family homes, 1,200 duplex units and 4,000 condo units
+in that bracket.</p>
+
+<p>Let&rsquo;s take a closer look.</p>
+
+<!-- more -->
+
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[sfh,total_1200000_1600000]&amp;layer=101&amp;mapBase=2"><img  src="http://doodles.mountainmath.ca/images/coveted_sfh_vote.png" style="width:50%;float:right"></a>
+If we focus in on just the
+<a href="https://mountainmath.ca/map/assessment?filter=[sfh,total_1200000_1600000]&amp;layer=101&amp;mapBase=2">single family homes</a>,
+which make up the vast majority of the units in that bracket, we see that they
+are (almost) entirely located in East Vancouver. In fact, we can see how Main Street delineates these properties quite neatly.
+In fact, there are fewer than 500 single family homes west of Main in that bracket.</p>
+
+<p>One could be lead to think that Main Street is the &ldquo;$1.6m line&rdquo;. But of the single family homes
+east of Main, these only make up just over half of the properties there,
+there are almost as many that are
+<a href="https://mountainmath.ca/map/assessment?filter=[sfh,total_1600000]&amp;layer=101&amp;mapBase=2">assessed over $1.6m</a>
+and <a href="https://mountainmath.ca/map/assessment?filter=[sfh,total__1200000]&amp;layer=101&amp;mapBase=2">almost 2,000 assessed under $1.2m</a>.</p>
+
+<h4>Changing Homeowner Grant Status</h4>
+
+<p>There are a number of single family homes where the homeowner grant status changed between 2016 and 2017.
+There are about 3,100 single family homes who did not qualify for the homeowner
+grant in 2016, but do now. And about 1000 that did qualify in 2016 but won&rsquo;t this year.</p>
+
+<p>Yes, that&rsquo;s right, there are
+1000 single family homes with 2016 assessment below $1.2m and 2017 assessment over $1.6m. I pity them,
+having to pay an extra $50/month in property taxes just because the province did not care about them
+enough to set the new threshold higher than $1.6m.</p>
+
+<p>To round things up, there were a little under 500 duplex and condo units that did not qualify for the homeowner
+grant in 2016 and do in 2017, and under 200 that did qualify in 2016 and don&rsquo;t now.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[2017 Vancouver Assessment Data]]></title>
@@ -1067,480 +1113,6 @@ relation to one another. Thought I would throw that in real quick.</p>
 
 
 <div><script src="http://doodles.mountainmath.ca/javascripts/land_use_breakdown.js"></div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[On Condos]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/02/10/on-condos/"/>
-    <updated>2016-02-10T11:01:47-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/02/10/on-condos</id>
-    <content type="html"><![CDATA[<p>Lots has been said about the upper end of owned dwellings. The movement of the &ldquo;million dollar line&rdquo;, the emergence of
-the &ldquo;two million dollar line&rdquo; and &ldquo;multi-million dollar lines&rdquo;. Most of that discussion is focused on
-<a href="http://www.mountainmath.ca/map/assessment?filter=sfh" target="_blank">single detached homes</a> or on proxies for &ldquo;single detached&rdquo; like
-<a href="http://www.mountainmath.ca/map/assessment?filter=rs" target="_blank">RS zoned properties</a>.</p>
-
-<p>But all of these maps have a clear bias toward the more expensive homes. Everyone knows by now where the most expensive properties
-are. But where are the more affordable ones?</p>
-
-<!-- more -->
-
-
-<p>Before continuing and getting disappointed at the end, we want to highlight the huge limitations when looking for affordable homes.
-There is no freely available data on the
-floor area or number of bedrooms for each dwelling unit. Next to the price and location (which we have), these are the most
-important features of a dwelling. And this limits the usefulness of all that follows.</p>
-
-<p>Why continue? It gives a glimpse of what kind of analysis could be done if the information would be <em>freely</em> available.</p>
-
-<h3>The Elephant in the Room</h3>
-
-<p>In principle all this information is available, <a href="https://twitter.com/bcassessment">BCAssessment</a> has all this data. And they even make it
-<a href="http://evaluebc.bcassessment.ca/Default.aspx#">available on their (quite nice) eValue website</a>. But their terms of use
-prevent us and others from using this information. Most of the information used in the analysis here originates from BCAssessment,
-but it comes via the City of Vancouver that has made the data available through their open data portal.</p>
-
-<p>As I understand it, the main reason why this data is not freely available is that BCAssessment is charged to recover their
-own operating cost. So they hold onto their data and try to sell it for cost recovery. In the process of which they harm
-the ability of municipalities to plan properly and the public to get a clear idea where things are at and have a fact-based
-discussion on how to move forward. Which creates large amounts of friction and may lead to social and economic damages far
-exceeding any revenue collected by BCAssessment.</p>
-
-<p>Personally, I don&rsquo;t believe that holding back data is a smart way to run a government. You might want to
-<a href="http://twitter.com/home/?status=@bcassessment Please add %23openData license to information you publish on eValue! %23giveUsData" target="_blank">ask BCAssessment to #giveUsData</a>.</p>
-
-<p>For now, let&rsquo;s put the data that we do have to the best use and see what we can tease out.</p>
-
-<h3>Locating the Most Affordable Dwellings</h3>
-
-<p><a href="https://mountainmath.ca/map/special/101" target="_blank"><img  src="http://doodles.mountainmath.ca/images/strata.png" style="width:50%;float:left;margin-right:10px;"></a>
-Stating the obvious, the most affordable homes aren&rsquo;t &ldquo;single detached&rdquo;, they are condos. And condos have been largely
-absent from the affordability debate, although they make up the majority of owned dwelling units in the City of Vancouver.</p>
-
-<p>Let&rsquo;s start off with a <a href="http://mountainmath.ca/map/special/101" target="_blank">map of the roughly 4,500 stratified residential or mixed use properties in Vancouver housing a total of about 10,2000 strata units</a>.
-The exact numbers are hard to pin down. (<a href="http://twitter.com/home/?status=@bcassessment Please add %23openData license to information you publish on eValue! %23giveUsData" target="_blank">#giveUsData</a>)</p>
-
-<p>The distribution of stratified units by the total number of strata units
-per building gives an idea of the types of strata units that are out there.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_strata_by_number" style="height:200px;max-width:640px;" data-url="/data/strata_by_number.json"></div>
-<div class="legend no-margin">
-  <p><i style="background:steelblue"></i> Number of strata units by size of strata <span style="float:right;margin-right:10px;" id="unit_counts_value"></span></p>
-</div>
-</div>
-
-
-<p>The horizontal axis is not linear, and the bin sizes are not equal, which makes the graph a little difficult to read. We chose bins at
-2, 4, 8, 10, 16, 20 at the low end, then of width 10 up to 200, from there width 20 up to 300 and then 400, 500 and 700 at
-the top end. Lazy me apologizes for the poor graphic.</p>
-
-<p>We immediately notice the 4,152 strata units in stratas with exactly 2 units usually referred to as &ldquo;duplexes&rdquo;.
-There are a lot of strata units are in stratas of size between 20 and 50, but
-otherwise the units are fairly well distributed over different building sizes. At the high end there are fewer buildings,
-but each with lots of units. So there our graph becomes a little jerky and heavily depends on the cutoffs we choose.</p>
-
-<p>To get a basic idea on how much these units cost we plot the number of strata units by price bracket.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_strata_by_price" style="height:200px;max-width:640px;" data-url="/data/strata_by_price.json"></div>
-<div class="legend no-margin">
-  <p><i style="background:steelblue"></i> Number of strata units by price <span style="float:right;margin-right:10px;" id="affordable_value"></span></p>
-</div>
-</div>
-
-
-<p>The distribution looks largely as one would expect. It peaks between the $400k and $500k mark, with a median value of
-$482,000. But there are a couple of things that jump out. Firstly, there are suspiciously many condos
-below $100k, more than half of which (445 to be precise), are less than $50k. There are places where one could by
-a condo for that price, but not in Vancouver. These are stratified parking spaces or other amenity spaces.</p>
-
-<p>Next let&rsquo;s focus in on the 8,313 duplex and multi-plex units with 8 or fewer units (in 2,995 buildings) and plot these
-separately.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_multiplex_by_price" style="height:200px;max-width:640px;" data-url="/data/multiplex.json"></div>
-<div class="legend no-margin">
-  <p><i style="background:steelblue"></i> Number of multiplex units by price <span style="float:right;margin-right:10px;" id="multiplex_value"></span></p>
-</div>
-</div>
-
-
-<p>We see that the price distribution for multiplex units peaks at a higher price between $800k and $900k, but the overall
-numbers are quite small when compared to all strata units.</p>
-
-<h3>Affordable Strata Units</h3>
-
-<p>Let&rsquo;s try to understand where the &ldquo;affordable&rdquo; housing stock is, which we take to be units below $500k, or roughly the
-bottom half of the distribution. We would like to map the properties containing housing
-units for each of our price brackets, but this gets tricky since the dataset does not hold
-information which units are parking spaces and which are commercial.</p>
-
-<p>We need to take care of the problem with needing to distinguish parking spaces from housing units. And from commercial units.
-(<a href="http://twitter.com/home/?status=@bcassessment Please add %23openData license to information you publish on eValue! %23giveUsData" target="_blank">#giveUsData</a>) So we are left with
-using proxies, so let&rsquo;s set a cutoff price so that most units below are parking stalls and most units above are (residential)
-units.</p>
-
-<p>Generally, parking spaces should not cost more than $50,000 which is roughly the cost to build underground
-parking. Around $40,000 if it&rsquo;s only one level, getting up to $75,000 (or sometimes even more) when having to go down deeper or water becomes an issue. The
-fact that some spaces go for significantly less is the result of mandatory parking minimums. Some parking spaces may be worth
-more than $100,000 as some people are willing to pay a premium for a convenient spot. That may mean a spot next to the
-elevator by the exit ramp, or simply a parking spot in a specific building that is under supplied and trekking across the
-street to a spot somewhere else is inconvenient enough. Or some stratified parking spaces might consist of several
-parking spots.</p>
-
-<h3>Location of Affordable Condos</h3>
-
-<p><a href="https://mountainmath.ca/map/special/110" target="_blank"><img  src="http://doodles.mountainmath.ca/images/strata_500k.png" style="width:50%;float:left;margin-right:10px;"></a>
-Since it is impossible to pick out the housing units out of all the strata units, all we can do is map all strata units,
-understanding that
-those below $50k are most likely parking spaces, those between $50k and $100k could be parking or housing (or commercial) and the
-majority of units above $100k are housing.</p>
-
-<p>And we can&rsquo;t actually map the individual units, only the buildings that house the units. Here are maps of the buildings
-housing the units in each of the lower brackets.</p>
-
-<ul>
-<li><a href="https://mountainmath.ca/map/special/41" target="_blank">&lt; $100k (715 units in 17 buildings)</a></li>
-<li><a href="https://mountainmath.ca/map/special/42" target="_blank">$100k &ndash; $200k (2,415 units in 198 buildings)</a></li>
-<li><a href="https://mountainmath.ca/map/special/43" target="_blank">$200k &ndash; $300k (10,270 units in 644 buildings)</a></li>
-<li><a href="https://mountainmath.ca/map/special/44" target="_blank">$300k &ndash; $400k (19,128 units in 1,112 buildings)</a></li>
-<li><a href="https://mountainmath.ca/map/special/45" target="_blank">$400k &ndash; $500k (20,538 units in 1,219 buildings)</a></li>
-</ul>
-
-
-<p>Clickin into a particular building and hitting the &ldquo;more&rdquo; button will pull up (a slightly cleaned) tax roster where you
-can get more information on the units. And if you are really interested in finding out more about a particular one
-you can always <a href="http://evaluebc.bcassessment.ca/Default.aspx#">head on over to BCAssessment&rsquo;s eValue website</a> to look up
-more of those details that BCAssessment keeps in public view but locked off from systematic public scrutiny.
-(<a href="http://twitter.com/home/?status=@bcassessment Please add %23openData license to information you publish on eValue! %23giveUsData" target="_blank">#giveUsData</a>)</p>
-
-<h3>Makeup of Condos</h3>
-
-<p>The built quality of strata units is generally higher, dollar for dollar, than that of single family homes. This should not
-come as a surprise as land is very expensive and stata units tend to use land more efficiently. There are only 27 residential
-or mixed use strata buildings that classify as <em>teardowns</em>,
-<a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">with a teardown coefficient below 5%</a>.
-And 25 of these are duplexes, one is a 3-plex and one an 8-plex. There are no condos buildings with more than 8 units that
-fit our most restrictive definition of <em>teardown</em>.</p>
-
-<p>Next we explore what kind of buildings the affordable units are in by graphing the number of units in several price ranges
-per size of the strata building it is in.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_affordable_strata_by_number" style="height:200px;max-width:640px;" data-url="/data/affordable_strata_by_number.json"></div>
-<div class="legend no-margin">
-</div>
-</div>
-
-
-<p>It looks like buildings with 20 to 60 units are quite good at producing affordable units. Partially that&rsquo;s due to their
-abundance, but graphing the percentage of units in each price bracket confirms that these buildings tend to produce a
-nice mixture of low and high value condos. But larger condo buildings can also achieve this, although the actual performance
-of what has been built is mixed. Other factors, for example building age, are likely also at play here.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_percentage_affordable_strata_by_number" style="height:200px;max-width:640px;" data-url="/data/percentage_affordable_strata_by_number.json"></div>
-<div class="legend no-margin">
-</div>
-</div>
-
-
-<p>To see what the distribution of strata units by age is, we use the same price cutoffs and sort the strata units into age
-brackets. Since we are mostly interested in the more affordable units we sort out units in buildings with 4 or fewer units.
-These units might skew some of the age brackets.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_affordable_strata_by_age" style="height:200px;max-width:640px;" data-url="/data/affordable_strata_by_age.json"></div>
-<div class="legend no-margin">
-</div>
-</div>
-
-
-<p>To highlight the proportional makeup we again and graph this again as percentages.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_percentage_affordable_strata_by_age" style="height:200px;max-width:640px;" data-url="/data/percentage_affordable_strata_by_age.json"></div>
-<div class="legend no-margin">
-</div>
-</div>
-
-
-<p>We see how generally the percentage of more affordable units increases with the age of the building. Newer units generally
-tend to be more expensive at first and becoming more affordable over time as the building ages.</p>
-
-<h3>Taking Stock</h3>
-
-<p>If you read this far you probably agree that this exercise was mostly a waste of time. Hopefully you are earger to see this
-analysis split up by number of bedrooms and floor area. If you are all riled up at the lack of data and BCAssessment
-not giving out this information with a clean open data license you might want to drop them a line and
-<a href="http://twitter.com/home/?status=@bcassessment Please add %23openData license to information you publish on eValue! %23giveUsData" target="_blank">ask for at least the information they publish eValue to be made available with an #openData license!</a></p>
-
-<p>I am still hopeful that this might happen some day, and we can get a much better picture of the buildings in BC cities
-and check how they perform in fulfilling the needs of the community. And learn from that to make informed policy choices.</p>
-
-<script>
-
-function stacked_bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter){
-    if (!domainFormatter) domainFormatter=d3.format("d")
-    if (!rangeFormatter)
-     rangeFormatter = function (y) {
-        return y;
-     };
-     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
-
-var margin = {top: 20, right: 20, bottom: 40, left: 70},
-    width = parseInt(div.style("width")) - margin.left - margin.right,
-    height = parseInt(div.style("height")) - margin.top - margin.bottom;
-
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-
-var y = d3.scale.linear()
-    .range([height, 0]);
-
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .tickFormat(domainFormatter)
-    .orient("bottom");
-
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .tickFormat(rangeFormatter)
-    .ticks(5, rangeFormatter);
-
-var svg = div.append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var data_url=div[0][0].dataset.url;
-var legend=d3.select(div.node().parentNode).select('.legend');
-
-
-d3.json(data_url, function(error, json) {
-  if (error) throw error;
-  var graphData=json[0];
-  var data=graphData.data;
-  var color = d3.scale.ordinal().domain(graphData.colors.map(function(d,i){return i}))
-  .range(graphData.colors);
-  var domain=data.map(function(d){return d.date;});
-  x.domain(domain);
-
-  function graphValueId(i){
-      return graphData.class + '_' + i + '_value'
-  }
-
-  graphData.labels.forEach(function(text,i){
-    var color=graphData.colors[i];
-    var html='<i style="background:' + color + '"></i> ' + text + ' <span style="float:right;margin-right:10px;" id="' + graphValueId(i) + '"></span>'
-    legend.append('p').html(html);
-  });
-  
-  data.forEach(function(d) {
-      var y0 = 0;
-      d.values = color.domain().map(function(i) { return {date: d.date, y0: y0, y1: y0 += +d.count[i]}; });
-      d.total = d.values[d.values.length - 1].y1;
-  });
-  y.domain([0, d3.max(data, function(d) { return d.total; })]);
-
-  var domainTickValues=[];
-  var skip=Math.round(40/x.rangeBand());
-  if (skip<=0) skip=1;
-  for (var i=0;i<x.domain().length;i++) {
-    if (i % skip==0) domainTickValues.push(x.domain()[i]);
-  }
-  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
-  xAxis.tickValues(domainTickValues);
-
-  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
-  
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(" + xShift + "," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis);
-//    .append("text")
-//      .attr("transform", "rotate(-90)")
-//      .attr("y", 6)
-//      .attr("dy", ".71em")
-//      .style("text-anchor", "end")
-//      .text("Probability");
-
-    function updateTooltip(d,i){
-       color.domain().forEach(function(j){
-             var value=d && i==j ? (domainLabelFormatter(d.date) + ': ' +rangeFormatter(d.y1-d.y0)) : '';
-             d3.select('#'+graphValueId(j)).text( value);
-       });
-    }
-
-  var year=svg.selectAll(".year")
-    .data(data)
-        .enter().append("g")
-          .attr("class", "g");
-  year.selectAll(".color-bar")
-      .data(function(d) { return d.values; })
-    .enter().append("rect")
-      .attr("class", graphData.class + " color-bar")
-      .attr("fill", graphData.color)
-      .attr("x", function(d) { return x(d.date); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.y1); })
-      .attr("height", function(d) { return Math.max(0, y(d.y0) - y(d.y1)); })
-      .attr("fill",function(d,i) {return color(i);})
-      .on('mouseover',updateTooltip)
-      .on('click',updateTooltip)
-      .on('touch',updateTooltip) 
-      .on('mouseout',function(){updateTooltip(null,i)});
-
-      
-});
-
-}
-
-function bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter){
-    if (!domainFormatter) domainFormatter=d3.format("d")
-    if (!rangeFormatter)
-     rangeFormatter = function (y) {
-        return y;
-     };
-     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
-
-var margin = {top: 20, right: 20, bottom: 40, left: 70},
-    width = parseInt(div.style("width")) - margin.left - margin.right,
-    height = parseInt(div.style("height")) - margin.top - margin.bottom;
-
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-
-var y = d3.scale.linear()
-    .range([height, 0]);
-
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .tickFormat(domainFormatter)
-    .orient("bottom");
-
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .tickFormat(rangeFormatter)
-    .ticks(5, rangeFormatter);
-
-var svg = div.append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var data_url=div[0][0].dataset.url;
-
-d3.json(data_url, function(error, json) {
-  if (error) throw error;
-  var graphData=json[0];
-  var data=graphData.data;
-  x.domain(data.map(function(d) { return d.date }));
-  y.domain([0, d3.max(data, function(d) { return d.count; })]);
-  
-  var domainTickValues=[];
-  var skip=Math.round(40/x.rangeBand());
-  if (skip<=0) skip=1;
-  for (var i=0;i<x.domain().length;i++) {
-    if (i % skip==0) domainTickValues.push(x.domain()[i]);
-  }
-  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
-  xAxis.tickValues(domainTickValues);
-
-  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
-  
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(" + xShift + "," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis);
-//    .append("text")
-//      .attr("transform", "rotate(-90)")
-//      .attr("y", 6)
-//      .attr("dy", ".71em")
-//      .style("text-anchor", "end")
-//      .text("Probability");
-
-  svg.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", graphData.class + " bar")
-      .attr("fill", graphData.color)
-      .attr("x", function(d) { return x(d.date); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.count); })
-      .attr("height", function(d) { return height - y(d.count); })
-      .on('mouseover',function(d){
-         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeFormatter(d.count)) 
-      }).on('click',function(d){
-       d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeFormatter(d.count)) 
-      }).on('touch',function(d){
-         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeFormatter(d.count)) 
-      }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
-
-      
-});
-
-}
-
-
-var priceFormatter2=d3.format("$,");
-    var priceFormatter = function (y) {
-        return y>=1000000 ? (priceFormatter2(y/1000000) + 'm') : (priceFormatter2(y/1000) + 'k');
-    };
-    var brackets=[100000,200000,300000,400000,500000,600000,700000,800000,900000,1000000,2000000,10000000,20000000,40000000]
-
-var binFormatter=function(top){
-    var bottom=0;
-    if (top<=1000000) bottom=top-100000;
-    else if (top==2000000) bottom= 1000000;
-    else if (top==10000000) bottom= 2000000;
-    else if (top=20000000) bottom= 10000000;
-    else bottom=20000000;
-    return priceFormatter(bottom) + ' - ' + priceFormatter(top);
-}
-var percentageFormatter=d3.format("%");
-var numberFormatter=d3.format(",");
-var numberBinFormatter=function(top){
-    var     bins=[0,1,2,4,8,10,16,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,300,400,500,700];
-    var index=0;
-    while (bins[index]<top && index<bins.length) index ++;
-    bottom=bins[index-1]+1;
-    return (bottom == top) ? numberFormatter(bottom) : numberFormatter(bottom) + ' - ' + numberFormatter(top);
-}
-var yearFormatter=d3.format();//function(d){return d;};
-var yearBinFormatter=function(top){
-     var     bins=[1970,1980,1990,1995,2000,2005,2010,2020];
-     var index=0;
-     while (bins[index]<top && index<bins.length) index ++;
-     bottom=bins[index-1]+1;
-     return (bottom == top) ? yearFormatter(bottom) : yearFormatter(bottom) + ' - ' + yearFormatter(top);
-}
-bar_graph(d3.select("#graph_strata_by_price"),true,priceFormatter,null,binFormatter);
-bar_graph(d3.select("#graph_multiplex_by_price"),true,priceFormatter,null,binFormatter);
-bar_graph(d3.select("#graph_strata_by_number"),true,numberFormatter,null,numberBinFormatter);
-stacked_bar_graph(d3.select("#graph_affordable_strata_by_number"),true,numberFormatter,null,numberBinFormatter);
-stacked_bar_graph(d3.select("#graph_percentage_affordable_strata_by_number"),true,numberFormatter,percentageFormatter,numberBinFormatter);
-stacked_bar_graph(d3.select("#graph_affordable_strata_by_age"),true,yearFormatter,null,yearBinFormatter);
-stacked_bar_graph(d3.select("#graph_percentage_affordable_strata_by_age"),true,yearFormatter,percentageFormatter,yearBinFormatter);
-</script>
 
 ]]></content>
   </entry>

@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-17T08:36:02-08:00</updated>
+  <updated>2017-01-17T17:35:01-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,52 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[The Coveted .2m - .6m Vote]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/01/17/the-coveted-2m-6m-vote/"/>
+    <updated>2017-01-17T16:19:03-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/01/17/the-coveted-2m-6m-vote</id>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/special/81?layer=101&amp;mapBase=2"><img  src="http://doodles.mountainmath.ca/images/coveted_vote.png" style="width:50%;float:right"></a>
+Earlier this month the province increased the threshold for the homeowner grant from $1.2 million to 1.6 million dollars.
+With the BC Assessment data for the City of Vancouver now being available we can ask who exactly this move was targeting.</p>
+
+<p>Restricted to the City of Vancouver, the answer is quite simple. There are about 24,000 single family homes, 1,200 duplex units and 4,000 condo units
+in that bracket.</p>
+
+<p>Let&rsquo;s take a closer look.</p>
+
+<!-- more -->
+
+
+<p><a href="https://mountainmath.ca/map/assessment?filter=[sfh,total_1200000_1600000]&amp;layer=101&amp;mapBase=2"><img  src="http://doodles.mountainmath.ca/images/coveted_sfh_vote.png" style="width:50%;float:right"></a>
+If we focus in on just the
+<a href="https://mountainmath.ca/map/assessment?filter=[sfh,total_1200000_1600000]&amp;layer=101&amp;mapBase=2">single family homes</a>,
+which make up the vast majority of the units in that bracket, we see that they
+are (almost) entirely located in East Vancouver. In fact, we can see how Main Street delineates these properties quite neatly.
+In fact, there are fewer than 500 single family homes west of Main in that bracket.</p>
+
+<p>One could be lead to think that Main Street is the &ldquo;$1.6m line&rdquo;. But of the single family homes
+east of Main, these only make up just over half of the properties there,
+there are almost as many that are
+<a href="https://mountainmath.ca/map/assessment?filter=[sfh,total_1600000]&amp;layer=101&amp;mapBase=2">assessed over $1.6m</a>
+and <a href="https://mountainmath.ca/map/assessment?filter=[sfh,total__1200000]&amp;layer=101&amp;mapBase=2">almost 2,000 assessed under $1.2m</a>.</p>
+
+<h4>Changing Homeowner Grant Status</h4>
+
+<p>There are a number of single family homes where the homeowner grant status changed between 2016 and 2017.
+There are about 3,100 single family homes who did not qualify for the homeowner
+grant in 2016, but do now. And about 1000 that did qualify in 2016 but won&rsquo;t this year.</p>
+
+<p>Yes, that&rsquo;s right, there are
+1000 single family homes with 2016 assessment below $1.2m and 2017 assessment over $1.6m. I pity them,
+having to pay an extra $50/month in property taxes just because the province did not care about them
+enough to set the new threshold higher than $1.6m.</p>
+
+<p>To round things up, there were a little under 500 duplex and condo units that did not qualify for the homeowner
+grant in 2016 and do in 2017, and under 200 that did qualify in 2016 and don&rsquo;t now.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[2017 Vancouver Assessment Data]]></title>
@@ -3275,51 +3321,6 @@ setTimeout(function(){
 },25000);
 </script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[TOD Mode Share]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/04/20/tod-mode-share/"/>
-    <updated>2016-04-20T23:26:35-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/04/20/tod-mode-share</id>
-    <content type="html"><![CDATA[<p><a href="http://doodles.mountainmath.ca/skytrain_mode_map.html" target="_blank"><img  src="http://doodles.mountainmath.ca/images/mode_share.png"  style="width:50%;float:right;margin-left:10px;"></a>
-Just saw a <a href="https://pricetags.wordpress.com/2016/04/20/surprising-densities-at-some-skytrain-stations/">comment on the Pricetags blog</a>
-pointing to a nice <a href="http://summit.sfu.ca/system/files/iritems1/9819/ETD4936.pdf">master&rsquo;s thesis</a>
-investigating various TOD metrics around skytrain stations. I got curious how the 2011 transit mode share compares to the earlier
-census years listed in the thesis. And how the mode share varies spatially.</p>
-
-<!-- more -->
-
-
-<p>With <a href="http://censusmapper.ca/maps/316">CensusMapper</a> at my finger tips and building on the
-<a href="http://doodles.mountainmath.ca/blog/2016/04/06/tod/">visuals from the previous post</a> this is an easy exercise.</p>
-
-<p>We again simply map our concentric circles around the stations, but this time we turn them into pie charts to show the
-commute to work mode share. And we show the values for the inner 400m circle and the 400m to 800m annulus separately. I
-also added some basic land use data, green for parks, pink for instututional and light blue for commercial or industrial
-to provide more context.</p>
-
-<p>What we would expect to see is that the transit mode share is larger in the 400m buffer, but curiously this is not always the case.</p>
-
-<p>Click, touch or hover to get the exact values. And sorry again, only new computers will get a meaningful result. Most
-smart phones and tablets will have no problems.</p>
-
-<iframe src="http://doodles.mountainmath.ca/skytrain_mode_map.html" width="80%" height="500", style="margin:5px 10%;"></iframe>
-
-
-<p><a href="http://doodles.mountainmath.ca/skytrain_mode_map.html#11/49.2430/-123.0350" class="btn btn-primary">Full screen view</a></p>
-
-<p>The City of Vancouver average transit mode share is 30%, for Metro it&rsquo;s 20%. Head over to <a href="http://censusmapper.ca/maps/316">CensusMapper</a>
-to explore transit mode share in the region (or anywhere else in Canada) in more detail.</p>
-
-<h3>What I missed</h3>
-
-<p>The master&rsquo;s thesis was careful enough to exclude areas across the river from the analysis. That&rsquo;s good thinking, I only
-took circular buffers around the stations to do this. As indicated in the <a href="http://doodles.mountainmath.ca/blog/2016/04/06/tod/">previous post</a>,
-in the future we will add the capability to automatically generate isochrones, so areas
-within 5 or 10 minutes walking distance, and use these
-as regions, instead of using circular 400m and 800m buffers around the stations.</p>
 ]]></content>
   </entry>
   
