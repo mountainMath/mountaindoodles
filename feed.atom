@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-17T17:54:08-08:00</updated>
+  <updated>2017-01-18T14:26:32-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,151 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Bumper Year for Thumb Twiddlers]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/01/18/bumper-year-for-thumb-twiddlers/"/>
+    <updated>2017-01-18T11:10:43-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/01/18/bumper-year-for-thumb-twiddlers</id>
+    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/map/assessment?zoom=12&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img src="http://doodles.mountainmath.ca/images/twiddling_thumbs_2006_2017.png" style="width:50%;float:right;margin-left:10px;"></a>
+Almost a year has passed since we first noticed how
+<a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">sitting on single family homes and twiddling thumbs generates more income than working</a>.
+And not just at the level of individual single family households. In the
+City of Vancouver, the cumulative
+land value gains of just the single family homes eclipsed the cumulative taxable earnings
+reported to the CRA for the entire population.</p>
+
+<p>With the new assessment data available now, it is time to run the numbers
+and see how our thumb-twiddlers faired vs workers this year. If you thought
+last year&rsquo;s twiddling thumbs returns were crazy high, you better hold onto
+your hats!</p>
+
+<!-- more -->
+
+
+<h3>Work</h3>
+
+<p>Not much changed in terms of the income people earned. CANSIM does not make the
+taxfiler data freely available at the municipal level, we we will again estimate
+the cumulative income for residents of the City of Vancouver by using 2010
+Census data and extrapolating by applying the Metro Vancouver rate of income
+growth.</p>
+
+<p>This way we get a cumulative $22.3bn pre-tax or $18.6bn after-tax income in 2010,
+<a href="http://www5.statcan.gc.ca/cansim/a26?lang=eng&amp;retrLang=eng&amp;id=1110009&amp;&amp;pattern=&amp;stByVal=1&amp;p1=1&amp;p2=37&amp;tabMode=dataTable&amp;csid=">which grew around 13% between 2010 and 2014</a>.
+Extrapolating this for another two years to 2016 we estimate an income growth of around 20% since 2010,
+which then pegs the cumulative income for the City of Vancouver at
+$26.8bn pre-tax or $22.3bn after-tax (ignoring financial drag and other issues).</p>
+
+<h3>Twiddling Thumbs</h3>
+
+<p>Let&rsquo;s compare this to how much Vancouver home owner households &ldquo;earned&rdquo; last year by twiddling thumbs while sitting on their
+property. To keep things simple and consistent with last year, we again focus on just the single family homes (SFH).
+And again, we only consider land value changes, after all changing the
+building value because of renovation or rebuilding certainly does not happen by twiddling thumbs.</p>
+
+<p>The median SFH land value increased was $435,000 (the average was $594,005), for a cumulative land value increase
+of $46.7bn, accounting for about half of the
+<a href="http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data/">total land value increase of the City of Vancouver</a>
+or two thirds of the land value increase for residential (and mixed) land uses.</p>
+
+<p>So while last year the twiddling thumbs return were still comparable to the cumulative income in the City of Vancouver,
+this year the thumb twiddlers blow the income earners out of the water.
+<span style="font-weight:bolder;">Just by by twiddling their thumbs, the SFH property owners alone earned twice as much
+as the entire population of the
+City of Vancouver did by &ndash; actually working</span>. And in most cases homeowners won&rsquo;t pay taxes on
+their thumb-twiddle earnings, although the
+<a href="http://doodles.mountainmath.ca/blog/2016/10/04/secondary-suites-and-taxes/">CRA recently made it harder with their new reporting rules</a>.</p>
+
+<p>We are glossing over a couple of details here, for example the numbers are not adjusted for inflation, and costs like
+property taxes and property transfer tax are not taken into account.</p>
+
+<p>Of course, comparing income from work to income from twiddling thumbs is not entirely fair. The income from twiddling thunbs
+is frozen in the property until the owner sells. But gains accumulate over the years, and eventually everyone sells and realizes
+the gains (or passes them on to the next generation). And it&rsquo;s always good to remember that
+&ldquo;<a href="https://twitter.com/GRIDSVancouver/status/813516103490015232">house-rich cash-poor homeowners are one transaction away from simply being rich renters</a>&rdquo;.</p>
+
+<h3>Mapping the Result of Thumb Twiddling</h3>
+
+<p><a href="https://www.mountainmath.ca/map/values?filter=sfh&zoom=13&lat=49.2482&lng=-123.1213&layer=25&mapBase=2&year=2016"><img src="http://doodles.mountainmath.ca/images/twiddling_thumbs_animated_2017.gif" style="width:50%;float:left;margin-right:10px;"></a>
+<a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=14&amp;lat=49.253&amp;lng=-123.1244&amp;layer=12">As always, there is a map for this</a>.
+Last year&rsquo;s assessment
+increase was again quite large, not every year is like this. In fact, since 2005 there have been two years where overall single
+family land values decreased. And single family property values have decrease substantially since
+July 2016, although nowhere near enough to erase last year&rsquo;s gains.</p>
+
+<p>To even things out a little I mapped the average yearly gross land value increase for each property. For properties that I
+could not trace back all the way to 2006 I averaged over as many years as I could find. For the day-traders focused on short-term
+returns I added a handy
+<a href="https://www.mountainmath.ca/map/values?filter=sfh&amp;zoom=13&amp;lat=49.2482&amp;lng=-123.1213&amp;layer=25&amp;mapBase=2&amp;year=2016">map with a year slider to check annual nominal total land value changes</a>.</p>
+
+<p><a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/sfh_rise.png" style="width:50%;float:right;"></a>
+<a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12">Looking at the map</a> we see that
+the average yearly increase depends on the square footage of the property as well as the location. The rates are mostly uniform
+throughout the city (with some notable exceptions), but properties starting out with a higher value will see higher total value
+increases.</p>
+
+<p>Over 11 years, the single family home land value quadrupled. The median (nominal) single family home land value increase over that timespan
+was $1,233,000, or $112,000 per year. Broken down further, that&rsquo;s $2,339,000 ($213,000 per year) for the median westside home
+and $1,031,000 ($94,000 per year) for the median eastside home.</p>
+
+<h3>Hourly Rate for Twiddling Thumbs</h3>
+
+<p>Using the <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">same methods as last year</a>
+we can compute the hourly earnings of thumb twiddlers. For the July 2016 to July 2017 timeframe, thumb twiddlers
+in the City of Vancouver averaged a tidy $239 per hour.
+Using the 11 year averaged numbers instead of focusing on just the last year we still get a healthy average
+thumb twiddling rate of $62 per hour.</p>
+
+<p>Another bumper year for thumb twiddlers!
+Considering to change your line work to thumb twiddling? To bad thumb twiddling is so unaffordable!</p>
+
+<h3>Data Dump</h3>
+
+<p>Here is the raw output of the stats run on the single family properties for anyone interested.</p>
+
+<h5>SFH Land Value Rise (2016 - 2017)</h5>
+
+<ul>
+<li>City Wide: Average $594,005 Median $435,000, Count: 78648, Total: $46,717,325,799, Hourly: $239</li>
+<li>Eastside: Average $373,306 Median $358,000, Count: 47988, Total: $17,914,233,199, Hourly: $150</li>
+<li>Westside: Average $939,435 Median $866,000, Count: 30660, Total: $28,803,092,600, Hourly: $378</li>
+</ul>
+
+
+<h5>SFH Land Value Rise (2006 - 2017)</h5>
+
+<ul>
+<li>City Wide: Average $153,777 Median $112,090, Count: 77809, Total: $11,965,271,272, Hourly: $62</li>
+<li>Eastside: Average $96,892 Median $93,727, Count: 47545, Total: $4,606,748,985, Hourly: $39</li>
+<li>Westside: Average $243,144 Median $212,636, Count: 30264, Total: $7,358,522,287, Hourly: $98</li>
+</ul>
+
+
+<p>The total number of units for the 2006 to 2017 analysis are a little lower since not all properties can be traced over that time
+period without resorting to more tedious analysis.</p>
+
+<script>
+function resetImages(){
+    $('img').each(function(img){
+        imgsrc = $(img).attr('src');
+        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
+            $(img).attr('src', '');
+            $(img).attr('src', imgsrc);
+
+        }
+    });
+    setTimeout(function(){
+        resetImages();
+    },25000);
+}
+setTimeout(function(){
+    resetImages();
+},25000);
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Coveted $1.2m - $1.6m Vote]]></title>
@@ -3257,78 +3402,6 @@ tool is being abused we might have to enforce a real name policy or partially cl
 <p>If you find any, let us know. The tool should work well on Mac using Chrome, Safari or Firefox and should work reasonably
 well on Windows with Chrome and Firefox. iPad, iPhone and modern Android should also work well. Please contact us if you find
 anything not working properly.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Census Week]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/05/02/census-week/"/>
-    <updated>2016-05-02T11:07:07-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/05/02/census-week</id>
-    <content type="html"><![CDATA[<p><img  src="http://doodles.mountainmath.ca/images/census.jpg"  style="width:50%;float:right;margin-left:10px;">
-At CensusMapper we are super excited about Census Week 2016. Data is increasingly getting incorporated into local and
-regional decision making. At CensusMapper we have been working to facilitate this by making this wealth of information
-more accessible to everyone. To celebrate Census Week 2016 we have updated CensusMapper with 2006 census data for easy
-comparisons with the 2011 data. And we have given CensusMapper a face lift by adding a histogram widget that interacts
-with the mapping data. Watch for more exciting updates this week or read on for a sneak peak!</p>
-
-<!-- more -->
-
-
-<h3>2006 Census</h3>
-
-<p><a href="http://http://censusmapper.ca/maps/37" target="_blank"><img  src="http://doodles.mountainmath.ca/images/affordability2011.png"  style="width:50%;float:right;margin-left:10px;"></a>
-<a href="http://http://censusmapper.ca/maps/293" target="_blank"><img  src="http://doodles.mountainmath.ca/images/affordability2006.png"  style="width:50%;float:left;margin-right:10px;"></a>
-We re-worked the backend to make it easy to add and map older censuses. And of course the 2016 census, once it becomes
-available. At the first step, this allows side-by-side comparisons between different census years through our map-based
-interface. As we explore this further we will add better ways to simultaneously browse two difference censuses, and we
-will add a way to map data from two censuses on one the same map. Apart from some technical challenges that we know how
-to handle, this also presents challenges when directly comparing the long form census to the 2011 NHS, which had different
-collection methods that introduced biases that can be of the same magnitude as the changes one may want to measure.</p>
-
-<h3>Widgets</h3>
-
-<p>At CensusMapper we are all about interaction. We love exploring data visually, and our dynamic zoomable maps make browsing
-census data very easy. But the maps are just scratching the surface. Often it is also usefuly to view a simple graph. That&rsquo;s
-where the graph widgets come in, the first of which is the histogram that dynamically shows a histogram of the data visible
-in the current map view.
-<a href="http://censusmapper.ca/maps/76" target="_blank"><img  src="http://doodles.mountainmath.ca/images/animated_rent.gif" style="margin:10px;"></a></p>
-
-<p>And of course the widget is fully linked with the map. Hover over a map region, and it will show where the mapped value fits into
-histogram. Pan and zoom and the histogram updates automatically. The other way around, hover over a histogram bin and the
-corresponding regions on the map get highlighted. That makes exploring the data so much easier.</p>
-
-<h3>Make your own maps</h3>
-
-<p>We will roll out basic map making capabilities for everyone later this week. How will this work? Census data is huge, so
-it won&rsquo;t go completely without pain. But we try to make it as easy as possible. Once the new &ldquo;Make a Map&rdquo; option becomes
-available you can browse through the list of census variables and simply select which one you want to map. You will have
-the option to map the value or, if it makes sense, the value as a percentage of a &ldquo;parent&rdquo; variable.
-<a href="http://censusmapper.ca" target="_blank"><img  src="http://doodles.mountainmath.ca/images/animated_simple.gif" style="margin:10px;"></a></p>
-
-<p>A click of the mouse and you have a new map. Head over to the colour scheme picker and select the colour cutoffs to customize it.
-You can even log in and save the map and write your own map story for the side bar, so that you can share and interactive
-version of your map online. We can&rsquo;t wait getting census data into everyone&rsquo;s hands!</p>
-
-<script>
-function resetImages(){
-    $('img').each(function(img){
-        imgsrc = $(img).attr('src');
-        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
-            $(img).attr('src', '');
-            $(img).attr('src', imgsrc);
-            
-        }
-    });
-    setTimeout(function(){
-        resetImages();
-    },25000);
-}
-setTimeout(function(){
-    resetImages();
-},25000);
-</script>
-
 ]]></content>
   </entry>
   
