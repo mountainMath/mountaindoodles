@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-25T22:21:01-08:00</updated>
+  <updated>2017-01-25T22:22:25-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -65,6 +65,9 @@ the geojson and ran the script below. These are the results:</p>
 
 <div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Port%20Moody.png" ><p>Port Moody</p></div>
 
+
+<p>If you want to make your own, just grab the <a href="https://github.com/gboeing/osmnx/blob/master/examples/09-example-figure-ground.ipynb">lightly adapted</a> code below.
+Yes, it is that easy.</p>
 
 <h4>Code to generate the images</h4>
 
