@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Jane Jacobs&#8217; Vancouver - Mountain Doodles</title>
+  <meta name="author" content="MountainMath">
+
+  
+  <meta name="description" content="Jane Jacobs style Vancouver area street grids">
+  <meta name="keywords" content="Jane Jacobs, Vancouver, Streets">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2017/01/25/jane-jacobs-vancouver/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/feed.atom" rel="alternate" title="Mountain Doodles" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54516567-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mountain Doodles</a></h1>
+  
+    <h2>spare time data, analysis, visualization</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/feed.atom" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:doodles.mountainmath.ca" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Jane Jacobs&#8217; Vancouver</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-01-25T21:57:05-08:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Some time ago I saw <a href="https://twitter.com/gboeing/status/816331801266262017">Geoff Boeing&rsquo;s excellent package</a>
+to generate Jane Jacobs style street grid images. It&rsquo;s lots of fun to compare different cities that way.</p>
+
+<p>So I thought it would be neat to use this to compare different parts of Vancouver.</p>
+
+<!-- more -->
+
+
+<p>So I <a href="http://bl.ocks.org/d/88803d79ab2a3e637e2cce7fc151423d">dropped a couple of points on a map</a>, downloaded
+the geojson and ran the script below. These are the results:</p>
+
+<div style="width:30%;margin:5px;"><img src="/images/jacobs/Downtown.png" ><h3>Downtown</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="/images/jacobs/West%20End.png" ><h3>West End</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="/images/jacobs/Grandview%20Woodlands.png" ><h3>Grandview Woodlands</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="/images/jacobs/Kitsilano.png" ><h3>Kitsilano</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="/images/jacobs/Metrotown.png" ><h3>Metrotown</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="/images/jacobs/Richmond.png" ><h3>Richmond</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="/images/jacobs/Surrey.png" ><h3>Surrey</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="/images/jacobs/New%20West.png" ><h3>New West</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="/images/jacobs/North%20Vancouver.png" ><h3>North Vancouver</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="/images/jacobs/West%20Vancouver.png" ><h3>West Vancouver</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="/images/jacobs/Langley.png" ><h3>Langley</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="/images/jacobs/Port%20Moody.png" ><h3>Port Moody</h3></div>
+
+
+<h4>Code to generate the images</h4>
+
+<pre><code># jane_jacobs.py
+import geojson
+import osmnx as ox
+from IPython.display import Image
+ox.config(log_file=True, log_console=True, use_cache=True)
+
+file="data/van_cities.geojson"
+img_folder = 'images'
+extension = 'png'
+size = 350
+dpi = 90
+
+cities=geojson.loads(open(file,"r").read())
+for city in cities.features:
+    place = city.properties['name']
+    point = (city.geometry.coordinates[1],city.geometry.coordinates[0])
+    fig, ax = ox.plot_figure_ground(point=point, filename=place)
+    Image('{}/{}.{}'.format(img_folder, place, extension), height=size, width=size)
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">MountainMath</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-01-25T21:57:05-08:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/osm/'>osm</a>, <a class='category' href='/blog/categories/streets/'>streets</a>, <a class='category' href='/blog/categories/vancouver/'>vancouver</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2017/01/25/jane-jacobs-vancouver/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2017/01/25/jane-jacobs-vancouver/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2017/01/18/bumper-year-for-thumb-twiddlers/" title="Previous Post: Bumper Year for Thumb Twiddlers">&laquo; Bumper Year for Thumb Twiddlers</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/01/25/jane-jacobs-vancouver/">Jane Jacobs&#8217; Vancouver</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/18/bumper-year-for-thumb-twiddlers/">Bumper Year for Thumb Twiddlers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/17/the-coveted-2m-6m-vote/">The Coveted $1.2m - $1.6m Vote</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/16/2017-assessment-data/">2017 Vancouver Assessment Data</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/12/13/updated-property-tax-data/">Updated Property Tax Data</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/11/26/character-retention/">Character Retention</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/11/18/interactive-isochrones/">Interactive Isochrones</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/10/21/trick-or-treat-2016/">Trick-or-Treat 2016</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/10/04/secondary-suites-and-taxes/">Secondary Suites and Taxes</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2016/10/02/sea-level-rise/">Sea Level Rise</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  
+  <a class="twitter-timeline" href="https://twitter.com/vb_jens" data-widget-id="680989637721063424">Tweets by @vb_jens</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - MountainMath -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'doodlesmountainmathca';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2017/01/25/jane-jacobs-vancouver/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2017/01/25/jane-jacobs-vancouver/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

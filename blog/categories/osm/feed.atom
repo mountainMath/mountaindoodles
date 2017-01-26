@@ -4,7 +4,7 @@
   <title><![CDATA[Category: osm | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/osm/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-18T16:59:42-08:00</updated>
+  <updated>2017-01-25T22:14:14-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,82 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Jane Jacobs' Vancouver]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/01/25/jane-jacobs-vancouver/"/>
+    <updated>2017-01-25T21:57:05-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/01/25/jane-jacobs-vancouver</id>
+    <content type="html"><![CDATA[<p>Some time ago I saw <a href="https://twitter.com/gboeing/status/816331801266262017">Geoff Boeing&rsquo;s excellent package</a>
+to generate Jane Jacobs style street grid images. It&rsquo;s lots of fun to compare different cities that way.</p>
+
+<p>So I thought it would be neat to use this to compare different parts of Vancouver.</p>
+
+<!-- more -->
+
+
+<p>So I <a href="http://bl.ocks.org/d/88803d79ab2a3e637e2cce7fc151423d">dropped a couple of points on a map</a>, downloaded
+the geojson and ran the script below. These are the results:</p>
+
+<div style="width:30%;margin:5px;"><img src="http://doodles.mountainmath.ca/images/jacobs/Downtown.png" ><h3>Downtown</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="http://doodles.mountainmath.ca/images/jacobs/West%20End.png" ><h3>West End</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="http://doodles.mountainmath.ca/images/jacobs/Grandview%20Woodlands.png" ><h3>Grandview Woodlands</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="http://doodles.mountainmath.ca/images/jacobs/Kitsilano.png" ><h3>Kitsilano</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="http://doodles.mountainmath.ca/images/jacobs/Metrotown.png" ><h3>Metrotown</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="http://doodles.mountainmath.ca/images/jacobs/Richmond.png" ><h3>Richmond</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="http://doodles.mountainmath.ca/images/jacobs/Surrey.png" ><h3>Surrey</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="http://doodles.mountainmath.ca/images/jacobs/New%20West.png" ><h3>New West</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="http://doodles.mountainmath.ca/images/jacobs/North%20Vancouver.png" ><h3>North Vancouver</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="http://doodles.mountainmath.ca/images/jacobs/West%20Vancouver.png" ><h3>West Vancouver</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="http://doodles.mountainmath.ca/images/jacobs/Langley.png" ><h3>Langley</h3></div>
+
+
+<div style="width:30%;margin:5px;"><img src="http://doodles.mountainmath.ca/images/jacobs/Port%20Moody.png" ><h3>Port Moody</h3></div>
+
+
+<h4>Code to generate the images</h4>
+
+<pre><code># jane_jacobs.py
+import geojson
+import osmnx as ox
+from IPython.display import Image
+ox.config(log_file=True, log_console=True, use_cache=True)
+
+file="data/van_cities.geojson"
+img_folder = 'images'
+extension = 'png'
+size = 350
+dpi = 90
+
+cities=geojson.loads(open(file,"r").read())
+for city in cities.features:
+    place = city.properties['name']
+    point = (city.geometry.coordinates[1],city.geometry.coordinates[0])
+    fig, ax = ox.plot_figure_ground(point=point, filename=place)
+    Image('{}/{}.{}'.format(img_folder, place, extension), height=size, width=size)
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Mobi Running Stats]]></title>
@@ -747,109 +823,6 @@ files, I dumped them on my static blog. Even a public dropbox folder can host th
 
 <p>So grab the code and customize it at your heart&rsquo;s content. Take full control on how to display bike infrastructure and
 roads, and what amenities to show and how to style them.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Bike Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/"/>
-    <updated>2015-12-15T15:16:48-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/12/15/bike-data</id>
-    <content type="html"><![CDATA[<p><a href="/bike_map2.html"><img  src="http://doodles.mountainmath.ca/images/bike-routes2.png" style="width:25%;float:right"></a>Maps live and die with the quality
-of the underlying data. So I decided to dive a little deeper down the OSM bike data rabbit hole. Task number one was
-to expand display data for a wider region. My primitive workflow to pull data out of OSM only allows for extracting a quarter
-of a degree at a time. For playing around with all of Vancouver&rsquo;s data I again turned to Mapzen for their
-<a href="https://mapzen.com/data/metro-extracts">metro extracts</a> as a convenient shortcut for OSM data. For the case of Vancouver
-the word &ldquo;metro&rdquo; is a bit of an exaggeration, it just covers the City of Vancouver. But good enough for some more testing.</p>
-
-<h4>More data</h4>
-
-<!-- more -->
-
-
-<p>More data means a a larger variety of <a href="http://wiki.openstreetmap.org/wiki/Key:cycleway">bike infrastructure types</a>.
-At first glance tagging seems to be reasonably accurate, but on closer inspection one quickly spots lots of issues.
-First off, the <a href="https://twitter.com/alexwarrior/status/675820327331479552">edits Alex made earlier</a> are <strike>not
-showing up, that&rsquo;s because the metro extracts are only done weekly. Just a matter of time.</strike> showing up now after
-updating with new OSM data.</p>
-
-<p>And then there are lots of little issues. Off street paths
-don&rsquo;t connect to roads (or anything for that matter), making the useless for routing. Some changes in the bike network
-are tagged differently, take Point Grey Road as an example. Some paths are labeled to be ok for bikes, but bikes aren&rsquo;t
-allowed there. Some tags seem off.</p>
-
-<p>And I don&rsquo;t seem to have captured all relevant bike infrastructure, will have to spend some time one of these days to check
-through all the different taggings in OSM to make sure I pull out all the correct ones.</p>
-
-<p>So to make more sense out of the network I made a new map, added some more categories for optionally fading them out when
-displayed. And on hover I display the tags, just for interest.</p>
-
-<h4>Improving data</h4>
-
-<p>This gets us to task number two. The folks at Mapzen gave me some friendly pointers to allow easy editing of features.
-So I pasted a couple of lines of code in so if you hold down the shift key and
-click on a feature, it will take you automatically to OSM to edit the feature. You may have to sign in the first time
-you do this. If you hold the shift key while clicking anywhere else it also takes you to the OSM editor for that spot,
-in case you want to add something there. It takes a lot of the pain out of editing bike infrastructure, I just fixed a
-whole bunch of things in short time.</p>
-
-<iframe src="http://doodles.mountainmath.ca/bike_map2.html" width="100%" height="550"></iframe>
-
-
-<p>Go for it and fix some problems that you see, either by shift-clicking on the embedded map or by
-<a href="/bike_map2.html">taking the map full-screen first</a>. Remember that some of the issues may be fixed already, the bike map will not reflect
-updates until a week later or so.</p>
-
-<h4>Where to go from here?</h4>
-
-<p>It looks like making a decent bike map with OSM data is feasible. The hard work will be to collaboratively do all the
-OSM edits required to get the data into good shape.</p>
-
-<p>One problem is that edits won&rsquo;t show up on the bike map for up to a week, that&rsquo;s the frequency at which the metro extracts
-are updated. And then I have to update the file for displaying the bike data. A minor inconvenience, in theory there
-are ways to seed this up if one wants to be serious about this. But then again, once the OSM bike data is fixed up in a
-given region, it won&rsquo;t need updating very frequently.</p>
-
-<p>I guess I will have to mull this over and decide how deep down this rabbit hole I would like to go. Looking back at my
-<a href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/">rant on what&rsquo;s wrong with most bike maps</a> I am
-asking myself how much the current map has accomplished.</p>
-
-<ol>
-<li>The accuracy of the infrastructure mapped is in the hands of the OSM community. With easy access to the OSM editing
-functionality from the map (desktop only) it&rsquo;s in the hands of the people that know best: cyclists.</li>
-<li>Still coming up blank when it comes to showing comfort level. Will have to think more how to best do this, it might
-have to go into a separate database. Which is doable, but requires work to get it right and is probably a little too
-involved to do it off the side.</li>
-<li>Click and zoom is not an issue, but now I am in the opposite corner where it might be nice sometimes to actually have
-a glossy big paper map. And it&rsquo;s really easy to save the map as an image. Some tinkering should be able to produce a nice
-high-resolution one covering a large area.</li>
-<li>The map already adapts to user preferences quite well, different types of infrastructure will fade out if deselected.</li>
-<li>Not on the original list, but routing should be part of this. Routing works reasonably well to get this off the ground,
-but work is still required to make it work properly with user preferences. This may well require running a custom router,
-again a little more than I bargained for.</li>
-</ol>
-
-
-<p>So is this really worth the trouble to make yet another bike map? I am not sure. It&rsquo;s always easy to through up a quick
-proof of concept, but to do it really well requires quite a bit more work. For now I could just build one focused on
-Vancouver and see how it goes. And it would be great if the comfort level rating could somehow be automated.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/cycletrack.PNG" style="width:50%;float:right">Which brings to another one of pet projects that
-I never took beyond the testing realm. My CycleTrack App that records
-all bike trips in the background (as long as you carry your phone with you). No pressing of &ldquo;start&rdquo; or &ldquo;stop&rdquo; buttons,
-the app notices when you are moving and will take gyroscope and accelerometer readings to figure out if you are cycling,
-running, walking, driving or taking a train. Then it stores your cycling trips and computes aggregate data. It avoids
-using GPS so not to drain your battery too much, on a typical day it will consume about 3% of battery power. The downside
-is that the accuracy and frequency of the location updates is not as high, so things get a little messy. But not too bad.</p>
-
-<p>How does this fit into the bike map project? Simple. If one can collect regular cycling data from normal people
-cycling (not just
-the lycra crowd that presses start cycles in circles and presses stop again and recharges their phone while taking a shower),
-once can infer a lot about comfort levels just by looking at the data. And to collect data from regular &ldquo;citizen cyclist&rdquo;
-one cannot expect them to press &ldquo;start&rdquo; and &ldquo;stop&rdquo; to delineate their bike trips, and one cannot have an app that will
-require them to recharge their phone after every trip.</p>
-
-<p>But then the project gets even bigger&hellip;</p>
 ]]></content>
   </entry>
   
