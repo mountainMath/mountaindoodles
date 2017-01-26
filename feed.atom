@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-25T22:18:49-08:00</updated>
+  <updated>2017-01-25T22:20:23-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -30,40 +30,40 @@ to compare different parts of Vancouver.</p>
 <p>So I <a href="http://bl.ocks.org/d/88803d79ab2a3e637e2cce7fc151423d">dropped a couple of points on a map</a>, downloaded
 the geojson and ran the script below. These are the results:</p>
 
-<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Downtown.png" ><h3>Downtown</h3></div>
+<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Downtown.png" ><p>Downtown</p></div>
 
 
-<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/West%20End.png" ><h3>West End</h3></div>
+<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/West%20End.png" ><p>West End</p></div>
 
 
-<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Grandview%20Woodlands.png" ><h3>Grandview Woodlands</h3></div>
+<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Grandview%20Woodlands.png" ><h3>Grandview Woodlands</p></div>
 
 
-<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Kitsilano.png" ><h3>Kitsilano</h3></div>
+<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Kitsilano.png" ><p>Kitsilano</p></div>
 
 
-<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Metrotown.png" ><h3>Metrotown</h3></div>
+<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Metrotown.png" ><p>Metrotown</p></div>
 
 
-<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Richmond.png" ><h3>Richmond</h3></div>
+<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Richmond.png" ><p>Richmond</p></div>
 
 
-<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Surrey.png" ><h3>Surrey</h3></div>
+<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Surrey.png" ><p>Surrey</p></div>
 
 
-<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/New%20West.png" ><h3>New West</h3></div>
+<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/New%20West.png" ><p>New West</p></div>
 
 
-<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/North%20Vancouver.png" ><h3>North Vancouver</h3></div>
+<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/North%20Vancouver.png" ><p>North Vancouver</p></div>
 
 
-<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/West%20Vancouver.png" ><h3>West Vancouver</h3></div>
+<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/West%20Vancouver.png" ><p>West Vancouver</p></div>
 
 
-<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Langley.png" ><h3>Langley</h3></div>
+<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Langley.png" ><p>Langley</p></div>
 
 
-<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Port%20Moody.png" ><h3>Port Moody</h3></div>
+<div class="jacobs"><img src="http://doodles.mountainmath.ca/images/jacobs/Port%20Moody.png" ><p>Port Moody</p></div>
 
 
 <h4>Code to generate the images</h4>
