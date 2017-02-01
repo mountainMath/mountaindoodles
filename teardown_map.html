@@ -215,17 +215,17 @@
         var innerHTML='<div class="innerDownloadPane" style="width:' + (width-30) + 'px;">' + titleText + subtitleText + buttonHTML + '</div>';
         this._div.innerHTML=innerHTML;
         return this._div;
-    }
+    };
 
     downloadPane.addTo(map);
 
 
     function loadData() {
-        var downloadingText='<h3>downloading...</h3>'
+        var downloadingText='<h3>downloading...</h3>';
         downloadPane._div.innerHTML='<div class="innerDownloadPane" style="width:' + (width-30) + 'px;">' + downloadingText + '</div>';
 
-        d3.json("data/teardowns.json", function (error, properties) {
-            var downloadingText='<h3>processing...</h3>'
+        d3.json("data/teardowns.topojson", function (error, properties) {
+            var downloadingText='<h3>processing...</h3>';
             downloadPane._div.innerHTML='<div class="innerDownloadPane" style="width:' + (width-30) + 'px;">' + downloadingText + '</div>';
 
             if (error) return console.error(error);
