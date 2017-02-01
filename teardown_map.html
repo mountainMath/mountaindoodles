@@ -140,8 +140,8 @@
 
 
     var improvementsToOverall=function(props){
-        var land=parseFloat(props.L);
-        var improvement=parseFloat(props.I);
+        var land=parseFloat(props.CURRENT_LAND_VALUE);
+        var improvement=parseFloat(props.CURRENT_IMPROVEMENT_VALUE);
         return improvement/(land+improvement);
     };
 
