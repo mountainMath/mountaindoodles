@@ -4,7 +4,7 @@
   <title><![CDATA[Category: canada | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/canada/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-02-18T12:26:46-08:00</updated>
+  <updated>2017-02-18T12:31:33-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -97,7 +97,7 @@ show up as a decline in the number of dwelling units.</p>
 
 <h4>Non-primary residence dwellings</h4>
 
-<p><a href="https://censusmapper.ca/maps/586"><img src="http://doodles.mountainmath.ca/images/van_ur_change.png" style="width:50%;float:right;margin-left:10px;"></a>
+<p><a href="https://censusmapper.ca/maps/586"><img src="http://doodles.mountainmath.ca/images/van_uo_change.png" style="width:50%;float:right;margin-left:10px;"></a>
 More formally, these are &ldquo;dwellings not occupied by usual residents&rdquo;, it&rsquo;s
 the difference between dwellings and households and the object of continued
 scrutiny in Vancouver. And a good portion of these are the target of the
@@ -146,8 +146,7 @@ this out at the DA level.</p>
 
 <h3>Components of Population Change</h3>
 
-<p><a href="https://censusmapper.ca/maps/596"><img src="http://doodles.mountainmath.ca/images/van_pop_comp.png" style="width:50%;float:right;margin-left:10px;"></a>
-First we refine our variables a little bit it seems more interesting to use the rate of unoccupied builings as a variable,
+<p>First we refine our variables a little bit it seems more interesting to use the rate of unoccupied builings as a variable,
 rather than the number of these. We want to express population change <code>Δpop</code> as a
 linear combination of</p>
 
@@ -168,7 +167,8 @@ linear combination of</p>
 
 <p>It is simple algebra to check that the identity holds.</p>
 
-<p>The first term gives the contribution to population growth due to the growth in dwellings, assuming that household size and the rate of unoccupied dwellings
+<p><a href="https://censusmapper.ca/maps/596"><img src="http://doodles.mountainmath.ca/images/van_pop_comp.png" style="width:50%;float:right;margin-left:10px;"></a>
+The first term gives the contribution to population growth due to the growth in dwellings, assuming that household size and the rate of unoccupied dwellings
 are unchanged from 2011.</p>
 
 <p>The second term give the population growth due to the change in the rate of unoccupied dwellings and the third term gives the
