@@ -4,7 +4,7 @@
   <title><![CDATA[Category: canada | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/canada/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-02-18T12:31:33-08:00</updated>
+  <updated>2017-02-18T12:35:41-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -177,6 +177,9 @@ population growth due to a change in household size.</p>
 <p>Great, all that&rsquo;s left to do is to type the formula into CensusMapper and graph the relative contribution of each of these terms. To make this work
 we will have to make due with using only the magnitude of each term, but we can visualize the sign in the bar graph widget when
 we hover over an area.</p>
+
+<p>This makes it very easy to compare different areas and see how the different components contribute to the change in
+population in each area.</p>
 ]]></content>
   </entry>
   
