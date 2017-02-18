@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-31T16:56:37-08:00</updated>
+  <updated>2017-02-18T12:26:46-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,173 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2016 Census Data - Part 1]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/02/10/2016-census-data/"/>
+    <updated>2017-02-10T20:27:10-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/02/10/2016-census-data</id>
+    <content type="html"><![CDATA[<p><a href="https://censusmapper.ca/maps/583"><img src="http://doodles.mountainmath.ca/images/van_pop_change.png" style="width:50%;float:right;margin-left:10px;"></a>
+Finally the first batch of 2016 census data has arrived on Tuesday AM and
+CensusMapper was updated with the new census numbers by mid-morning.</p>
+
+<p>Dissemination Block data was a little harder to find, but with the help
+of some friendly StatCan people I finally managed to locate the data and
+add that too this afternoon.</p>
+
+<p>Time for writing up some observations. I am hoping to find time to do
+this regularly as more data gets released.</p>
+
+<!-- more -->
+
+
+<p>The first batch of data only comes with three variables: Population, dwellings and households.
+And two more, a data quality flag indicating areas with incomplete enumeration and the area of
+each geographic region. Area itself is more tricky than it seems at first, one has
+to make decisions what to count. Lakes? Rivers? National or Regional Parks?</p>
+
+<p>Next to these variables, we also got the corresponding 2011 population for all geographic
+regions at the CT/CSD level and above to aid the comparison, but these
+were not available at the DA or DB level.</p>
+
+<p>The variables seem straight forward, but nothing is simple when it comes to big projects like a census,
+so it might we worthwhile to spend a little bit of time looking at them.</p>
+
+<h3>Population</h3>
+
+<p>The quintessential census variable counts the number of people in each census region. With the exception
+of people that have a primary residence elsewhere in Canada or abroad. There are several reasons for this,
+the simples one is to avoid the double-counting of people.</p>
+
+<h3>Dwellings</h3>
+
+<p>&ldquo;Dwellings&rdquo; is short for &ldquo;private dwellings&rdquo;, this does not count collective dwellings
+like prisons, student dorms, hospitals or nursery homes or even some coops. This can lead
+to interesting situation where there are zero private dwellings (and zero households) but non-zero population.
+Metro Vancouver has 45 such dissemination blocks. But these people are
+only counted if they don&rsquo;t have a primary residence somewhere else, which
+often is the case for students in dorms. But not for all students, as the
+Dissemination Block on UBC campus that&rsquo;s wedged between NW Marine, University,
+Lower Mall and Agronomy shows.
+It has zero dwellings, zero households, but a population of 890 people.</p>
+
+<h3>Households</h3>
+
+<p>The &ldquo;dwellings, occupied by usual residents&rdquo; is also called &ldquo;households&rdquo;. It
+refers to a private dwelling that is used as a primary residence, and the inhabitants
+make up a household. If inhabitants of a dwelling only live there temporarily and/or has
+a primary residence somewhere else in Canada or abroad, then they are not
+counted in the population nor the household counts.</p>
+
+<h3>Mixing Variables</h3>
+
+<p>The fun starts when we mix these variables. And compare them to the previous
+censuses. And there are lots of ways to do that, here are a few:</p>
+
+<h4>Population Change</h4>
+
+<p><a href="https://censusmapper.ca/maps/583"><img src="http://doodles.mountainmath.ca/images/van_pop_change.png" style="width:50%;float:right;margin-left:10px;"></a>
+The most immediate variable to look at is population change. We have
+complete Canada-wide data at the CT level or above, but if we are really
+interested we can also view this data for DAs and DBs that stayed the same
+across the census years. The issue with doing that is that some regions will have
+not data, and one has to be very careful not to read too much into an incomplete
+dataset. Which is why I usually don&rsquo;t like giving out maps that contain incomplete data like this.
+But this is great for diving into specific regions to get more information.</p>
+
+<h4>Dwelling Change</h4>
+
+<p><a href="https://censusmapper.ca/maps/588"><img src="http://doodles.mountainmath.ca/images/van_dw_change.png" style="width:50%;float:left;margin-right:10px;"></a>
+This is a great way to see where more dwellings got built. This only measures
+net changes, so even if a region shows zero dwelling increase, there could have
+been quite a bit of construction in the area. In particular, if houses with secondary
+suites get torn down and replaced by houses without secondary suites, it will
+show up as a decline in the number of dwelling units.</p>
+
+<h4>Non-primary residence dwellings</h4>
+
+<p><a href="https://censusmapper.ca/maps/586"><img src="http://doodles.mountainmath.ca/images/van_ur_change.png" style="width:50%;float:right;margin-left:10px;"></a>
+More formally, these are &ldquo;dwellings not occupied by usual residents&rdquo;, it&rsquo;s
+the difference between dwellings and households and the object of continued
+scrutiny in Vancouver. And a good portion of these are the target of the
+upcoming empty home tax to either monetize non-primary resident homes or
+nudge them into the rental market.</p>
+
+<h4>Household size change</h4>
+
+<p><a href="https://censusmapper.ca/maps/590"><img src="http://doodles.mountainmath.ca/images/van_hs_change.png" style="width:50%;float:left;margin-right:10px;"></a>
+A big part of population change is the change in household size. Canada wide the
+trend to smaller households is continuing. That means that if the number of dwellings
+and the rate of unoccupied dwellings in a region remain unchanged, then the
+population in the area will decline if it follows the national trend to
+smaller household size.</p>
+
+<h3>Population Change Null Sum Game</h3>
+
+<p>From looking at CensusMapper, the variable that got by far the most attention
+nationally in the past three days is Population Change. It&rsquo;s great to
+see where population grew or declined. But almost immediately people wonder
+why population change was different in one region compared to another.</p>
+
+<p>The first step to this is the Population Null Sum Game. You need the</p>
+
+<ul>
+<li>Dwelling Change</li>
+<li>Change in Unoccupied Dwellings</li>
+<li>Change in Household size</li>
+</ul>
+
+
+<p>to play. The game is then to express Population Change in terms of those three,
+and thus &ldquo;explaining&rdquo; population change in terms of these variables. There are
+of course other ways to split up the Population Change variable, but I find
+this a useful one.</p>
+
+<p>Nathaniel Lauster kicked the game off
+<a href="https://homefreesociology.wordpress.com/2017/02/10/if-you-build-it-will-they-come/">with this great post</a>.
+Let&rsquo;s follow up his inter-municipal level analysis with some intra-municipal numbers.</p>
+
+<p>We will focus on the City of Vancouver only. People are welcome to use CensusMapper
+to repeat this for whatever region they are interested in. Vancouver has the
+nice advantage that at the dissemination area geography only on change was made.
+A 2011 downtown DA got split into two for 2016. That makes it very easy to carry
+this out at the DA level.</p>
+
+<h3>Components of Population Change</h3>
+
+<p><a href="https://censusmapper.ca/maps/596"><img src="http://doodles.mountainmath.ca/images/van_pop_comp.png" style="width:50%;float:right;margin-left:10px;"></a>
+First we refine our variables a little bit it seems more interesting to use the rate of unoccupied builings as a variable,
+rather than the number of these. We want to express population change <code>Δpop</code> as a
+linear combination of</p>
+
+<ul>
+<li>Dwelling change <code>Δdw</code></li>
+<li>Change in ratio of unoccupied dwellings <code>Δur</code></li>
+<li>Change in household size <code>Δhs</code></li>
+</ul>
+
+
+<p>More formally:</p>
+
+<pre><code>Δpop = hs₁₁ * (1-ur₁₁) * Δdw - hs₁₁ * dw₁₆ * Δur +  hh₁₆ * Δhs
+</code></pre>
+
+<p>where <code>hs₁₁=pop₁₁/hh₁₁</code> is the household size in 2011 as computed by dividing the population by the number of households,
+<code>ur₁₁</code> is the rate of unoccupied dwellings in 2011, <code>dw₁₆</code> is the number of dwellings in 2016 and <code>hh₁₆</code> is the number of households in 2016.</p>
+
+<p>It is simple algebra to check that the identity holds.</p>
+
+<p>The first term gives the contribution to population growth due to the growth in dwellings, assuming that household size and the rate of unoccupied dwellings
+are unchanged from 2011.</p>
+
+<p>The second term give the population growth due to the change in the rate of unoccupied dwellings and the third term gives the
+population growth due to a change in household size.</p>
+
+<p>Great, all that&rsquo;s left to do is to type the formula into CensusMapper and graph the relative contribution of each of these terms. To make this work
+we will have to make due with using only the magnitude of each term, but we can visualize the sign in the bar graph widget when
+we hover over an area.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Jane Jacobs' Vancouver]]></title>
@@ -3270,112 +3437,6 @@ the Lookout on the Harbour Centre.</p>
 <p>Block level aggregates will underestimate FSR in the presence of properties excluded from the FSR calculation.</p>
 
 <p>Do not be use the FSR estimates as an authoritative source for any individual building FSR.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[My Global Bike Map]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/05/16/my-global-bike-map/"/>
-    <updated>2016-05-16T21:39:07-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/05/16/my-global-bike-map</id>
-    <content type="html"><![CDATA[<p><a href="http://doodles.mountainmath.ca/bike_global.html#14/49.2775/-123.1292" target="_blank"><img  src="http://doodles.mountainmath.ca/images/vancouver_bike.png"  style="width:50%;float:right;margin-left:10px;"></a>
-Last week Mapzen <a href="https://twitter.com/mapzen/status/730782107685912576">announced</a> that they included bike data in their OSM vector tiles. That&rsquo;s just what the doctor ordered
-to continue on my path towards the perfect bike map that I <a href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/">started on</a>,
-<a href="http://doodles.mountainmath.ca/blog/2015/12/14/routing/">explored routing</a> and <a href="http://doodles.mountainmath.ca/blog/2015/12/15/bike-data/">looked at improving OSM bike data</a>.
-Now that I don&rsquo;t need to extract bike data myself any more it is time to take these maps global. And maybe add some minor
-improvements.</p>
-
-<!-- more -->
-
-
-<p>To make the bike map boils down to deciding what OSM roads, paths, etc to map and how to map them. And what contextual
-information to display. The only choices we have to make is how to organize the bike related data that exists in open street maps. Let&rsquo;s be a little
-radical! Our emphasis will be on safety and cycling comfort for the casual rider.</p>
-
-<p>We will emphasise separated cycletracks by making them brightest and thickest. Shared pedestrian/bike infrastructure will
-get a separate colour and be a little bit thinner. Next we layer on designated bike infrastructure by prioritizing lanes
-on residential roads, then &ldquo;shared&rdquo; residential roads, then residential roads, then lanes and &ldquo;shared&rdquo; designations on
-increasingly busy roads. Lastly we add residential and larger roads. And we only label roads that we are actually interested in.</p>
-
-<p>We allow some customization by emphasizing or de-emphasizing certain types of infrastructure. By default, roads without
-special bike designation are de-emphasized.</p>
-
-<p>For good measure we added basic land use categories to highlight possible destinations, and we add building footprints
-for reference as available.</p>
-
-<p>This scheme is geared toward the safety conscious and motor-traffic-adverse cyclist in North America. In Europe other
-designations exist that might call for a different priority. MAMILs might want a different colour scheme altogether.</p>
-
-<iframe src="http://doodles.mountainmath.ca/bike_global.html#14/49.2775/-123.1292" width="80%" height="450" style="margin: 5px 10%;"></iframe>
-
-
-<p>To get a better view you can also
-<a href="http://doodles.mountainmath.ca/bike_global.html" target="_blank" class='btn btn-default'>take the map full-screen</a>.</p>
-
-<h3>Data Quality</h3>
-
-<p>The data for the map comes right out of Open Streets Map. That means that if something is missing or not right you can
-just go and fix it! To make things a little easier when you are on a desktop computer, just &ldquo;shift-click&rdquo; where the problem
-is and it will bring the open street map editor up for that position. You might have to log in first or create a free
-account before you can help improve the bike map.</p>
-
-<p>There is a bit of a lag between changes being made in open street map and them filtering down to the mapzen tiles so that
-they will show up on the map on the map, so don&rsquo;t fret if things aren&rsquo;t up to date immediately.</p>
-
-<h3>Global</h3>
-
-<p><a href="http://doodles.mountainmath.ca/bike_global.html#13/52.3617/4.9051" target="_blank"><img  src="http://doodles.mountainmath.ca/images/amsterdam_bike.png"  style="width:50%;float:left;margin-right:10px;"></a>
-And this bike map is global. The quality of the map depends on the quality of OSM data, in the case of Amsterdam it makes
-it abundantly clear why casual cyclists keep dreaming about the infrastructure in this city.</p>
-
-<p>The choice of emphasis for the
-maps are based on North America, or more narrowly Vancouver, where I live. So this might need adjusting for local context
-to better fit local OSM conventions. Use the search bar and explore your region.</p>
-
-<h3>The Real Deal</h3>
-
-<p><a href="https://ride.report" target="_blank"><img  src="http://doodles.mountainmath.ca/images/ride_report.png"  style="width:50%;float:right;margin-left:10px;"></a>
-Sadly, all of this effort is really coming at things from the wrong angle. The best way to do this,
-<a href="http://doodles.mountainmath.ca/blog/2015/12/13/how-to-make-a-bike-map/">as we outlined earlier</a>, is to base a bike map
-on how cyclists actually use the roads and pathways, instead of how they got classified in Open Street Map or what
-municipalities think they should be classified. The problem is that we don&rsquo;t have that data. At least not yet. But
-there are really cool efforts out there to get that data and make it available.</p>
-
-<p>I really like the approach that <a href="https://ride.report" target="_blank">Ride Report</a> has taken. Strava works
-reasonably well for recreational cyclists, but it does a terrible job at capturing where transportation cyclists go and
-makes no effort in understanding their comfort level. Ride Report takes a different approach by automagically figuring
-out what you are doing and recording your cycling trips. All without you ever having to press a &ldquo;start&rdquo; or &ldquo;stop&rdquo; button,
-which is key if you want to understand where transportation cyclists go. On top of that it prompts you to simply rate your
-bike trip once you are done, and you can do this easily from your lock screen. Then Ride Report aggregates the data
-to produce stress maps, and possibly other important data that can guide infrastructure improvements.</p>
-
-<p>In this day and age of data driven decision making I would really like more municipalities to support efforts like Ride Report
-that generate real meaningful data on transportation cycling. And as a by-product one could take cycling maps to the
-next level and add actual cycling usage and comfort.</p>
-
-<h3>Issues</h3>
-
-<p>There are still some issues. Some bike infrastructure, for example OSM paths, only become visible at zoom level 13 or higher.
-That&rsquo;s just the way the vector tile service works. Secondary roads are only visible at zoom level 12 or higher, and this
-includes &ldquo;bike boulevards&rdquo;. Cyclepaths are only visible at zoom level 11 or higher. If one wants to have high-level bike
-maps one probably needs a dedicated vector tile service for bike infrastructure.</p>
-
-<h3>Apologies</h3>
-
-<p>Since this is just a blog post I have not gone out of my way to make sure this map works on every computer and browser.
-Basically, I am leaveraging off of <a href="https://mapzen.com">Mapzen&rsquo;s</a> awesome <a href="https://mapzen.com/projects/tangram/">Tangram</a>
-mapping engine to keep things simple on my end, but that means the maps will only show on modern computers
-(and modern browsers, so no IE). If your computer is having trouble displaying the map just pull out your phone, chances
-are it it is much better equipped to handle modern web technology.</p>
-
-<p>Also, I made a bunch of choices how to display bike infrastructure. These are just a function of my personal preferences
-and what OSM data has to offer. If you notice issues with the OSM data, you can fix it in OSM and it will show on the map
-once the changes have filtered through to Mapzen&rsquo;s tile service. If you don&rsquo;t like my personal prefernces, just grab the
-html for the map and the scene file and change it at your heart&rsquo;s content. You don&rsquo;t need any special server to host these
-files, I dumped them on my static blog. Even a public dropbox folder can host these maps.</p>
-
-<p>So grab the code and customize it at your heart&rsquo;s content. Take full control on how to display bike infrastructure and
-roads, and what amenities to show and how to style them.</p>
 ]]></content>
   </entry>
   

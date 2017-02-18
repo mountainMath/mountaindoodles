@@ -4,7 +4,7 @@
   <title><![CDATA[Category: census | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/census/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-01-31T16:56:37-08:00</updated>
+  <updated>2017-02-18T12:26:46-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,173 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[2016 Census Data - Part 1]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/02/10/2016-census-data/"/>
+    <updated>2017-02-10T20:27:10-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/02/10/2016-census-data</id>
+    <content type="html"><![CDATA[<p><a href="https://censusmapper.ca/maps/583"><img src="http://doodles.mountainmath.ca/images/van_pop_change.png" style="width:50%;float:right;margin-left:10px;"></a>
+Finally the first batch of 2016 census data has arrived on Tuesday AM and
+CensusMapper was updated with the new census numbers by mid-morning.</p>
+
+<p>Dissemination Block data was a little harder to find, but with the help
+of some friendly StatCan people I finally managed to locate the data and
+add that too this afternoon.</p>
+
+<p>Time for writing up some observations. I am hoping to find time to do
+this regularly as more data gets released.</p>
+
+<!-- more -->
+
+
+<p>The first batch of data only comes with three variables: Population, dwellings and households.
+And two more, a data quality flag indicating areas with incomplete enumeration and the area of
+each geographic region. Area itself is more tricky than it seems at first, one has
+to make decisions what to count. Lakes? Rivers? National or Regional Parks?</p>
+
+<p>Next to these variables, we also got the corresponding 2011 population for all geographic
+regions at the CT/CSD level and above to aid the comparison, but these
+were not available at the DA or DB level.</p>
+
+<p>The variables seem straight forward, but nothing is simple when it comes to big projects like a census,
+so it might we worthwhile to spend a little bit of time looking at them.</p>
+
+<h3>Population</h3>
+
+<p>The quintessential census variable counts the number of people in each census region. With the exception
+of people that have a primary residence elsewhere in Canada or abroad. There are several reasons for this,
+the simples one is to avoid the double-counting of people.</p>
+
+<h3>Dwellings</h3>
+
+<p>&ldquo;Dwellings&rdquo; is short for &ldquo;private dwellings&rdquo;, this does not count collective dwellings
+like prisons, student dorms, hospitals or nursery homes or even some coops. This can lead
+to interesting situation where there are zero private dwellings (and zero households) but non-zero population.
+Metro Vancouver has 45 such dissemination blocks. But these people are
+only counted if they don&rsquo;t have a primary residence somewhere else, which
+often is the case for students in dorms. But not for all students, as the
+Dissemination Block on UBC campus that&rsquo;s wedged between NW Marine, University,
+Lower Mall and Agronomy shows.
+It has zero dwellings, zero households, but a population of 890 people.</p>
+
+<h3>Households</h3>
+
+<p>The &ldquo;dwellings, occupied by usual residents&rdquo; is also called &ldquo;households&rdquo;. It
+refers to a private dwelling that is used as a primary residence, and the inhabitants
+make up a household. If inhabitants of a dwelling only live there temporarily and/or has
+a primary residence somewhere else in Canada or abroad, then they are not
+counted in the population nor the household counts.</p>
+
+<h3>Mixing Variables</h3>
+
+<p>The fun starts when we mix these variables. And compare them to the previous
+censuses. And there are lots of ways to do that, here are a few:</p>
+
+<h4>Population Change</h4>
+
+<p><a href="https://censusmapper.ca/maps/583"><img src="http://doodles.mountainmath.ca/images/van_pop_change.png" style="width:50%;float:right;margin-left:10px;"></a>
+The most immediate variable to look at is population change. We have
+complete Canada-wide data at the CT level or above, but if we are really
+interested we can also view this data for DAs and DBs that stayed the same
+across the census years. The issue with doing that is that some regions will have
+not data, and one has to be very careful not to read too much into an incomplete
+dataset. Which is why I usually don&rsquo;t like giving out maps that contain incomplete data like this.
+But this is great for diving into specific regions to get more information.</p>
+
+<h4>Dwelling Change</h4>
+
+<p><a href="https://censusmapper.ca/maps/588"><img src="http://doodles.mountainmath.ca/images/van_dw_change.png" style="width:50%;float:left;margin-right:10px;"></a>
+This is a great way to see where more dwellings got built. This only measures
+net changes, so even if a region shows zero dwelling increase, there could have
+been quite a bit of construction in the area. In particular, if houses with secondary
+suites get torn down and replaced by houses without secondary suites, it will
+show up as a decline in the number of dwelling units.</p>
+
+<h4>Non-primary residence dwellings</h4>
+
+<p><a href="https://censusmapper.ca/maps/586"><img src="http://doodles.mountainmath.ca/images/van_ur_change.png" style="width:50%;float:right;margin-left:10px;"></a>
+More formally, these are &ldquo;dwellings not occupied by usual residents&rdquo;, it&rsquo;s
+the difference between dwellings and households and the object of continued
+scrutiny in Vancouver. And a good portion of these are the target of the
+upcoming empty home tax to either monetize non-primary resident homes or
+nudge them into the rental market.</p>
+
+<h4>Household size change</h4>
+
+<p><a href="https://censusmapper.ca/maps/590"><img src="http://doodles.mountainmath.ca/images/van_hs_change.png" style="width:50%;float:left;margin-right:10px;"></a>
+A big part of population change is the change in household size. Canada wide the
+trend to smaller households is continuing. That means that if the number of dwellings
+and the rate of unoccupied dwellings in a region remain unchanged, then the
+population in the area will decline if it follows the national trend to
+smaller household size.</p>
+
+<h3>Population Change Null Sum Game</h3>
+
+<p>From looking at CensusMapper, the variable that got by far the most attention
+nationally in the past three days is Population Change. It&rsquo;s great to
+see where population grew or declined. But almost immediately people wonder
+why population change was different in one region compared to another.</p>
+
+<p>The first step to this is the Population Null Sum Game. You need the</p>
+
+<ul>
+<li>Dwelling Change</li>
+<li>Change in Unoccupied Dwellings</li>
+<li>Change in Household size</li>
+</ul>
+
+
+<p>to play. The game is then to express Population Change in terms of those three,
+and thus &ldquo;explaining&rdquo; population change in terms of these variables. There are
+of course other ways to split up the Population Change variable, but I find
+this a useful one.</p>
+
+<p>Nathaniel Lauster kicked the game off
+<a href="https://homefreesociology.wordpress.com/2017/02/10/if-you-build-it-will-they-come/">with this great post</a>.
+Let&rsquo;s follow up his inter-municipal level analysis with some intra-municipal numbers.</p>
+
+<p>We will focus on the City of Vancouver only. People are welcome to use CensusMapper
+to repeat this for whatever region they are interested in. Vancouver has the
+nice advantage that at the dissemination area geography only on change was made.
+A 2011 downtown DA got split into two for 2016. That makes it very easy to carry
+this out at the DA level.</p>
+
+<h3>Components of Population Change</h3>
+
+<p><a href="https://censusmapper.ca/maps/596"><img src="http://doodles.mountainmath.ca/images/van_pop_comp.png" style="width:50%;float:right;margin-left:10px;"></a>
+First we refine our variables a little bit it seems more interesting to use the rate of unoccupied builings as a variable,
+rather than the number of these. We want to express population change <code>Δpop</code> as a
+linear combination of</p>
+
+<ul>
+<li>Dwelling change <code>Δdw</code></li>
+<li>Change in ratio of unoccupied dwellings <code>Δur</code></li>
+<li>Change in household size <code>Δhs</code></li>
+</ul>
+
+
+<p>More formally:</p>
+
+<pre><code>Δpop = hs₁₁ * (1-ur₁₁) * Δdw - hs₁₁ * dw₁₆ * Δur +  hh₁₆ * Δhs
+</code></pre>
+
+<p>where <code>hs₁₁=pop₁₁/hh₁₁</code> is the household size in 2011 as computed by dividing the population by the number of households,
+<code>ur₁₁</code> is the rate of unoccupied dwellings in 2011, <code>dw₁₆</code> is the number of dwellings in 2016 and <code>hh₁₆</code> is the number of households in 2016.</p>
+
+<p>It is simple algebra to check that the identity holds.</p>
+
+<p>The first term gives the contribution to population growth due to the growth in dwellings, assuming that household size and the rate of unoccupied dwellings
+are unchanged from 2011.</p>
+
+<p>The second term give the population growth due to the change in the rate of unoccupied dwellings and the third term gives the
+population growth due to a change in household size.</p>
+
+<p>Great, all that&rsquo;s left to do is to type the formula into CensusMapper and graph the relative contribution of each of these terms. To make this work
+we will have to make due with using only the magnitude of each term, but we can visualize the sign in the bar graph widget when
+we hover over an area.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Bumper Year for Thumb Twiddlers]]></title>
@@ -520,140 +687,6 @@ total &ndash; is classified as being an &ldquo;Apartment, building that has fewe
 only have duplex or single family lots as residential land uses based on assessment and land use data, we can look for
 how many dwelling units the census places in an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. And
 <a href="https://mountainmath.ca/census_mix/map?mapBase=2&amp;layer=5">map them</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SDH Zoning and Land Use]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use/"/>
-    <updated>2016-06-17T09:34:37-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use</id>
-    <content type="html"><![CDATA[<p>Recently the question around the amount of space taken up (exclusively) by single detached houses has show up on my
-Twitter feed citing that
-SFH take up <a href="https://twitter.com/WayneFougere/status/743211599821844481">70%</a>,
-<a href="https://twitter.com/MitchellReardon/status/739957295564476416">66%</a>,
-and <a href="https://twitter.com/karensawa/status/743235428011020288">57%</a>,
-<a href="http://www.cknw.com/2016/06/02/the-lynda-steele-show-bob-rennie-on-supply-and-demand/">56% (timestamp 3:50)</a>.
-I personally have thrown in
-<a href="https://twitter.com/vb_jens/status/738608945741238272">34%</a> as a contender. And, just for the fun of it, by the end of
-this post I will have thrown 33% and 28% and my favorite, 81%, into the mix.</p>
-
-<p>What&rsquo;s going on, how can there be such a large range of estimates for what seems to be a simple question? The answer
-lies in the details of what exactly the question is asking, all of the above numbers are correct answers to one particular
-version of very similar questions.</p>
-
-<h3>TL;DR</h3>
-
-<p>The takeaway I think is most useful for general purposes:</p>
-
-<pre><code>35% of all households live on single family and duplex properties
-making up 81% of Vancouver's residential land, while the     
-remaining 65% of households live on 19% of the residential land. 
-</code></pre>
-
-<!-- more -->
-
-
-<p>There are two fundamental ways to attack the question. One is through zoning, that is to look at area where only SDH can
-be built. The other is through land use, that is looking at what area is currently occupied by SDH lots.</p>
-
-<h3>Single Detached Houses</h3>
-
-<p>First we need to understand what we mean by single detached house. There are two common, but quite different definitions
-out there. One stems from the zoning code and refers to a property that is not stratified and has a single main structure
-on it, possibly with one suite, and possibly a laneway house. This is the definition most commonly used. When someone says
-they own a single family house, this is what they are talking about. Let&rsquo;s call them <em>single detached properties</em>.
-There are around 75,000 of these in the City of Vancouver.</p>
-
-<p>Stats Canada employs a different definition. To them a <em>single detached dwelling</em> is single dwelling unit comprised of a
-free-standing (detached) structure. A <em>single detached property</em> may contain exactly one dwelling unit, in which case
-Stats Canada would also call it a <em>single detached dwelling</em>. If the house has a secondary suite, Stats Canda would
-classify it as a <em>duplex</em>. If it has a laneway house, Stats Canada would classify the laneway house as a separate
-<em>single detached dwelling</em>. Stats Canada reports 47,530 <em>single detached dwellings</em> in the City of Vancouver.</p>
-
-<p>Because of this discrepancy, sometimes it is useful to look as single family houses and duplexes combined. Especially
-if one wants to mix in census data to for example look at the number of households that live in these dwellings. While
-there are about 75,000 <em>single detached properties</em> in Vancouver, it is fair to assume that there are significantly more
-than 75,000 households living on these properties once we account for secondary suites and laneway houses.</p>
-
-<h3>Zoning</h3>
-
-<p><a href="http://vancouver.ca/files/cov/Zoning-Map-Vancouver.pdf" target="_blank"><img  src="http://doodles.mountainmath.ca/images/zoning_van_pdf.png" style="width:50%;float:right;margin-left:10px;"></a>
-Vancouver is divided up into zones that determine what can (and cannot) be legally built on the land.
-If one is primarily concerned with the area of land that where only single detached houses can be built, then zoning is
-the right metric to look at.</p>
-
-<p>There are two zones that essentially only allow single family houses as residential properties, the RS zones and,
-to some extent, First Shaughnessy. Each of these has it&rsquo;s own pitfalls. The first issue is that parks are generally zoned
-RS, but one cannot build single family homes in parks. Moreover, while RS does not allow residential land uses other
-than single detached houses, it does allow for other land uses, like parks, schools, assisted living and other institutional
-uses. So RS zoned land area is a poor proxy for the question of where single family houses could be built. At the very
-<a href="https://mountainmath.ca/map/assessment?zoom=13&lat=49.2517&lng=-123.1232&layer=6" target="_blank"><img  src="http://doodles.mountainmath.ca/images/zoning_van.png" style="width:50%;float:left;margin-right:10px;"></a>
-least we should exclude parks from the equation, but probably also schools and other institutional land uses. After all,
-it is delusional to think that even if a school were to close down and the land be sold for development that single
-detached dwelling would be built on that land. Next comes the question if we should only include the lots that single
-family homes could be built on, or also include the surrounding roads. After all, the roads are needed to serve the lots.
-But they also serve the schools and parks, so maybe only a certain portion of the roads should be included? It gets messy,
-the second image shows only non-institutional and non-park properties (no roads) coloured by zone, interactive version
-<a href="http://mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2517&amp;lng=-123.1232&amp;layer=6">here</a>.</p>
-
-<p>The numbers between 70% and 56% mentioned up top are (probably) derived using some version of zoned area, possibly excluding
-parks or schools for some, but including roads within RS zoning. It is easy to underestimate
-the space roads take up in the City of Vancouver, overall roads right of ways make up 28% of City of Vancouver land.</p>
-
-<p>At the end of this though process, we are starting to gravitate away from zoning and toward land use.</p>
-
-<h3>Land Use</h3>
-
-<p>We can simplify the discussion by asking how much space currently is taken up by single family properties. The answer
-to this is 33%. I have previously written about the
-<a href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/">land use breakdown</a> for Metro Vancouver municipalities, but
-single detached homes were not broken out separately, single detached and duplex properties combined take up 34% of
-Vancouver&rsquo;s land. One can play the numbers a little more, maybe only look at single detached properties within RS zoning.
-That puts the number at 28%. Throw in Shaugnessy and it rises to 29%. Recall that this excludes roads right of way.</p>
-
-<p><a href="https://mountainmath.ca/land_use/map?zoom=13&lat=49.2544&lng=-123.1268&mu_filter=[%22VA%22]&lu_filter_n=[]" target="_blank"><img  src="http://doodles.mountainmath.ca/images/land_use_van.png" style="width:50%;float:right;margin-left:10px;"></a>
-Here is an interactive (data-heavy) map that shows the land use for
-<a href="https://mountainmath.ca/land_use/map?zoom=13&amp;lat=49.2544&amp;lng=-123.1268&amp;mu_filter=[%22VA%22]&amp;lu_filter_n=[]">just for the City of Vancouver (plus Musqueam 2)</a>.</p>
-
-<h3>Multi-Unit Housing</h3>
-
-<p>One can ask the same question about other housing types, and we can read off the numbers from the
-<a href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/">land use breakdown</a>. 3.2% of land is taken up with low rise
-apartments, 1.9% with townhouses, 1.2% with high rise, 0.3% by non-market housing, 0.9% by mixed use low rise and 0.7%
-by mixed use high rise. Adding all of this up we get that 8.2% of land is taken up by housing that is not single detached
-or duplex. And it also includes some commercial space in the mixed use developments.</p>
-
-<p>That means that overall in Vancouver 42.2% of the land is used for residential purposes, 81% of which is occupied by
-single detached and duplex properties and the remaining 19% is occupied by all other building forms.</p>
-
-<h3>Share of Households in Different Land Uses</h3>
-
-<p>We may be interested in the population density these different land use patterns entail. That&rsquo;s where things get a little
-tricky, we will turn to the census for answers. From the standard census releases we can only discern the share of
-dwellings that are single detached and duplex properties combined, and that number is 93,370 dwelling units. Overall
-there are 264,575 dwelling units, so single family and duplex units make up 35% of all dwelling units in CoV. Glossing
-over the issue that some of these may not be occupied we conclude that 35% of all households live on single family and
-duplex properties making up 81% of Vancouver&rsquo;s residential land,
-while the remaining 65% of households live on 19% of the residential land.</p>
-
-<h3>Fine Print</h3>
-
-<p>There are a number of issues with the data that might change the numbers slightly, but not by much. The first is that
-the land use dataset I use lump the City of Vancouver together with Musqueam 2. That slightly changes the land use mix
-and areas reported, but the effect on all numbers mentioned here is very small. Next up is the number of dwelling units
-on single detached or duplex properties. The census number is likely to under report some secondary suites (although it
-captures more than BCAssessment does), and properties with more than one secondary suite (so some illegal suites) will
-show up as an apartment building in census data. Moreover, the census data is from 2011, the land use data we used is
-about a year old, and we have manually adjusted for some recent upzoning. So there is some give or take in the numbers,
-I would not expect more than a one percent move in the numbers I reported as a result.</p>
-
-<h3>Further Questions</h3>
-
-<p>This does not answer the question what percentage of the population lives on single family or duplex properties. To
-estimate that one would have to first estimate the number of people per houshold for the different land uses, as we
-expect them to differ significantly. One can start exploring how the number of people per dwelling unit varies
-<a href="https://censusmapper.ca/maps/391">on CensusMapper</a>.</p>
 ]]></content>
   </entry>
   
