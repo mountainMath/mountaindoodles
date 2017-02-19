@@ -4,7 +4,7 @@
   <title><![CDATA[Category: censusmapper | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/censusmapper/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-02-18T12:35:41-08:00</updated>
+  <updated>2017-02-18T21:37:16-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -46,7 +46,8 @@ so it might we worthwhile to spend a little bit of time looking at them.</p>
 
 <h3>Population</h3>
 
-<p>The quintessential census variable counts the number of people in each census region. With the exception
+<p><a href="https://censusmapper.ca/maps/591"><img src="http://doodles.mountainmath.ca/images/van_pop_density.png" style="width:50%;float:right;margin-left:10px;"></a>
+The quintessential census variable counts the number of people in each census region. With the exception
 of people that have a primary residence elsewhere in Canada or abroad. There are several reasons for this,
 the simples one is to avoid the double-counting of people.</p>
 
@@ -69,6 +70,13 @@ refers to a private dwelling that is used as a primary residence, and the inhabi
 make up a household. If inhabitants of a dwelling only live there temporarily and/or has
 a primary residence somewhere else in Canada or abroad, then they are not
 counted in the population nor the household counts.</p>
+
+<h3>Unoccupied Dwellings</h3>
+
+<p><a href="https://censusmapper.ca/maps/584"><img src="http://doodles.mountainmath.ca/images/van_unoccupied.png" style="width:50%;float:left;margin-right:10px;"></a>
+The difference between dwellings and households is &ldquo;dwellings, not occupied by usual residents&rdquo;. Essentially, that&rsquo;s
+dwellings that are not used as primary residences. It&rsquo;s a fun variable to look at, and it
+is available at the very fine Census Block level. In some cases, a Census Block can contain just one apartment building.</p>
 
 <h3>Mixing Variables</h3>
 
