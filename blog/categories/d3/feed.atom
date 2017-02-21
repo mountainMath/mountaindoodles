@@ -4,7 +4,7 @@
   <title><![CDATA[Category: d3 | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/d3/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-02-18T21:37:16-08:00</updated>
+  <updated>2017-02-21T15:02:05-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,148 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[More on Teardowns]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/02/21/more-on-teardowns/"/>
+    <updated>2017-02-21T10:59:27-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/02/21/more-on-teardowns</id>
+    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/teardowns"><img src="http://doodles.mountainmath.ca/images/teardowns_animated.gif" style="width:50%;float:right;margin-left:10px;"></a>
+A little over a year ago we ran some analysis
+<a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">on teardowns</a>
+of single family homes in the City of Vancouver. We used the City of Vancouver
+open data to understand why some single family homes got torn down and other&rsquo;s don&rsquo;t.</p>
+
+<p>Relying entirely on open data, there were some important questions that could not
+be answered. So together with Joe Dahmen at UBC&rsquo;s School Of Architecture And Landscape Architecture
+we came back to the question
+and folded in transaction data from BC Assessment to add some more details and rigor.</p>
+
+<p>The result turned out quite similar to what our initial cruder methods came
+up with, but it lead to some important refinements.</p>
+
+<p>We won&rsquo;t go into the details of the findings here, you can
+<a href="mountainmath.ca/teardowns" target="_blank" class='btn btn-default'>read the online data story</a>
+if you are interested. Instead we will go into a little more details how
+the analysis was done and what is still missing.</p>
+
+<!-- more -->
+
+
+<p>The most critical piece that we added was transaction data, that is
+which properties got sold in what year. Almost all properties that got
+torn down were associated with a property transaction in the 4 years
+around it getting torn down rebuilt.</p>
+
+<p>This allowed us to refine the question from &ldquo;why did building A get torn
+own and building B did not&rdquo; to ask the same question only considering
+transacted buildings.</p>
+
+<p>Conditioning on the most important determinant of a building getting torn down,
+the transaction, we could focus in much better on what building-specific
+parameters are driving teardowns.</p>
+
+<h3>Variables</h3>
+
+<p>We had annual assessment data pegged at July 2005 through July 2016, although
+we excluded the July 2016 data for some parts of the analysis as the value
+gains that year where
+<a href="http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data/">quite extraordinary</a>
+and prices have come down
+a bit since then. We felt that this most recent assessment may not be a good
+launching point to project the future from.</p>
+
+<p>Unfortunately, the number of variables for teardowns that we have is
+quite limited. We only have good data on assessed land values, assessed
+building values and lot area. For a very small subset of about 500 buildings
+we also have the building age of the building that got torn down. We have
+GFA estimates for buildings that got torn down after 2009 through the
+<a href="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/">analysis of LIDAR data</a>
+that we did, but those estimates are quite crude and again only cover a portion of our
+time frame.</p>
+
+<p>A crucial variable that we are still missing is the actual time of the building
+demolition. We inferred this from the time a new building got completed on that
+property, but this inevitably introduces noise to the data. It makes it
+difficult to pick the right time to calculate the relative building value. Moreover,
+there may be the occasional property that got built on vacant land, so nothing got torn down.
+This was less an issue for the analysis part, where we had ways to filter out such properties,
+but it did cause some problems with the visualization part of the project. We did filter out
+some properties manually that we could identify as being built on vacant land within
+the timeframe of the visualization, namely some properties on Deering Island.</p>
+
+<p>On top of that, the decision to demolish the building was often made long
+before the building got torn down. Waiting times on demolition permits can be quite long, depending
+on the property. Having access to building permit data would help sharpen
+this variable. The word from the friendly open data folks is that the
+City of Vancouver is working on making these public, maybe an FOI request
+can help them speed up the process.</p>
+
+<h3>Noise</h3>
+
+<p>The most important source of noise in our data is that fact that assessment
+data is only accurate <em>on average</em>. For particular buildings it can be substantially
+off. We suspect that this is one of the reasons why for
+buildings that are assessed to be essentially worthless,
+the teardown probability tops out at a little above 60%. So someone
+paying $2.5 million for a house that is worth only $10,000 to move in and live
+in that house makes absolutely no sense. If the building like this did not get torn down,
+we hypothesize one of three scenarios:</p>
+
+<ol>
+<li>The building was purchased as a pure investment vehicle and rented out
+until an opportune time to re-develop or sell the property.</li>
+<li>The assessment grossly undervalued the building.</li>
+<li>The building was extensively renovated.</li>
+</ol>
+
+
+<p>We have looked through the data and have found little evidence that scenario 3 is
+playing out in significant numbers. Extensive renovations show up in assessment
+data via building value gains and the &ldquo;year improved&rdquo;. We don&rsquo;t have
+data to assess the other two hypotheses.</p>
+
+<h3>Model</h3>
+
+<p>Given that limited variables we trained a handful of models on our data to see
+how to best predict future teardowns. In all models we used, the relative
+building value was the single most predictive variable, accounting for well over
+80% of explanatory power no matter what methods we used. Moreover, the
+performance of more complex machine learning models was not markedly better
+that using a simple logistic regression. Similarly, dropping all other variables
+except the relative building value only slightly decreased the skill of our
+model.</p>
+
+<p>One way to improve on our model is to use a proper survival analysis that
+can better account for data that is only available for certain time frames.
+For example, teardown early in our time frame suffer from the shortcoming that
+we don&rsquo;t have transaction data reaching back far enough to link the teardown
+to a transaction. Or more to the point, be able to compare it to other
+transacted properties that didn&rsquo;t get torn down. Similar problems occur
+at the end of our time frame, and with variables that are only available
+in certain sub time frames.</p>
+
+<script>
+function resetImages(){
+    $('img').each(function(img){
+        imgsrc = $(img).attr('src');
+        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
+            $(img).attr('src', '');
+            $(img).attr('src', imgsrc);
+
+        }
+    });
+    setTimeout(function(){
+        resetImages();
+    },25000);
+}
+setTimeout(function(){
+    resetImages();
+},25000);
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[The Coveted $1.2m - $1.6m Vote]]></title>
@@ -1033,94 +1175,6 @@ d3.json(data_url, function(error, json) {
 var yearFormatter=d3.format();
 stacked_bar_graph(d3.select("#sfh_roof"),true,yearFormatter,null,yearFormatter);
 </script>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Land Use, Roads (and Parking)]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/"/>
-    <updated>2016-02-29T21:10:05-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/02/29/land-use</id>
-    <content type="html"><![CDATA[<p>The other day at the <a href="https://www.sfu.ca/publicsquare/upcoming-events/city-conversations/2016/Feb-18-2016.html">SFU&rsquo;s City Conversations</a>
-someone asked a question about space dedicated to roads, and how that could be unlocked
-to aid housing. He mentioned what percentage of space is currently dedicated to roads. I forgot the number,
-but I thought to myself that I should look that up for all Metro Vancouver communities. So here we go.</p>
-
-<!-- more -->
-
-
-<p>Actually, it would be interesting to compare how land is allocated to all kinds of land uses across Metro Vancouver, not just roads.
-And with their excellent
-<a href="http://doodles.mountainmath.ca/blog/2016/01/31/land-use/">land use dataset</a> it&rsquo;s easy enough to do, justifying spending
-two hours on this. <a href="https://mountainmath.ca/land_use/map">Looking at the land use map</a>
-one can see that there are some issues with using the dataset for
-that purpose, for example the roads within
-Stanly Park are missing, as parking lots in Vancouver parks. So this slightly overestimates the green space. But when
-added up this won&rsquo;t do much to change the overall area of each land use.</p>
-
-<h3>Land Use Breakdown</h3>
-
-<p>Let&rsquo;s start with a simple chart summing up the land use in each of Metro Vancouver&rsquo;s Municipalities. Just select the one
-you are interested in from the dropdown.</p>
-
-<div id="land_use_breakdown" class="land_use"></div>
-
-
-<p>City of Vancouver stands out as the municipality with the largest proportion of area dedicated to roads right of way.
-The right of way includes nature strips, sidewalks, and of course on-street parking.</p>
-
-<h3>Built Area Land Use</h3>
-
-<p>For some of the municipalities large &ldquo;Natural Areas&rdquo; and &ldquo;Undeveloped Area&rdquo; make it difficult to discern the makeup of
-the built up areas. So here comes the same graph with some of the large space-cosuming categories taken out.</p>
-
-<div id="land_use_breakdown2" class="land_use"></div>
-
-
-<p>What&rsquo;s remarkable is that City of Vancouver still is the clear winner in terms of space taken up by roads right of way.</p>
-
-<h3>Roads right of way</h3>
-
-<p>It might be interesting to compute more precisely how the roads right of way is used. But that requires a lot more work.
-The City of Vancouver has a dataset with road widths, which would help separate area taken by roads from area taken by
-sidewalks and nature strips. One could use google maps to estimate to estimate the amount of space taking up by on-street
-parking by sampling a couple of roads and scaling this according to road area. Too much work for me right now, maybe one day I will
-have a good enough reason to dedicate some time to this.</p>
-
-<h3>Parking</h3>
-
-<p>Parking in particular is a land use that is artificially inflated. We pay lots of money to buy private property to live
-on, and then continue to pay property taxes for that privilege. But we pay nothing to store our vehicles on public roads.</p>
-
-<p>At current land values in Vancouver it just does not make any sense to socialize the cost of parking. A 12m&sup2; on-street
-parking space at a low-balled $3000/m&sup2; value is worth $36,000. If we were to price parking at value, rather than
-socializing the cost we could have a discussion about using that space more effectively. Killing the parking subsidy
-would have a substantial impact on demand (and car ownership), freeing up space to be re-allocated for other uses. For
-example for housing by increasing lot sizes and making multi-unit structures more feasible, especally on corner lots.</p>
-
-<hr>
-
-
-<h3>Update</h3>
-
-<p>Saw a <a href="https://twitter.com/d3visualization/status/705421356222029824">great little data visualization fly by today</a> that
-is just the missing link in the above visualizations. A simple way to visualize where all the municipalities stand in
-relation to one another. Thought I would throw that in real quick.</p>
-
-<div>
- <div id="radviz" class="radviz"></div>
-<div class="radviz-list-container">
-        <div class="muni"></div>
-        <div class="list"></div>
-</div>
-<div style="clear:both;"></div>
-</div>
-
-
-
-
-<div><script src="http://doodles.mountainmath.ca/javascripts/land_use_breakdown.js"></div>
 
 ]]></content>
   </entry>

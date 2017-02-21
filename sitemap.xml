@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://doodles.mountainmath.ca/blog/2017/02/21/more-on-teardowns/</loc>
+    <lastmod>2017-02-21T10:59:27-08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://doodles.mountainmath.ca/blog/2017/02/10/2016-census-data/</loc>
     <lastmod>2017-02-10T20:27:10-08:00</lastmod>
     <priority>0.8</priority>
@@ -317,21 +323,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2017-02-18T21:37:16-08:00</lastmod>
+    <lastmod>2017-02-21T15:02:05-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2017-02-18T21:37:16-08:00</lastmod>
+    <lastmod>2017-02-21T15:02:05-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2017-02-18T21:37:16-08:00</lastmod>
+    <lastmod>2017-02-21T15:02:05-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

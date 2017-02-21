@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-02-18T21:37:16-08:00</updated>
+  <updated>2017-02-21T15:02:05-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,148 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[More on Teardowns]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/02/21/more-on-teardowns/"/>
+    <updated>2017-02-21T10:59:27-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/02/21/more-on-teardowns</id>
+    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/teardowns"><img src="http://doodles.mountainmath.ca/images/teardowns_animated.gif" style="width:50%;float:right;margin-left:10px;"></a>
+A little over a year ago we ran some analysis
+<a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">on teardowns</a>
+of single family homes in the City of Vancouver. We used the City of Vancouver
+open data to understand why some single family homes got torn down and other&rsquo;s don&rsquo;t.</p>
+
+<p>Relying entirely on open data, there were some important questions that could not
+be answered. So together with Joe Dahmen at UBC&rsquo;s School Of Architecture And Landscape Architecture
+we came back to the question
+and folded in transaction data from BC Assessment to add some more details and rigor.</p>
+
+<p>The result turned out quite similar to what our initial cruder methods came
+up with, but it lead to some important refinements.</p>
+
+<p>We won&rsquo;t go into the details of the findings here, you can
+<a href="mountainmath.ca/teardowns" target="_blank" class='btn btn-default'>read the online data story</a>
+if you are interested. Instead we will go into a little more details how
+the analysis was done and what is still missing.</p>
+
+<!-- more -->
+
+
+<p>The most critical piece that we added was transaction data, that is
+which properties got sold in what year. Almost all properties that got
+torn down were associated with a property transaction in the 4 years
+around it getting torn down rebuilt.</p>
+
+<p>This allowed us to refine the question from &ldquo;why did building A get torn
+own and building B did not&rdquo; to ask the same question only considering
+transacted buildings.</p>
+
+<p>Conditioning on the most important determinant of a building getting torn down,
+the transaction, we could focus in much better on what building-specific
+parameters are driving teardowns.</p>
+
+<h3>Variables</h3>
+
+<p>We had annual assessment data pegged at July 2005 through July 2016, although
+we excluded the July 2016 data for some parts of the analysis as the value
+gains that year where
+<a href="http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data/">quite extraordinary</a>
+and prices have come down
+a bit since then. We felt that this most recent assessment may not be a good
+launching point to project the future from.</p>
+
+<p>Unfortunately, the number of variables for teardowns that we have is
+quite limited. We only have good data on assessed land values, assessed
+building values and lot area. For a very small subset of about 500 buildings
+we also have the building age of the building that got torn down. We have
+GFA estimates for buildings that got torn down after 2009 through the
+<a href="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/">analysis of LIDAR data</a>
+that we did, but those estimates are quite crude and again only cover a portion of our
+time frame.</p>
+
+<p>A crucial variable that we are still missing is the actual time of the building
+demolition. We inferred this from the time a new building got completed on that
+property, but this inevitably introduces noise to the data. It makes it
+difficult to pick the right time to calculate the relative building value. Moreover,
+there may be the occasional property that got built on vacant land, so nothing got torn down.
+This was less an issue for the analysis part, where we had ways to filter out such properties,
+but it did cause some problems with the visualization part of the project. We did filter out
+some properties manually that we could identify as being built on vacant land within
+the timeframe of the visualization, namely some properties on Deering Island.</p>
+
+<p>On top of that, the decision to demolish the building was often made long
+before the building got torn down. Waiting times on demolition permits can be quite long, depending
+on the property. Having access to building permit data would help sharpen
+this variable. The word from the friendly open data folks is that the
+City of Vancouver is working on making these public, maybe an FOI request
+can help them speed up the process.</p>
+
+<h3>Noise</h3>
+
+<p>The most important source of noise in our data is that fact that assessment
+data is only accurate <em>on average</em>. For particular buildings it can be substantially
+off. We suspect that this is one of the reasons why for
+buildings that are assessed to be essentially worthless,
+the teardown probability tops out at a little above 60%. So someone
+paying $2.5 million for a house that is worth only $10,000 to move in and live
+in that house makes absolutely no sense. If the building like this did not get torn down,
+we hypothesize one of three scenarios:</p>
+
+<ol>
+<li>The building was purchased as a pure investment vehicle and rented out
+until an opportune time to re-develop or sell the property.</li>
+<li>The assessment grossly undervalued the building.</li>
+<li>The building was extensively renovated.</li>
+</ol>
+
+
+<p>We have looked through the data and have found little evidence that scenario 3 is
+playing out in significant numbers. Extensive renovations show up in assessment
+data via building value gains and the &ldquo;year improved&rdquo;. We don&rsquo;t have
+data to assess the other two hypotheses.</p>
+
+<h3>Model</h3>
+
+<p>Given that limited variables we trained a handful of models on our data to see
+how to best predict future teardowns. In all models we used, the relative
+building value was the single most predictive variable, accounting for well over
+80% of explanatory power no matter what methods we used. Moreover, the
+performance of more complex machine learning models was not markedly better
+that using a simple logistic regression. Similarly, dropping all other variables
+except the relative building value only slightly decreased the skill of our
+model.</p>
+
+<p>One way to improve on our model is to use a proper survival analysis that
+can better account for data that is only available for certain time frames.
+For example, teardown early in our time frame suffer from the shortcoming that
+we don&rsquo;t have transaction data reaching back far enough to link the teardown
+to a transaction. Or more to the point, be able to compare it to other
+transacted properties that didn&rsquo;t get torn down. Similar problems occur
+at the end of our time frame, and with variables that are only available
+in certain sub time frames.</p>
+
+<script>
+function resetImages(){
+    $('img').each(function(img){
+        imgsrc = $(img).attr('src');
+        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
+            $(img).attr('src', '');
+            $(img).attr('src', imgsrc);
+
+        }
+    });
+    setTimeout(function(){
+        resetImages();
+    },25000);
+}
+setTimeout(function(){
+    resetImages();
+},25000);
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Bumper Year for Thumb Twiddlers]]></title>
@@ -703,366 +845,6 @@ function resetImages(){
 setTimeout(function(){
     resetImages();
 },25000);
-</script>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Character Retention]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/11/26/character-retention/"/>
-    <updated>2016-11-26T20:28:45-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/11/26/character-retention</id>
-    <content type="html"><![CDATA[<p>Today I went to the City of Vancouver Character Retention open house. It was quite informative, city staff were helpful and knowledgeable,
-and the display board and feedback form asked many good questions. But I came away with a couple of points that I think need to be addressed further:  </p>
-
-<ul class="indented">
-<li>Faux character retention vs character design guidelines. </li>
-<li>Understanding economic drivers of teardown decisions.</li>
-<li>Evaluation of RT character retention policies.</li>
-<li>Need to separate character retention from gentle ground-oriented density. </li>
-<li>New Carrots</li>
-</ul>
-
-
-<h3>TL;DR</h3>
-
-<p>It gets a little wonky, so here the very short version:</p>
-
-<ul class="indented bordered">
-<li>
-Current and proposed &#8220;character retention&#8221; is hollow, just retains shell. Should be handled in design guidelines.
-</li>
-<li>
-Real character (or heritage) retention should take closer look at underlying economic drivers to become more effective.
-</li>
-<li>
-Gentle, ground-oriented density like 4-plexes is desperately needed in RS and RT, should be decoupled from &#8220;character retention&#8221;.
-</li>
-</ul>
-
-
-<!-- more -->
-
-
-<h3>Faux Retention  </h3>
-
-<p><img  src="http://doodles.mountainmath.ca/images/4-plex.png" style="width:50%;float:right;margin-left:10px;"> 
-The existing character retention guidelines in RT, which seem to serve as a model for the expansion of character retention 
-to RS, often don&rsquo;t &ldquo;retain&rdquo; all that much. </p>
-
-<p>What the existing character retention process entails is essentially a &ldquo;character home&#8221; 
-being gutted down to the studs (in most cases), potentially moved to a corner of the property and a foundation added. Then 
-the entire house, including structural elements, gets build up again and infill added to the back.  </p>
-
-<p>The result of the process is a main house with exterior form resembling a character home, and infill in the back matching
- the style. This process is almost indistinguishable from a new built to &ldquo;character design guidelines&rdquo;. The difference in 
-landfill waste is minimal (and much better addressed through recycing policies) and there is no difference to the eye, 
-as can easily be seen when comparing the new built infill to the &ldquo;retained&rdquo; front house, like in the Mt Pleasant 4-plex pictured above. </p>
-
-<h3>Economics</h3>
-
-<p>  Character retention is hard to do. It takes incentives to make it happen. The more the character retention process 
-can leverage some underlying economic drivers, the more effective it will be.</p>
-
-<p>  A while back <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">we ran some analysis</a>
-on 11 years of property-level assessment data in the City of Vancouver that was made available 
-through the open data catalogue. The upshot is that the single most important factor that predicts if a building gets
- torn down is the (assessed) value of the building alone relative to the total value of the property. We call this 
-quotient the &ldquo;teardown coefficient&rdquo; and found that if it is below 5%, the building has a 1/6 chance to get torn down 
-within 8 to 10 years. More details and background on this
- <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">can be found here</a>, a refinement of this analysis is works in progress.  
-Currently, 34% of the SFH building stock in Vancouver fall into that category. Often people assume that the risk of a 
-building getting torn down simply depends on the building age. But the relationship is not that simple as the following graph shows.  </p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;"> 
-<div id="graph_sfh" style="height:200px;max-width:640px;" data-url="/data/sfh_age.json"></div> 
-<div class="legend no-margin"></div> 
-</div>
-
-
-<p>  </p>
-
-<p>The blue denotes properties facing little teardown pressure, the red is for properties with high teardown pressure. 
-We can see that the pre-1920 building stock holds up reasonably well. In fact, 33% of the pre-1920 building stock with
- high teardown risk. For the 1920 to 1935 stock we have 59% of buildings in teardown territory, and for 1935 to 1965
- buildings that number jumps to 78%. This makes the particular choice of the character cutoff year 1940 a bit of a head-scratcher.</p>
-
-<p>  <a href="https://mountainmath.ca/map/assessment?filter=[sfh,teardowns]&layer=100&zoom=13&lat=49.2489&lng=-123.1081&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/teardowns2.png" style="width:50%;float:right;margin-left:10px;"></a> 
-This informs the scale of the teardown pressure the building stock of a particular vintage is facing. We can similarly 
-map the individual properties to understand their geographic distribution. One should note that assessment data, while 
-unbiased in aggregate, can be quite off when looking at specific buildings. So when mapping for example
- <a href="https://mountainmath.ca/map/assessment?filter=[sfh,teardowns]&amp;layer=4">all single family homes with high teardown pressure</a> 
-it might mis-identify some buildings as teardown candidates, or miss others. However, in aggregate the data will be
- quite robust and one can easily see that there are no obvious geographic biases in teardown risk. To quantify some of 
-this, 31% of eastside SFH vs 39% of westside SFH face high teardown risk.  </p>
-
-<p>Understanding the teardown pressure, as well as the geographic distribution and the pressures by vintage, gives an 
-important baseline to the heritage and the character discussions. Houses far above the 5% threshold face little
- teardown pressure, and they need little, if any, policy protection to retain them. On the other hand, for houses
- below the teardown cutoff it makes very little economic sense to retain a building, and will require a 
-lot of effort and policy protection to try and retain them. And even with these protections, there is a good chance
- that the building will eventually go or face &ldquo;demolition by neglect&rdquo;.  </p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/demo_by_neglect.png" style="width:40%;float:left;margin-right:10px;">  
-One example of this is the property at 4755 Belmont Ave, which the city lists as heritage building of primary significance. </p>
-
-<p>Effective retention policies are likely going to aim at the building stock around and somewhat above the teardown 
-threshold of 5%. Ideally character retention policies should aim to strengthen the economic viability of buildings with
-character merit so that they don’t fall into the range where the teardown pressure becomes overwhelming.</p>
-
-<p>With this in mind, and setting the age cutoff to 1935 instead of 1940, we can investigate the existing pre-1935 building
- stock by teardown pressure, separating out the stock that faces 
-<a href="https://mountainmath.ca/map/assessment?filter=[sfh,years_1935,tdc__0.05]&amp;layer=100&amp;zoom=13&amp;lat=49.2489&amp;lng=-123.1081&amp;mapBase=2">high teardown pressure</a> 
-from the <a href="https://mountainmath.ca/map/assessment?filter=[sfh,years__1935,tdc_0.05_0.1]&amp;layer=101&amp;zoom=13&amp;lat=49.2489&amp;lng=-123.1081&amp;mapBase=2">stock with moderate teardown pressure</a> 
-and the <a href="https://mountainmath.ca/map/assessment?filter=[sfh,years__1935,tdc_0.1]&amp;layer=102&amp;zoom=13&amp;lat=49.2489&amp;lng=-123.1081&amp;mapBase=2">stock with low teardown pressure</a>. 
-  <a href="https://mountainmath.ca/map/assessment?filter=[sfh,years__1935]&layer=110&zoom=13&lat=49.2489&lng=-123.1148&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/teardown_pressure.png" style="width:50%;float:right;margin-left:10px;"></a> 
-And we can view <a href="https://mountainmath.ca/map/assessment?filter=[sfh,years__1935]&amp;layer=110&amp;zoom=13&amp;lat=49.2489&amp;lng=-123.1148&amp;mapBase=2">all three at the same time</a>.   </p>
-
-<p>Without taking these underlying economic factors into consideration, character (as well as heritage) retention policies are 
-likely to be less effective at retention than they otherwise would be. And have broader adverse effects on buildings
- without significant heritage or character merit.</p>
-
-<p>The city’s approach to deal with heritage retention seems to be to target all properties built before 1940,
-indiscriminate of what shape the buildings are in. In the next days the consultant report the city ordered will become
-available, maybe there are some nuggets in there that make this whole endeavour sound reasonable.</p>
-
-<h3>RT </h3>
-
-<p>The current character retention effort is entirely focused on RS.  This seems to be motivated by the fact that RT already
- has character retention guidelines. The way it works is that much of RT is downzoned, with extra density conditional on
- character retention. This seems to be the basic blueprint of the proposal for RS, so let&rsquo;s take a close look how this works.  </p>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6]&layer=20&zoom=16&lat=49.2587&lng=-123.1063&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rt-6.png" style="width:50%;float:right;margin-left:10px;"></a> 
-Mount Pleasant gives a good example of what this can look like. In 
-<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6]&amp;layer=20&amp;zoom=16&amp;lat=49.2587&amp;lng=-123.1063&amp;mapBase=2">RT-6 zoning</a> 
-we have allowed stratified 4 and 5-plexes on single family lots under the character retention policies. We have 
-<a href="http://doodles.mountainmath.ca/blog/2016/08/04/rt/">looked at this before</a>, this results in the property getting sliced up and stratified into
- 3 to 5 family-sized ground-oriented units. In terms of prices, the assessments pegged at July 2015 
-(which became surprisingly accurate again) puts RT-6 single family lots between $1m and $6m (median $1.9m), and units in those
- multiplexes between $300k and $1.8m (median $800k).</p>
-
-<p>  <a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-7]&layer=20&zoom=15&lat=49.2636&lng=-123.1706&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rt-7.png" style="width:50%;float:left;margin-right:10px;"></a> 
-This kind of development is great. We need more of that, much more. 
-But this same model can&rsquo;t be immediately taken and expanded across the city. One look across town to 
-<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-7]&amp;layer=20&amp;zoom=15&amp;lat=49.2636&amp;lng=-123.1706&amp;mapBase=2">RT-7</a>, 
-where similar guidelines are in place, shows that multi-plexes only appear in the pocket at 16th and Arbutus. That&#8217;s 
-mainly because the Mt Pleasant model of character &ldquo;retention&rdquo; requires large lots, and most of RT-7 is on smaller lots
- that make the process of &ldquo;retention&rdquo; into multi-plexes according to current city rules unattractive. The rules need to 
-be amended to take lots size (and other parameters) into account to unlock this kind of development across the city.  </p>
-
-<p>This resulted in RT-6 only having 12% of the building stock currently facing high teardown pressure, compared to 34% of
- RT-7. In the pocket of RT-7 east of MacDonald, where lots are larger and more properties underwent the character retention
- process, only 17% of the building stock faces high teardown pressure. And yes, RT-6 started out with buildings in a
-better state than RT-7. Which is another part of the reason why the character retention program was more successful in RT-6.  </p>
-
-<p>We can try to understand better where the character retention program was utilized and where it wasn&rsquo;t by looking at 
-<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT,years_2000,nzone_RT-11]&amp;layer=20&amp;zoom=13&amp;lat=49.2497&amp;lng=-123.1232&amp;mapBase=2">all the properties that have been built since 2000 in RT</a>, 
-keyed by whether it was a single family, duplex or multi-plex that got built. We removed RT-11 from the map, it is too
- new to be meaningful. It&rsquo;s amazing to me how in some pockets almost no multi-plexes get built. We should try and fine-tune 
-this process before transplanting it to RS.  RT-11 offers a cautionary tale. Looking at what got
-<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-11,years_2000]&amp;layer=20&amp;zoom=15&amp;lat=49.2393&amp;lng=-123.0509&amp;mapBase=2">built in current RT-11 after 2000</a> 
-we see lots of single family homes. A huge missed opportunity. If we had upzoned that area a decade earlier we could 
-have allowed for homes that suit our families much better. </p>
-
-<p>In summary, we should look carefully at how character retention performed in RT and going forward devise policies for RS and RT.
-It’s time to drop that artificial divide that has been overtaken by the reality that RS already allows 3 units on each property, more than RT.</p>
-
-<h3>Hostage Taking</h3>
-
-<p>The display boards suggests that the current plan for &ldquo;character retention&rdquo; in RS is essentailly to copy over the RT
-blueprint with some fine-tuning. Downzone RS and give density for undergoing &ldquo;character retention&rdquo;.</p>
-
-<p>  In essence that&rsquo;s holding gentle, ground-oriented density hostage to character retention, and it&rsquo;s a terrible thing to do. Whatever the 
-question is, downzoning can&rsquo;t be part of the answer any more. Vancouver is starved for gentle, sensible, ground-oriented 
-family-friendly development.</p>
-
-<p>  Originally, when the character retention guidelines for RT were made, this kind of gentle density came in the Trojan horse 
-of character retention. And even if much of that was faux character, I don&rsquo;t mind. I take that kind of density any way I can.  
-But we are quite a bit further along now. Unaffordability skyrocketed. Families are starved for housing options. </p>
-
-<p>We need to scale this process up. And just expanding  the area where we deploy it to also cover RS won&rsquo;t do the trick.
-We average about 10 RT character retention projects 
-a year. Out of 11k RT properties. If we scale that up to all 68k RS properties, we will increase that number to about 70 
-a year. Just for perspective to see how inadequate that is, we tear down around 1000 single family homes a year. 
-And replace them with single family homes.  </p>
-
-<p>What we need is a program that brings this type of density to RS and RT independent of the character retention program.
-And let’s drop the &ldquo;retention&rdquo; pretence. If the character home look is what Vancouverites want in return for gentle
-density, then let&rsquo;s prescribe the exterior look of new-builts and let the design review process  handle it.  </p>
-
-<h3>New Carrots  </h3>
-
-<p>If density won&rsquo;t be the main carrot (or a stick) for character retention, than what can pull up the slack? Property taxes is an obvious one.
- The owner could be allowed to re-claim property taxes against improvements and maintenance that aim to maintain or
- underline the character merit of the home. And these re-claimed taxes become cumulatively payable, with interest, in the
- event of demolition. Of course this would raise everyone else&rsquo;s property taxes, but I think that&rsquo;s only fair in return
- for the community dictating character-homeowners the exterior look of their home.</p>
-
-<p>  The idea behind this is that this aims to directly strengthen the economic viability of the building, thus removing the 
-economic drivers that favour tearing down the building. And over time accumulating a penalty that dissuades from
- tearing down the building.  </p>
-
-<p>Density can still be part of the mix, but not in a way that it precludes smart gentle density to be built without
- it. The reality is that much of our building stock will go, the economic drivers are just too strong. And we all know that 
-we should not replace those single family homes with yet another single family home that at best the top 5% income households 
-can afford. We should allow these houses to be replaced with ground-oriented units a much larger portion of Vancouver 
-families can afford.  </p>
-
-<p>Smarter people than me have probably though about this for quite some time now. I would love to hear more ideas how 
-character retention can be structured so that it does not get in the way of gentle density for new builts.   </p>
-
-<script>
-
-function stacked_bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter){
-    if (!domainFormatter) domainFormatter=d3.format("d")
-    if (!rangeFormatter)
-     rangeFormatter = function (y) {
-        return y;
-     };
-     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
-
-var margin = {top: 20, right: 20, bottom: 40, left: 70},
-    width = parseInt(div.style("width")) - margin.left - margin.right,
-    height = parseInt(div.style("height")) - margin.top - margin.bottom;
-
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-
-var y = d3.scale.linear()
-    .range([height, 0]);
-
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .tickFormat(domainFormatter)
-    .orient("bottom");
-
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .tickFormat(rangeFormatter)
-    .ticks(5, rangeFormatter);
-
-var svg = div.append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var data_url=div[0][0].dataset.url;
-var legend=d3.select(div.node().parentNode).select('.legend');
-
-
-d3.json(data_url, function(error, json) {
-  if (error) throw error;
-  var graphData=json[0];
-  var data=graphData.data;
-  var color = d3.scale.ordinal().domain(graphData.colors.map(function(d,i){return i}))
-  .range(graphData.colors);
-  var domain=data.map(function(d){return d.date;});
-  x.domain(domain);
-
-  function graphValueId(i){
-      return graphData.class + '_' + i + '_value'
-  }
-
-  graphData.labels.forEach(function(text,i){
-    var color=graphData.colors[i];
-    var html='<i style="background:' + color + '"></i> ' + text + ' <span style="float:right;margin-right:10px;" id="' + graphValueId(i) + '"></span>'
-    legend.append('p').html(html);
-  });
-
-  data.forEach(function(d) {
-      var y0 = 0;
-      d.values = color.domain().map(function(i) { return {date: d.date, y0: y0, y1: y0 += +d.count[i]}; });
-      d.total = d.values[d.values.length - 1].y1;
-  });
-  y.domain([0, d3.max(data, function(d) { return d.total; })]);
-
-  var domainTickValues=[];
-  var skip=Math.round(40/x.rangeBand());
-  if (skip<=0) skip=1;
-  for (var i=0;i<x.domain().length;i++) {
-    if (i % skip==0) domainTickValues.push(x.domain()[i]);
-  }
-  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
-  xAxis.tickValues(domainTickValues);
-
-  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
-
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(" + xShift + "," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis);
-//    .append("text")
-//      .attr("transform", "rotate(-90)")
-//      .attr("y", 6)
-//      .attr("dy", ".71em")
-//      .style("text-anchor", "end")
-//      .text("Probability");
-
-    function updateTooltip(d,i){
-       color.domain().forEach(function(j){
-             var value=d && i==j ? (domainLabelFormatter(d.date) + ': ' +rangeFormatter(d.y1-d.y0)) : '';
-             d3.select('#'+graphValueId(j)).text( value);
-       });
-    }
-
-  var year=svg.selectAll(".year")
-    .data(data)
-        .enter().append("g")
-          .attr("class", "g");
-  year.selectAll(".color-bar")
-      .data(function(d) { return d.values; })
-    .enter().append("rect")
-      .attr("class", graphData.class + " color-bar")
-      .attr("fill", graphData.color)
-      .attr("x", function(d) { return x(d.date); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.y1); })
-      .attr("height", function(d) { return Math.max(0, y(d.y0) - y(d.y1)); })
-      .attr("fill",function(d,i) {return color(i);})
-      .on('mouseover',updateTooltip)
-      .on('click',updateTooltip)
-      .on('touch',updateTooltip)
-      .on('mouseout',function(){updateTooltip(null,i)});
-
-
-});
-
-}
-
-
-var priceFormatter2=d3.format("$,");
-    var priceFormatter = function (y) {
-        return y>=1000000 ? (priceFormatter2(y/1000000) + 'm') : (priceFormatter2(y/1000) + 'k');
-    };
-    var brackets=[100000,200000,300000,400000,500000,600000,700000,800000,900000,1000000,2000000,10000000,20000000,40000000]
-
-var binFormatter=function(top){
-    var bottom=0;
-    if (top<=1000000) bottom=top-100000;
-    else if (top==2000000) bottom= 1000000;
-    else if (top==10000000) bottom= 2000000;
-    else if (top=20000000) bottom= 10000000;
-    else bottom=20000000;
-    return priceFormatter(bottom) + ' - ' + priceFormatter(top);
-}
-var numberFormatter=d3.format(",");
-var numberBinFormatter=function(top){
-    var     bins=[0,1,2,4,8,10,16,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,300,400,500,700];
-    var index=0;
-    while (bins[index]<top && index<bins.length) index ++;
-    bottom=bins[index-1]+1;
-    return (bottom == top) ? numberFormatter(bottom) : numberFormatter(bottom) + ' - ' + numberFormatter(top);
-}
-stacked_bar_graph(d3.select("#graph_sfh"));
 </script>
 
 ]]></content>
