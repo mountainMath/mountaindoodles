@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-02-21T19:49:34-08:00</updated>
+  <updated>2017-03-01T21:51:25-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Transit Explorer]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/03/01/transit-explorer/"/>
+    <updated>2017-03-01T12:10:29-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/03/01/transit-explorer</id>
+    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/transit/map"><img src="http://doodles.mountainmath.ca/images/transit_vancouver.png" style="width:50%;float:right;margin-left:10px;"></a>
+I have played with <a href="https://mapzen.com/documentation/mobility/isochrone/api-reference/#isochrone-service-api-reference">Mapzen&rsquo;s Isochrone serivce</a>
+in the past with a simple <a href="http://doodles.mountainmath.ca/blog/2016/11/18/interactive-isochrones/">visualization of walksheds</a>.</p>
+
+<p>Recently Mazen <a href="https://mapzen.com/blog/exclusion/">updated the isochrone API</a> to allow for a more
+fine-grained selection of exactly what transit services to include
+or exclude in transit routing, and they created an <a href="https://mapzen.com/mobility/explorer/">amazing mobility explorer</a>
+based on that.</p>
+
+<p>Partially motivated by chatting with two TransLink planners I decided to riff off of that and
+<a href="https://mountainmath.ca/transit/map">take a look at how well TransLink serves different parts of Vancouver</a>.
+At different times of day.
+And how susceptible TransLink&rsquo;s network is
+to Skytrain service disruptions.</p>
+
+<!-- more -->
+
+
+<p>To do this I decided to allow users to drag a location pin around that sets the start location, allow to change the time of day,
+and call Mapzen&rsquo;s API to compute transit isochrones to visualize what areas can be reached
+from the start location in 15, 30, 45 and 60 minutes.</p>
+
+<p>To add some fun I made the Skytrain stations clickable, allowing the user to toggle the station status from open to closed,
+so users can explore how mobility options change if a station is closed for boarding and no Skytrains pass through
+any more. Essentially this cuts the transit network.</p>
+
+<p>This does neglect bottlenecks that will emerge when alternative routes become overcrowded in the event of a skytrain failure,
+and it does not take into account countermeasures by TransLink to deploy parallel buses, but it nonetheless gives
+interesting conclusions about how crucial certain nodes are to the overall network.</p>
+
+<p>Do you feel that your area is not served well enough by transit? Or under served in the evenings? Or are you worried about
+what happens if the Skytrain breaks down somewhere? Just
+<a href="https://mountainmath.ca/transit/map" target="_blank" class='btn btn-default'>launch the Vancouver Transit Explorer</a>
+and play around to see how transit serves your needs.</p>
+
+<p>Don&rsquo;t live in Vancouver and want to explore transit in your region? Not a problem. Use the search bar to jump to whatever city you
+are interested in and click on the map to move the start location there. Then drag it around to explore that region.</p>
+
+<p>If transit services in your city are already part of the <a href="https://transit.land/feed-registry/">TransitLand feed registry</a> that is.
+If not, this visualization won&rsquo;t do you much good right now. If you are keen to use it to explore transit in your city,
+just help TransitLand <a href="https://transit.land/news/2016/02/19/get-started-add-feeds.html">add your local transit agency to their feed registry</a>.</p>
+
+<h3>Details</h3>
+
+<p>I used settings that assume we have some happy walkers that are willing to walk quite a bit to get to and from transit, as
+well as walking between stations. It seemed to me that the visualization is already overloaded with options that I did not want
+to throw in another leaver.</p>
+
+<p>The Mapzen Isochrone API also allows for routes or operators to be excluded from the calculations, so one can build more
+complex &ldquo;what if&rdquo; type simulations.</p>
+
+<p>And the service does not include bike share, which really is another piece in the whole mobility puzzle that can
+significantly shorten travel time (or increase travel distance).</p>
+
+<h3>Issues and Caveats</h3>
+
+<p>Times after midnight may run into some issues, in some places, like e.g. Vancouver or Toronto, the early morning hour
+isochrones won&rsquo;t work properly using this visualization. The technical reason seems to be that some GTFS used times past
+24 hours, so 25:01 for one minute past 1AM the next day. And that breaks things somewhere. The good news is it&rsquo;s just a matter
+of time for this to get fixed one way or another. But for now it&rsquo;s broken. :-(</p>
+
+<p>Also, the tools this is built on are quite fresh. So there might be some glitches and opportunities to improve. Exciting times
+when services like the isochrone API by Mapzen become publicly, and freely, available.</p>
+
+<h3>5pm transit sheds around the world</h3>
+
+<p><img src="http://doodles.mountainmath.ca/images/transit_vancouver.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_toronto.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_calgary.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_seattle.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_san_francisco.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_new_york.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_london.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_paris.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_melbourne.png" style="display:inline-block; width:30%; padding:1%"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[More on Teardowns]]></title>
@@ -3333,140 +3416,6 @@ total &ndash; is classified as being an &ldquo;Apartment, building that has fewe
 only have duplex or single family lots as residential land uses based on assessment and land use data, we can look for
 how many dwelling units the census places in an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. And
 <a href="https://mountainmath.ca/census_mix/map?mapBase=2&amp;layer=5">map them</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[SDH Zoning and Land Use]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use/"/>
-    <updated>2016-06-17T09:34:37-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use</id>
-    <content type="html"><![CDATA[<p>Recently the question around the amount of space taken up (exclusively) by single detached houses has show up on my
-Twitter feed citing that
-SFH take up <a href="https://twitter.com/WayneFougere/status/743211599821844481">70%</a>,
-<a href="https://twitter.com/MitchellReardon/status/739957295564476416">66%</a>,
-and <a href="https://twitter.com/karensawa/status/743235428011020288">57%</a>,
-<a href="http://www.cknw.com/2016/06/02/the-lynda-steele-show-bob-rennie-on-supply-and-demand/">56% (timestamp 3:50)</a>.
-I personally have thrown in
-<a href="https://twitter.com/vb_jens/status/738608945741238272">34%</a> as a contender. And, just for the fun of it, by the end of
-this post I will have thrown 33% and 28% and my favorite, 81%, into the mix.</p>
-
-<p>What&rsquo;s going on, how can there be such a large range of estimates for what seems to be a simple question? The answer
-lies in the details of what exactly the question is asking, all of the above numbers are correct answers to one particular
-version of very similar questions.</p>
-
-<h3>TL;DR</h3>
-
-<p>The takeaway I think is most useful for general purposes:</p>
-
-<pre><code>35% of all households live on single family and duplex properties
-making up 81% of Vancouver's residential land, while the     
-remaining 65% of households live on 19% of the residential land. 
-</code></pre>
-
-<!-- more -->
-
-
-<p>There are two fundamental ways to attack the question. One is through zoning, that is to look at area where only SDH can
-be built. The other is through land use, that is looking at what area is currently occupied by SDH lots.</p>
-
-<h3>Single Detached Houses</h3>
-
-<p>First we need to understand what we mean by single detached house. There are two common, but quite different definitions
-out there. One stems from the zoning code and refers to a property that is not stratified and has a single main structure
-on it, possibly with one suite, and possibly a laneway house. This is the definition most commonly used. When someone says
-they own a single family house, this is what they are talking about. Let&rsquo;s call them <em>single detached properties</em>.
-There are around 75,000 of these in the City of Vancouver.</p>
-
-<p>Stats Canada employs a different definition. To them a <em>single detached dwelling</em> is single dwelling unit comprised of a
-free-standing (detached) structure. A <em>single detached property</em> may contain exactly one dwelling unit, in which case
-Stats Canada would also call it a <em>single detached dwelling</em>. If the house has a secondary suite, Stats Canda would
-classify it as a <em>duplex</em>. If it has a laneway house, Stats Canada would classify the laneway house as a separate
-<em>single detached dwelling</em>. Stats Canada reports 47,530 <em>single detached dwellings</em> in the City of Vancouver.</p>
-
-<p>Because of this discrepancy, sometimes it is useful to look as single family houses and duplexes combined. Especially
-if one wants to mix in census data to for example look at the number of households that live in these dwellings. While
-there are about 75,000 <em>single detached properties</em> in Vancouver, it is fair to assume that there are significantly more
-than 75,000 households living on these properties once we account for secondary suites and laneway houses.</p>
-
-<h3>Zoning</h3>
-
-<p><a href="http://vancouver.ca/files/cov/Zoning-Map-Vancouver.pdf" target="_blank"><img  src="http://doodles.mountainmath.ca/images/zoning_van_pdf.png" style="width:50%;float:right;margin-left:10px;"></a>
-Vancouver is divided up into zones that determine what can (and cannot) be legally built on the land.
-If one is primarily concerned with the area of land that where only single detached houses can be built, then zoning is
-the right metric to look at.</p>
-
-<p>There are two zones that essentially only allow single family houses as residential properties, the RS zones and,
-to some extent, First Shaughnessy. Each of these has it&rsquo;s own pitfalls. The first issue is that parks are generally zoned
-RS, but one cannot build single family homes in parks. Moreover, while RS does not allow residential land uses other
-than single detached houses, it does allow for other land uses, like parks, schools, assisted living and other institutional
-uses. So RS zoned land area is a poor proxy for the question of where single family houses could be built. At the very
-<a href="https://mountainmath.ca/map/assessment?zoom=13&lat=49.2517&lng=-123.1232&layer=6" target="_blank"><img  src="http://doodles.mountainmath.ca/images/zoning_van.png" style="width:50%;float:left;margin-right:10px;"></a>
-least we should exclude parks from the equation, but probably also schools and other institutional land uses. After all,
-it is delusional to think that even if a school were to close down and the land be sold for development that single
-detached dwelling would be built on that land. Next comes the question if we should only include the lots that single
-family homes could be built on, or also include the surrounding roads. After all, the roads are needed to serve the lots.
-But they also serve the schools and parks, so maybe only a certain portion of the roads should be included? It gets messy,
-the second image shows only non-institutional and non-park properties (no roads) coloured by zone, interactive version
-<a href="http://mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2517&amp;lng=-123.1232&amp;layer=6">here</a>.</p>
-
-<p>The numbers between 70% and 56% mentioned up top are (probably) derived using some version of zoned area, possibly excluding
-parks or schools for some, but including roads within RS zoning. It is easy to underestimate
-the space roads take up in the City of Vancouver, overall roads right of ways make up 28% of City of Vancouver land.</p>
-
-<p>At the end of this though process, we are starting to gravitate away from zoning and toward land use.</p>
-
-<h3>Land Use</h3>
-
-<p>We can simplify the discussion by asking how much space currently is taken up by single family properties. The answer
-to this is 33%. I have previously written about the
-<a href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/">land use breakdown</a> for Metro Vancouver municipalities, but
-single detached homes were not broken out separately, single detached and duplex properties combined take up 34% of
-Vancouver&rsquo;s land. One can play the numbers a little more, maybe only look at single detached properties within RS zoning.
-That puts the number at 28%. Throw in Shaugnessy and it rises to 29%. Recall that this excludes roads right of way.</p>
-
-<p><a href="https://mountainmath.ca/land_use/map?zoom=13&lat=49.2544&lng=-123.1268&mu_filter=[%22VA%22]&lu_filter_n=[]" target="_blank"><img  src="http://doodles.mountainmath.ca/images/land_use_van.png" style="width:50%;float:right;margin-left:10px;"></a>
-Here is an interactive (data-heavy) map that shows the land use for
-<a href="https://mountainmath.ca/land_use/map?zoom=13&amp;lat=49.2544&amp;lng=-123.1268&amp;mu_filter=[%22VA%22]&amp;lu_filter_n=[]">just for the City of Vancouver (plus Musqueam 2)</a>.</p>
-
-<h3>Multi-Unit Housing</h3>
-
-<p>One can ask the same question about other housing types, and we can read off the numbers from the
-<a href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/">land use breakdown</a>. 3.2% of land is taken up with low rise
-apartments, 1.9% with townhouses, 1.2% with high rise, 0.3% by non-market housing, 0.9% by mixed use low rise and 0.7%
-by mixed use high rise. Adding all of this up we get that 8.2% of land is taken up by housing that is not single detached
-or duplex. And it also includes some commercial space in the mixed use developments.</p>
-
-<p>That means that overall in Vancouver 42.2% of the land is used for residential purposes, 81% of which is occupied by
-single detached and duplex properties and the remaining 19% is occupied by all other building forms.</p>
-
-<h3>Share of Households in Different Land Uses</h3>
-
-<p>We may be interested in the population density these different land use patterns entail. That&rsquo;s where things get a little
-tricky, we will turn to the census for answers. From the standard census releases we can only discern the share of
-dwellings that are single detached and duplex properties combined, and that number is 93,370 dwelling units. Overall
-there are 264,575 dwelling units, so single family and duplex units make up 35% of all dwelling units in CoV. Glossing
-over the issue that some of these may not be occupied we conclude that 35% of all households live on single family and
-duplex properties making up 81% of Vancouver&rsquo;s residential land,
-while the remaining 65% of households live on 19% of the residential land.</p>
-
-<h3>Fine Print</h3>
-
-<p>There are a number of issues with the data that might change the numbers slightly, but not by much. The first is that
-the land use dataset I use lump the City of Vancouver together with Musqueam 2. That slightly changes the land use mix
-and areas reported, but the effect on all numbers mentioned here is very small. Next up is the number of dwelling units
-on single detached or duplex properties. The census number is likely to under report some secondary suites (although it
-captures more than BCAssessment does), and properties with more than one secondary suite (so some illegal suites) will
-show up as an apartment building in census data. Moreover, the census data is from 2011, the land use data we used is
-about a year old, and we have manually adjusted for some recent upzoning. So there is some give or take in the numbers,
-I would not expect more than a one percent move in the numbers I reported as a result.</p>
-
-<h3>Further Questions</h3>
-
-<p>This does not answer the question what percentage of the population lives on single family or duplex properties. To
-estimate that one would have to first estimate the number of people per houshold for the different land uses, as we
-expect them to differ significantly. One can start exploring how the number of people per dwelling unit varies
-<a href="https://censusmapper.ca/maps/391">on CensusMapper</a>.</p>
 ]]></content>
   </entry>
   

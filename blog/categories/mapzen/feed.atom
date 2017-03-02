@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapzen | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapzen/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-02-21T19:49:34-08:00</updated>
+  <updated>2017-03-01T21:51:25-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Transit Explorer]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/03/01/transit-explorer/"/>
+    <updated>2017-03-01T12:10:29-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/03/01/transit-explorer</id>
+    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/transit/map"><img src="http://doodles.mountainmath.ca/images/transit_vancouver.png" style="width:50%;float:right;margin-left:10px;"></a>
+I have played with <a href="https://mapzen.com/documentation/mobility/isochrone/api-reference/#isochrone-service-api-reference">Mapzen&rsquo;s Isochrone serivce</a>
+in the past with a simple <a href="http://doodles.mountainmath.ca/blog/2016/11/18/interactive-isochrones/">visualization of walksheds</a>.</p>
+
+<p>Recently Mazen <a href="https://mapzen.com/blog/exclusion/">updated the isochrone API</a> to allow for a more
+fine-grained selection of exactly what transit services to include
+or exclude in transit routing, and they created an <a href="https://mapzen.com/mobility/explorer/">amazing mobility explorer</a>
+based on that.</p>
+
+<p>Partially motivated by chatting with two TransLink planners I decided to riff off of that and
+<a href="https://mountainmath.ca/transit/map">take a look at how well TransLink serves different parts of Vancouver</a>.
+At different times of day.
+And how susceptible TransLink&rsquo;s network is
+to Skytrain service disruptions.</p>
+
+<!-- more -->
+
+
+<p>To do this I decided to allow users to drag a location pin around that sets the start location, allow to change the time of day,
+and call Mapzen&rsquo;s API to compute transit isochrones to visualize what areas can be reached
+from the start location in 15, 30, 45 and 60 minutes.</p>
+
+<p>To add some fun I made the Skytrain stations clickable, allowing the user to toggle the station status from open to closed,
+so users can explore how mobility options change if a station is closed for boarding and no Skytrains pass through
+any more. Essentially this cuts the transit network.</p>
+
+<p>This does neglect bottlenecks that will emerge when alternative routes become overcrowded in the event of a skytrain failure,
+and it does not take into account countermeasures by TransLink to deploy parallel buses, but it nonetheless gives
+interesting conclusions about how crucial certain nodes are to the overall network.</p>
+
+<p>Do you feel that your area is not served well enough by transit? Or under served in the evenings? Or are you worried about
+what happens if the Skytrain breaks down somewhere? Just
+<a href="https://mountainmath.ca/transit/map" target="_blank" class='btn btn-default'>launch the Vancouver Transit Explorer</a>
+and play around to see how transit serves your needs.</p>
+
+<p>Don&rsquo;t live in Vancouver and want to explore transit in your region? Not a problem. Use the search bar to jump to whatever city you
+are interested in and click on the map to move the start location there. Then drag it around to explore that region.</p>
+
+<p>If transit services in your city are already part of the <a href="https://transit.land/feed-registry/">TransitLand feed registry</a> that is.
+If not, this visualization won&rsquo;t do you much good right now. If you are keen to use it to explore transit in your city,
+just help TransitLand <a href="https://transit.land/news/2016/02/19/get-started-add-feeds.html">add your local transit agency to their feed registry</a>.</p>
+
+<h3>Details</h3>
+
+<p>I used settings that assume we have some happy walkers that are willing to walk quite a bit to get to and from transit, as
+well as walking between stations. It seemed to me that the visualization is already overloaded with options that I did not want
+to throw in another leaver.</p>
+
+<p>The Mapzen Isochrone API also allows for routes or operators to be excluded from the calculations, so one can build more
+complex &ldquo;what if&rdquo; type simulations.</p>
+
+<p>And the service does not include bike share, which really is another piece in the whole mobility puzzle that can
+significantly shorten travel time (or increase travel distance).</p>
+
+<h3>Issues and Caveats</h3>
+
+<p>Times after midnight may run into some issues, in some places, like e.g. Vancouver or Toronto, the early morning hour
+isochrones won&rsquo;t work properly using this visualization. The technical reason seems to be that some GTFS used times past
+24 hours, so 25:01 for one minute past 1AM the next day. And that breaks things somewhere. The good news is it&rsquo;s just a matter
+of time for this to get fixed one way or another. But for now it&rsquo;s broken. :-(</p>
+
+<p>Also, the tools this is built on are quite fresh. So there might be some glitches and opportunities to improve. Exciting times
+when services like the isochrone API by Mapzen become publicly, and freely, available.</p>
+
+<h3>5pm transit sheds around the world</h3>
+
+<p><img src="http://doodles.mountainmath.ca/images/transit_vancouver.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_toronto.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_calgary.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_seattle.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_san_francisco.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_new_york.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_london.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_paris.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_melbourne.png" style="display:inline-block; width:30%; padding:1%"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Interactive Isochrones]]></title>
@@ -648,95 +731,6 @@ bar_graph(d3.select("#graph_mobi_hourly"),true,dateFormatter,numberFormatter);
 graphBikeStation('#station_graph_os',1);
 </script></div>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Bike Share Map]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/07/26/bike-share-map/"/>
-    <updated>2016-07-26T15:12:06-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/07/26/bike-share-map</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/mobi" target="_blank"><img  src="http://doodles.mountainmath.ca/images/bike-share-image-large.png"  style="width:50%;float:right;margin-left:10px;"></a>
-It is no secret that we at MountainMath like bikes. And maps. And open data and sharing. We guess you know where
-this is going.</p>
-
-<p>Vancouver has finally gotten a bike share system, and we are loving it. So we took the occasion to take our
-<a href="http://doodles.mountainmath.ca/blog/2016/05/16/my-global-bike-map/">old bike infrastructure maps</a>, polished them up a
-bit using <a href="https://mapzen.com/blog/targeted-editing-cycleways/">Mapzen&rsquo;s bike map style</a> and adapted it for our purposes.</p>
-
-<p>The result is our <a href="https://mountainmath.ca/mobi" class="btn btn-primary">Vancouver Bike Share Map</a>. (Fair
-warning. While this map works great on your iOS and Android phone, it may not work on old desktop computers.)</p>
-
-<p>Add it to your phone home screen, and it will be right at your fingertips when you need it!</p>
-
-<!-- more -->
-
-
-<p>And we threw the <a href="https://www.mobibikes.ca/">Mobi Bike Share</a> station data on top. That last part turned out a little
-more messy than expected, the API that was <a href="https://bikeshare-research.org/#bssid:vancouver">linked at the Bike Share Research website</a>
-is broken, and the Mobi redirects are malformed and no guesswork would yield a working API. Luckily
-the <a href="https://twitter.com/oobr">bike share map wizard</a> on
-Twitter <a href="https://twitter.com/oobr/status/756211668141547520">had the answer</a> how to tease out the station data. And some
-of the stations are duplicate, so it took some time to clean up the data properly.</p>
-
-<p>We tried to keep our map as simple as possible. This iteration highlights three types of infrastructure, separated, bike lanes and
-shared lanes. The map has some hill-shading for reference, and at high zoom level it shows some bike points-of-interest.
-The rest is kept clean and simple.</p>
-
-<p>For the stations, we weren&rsquo;t fans of the icons and presentation used on many other maps. We decided on a simple
-donut-style presentation to visualize available bikes to check out and empty slots to return them. This is the most crucial
-information for a bike share user. Where can I check out a bike, and where can I return one. There is nothing more frustrating
-than having to go to a meeting and being unable to check the bike back into a station because it is full. The map gives
-a quick visual guide for this, although the Mobi data lags quite a bit right now. Hopefully that will change in the future
-once they get their API up and running.</p>
-
-<p>On touch/hover the bike stations expand to give exact counts and the station name. Station sizes vary and counts can be
-useful at times. We opted to keep the icon size independent of station size, trading added information for a cleaner
-presentation by only revealing it on user interaction.</p>
-
-<p>This map focuses on the bike share user. If you are more interested in stats and overview of various bike share systems
-you want to head over to <a href="http://bikes.oobrien.com">Oliver O&#8217;Brien&rsquo;s excellent bike share map</a>.</p>
-
-<h3>Bike Infrastructure</h3>
-
-<p>The bike data we are using comes straight out of <a href="http://www.openstreetmap.org/search?query=vancouver%2C%20bc#map=12/49.2497/-123.1193">OpenStreetMap</a>.
-That has some disadvantages as it can be less accurate
-as the city bike data. But it also has a huge advantage. Anyone can edit OpenStreetMap to fix incorrect or missing
-infrastructure designations. We kept some of the targeted editing capabilities intact on our map, if you view it on desktop
-and <em>shift-click</em> anywhere, it will take you right into the OpenStreetMap editor at the position you clicked so you can
-edit the infrastructure there.</p>
-
-<p>If you are planning on helping out and improve OpenStreetMap bike data, you may want to read the
-<a href="https://mapzen.com/blog/targeted-editing-cycleways/">excellent targeted editing post from Mapzen</a> and use their
-<a href="https://mapzen-data.github.io/te-bike-lrm-mapzen/#point0lat=49.2820&amp;point0lng=-123.1204&amp;point1lat=49.2708&amp;point1lng=-123.1341&amp;mode=bicycle">map to brouse OSM tags</a>.
-You may notice the similarity to our map, we borrowed heavily from that one. Updates you make will take between 1 to 4
-hours before they percolate through into our map.</p>
-
-<p>Data in OpenStreetMap is automatically accessible to other services too, so improving OSM will help out everyone. And not
-just by making the maps better, routing gets better too!</p>
-
-<p>And the other big advantage of OpenStreetMap is that our map is automatically global. Right now we still focus on
-Vancouver, and we restrict the search function to Vancouver addresses. But in principle the infrastructure part of the
-map works for anywhere on the planet.</p>
-
-<h3>Next Steps</h3>
-
-<p>Adding bike routing is an obvious next step. And there are lots of other refinements we can think of.</p>
-
-<p>Hill shading has some issues right now, only some
-hill aspects are visible right now. We may have to add some colour to hill shading to visualize all hill aspects better,
-but that requires care to ensure the map retains it&rsquo;s clean looks.</p>
-
-<p>The next step in the map evolution is to make a multi-modal map, toghet with multi-modal routing. The map will highlight
-infrastructure based on what modes are preferred, and routing will do routing for these modes.</p>
-
-<p>Using the great work of the <a href="https://bikeshare-research.org">Bike Share Research website</a> we can also parse the feeds
-for all global bike share systems registered there and expand the bike share map to other systems around the world.</p>
-
-<h3>Feedback</h3>
-
-<p>Got ideas how to make the map better? Want some pointers how to adapt this map for your own purposes? Send us a tweet
-or a message!</p>
 ]]></content>
   </entry>
   

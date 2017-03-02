@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-02-21T19:49:34-08:00</updated>
+  <updated>2017-03-01T21:51:25-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Transit Explorer]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/03/01/transit-explorer/"/>
+    <updated>2017-03-01T12:10:29-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/03/01/transit-explorer</id>
+    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/transit/map"><img src="http://doodles.mountainmath.ca/images/transit_vancouver.png" style="width:50%;float:right;margin-left:10px;"></a>
+I have played with <a href="https://mapzen.com/documentation/mobility/isochrone/api-reference/#isochrone-service-api-reference">Mapzen&rsquo;s Isochrone serivce</a>
+in the past with a simple <a href="http://doodles.mountainmath.ca/blog/2016/11/18/interactive-isochrones/">visualization of walksheds</a>.</p>
+
+<p>Recently Mazen <a href="https://mapzen.com/blog/exclusion/">updated the isochrone API</a> to allow for a more
+fine-grained selection of exactly what transit services to include
+or exclude in transit routing, and they created an <a href="https://mapzen.com/mobility/explorer/">amazing mobility explorer</a>
+based on that.</p>
+
+<p>Partially motivated by chatting with two TransLink planners I decided to riff off of that and
+<a href="https://mountainmath.ca/transit/map">take a look at how well TransLink serves different parts of Vancouver</a>.
+At different times of day.
+And how susceptible TransLink&rsquo;s network is
+to Skytrain service disruptions.</p>
+
+<!-- more -->
+
+
+<p>To do this I decided to allow users to drag a location pin around that sets the start location, allow to change the time of day,
+and call Mapzen&rsquo;s API to compute transit isochrones to visualize what areas can be reached
+from the start location in 15, 30, 45 and 60 minutes.</p>
+
+<p>To add some fun I made the Skytrain stations clickable, allowing the user to toggle the station status from open to closed,
+so users can explore how mobility options change if a station is closed for boarding and no Skytrains pass through
+any more. Essentially this cuts the transit network.</p>
+
+<p>This does neglect bottlenecks that will emerge when alternative routes become overcrowded in the event of a skytrain failure,
+and it does not take into account countermeasures by TransLink to deploy parallel buses, but it nonetheless gives
+interesting conclusions about how crucial certain nodes are to the overall network.</p>
+
+<p>Do you feel that your area is not served well enough by transit? Or under served in the evenings? Or are you worried about
+what happens if the Skytrain breaks down somewhere? Just
+<a href="https://mountainmath.ca/transit/map" target="_blank" class='btn btn-default'>launch the Vancouver Transit Explorer</a>
+and play around to see how transit serves your needs.</p>
+
+<p>Don&rsquo;t live in Vancouver and want to explore transit in your region? Not a problem. Use the search bar to jump to whatever city you
+are interested in and click on the map to move the start location there. Then drag it around to explore that region.</p>
+
+<p>If transit services in your city are already part of the <a href="https://transit.land/feed-registry/">TransitLand feed registry</a> that is.
+If not, this visualization won&rsquo;t do you much good right now. If you are keen to use it to explore transit in your city,
+just help TransitLand <a href="https://transit.land/news/2016/02/19/get-started-add-feeds.html">add your local transit agency to their feed registry</a>.</p>
+
+<h3>Details</h3>
+
+<p>I used settings that assume we have some happy walkers that are willing to walk quite a bit to get to and from transit, as
+well as walking between stations. It seemed to me that the visualization is already overloaded with options that I did not want
+to throw in another leaver.</p>
+
+<p>The Mapzen Isochrone API also allows for routes or operators to be excluded from the calculations, so one can build more
+complex &ldquo;what if&rdquo; type simulations.</p>
+
+<p>And the service does not include bike share, which really is another piece in the whole mobility puzzle that can
+significantly shorten travel time (or increase travel distance).</p>
+
+<h3>Issues and Caveats</h3>
+
+<p>Times after midnight may run into some issues, in some places, like e.g. Vancouver or Toronto, the early morning hour
+isochrones won&rsquo;t work properly using this visualization. The technical reason seems to be that some GTFS used times past
+24 hours, so 25:01 for one minute past 1AM the next day. And that breaks things somewhere. The good news is it&rsquo;s just a matter
+of time for this to get fixed one way or another. But for now it&rsquo;s broken. :-(</p>
+
+<p>Also, the tools this is built on are quite fresh. So there might be some glitches and opportunities to improve. Exciting times
+when services like the isochrone API by Mapzen become publicly, and freely, available.</p>
+
+<h3>5pm transit sheds around the world</h3>
+
+<p><img src="http://doodles.mountainmath.ca/images/transit_vancouver.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_toronto.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_calgary.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_seattle.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_san_francisco.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_new_york.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_london.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_paris.png" style="display:inline-block; width:30%; padding:1%">
+<img src="http://doodles.mountainmath.ca/images/transit_melbourne.png" style="display:inline-block; width:30%; padding:1%"></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[More on Teardowns]]></title>
@@ -427,446 +510,6 @@ grant in 2016 and do in 2017, and under 200 that did qualify in 2016 and don&rsq
 <p>You can&rsquo;t. And your landlord can&rsquo;t either. No matter how much your unit is worth, the province won&rsquo;t be cutting
 any checks to lower your rent by $50/month.
 The homeowner grant is just one of the many perks exclusively available home owners.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2017 Vancouver Assessment Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data/"/>
-    <updated>2017-01-16T19:04:19-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/values?filter=[sfh]&amp;zoom=13&amp;layer=9"><img  src="http://doodles.mountainmath.ca/images/value_animated.gif" style="width:50%;float:right"></a>
-The friendly folks at
-<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> just
-<a href="https://twitter.com/VanOpenData/status/688060388190097408">updated their property assessment data</a> with the fresh 2017
-property tax assessments. Time to run the script to update the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a>
-with the new data, just <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">like we did last year</a>.</p>
-
-<p>For now we just updated our standard visuals and computed some overall statistics. We will take a closer look at the data over the coming days.</p>
-
-<h4>Maps</h4>
-
-<!-- more -->
-
-
-<p>By now we have a variety of maps that highlight different aspects of Vancouver real estate, and after running the import scripts they
-automatically serve the newest data. Our basic
-<a href="https://mountainmath.ca/map/assessment">interactive assessment map</a> offers a variety of ways to slice and display the data. It&rsquo;s
-mostly focused on functionality, some of which we described in
-<a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">last year&rsquo;s post</a>, as well as other posts like
-the one on <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">twiddling thumbs vs working</a>.</p>
-
-<p>We also have interactive views focusing on how real estate prices varied over time, for example the <a href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/">houses and dirt map</a>
-that separates out (inflation adjusted) values of the structures and the land, and also allows to filter by type of housing, to animate changes over time.</p>
-
-<p>For people that like simpler maps we also have a <a href="https://mountainmath.ca/map/values?filter=[sfh]&amp;zoom=13&amp;layer=9">plain total (nominal) value over time map</a>
-that allows to interactively step through the years and see how single family house values in Vancouver changed over time. Here we also
-added the ability to visualize year-over-year value changes, which also hints at how BC Assessment changed their valuation
-algorithm over the years.</p>
-
-<h4>The Data</h4>
-
-<p>The data originates with BC Assessment, which estimates land and building values of each property based on recent sales
-of comparable properties. The values are pegged at July 1 of each year, with the the most recent available now being July 1 2016.
-The estimates for the values do not reflect changes in the market since then. Moreover, the estimates can be quite off on an individual
-property level, but are unbiased. That means that any statistics derived from a large subsample should fairly accurately
-reflect actual market conditions for July 1st. Lastly, the assessed values will still change a bit as some will be successfully appealed.</p>
-
-<p>City of Vancouver, as well as the City of Surrey, make this data available for general use through their open data portal, which
-allows us to create these maps. The format of the data the municipalities are giving out through their open data portal is
-different, so lazy me is only importing data from City of Vancouver. Sadly, BC Assessment does not make this data
-generally available province wide for us to make province wide maps.</p>
-
-<p>While BC Assessment makes this data available on their <a href="https://evaluebc.bcassessment.ca">eValue website</a> for browsing individual
-properties and also provides it in bulk to researchers, the attached license does not allow the thematic mapping of individual properties.</p>
-
-<p>The motivation behind the map was to understand the building stock, so in the maps as well as the summary statistics below
-we filter out parks and some other properties.</p>
-
-<p>The new city dataset does not include the 2017 tax levy, so our maps still only show the 2016 tax levies until CoV updated their dataset.</p>
-
-<h4>History</h4>
-
-<p>In the spirit of <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">last year&rsquo;s post</a> we ran some
-quick summary statistics to break down the numbers by neighbourhood. Instead of listing the most recent land and building value
-increases by neighbourhood we stuck everything into an interactive graph for the entire time span between 2006 and 2017 tax years.
-Use the dropdown menus to drill down
-into city neighbourhoods, view values for all properties or just residential properties and display as total value or year-over-year
-percentage change.</p>
-
-<p>The last year again
-saw an huge increase in property values. For the City of Vancouver land values were up 35% and building values 10%, with the land
-value increase setting a record for the timeframe for which we have data. The increases become even more pronounced when we zero in
-on residential property only.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<select id="nbhd-select"></select>
-<select id="keys-select"></select>
-<select id="type-select">
-<option value='total'>Total Value</option>
-<option value='percent'>Percentage Change</option>
-</select>
-<div id="graph" style="height:200px;max-width:640px;" data-lines="/data/detail_history.json"></div>
-<div class="legend no-margin">
-</div>
-</div>
-
-
-
-
-<script>
-var ready_for_graph = function() {
-    var d3lines=[];
-    var padding = {top: 20, right: 20, bottom: 30, left: 90};
-    var prevChartWidth = 0, prevChartHeight = 0;
-    var updateTransistionMS = 750; // milliseconds
-    var jsonData, xScale, yScale, line,neighbourhoods;
-
-    var currentValue='City of Vancouver';
-    var currentKeys=['land','building'];
-    var currentModePercentage=false;
-
-    var hash={
-            land: {label:"Land Value", color:"green"},
-              building: {label:"Building Value", color:"blue"},
-              res_land: {label:"Residential Land Value", color:"darkgreen"},
-              res_building: {label:"Residential Building Value", color:"darkblue"},
-              land_p: {label:"Land Value Increase", color:"green"},
-              building_p: {label:"Building Value Increase", color:"blue"},
-              res_land_p: {label:"Residential Land Value Increase", color:"darkgreen"},
-              res_building_p: {label:"Residential Building Value Increase", color:"darkblue"}
-                };
-    var keys=Object.keys(hash);
-
-    var symbol;
-    var prefix;
-    var numberFormatter = function (y) {
-        return '$' + Math.round(prefix.scale(y*10))/10.0 + symbol;
-    };
-
-    var graphs=d3.select("#graph");
-    var div=graphs[0][0];
-    if (div==null|| div.childElementCount!=0) {return;}
-    var data_url=div.dataset.url;
-
-    // create svg and g to contain the chart contents
-    var baseSvg = graphs.append("svg");
-    var chartSvg=baseSvg
-        .append("g")
-        .attr("class", "chartContainer")
-        .attr("transform", "translate(" + padding.left + "," + padding.top + ")");
-
-    // create the x axis container
-    chartSvg.append("g")
-        .attr("class", "x axis");
-
-    // create the y axis container
-    chartSvg.append("g")
-        .attr("class", "y axis");
-    var line;
-    var largest=null;
-    var lineData;
-    if (div.dataset.lines) {
-        d3.json(div.dataset.lines,function(error,json){
-        jsonData=json;
-        neighbourhoods=Object.keys(jsonData);
-        var keyHash={all:{label: 'All Properties',data:['land','building']},res:{label: 'Residential Properties',data:['res_land','res_building']}};
-        var keyOptions=Object.keys(keyHash);
-        d3.select('#nbhd-select').selectAll('option').data(neighbourhoods).enter().append('option').attr('value',function(d){return d}).text(function(d){return d});
-        $('#nbhd-select').on('change',function(d){
-            currentValue=this.value;
-            updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage})
-        });
-        d3.select('#keys-select').selectAll('option').data(keyOptions).enter().append('option').attr('value',function(d){return d}).text(function(d){return keyHash[d].label});
-        $('#keys-select').on('change',function(d){
-            currentKeys=keyHash[this.value].data;
-            updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage})
-        });
-        $('#type-select').on('change',function(d){
-            currentModePercentage=this.value=='percent';
-            updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage})
-        });
-        lineData=json[currentValue];
-        var domain=[null,null];
-        var range=[null,null];
-        lineData.forEach(function(d) {
-             d.date = +d.date;
-             if (domain[0]==null || domain[0]> d.date) domain[0]= d.date;
-             if (domain[1]==null || domain[1]< d.date) domain[1]= d.date;
-             keys.forEach(function(k){
-                d[k]=+d[k];
-                if (range[0]==null || range[0]> d[k]) range[0]= d[k];
-                if (range[1]==null || range[1]< d[k]) range[1]= d[k];
-            });
-        });
-        xScale=d3.scale.linear().domain(domain);
-        var toAdd=(range[1]-range[0])/10;
-        range[0]-=toAdd;
-        range[1]+=toAdd;
-        yScale=d3.scale.linear()
-            .domain(range);
-
-        line = d3.svg.line()
-            .x(function(d) { return xScale(d.date); })
-            .y(function(d) { return yScale(0); })
-            .interpolate("linear");
-        xAxis = d3.svg.axis()
-            .scale(xScale)
-            .orient("bottom")
-            .tickFormat(d3.format("d"));
-            //.ticks(5);
-            //.tickValues(domain);
-
-        yAxis = d3.svg.axis()
-            .scale(yScale)
-            .orient("left")
-            .tickFormat(numberFormatter)
-            .ticks(5);
-
-        prefix = d3.formatPrefix(range[1]);
-        if (prefix.symbol=='K') {
-            symbol='k'
-        } else if (prefix.symbol=='M') {
-                symbol='m'
-        } else if (prefix.symbol=='G') {
-            symbol='bn'
-        } else if (prefix.symbol=='T') {
-            symbol='tn'
-        }
-        updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage});
-        });
-
-    }
-
-
-    function updateChart(options)
-    {
-        var lineData=options.data;
-        var init=options.init;
-        var keys=options.keys;
-
-        lineData.forEach(function(d,i) {
-             keys.forEach(function(k){
-                d[k]=+d[k];
-                if (i>0) d[k+'_p']=d[k]/lineData[i-1][k]-1;
-             });
-        });
-
-        if (options.percentage) {
-            keys=keys.map(function(k){return k+'_p'});
-            lineData=lineData.slice(1);
-        }
-
-        var domain=[null,null];
-        var range=[null,null];
-        lineData.forEach(function(d,i) {
-             d.date = +d.date;
-             if (domain[0]==null || domain[0]> d.date) domain[0]= d.date;
-             if (domain[1]==null || domain[1]< d.date) domain[1]= d.date;
-             keys.forEach(function(k){
-                if (range[0]==null || range[0]> d[k]) range[0]= d[k];
-                if (range[1]==null || range[1]< d[k]) range[1]= d[k];
-            });
-        });
-
-        //if (options.percentage) domain[0]+=1;
-
-        var toAdd=(range[1]-range[0])/10;
-        range[0]-=toAdd;
-        if (!options.percentage) range[0]=Math.max(0,range[0]);
-        range[1]+=toAdd;
-        yScale.domain(range);
-        xScale.domain(domain);
-        var formatter;
-        if (options.percentage) {
-            formatter=d3.format('.1%');
-        } else {
-            formatter=numberFormatter;
-        }
-        yAxis.tickFormat(formatter);
-
-        var legend=d3.select('.legend');
-        legend.empty();
-        legend.selectAll('.item').data(keys)
-            .enter().append('p').attr('class','item')
-            .html(function(k){return '<i style="background:'+hash[k].color+'"></i> '+hash[k].label+' <span style="float:right;margin-right:10px;" id="'+k+'_value"></span>'});
-        //legend.selectAll('.item').exit().remove();
-
-
-        // get the height and width subtracting the padding
-//    var innerHeight = window.innerHeight - 20;
-        var innerWidth = window.innerWidth - 20;
-        var divWidth=$(div).width();
-        if (divWidth==0) divWidth=$(div.parentElement.parentElement).width();
-        var maxWidth=parseInt($(div).css('max-width'));
-        if (divWidth==0) divWidth=innerWidth*0.8;
-        if (divWidth>maxWidth) divWidth=maxWidth;
-        var chartWidth = divWidth-padding.left-padding.right;//960 - margin.left - margin.right,
-        var chartHeight = $(div).height()-padding.top-padding.bottom;//500 - margin.top - margin.bottom;
-
-
-        // only update if chart size has changed
-        if (true || (prevChartWidth != chartWidth) || (prevChartHeight != chartHeight)) {
-            prevChartWidth = chartWidth;
-            prevChartHeight = chartHeight;
-
-            //set the width and height of the SVG element
-            chartSvg.attr("width", chartWidth + padding.left + padding.right)
-                .attr("height", chartHeight + padding.top + padding.bottom);
-            baseSvg.attr("width", chartWidth + padding.left + padding.right)
-                .attr("height", chartHeight + padding.top + padding.bottom);
-
-            // ranges are based on the width and height available so reset
-            xScale.range([0, chartWidth]);
-            yScale.range([chartHeight, 0]);
-
-
-
-
-            if (init) {
-                // if first run then just display axis with no transition
-                chartSvg.select(".x")
-                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
-                    .attr("transform", "translate(0," + chartHeight + ")")
-                    .call(xAxis);
-
-                chartSvg.select(".y")
-                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
-                    .call(yAxis);
-
-                chartSvg.select('.x.axis path').style('display','inherit');
-            }
-            else {
-                // for subsequent updates use a transistion to animate the axis to the new position
-                var t = chartSvg.transition().duration(updateTransistionMS);
-
-                t.select(".x")
-                    .attr("transform", "translate(0," + chartHeight + ")")
-                    .call(xAxis);
-
-                t.select(".y")
-                    .call(yAxis);
-            }
-
-            var sourceData=lineData;
-
-            function addSeries(key){
-                var g=d3.select(this);
-                var color=hash[key].color;
-                var label=hash[key].label;
-                var className=key;
-
-                // bind up the data to the line
-                var lines = g.selectAll("path.line")
-                    .data([sourceData]); // needs to be an array (size of 1 for our data) of arrays
-
-                var valueFunction=function(d){return d[key]};
-                var yFunction=function(d){return yScale(valueFunction(d))};
-                var ff=key[key.length-1]=='p' ? d3.format('.1%') : numberFormatter;
-                var formatFunction=function(d){return ff(valueFunction(d))};
-
-                function tooltipFunction(d,el){
-                  var key=d3.select(el.parentElement).datum();
-                  var ff=key[key.length-1]=='p' ? d3.format('.1%') : numberFormatter;
-                  return d.date + ': ' + ff(d[key]);
-                }
-
-                 var line=d3.svg.line()
-                      .x(function(d) { return xScale(d.date); })
-                      .y(yFunction)
-                      .interpolate("linear");
-
-               // transistion to new position if already exists
-                lines.transition()
-                    .duration(updateTransistionMS)
-                    .attr("d", line);
-
-
-                // add line if not already existing
-                lines.enter().append("path")
-                    .attr("class", "line")
-                    .attr("stroke", color)
-                    .attr("stroke-width", 2)
-                    .attr('fill','none')
-                    .attr("d", line);
-
-                lines.exit().remove();
-
-                // bind up the data to an array of circles
-                var circles = g.selectAll("circle")
-                    .data(sourceData);
-
-                // if already existing then transition each circle to its new position
-                circles.transition()
-                    .duration(updateTransistionMS)
-                    .attr("cx", function (d) {
-                        return xScale(d.date);
-                    })
-                    .attr("cy", yFunction);
-
-                // if new circle then just display
-                circles.enter().append("circle")
-                    .attr("class", className)
-                    .attr("cx", function (d) {
-                        return xScale(d.date);
-                    })
-                    .attr("cy", yFunction)
-                    .attr("r", 4)
-                    .attr('fill', 'transparent')
-                    .style("stroke", color)
-                    .style("stroke-width", 8)
-                    .on('mouseover',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(tooltipFunction(d,this))
-                    }).on('click',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(tooltipFunction(d,this))
-                    }).on('touch',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(tooltipFunction(d,this))
-                    }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
-                circles.exit().remove();
-                }
-            }
-
-            var selection=chartSvg.selectAll('g.series').data(keys);
-            selection.exit().remove();
-            selection.enter().append('g').attr('class','series');
-            chartSvg.selectAll('g.series').each(addSeries);
-    }
-
-    // look for resize but use timer to only call the update script when a resize stops
-    var resizeTimer;
-    window.onresize = function(event) {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function()
-        {
-                updateChart({init:false,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage});
-        }, 100);
-    }
-
-
-};
-ready_for_graph();
-
-
-
-function resetImages(){
-    $('img').each(function(img){
-        imgsrc = $(img).attr('src');
-        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
-            $(img).attr('src', '');
-            $(img).attr('src', imgsrc);
-
-        }
-    });
-    setTimeout(function(){
-        resetImages();
-    },25000);
-}
-setTimeout(function(){
-    resetImages();
-},25000);
-
-</script>
-
 ]]></content>
   </entry>
   
