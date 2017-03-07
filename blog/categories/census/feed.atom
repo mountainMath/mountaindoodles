@@ -4,7 +4,7 @@
   <title><![CDATA[Category: census | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/census/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-03-03T10:27:14-08:00</updated>
+  <updated>2017-03-06T22:37:06-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,200 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[RS Population Change]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/03/06/rs-population-change/"/>
+    <updated>2017-03-06T11:06:57-08:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/03/06/rs-population-change</id>
+    <content type="html"><![CDATA[<p><a href="https://censusmapper.ca/maps/583"><img src="http://doodles.mountainmath.ca/images/pop_change_ct.png" style="width:50%;float:right;margin-left:10px;"></a>
+With reporting on the new census numbers gaining traction, and now
+<a href="http://www.cbc.ca/news/canada/british-columbia/gregor-robertson-statement-vancouver-character-homes-review-1.4011100">Mayor Robertson</a>
+picking up on single family neighbourhoods losing population we thought
+it is time to crunch some numbers.</p>
+
+<!-- more -->
+
+
+<h3>Comparing Censuses</h3>
+
+<p>Comparing data across censuses is hard. For one, definitions change from one census to the next
+and thus variables aren&rsquo;t always comparable. Four our immediate goal of comparing
+population, private dwellings, and private households between the 2011 and 2016 censuses
+that is not a concern.</p>
+
+<p>Comparing data is relatively easy when census geographies are large (i.e. CT, CSD level or higher)
+and the census geography matches exactly the area that we are interested in. For CSDs (Municipalities)
+this is often the case, but at the sub-municipal level, the CTs (Census Tracts) or other sub-municipal
+aggregation levels rarely line up with the regions one is interested in.</p>
+
+<p>For example, if one is interested in changes in population in RS (single family zoned) neighbourhoods in
+Vancouver, looking at selected CTs will only give some initial indication. The reason is that
+there is actually no CT in the City of Vancouver that is entirely RS zoned. There are several that
+come close (the closest one is CT 9330015.01 around 41st and Thyne, which actually
+increased population from 5,364 in 2011 to 5,485 in 2016) but it shows how tricky
+it is to answer the really simple question how the population changed in RS neighbourhoods.</p>
+
+<p>Just glossing over this and only looking at CTs that are mostly RS zoned is tempting,
+but may well result in misleading results, like we have seen in recent reporting on
+unoccupied dwellings in the &ldquo;Marine Gateway neighbourhood&rdquo;.</p>
+
+<p>So how to avoid this? The cleanest way is a custom tabulation from StatCan, but that takes
+time, costs money, and may still
+<a href="https://twitter.com/vb_jens/status/838561779970011136">result in problems when data was not geocoded correctly</a>,
+which is next to impossible to detect in custom tabulations.</p>
+
+<p>An alternative way is to compare censuses at finer aggregation levels, that is at DAs (Dissemination Areas) or
+DBs (Dissemination Blocks).</p>
+
+<h3>Comparing Censuses at DA or DB levels</h3>
+
+<p>For our concrete example, that means we look for DBs within RS zoning and work with these.</p>
+
+<p>There are several difficulties with this approach. The most important is that the finer data we look at,
+the more likely we pick up problems with Census data (yes, there are problems) and mistake them for real world data.
+For our case through, we can avoid some of that by aggregating over all DBs within RS zoning to even out some
+of these issues. Morever, we can visually inspect the data to look for any particular DB that seems to be problematic
+and do some ground-truthing to see if the issues are only in the data or actually on the ground.</p>
+
+<p>The next difficulty is technical in nature. Census geographies, including DBs and DAs, can change from one census to
+another and thus may not be comparable. In order to get reliable results we need to make sure that we work with
+a common set of geographies for both the 2011 and 2016 censuses. Luckily this is only a technical problem that can be
+overcome as census geographies don&rsquo;t just change randomly but still retain some basic comparability.</p>
+
+<p>So we got to work and wrote some scripts that take the geographies for two particular censuses at a given aggregation
+level and we create a &ldquo;least common denominator&rdquo; tiling that combines 2011 and 2016 DBs and DAs until they match up. At
+CensusMapper we work with &ldquo;cartographic&rdquo; DBs (so we clip our major bodies of water), which leads to a minor issue where
+between 2011 and 2016 things were clipped slightly differently which yielded two DBs in 2011 (with 16 and 17 people in it)
+being clipped out (and having no people in it) in 2017, likely a combination of adjusting some tolerances in the StatCan
+algorithms as well as some minor changes in geocoding that moved the population into an adjacent DB
+(like e.g. happened with 59150971009 and 59150971008 south of King Edward split along Camarvon). Apart from that, the
+result is a tiling of Canada by DB and DA-based geographies that allow for consistent comparisons across the two censuses.</p>
+
+<p>In numbers there were 493,192 cartographic DBs in 2016, 489,676 in 2016, and these resulted in a least common denominator tiling
+by 445,953 DB-based geographies.</p>
+
+<h3>RS, RT and FSD Zones and Population Change</h3>
+
+<p><img src="http://doodles.mountainmath.ca/images/filter_all.png" style="width:50%;float:right;margin-left:10px;">
+Back to our original question, how did population change in RS zoning. Before we go there, we think it makes more sense to expand
+the question to ask for RS, RT (duplex) and FSD (First Shaughnessy) combined as these are about equally restrictive in what
+we allow there.</p>
+
+<p>Grabbing the <a href="http://data.vancouver.ca/datacatalogue/zoning.htm">latest available zoning data</a> and uploading it to
+CensusMapper makes it easy to download the 2011 and 2016 dissemination blocks that intersect RS, RT and FSD zoning. We removed the RS part
+that snakes along the downtown beaches and covers Stanley Park, as well as the sliver creaping up False Creek and covering the marinas there.</p>
+
+<p>When we intersect the census data with the zones, we also compute the overlap each DB has with the zoning and disregard any region
+with less than 10% overlap. Moreover we divide the dissemination blocks into <bf>core</bf> blocks where
+the overlap is greater than 99% and <bf>fringe</bf> blocks, where the overlap is less than 99%.</p>
+
+<p>Here are the results:</p>
+
+<pre><code>RS, RT, FSD
+core: 236 DB, fringe: 475 DB
+Population 2011 - 2016
+core pop change: -69, fringe pop change: 6673, core total pop: 124916, fringe total pop: 284231
+Dwellings 2011 - 2016
+core dw change: 2812, fringe dw change: 7142, core total dw: 47008, fringe total dw: 121488
+Households 2011 - 2016
+core hh change: 1194, fringe hh change: 5127, core total hh: 42298, fringe total hh: 111801
+</code></pre>
+
+<p><img src="http://doodles.mountainmath.ca/images/filter_core.png" style="width:50%;float:right;margin-left:10px;">
+What we see is that the population in the &ldquo;core&rdquo; DBs did drop. Slightly. At the same time the number of dwellings
+increased quite noticeably by 6.3% in the core, with essentially all of the dwelling growth located within RS zones
+(as opposed to RT and FSD). So most of that dwelling
+growth is due to suites and laneway houses. Note that we only capture 47008 dwellings in the &ldquo;core&rdquo; RS, RT, FSD areas,
+which is less
+than half of the dwelling units in RS, RT and FSD with the remaining dwellings are located within the &ldquo;fringe&rdquo; regions.</p>
+
+<p><a href="https://censusmapper.ca/maps/596"><img src="http://doodles.mountainmath.ca/images/van_pop_comp.png" style="width:50%;left:right;margin-right:10px;"></a>
+Interestingly, the number of households grew much slower than the number of dwellings in the &ldquo;core&rdquo; regions, increasing the rate
+of unoccupied units from 7% to 10%. Following our decomposition of population growth <a href="https://censusmapper.ca/maps/596">mapped here</a>
+and <a href="http://doodles.mountainmath.ca/blog/2017/02/10/2016-census-data/">explained in more detail in a previous post</a>, we see
+that the population growth of -69 in the &ldquo;core&rdquo; regions can be decomposed into:</p>
+
+<ul>
+<li>-3,699 due to declining household size,</li>
+<li>-4,321 due to increase in unoccupied dwellings, and</li>
+<li>7,952 due to increase in dwelling units.</li>
+</ul>
+
+
+<p><img src="http://doodles.mountainmath.ca/images/filter_fringe.png" style="width:50%;float:right;margin-left:10px;">
+We can do the same analysis for the &ldquo;fringe&rdquo; areas, where RS, RT and FSD zoning mixes with other zones. Here we get a population
+increase by 2.4%, driven by an increase
+in dwelling units by 6.2%, and dampened by shrinking household size and a
+more modest increase in the rate of unoccupied units from 6.7% in 2011 to 8% in 2016. We note that
+the rate of unoccupied units increased significantly less on the fringe when compared to the core.</p>
+
+<p>Breaking up the population growth of 6,673 people as before we have:</p>
+
+<ul>
+<li>-6,667 due to declining household size,</li>
+<li>-3,996 due to increase in unoccupied dwellings, and</li>
+<li>17,336 due to increase in dwelling units.</li>
+</ul>
+
+
+<p>Lastly, we probably can&rsquo;t talk about this without running a separate analysis for the west side. So here we go.</p>
+
+<pre><code>RS, RT, FSD
+core: 88 DB, fringe: 184 DB
+Population 2011 - 2016
+core pop change: -510, fringe pop change: 1631, core total pop: 42878, fringe total pop: 105309
+Dwellings 2011 - 2016
+core dw change: 572, fringe dw change: 2426, core total dw: 16735, fringe total dw: 49210
+Households 2011 - 2016
+core hh change: -18, fringe hh change: 1226, core total hh: 15066, fringe total hh: 44907
+</code></pre>
+
+<p>We see that this confirms conventional wisdom that the population decline in the core areas of RS, RT, FSD is stronger
+on the west side (and in fact population did increase overall in the core areas on the east side). The rate of unoccupied (by usual residents)
+units was quite similar to the overall RS, RT, FSD, climbing from 6.7% in 2011 to 10% in 2016.</p>
+
+<p>Again splitting up the population change of -510 people in the &ldquo;core&rdquo; area into components we get:</p>
+
+<ul>
+<li>-458 due to declining household size,</li>
+<li>-1,587 due to increase in unoccupied dwellings, and</li>
+<li>1,535 due to increase in dwelling units.</li>
+</ul>
+
+
+<p>and for the &ldquo;fringe&rdquo; west side areas we again observe that population increased at 1.5%, dwellings by 5.1% and
+the rate of unoccupied units grew slower from 6.6% to 8.7% and splitting up the population change of 1,631 people:</p>
+
+<ul>
+<li>-1,278 due to declining household size,</li>
+<li>-2,466 due to increase in unoccupied dwellings, and</li>
+<li>5,376 due to increase in dwelling units.</li>
+</ul>
+
+
+<h3>Summary</h3>
+
+<p>In summary, we see that the growth in the &ldquo;fringe&rdquo; zones of RS, RT and FSD outpaces the &ldquo;core&rdquo; zones, despite the fringes
+containing more than half of the RS, RT and FSD dwellings which presumably perform similar to the core zones.</p>
+
+<p>Fringe zones have lower rates of unoccupied (by usual residents) buildings than the core.</p>
+
+<p>Overall, the &ldquo;core&rdquo; regions had a slight decline in population. The west side lost population in the core
+at a higher pace than the overall rate.</p>
+
+<h3>Glossary</h3>
+
+<p>We are a little loose with our use of language. In this post &ldquo;unoccupied&rdquo; is always short for &ldquo;not occupied by usual residents&rdquo;,
+so in simpler terms &ldquo;not used as primary residence&rdquo;. &ldquo;Occupied&rdquo; refers to &ldquo;used as primary residence&rdquo;.</p>
+
+<p>West side and east side were divided along the longitude for Ontario road.</p>
+
+<p>Core regions are Dissemination Blocks that have at least 99% overlap with RS, RT or FSD zoning.</p>
+
+<p>Fringe regions are Dissemination Blocks that have between 10% and 99% overlap with RS, RT or FSD zoning.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[2016 Census Data - Part 1]]></title>
@@ -583,121 +777,6 @@ $('.income-generator .btn').on('click',function(e){
 });
 </script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mixing Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data/"/>
-    <updated>2016-07-06T09:19:04-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/07/06/mixing-data</id>
-    <content type="html"><![CDATA[<p>Census data is very rich and with <a href="https://censusmapper.ca">CensusMapper</a> we now have about 1 billion data points right at
-our fingertips. And we have managed to open up some of our interfaces for everyone to <a href="http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone/">explore data and make their own maps
-and freely share them</a>.</p>
-
-<p>Things really get interesting when one mixes custom data with census data. While, at this point, these are not part of
-the freely available CensusMapper functionality we still wanted to share what can be done.</p>
-
-<p>At CensusMapper we have developed three basic ways to rapidly mix custom data with census data. So this is really three
-blog posts in one.</p>
-
-<!-- more -->
-
-
-<h3>1. Overlay Mapping</h3>
-
-<p>First up, advanced users can upload custom datasets and map them on top of census data.
-<a href="http://doodles.mountainmath.ca/images/restaurants_2.png"><img  src="http://doodles.mountainmath.ca/images/restaurants_2.png" style="width:50%;float:right;margin-left:10px;"></a>
-For example, we took a
-<a href="http://data.vancouver.ca/datacatalogue/businessLicence.htm">business license dataset</a> from the City of Vancouver open
-data catalogue, filtered it by the <em>BusinessType</em> field to only include businesses starting with &ldquo;Restaurant&rdquo; or
-&ldquo;Liquor Establishment&rdquo; and uploaded them to CensusMapper to map it on top of census data. We have used a map
-for <em>median age</em> that was <a href="https://twitter.com/jofu_/status/750564269796823041">recently created using CensusMapper&rsquo;s free public interface</a>
-(have you made <a href="https://censusmapper.ca/maps/new">your own CensusMapper map</a> yet?), we have faded out areas outside of
-Vancouver and coloured <em>Liquor Establishments</em> in red and <em>Restaurants</em> in blue.</p>
-
-<p>Giving a visual impression of your own dataset in relation to census data is the first step to location analysis.</p>
-
-<h3>2. Populate Custom Data with Census Data</h3>
-
-<p>Next
-up is to populate your own dataset with census data for further analysis. For the restaurants, we may be interested in
-attaching population estimates in 5 minute walking distance from each location. We might also be interested in specific
-age brackets, or numbers of recent immigrants
-from specific countries that we may want to target with a new restaurant, or maybe even     income data.</p>
-
-<p>This can be a time consuming and painful process,
-but we have automated this at CensusMapper.</p>
-
-<p>To showcase how this works we will show an example using elementary school catchment areas in the City of Vancouver. The
-areas we have (from the <a href="http://data.vancouver.ca/datacatalogue/publicPlaces.htm">Vancouver Open Data Catalogue</a>) are
-quite out of date, but for the purpose of this example they work as we will compare them to 2011 census data. We will look at the
-<a href="https://censusmapper.ca/maps/419">school aged population</a> in each catchment.</p>
-
-<!--
-The general census release data does not fit our task perfectly, the census splits by age in early May 2011 and not by
-year born and it does not have fine enough age brackets to estimating accurate school catchment numbers.
-[BC Stats](http://www.bcstats.gov.bc.ca/StatisticsBySubject/Demography/PopulationEstimates.aspx) has finer age brackets
-computed to school district (not catchment) boundaries, but their estimates are ridiculously far off of census numbers
-when using matching age brackets and years that their usefulness is highly questionable. 
--->
-
-
-<p><a href="http://doodles.mountainmath.ca/images/e-schools.png"><img  src="http://doodles.mountainmath.ca/images/e-schools.png" style="width:50%;float:left;margin-right:10px;"></a>
-Using the visual overlay we notice that the catchment areas do fit boundaries of Dissemination Areas shown on the map
-reasonably well, with some exceptions. The same cannot be said for Census Tracts, we can be reasonably confident that
-Dissemination Area data is fairly accurate.</p>
-
-<p>Next we use the built-in CensusMapper functionality to automatically populate the catchment areas with the census
-data we are interested
-in. When Dissemination Areas don&rsquo;t line up with the catchment boundaries we go down to Dissemination Blocks to estimate
-how many children live on what side of the catchment boundary. We
-<a href="http://doodles.mountainmath.ca/blog/2016/04/06/tod/">previously explained this process in more detail</a>, the result is
-a spreadsheet with the population data by age for each catchment area.</p>
-
-<div id='schools'></div>
-
-
-<div><script src="http://doodles.mountainmath.ca/javascripts/colorbrewer.js" charset="utf-8"></script></div>
-
-
-<div><script src="http://doodles.mountainmath.ca/javascripts/school_bar_graph.js" charset="utf-8"></script></div>
-
-
-<p>Here we show the results by school, the select element can be used to select any school of interest. The whole process
-of populating the school data with census data just required uploading the catchment boundaries and selecting which
-variables to attach.</p>
-
-<h3>3. Custom Census Data Mapping</h3>
-
-<p>Sometimes it is not practical to map custom data on CensusMapper. Maybe the custom data is too sensitive to be uploaded
-to CensusMapper servers. Or it is quite complex and is better mapped separately. So we created an API to pull in
-census data from CensusMapper to easily show census data on custom maps. And dynamically mix in your own data. As an
-example we mix census data with data from BCAssessment, again obtained through the
-<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data Catalogue</a> (and enriched with
-<a href="http://www.metrovancouver.org/data">open data from Metro Vancouver</a>).
-For demonstration purposes take Dissemination Area
-geographies and Dwelling Characteristic data from CensusMapper and mash it up with our
-<a href="http://mountainmath.ca/map/assessment?zoom=14&amp;lat=49.2604&amp;lng=-123.1417&amp;layer=14&amp;mapBase=2">processed assessment data</a>
-to explore the <a href="http://doodles.mountainmath.ca/blog/2016/06/17/sdh-zoning-and-land-use/">differences in how single family properties are classified</a>.</p>
-
-<p><a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=0" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh_unit_count.png" style="width:50%;float:right;margin-left:10px;"></a>
-For example we can <a href="https://mountainmath.ca/census_mix/map?mapBase=2&amp;layer=0">compare BC Assessment single family lot count to Stats Canada unit count</a>
-in the dissemination areas
-that are exclusively made up of single family lots. This gives an indication of how many suites and laneway houses there
-are in those areas. The census is prone to undercount units, but still does a better job at estimating them than other data sources,
-like the city or BC Assessment.</p>
-
-<p>One of the reasons why census unit counts come up higher than other methods is that the census also counts illegal units,
-which naturally are not part of other official government counts. There are different reasons why a suite may be illegal:
-<a href="https://mountainmath.ca/census_mix/map?mapBase=2&layer=5" target="_blank"><img  src="http://doodles.mountainmath.ca/images/illegal_units.png" style="width:50%;float:left;margin-right:10px;"></a>
-It could simply be that the owner has not made the effort to register it. Or the suite may not be up to code.
-And in some cases, a property may have more than one suite in the main building, which is illegal in the City of Vancouver.
-The latter ones we can pick out in census data, since a house with two secondary suites &ndash; so three dwelling units in one building in
-total &ndash; is classified as being an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. So, in census dissemination areas that
-only have duplex or single family lots as residential land uses based on assessment and land use data, we can look for
-how many dwelling units the census places in an &ldquo;Apartment, building that has fewer than five storeys&rdquo;. And
-<a href="https://mountainmath.ca/census_mix/map?mapBase=2&amp;layer=5">map them</a>.</p>
 ]]></content>
   </entry>
   
