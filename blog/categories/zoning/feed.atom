@@ -4,7 +4,7 @@
   <title><![CDATA[Category: zoning | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/zoning/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-03-07T12:21:38-08:00</updated>
+  <updated>2017-03-07T12:22:18-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -66,10 +66,6 @@ there is actually no CT in the City of Vancouver that is entirely RS zoned. Ther
 come close (the closest one is CT 9330015.01 around 41st and Thyne, which actually
 increased population from 5,364 in 2011 to 5,485 in 2016) but it shows how tricky
 it is to answer the really simple question how the population changed in RS neighbourhoods.</p>
-
-<p>Just glossing over this and only looking at CTs that are mostly RS zoned is tempting,
-but may well result in misleading results, like we have seen in recent reporting on
-unoccupied dwellings in the &ldquo;Marine Gateway neighbourhood&rdquo;.</p>
 
 <p>So how to avoid this? The cleanest way is a custom tabulation from StatCan, but that takes
 time, costs money, and may still
