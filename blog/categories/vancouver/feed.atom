@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-03-06T22:55:34-08:00</updated>
+  <updated>2017-03-06T23:32:26-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -20,9 +20,9 @@
     <id>http://doodles.mountainmath.ca/blog/2017/03/06/rs-population-change</id>
     <content type="html"><![CDATA[<p><a href="https://censusmapper.ca/maps/583"><img src="http://doodles.mountainmath.ca/images/pop_change_ct.png" style="width:50%;float:right;margin-left:10px;"></a>
 With reporting on the new census numbers gaining traction, and now
-<a href="http://www.cbc.ca/news/canada/british-columbia/gregor-robertson-statement-vancouver-character-homes-review-1.4011100">Mayor Robertson</a>
-picking up on single family neighbourhoods losing population we thought
-it is time to crunch some numbers.</p>
+Mayor Robertson
+<a href="http://www.cbc.ca/news/canada/british-columbia/gregor-robertson-statement-vancouver-character-homes-review-1.4011100">picking up on single family neighbourhoods losing population</a>
+we thought it is time to crunch some numbers.</p>
 
 <!-- more -->
 
@@ -73,13 +73,12 @@ another and thus may not be comparable. In order to get reliable results we need
 a common set of geographies for both the 2011 and 2016 censuses. Luckily this is only a technical problem that can be
 overcome as census geographies don&rsquo;t just change randomly but still retain some basic comparability.</p>
 
-<p>So we got to work and wrote some scripts that take the geographies for two particular censuses at a given aggregation
-level and we create a &ldquo;least common denominator&rdquo; tiling that combines 2011 and 2016 DBs and DAs until they match up. At
+<p>And it&rsquo;s perfect timing, since we just created a &ldquo;least common denominator&rdquo; tiling derived from 2011 and 2016 DBs and DAs. At
 CensusMapper we work with &ldquo;cartographic&rdquo; DBs (so we clip our major bodies of water), which leads to a minor issue where
 between 2011 and 2016 things were clipped slightly differently which yielded two DBs in 2011 (with 16 and 17 people in it)
 being clipped out (and having no people in it) in 2017, likely a combination of adjusting some tolerances in the StatCan
 algorithms as well as some minor changes in geocoding that moved the population into an adjacent DB
-(like e.g. happened with 59150971009 and 59150971008 south of King Edward split along Camarvon). Apart from that, the
+(like e.g. happened with 59150971009 and 59150971008 south of King Edward split along Carnarvon). Apart from that, the
 result is a tiling of Canada by DB and DA-based geographies that allow for consistent comparisons across the two censuses.</p>
 
 <p>In numbers there were 493,192 cartographic DBs in 2016, 489,676 in 2016, and these resulted in a least common denominator tiling
@@ -94,11 +93,16 @@ we allow there.</p>
 
 <p>Grabbing the <a href="http://data.vancouver.ca/datacatalogue/zoning.htm">latest available zoning data</a> and uploading it to
 CensusMapper makes it easy to download the 2011 and 2016 dissemination blocks that intersect RS, RT and FSD zoning. We removed the RS part
-that snakes along the downtown beaches and covers Stanley Park, as well as the sliver creaping up False Creek and covering the marinas there.</p>
+that snakes along the downtown beaches and covers Stanley Park, as well as the sliver creeping up False Creek and covering the marinas there.</p>
 
 <p>When we intersect the census data with the zones, we also compute the overlap each DB has with the zoning and disregard any region
-with less than 10% overlap. Moreover we divide the dissemination blocks into <bf>core</bf> blocks where
-the overlap is greater than 99% and <bf>fringe</bf> blocks, where the overlap is less than 99%.</p>
+with less than 10% overlap. Moreover we divide the dissemination blocks into <em>core</em> blocks where
+the overlap is greater than 99% and <em>fringe</em> blocks, where the overlap is less than 99%.</p>
+
+<p>One should remember that a significant
+portion (a majority actually) of RS, RT and FSD dwellings are contained in &ldquo;fringe&rdquo; areas.
+So it is best to focus on the rates of change, we would expect the total number of population decline
+of all RS, RT and FSD zoned properties to be higher.</p>
 
 <p>Here are the results:</p>
 
@@ -148,6 +152,8 @@ the rate of unoccupied units increased significantly less on the fringe when com
 <li>17,336 due to increase in dwelling units.</li>
 </ul>
 
+
+<h4>The West Side</h4>
 
 <p>Lastly, we probably can&rsquo;t talk about this without running a separate analysis for the west side. So here we go.</p>
 
