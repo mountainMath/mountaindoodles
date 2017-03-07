@@ -4,7 +4,7 @@
   <title><![CDATA[Category: zoning | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/zoning/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-03-07T12:20:59-08:00</updated>
+  <updated>2017-03-07T12:21:38-08:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -25,8 +25,8 @@ Mayor Robertson
 we thought it is time to crunch some numbers.</p>
 
 <p>Why does it need number crunching? All the reporting so far is based on looking at CT (Census Tract) aggregates, like e.g. in the
-map shown and linked to the left. But there is actually no
-single CT in the City of Vancouvr that only contains RS zoning. Deducing results by just looking on CT aggregates can lead
+map shown and linked to the right. But there is actually no
+single CT in the City of Vancouver that only contains RS zoning. Deducing results by just looking on CT aggregates can lead
 to misleading reporting, like we have seen with unoccupied dwellings in the &ldquo;Marine Gateway Neighbourhood&rdquo;. Given how prominent
 this topic has become it is high time to dig into the details.</p>
 
