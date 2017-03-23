@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://doodles.mountainmath.ca/blog/2017/03/22/comparing-censuses/</loc>
+    <lastmod>2017-03-22T13:28:51-07:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://doodles.mountainmath.ca/blog/2017/03/06/rs-population-change/</loc>
     <lastmod>2017-03-06T11:06:57-08:00</lastmod>
     <priority>0.8</priority>
@@ -335,21 +341,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2017-03-07T12:32:45-08:00</lastmod>
+    <lastmod>2017-03-23T15:27:54-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2017-03-07T12:32:45-08:00</lastmod>
+    <lastmod>2017-03-23T15:27:54-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2017-03-07T12:32:45-08:00</lastmod>
+    <lastmod>2017-03-23T15:27:54-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

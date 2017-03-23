@@ -4,7 +4,7 @@
   <title><![CDATA[Category: census | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/census/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-03-07T12:32:45-08:00</updated>
+  <updated>2017-03-23T15:27:54-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,134 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Comparing Censuses]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/03/22/comparing-censuses/"/>
+    <updated>2017-03-22T13:28:51-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/03/22/comparing-censuses</id>
+    <content type="html"><![CDATA[<p><a href="https://censusmapper.ca/maps/624#14/49.2608/-123.1556"><img src="http://doodles.mountainmath.ca/images/pop_change.png" style="width:50%;float:right;margin-left:10px;"></a>
+It&rsquo;s great to have fresh census data to play with. Right now we only have
+three variables, population, dwellings and households. There is still lots
+of <a href="http://doodles.mountainmath.ca/blog/2017/02/10/2016-census-data/">interesting information that can be extracted</a>.</p>
+
+<p>So we started exploring in our <a href="http://doodles.mountainmath.ca/blog/2017/03/06/rs-population-change/">last post</a>,
+things get really interesting when looking at change between censuses. But as we noted, there are
+several technical difficulties that need to be overcome.</p>
+
+<p>So we at CensusMapper took that as and invitation to do what we love most: breaking down barriers.</p>
+
+<!-- more -->
+
+
+<p>The biggest difficulty in comparing censuses is that census geographies change over time to adapt to new
+demographic realities on the ground. Whenever that happens, there is no easy way to compare data across
+censuses.</p>
+
+<h3>Custom Tabulations</h3>
+
+<p>The best way to compare data across censuses is to pull a custom tabulation for data on a common geography,
+there are a couple of things to keep in mind though:</p>
+
+<p>1) It costs money (or at least time if part of a specific research project with access to a StatCan data centre),
+2) it takes time to complete a custom tabulation, and
+3) custom tabulations are typically not available at fine geographic levels.</p>
+
+<p>For these reasons, comparing data across censuses is usually confined to select university research projects
+or well-resourced private interest. And to make matters worse, custom tabulations are rarely shared. I have
+asked university research groups if they were willing to share custom tabulations through CensusMapper, but got turned down
+every time so far. While the
+<a href="http://www.science.gc.ca/eic/site/063.nsf/eng/h_F6765465.html?OpenDocument">Tri-Agency Open Access Policy on Publications</a>,
+postulates that research needs to be published in open access journals and the data also needs to be made available, in practice
+research groups often keep their data locked up long after publication.</p>
+
+<p>But some public agencies do make their custom tabulations available, for example the City of Vancouver has custom tabulations
+for neighbourhood boundaries <a href="http://data.vancouver.ca/datacatalogue/index.htm">available on their open data catalogue</a>.</p>
+
+<h3>Comparable Regions</h3>
+
+<p>But even without custom tabulations we can compare regions if they have not changed across censuses. For example, we can compare
+how the City of Vancouver or Metro Vancouver have change over time by tracing them through censuses, as their geography has not
+changed. Census regions are tracked through their unique region identifier, which allows people to establish
+timelines for regions. When doing so one quickly runs into issues with this approach though.</p>
+
+<p>Just because a region has the same name and unique geographic identifier does not guarantee that the region has not changed. Simple
+examples of this are Census Metropolitan Areas that can change quite dramatically over time without this being reflected in the name
+or region identifier. For example, Ottawa, Montreal or Abbotsford were all expanded, some substantially) from the 2011 to the 2016 census.</p>
+
+<p>For example, by just comparing Census Metropolitan Area data, Montreal&rsquo;s population grew by 7.2% between 2011 and 2016. But a good
+chunk of that was simply due to the geographic region of the CMA being expanded, taking the 2016 expanded region as a base and
+including all people that lived in that region in 2011, including the ones that lived outside of the 2011 CMA of Montreal but
+that are now included in the 2016 CMA, the region&rsquo;s population only grew by 4.2%.</p>
+
+<p>On top of large changes like this, many smaller regions have undergone slight boundary adjustments while keeping their unique identifier,
+which move some people from one geographic region to another. And as one drills down into finer geographies one can easily
+find geocoding errors in the data, where people were moved from one region to another between censuses without any region
+adjustment taking place. These geocoding problems may persists in custom tabulations, but they are likely to even out as one
+moves to higher aggregation levels.</p>
+
+<h3>CensusMapper comparable regions</h3>
+
+<p><a href="https://censusmapper.ca/maps/648"><img src="http://doodles.mountainmath.ca/images/pop_adjusted.png" style="width:50%;float:left;margin-right:10px;"></a>
+At CensusMapper we decided that it would be in the general interest to be able to compare standard census variables
+across all aggregation levels. So we wrote some scripts to create a &ldquo;least common denominator&rdquo; tiling for all of
+Canada for all aggregation levels,
+ranging from Census Blocks to all of Canada. The idea is to keep regions that have not changed and, for regions that did change,
+join regions together in a way that the joins match again across censuses. While this sounds simple in principle, there are lots
+of issues and pitfalls along the way. Hopefully we have properly dealt with all of them now. We have done some testing, and
+there are still have 285 regions (36 CTs, 245 CSDs and 4 CMAs) where the adjusted and computed 2011 population counts don&rsquo;t
+quite add up. For example, 348 people were moved between Coquitlam and Port Coquitlam in this fashion, most of it due to an
+adjustment between CTs 9330287.01 and 9330291.01 that is not due to a change in geographic boundary. In the example of Airdrie
+trading 705 people with Rocky view this is associated with a change of the census geography, but no change in name or
+geographic identifier. In most cases the adjustment is much smaller than this. Even more extreme than Airdrie is the case
+of CTs 5350512.00 and 5350511.01 in Mississauga that swapped 1074 people without any apparent boundary change.</p>
+
+<p>We have a <a href="https://censusmapper.ca/maps/648">map that highlights all these difference at or above the CT zoom level</a>, and in all maps we shade areas with adjusted
+population counts and we indicate the actual population adjustment on hover.</p>
+
+<h3>The Good, the Bad and the Ugly</h3>
+
+<p><a href="https://censusmapper.ca/maps/588#14/49.2613/-123.1568"><img src="http://doodles.mountainmath.ca/images/dw_change.png" style="width:50%;float:right;margin-left:10px;"></a>
+So what does all of this buy us? For now, we get comprehensive maps comparing population, dwellings and households across the
+2011 and 2016 censuses at all geographic levels, including Dissemination Blocks. As new census data rolls in, we will be
+able to compare data down to the Dissemination Area level. That&rsquo;s pretty cool, we think.</p>
+
+<p>What could be bad about this? Census data is far from perfect. And mapping differences tends to bring out the problems in
+Census Data. Incorrectly enumerated dwellings, households or population, geocoding issues, as well as changes in geographies.</p>
+
+<p>And things start to get really ugly when the rest of the census data comes in where statistical rounding was applied. Even if
+everything was perfectly enumerated and geocoded, statistical rounding means that inevitably some areas will have census data
+that has been rounded up in one year and rounded down in the next. And taking differences will bring this out very strongly,
+especially at the Dissemination Area level. It is hard to overstate the effect of this, statistical rounding means that when
+mapping change at small aggregation levels we will map lots of statistical noise.</p>
+
+<p>There is however still value in showing and
+working with differences of census variables at small aggregation levels, but the results are much harder to interpret.
+One very simple workflow that we use regularly is to generally use Census Tract level data, but zoom in to Dissemination Areas
+when we want more context for particular Census Tract values. Doing this, salted and peppered with a good dose of caution and
+ideally some ground truthing, we can greatly refine our insights in what is going on in that Census Tract.</p>
+
+<p>For this
+reason we are decided to, at this point, keep fine grained data publicly available. We are aware that this will lead to
+some people misinterpreting census data, but this is already happening at any aggregation level and is generally not a
+sufficient argument to lock up data in our view. We may add more visual aids to warn the user of unreliable results, like adding
+pattern shading to results that could be dramatically effected by small difference errors due to statistical rounding or
+sampling/enumeration issues.</p>
+
+<h3>Maps</h3>
+
+<p>We opened up a number of maps on CensusMapper that explore changes between the 2011 and 2016 censuses down to the block level.</p>
+
+<ul>
+<li><a href="https://censusmapper.ca/maps/624">Population Change</a></li>
+<li><a href="https://censusmapper.ca/maps/588">Dwelling Change</a></li>
+<li><a href="https://censusmapper.ca/maps/586">Change in Non-Primary Residence Dwellings</a></li>
+<li><a href="https://censusmapper.ca/maps/590">Change in Household Size</a></li>
+<li><a href="https://censusmapper.ca/maps/596">Components of Population Change</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[RS Population Change]]></title>
@@ -639,157 +767,6 @@ to the 2010 ratio. What may have been &lsquo;barely affordable&rsquo; in 2010 is
 <p>So we used the detailed income data available for 2010 to get very good understanding of the affordability situation in 2010.
 Then we used regional income trends to extrapolate that data to 2015 and matched it with 2015 housing data to get more up-to-date
 estimates. This is generally an effective method that yields good results.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Quick Guide to Income Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/08/31/incomes/"/>
-    <updated>2016-08-31T09:17:12-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/08/31/incomes</id>
-    <content type="html"><![CDATA[<p>The news media has an extraordinarily difficult time with income data. And that&rsquo;s only partially the media&rsquo;s fault.
-In general, income data is a funny beast. So I decided to give a quick overview over income data that&rsquo;s available through
-Statistics Canada. To make things a little more concrete I focused on Vancouver as an example, but everything applies
-equally well to any other area in Canada.</p>
-
-<p>Most journalists I talked to care about accurate and relevant statements. If that&rsquo;s you, you will need to keep reading
-and dive down the slightly wonkish income rabbit hole.</p>
-
-<p>For those that don&rsquo;t really care, I made a
-<em>quotable random income generator</em>. Just hit the &ldquo;generate&rdquo; button copy &amp; paste the result and link this post as source.
-(Use at own risk!)</p>
-
-<!-- more -->
-
-
-
-
-<div class='income-generator'>
-    <div class='income-choices'>
-        <div class="geo"></div>
-        <div class="med_av"></div>
-        <div class="tax"></div>
-        <div class="hh"></div>
-        <div> income is </div>
-        <div class="income"></div>
-    </div>
-    <a class="btn btn-default" style="background:orange;">Click to Generate Random Income Numbers</a>
-</div>
-
-
-<p>The income numbers don&rsquo;t fit the story? No problem, just play again until you get something you like!</p>
-
-<h3>Geographic Regions</h3>
-
-<p>The first thing to do when quoting income numbers of any sort is to decide what region to use. Seems straight forward
-enough, but in reality <a href="https://twitter.com/vb_jens/status/744407354867736576">hardly ever done</a>. In the Vancouver
-context, it simply comes down to deciding if one wants to
-report on income for the City of Vancouver or Metro Vancouver. Both are frequently referred to as just &ldquo;Vancouver&rdquo;. Which
-is just fine as long as it is clear from the context which region we are talking about. And more importantly, whatever
-the income is compared to (e.g. housing price data) are taken for the same region.</p>
-
-<h3>Base Demographics</h3>
-
-<p>Next we have to choose a base demographic we are interested in, choose which income distribution is relevant for our context.
-In some cases this choice is obvious. If we are writing a story on lone parents in the City of Vancouver, we would want
-to look at the income distribution of lone parent households. If we are looking at the development of wages, we should
-consider individual incomes. For a story on consumer spending we may want to look at after-tax income.</p>
-
-<p>We may also be interested in specific type of income, for example only in investment income. Or the net capital gains
-and losses. Or pension benefits. Or self-employment income.</p>
-
-<h3>Statistic</h3>
-
-<p>Often we would like to distill everything down to a single number. Typically we would choose the average or median
-income from the distribution we are interested in, but we may also choose other statistics, for example the top quintile.
-Which one we choose really depends on the story. As a rule of thumb, choose median incomes if you are interested in the
-&lsquo;typical&rsquo; person or household. Choose average income if you are interested in the questions relating to the total amount
-of money earned in a given area. Income quantiles are great to focus in on certain subgroups of the population.</p>
-
-<h3>Availability</h3>
-
-<p>Generally we also have to consider the availability of information. The census has very detailed income data in their
-standard release that allow us to be very specific about what kind of incomes we are interested in. And if that&rsquo;s not
-enough we can make a special request to StatsCan to narrow the incomes down to a group we are interested in, for example incomes
-of renter households as was done in the <a href="http://rentalhousingindex.ca">rental housing index</a>.</p>
-
-<p>Annual income data is available from CANSIM (Statistics Canada&rsquo;s socioeconomic database), but the geography is coarser
-than in the census. Generally we can only
-expect to get annual data for the whole country, provinces, census metropolitan areas, but not census
-subdivisions (municipalities) or finer geographies.</p>
-
-<h3>Sources and Comparability</h3>
-
-<p>All income data eventually come down to CRA taxfiler data. But the devil is in the details. For the 2006 and 2011
-censuses, there was a mixture between self-reporting and cross-referencing of individual level income data with CRA data.
-And even self-reported data would again undergo quality control and get somewhat adjusted according to CRA data.</p>
-
-<p>But there are important differences in the data, both on what kind of income is included and also what people are included.</p>
-
-<p>The details are endless, many of them won&rsquo;t matter. Here are a couple to look out for:</p>
-
-<ul>
-<li>CANSIM is a comprehensive sample, census data is roughly a 1 in 5 subsample which may lead to sampling bias especially
-in small geographies.</li>
-<li>CENSUS data is sensitive to non-return bias. Not just no-return bias introduced by the NHS, but also by census undercounts
-which, for example, were in the 10% range for the 25 to 29 year old demographic in both the 2006 and 2011 censuses.</li>
-<li>CANSIM and the Census have different denominators for reporting average or median incomes. CANSIM reports on all
-T1 taxfilers, as well as various family types. Some data can be broken out into age groups at
-the 15 and 65 year cutoffs,
-whereas Census reports only on people (15 or older) (or families or households) in &ldquo;private households&rdquo; with income greater
-than zero.</li>
-<li>the definition of &ldquo;private household&rdquo; changed between 2006 and 2011 censuses.</li>
-<li>2011 and 2006 censuses differ slightly in what is included as income, for example
-<a href="http://www12.statcan.gc.ca/census-recensement/2006/ref/dict/pop123-eng.cfm">2006 included RRSP withdrawls</a>,
-<a href="https://www12.statcan.gc.ca/nhs-enm/2011/ref/dict/pop123-eng.cfm">2011 didn&rsquo;t</a> (both include pensions and RRIFs).
-2011 includes net capital gains and losses as a percentage of total income in a separate category, 2006 did not
-include any information on capital gains.</li>
-</ul>
-
-
-<p>So even when comparing CANSIM income data to census income data for the appropriate year we should expect some differences.
-Or comparing 2006 to 2011 income, even if hypothetically an area had identical tax returns, we would still see differences.
-Generally speaking, CANSIM average and median income estimates are lower than census estimates as it includes a larger pool
-of people that are likely to have lower income.</p>
-
-<h3>Where to get the goods?</h3>
-
-<p><img  src="http://doodles.mountainmath.ca/images/yvr_income.png" style="width:50%;float:right;margin-left:10px;">
-The latest census income numbers are available via <a href="https://www12.statcan.gc.ca/nhs-enm/2011/dp-pd/prof/index.cfm">Statistics Canada</a>.
-I am biased and prefer the <a href="https://censusmapper.ca/maps/467">CensusMapper</a> interface. For 2011 data, choose any
-2011 CensusMapper map, select the geographic
-region you are interested in and press the &ldquo;more&rdquo; button on the popup to bring up the &ldquo;census wheel&rdquo;. Then drill into the
-&ldquo;income&rdquo; section, the last NHS variable in the widget.</p>
-
-<p>CANSIM has annual data based on taxfiler information for coarser geographies. So you won&rsquo;t be able to get data for the City of Vancouver
-or neighbourhoods within the city like with census data, but you can get data for Metro Vancouver. And you can get it for
-more recent years. Things get complex very fast there are
-<a href="http://www5.statcan.gc.ca/cansim/a33?themeID=3868&amp;spMode=tables&amp;chunkSize=213">213 CANSIM tables with income data</a></p>
-
-<p>At CensusMapper we are still firmly planning integrate CANSIM data into the CensusMapper interface, but their API refresh got pushed back
-to sometime 2018 and we can&rsquo;t justify the extra resources to integrate CANSIM data temporarily using the old API just
-to switch it over a year later.</p>
-
-<h3>Too Abstract?</h3>
-
-<p>Want to see how this works on an example? Just read the
-<a href="http://doodles.mountainmath.ca/blog/2016/09/14/measuring-housing-affordability/">next post on using income data for housing affordability</a>.</p>
-
-<script>
-var geoData=['City of Vancouver','Metro Vancouver'];
-var med_avData=['median','average'];
-var taxData=['pre-tax','after-tax'];
-var hhData=['individual','household','family','family with children'];
-$('.income-generator .btn').on('click',function(e){
-     $('.income-generator').addClass('active');
-     $('.income-choices .geo').text(geoData[Math.round(Math.random())]);
-     $('.income-choices .med_av').text(med_avData[Math.round(Math.random())]);
-     $('.income-choices .tax').text(taxData[Math.round(Math.random())]);
-     $('.income-choices .hh').text(hhData[Math.round(3.9999*Math.random()-0.5)]);
-     $('.income-choices .income').text('$' + Math.round(80*Math.random()+40)+',000');
-});
-</script>
-
 ]]></content>
   </entry>
   
