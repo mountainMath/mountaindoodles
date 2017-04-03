@@ -4,7 +4,7 @@
   <title><![CDATA[Category: census | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/census/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-03-23T15:27:54-07:00</updated>
+  <updated>2017-04-03T14:48:07-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,137 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Joyce-Collingwood]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/04/03/joyce-collingwood/"/>
+    <updated>2017-04-03T12:46:47-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/04/03/joyce-collingwood</id>
+    <content type="html"><![CDATA[<p><a href="https://censusmapper.ca/maps/584#11/49.2389/-123.0977"><img src="http://doodles.mountainmath.ca/images/non-primary.png" style="width:50%;float:right;margin-left:10px;"></a>
+There has been some <a href="http://www.theglobeandmail.com/real-estate/vancouver/bcs-empty-home-problem-moving-beyond-just-vancouver/article34130746/">recent confusion</a>
+that got <a href="http://vancouversun.com/business/local-business/three-transit-oriented-communities-in-metro-rival-coal-harbour-for-empty-or-underused-housing">confounded further</a>
+about transit-oridented development
+in Vancouver harbouring a large number of non-primary residence homes. Good data is
+important in moving forward in Vancouver&rsquo;s crazy housing market. Without proper
+context, a couple of data points can serve to paint a very misleading picture
+of what is happening. So I decided to fill in some gaps on the very narrow
+question of understanding the CT level numbers that get tossed around.</p>
+
+<h3>TL;DR</h3>
+
+<p>To understand the overall rate of 24.4% non-primary residence dwelling units at the Joyce census tract,
+one should split the area into the Wall Centre Central Park development (99.2% non primary residence units)
+and the rest of the CT (3.4% non-primary residence units).</p>
+
+<p>To understand the Marine Gateway CT (24% non-primary residence dwellings),
+it should be split inte the block with Marine Gateway development (13.7%),
+the block containing the EC2 developemnt (67.4%), and the rest (10.1%).</p>
+
+<p>Comparing any of these very recent developments to the much older Coal Harbour makes no sense.
+Coal Harbor is still &ldquo;filling in&rdquo; although at a subbornly slow rate. It will be interesting
+to see if the new vacancy tax can help speed that up.</p>
+
+<!-- more -->
+
+
+<h3>Marine Gateway</h3>
+
+<p><a href="https://www.google.ca/maps/@49.2114587,-123.1170704,3a,75y,94.33h,114.49t/data=!3m6!1e1!3m4!1sdPusgUyW9gIfMiDEYVcduw!2e0!7i13312!8i6656!6m1!1e1"><img src="http://doodles.mountainmath.ca/images/ec2_streetview.png" style="width:50%;float:left;margin-right:10px;"></a></p>
+
+<p>To understand the 24% non-primary residence units in the census tract containing the
+Marine Gateway development, we split the area into three parts.
+The block with the Marine Gateway
+development has in 460 dwelling units, 63 (13.7%) of which were found not to be
+primary residences. The block north of that containing EC2 had 570 dwelling units
+394 (67.4%) of which were not used as primary dwellings. The remaining part of the
+CT as 1,507 dwelling units, 152 (10.1%) of which were not used as primary dwellings.</p>
+
+<p>What we see here quite nicely is how the rates of non-primary residence units
+are changing as the buildings they are in get older. Both Marine Gateway and EC2 are fairly
+recent projects, but Marine Gatway itself got completed about a year before EC2,
+and have significantly lower rates of non-primary residence homes.</p>
+
+<p>What needs further sleuthing is the rate of 10.1% for the rest of the CT,
+which is significantly higher than the baseline of 5.4% in 2011. There are no
+other larger pockets of increase of non-primary residence units in that area.
+This is might be best analysed in conjunction with similar increases in non-primary
+residence dwellings in some other single
+family neighbourhoods and goes beyond the scope of this short note.</p>
+
+<h4>Data:</h4>
+
+<ul>
+<li><a href="https://censusmapper.ca/maps/584#16/49.2117/-123.1146">Non-primary residences</a></li>
+<li><a href="https://censusmapper.ca/maps/586#15/49.2155/-123.1105">Change in non-primary residence dwellings</a></li>
+<li><a href="https://censusmapper.ca/maps/650#15/49.2155/-123.1105">Total change in non-primary residence dwellings</a></li>
+</ul>
+
+
+<h3>Joyce-Collingwood</h3>
+
+<p>The story for Joyce-Collingwood is quite a bit cleaner (but holds some data complexities that
+manifest themselves in geocoding changes between censuses that can mess with fine-grained data).</p>
+
+<p>The articles focus on the increase by 609 CT-level non-primary residence dwelling units at Joyce. The articles
+hypothesise that &ldquo;Speculation is one of our prime suspects&rdquo; and
+&ldquo;We don’t know why, but we know it’s concentrated in a few neighbourhoods.&rdquo;
+without making any effort to look beyond CT-level data to find out.</p>
+
+<p>Diving in we see immediately that the Dissemination Block at the north-west
+corner of Kingsway and Boundary had 707 non-primary residence dwelling units in 2016,
+vs 3 in 2011. That&rsquo;s a net change of 704 non-primary residence dwelling units
+in just that block. It
+block contains the Wall Centre Central Park development, that completed
+shortly before the census. The census counted 713 units, only 6 of
+which it found occupied.</p>
+
+<p>At the same time, population dropped by 161 people in this block, as the
+previous single family homes made way to the new development, easily
+explaining the drop in population by 57 in the CT level data that
+<a href="https://twitter.com/Ayan604/status/848952053435047936">has people scratching their heads</a>.</p>
+
+<p>So what&rsquo;s the rate of non-primary residence buildings once we take out the
+Wall Centre Central Park that got completed just before the census?</p>
+
+<p>It&rsquo;s 3.4%. Which explains why Jennifer Gray-Grant, executive director at Collingwood Neighbourhood House,
+was quoted finding the stat of 24% non-primary residence home &ldquo;perplexing&rdquo;.</p>
+
+<p>It is also interesting to look back through time to see
+<a href="https://censusmapper.ca/maps/400#16/49.2348/-123.0310">the rates in 2006</a>, when
+the area around Aberdeen Park had 18.1% non-primary residence units. I am guessing
+that some major building projects got completed in the year before the census,
+by 2011 the number of non-primary residence units dropped dramatically.</p>
+
+<h4>Data:</h4>
+
+<ul>
+<li><a href="https://censusmapper.ca/maps/584#16/49.2358/-123.0287">Non-primary residences</a></li>
+<li><a href="https://censusmapper.ca/maps/586#16/49.2358/-123.0287">Change in non-primary residence dwellings</a></li>
+<li><a href="https://censusmapper.ca/maps/650#16/49.2358/-123.0287">Total change in non-primary residence dwellings</a></li>
+</ul>
+
+
+<h3>Olympic Village</h3>
+
+<p>The high rate of non-primary resident units in 2011 in the Oplymic Village should
+be seen in the context of the City&rsquo;s decision not to sell the units below cost
+but hold onto the units and sell them
+at a later point when the market recovers, which eventually paid off.</p>
+
+<p>To understand the current overall rate of 9.4% non-primary residence units, it is
+instructional to simply zoom into the block level data and observe how the
+rates change depending on the completion time of the building.</p>
+
+<h4>Data:</h4>
+
+<ul>
+<li><a href="https://censusmapper.ca/maps/584#15/49.2665/-123.1159">Non-primary residences</a></li>
+<li><a href="https://censusmapper.ca/maps/586#15/49.2665/-123.1159">Change in non-primary residence dwellings</a></li>
+<li><a href="https://censusmapper.ca/maps/650#15/49.2665/-123.1159">Total change in non-primary residence dwellings</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Comparing Censuses]]></title>
@@ -663,110 +794,6 @@ setTimeout(function(){
 },25000);
 </script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Measuring Housing Affordability]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/09/14/measuring-housing-affordability/"/>
-    <updated>2016-09-14T12:06:06-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/09/14/measuring-housing-affordability</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/assessment/split_map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh_price_2015.png" style="width:50%;float:right;margin-left:10px;"></a>
-Housing affordability is a serious issue that deserves attention. Affordability is generally defined comparing incomes
-to housing costs. And ideally also factoring in transportation cost, although that&rsquo;s seldom done and we will not attempt
-today.</p>
-
-<p>Recently we <a href="http://doodles.mountainmath.ca/blog/2016/08/31/incomes/">took a detailed look at income data</a>. Using what we
-learned, together with our
-<a href="https://mountainmath.ca/assessment/split_map">detailed data on the development of prices of single family properties in Vancouver</a>,
-we turn to the never dying question of affordability of single family homes.</p>
-
-<!-- more -->
-
-
-<p><a href="https://mountainmath.ca/assessment/split_map?year=2010" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh_price_2010.png" style="width:50%;float:left;margin-right:10px;"></a>
-Let&rsquo;s go through the motions of how different choices in income data can lead to different stories. Some general choices of
-what income to use is often pretty obvious. Others are more subtle and a matter of judgement. For simplicity we focus
-entirely on the situation in 2010, because that&rsquo;s the last year we have detailed income data for the City of Vancouver
-and we also have <a href="https://mountainmath.ca/assessment/split_map?year=2010">detailed publicly available single family housing price data</a>.</p>
-
-<p>When talking about housing, the starting point is to look at income of (private) households (as opposed to individual income).
-We may also want to consider the owner-renter split in the region we are interested in. For simplicity we will skip this.</p>
-
-<h3>Household Income</h3>
-
-<p>Households are as diverse as
-dwelling types. If we write a story about single family housing, household income of all households is too broad to be
-relevant. For example,
-in the city of Vancouver there are about 75,500 single family lots, but 264,573 households. So at most 28% of households
-can live in the main house on a single family lot. Taking the median household income makes no sense in this situation.
-We need to narrow down the target group. In Calgary on the other hand,
-59% of the dwelling stock is single detached (and there are more properties if we count the ones with suites like we
-did for Vancouver), so in that case the assumption that the median household is looking to buy a single family home is
-more reasonable. Although the median household probably won&rsquo;t be looking to buy the median single family home but a lower-priced one.</p>
-
-<h3>Family Income</h3>
-
-<p>So how should we measure the affordability of single family properties? That&rsquo;s not an easy question. A natural choice may
-be to focus in on the 151,330 census families in Vancouver. Again, there are more than twice as many candidates as single
-family properties. So maybe narrow it down even further an only look at the 88,515 census
-families with children at home. Or the 63,790 couple families with children at home. Realistically speaking, even
-going with couple families with children at home there just aren&rsquo;t enough single family properties to go around. Unless we
-are willing to force out all of the roughly 45% of the occupants of the main house on single family lots that currently only have
-1 or 2 people living in there. But overall, couple families with children is probably a better metric for affordability
-for single family homes. Others will of course also buy single family homes, but maybe we will be less worried if
-they can&rsquo;t afford one.</p>
-
-<h3>Family with Children Income</h3>
-
-<p>To complete the example, in 2010 the median single family property cost $848,000 (average $1,133,000) and the median
-couple family with children income in private households was $92,068 (average $123,252).
-That gives a dwelling value to income ratio of around 9.2, showing that the median single family property is not
-affordable for the median couple family with children. By affordable we mean that with a 20% down payment the shelter
-costs stay below 30% of pre-tax income, which requires a ratio of at most 6.6 assuming an interest rate of 3% and 25
-years amortization.</p>
-
-<p>If we were to more realistically assume that the median income couple family with children were to look to buy a single
-family property priced at the 10 percentile level of $606,100 we get a dwelling value to income ratio of 6.6, barely
-squeezing in below our affordability cutoff.</p>
-
-<h3>Matching Income Quantiles with Housing Quantiles</h3>
-
-<p>Another way to slice the data is to look at the household income distribution. By definition there are 37,750
-single family homes more expensive than the median single family home. From the income distribution there are 44,215
-households with income over $125,000. Taking $125,000 as our income we get a median dwelling value to income ratio of 6.8.
-Only when throwing in some secondary suite rental income can we get to the
-&lsquo;barely affordable&rsquo; 6.6 ratio. Adding rental income is double-dipping though, rental income should already be
-included in our total income numbers. Assuming secondary suite rental income is correctly reported.</p>
-
-<h3>Using Median Household Income</h3>
-
-<p>Using the household income instead we would have gotten a ratio of 13.4, which is ridiculously unaffordable. But then
-again, the notion that the median household should be able to purchase the median single family property
-(or even a low-value single family property) is also ridiculous.</p>
-
-<p><a href="https://censusmapper.ca/maps/37" target="_blank"><img  src="http://doodles.mountainmath.ca/images/local_affordability_index.png" style="width:50%;float:right;margin-left:10px;"></a>
-Somewhat more reasonable is to <a href="https://censusmapper.ca/maps/37">compare household income to all housing</a>,
-not just single family. This still ignores that
-half of the population in Vancouver is renting, but still can yield some interesting insights if one is interested in
-more detailed spatial distribution of affordability and compare it to other cities.</p>
-
-<p>Adding a scatter plot of local affordability index by proportion of owner households shows how in Vancouver, unlike
-in comparable cities, the percentage of owner households is a weak determinant of local affordability.</p>
-
-<h3>What about Affordability Today?</h3>
-
-<p>This analysis assumes that all these households are comfortable to max out when buying a home and that there are no other
-competing significant financial obligations like heavy student loans. And, just as a reminder, we were looking at 2010.
-As of 2015 the price of the median single family home has increased 67%. We don&rsquo;t have 2015 income numbers for the City of
-Vancouver (yet), but Couple Family median income for Metro Vancouver has increased 13% between 2010 and 2014, the last
-year with available data. Extrapolating out that trend to 2015, and assuming that whatever other income metrics we were
-looking at, we get an estimated income increase by 16%. So any affordability ratio is about 1.4 times worse in 2015 compared
-to the 2010 ratio. What may have been &lsquo;barely affordable&rsquo; in 2010 is clearly unaffordable in 2015.</p>
-
-<p>So we used the detailed income data available for 2010 to get very good understanding of the affordability situation in 2010.
-Then we used regional income trends to extrapolate that data to 2015 and matched it with 2015 housing data to get more up-to-date
-estimates. This is generally an effective method that yields good results.</p>
 ]]></content>
   </entry>
   

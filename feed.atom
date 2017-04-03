@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-03-23T15:27:54-07:00</updated>
+  <updated>2017-04-03T14:48:07-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,137 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Joyce-Collingwood]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/04/03/joyce-collingwood/"/>
+    <updated>2017-04-03T12:46:47-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/04/03/joyce-collingwood</id>
+    <content type="html"><![CDATA[<p><a href="https://censusmapper.ca/maps/584#11/49.2389/-123.0977"><img src="http://doodles.mountainmath.ca/images/non-primary.png" style="width:50%;float:right;margin-left:10px;"></a>
+There has been some <a href="http://www.theglobeandmail.com/real-estate/vancouver/bcs-empty-home-problem-moving-beyond-just-vancouver/article34130746/">recent confusion</a>
+that got <a href="http://vancouversun.com/business/local-business/three-transit-oriented-communities-in-metro-rival-coal-harbour-for-empty-or-underused-housing">confounded further</a>
+about transit-oridented development
+in Vancouver harbouring a large number of non-primary residence homes. Good data is
+important in moving forward in Vancouver&rsquo;s crazy housing market. Without proper
+context, a couple of data points can serve to paint a very misleading picture
+of what is happening. So I decided to fill in some gaps on the very narrow
+question of understanding the CT level numbers that get tossed around.</p>
+
+<h3>TL;DR</h3>
+
+<p>To understand the overall rate of 24.4% non-primary residence dwelling units at the Joyce census tract,
+one should split the area into the Wall Centre Central Park development (99.2% non primary residence units)
+and the rest of the CT (3.4% non-primary residence units).</p>
+
+<p>To understand the Marine Gateway CT (24% non-primary residence dwellings),
+it should be split inte the block with Marine Gateway development (13.7%),
+the block containing the EC2 developemnt (67.4%), and the rest (10.1%).</p>
+
+<p>Comparing any of these very recent developments to the much older Coal Harbour makes no sense.
+Coal Harbor is still &ldquo;filling in&rdquo; although at a subbornly slow rate. It will be interesting
+to see if the new vacancy tax can help speed that up.</p>
+
+<!-- more -->
+
+
+<h3>Marine Gateway</h3>
+
+<p><a href="https://www.google.ca/maps/@49.2114587,-123.1170704,3a,75y,94.33h,114.49t/data=!3m6!1e1!3m4!1sdPusgUyW9gIfMiDEYVcduw!2e0!7i13312!8i6656!6m1!1e1"><img src="http://doodles.mountainmath.ca/images/ec2_streetview.png" style="width:50%;float:left;margin-right:10px;"></a></p>
+
+<p>To understand the 24% non-primary residence units in the census tract containing the
+Marine Gateway development, we split the area into three parts.
+The block with the Marine Gateway
+development has in 460 dwelling units, 63 (13.7%) of which were found not to be
+primary residences. The block north of that containing EC2 had 570 dwelling units
+394 (67.4%) of which were not used as primary dwellings. The remaining part of the
+CT as 1,507 dwelling units, 152 (10.1%) of which were not used as primary dwellings.</p>
+
+<p>What we see here quite nicely is how the rates of non-primary residence units
+are changing as the buildings they are in get older. Both Marine Gateway and EC2 are fairly
+recent projects, but Marine Gatway itself got completed about a year before EC2,
+and have significantly lower rates of non-primary residence homes.</p>
+
+<p>What needs further sleuthing is the rate of 10.1% for the rest of the CT,
+which is significantly higher than the baseline of 5.4% in 2011. There are no
+other larger pockets of increase of non-primary residence units in that area.
+This is might be best analysed in conjunction with similar increases in non-primary
+residence dwellings in some other single
+family neighbourhoods and goes beyond the scope of this short note.</p>
+
+<h4>Data:</h4>
+
+<ul>
+<li><a href="https://censusmapper.ca/maps/584#16/49.2117/-123.1146">Non-primary residences</a></li>
+<li><a href="https://censusmapper.ca/maps/586#15/49.2155/-123.1105">Change in non-primary residence dwellings</a></li>
+<li><a href="https://censusmapper.ca/maps/650#15/49.2155/-123.1105">Total change in non-primary residence dwellings</a></li>
+</ul>
+
+
+<h3>Joyce-Collingwood</h3>
+
+<p>The story for Joyce-Collingwood is quite a bit cleaner (but holds some data complexities that
+manifest themselves in geocoding changes between censuses that can mess with fine-grained data).</p>
+
+<p>The articles focus on the increase by 609 CT-level non-primary residence dwelling units at Joyce. The articles
+hypothesise that &ldquo;Speculation is one of our prime suspects&rdquo; and
+&ldquo;We don’t know why, but we know it’s concentrated in a few neighbourhoods.&rdquo;
+without making any effort to look beyond CT-level data to find out.</p>
+
+<p>Diving in we see immediately that the Dissemination Block at the north-west
+corner of Kingsway and Boundary had 707 non-primary residence dwelling units in 2016,
+vs 3 in 2011. That&rsquo;s a net change of 704 non-primary residence dwelling units
+in just that block. It
+block contains the Wall Centre Central Park development, that completed
+shortly before the census. The census counted 713 units, only 6 of
+which it found occupied.</p>
+
+<p>At the same time, population dropped by 161 people in this block, as the
+previous single family homes made way to the new development, easily
+explaining the drop in population by 57 in the CT level data that
+<a href="https://twitter.com/Ayan604/status/848952053435047936">has people scratching their heads</a>.</p>
+
+<p>So what&rsquo;s the rate of non-primary residence buildings once we take out the
+Wall Centre Central Park that got completed just before the census?</p>
+
+<p>It&rsquo;s 3.4%. Which explains why Jennifer Gray-Grant, executive director at Collingwood Neighbourhood House,
+was quoted finding the stat of 24% non-primary residence home &ldquo;perplexing&rdquo;.</p>
+
+<p>It is also interesting to look back through time to see
+<a href="https://censusmapper.ca/maps/400#16/49.2348/-123.0310">the rates in 2006</a>, when
+the area around Aberdeen Park had 18.1% non-primary residence units. I am guessing
+that some major building projects got completed in the year before the census,
+by 2011 the number of non-primary residence units dropped dramatically.</p>
+
+<h4>Data:</h4>
+
+<ul>
+<li><a href="https://censusmapper.ca/maps/584#16/49.2358/-123.0287">Non-primary residences</a></li>
+<li><a href="https://censusmapper.ca/maps/586#16/49.2358/-123.0287">Change in non-primary residence dwellings</a></li>
+<li><a href="https://censusmapper.ca/maps/650#16/49.2358/-123.0287">Total change in non-primary residence dwellings</a></li>
+</ul>
+
+
+<h3>Olympic Village</h3>
+
+<p>The high rate of non-primary resident units in 2011 in the Oplymic Village should
+be seen in the context of the City&rsquo;s decision not to sell the units below cost
+but hold onto the units and sell them
+at a later point when the market recovers, which eventually paid off.</p>
+
+<p>To understand the current overall rate of 9.4% non-primary residence units, it is
+instructional to simply zoom into the block level data and observe how the
+rates change depending on the completion time of the building.</p>
+
+<h4>Data:</h4>
+
+<ul>
+<li><a href="https://censusmapper.ca/maps/584#15/49.2665/-123.1159">Non-primary residences</a></li>
+<li><a href="https://censusmapper.ca/maps/586#15/49.2665/-123.1159">Change in non-primary residence dwellings</a></li>
+<li><a href="https://censusmapper.ca/maps/650#15/49.2665/-123.1159">Total change in non-primary residence dwellings</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Comparing Censuses]]></title>
@@ -3257,294 +3388,6 @@ var dateFormatter=d3.time.format("%a %I%p");//d3.time.format("%a %H:%M"); //d3.f
 bar_graph(d3.select("#graph_mobi_hourly"),true,dateFormatter,numberFormatter);
 
 graphBikeStation('#station_graph_os',1);
-</script></div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[What's up with RT?]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/08/04/rt/"/>
-    <updated>2016-08-04T13:18:51-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/08/04/rt</id>
-    <content type="html"><![CDATA[<p>RT is Vancouver&rsquo;s zoning for duplexes. Over time, various areas have been zoned to allow duplexes. Examples are
-Kits Point, much of Point Grey Road reaching up to Broadway, much of Granview-Woodlands, parts of Mount Pleasant and many
-other areas.</p>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT,residential]&zoom=13&lat=49.245&lng=-123.1166&layer=4&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rt_teardowns.png" style="width:50%;float:right;margin-left:10px;"></a>
-Recently I have had some interesting conversations <a href="https://twitter.com/fixbced/status/748196970783637504">on Twitter regarding RM-6</a>
-and over BBQ dinner about RT-7. Then the
-<a href="http://vancouver.ca/home-property-development/grandview-woodland-community-plan.aspx">Granview-Woodland plan</a>
-passed by council, and it contains a curious provision of reducing the outright FSR for the
-RT-zoned properties from 0.6 to 0.5.</p>
-
-<p>All of which got me thinking. What is RT supposed to accomplish, how does the diverse RT-zoning rules influence development
-and how is RT overall performing?</p>
-
-<!-- more -->
-
-
-<p>To make things complicated many RT zoning rules contain provisions to allow for higher FSR, and more than two units,
-under the &ldquo;heritage preservation&rdquo; program. Most people like the multi-plex developments that come out of this process,
-but the road there is quite adurous. Permitting takes a long time and is marred by uncertainty. Those projects are
-done by small developers, that are ill-equipped to deal with risky and drawn-out rezoning processes.</p>
-
-<p>These would be great projects carried out by small developers that lead to gentle and affordable density,
-as this kind of re-development does not require land-assembly and does not lead
-to crazy land-value lifts that require CACs to claw back some of that value rise
-<a href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/">as we explained before</a>.</p>
-
-<p>We have some ideas what a refreshed RT (and RS) should look like, and there are
-<a href="https://pricetags.wordpress.com/2016/07/29/open-letter-on-the-downzoning-of-grandview-woodland-rt/">some efforts to push for changes</a>.
-We leave the details of this to the experts and take a little field expedition to
-see how the different flavours of RT (and RM) perform in data.</p>
-
-<h3>Why RT?</h3>
-
-<p>One central question to ask is: What is the purpose of RT (or any) zoning? The initial idea was to allow higher density
-than RS, with two stratified properties on one lot. But since the creation of RT the RS zoning has undergone significant
-changes and allows, in many cases, for higher FSR and higher unit count, although not stratified. In much of RS three
-units are allowed on each lot, the main house, a secondary suite and a laneway house.</p>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT_RS_FSD,residential]&zoom=13&lat=49.245&lng=-123.1166&layer=5&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rs_rt_land.png" style="width:50%;float:left;margin-right:10px;"></a>
-So how does RT perform in the wild? There seems to be little effect RT vs RS zoning has on land values. The
-<a href="http://mountainmath.ca/map/assessment?filter=[zone_RT_RS_FSD,residential]&amp;zoom=13&amp;lat=49.245&amp;lng=-123.1166&amp;layer=6&amp;mapBase=2">boundaries between RS and RT</a>
-can&rsquo;t be discerned from a
-<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT_RS_FSD,residential]&amp;zoom=13&amp;lat=49.245&amp;lng=-123.1166&amp;layer=5&amp;mapBase=2">land value map of all residential properties in RS, RT (and First Shaugnessey) zones</a>.</p>
-
-<p>How good are RT lots at realizing &ldquo;zone capacity&rdquo;, that is how many of the historically SFH get turned over into duplexes,
-or in some cases multi-plexes (through the heritage presercation program)?
-That depends as the following graph shows.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_sfh" style="height:200px;max-width:640px;" data-url="/data/zone_sfh.json"></div>
-</div>
-
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT]&zoom=13&lat=49.2581&lng=-123.1166&layer=20&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/types_rt.png" style="width:50%;float:left;margin-right:10px;"></a>
-We can also study this by mapping out
-<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT]&amp;zoom=13&amp;lat=49.2581&amp;lng=-123.1166&amp;layer=20&amp;mapBase=2">all residential lots in RT zones</a>,
-and color them depending if they are single family lots, duplexes or multi-plexes.</p>
-
-<p>Some RT areas are essentially indistinguishable from RS areas, they are almost entirely comprised of single family lots.
-A good example is the
-<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-4,residential]&amp;zoom=14&amp;lat=49.2733&amp;lng=-123.0646&amp;layer=20&amp;mapBase=2">RT-4, most of which is in Grandview-Woodlands</a>.
-And being in RT rathern than RS they often don&rsquo;t even get the benefits of a laneway house. Coach houses, which are legal
-in many RT areas and could be stratified, come with such onerous side setbacks that they are very hard to build on
-regular lots.</p>
-
-<p>There is a lot of untapped &ldquo;zoned capacity&rdquo;. Similarly, some of the
-newer RM zones show little appetite for realizing &ldquo;zoned capacity&rdquo;, possibly due to the added difficulty of having to
-assemble lots to do so.</p>
-
-<p>One can argue about whether this is good or bad. Or one can look at the variation between the different types of RT and RM
-zones to see what causes the difference.</p>
-
-<h3>Downzoning</h3>
-
-<p>To understand how downzoning works we want to consider two different types on analysis. One is to look at what happened
-after RS zone was changed to reduce site coverage in the 1980 in response to concerns about &lsquo;monster homes&rsquo;. We ran
-an analysis using LIDAR data to understand the effect on the physical form of SFH and found that while site coverage
-indeed decreased sharply, the <a href="http://doodles.mountainmath.ca/blog/2016/03/05/physical-sfh-form-over-time/">bulk of the building remained unchanged</a>.
-and the rule change seems to have done little in easing concerns about &lsquo;monster homes&rsquo;, it simply changed some of the
-parameters determining what &lsquo;monster homes&rsquo; look like.</p>
-
-<p>Another way to look at the matter is to compare how re-development happened in difference zones. This is very hard, since
-there are many factors other than zoning that determine if a building gets re-developed. To get some idea we compiled two
-numbers for each of the RS, RT and RM zones (ignoring some of the delicacies in the zoning code and lumping together all
-sub-zones with the same leading number. So for example we lumped RT-4, RT-4A, RT-4N and RT-4AN into one category we simply
-label &ldquo;RT-4&rdquo;.</p>
-
-<p>First we check how many residential properties got re-developed since 2000.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_redevelopment" style="height:200px;max-width:640px;" data-url="/data/zone_redevelopment.json"></div>
-</div>
-
-
-<p>Next we take a look what percentage of the existing residential stock is in immediate danger of being torn down, using the
-<a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">methodology developed earlier</a>.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<div id="graph_teardown" style="height:200px;max-width:640px;" data-url="/data/zone_teardowns.json"></div>
-</div>
-
-
-<p>While there is some correspondence between re-development activity and ratio of teardowns, there are a number of notable
-exceptions. RT-1 and RM-9 stand out, but these are
-<a href="https://mountainmath.ca/map/assessment?filter=[zoneE_RM-9_RT-1]&amp;zoom=14&amp;lat=49.2146&amp;lng=-123.1282&amp;layer=5&amp;mapBase=2">oddball cases with just a few properties</a>.</p>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT,years_2000]&zoom=13&lat=49.2581&lng=-123.1166&layer=20&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/new_types_rt.png" style="width:50%;float:right;margin-left:10px;"></a>
-We can also map just <a href="https://mountainmath.ca/map/assessment?filter=[zone_RT,years_2000]&amp;zoom=13&amp;lat=49.2581&amp;lng=-123.1166&amp;layer=20&amp;mapBase=2">residential properties in RT that were re-developed since 2000</a>
-and colour them by SFH, Duplex and Multi-plex status. We can clearly see how some RT areas, like RT-7, don&rsquo;t see much
-re-development, others, like RT-6 see mostly multi-plexes being developed. Some zones, like RT-10, 11, 12 are too new
-to be judged on development happening since 2000. For example, zooming in on
-<a href="http://mountainmath.ca/map/assessment?filter=[zone_RT-10,residential,years_2009]&amp;zoom=15&amp;lat=49.2485&amp;lng=-123.0734&amp;layer=20&amp;mapBase=2">developments in RT-10 since 2009 paints a very different picture</a>.</p>
-
-<p>There is lots of stuff to explore, but for today I want to look at RT-7 and RT-6 in more detail.</p>
-
-<h4>RT-7</h4>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-7,residential]&zoom=15&lat=49.2617&lng=-123.1654&layer=20&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rt-7.png" style="width:50%;float:left;margin-right:10px;"></a>
-A much more interesting case is RT-7, with 35% of properties teardowns but only 4.1% of properties re-developed since 2000.
-<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-7,residential]&amp;zoom=15&amp;lat=49.2617&amp;lng=-123.1654&amp;layer=4&amp;mapBase=2">Looking at the map</a>
-we see that RT-7 is comprised of two pockets on the west side, and the teardown candidates stand out in red and orange.
-Filtering further to see what
-<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-7,residential,years_2000]&amp;zoom=15&amp;lat=49.2617&amp;lng=-123.1654&amp;layer=20&amp;mapBase=2">has been re-developed since 2000</a>
-we see that, considering the size of the two pockets, re-development favours the eastern pocket near 16th and Arbutus. We
-can clearly see that that the eastern pocket has an overall more valuable building stock, although it is not clear if that
-is due to higher rates of re-development or for other reasons, for example the presence of some slightly larger lots. We
-also note that re-development does produce duplex units and even some multi-plex.</p>
-
-<p>So what is going on here? Looking at the <a href="http://former.vancouver.ca/commsvcs/BYLAWS/zoning/rt-7.pdf">RT-7 zoning</a> we
-see that the area has been downzoned to 0.4 FSR as was rencently pointed out to me, which can conditionally be upzoned
-to 0.6 FSR. Additionally, there are caps on the number of units per hectar to further restrict density.</p>
-
-<h4>RT-6</h4>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6,residential]&zoom=16&lat=49.2606&lng=-123.1097&layer=20&mapBase=2" target="_blank"><img  src="http://doodles.mountainmath.ca/images/rt-6.png" style="width:50%;float:right;margin-left:10px;"></a>
-Another interesting example is RT-6. RT-6 has seen modest levels of re-develpment and has a <a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6,residential]&amp;zoom=16&amp;lat=49.2606&amp;lng=-123.1097&amp;layer=4&amp;mapBase=2">relatively healthy building
-stock</a>.
-What&rsquo;s even more interesting is that it contains
-<a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6,residential]&amp;zoom=16&amp;lat=49.2597&amp;lng=-123.1101&amp;layer=20&amp;mapBase=2">many multi-plexes</a>.
-And more importantly, <a href="https://mountainmath.ca/map/assessment?filter=[zone_RT-6,residential,years_2000]&amp;zoom=16&amp;lat=49.2597&amp;lng=-123.1101&amp;layer=20&amp;mapBase=2">developments since 2000 have mostly produced multi-plexes</a>.</p>
-
-<p>Prime examples of the <em>gentle density</em> that we keep hearing about. I would say that something is working very well here.</p>
-
-<p>So what&rsquo;s the difference? In contrast to RT-7 <a href="http://former.vancouver.ca/commsvcs/BYLAWS/zoning/rt-6.pdf">RT-6 zoning</a> allows for 0.6 FSR
-outright, conditionally increased to 0.75. But there are other important differences too. The RT-7 lots are typically
-smaller with many at about 340m&sup2; compared to the 580m&sup2; typical RT-6 lots.
-(Although RT-7 also contains some 580m&sup2; lots).</p>
-
-<h3>Conclusion</h3>
-
-<p>Does downzoning work? It depends what the goal is. Looking at the RT-7 example, downzoning has slowed re-development compared
-to other areas in the city, but it also lead to a deterioration in building stock in RT-7. This is a stop-gap measure,
-eventually that lower value building stock will get re-developed.</p>
-
-<p>The combination of larger lots and the heritage retention program in the RT-6 zoning seems to work in producing
-gentle density, except that the permitting process takes too long and it is not immediately clear what purpose the
-heritage preservation has that allows stripping the building down to the studs and possibly moving it to the front and
-then building an infill in the back. There must be a better way to deal with concerns behind
-heritage preservation (not much is &ldquo;preserved&rdquo; in this process) and at the same time cut down on the time it
-takes to jump through all the permit hoops involved.</p>
-
-<p>It is clear that RS and RT (and RM) zoning would hugely profit from a clearer vision what these zonings should accomplish
-and by using data to benchmark how these targets are met.</p>
-
-<div><script>
-
-function bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter,rangeLabelFormatter){
-    if (!domainFormatter) domainFormatter=d3.format("d");
-    if (!rangeLabelFormatter) rangeLabelFormatter=rangeFormatter;
-    if (!rangeFormatter)
-     rangeFormatter = function (y) {
-        return y;
-     };
-     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
-
-var margin = {top: 20, right: 20, bottom: 40, left: 70},
-    width = parseInt(div.style("width")) - margin.left - margin.right,
-    height = parseInt(div.style("height")) - margin.top - margin.bottom;
-
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-
-var y = d3.scale.linear()
-    .range([height, 0]);
-
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .tickFormat(domainFormatter)
-    .orient("bottom");
-
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .tickFormat(rangeFormatter)
-    .ticks(5, rangeFormatter);
-
-var svg = div.append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var data_url=div[0][0].dataset.url;
-
-d3.json(data_url, function(error, json) {
-  if (error) throw error;
-  var graphData=json[0];
-  var data=graphData.data;
-  
-  var container=d3.select(div.node().parentNode);
-  container.selectAll('.legend.no-margin').remove();
-  var legend=container.append('div').attr('class',"legend no-margin");
-  legend.append('p').html('<i style="background:'+graphData.color + '"></i>' + graphData.label +  '<span style="float:right;margin-right:10px;" id="' + graphData.class+'_value"></span>');
-  
-  x.domain(data.map(function(d) { return d.date }));
-  y.domain([0, d3.max(data, function(d) { return d.count; })]);
-  
-  var domainTickValues=[];
-  var skip=Math.round(40/x.rangeBand());
-  if (skip<=0) skip=1;
-  for (var i=0;i<x.domain().length;i++) {
-    if (i % skip==0) domainTickValues.push(x.domain()[i]);
-  }
-  if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
-  xAxis.tickValues(domainTickValues);
-
-  var xShift=shiftAxis ?  x.rangeBand()/2.0 * 1.1 : 0;
-  
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(" + xShift + "," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis);
-//    .append("text")
-//      .attr("transform", "rotate(-90)")
-//      .attr("y", 6)
-//      .attr("dy", ".71em")
-//      .style("text-anchor", "end")
-//      .text("Probability");
-
-  svg.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", graphData.class + " bar")
-      .style("fill", graphData.color)
-      .attr("x", function(d) { return x(d.date); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.count); })
-      .attr("height", function(d) { return height - y(d.count); })
-      .on('mouseover',function(d){
-         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
-      }).on('click',function(d){
-       d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
-      }).on('touch',function(d){
-         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
-      }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
-
-      
-});
-
-}
-
-
-
-var percentageFormatter=d3.format(".1%");
-var textFormatter=function(d){return d};
-var teardownLabelFormatter=function(d){return percentageFormatter(d) + " teardowns"};
-var sfhLabelFormatter=function(d){return percentageFormatter(d) + " SFH"};
-var redeveopmentLabelFormatter=function(d){return percentageFormatter(d) + " built since 2000"};
-bar_graph(d3.select("#graph_redevelopment"),false,textFormatter,percentageFormatter,textFormatter,redeveopmentLabelFormatter);
-bar_graph(d3.select("#graph_teardown"),false,textFormatter,percentageFormatter,textFormatter,teardownLabelFormatter);
-bar_graph(d3.select("#graph_sfh"),false,textFormatter,percentageFormatter,textFormatter,sfhLabelFormatter);
 </script></div>
 
 ]]></content>

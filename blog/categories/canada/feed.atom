@@ -4,7 +4,7 @@
   <title><![CDATA[Category: canada | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/canada/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-03-23T15:27:54-07:00</updated>
+  <updated>2017-04-03T14:48:07-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,137 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Joyce-Collingwood]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/04/03/joyce-collingwood/"/>
+    <updated>2017-04-03T12:46:47-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/04/03/joyce-collingwood</id>
+    <content type="html"><![CDATA[<p><a href="https://censusmapper.ca/maps/584#11/49.2389/-123.0977"><img src="http://doodles.mountainmath.ca/images/non-primary.png" style="width:50%;float:right;margin-left:10px;"></a>
+There has been some <a href="http://www.theglobeandmail.com/real-estate/vancouver/bcs-empty-home-problem-moving-beyond-just-vancouver/article34130746/">recent confusion</a>
+that got <a href="http://vancouversun.com/business/local-business/three-transit-oriented-communities-in-metro-rival-coal-harbour-for-empty-or-underused-housing">confounded further</a>
+about transit-oridented development
+in Vancouver harbouring a large number of non-primary residence homes. Good data is
+important in moving forward in Vancouver&rsquo;s crazy housing market. Without proper
+context, a couple of data points can serve to paint a very misleading picture
+of what is happening. So I decided to fill in some gaps on the very narrow
+question of understanding the CT level numbers that get tossed around.</p>
+
+<h3>TL;DR</h3>
+
+<p>To understand the overall rate of 24.4% non-primary residence dwelling units at the Joyce census tract,
+one should split the area into the Wall Centre Central Park development (99.2% non primary residence units)
+and the rest of the CT (3.4% non-primary residence units).</p>
+
+<p>To understand the Marine Gateway CT (24% non-primary residence dwellings),
+it should be split inte the block with Marine Gateway development (13.7%),
+the block containing the EC2 developemnt (67.4%), and the rest (10.1%).</p>
+
+<p>Comparing any of these very recent developments to the much older Coal Harbour makes no sense.
+Coal Harbor is still &ldquo;filling in&rdquo; although at a subbornly slow rate. It will be interesting
+to see if the new vacancy tax can help speed that up.</p>
+
+<!-- more -->
+
+
+<h3>Marine Gateway</h3>
+
+<p><a href="https://www.google.ca/maps/@49.2114587,-123.1170704,3a,75y,94.33h,114.49t/data=!3m6!1e1!3m4!1sdPusgUyW9gIfMiDEYVcduw!2e0!7i13312!8i6656!6m1!1e1"><img src="http://doodles.mountainmath.ca/images/ec2_streetview.png" style="width:50%;float:left;margin-right:10px;"></a></p>
+
+<p>To understand the 24% non-primary residence units in the census tract containing the
+Marine Gateway development, we split the area into three parts.
+The block with the Marine Gateway
+development has in 460 dwelling units, 63 (13.7%) of which were found not to be
+primary residences. The block north of that containing EC2 had 570 dwelling units
+394 (67.4%) of which were not used as primary dwellings. The remaining part of the
+CT as 1,507 dwelling units, 152 (10.1%) of which were not used as primary dwellings.</p>
+
+<p>What we see here quite nicely is how the rates of non-primary residence units
+are changing as the buildings they are in get older. Both Marine Gateway and EC2 are fairly
+recent projects, but Marine Gatway itself got completed about a year before EC2,
+and have significantly lower rates of non-primary residence homes.</p>
+
+<p>What needs further sleuthing is the rate of 10.1% for the rest of the CT,
+which is significantly higher than the baseline of 5.4% in 2011. There are no
+other larger pockets of increase of non-primary residence units in that area.
+This is might be best analysed in conjunction with similar increases in non-primary
+residence dwellings in some other single
+family neighbourhoods and goes beyond the scope of this short note.</p>
+
+<h4>Data:</h4>
+
+<ul>
+<li><a href="https://censusmapper.ca/maps/584#16/49.2117/-123.1146">Non-primary residences</a></li>
+<li><a href="https://censusmapper.ca/maps/586#15/49.2155/-123.1105">Change in non-primary residence dwellings</a></li>
+<li><a href="https://censusmapper.ca/maps/650#15/49.2155/-123.1105">Total change in non-primary residence dwellings</a></li>
+</ul>
+
+
+<h3>Joyce-Collingwood</h3>
+
+<p>The story for Joyce-Collingwood is quite a bit cleaner (but holds some data complexities that
+manifest themselves in geocoding changes between censuses that can mess with fine-grained data).</p>
+
+<p>The articles focus on the increase by 609 CT-level non-primary residence dwelling units at Joyce. The articles
+hypothesise that &ldquo;Speculation is one of our prime suspects&rdquo; and
+&ldquo;We don’t know why, but we know it’s concentrated in a few neighbourhoods.&rdquo;
+without making any effort to look beyond CT-level data to find out.</p>
+
+<p>Diving in we see immediately that the Dissemination Block at the north-west
+corner of Kingsway and Boundary had 707 non-primary residence dwelling units in 2016,
+vs 3 in 2011. That&rsquo;s a net change of 704 non-primary residence dwelling units
+in just that block. It
+block contains the Wall Centre Central Park development, that completed
+shortly before the census. The census counted 713 units, only 6 of
+which it found occupied.</p>
+
+<p>At the same time, population dropped by 161 people in this block, as the
+previous single family homes made way to the new development, easily
+explaining the drop in population by 57 in the CT level data that
+<a href="https://twitter.com/Ayan604/status/848952053435047936">has people scratching their heads</a>.</p>
+
+<p>So what&rsquo;s the rate of non-primary residence buildings once we take out the
+Wall Centre Central Park that got completed just before the census?</p>
+
+<p>It&rsquo;s 3.4%. Which explains why Jennifer Gray-Grant, executive director at Collingwood Neighbourhood House,
+was quoted finding the stat of 24% non-primary residence home &ldquo;perplexing&rdquo;.</p>
+
+<p>It is also interesting to look back through time to see
+<a href="https://censusmapper.ca/maps/400#16/49.2348/-123.0310">the rates in 2006</a>, when
+the area around Aberdeen Park had 18.1% non-primary residence units. I am guessing
+that some major building projects got completed in the year before the census,
+by 2011 the number of non-primary residence units dropped dramatically.</p>
+
+<h4>Data:</h4>
+
+<ul>
+<li><a href="https://censusmapper.ca/maps/584#16/49.2358/-123.0287">Non-primary residences</a></li>
+<li><a href="https://censusmapper.ca/maps/586#16/49.2358/-123.0287">Change in non-primary residence dwellings</a></li>
+<li><a href="https://censusmapper.ca/maps/650#16/49.2358/-123.0287">Total change in non-primary residence dwellings</a></li>
+</ul>
+
+
+<h3>Olympic Village</h3>
+
+<p>The high rate of non-primary resident units in 2011 in the Oplymic Village should
+be seen in the context of the City&rsquo;s decision not to sell the units below cost
+but hold onto the units and sell them
+at a later point when the market recovers, which eventually paid off.</p>
+
+<p>To understand the current overall rate of 9.4% non-primary residence units, it is
+instructional to simply zoom into the block level data and observe how the
+rates change depending on the completion time of the building.</p>
+
+<h4>Data:</h4>
+
+<ul>
+<li><a href="https://censusmapper.ca/maps/584#15/49.2665/-123.1159">Non-primary residences</a></li>
+<li><a href="https://censusmapper.ca/maps/586#15/49.2665/-123.1159">Change in non-primary residence dwellings</a></li>
+<li><a href="https://censusmapper.ca/maps/650#15/49.2665/-123.1159">Total change in non-primary residence dwellings</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Comparing Censuses]]></title>
@@ -490,117 +621,6 @@ setTimeout(function(){
 },25000);
 </script>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Canvas vs SVG]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2015/12/27/canvas-vs-svg/"/>
-    <updated>2015-12-27T15:53:02-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2015/12/27/canvas-vs-svg</id>
-    <content type="html"><![CDATA[<h4>CensusMapper Behind the Scenes</h4>
-
-<p>The idea behind <a href="https://censusmapper.ca">CensusMapper</a> is that it takes away all the technical barriers to dealing with census data. So how does
-CensusMapper work behind the scenes?</p>
-
-<h4>CensusMapper Data Workflow</h4>
-
-<!-- more -->
-
-
-<p>The general setup is quite simple. We use the lean javascript open mapping platform <a href="http://leafletjs.com">leaflet</a>
-as the base for mapping information. Leaflet handles the logic of dealing with zoom and pan and keeping track of the
-geographic boundaries that should be mapped. That information gets then passed on to the CensusMapper servers.</p>
-
-<p>CensusMapper will then send the appropriate census geographic polygons to the browser for leaflet to display. Once the
-geographic data is available for mapping, some custom code checks what kind of information the user wants to display and
-requests the census data required to make the map. The census information is then assembled on the server, sent down
-and attached to the polygons and drawn
-on the browser window within leaflet. This two-tier process allows the highly dynamic mapping in CensusMapper where the
-data-heavy geographic polygons are kept separately thus can be cached and re-used.</p>
-
-<h4>Drawing Census Data</h4>
-
-<p>There are a number of ways how we can display census data in the browser. At CensusMapper we have played with three
-different technologies to map data that vary in performance and browser support. They all have in common that they
-won&rsquo;t run on Internet Explorer 8 or earlier, but we have just about reached the point in time where it is acceptable to
-ignore IE8- in products meant for the &ldquo;general internet audience&rdquo;.</p>
-
-<h5>SVG</h5>
-
-<p><a href="https://en.wikipedia.org/wiki/Scalable_Vector_Graphics">SVG</a> is what our maps have been using so far. SVGs are fairly high level, which means it&rsquo;s very little work
-to implement and map information. One simply passes a polygon to the browser, tells it how to color it, and the browser
-takes care of the rest. SVG elements can easily be styled via CSS, so there is essentially no work involved to deal with
-highlight on hover, scaling for retina displays, patterns for census data quality flags, etc. We use
-<a href="https://github.com/mbostock/d3">d3.js</a> to attach the geographic and census data right to the SVG elements for easy
-manipulation.</p>
-
-<p>While mapping data this way is very easy, for CensusMapper there are two problems.</p>
-
-<ol>
-<li>We are restricted in how we can display information by the capabilities of SVG.</li>
-<li>SVG rendering is done by the browser, and not all browsers are equal. Most importantly, SVG rendering in Internet
-Explorer is excruciatingly slow. So slow, that CensusMapper becomes essentially useless within Internet Explorer. We
-felt compelled to add a warning messeage that displayed when people opened CensusMapper with Internet Explorer. And
-when you do that, that&rsquo;s a sure sign that your app has a serious problem.
-<img src="/images/chrome.png" alt="Browser Warning" />
-So how to get around those issues? Enter Canvas.</li>
-</ol>
-
-
-<h5>Canvas</h5>
-
-<p><a href="https://en.wikipedia.org/wiki/Canvas_element">Canvas</a> offers a way to draw images in a browser. Unlike SVG, the drawing has to be done &ldquo;by hand&rdquo;. And the result is just
-an image, with no clear way to tell where it came from. There is no way to attach any information to individual
-structures drawn on a canvas. All the logic for highlight on hover, figuring out what data is associated with the mouse
-position, dealing with retina displays, etc. needs to be added by hand.</p>
-
-<p>On the upside, a good canvas implementation is a lot faster than SVG. And it opens the door to changes in how the data
-is handled that bring additional performance improvements. In particular, we can now chop up census polygons and render
-the pieces separately, greatly cutting down on the size of the downloaded data, as well as the complexity of the
-polygons that get rendered. And the performance improvements are noticeable across all browsers and platforms.</p>
-
-<p>At the end of the day it is actually not that much work and we flipped the switch on this just before the Christmas
-break. CensusMapper is now running using canvas instead SVG for
-the main maps. We
-kept the look and feel the same, so unless you dig into the code you won&rsquo;t notice the difference.
-Some parts of CensusMapper still utilized SVGs, like the d3-based
-<a href="http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown/">Census Wheel</a>.</p>
-
-<h5>WebGL</h5>
-
-<p><a href="https://en.wikipedia.org/wiki/WebGL">WebGL</a> also draws on a canvas element, but the work is offloaded onto the GPU (graphics processor) giving enormous
-speed improvements. Regular canvas rendering is fast enough for our purposes, but with WebGL we can do more complex
-renderings that previously we could not even dream of: <a href="https://en.wikipedia.org/wiki/OpenGL_Shading_Language">Shaders</a>
-and Interactive 3D data maps. We had previously
-<a href="https://mountainmath.ca/census3">toyed with 3D data visualization</a> to explore Vancouver&rsquo;s household density in 3D using Three.js,
-but did not pursue this further because of the complexities of writing code for navigating a Canada-wide map. Then we came
-across the super-customizable 3D open mapping platform built by <a href="https://mapzen.com/projects/tangram/">Mapzen</a>, and that
-suddenly made it extremely easy to do interactive 3D data mapping live in the browser. A quick test
-<a href="https://mountainmath.ca/vancouver_lidar/map">using Vancouver&rsquo;s open LIDAR generated building height data</a> showed how easy Mapzen&rsquo;s
-tangram engine is to use.</p>
-
-<p>After digging deeper into tangram, and with help from the friendly people at Mapzen, we figured out a way to fit
-CensusMapper&rsquo;s two-stage data workflow into tangram&rsquo;s mapping engine. The result are real-time 3D maps where height
-and color of each geographic area can be independently (and dynamically) controlled. Here is an example where mouseover
-trigged the area west of Coal Harbor to &lsquo;pop up&rsquo;.
-<img src="/images/webGL.jpg" alt="webGL" /></p>
-
-<p>At the same time we gain the ability to easily pull in all kinds of other data and map it. On our canvas or svg maps we
-added regular image tiles, either a road and label&rsquo;s overlay or a base map (which then requires opacity to be added to
-the census data that is mapped on top of that) as orientation aid. Short of baking our own image tiles we have very
-little control over the look and feel of this. With Mapzen&rsquo;s tangram we can very easily pick and style individual
-geographic objects from Mapzen&rsquo;s OSM vector tile server, resulting in crisp and clear maps. In the above example we
-decide dynamically what level of roads to render, how to style them, what labels to display and we also added bodies of
-water, where we filter by size depending on the zoom level.</p>
-
-<p>At this stage it is still an ongoing project to get this production-ready. One obvious obstacle is that WebGL browser
-support is still lagging. And on top of that it also requires updated graphics card drivers, which is a big problem on
-windows machines that are already a couple of years old. So for now we still need to have a plain canvas or svg fallback.</p>
-
-<p>And then there are the details that need to get worked out. 3D maps sounds great, but it will take us some time to figure
-out how to best utilize this in thematic maps. But even without utilizing 3D capabilities, the dynamic shaders and increased
-rendering performance are already pushing the boundary of what&rsquo;s possible in web maps.</p>
 ]]></content>
   </entry>
   
