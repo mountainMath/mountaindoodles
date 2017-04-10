@@ -188,27 +188,47 @@ as well as the unexpectedly low rates at the area to the east between Main and F
 <h3>Surprise Maps in CensusMapper</h3>
 
 <p><a href="https://censusmapper.ca/maps/671"><img src="/images/child_poverty_surprise.png" style="width:50%;float:right;margin-left:10px;"></a>
-We baked these kind of surprise maps into CensusMapper, so now we can easily apply this to any other kind of observable. A
-simple example is child poverty. We have <a href="https://censusmapper.ca/maps/132">mapped this variable in CensusMapper</a>, but at times
-it can be hard to distill out the really important areas that have high child poverty rates as well as a high number of
-children overall. That&rsquo;s why we have added a scatter plot of the rate vs the total number of children in poverty to the
-map story. Another way to deal with this is to make a <a href="https://censusmapper.ca/maps/671">child poverty surprise map</a>. As model we can simply use the assumption that there
-are zero children in poverty in each area. The result is a map that colours each region by the amount of evidence they provide
-against the model assumption of zero children in poverty. This makes it easier to filter out regions that have a low number
-of children overall, where high rates of child poverty might just be a statistical fluke.</p>
-
-<h3>Where to go from here</h3>
+We baked these kind of surprise maps into CensusMapper, so now we can easily apply this to any other kind of observable.</p>
 
 <p>The CensusMapper surprise maps that are implemented right now require as input a &ldquo;model&rdquo; , an &ldquo;observation&rdquo; a &ldquo;base&rdquo; variable
 (the number of dwelling units, averaged over the 2011 and 2016 censuses in our case) and a standard deviation of the difference
 between model and predictions. For now, that standard deviation will have to be entered manually. At some point we can automate
-that process and compute it directly in CensusMapper on the server, but this variable cannot be computed dynamically on the clienr
+that process and compute it directly in CensusMapper on the server, but this variable cannot be computed dynamically on the client
 like all the other variables in CensusMapper as it requires knowledge of all regions of interest, not just the ones in the current
 map view. Moreover, other parameters like estimates of accuracy of census counts as well ask statistical rounding and other
 operations that may have been performed on the data, can be added in to account for the fact that the rate observed in the census
-is different from the actual rate.</p>
+is different from the actual rate. We added the ability to make the standard deviation region dependent, which allows us to
+account for estimates of the accuracy of the census data based on region dependent variables.</p>
 
-<p>One other interesting possibility that leverages of the dynamic nature of CensusMapper is to allow for several models and let
+<p>For a simple example what this might look like consider child poverty. We have
+<a href="https://censusmapper.ca/maps/132">mapped this variable in CensusMapper</a>, but at times
+it can be hard to distill out the really important areas that have high child poverty rates as well as a high number of
+children overall. We added a shading to regions that have particularly low NHS return rates
+(and similarly for the full census return rates) to give some indication of reliability, and we display the return rate on hover.
+We have added a scatter plot of the rate vs the total number of children in poverty to the
+map story, so that the user can more easily determine how significant a high child poverty rate in each particular region is.</p>
+
+<p>Another way to deal with these issues is to make a <a href="https://censusmapper.ca/maps/671">child poverty surprise map</a>.
+As model we can simply use the assumption that there
+are zero children in poverty in each area. We scale the standard deviation of the child poverty rate linearly by the return rate
+to weight down areas with low return rate. The result is a map that colours each region by the amount of evidence they provide
+against the model assumption of zero children in poverty.</p>
+
+<p>This makes it easier to filter out regions that have a low number
+of children overall, where high rates of child poverty might just be a statistical fluke.</p>
+
+<h3>Where to go from here</h3>
+
+<p>Should all maps be surprise maps? No, there is value in just mapping straight up census variables, or mapping plain differences
+of observations from the model. But there are many good reasons why such maps should be complemented,
+or in some cases even replaced by, surprise maps.</p>
+
+<p>Some kind of automation to aid the selection of appropriate standard deviation for the surprise model is needed before we can
+open this up to a wider user base. Or CensusMapper server has an R server running that ties directly into the database and
+communicates with the web server, so we need to build the appropriate scripts that can automate this task.</p>
+
+<p>There are lots of other interesting possibilities of using surprise maps while leveraging the dynamic nature of CensusMapper.
+One may allow for several models and let
 relative importance of the models self-adjust with the map view. The output would then be for each map view a linear combination
 of the models that provides the best fit for the current map view, as well as the evidence each region in the current map view provides
 against the model.</p>
