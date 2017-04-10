@@ -227,6 +227,16 @@ or in some cases even replaced by, surprise maps.</p>
 open this up to a wider user base. Or CensusMapper server has an R server running that ties directly into the database and
 communicates with the web server, so we need to build the appropriate scripts that can automate this task.</p>
 
+<p>Another logical extension is to include proximity data into the Bayesian estimates. If one Census Tract provides good evidence
+against our model, but that evidence is distributed uniformly across Dissemination Areas within it, then our surprise map
+will show weaker evidence at the dissemination area level simply because each area has a smaller base population. But we could
+check if the deviation from the model is localized in just one Dissemination Area, or also present in neighbouring
+Dissemination Areas, and include that information in our estimates. This approach would also help with the problem if the evidence
+is concentrated in an area that is split between to Census Tracts and drowned out by outher data in these respective tracts. So
+it won&rsquo;t show up at the Census Tract level because of the particular ways the boundaries were drawn (MAUP), and it will get
+diluted out at the Dissemination Area level because of low base population counts. Adding in proximity measures could recover
+this evidence at the Dissemination Area level.</p>
+
 <p>There are lots of other interesting possibilities of using surprise maps while leveraging the dynamic nature of CensusMapper.
 One may allow for several models and let
 relative importance of the models self-adjust with the map view. The output would then be for each map view a linear combination
