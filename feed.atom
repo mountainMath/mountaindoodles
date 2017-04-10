@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-04-10T14:21:13-07:00</updated>
+  <updated>2017-04-10T14:39:59-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -97,9 +97,21 @@ that our model does not hold well there.</p>
 and we see that the only areas that contribute solid evidence against our model are the unexpectedly high rates at the MC2 development,
 as well as the unexpectedly low rates at the area to the east between Main and Frasier streets.</p>
 
+<h3>Surprise Maps in CensusMapper</h3>
+
+<p><a href="https://censusmapper.ca/maps/671"><img src="http://doodles.mountainmath.ca/images/child_poverty_surprise.png" style="width:50%;float:right;margin-left:10px;"></a>
+We baked these kind of surprise maps into CensusMapper, so now we can easily apply this to any other kind of observable. A
+simple example is child poverty. We have <a href="https://censusmapper.ca/maps/132">mapped this variable in CensusMapper</a>, but at times
+it can be hard to distill out the really important areas that have high child poverty rates as well as a high number of
+children overall. That&rsquo;s why we have added a scatter plot of the rate vs the total number of children in poverty to the
+map story. Another way to deal with this is to make a <a href="https://censusmapper.ca/maps/671">child poverty surprise map</a>. As model we can simply use the assumption that there
+are zero children in poverty in each area. The result is a map that colours each region by the amount of evidence they provide
+against the model assumption of zero children in poverty. This makes it easier to filter out regions that have a low number
+of children overall, where high rates of child poverty might just be a statistical fluke.</p>
+
 <h3>Where to go from here</h3>
 
-<p>I baked these kind of surprise maps into CensusMapper. As input it requires a &ldquo;model&rdquo; , an &ldquo;observation&rdquo; a &ldquo;base&rdquo; variable
+<p>The CensusMapper surprise maps that are implemented right now require as input a &ldquo;model&rdquo; , an &ldquo;observation&rdquo; a &ldquo;base&rdquo; variable
 (the number of dwelling units, averaged over the 2011 and 2016 censuses in our case) and a standard deviation of the difference
 between model and predictions. For now, that standard deviation will have to be entered manually. At some point we can automate
 that process and compute it directly in CensusMapper on the server, but this variable cannot be computed dynamically on the clienr
