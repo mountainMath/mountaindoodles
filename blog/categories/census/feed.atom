@@ -4,7 +4,7 @@
   <title><![CDATA[Category: census | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/census/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-04-10T14:44:56-07:00</updated>
+  <updated>2017-04-10T14:51:05-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -37,7 +37,7 @@ I finally decided to get in on the fun.</p>
 
 <h3>The Problem</h3>
 
-<p><a href="https://censusmapper.ca/maps/584#15/49.2089/-123.1141"><img src="http://doodles.mountainmath.ca/images/marine_gateway_nbhd2.png" style="width:50%;float:left;margin-right:10px;"></a>
+<p><a href="https://censusmapper.ca/maps/584#15/49.2089/-123.1141"><img src="http://doodles.mountainmath.ca/images/marine_gateway_nbhd.png" style="width:50%;float:left;margin-right:10px;"></a>
 To understand why surprise maps can be so useful, let&rsquo;s look a a concrete example. Suppose we want to understand dwelling units
 that are not used as primary residences. (Which incidentally seems to be everyone currently living in Vancouver or Toronto.) To
 that end we can simply consult <a href="https://censusmapper.ca/maps/584">the map of these</a> based on the 2016 census. As we try and
