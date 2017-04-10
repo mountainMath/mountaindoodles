@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-04-10T16:27:01-07:00</updated>
+  <updated>2017-04-10T16:37:06-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -39,7 +39,7 @@ I finally decided to get in on the fun.</p>
 
 <p><a href="https://censusmapper.ca/maps/584#15/49.2089/-123.1141"><img src="http://doodles.mountainmath.ca/images/marine_gateway_nbhd.png" style="width:50%;float:left;margin-right:10px;"></a>
 To understand why surprise maps can be so useful, let&rsquo;s look a a concrete example. Suppose we want to understand dwelling units
-that are not used as primary residences. (Which incidentally seems to be everyone currently living in Vancouver or Toronto.) To
+that are not used as primary residences. (And incidentally it seems that everyone currently living in Vancouver or Toronto wants to do this.) To
 that end we can simply consult <a href="https://censusmapper.ca/maps/584">the map of these</a> based on the 2016 census. As we try and
 understand better what is happening in each region and we zoom in more and more we start to run into issues. Consider
 <a href="https://censusmapper.ca/maps/584#15/49.2089/-123.1141">this example looking at the Marine Gateway neighbourhood in Vancouver</a>. We
@@ -50,7 +50,7 @@ someone did use it as primary residence it would show up on the other extreme en
 really give much useful information, it is mostly a distraction that takes attention away from MC2 that has a more important story
 to tell.</p>
 
-<p>Similarly, areas with very low dwelling counts are much more likely to see high variations of rates of non-permanent residence buildings
+<p>More generally, areas with very low dwelling counts are much more likely to see high variations of rates of non-permanent residence buildings
 purely for statistical reasons. This results in a <a href="https://censusmapper.ca/maps/584#16/49.2425/-123.1777">&ldquo;checkerboard&rdquo; pattern</a>
 that is mostly due to statistical noise and hides meaningful variations in the data.</p>
 
@@ -64,8 +64,8 @@ rate of non-primary residence dwellings and map the deviation from the average. 
 <a href="https://censusmapper.ca/maps/669">more elaborate model</a> using the 2011 rates and the change in overall rates per net new dwelling unit.</p>
 
 <p>Either way, what we are doing here is we make a guess what we think the rate of non-primary residence units should be in each area
-and we compare it with observations. The better our guess is, the stronger the &ldquo;checkerboard&rdquo; pattern will become due to simple
-statistical noise as can easily be seen when
+and we compare it with observations. The better our guess is, the stronger the &ldquo;checkerboard&rdquo; pattern will become as the residuals
+will be reduced to statistical noise. This as can easily be seen when
 <a href="https://censusmapper.ca/maps/669#16/49.2425/-123.1777">comparing the more advanced model</a>
 to the <a href="https://censusmapper.ca/maps/584#16/49.2425/-123.1777">checkerboard observed using the &ldquo;zero&rdquo; model</a>. In practice that
 means that we have to click into each region to see the number of dwelling units, as well as the rate, to understand how we want
@@ -73,10 +73,10 @@ to interpret the result. Through this labour intensive process we will then weed
 it.</p>
 
 <p>Surprise maps don&rsquo;t map the actual difference of model and observation, they map how consistent the model is with the observation
-in each area. To go back to our initial example of an area with only one dwelling unit in it. No matter if that unit is used as
+in each area. In our initial example of an area with only one dwelling unit in it, no matter if that unit is used as
 primary residence or not, this cannot be taken as strong evidence that our model is wrong. We should assign this a neutral colour.
 The MC2 development on the other hand contained 570 dwelling units in 2016, a large deviation from the model indicates that
-our model might have some problems.</p>
+our model prediction might have some problems for that region.</p>
 
 <p>In surprise maps, we colour each area by the amount of evidence observations in a that area gives against our model. To have good evidence
 against our model, observations should deviate from model prediction, and we should be able to exclude regular statistical noise as
@@ -104,10 +104,8 @@ We baked these kind of surprise maps into CensusMapper, so now we can easily app
 
 <p>The CensusMapper surprise maps that are implemented right now require as input a &ldquo;model&rdquo; , an &ldquo;observation&rdquo; a &ldquo;base&rdquo; variable
 (the number of dwelling units, averaged over the 2011 and 2016 censuses in our case) and a standard deviation of the difference
-between model and predictions. For now, that standard deviation will have to be entered manually. At some point we can automate
-that process and compute it directly in CensusMapper on the server, but this variable cannot be computed dynamically on the client
-like all the other variables in CensusMapper as it requires knowledge of all regions of interest, not just the ones in the current
-map view. Moreover, other parameters like estimates of accuracy of census counts as well ask statistical rounding and other
+between model and predictions. For now, that standard deviation will have to be entered manually for technical reasons.
+Moreover, other parameters like estimates of accuracy of census counts as well ask statistical rounding and other
 operations that may have been performed on the data, can be added in to account for the fact that the rate observed in the census
 is different from the actual rate. We added the ability to make the standard deviation region dependent, which allows us to
 account for estimates of the accuracy of the census data based on region dependent variables.</p>
@@ -115,10 +113,14 @@ account for estimates of the accuracy of the census data based on region depende
 <p>For a simple example what this might look like consider child poverty. We have
 <a href="https://censusmapper.ca/maps/132">mapped this variable in CensusMapper</a>, but at times
 it can be hard to distill out the really important areas that have high child poverty rates as well as a high number of
-children overall. We added a shading to regions that have particularly low NHS return rates
-(and similarly for the full census return rates) to give some indication of reliability, and we display the return rate on hover.
+children overall.
 We have added a scatter plot of the rate vs the total number of children in poverty to the
 map story, so that the user can more easily determine how significant a high child poverty rate in each particular region is.</p>
+
+<p>Reliability of the data can also be tainted by low NHS return rates,
+so CensusMapper maps automatically shade to regions that have particularly low NHS return rates
+(and similarly for the full census return rates) to give some indication of reliability,
+and we display the return rate on hover. But it is cumbersome to keep track of all this information.</p>
 
 <p>Another way to deal with these issues is to make a <a href="https://censusmapper.ca/maps/671">child poverty surprise map</a>.
 As model we can simply use the assumption that there
