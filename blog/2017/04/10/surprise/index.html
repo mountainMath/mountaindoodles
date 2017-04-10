@@ -1,0 +1,398 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Surprise - Mountain Doodles</title>
+  <meta name="author" content="MountainMath">
+
+  
+  <meta name="description" content="2011/2016 Census Data">
+  <meta name="keywords" content="stats canada, CensusMapper">
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://doodles.mountainmath.ca/blog/2017/04/10/surprise/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/feed.atom" rel="alternate" title="Mountain Doodles" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-54516567-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Mountain Doodles</a></h1>
+  
+    <h2>spare time data, analysis, visualization</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/feed.atom" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="site:doodles.mountainmath.ca" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+    <li><a href="/">Blog</a></li>
+    <li><a href="/about/">About</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Surprise</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-04-10T08:43:58-07:00" pubdate data-updated="true"></time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>At CensusMapper we like building models based on census data. We now
+have a <a href="http://doodles.mountainmath.ca/blog/2017/03/22/comparing-censuses/">common tiling for 2011 and 2016 geographies</a>
+that allows us to easily model changes over time. After building a model
+we often want to see how well the model performs. An easy way to do this is to
+simply map the difference of observations and model predictions.</p>
+
+<p>Those maps are great and it is easy to understand what is mapped. But they are difficult to interpret properly. In many cases
+a better metric to map is how consistent the observations in each region are with the model. Which brings us to Bayesian surprise maps.</p>
+
+<!-- more -->
+
+
+<p>There is a <a href="https://medium.com/@uwdata/surprise-maps-showing-the-unexpected-e92b67398865">great post</a> making the rounds on the
+web, and when it recently <a href="https://twitter.com/LGeospatial/status/850806648201388032">showed up again in my Twitter feed</a>
+I finally decided to get in on the fun.</p>
+
+<h3>The Problem</h3>
+
+<p><a href="https://censusmapper.ca/maps/584#15/49.2089/-123.1141"><img src="/images/marine_gateway_nbhd2.png" style="width:50%;float:left;margin-right:10px;"></a>
+To understand why surprise maps can be so useful, let&rsquo;s look a a concrete example. Suppose we want to understand dwelling units
+that are not used as primary residences. (Which incidentally seems to be everyone currently living in Vancouver or Toronto.) To
+that end we can simply consult <a href="https://censusmapper.ca/maps/584">the map of these</a> based on the 2016 census. As we try and
+understand better what is happening in each region and we zoom in more and more we start to run into issues. Consider
+<a href="https://censusmapper.ca/maps/584#15/49.2089/-123.1141">this example looking at the Marine Gateway neighbourhood in Vancouver</a>. We
+see two areas coloured in dark blue, indicating a high rate. The left is the site of the MC2 development that got completed
+just before the census and we discussed <a href="http://doodles.mountainmath.ca/blog/2017/04/03/joyce-collingwood/">earlier in detail</a>.
+The right one is a large area with exactly one private dwelling unit, which happens not to be a primary residence for anyone. If
+someone did use it as primary residence it would show up on the other extreme end of our colour spectrum. Either way, it does not
+really give much useful information, it is mostly a distraction that takes attention away from MC2 that has a more important story
+to tell.</p>
+
+<p>Similarly, areas with very low dwelling counts are much more likely to see high variations of rates of non-permanent residence buildings
+purely for statistical reasons. This results in a <a href="https://censusmapper.ca/maps/584#16/49.2425/-123.1777">&ldquo;checkerboard&rdquo; pattern</a>
+that is mostly due to statistical noise and hides meaningful variations in the data.</p>
+
+<h3>Surprise maps</h3>
+
+<p><a href="https://censusmapper.ca/maps/669#15/49.2089/-123.1141"><img src="/images/marine_gateway_nbhd3.png" style="width:50%;float:right;margin-left:10px;"></a>
+That&rsquo;s were surprise maps come in. As a first step, instead of colouring by the rate of non-primary residence dwellings,
+let&rsquo;s colour by how this rate differs from our expectations. So we re-interpret our original map as mapping the difference from expectations
+where the expectation is that all dwellings are used as primary residences. Alternatively we can also take the regional average
+rate of non-primary residence dwellings and map the deviation from the average. Or we could build a
+<a href="https://censusmapper.ca/maps/669">more elaborate model</a> using the 2011 rates and the change in overall rates per net new dwelling unit.</p>
+
+<p>Either way, what we are doing here is we make a guess what we think the rate of non-primary residence units should be in each area
+and we compare it with observations. The better our guess is, the stronger the &ldquo;checkerboard&rdquo; pattern will become due to simple
+statistical noise as can easily be seen when
+<a href="https://censusmapper.ca/maps/669#16/49.2425/-123.1777">comparing the more advanced model</a>
+to the <a href="https://censusmapper.ca/maps/584#16/49.2425/-123.1777">checkerboard observed using the &ldquo;zero&rdquo; model</a>. In practice that
+means that we have to click into each region to see the number of dwelling units, as well as the rate, to understand how we want
+to interpret the result. Through this labour intensive process we will then weed out the area with just 1 dwelling unit and ignore
+it.</p>
+
+<p>Surprise maps don&rsquo;t map the actual difference of model and observation, they map how consistent the model is with the observation
+in each area. To go back to our initial example of an area with only one dwelling unit in it. No matter if that unit is used as
+primary residence or not, this cannot be taken as strong evidence that our model is wrong. We should assign this a neutral colour.
+The MC2 development on the other hand contained 570 dwelling units in 2016, a large deviation from the model indicates that
+our model might have some problems.</p>
+
+<p>In surprise maps, we colour each area by the amount of evidence observations in a that area gives against our model. To have good evidence
+against our model, observations should deviate from model prediction, and we should be able to exclude regular statistical noise as
+a cause for this.</p>
+
+<p>For this example, we chose a mixture of the &ldquo;base rate&rdquo; and &ldquo;de Moivre funnel&rdquo; models
+<a href="http://idl.cs.washington.edu/files/2017-SurpriseMaps-InfoVis.pdf">described in this excellent paper</a> where we essentially modify
+the de Moivre funnel model by allowing an arbitrary model to take the place of the average of our variable. We also keep track
+of the sign of the evidence we collect against our model, so whether our model underpredicted or overpredicted the rate of
+non-primary residence dwelling units.</p>
+
+<p><a href="https://censusmapper.ca/maps/668#15/49.2089/-123.1141"><img src="/images/marine_gateway_nbhd.png" style="width:50%;float:right;margin-left:10px;"></a>
+The <a href="https://censusmapper.ca/maps/668">result is a map that makes it much easier to sport &ldquo;surprising&rdquo; areas</a>,
+that is areas where observations provide good evidence
+that our model does not hold well there.</p>
+
+<p>We can now go back to check the <a href="https://censusmapper.ca/maps/668#16/49.2425/-123.1777">Marine Gateway area</a> we looked at before,
+and we see that the only areas that contribute solid evidence against our model are the unexpectedly high rates at the MC2 development,
+as well as the unexpectedly low rates at the area to the east between Main and Frasier streets.</p>
+
+<h3>Where to go from here</h3>
+
+<p>I baked these kind of surprise maps into CensusMapper. As input it requires a &ldquo;model&rdquo; , an &ldquo;observation&rdquo; a &ldquo;base&rdquo; variable
+(the number of dwelling units, averaged over the 2011 and 2016 censuses in our case) and a standard deviation of the difference
+between model and predictions. For now, that standard deviation will have to be entered manually. At some point we can automate
+that process and compute it directly in CensusMapper on the server, but this variable cannot be computed dynamically on the clienr
+like all the other variables in CensusMapper as it requires knowledge of all regions of interest, not just the ones in the current
+map view. Moreover, other parameters like estimates of accuracy of census counts as well ask statistical rounding and other
+operations that may have been performed on the data, can be added in to account for the fact that the rate observed in the census
+is different from the actual rate.</p>
+
+<p>One other interesting possibility that leverages of the dynamic nature of CensusMapper is to allow for several models and let
+relative importance of the models self-adjust with the map view. The output would then be for each map view a linear combination
+of the models that provides the best fit for the current map view, as well as the evidence each region in the current map view provides
+against the model.</p>
+
+<p>We will keep experimenting with surprise models and at some point open up some of it&rsquo;s capabilities to a wider group
+of CensusMapper users.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">MountainMath</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-04-10T08:43:58-07:00" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/canada/'>canada</a>, <a class='category' href='/blog/categories/census/'>census</a>, <a class='category' href='/blog/categories/censusmapper/'>censusmapper</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://doodles.mountainmath.ca/blog/2017/04/10/surprise/" data-via="vb_jens" data-counturl="http://doodles.mountainmath.ca/blog/2017/04/10/surprise/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2017/04/03/joyce-collingwood/" title="Previous Post: Marine Gateway and Joyce-Collingwood">&laquo; Marine Gateway and Joyce-Collingwood</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/04/10/surprise/">Surprise</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/04/03/joyce-collingwood/">Marine Gateway and Joyce-Collingwood</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/03/22/comparing-censuses/">Comparing Censuses</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/03/06/rs-population-change/">RS Population Change</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/03/01/transit-explorer/">Transit Explorer</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/02/21/more-on-teardowns/">More on Teardowns</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/02/10/2016-census-data/">2016 Census Data - Part 1</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/25/jane-jacobs-vancouver/">Jane Jacobs&#8217; Vancouver</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/18/bumper-year-for-thumb-twiddlers/">Bumper Year for Thumb Twiddlers</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2017/01/17/the-coveted-2m-6m-vote/">The Coveted $1.2m - $1.6m Vote</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  
+  <a class="twitter-timeline" href="https://twitter.com/vb_jens" data-widget-id="680989637721063424">Tweets by @vb_jens</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2017 - MountainMath -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a>.</span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'doodlesmountainmathca';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://doodles.mountainmath.ca/blog/2017/04/10/surprise/';
+        var disqus_url = 'http://doodles.mountainmath.ca/blog/2017/04/10/surprise/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
