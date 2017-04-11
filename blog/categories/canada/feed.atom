@@ -4,7 +4,7 @@
   <title><![CDATA[Category: canada | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/canada/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-04-10T16:37:06-07:00</updated>
+  <updated>2017-04-10T19:35:57-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -61,7 +61,7 @@ That&rsquo;s were surprise maps come in. As a first step, instead of colouring b
 let&rsquo;s colour by how this rate differs from our expectations. So we re-interpret our original map as mapping the difference from expectations
 where the expectation is that all dwellings are used as primary residences. Alternatively we can also take the regional average
 rate of non-primary residence dwellings and map the deviation from the average. Or we could build a
-<a href="https://censusmapper.ca/maps/669">more elaborate model</a> using the 2011 rates and the change in overall rates per net new dwelling unit.</p>
+<a href="https://censusmapper.ca/maps/669">more elaborate model</a> using the 2011 rates and the Canada-wide average rates per net new dwelling unit.</p>
 
 <p>Either way, what we are doing here is we make a guess what we think the rate of non-primary residence units should be in each area
 and we compare it with observations. The better our guess is, the stronger the &ldquo;checkerboard&rdquo; pattern will become as the residuals
