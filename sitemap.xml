@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://doodles.mountainmath.ca/blog/2017/05/16/lifeblood/</loc>
+    <lastmod>2017-05-16T13:52:05-07:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://doodles.mountainmath.ca/blog/2017/04/10/surprise/</loc>
     <lastmod>2017-04-10T08:43:58-07:00</lastmod>
     <priority>0.8</priority>
@@ -353,21 +359,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2017-04-10T19:35:57-07:00</lastmod>
+    <lastmod>2017-05-16T17:16:27-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2017-04-10T19:35:57-07:00</lastmod>
+    <lastmod>2017-05-16T17:16:27-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2017-04-10T19:35:57-07:00</lastmod>
+    <lastmod>2017-05-16T17:16:27-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

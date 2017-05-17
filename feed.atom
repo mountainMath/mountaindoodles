@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-04-10T19:35:57-07:00</updated>
+  <updated>2017-05-16T17:16:27-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,166 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Lifeblood]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/05/16/lifeblood/"/>
+    <updated>2017-05-16T13:52:05-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/05/16/lifeblood</id>
+    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/teardowns"><img src="http://doodles.mountainmath.ca/images/teardowns_animated.gif" style="width:50%;float:right;margin-left:10px;"></a>
+Ever since that <a href="https://www.bloomberg.com/news/articles/2016-03-14/millennials-flee-vancouver-for-cities-with-more-affordable-homes">Bloomberg article whose claims nobody could reproduce</a>,
+where the author refused to disclose what data was used, but that
+got recycled all across the local press there has been a hightened interest
+in migration patterns in Vancouver. Nathan Lauster took it upon himself to
+dig deeper and look if <a href="https://homefreesociology.wordpress.com/2016/02/12/is-the-lifeblood-of-vancouver-leaving/">Vancouver&rsquo;s lifeblood was really leaving</a>,
+which he kept elaborating on as better data became available until the
+<a href="https://homefreesociology.wordpress.com/2017/05/05/good-age-specific-net-migration-estimates-come-in-threes/">most recent iteration</a>
+that compares Metro Vancouver to other Candian metropolitan areas as well
+as the City of Vancouver to other cities within Metro Vancouver using 2016 census data.</p>
+
+<p>This is seriously good work and we thought it would be helpful to reproduce Lauster&rsquo;s methods
+in CensusMapper. The result is a series of maps, one for each five-year age cohort, that
+visualized net migration of the cohort geographically, while hovering over a
+region reproduces Lauster&rsquo;s net migration bar graph for that region.</p>
+
+<!-- more -->
+
+
+<p>With CensusMapper, we instantly get the ability to dig into areas to observe
+finer net migration patterns, and to pan across the country to compare different
+regions.</p>
+
+<p>For Metro Vancouver, we can see how we have strong net in-migration in all younger
+cohorts, including children. And as Lauster observed, we see a net out-migration
+of 50 to 60 year olds.</p>
+
+<p>For the City of Vancouver we see a net in-migration for 5 to 30 year olds, with
+basically all other age groups exhibiting net out-migration. This is echoed by
+Burnaby and New Westminster, and to a lesser extend Richmond. We can zoom in
+further to the Census Tract level to observe spacial patterns of net migration
+at the sub-municipal level. There we see that net migration of the under 5 cohort
+and the 20 to 24 cohort are almost exact mirror images. The strongest signal
+comes from the town centres of the region, that get flooded as the 20 to 24 year
+old cohort ages into the 25 to 29 year old cohort. As they form families and have kids,
+the flood reverses and as many children that under 5 that lived in these areas don&rsquo;t
+live there any more when they advance to the 5 to 9 cohort.</p>
+
+<p>Sadly we don&rsquo;t have common tiles for other censuses that would allow for hassle-free
+comparisons to detect changes over time. (It&rsquo;s a surprising amount of work
+to get those common tilings right.) But we can compare this pattern to other
+population centres in Canada, and this trend seems to hold true universally.</p>
+
+<div class="half-image"><img src="http://doodles.mountainmath.ca/images/net_van.png" ><p>Vancouver</p></div>
+
+
+<div class="half-image"><img src="http://doodles.mountainmath.ca/images/net_tor.png" ><p>Toronto</p></div>
+
+
+<div class="half-image"><img src="http://doodles.mountainmath.ca/images/net_mon.png" ><p>Montreal</p></div>
+
+
+<div class="half-image"><img src="http://doodles.mountainmath.ca/images/net_cal.png" ><p>Calgary</p></div>
+
+
+<p>Metro Vancouver as a region certainly looks quite healthy in terms of the net migration of it&rsquo;s age groups.
+The migration patterns within the region also seem to be consistent with other population centres in Canada.
+These alone, at least at the qualitative level that we are mapping, does not seem to explain the
+prevalent feeling of millennials &ldquo;fleeing&rdquo; Vancouver. Maybe a more quantitative approach could
+dig up more. Or it could be that families moving away from the central regions is generally
+perceived as a &ldquo;move up&rdquo; in most cities, but in Vancouver it is viewed as &ldquo;moving down&rdquo;.</p>
+
+<h3>Technical Details</h3>
+
+<h4>Common Geographies</h4>
+
+<p>The first (and biggest) problem is that the 2011 and 2016 census geographies
+don&rsquo;t necessarily match up. But we <a href="http://doodles.mountainmath.ca/blog/2017/03/22/comparing-censuses/">solved that problem</a>
+for the 2011 and 2016 censuses.</p>
+
+<h4>Easier said than done</h4>
+
+<p>The devil is of course always in the details, and as usual it is not until
+one has reproduced something until one can fully appreciate the work that
+went into the original piece. There were two main challenges for us to
+reproduce this within CensusMapper.</p>
+
+<h4>The basics</h4>
+
+<p>What is net migration? To compute the net migration for an age group,
+say the &ldquo;under 5&rdquo; (in 2011) age group, we want to compare them to an age
+group in 2016. To do that we need to &ldquo;age them forward&rdquo;. Children that were
+under 5 in 2011 were 5 to 9 years old in 2016. But some, in the case of
+the under 5 age group only a very small fraction, won&rsquo;t have lived to 2016.
+So we need to subtract those out. More formally, we need to apply the
+apporpriate mortality rates as we age them forward. Then we compare
+the aged-forward group to the 5 to 9 year old cohort that the 2016 census
+counted, and we divide by the size of the original under 5 year old cohort
+(from 2011) to get the percentage net migration.</p>
+
+<h4>Mortality</h4>
+
+<p>This basic fact of life makes net migration really tricky to get right.
+Once we get into the older age groups, and thus higher mortality rates,
+the process is extremely sensitive to changes in the mortality rates. In
+CensusMapper we are using effective mortality rates of 5 year cohorts from
+<a href="http://www5.statcan.gc.ca/cansim/a26?lang=eng&amp;id=1020504">CANSIM</a> for
+Canada as a whole and the provinces and territories. A fair amount of
+massaging is needed to make sure this works properly, in particular it
+is important to interpolate the effective mortality rates as we age a
+cohort forward. And one should recognise that the mortality rates are
+based on the age at death, but that an age cohort in the census is, on average,
+already half way through a given year in their life.</p>
+
+<p>Additionally, there is little reason to believe that there is no geographic
+variation in mortality rates within the provinces. To deal with that we
+decided to add an uncertainty band to the graph that allows for a 5%
+variation in mortality rates.</p>
+
+<h4>Uncertainty</h4>
+
+<p>The next issue is that census data underwent random rounding to an adjacent
+number that&rsquo;s divisible by 5, which leads to an expected error of 1.6.
+(Actual rounding gives an expected error of 1.2.)
+When taking differences between censuses, that yields an expected error of 2.2.
+Additionally, we don&rsquo;t know the actual number of people in each age group,
+just the one the census found. The &ldquo;census undercount&rdquo; can be quite
+sizable. Overall it is around 3%, but it varies by age group and geography.</p>
+
+<p>To deal with this we add an error term of a mis-count of 5 people that
+also shows up in our error bars in the graph.</p>
+
+<h4>Fine geographies</h4>
+
+<p>CensusMapper is great for exploring all geographic levels. But that can
+lead to problems when our age cohorts become small in size. We divide
+by the size of the original 2011 age group cohort, and to avoid running
+into small denominator issues we cut our estimates off when there are
+fewer than 50 people in a cohort. Our error bars partially take care of
+this issue, but at 50 people our error bar already spans 10% points of
+net migration on either side of the computed value, showing values with
+even larger error bars is likely to do more harm than good.</p>
+
+<script>
+function resetImages(){
+    $('img').each(function(img){
+        imgsrc = $(img).attr('src');
+        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
+            $(img).attr('src', '');
+            $(img).attr('src', imgsrc);
+
+        }
+    });
+    setTimeout(function(){
+        resetImages();
+    },25000);
+}
+setTimeout(function(){
+    resetImages();
+},25000);
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Surprise Maps]]></title>
@@ -2999,269 +3159,6 @@ $('.income-generator .btn').on('click',function(e){
      $('.income-choices .income').text('$' + Math.round(80*Math.random()+40)+',000');
 });
 </script>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Mobi Running Stats]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/08/24/mobi-running-stats/"/>
-    <updated>2016-08-24T09:45:54-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/08/24/mobi-running-stats</id>
-    <content type="html"><![CDATA[<p><a href="http://mountainmath.ca/mobi#14.287582005629245/49.2742/-123.1277" target="_blank"><img  src="http://doodles.mountainmath.ca/images/mobi_main2.png"  style="width:50%;float:right;margin-left:10px;"></a>
-I keep getting questions about Mobi stats these days. Rather than ansering them one by one I decided to just offer a live
-view into data generated by our shadow API. I made two simple views, the most recent month of daily bike checkout counts
-and the most recent week of hourly bike checkout counts. The data issues mentioned in our
-<a href="http://doodles.mountainmath.ca/blog/2016/08/16/mobi-a-first-look/">previous post</a> still apply. For data geeks, here is a link to a
-<a href="https://twitter.com/serialc/status/767096443165376512">very useful paper</a> that compared estimates like I make to real
-usage data.</p>
-
-<!-- more -->
-
-
-<p>Apart from the usual caveats when dealing with scraped data, Mobi data comes with additional issues like duplicate stations
-that need to be filtered out to get proper counts. The view into the database below filters out these and other current
-known issues with Mobi data. But as this is a live view, it might not correctly deal with future unforseen issues with
-Mobi data. New stations, once Mobi adds them, will automatically show up on our Mobi map and will also be counted in the
-live usage graphs.</p>
-
-<h3>Daily Usage</h3>
-
-<p>This graphs shows the daily total counts of bikes checked out (with the usual data quality caveats) for the past month
-(starting from August 12, 2016).</p>
-
-<div style="margin:5px  0 20px 0;padding:2px;border: 1px solid black;border-radius:5px;width:100%;">
-  <div id="graph_daily" style="height:200px;" data-url="https://mountainmath.ca/bike_providers/1/daily.json"></div>
-</div>
-
-
-<h3>Hourly Usage</h3>
-
-<p>This graphs shows the hourly total counts of bikes checked out (with the usual data quality caveats) for the past week.</p>
-
-<div style="margin:5px  0 20px 0;padding:2px;border: 1px solid black;border-radius:5px;width:100%;">
-  <div id="graph_hourly" style="height:200px;" data-url="https://mountainmath.ca/bike_providers/1/hourly.json"></div>
-</div>
-
-
-<h3>Auto Updating</h3>
-
-<p>The above graphs are dynamic, they display the latest available numbers. Feel free do come back to this page to check
-how usage develops over time. If you come back in one hour, it will have the latest hourly counts. If you come back
-tomorrow, it will have an additional day of data.</p>
-
-<h3>Map Update</h3>
-
-<p>We also thought that adding a little more context to the <a href="http://mountainmath.ca/mobi">bike share map</a> would be useful,
-so we added some gentle colouring to highlight parks, retail and institutional land uses.</p>
-
-<p>The bike infrastructure
-(and land use) data comes straight from OpenStreetMap. Everyone is
-welcome to help update OpenStreetMap data. If you are on a desktop and shift-click into our map it will bring up the
-OpenStreetMap editor. There you can add the newest separated bike lane or make other changes (after logging in or signing
-up for an account). It will take between 1 to 5 hours for changes to go live on our map, and the changes you make will
-also be available to any other app relying on OpenStreetMap data.</p>
-
-<div><script>
-
-function graphBikeStation(selector,station_id){
-  var outerHeight=$(selector).height(),
-      outerWidth=$($(selector)[0].parentNode).width();
-  var margin = {top: 20, right: 20, bottom: 30, left: 50},
-      width = outerWidth - margin.left - margin.right,
-      height = outerHeight - margin.top - margin.bottom;
-
-  var formatDate = d3.time.format("%X");
-  var x = d3.time.scale()
-      .range([0, width]);
-
-  var y = d3.scale.linear()
-      .range([height, 0]);
-
-  var xAxis = d3.svg.axis().scale(x).orient('bottom');
-
-  var yAxis = d3.svg.axis().scale(y).orient('left').ticks(5);
-
-  var line = d3.svg.line()
-      .x(function(d) { return x(d.created_at); })
-      .y(function(d) { return y(d.available_bikes); })
-      .interpolate('step-after');
-  var bikeArea = d3.svg.area()
-      .x(function(d, i) { return x(d.created_at); })
-      .y0(function(d) { return y(d.available_bikes); })
-      .y1(function(d) { return height; })
-      .interpolate('step-after');
-  var dockArea = d3.svg.area()
-      .x(function(d, i) { return x(d.created_at); })
-      .y0(function(d) { return 0; })
-      .y1(function(d) { return y(d.available_bikes); })
-      .interpolate('step-after');
-
-
-  var svg = d3.select(selector).append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-  d3.json('http://mountainmath.ca/bike_providers/1/bike_stations/' + station_id + '.json?days=7',function(error,data){
-  data=data[0].stations[0].statuses;
-  data.forEach(function(d){type(d)});
-  var last=data[data.length-1];
-  var lastTime=new Date(d3.time.format.iso.parse(last.updated_at).getTime() + 5*60000);
-  data.push({id:last.id,available_bikes:last.available_bikes,free_docks:last.free_docks,created_at:lastTime,updated_at:lastTime});
-
-  x.domain(d3.extent(data, function(d) { return d.created_at; }));
-  y.domain([0,data[0].available_bikes+data[0].free_docks]);
-
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis);
-//      .append("text")
-//      .attr("transform", "rotate(-90)")
-//      .attr("y", 6)
-//      .attr("dy", ".71em")
-//      .style("text-anchor", "end")
-//      .text("Available Bikes");
-
-  svg.append("path")
-      .datum(data)
-      .attr("class", "area bike")
-      .style("fill",'rgba(33, 139, 51, 0.7)')
-      .attr("d", bikeArea);
-  svg.append("path")
-      .datum(data)
-      .attr("class", "area dock")
-      .style("fill",'rgba(212, 10, 44, 0.7')
-      .attr("d", dockArea);
-
-
-  function type(d) {
-    d.created_at = d3.time.format.iso.parse(d.created_at);
-    d.available_bikes = +d.available_bikes;
-    return d;
-  }
-  });
-}
-
-
-
-function bar_graph(div,shiftAxis,domainFormatter,rangeFormatter,domainLabelFormatter,rangeLabelFormatter){
-    if (!domainFormatter) domainFormatter=d3.format("d");
-    if (!rangeLabelFormatter) rangeLabelFormatter=rangeFormatter;
-    if (!rangeFormatter)
-     rangeFormatter = function (y) {
-        return y;
-     };
-     if (!domainLabelFormatter) domainLabelFormatter=domainFormatter;
-
-var margin = {top: 20, right: 20, bottom: 40, left: 70},
-    width = parseInt(div.style("width")) - margin.left - margin.right,
-    height = parseInt(div.style("height")) - margin.top - margin.bottom;
-
-var x = d3.scale.ordinal()
-    .rangeRoundBands([0, width], .1);
-
-var y = d3.scale.linear()
-    .range([height, 0]);
-
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .tickFormat(domainFormatter)
-    .orient("bottom");
-
-
-var yAxis = d3.svg.axis()
-    .scale(y)
-    .orient("left")
-    .tickFormat(rangeFormatter)
-    .ticks(5, rangeFormatter);
-
-var svg = div.append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var data_url=div[0][0].dataset.url;
-
-d3.json(data_url, function(error, json) {
-  if (error) throw error;
-  var graphData=json[0];
-  var data=graphData.data;
-  
-  //data.forEach(function(d,i){d.date= d3.time.format.iso.parse(d.date)});
-  
-  var container=d3.select(div.node().parentNode);
-  container.selectAll('.legend.no-margin').remove();
-  var legend=container.append('div').attr('class',"legend no-margin");
-  legend.append('p').html('<i style="background:'+graphData.color + '"></i>' + graphData.label +  '<span style="float:right;margin-right:10px;" id="' + graphData.class+'_value"></span>');
-  
-  x.domain(data.map(function(d) {return d.date }));
-  y.domain([0, d3.max(data, function(d) { return d.count; })]);
-  
-  var domainTickValues=[];
-  var skip=Math.round(60/x.rangeBand());
-  if (skip<=0) skip=1;
-  for (var i=0;i<x.domain().length;i++) {
-    if (i % skip==0) domainTickValues.push(x.domain()[i]);
-  }
-  //if (x.domain().length % 5 !=0) domainTickValues.push(x.domain()[x.domain().length-1]);
-  xAxis.tickValues(domainTickValues);
-
-  var xShift=shiftAxis ?  -x.rangeBand()/2.0 * 1.1 : 0;
-  
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(" + xShift + "," + height + ")")
-      .call(xAxis);
-
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis);
-//    .append("text")
-//      .attr("transform", "rotate(-90)")
-//      .attr("y", 6)
-//      .attr("dy", ".71em")
-//      .style("text-anchor", "end")
-//      .text("Probability");
-
-  svg.selectAll(".bar")
-      .data(data)
-    .enter().append("rect")
-      .attr("class", graphData.class + " bar")
-      .style("fill", graphData.color)
-      .attr("x", function(d) { return x(d.date); })
-      .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.count); })
-      .attr("height", function(d) { return height - y(d.count); })
-      .on('mouseover',function(d){
-         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
-      }).on('click',function(d){
-       d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
-      }).on('touch',function(d){
-         d3.select('#'+this.classList[0]+'_value').text(domainLabelFormatter(d.date) + ': ' + rangeLabelFormatter(d.count)) 
-      }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
-
-      
-});
-
-}
-
-
-
-var numberFormatter=d3.format(",");
-var dateFormatter=function(d){return d};//d3.time.format("%a %I%p");//d3.time.format("%a %H:%M"); //d3.format(",");//
-bar_graph(d3.select("#graph_daily"),false,dateFormatter,numberFormatter);
-bar_graph(d3.select("#graph_hourly"),false,dateFormatter,numberFormatter);
-
-graphBikeStation('#station_graph_os',1);
-</script></div>
 
 ]]></content>
   </entry>

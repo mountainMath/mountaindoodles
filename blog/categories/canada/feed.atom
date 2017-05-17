@@ -4,7 +4,7 @@
   <title><![CDATA[Category: canada | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/canada/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-04-10T19:35:57-07:00</updated>
+  <updated>2017-05-16T17:16:27-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,166 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Lifeblood]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/05/16/lifeblood/"/>
+    <updated>2017-05-16T13:52:05-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/05/16/lifeblood</id>
+    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/teardowns"><img src="http://doodles.mountainmath.ca/images/teardowns_animated.gif" style="width:50%;float:right;margin-left:10px;"></a>
+Ever since that <a href="https://www.bloomberg.com/news/articles/2016-03-14/millennials-flee-vancouver-for-cities-with-more-affordable-homes">Bloomberg article whose claims nobody could reproduce</a>,
+where the author refused to disclose what data was used, but that
+got recycled all across the local press there has been a hightened interest
+in migration patterns in Vancouver. Nathan Lauster took it upon himself to
+dig deeper and look if <a href="https://homefreesociology.wordpress.com/2016/02/12/is-the-lifeblood-of-vancouver-leaving/">Vancouver&rsquo;s lifeblood was really leaving</a>,
+which he kept elaborating on as better data became available until the
+<a href="https://homefreesociology.wordpress.com/2017/05/05/good-age-specific-net-migration-estimates-come-in-threes/">most recent iteration</a>
+that compares Metro Vancouver to other Candian metropolitan areas as well
+as the City of Vancouver to other cities within Metro Vancouver using 2016 census data.</p>
+
+<p>This is seriously good work and we thought it would be helpful to reproduce Lauster&rsquo;s methods
+in CensusMapper. The result is a series of maps, one for each five-year age cohort, that
+visualized net migration of the cohort geographically, while hovering over a
+region reproduces Lauster&rsquo;s net migration bar graph for that region.</p>
+
+<!-- more -->
+
+
+<p>With CensusMapper, we instantly get the ability to dig into areas to observe
+finer net migration patterns, and to pan across the country to compare different
+regions.</p>
+
+<p>For Metro Vancouver, we can see how we have strong net in-migration in all younger
+cohorts, including children. And as Lauster observed, we see a net out-migration
+of 50 to 60 year olds.</p>
+
+<p>For the City of Vancouver we see a net in-migration for 5 to 30 year olds, with
+basically all other age groups exhibiting net out-migration. This is echoed by
+Burnaby and New Westminster, and to a lesser extend Richmond. We can zoom in
+further to the Census Tract level to observe spacial patterns of net migration
+at the sub-municipal level. There we see that net migration of the under 5 cohort
+and the 20 to 24 cohort are almost exact mirror images. The strongest signal
+comes from the town centres of the region, that get flooded as the 20 to 24 year
+old cohort ages into the 25 to 29 year old cohort. As they form families and have kids,
+the flood reverses and as many children that under 5 that lived in these areas don&rsquo;t
+live there any more when they advance to the 5 to 9 cohort.</p>
+
+<p>Sadly we don&rsquo;t have common tiles for other censuses that would allow for hassle-free
+comparisons to detect changes over time. (It&rsquo;s a surprising amount of work
+to get those common tilings right.) But we can compare this pattern to other
+population centres in Canada, and this trend seems to hold true universally.</p>
+
+<div class="half-image"><img src="http://doodles.mountainmath.ca/images/net_van.png" ><p>Vancouver</p></div>
+
+
+<div class="half-image"><img src="http://doodles.mountainmath.ca/images/net_tor.png" ><p>Toronto</p></div>
+
+
+<div class="half-image"><img src="http://doodles.mountainmath.ca/images/net_mon.png" ><p>Montreal</p></div>
+
+
+<div class="half-image"><img src="http://doodles.mountainmath.ca/images/net_cal.png" ><p>Calgary</p></div>
+
+
+<p>Metro Vancouver as a region certainly looks quite healthy in terms of the net migration of it&rsquo;s age groups.
+The migration patterns within the region also seem to be consistent with other population centres in Canada.
+These alone, at least at the qualitative level that we are mapping, does not seem to explain the
+prevalent feeling of millennials &ldquo;fleeing&rdquo; Vancouver. Maybe a more quantitative approach could
+dig up more. Or it could be that families moving away from the central regions is generally
+perceived as a &ldquo;move up&rdquo; in most cities, but in Vancouver it is viewed as &ldquo;moving down&rdquo;.</p>
+
+<h3>Technical Details</h3>
+
+<h4>Common Geographies</h4>
+
+<p>The first (and biggest) problem is that the 2011 and 2016 census geographies
+don&rsquo;t necessarily match up. But we <a href="http://doodles.mountainmath.ca/blog/2017/03/22/comparing-censuses/">solved that problem</a>
+for the 2011 and 2016 censuses.</p>
+
+<h4>Easier said than done</h4>
+
+<p>The devil is of course always in the details, and as usual it is not until
+one has reproduced something until one can fully appreciate the work that
+went into the original piece. There were two main challenges for us to
+reproduce this within CensusMapper.</p>
+
+<h4>The basics</h4>
+
+<p>What is net migration? To compute the net migration for an age group,
+say the &ldquo;under 5&rdquo; (in 2011) age group, we want to compare them to an age
+group in 2016. To do that we need to &ldquo;age them forward&rdquo;. Children that were
+under 5 in 2011 were 5 to 9 years old in 2016. But some, in the case of
+the under 5 age group only a very small fraction, won&rsquo;t have lived to 2016.
+So we need to subtract those out. More formally, we need to apply the
+apporpriate mortality rates as we age them forward. Then we compare
+the aged-forward group to the 5 to 9 year old cohort that the 2016 census
+counted, and we divide by the size of the original under 5 year old cohort
+(from 2011) to get the percentage net migration.</p>
+
+<h4>Mortality</h4>
+
+<p>This basic fact of life makes net migration really tricky to get right.
+Once we get into the older age groups, and thus higher mortality rates,
+the process is extremely sensitive to changes in the mortality rates. In
+CensusMapper we are using effective mortality rates of 5 year cohorts from
+<a href="http://www5.statcan.gc.ca/cansim/a26?lang=eng&amp;id=1020504">CANSIM</a> for
+Canada as a whole and the provinces and territories. A fair amount of
+massaging is needed to make sure this works properly, in particular it
+is important to interpolate the effective mortality rates as we age a
+cohort forward. And one should recognise that the mortality rates are
+based on the age at death, but that an age cohort in the census is, on average,
+already half way through a given year in their life.</p>
+
+<p>Additionally, there is little reason to believe that there is no geographic
+variation in mortality rates within the provinces. To deal with that we
+decided to add an uncertainty band to the graph that allows for a 5%
+variation in mortality rates.</p>
+
+<h4>Uncertainty</h4>
+
+<p>The next issue is that census data underwent random rounding to an adjacent
+number that&rsquo;s divisible by 5, which leads to an expected error of 1.6.
+(Actual rounding gives an expected error of 1.2.)
+When taking differences between censuses, that yields an expected error of 2.2.
+Additionally, we don&rsquo;t know the actual number of people in each age group,
+just the one the census found. The &ldquo;census undercount&rdquo; can be quite
+sizable. Overall it is around 3%, but it varies by age group and geography.</p>
+
+<p>To deal with this we add an error term of a mis-count of 5 people that
+also shows up in our error bars in the graph.</p>
+
+<h4>Fine geographies</h4>
+
+<p>CensusMapper is great for exploring all geographic levels. But that can
+lead to problems when our age cohorts become small in size. We divide
+by the size of the original 2011 age group cohort, and to avoid running
+into small denominator issues we cut our estimates off when there are
+fewer than 50 people in a cohort. Our error bars partially take care of
+this issue, but at 50 people our error bar already spans 10% points of
+net migration on either side of the computed value, showing values with
+even larger error bars is likely to do more harm than good.</p>
+
+<script>
+function resetImages(){
+    $('img').each(function(img){
+        imgsrc = $(img).attr('src');
+        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
+            $(img).attr('src', '');
+            $(img).attr('src', imgsrc);
+
+        }
+    });
+    setTimeout(function(){
+        resetImages();
+    },25000);
+}
+setTimeout(function(){
+    resetImages();
+},25000);
+</script>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Surprise Maps]]></title>
@@ -599,108 +759,6 @@ we hover over an area.</p>
 
 <p>This makes it very easy to compare different areas and see how the different components contribute to the change in
 population in each area.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Census Mapping for Everyone]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone/"/>
-    <updated>2016-05-04T11:45:39-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/05/04/census-mapping-for-everyone</id>
-    <content type="html"><![CDATA[<p>At CensusMapper, we have come a long way from first <a href="http://doodles.mountainmath.ca/blog/2015/06/23/vancouver-2011-census-data-on-housing/">dabbling in census data</a> to
-building out a <a href="http://doodles.mountainmath.ca/blog/2015/09/28/census-mapper/">platform to map data Canada wide</a>, adding
-the ability to <a href="http://doodles.mountainmath.ca/blog/2015/10/24/census-drilldown/">easily drill down into individual census regions</a>,
-<a href="http://doodles.mountainmath.ca/blog/2015/12/27/canvas-vs-svg/">improving mapping efficiency</a>, adding the ability to
-<a href="http://doodles.mountainmath.ca/blog/2016/04/20/tod-mode-share/">automatically populate custom geographic data with census variables</a>
-and <a href="http://doodles.mountainmath.ca/blog/2016/05/02/census-week/">adding older census data</a>.</p>
-
-<p>We believe all of these are comparatively small steps compared to the opening up of map making capabilities for everyone
-that we are rolling out today. Free to use, free of charge. Statistic Canada <a href="http://www.statcan.gc.ca/eng/reference/licence-eng">opened up census data</a>
-for anyone to use, but the sheer volume of available data and complexities of mapping geographic data has kept this
-inaccessible to many.</p>
-
-<p>By opening up basic map making capabilities to everyone we are putting the liberating that data from depth of spreadsheets and
-database servers and opening it up to everyone. One map at a time.  Read on for tips and tricks or head right on over
-to <a href="https://censusmapper.ca" class="btn btn-primary">Censusmapper</a> to make your first CensusMapper map!</p>
-
-<!-- more -->
-
-
-<h3>Simple Maps</h3>
-
-<p><img  src="http://doodles.mountainmath.ca/images/make_a_map.png"  style="width:30%;float:right;margin-left:10px;">
-To make your own map, start by choosing &ldquo;Start New 2011 Map&rdquo; from the &ldquo;Make a Map&rdquo; menu. If you are planning on saving
-and sharing your map you should log in or create an account first, but you can play with mapping census data without an account.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/signin.png"  style="width:25%;float:left;margin-right:10px;">
-We tried to make logging in super simple by providing oAuth signup with popular providers, but you can also go the old
-fashioned way and create an account manually by providing username (email) and custom password.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/census_variables_menu.png"  style="width:30%;float:right;margin-left:10px;">
-To start your new map, navigate down to the census variable picker at the bottom of the sidebar. Click the bars
-to expand or collapse them. Once you found a variable you want to map, click
-the &lsquo;globe&rsquo; icon and select how you want to map the variable.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/map_variable.png"  style="width:50%;float:left;margin-right:10px;">
-Depending on what variable you choose you have the option to map simply map the variable, in this case the total number
-of people that are married or living with a common law partner, or map the variable as a percentage of a &ldquo;parent&rdquo; variable,
-so in this case map the percentage of people that are married or living with a common law partner out of all people 15 years
-or over. If in doubt what the variables mean, head over to the
-<a href="https://www12.statcan.gc.ca/census-recensement/2011/ref/dict/98-301-X2011001-eng.pdf">Census Dictionary</a>
-to look up the definitions.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/finished_map_1.png"  style="width:50%;float:right;margin-left:10px;">
-Once you press the button CensusMapper will do it&rsquo;s magic and map the data for you. Zoom pan and use the search bar to expore
-the data across different regions and geographic aggregation levels in Canada. You may want to edit the automatically
-generated map label to make it more concise.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/finished_map_2.png"  style="width:30%;float:left;margin-right:10px;">
-To style your map you can select the &ldquo;Colors&rdquo; option in the orange map editor menu in the sidebar.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/finished_map_3.png"  style="width:50%;float:right;margin-left:10px;">
-There you can style your map by selecting a custom color scheme and fine tune your domain cutoffs.</p>
-
-<p><img  src="http://doodles.mountainmath.ca/images/finished_map_4.png"  style="width:50%;float:left;margin-right:10px;">
-If you were signed in you could now select the &ldquo;Save Map&rdquo; option from the map editor menu and add a map title and a map
-description. Map descriptions can be styled in <a href="https://daringfireball.net/projects/markdown/">markdown</a>.</p>
-
-<p>Maps can tell many different stories, use the map description to give some background and rational for your
-map. A good map story might link to different views of the map to support the story telling. You can use the &ldquo;Paste link
-to current view into description&rdquo; button to link to different map views. You can also link to different CensusMapper maps
-to create deeply integrated map stories. Rich map stories can provide powerful insights into our communities.</p>
-
-<p>If you want to share your map with others, make sure you set the map visibility from &ldquo;Private&rdquo; to &ldquo;Published&rdquo;. Otherwise
-others will get an &ldquo;access denied&rdquo; message when they attempt to view the map. Published maps will automatically appear on
-the extended map list, so please take some time and write appropriate descriptions that others can enjoy them.</p>
-
-<p>Head on over to <a href="https://censusmapper.ca" class="btn btn-primary">Censusmapper</a> to get started.</p>
-
-<h3>Advanced Maps</h3>
-
-<p>The ability to quickly map any census variable is quite liberating. At the same time it is also restrictive. Imagine
-all the things that could be mapped if you could combine census variables in other ways. And CensusMapper has that
-capability to dynamically weave a number of census variables into a function to be mapped. But with that comes another
-level of complexity and potential pitfalls that, at the moment, prevents us from opening this up to the general public.</p>
-
-<p>At the same time, we are still trying to figure out the overall funding model at CensusMapper. We believe that we have
-plenty of value in our advanced mapping capabilities, as well as in our ability to
-<a href="http://doodles.mountainmath.ca/blog/2016/04/20/tod-mode-share/">automatically populate custom geographic data with census variables</a>
-and our backend data analysis capabilities to focus on paid products that allows us to open up the Simple Map model
-for everyone for free. At CensusMapper, we love open data. And with time as we refine our funding model we may open up
-more advanced mapping capabilities to put more data into the palm of everyone&rsquo;s hands.</p>
-
-<h3>Our Worries</h3>
-
-<p>We are also a bit worried about how CensusMapper will be used. The internet has the ability to turn the most beautiful
-thing into something ugly, and we are hoping that mappers will use the tool responsibly and make meaningful maps that
-tell a story, instead of vanity maps or maps meant to isolate or smear specific groups of people. If we feel that the
-tool is being abused we might have to enforce a real name policy or partially close down CensusMapper. Please map responsibly.</p>
-
-<h3>Bugs</h3>
-
-<p>If you find any, let us know. The tool should work well on Mac using Chrome, Safari or Firefox and should work reasonably
-well on Windows with Chrome and Firefox. iPad, iPhone and modern Android should also work well. Please contact us if you find
-anything not working properly.</p>
 ]]></content>
   </entry>
   
