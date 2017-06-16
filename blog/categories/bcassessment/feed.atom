@@ -4,7 +4,7 @@
   <title><![CDATA[Category: bcassessment | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/bcassessment/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-05-16T18:05:23-07:00</updated>
+  <updated>2017-06-16T13:41:45-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -25,7 +25,7 @@ am now wondering how to make better visualizations to make that data more access
 
 
 <p><a href="http://mountainmath.ca/map/assessment?zoom=13&lat=49.2483&lng=-123.1139&layer=9" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh.png"  style="width:50%;float:right;margin-left:10px;"></a>
-Looking at my <a href="http://www.mountainmath.ca/map/assessment">old maps based around assessment data</a>, there are a couple of things that bother me. They are not very
+Looking at my <a href="http://mountainmath.ca/map/assessment">old maps based around assessment data</a>, there are a couple of things that bother me. They are not very
 good at showing changes over time. And they are not very good at highlighting the different role of dirt and the
 houses on top. Yes, they do have separate views for building value, land value and various changes over time.
 But the visuals aren&rsquo;t catchy and intuitive. When mapping building values I show the properties the buildings sit
@@ -42,7 +42,7 @@ retain interactivity and the ability to zoom and pan around.</p>
 representation for value, adding colour brackets for additional reference as values push through emotionally relevant
 brackets, like the $1m barrier. To show change over time we just add a time slider and animate the whole thing.
 To keep things simple and comparable we will focus on single family homes for now.
-<a href="http://www.mountainmath.ca/assessment/split_map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/vanre.gif" style="margin:10px;"></a></p>
+<a href="http://mountainmath.ca/assessment/split_map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/vanre.gif" style="margin:10px;"></a></p>
 
 <p>We build three maps, one showing land and buildings on the same map, one just showing land values and one just showing building
 values. All three can be animated over time.</p>
@@ -59,7 +59,7 @@ will give your GPU a run for it&rsquo;s money. And they are only visible on mode
 on mobile too, but don&rsquo;t try to zoom out. They eat up quite a bit of memory and may crash your mobile browser.</p>
 
 <p>Go test how &ldquo;modern&rdquo; your computer is. It&rsquo;s kind of fun to view the houses in different areas evolve over time. Try out
-the <a href="http://www.mountainmath.ca/assessment/split_map">interactive animations</a> with just the houses or with both, houses and land.</p>
+the <a href="http://mountainmath.ca/assessment/split_map">interactive animations</a> with just the houses or with both, houses and land.</p>
 
 <h3>Local Stories</h3>
 
@@ -201,7 +201,7 @@ business district, and higher property taxes may help to uphold the zoning restr
 properties in close proximity to commercial.</p>
 
 <p>The effect of the unequal tax rates is quite stark
-<a href="http://www.mountainmath.ca/assessment_gl/map">when visualizing taxes collected per area</a>. And this keeps residential
+<a href="http://mountainmath.ca/assessment_gl/map">when visualizing taxes collected per area</a>. And this keeps residential
 property taxes low.</p>
 
 <p>If Vancouver were isolated from everyone else it would not make much of a difference. Stores pass the
@@ -209,8 +209,8 @@ higher property taxes on to residents by charging higher prices, and offices pas
 Things get more complex when Vancouver is seen as part of metro, or Canada or in the world. But that discussion goes into
 a different direction.</p>
 
-<p><a href="http://www.mountainmath.ca/assessment_gl/map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tax_density_mixed_use.png" style="width:50%;float:right;margin-left:10px;"></a>
-On the <a href="http://www.mountainmath.ca/assessment_gl/map">interactive 3D tax density map</a> we can clearly see that the some mixed use properties (in darker red) generate lower total property
+<p><a href="http://mountainmath.ca/assessment_gl/map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/tax_density_mixed_use.png" style="width:50%;float:right;margin-left:10px;"></a>
+On the <a href="http://mountainmath.ca/assessment_gl/map">interactive 3D tax density map</a> we can clearly see that the some mixed use properties (in darker red) generate lower total property
 taxes than comparable pure commercial properties nearby. We will explore this in more detail in the next section.</p>
 
 <p>For Vancouver it is also important to note that commercial leases are generally trip net, in particular the tenant pays

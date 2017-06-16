@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-05-16T18:05:23-07:00</updated>
+  <updated>2017-06-16T13:41:45-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -225,7 +225,7 @@ so in simpler terms &ldquo;not used as primary residence&rdquo;. &ldquo;Occupied
     <link href="http://doodles.mountainmath.ca/blog/2017/03/01/transit-explorer/"/>
     <updated>2017-03-01T12:10:29-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2017/03/01/transit-explorer</id>
-    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/transit/map"><img src="http://doodles.mountainmath.ca/images/transit_vancouver.png" style="width:50%;float:right;margin-left:10px;"></a>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/transit/map"><img src="http://doodles.mountainmath.ca/images/transit_vancouver.png" style="width:50%;float:right;margin-left:10px;"></a>
 I have played with <a href="https://mapzen.com/documentation/mobility/isochrone/api-reference/#isochrone-service-api-reference">Mapzen&rsquo;s Isochrone serivce</a>
 in the past with a simple <a href="http://doodles.mountainmath.ca/blog/2016/11/18/interactive-isochrones/">visualization of walksheds</a>.</p>
 
@@ -308,7 +308,7 @@ when services like the isochrone API by Mapzen become publicly, and freely, avai
     <link href="http://doodles.mountainmath.ca/blog/2017/02/21/more-on-teardowns/"/>
     <updated>2017-02-21T10:59:27-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2017/02/21/more-on-teardowns</id>
-    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/teardowns"><img src="http://doodles.mountainmath.ca/images/teardowns_animated.gif" style="width:50%;float:right;margin-left:10px;"></a>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/teardowns"><img src="http://doodles.mountainmath.ca/images/teardowns_animated.gif" style="width:50%;float:right;margin-left:10px;"></a>
 A little over a year ago we ran some analysis
 <a href="http://doodles.mountainmath.ca/blog/2016/01/18/redevelopment/">on teardowns</a>
 of single family homes in the City of Vancouver. We used the City of Vancouver
@@ -531,7 +531,7 @@ for city in cities.features:
     <link href="http://doodles.mountainmath.ca/blog/2017/01/18/bumper-year-for-thumb-twiddlers/"/>
     <updated>2017-01-18T11:10:43-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2017/01/18/bumper-year-for-thumb-twiddlers</id>
-    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/map/assessment?zoom=12&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img src="http://doodles.mountainmath.ca/images/twiddling_thumbs_2006_2017.png" style="width:50%;float:right;margin-left:10px;"></a>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/assessment?zoom=12&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img src="http://doodles.mountainmath.ca/images/twiddling_thumbs_2006_2017.png" style="width:50%;float:right;margin-left:10px;"></a>
 Almost a year has passed since we first noticed how
 <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">sitting on single family homes and twiddling thumbs generates more income than working</a>.
 And not just at the level of individual single family households. In the
@@ -591,18 +591,18 @@ the gains (or passes them on to the next generation). And it&rsquo;s always good
 
 <h3>The Long Term</h3>
 
-<p><a href="https://www.mountainmath.ca/map/values?filter=sfh&zoom=13&lat=49.2482&lng=-123.1213&layer=25&mapBase=2&year=2016"><img src="http://doodles.mountainmath.ca/images/twiddling_thumbs_animated_2017.gif" style="width:50%;float:left;margin-right:10px;"></a>
+<p><a href="https://mountainmath.ca/map/values?filter=sfh&zoom=13&lat=49.2482&lng=-123.1213&layer=25&mapBase=2&year=2016"><img src="http://doodles.mountainmath.ca/images/twiddling_thumbs_animated_2017.gif" style="width:50%;float:left;margin-right:10px;"></a>
 Most people don&rsquo;t trade houses like stocks, so what really matters is the long term gains, not the year to year changes. The 11 year
 timeframe for which we have data roughly matches the average holding time for a single family house. The year over year
 changes in land value vary dramatically, as the image shows and can be explored further using the
-<a href="https://www.mountainmath.ca/map/values?filter=sfh&amp;zoom=13&amp;lat=49.2482&amp;lng=-123.1213&amp;layer=25&amp;mapBase=2&amp;year=2016">interactive version</a>.</p>
+<a href="https://mountainmath.ca/map/values?filter=sfh&amp;zoom=13&amp;lat=49.2482&amp;lng=-123.1213&amp;layer=25&amp;mapBase=2&amp;year=2016">interactive version</a>.</p>
 
 <p>Over 11 years, the single family home land value quadrupled. The median (nominal) single family home land value increase over that timespan
 was $1,233,000, or $112,000 per year. Broken down further, that&rsquo;s $2,339,000 ($213,000 per year) for the median west side home
 and $1,031,000 ($94,000 per year) for the median east side home.</p>
 
-<p><a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/twiddling_thumbs_2006_2017.png" style="width:50%;float:right;"></a>
-We <a href="https://www.mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12">mapped the land value gain averaged over 11 years</a>.
+<p><a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/twiddling_thumbs_2006_2017.png" style="width:50%;float:right;"></a>
+We <a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12">mapped the land value gain averaged over 11 years</a>.
 We can observe that the average yearly increase depends on the square footage of the property as well as the location. The rates are mostly uniform
 throughout the city (with some notable exceptions), but properties starting out with a higher value will see higher total value
 increases. It&rsquo;s probably fair to say that even using the 11 year average, most homeowners &ldquo;earned&rdquo; more money twiddling thumbs

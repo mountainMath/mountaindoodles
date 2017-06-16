@@ -4,7 +4,7 @@
   <title><![CDATA[Category: mapzen | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/mapzen/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-05-16T18:05:23-07:00</updated>
+  <updated>2017-06-16T13:41:45-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -18,7 +18,7 @@
     <link href="http://doodles.mountainmath.ca/blog/2017/03/01/transit-explorer/"/>
     <updated>2017-03-01T12:10:29-08:00</updated>
     <id>http://doodles.mountainmath.ca/blog/2017/03/01/transit-explorer</id>
-    <content type="html"><![CDATA[<p><a href="https://www.mountainmath.ca/transit/map"><img src="http://doodles.mountainmath.ca/images/transit_vancouver.png" style="width:50%;float:right;margin-left:10px;"></a>
+    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/transit/map"><img src="http://doodles.mountainmath.ca/images/transit_vancouver.png" style="width:50%;float:right;margin-left:10px;"></a>
 I have played with <a href="https://mapzen.com/documentation/mobility/isochrone/api-reference/#isochrone-service-api-reference">Mapzen&rsquo;s Isochrone serivce</a>
 in the past with a simple <a href="http://doodles.mountainmath.ca/blog/2016/11/18/interactive-isochrones/">visualization of walksheds</a>.</p>
 
