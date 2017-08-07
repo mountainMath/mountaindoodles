@@ -4,7 +4,7 @@
   <title><![CDATA[Category: census | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/census/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-08-06T22:27:34-07:00</updated>
+  <updated>2017-08-06T22:31:20-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -60,10 +60,10 @@ I decided to ignore it.</p>
 
 <p>Step one, trying to reproduce the graph in the newspaper, is below with blue bars, with the graph from the newspaper in red bars for reference.</p>
 
-<div class="half-image"><img src="http://doodles.mountainmath.ca/images/millennial_grap_1.png" ><p>News Story</p></div>
+<div class="half-image"><a href="http://doodles.mountainmath.ca/images/millennial_grap_1.png"><img src="http://doodles.mountainmath.ca/images/millennial_grap_1.png" ><p>News Story</p></a></div>
 
 
-<div class="half-image"><img src="http://doodles.mountainmath.ca/images/millennial_grap_2.png" ><p>Actual Data</p></div>
+<div class="half-image"><a href="http://doodles.mountainmath.ca/images/millennial_grap_2.png"><img src="http://doodles.mountainmath.ca/images/millennial_grap_2.png" ><p>Actual Data</p></a></div>
 
 
 <p>There is definitely a correspondence between the graphs, but the numbers don&rsquo;t quite match up. I have no idea how the &ldquo;UEL&rdquo; numbers were derived for
@@ -84,7 +84,7 @@ in the population did not change. For this story, this is clearly a very poor ch
 
 <p>As a first approximation to understanding where that age cohort settles in 2016 compared to 1996 one can look at the respectives shares of the
 population in those age cohorts. The only problem, the pretext of the story goes away when one represents the data in this way.
-<img  src="http://doodles.mountainmath.ca/images/millennial_grap_3.png" style="width:50%;float:right;margin-left:10px;"></p>
+<a href="http://doodles.mountainmath.ca/images/millennial_grap_3.png"><img  src="http://doodles.mountainmath.ca/images/millennial_grap_3.png" style="width:50%;float:right;margin-left:10px;"></a></p>
 
 <p>What stands out is that the share of 25-39 year olds dropped in all areas. Some of that is just part of the
 changing makeup of the population in general. And
