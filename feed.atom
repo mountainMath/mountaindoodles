@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-06-16T13:51:51-07:00</updated>
+  <updated>2017-08-06T22:27:34-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,100 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Millennials Redux]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/08/06/millennials-redux/"/>
+    <updated>2017-08-06T20:54:48-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/08/06/millennials-redux</id>
+    <content type="html"><![CDATA[<p>Catching up with my local news reading last night I stumbled about another
+<a href="https://beta.theglobeandmail.com/real-estate/vancouver/priced-out-of-downtown-vancouver-millennials-are-building-hipsturbia/article35884038/">new report on millennials</a>.</p>
+
+<p>The notion that millennials are fleeing Vancouver is a recurring theme in the Vancouver press, and we have addressed
+some of the <a href="http://doodles.mountainmath.ca/blog/2017/05/16/lifeblood/">problems in the data used to support that claim before</a>.</p>
+
+<p>Sadly, this new article&rsquo;s use of data is no less problematic, and the topic, as well as the data misrepresentations, are serious enough that
+I felt they need addressing so as not do distract from the actual real problems that millennials are facing. Problems that are quite
+different from those the 25 to 39 year old age cohort was facing 20 years ago. Groups like Generation Squeeze
+have done a good job nailing some of that down in the data.</p>
+
+<h3>The Data Rabbit Hole Trap</h3>
+
+<p>To the data-minded person reading the article there are a number of red flags that go off throughout. Many of these can
+be attributed to today&rsquo;s typical data-adverse journalism, but typically the actual hard numbers in the article hold up and are just
+misrepresented to varying degrees. What got me stumbling in this article was the data chart at the bottom claiming that the 25 to 39 year old age cohort
+in the &ldquo;UEL&rdquo; grew by 5% between 1996 and 2016. The UEL of course is a quasi-municipality that sits wedged between the City of Vancouver and UBC,
+but many people less attuned to data and administrative details use the term to refer to various portions of the region west of the Pacific Spirit Park,
+sometimes including &ldquo;Little Australia&rdquo; which is west of the Park but an actual part of the UEL and sometimes excluding it.</p>
+
+<p>I took it to mean some version of UEL and UBC/UNA combined, and the 5% number looked suspicious to me. The population in that area more than tripled
+during that period, one would expect the change in that age cohort to be much larger. So I started to dig into the numbers.</p>
+
+<p>The first step was to look up the numbers for the City of Vancouver since there are no issues with administrative boundaries between 1996 and 2016,
+just to make sure that the data was labelled correctly and it was really representing the percentage change in the number of millennials between 1996 and 2016.
+But the number I got was different from the one in the article. The article lists a 10% increase, I calculated an 11% increase. 11.2% to be precise, so
+there was no chance that this was a rounding issue.</p>
+
+<p>And the data rabbit hole opens up, sucks me in and the trap closes.</p>
+
+<h3>The Data</h3>
+
+<p>The data is, for the most part, reasonably straight forward. I just grabbed the 1996 count og 25 to 39 year olds, then the 2016 counts and compared them.
+One problem is boundary changes. Administrative boundaries don&rsquo;t stay fixed. And boundary changes don&rsquo;t always show up when just looking at non-geographic
+data, names or even the uniqe geographic identifiers don&rsquo;t necessarily change when census boundaries change. Looking that the geographic data for both
+censuses one immediately notices that the UEL/UBC/UNA area changed a lot (and also got new geographic identifiers), and Coquitlam changed too.
+That complicates things a little, the UEL/UBC/UNA part is easy enough to deal with. In 1996 that area was called the &ldquo;University Endowment Area&rdquo;, in 2016
+that same area can be obtained by adding to census tracts. Coquitlam is a little trickier and I wasn&rsquo;t interested enough in figuring out the details so
+I decided to ignore it.</p>
+
+<p>Step one, trying to reproduce the graph in the newspaper, is below with blue bars, with the graph from the newspaper in red bars for reference.</p>
+
+<div class="half-image"><img src="http://doodles.mountainmath.ca/images/millennial_grap_1.png" ><p>News Story</p></div>
+
+
+<div class="half-image"><img src="http://doodles.mountainmath.ca/images/millennial_grap_2.png" ><p>Actual Data</p></div>
+
+
+<p>There is definitely a correspondence between the graphs, but the numbers don&rsquo;t quite match up. I have no idea how the &ldquo;UEL&rdquo; numbers were derived for
+the article, and I can&rsquo;t explain the difference. But I have an explanation for the difference in the other municipality&rsquo;s numbers. The difference in results
+suggests that a larger denominator was used, and indeed the numbers match up perfectly if I were to divide the difference of population in the 25-39 year
+old cohort by the 2016 number instead of the 1996 number. An embarrassing data mistake to be sure, but nothing out of the ordinary for today&rsquo;s
+news stories.</p>
+
+<p>I can&rsquo;t explain why Surrey, the city with the largest gain in Millennials, was dropped from the data used for the story.</p>
+
+<h3>Data Representation</h3>
+
+<p>But these data problems are really only a side show to the real issue.
+The most important question is what data to use for what purpose. The article chose to use the change in the total number of millennials
+to support the notion that millennials are leaving the City of Vancouver for some of the more outlying regions. The obvious issue with that
+is that that measure is confounded by population growth. If the population is growing, so will the number of millennials, even if the share of millennials
+in the population did not change. For this story, this is clearly a very poor choice of data representation.</p>
+
+<p>As a first approximation to understanding where that age cohort settles in 2016 compared to 1996 one can look at the respectives shares of the
+population in those age cohorts. The only problem, the pretext of the story goes away when one represents the data in this way.
+<img  src="http://doodles.mountainmath.ca/images/millennial_grap_3.png" style="width:50%;float:right;margin-left:10px;"></p>
+
+<p>What stands out is that the share of 25-39 year olds dropped in all areas. Some of that is just part of the
+changing makeup of the population in general. And
+one sees that the City of Vancouver not only has the highest share of 25-39 year olds, it also experienced the lowest drop.</p>
+
+<h3>Framing of the data</h3>
+
+<p>The other part of the story that irks me is the deep confusion and free mixing of two different concepts. One is that of migration, that is
+(the same) people moving from one area to another over some time period. The other is that of the number or share of (different)
+people in a secific age cohort at two distinct points in time. Nathan Lauster has added some very
+<a href="https://homefreesociology.wordpress.com/2016/02/12/is-the-lifeblood-of-vancouver-leaving/">good analysis</a> to this topic, and has
+followed up with a series of blog posts. And this was picked up in various news articles too.</p>
+
+<p>This article not only lacks appreciation for this important distincion by talking about a &ldquo;migration&rdquo; when really comparing age cohorts, but
+it takes it to the next level by talking about &ldquo;millennials&rdquo; as being 25-39 year old in 1996 (as well as in 2016), which is
+comically absurd.</p>
+
+<p>Not sure what to make of the authors assertion that BC Assessment is in the business of enumerating 25 to 39 year olds between 1996 and 2016,
+I wonder how people get stuff like this past their editors.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Lifeblood]]></title>
@@ -3009,157 +3103,6 @@ to the 2010 ratio. What may have been &lsquo;barely affordable&rsquo; in 2010 is
 <p>So we used the detailed income data available for 2010 to get very good understanding of the affordability situation in 2010.
 Then we used regional income trends to extrapolate that data to 2015 and matched it with 2015 housing data to get more up-to-date
 estimates. This is generally an effective method that yields good results.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Quick Guide to Income Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/08/31/incomes/"/>
-    <updated>2016-08-31T09:17:12-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/08/31/incomes</id>
-    <content type="html"><![CDATA[<p>The news media has an extraordinarily difficult time with income data. And that&rsquo;s only partially the media&rsquo;s fault.
-In general, income data is a funny beast. So I decided to give a quick overview over income data that&rsquo;s available through
-Statistics Canada. To make things a little more concrete I focused on Vancouver as an example, but everything applies
-equally well to any other area in Canada.</p>
-
-<p>Most journalists I talked to care about accurate and relevant statements. If that&rsquo;s you, you will need to keep reading
-and dive down the slightly wonkish income rabbit hole.</p>
-
-<p>For those that don&rsquo;t really care, I made a
-<em>quotable random income generator</em>. Just hit the &ldquo;generate&rdquo; button copy &amp; paste the result and link this post as source.
-(Use at own risk!)</p>
-
-<!-- more -->
-
-
-
-
-<div class='income-generator'>
-    <div class='income-choices'>
-        <div class="geo"></div>
-        <div class="med_av"></div>
-        <div class="tax"></div>
-        <div class="hh"></div>
-        <div> income is </div>
-        <div class="income"></div>
-    </div>
-    <a class="btn btn-default" style="background:orange;">Click to Generate Random Income Numbers</a>
-</div>
-
-
-<p>The income numbers don&rsquo;t fit the story? No problem, just play again until you get something you like!</p>
-
-<h3>Geographic Regions</h3>
-
-<p>The first thing to do when quoting income numbers of any sort is to decide what region to use. Seems straight forward
-enough, but in reality <a href="https://twitter.com/vb_jens/status/744407354867736576">hardly ever done</a>. In the Vancouver
-context, it simply comes down to deciding if one wants to
-report on income for the City of Vancouver or Metro Vancouver. Both are frequently referred to as just &ldquo;Vancouver&rdquo;. Which
-is just fine as long as it is clear from the context which region we are talking about. And more importantly, whatever
-the income is compared to (e.g. housing price data) are taken for the same region.</p>
-
-<h3>Base Demographics</h3>
-
-<p>Next we have to choose a base demographic we are interested in, choose which income distribution is relevant for our context.
-In some cases this choice is obvious. If we are writing a story on lone parents in the City of Vancouver, we would want
-to look at the income distribution of lone parent households. If we are looking at the development of wages, we should
-consider individual incomes. For a story on consumer spending we may want to look at after-tax income.</p>
-
-<p>We may also be interested in specific type of income, for example only in investment income. Or the net capital gains
-and losses. Or pension benefits. Or self-employment income.</p>
-
-<h3>Statistic</h3>
-
-<p>Often we would like to distill everything down to a single number. Typically we would choose the average or median
-income from the distribution we are interested in, but we may also choose other statistics, for example the top quintile.
-Which one we choose really depends on the story. As a rule of thumb, choose median incomes if you are interested in the
-&lsquo;typical&rsquo; person or household. Choose average income if you are interested in the questions relating to the total amount
-of money earned in a given area. Income quantiles are great to focus in on certain subgroups of the population.</p>
-
-<h3>Availability</h3>
-
-<p>Generally we also have to consider the availability of information. The census has very detailed income data in their
-standard release that allow us to be very specific about what kind of incomes we are interested in. And if that&rsquo;s not
-enough we can make a special request to StatsCan to narrow the incomes down to a group we are interested in, for example incomes
-of renter households as was done in the <a href="http://rentalhousingindex.ca">rental housing index</a>.</p>
-
-<p>Annual income data is available from CANSIM (Statistics Canada&rsquo;s socioeconomic database), but the geography is coarser
-than in the census. Generally we can only
-expect to get annual data for the whole country, provinces, census metropolitan areas, but not census
-subdivisions (municipalities) or finer geographies.</p>
-
-<h3>Sources and Comparability</h3>
-
-<p>All income data eventually come down to CRA taxfiler data. But the devil is in the details. For the 2006 and 2011
-censuses, there was a mixture between self-reporting and cross-referencing of individual level income data with CRA data.
-And even self-reported data would again undergo quality control and get somewhat adjusted according to CRA data.</p>
-
-<p>But there are important differences in the data, both on what kind of income is included and also what people are included.</p>
-
-<p>The details are endless, many of them won&rsquo;t matter. Here are a couple to look out for:</p>
-
-<ul>
-<li>CANSIM is a comprehensive sample, census data is roughly a 1 in 5 subsample which may lead to sampling bias especially
-in small geographies.</li>
-<li>CENSUS data is sensitive to non-return bias. Not just no-return bias introduced by the NHS, but also by census undercounts
-which, for example, were in the 10% range for the 25 to 29 year old demographic in both the 2006 and 2011 censuses.</li>
-<li>CANSIM and the Census have different denominators for reporting average or median incomes. CANSIM reports on all
-T1 taxfilers, as well as various family types. Some data can be broken out into age groups at
-the 15 and 65 year cutoffs,
-whereas Census reports only on people (15 or older) (or families or households) in &ldquo;private households&rdquo; with income greater
-than zero.</li>
-<li>the definition of &ldquo;private household&rdquo; changed between 2006 and 2011 censuses.</li>
-<li>2011 and 2006 censuses differ slightly in what is included as income, for example
-<a href="http://www12.statcan.gc.ca/census-recensement/2006/ref/dict/pop123-eng.cfm">2006 included RRSP withdrawls</a>,
-<a href="https://www12.statcan.gc.ca/nhs-enm/2011/ref/dict/pop123-eng.cfm">2011 didn&rsquo;t</a> (both include pensions and RRIFs).
-2011 includes net capital gains and losses as a percentage of total income in a separate category, 2006 did not
-include any information on capital gains.</li>
-</ul>
-
-
-<p>So even when comparing CANSIM income data to census income data for the appropriate year we should expect some differences.
-Or comparing 2006 to 2011 income, even if hypothetically an area had identical tax returns, we would still see differences.
-Generally speaking, CANSIM average and median income estimates are lower than census estimates as it includes a larger pool
-of people that are likely to have lower income.</p>
-
-<h3>Where to get the goods?</h3>
-
-<p><img  src="http://doodles.mountainmath.ca/images/yvr_income.png" style="width:50%;float:right;margin-left:10px;">
-The latest census income numbers are available via <a href="https://www12.statcan.gc.ca/nhs-enm/2011/dp-pd/prof/index.cfm">Statistics Canada</a>.
-I am biased and prefer the <a href="https://censusmapper.ca/maps/467">CensusMapper</a> interface. For 2011 data, choose any
-2011 CensusMapper map, select the geographic
-region you are interested in and press the &ldquo;more&rdquo; button on the popup to bring up the &ldquo;census wheel&rdquo;. Then drill into the
-&ldquo;income&rdquo; section, the last NHS variable in the widget.</p>
-
-<p>CANSIM has annual data based on taxfiler information for coarser geographies. So you won&rsquo;t be able to get data for the City of Vancouver
-or neighbourhoods within the city like with census data, but you can get data for Metro Vancouver. And you can get it for
-more recent years. Things get complex very fast there are
-<a href="http://www5.statcan.gc.ca/cansim/a33?themeID=3868&amp;spMode=tables&amp;chunkSize=213">213 CANSIM tables with income data</a></p>
-
-<p>At CensusMapper we are still firmly planning integrate CANSIM data into the CensusMapper interface, but their API refresh got pushed back
-to sometime 2018 and we can&rsquo;t justify the extra resources to integrate CANSIM data temporarily using the old API just
-to switch it over a year later.</p>
-
-<h3>Too Abstract?</h3>
-
-<p>Want to see how this works on an example? Just read the
-<a href="http://doodles.mountainmath.ca/blog/2016/09/14/measuring-housing-affordability/">next post on using income data for housing affordability</a>.</p>
-
-<script>
-var geoData=['City of Vancouver','Metro Vancouver'];
-var med_avData=['median','average'];
-var taxData=['pre-tax','after-tax'];
-var hhData=['individual','household','family','family with children'];
-$('.income-generator .btn').on('click',function(e){
-     $('.income-generator').addClass('active');
-     $('.income-choices .geo').text(geoData[Math.round(Math.random())]);
-     $('.income-choices .med_av').text(med_avData[Math.round(Math.random())]);
-     $('.income-choices .tax').text(taxData[Math.round(Math.random())]);
-     $('.income-choices .hh').text(hhData[Math.round(3.9999*Math.random()-0.5)]);
-     $('.income-choices .income').text('$' + Math.round(80*Math.random()+40)+',000');
-});
-</script>
-
 ]]></content>
   </entry>
   

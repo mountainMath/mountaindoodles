@@ -9,9 +9,8 @@
   <meta name="author" content="MountainMath">
 
   
-  <meta name="description" content="Ever since that Bloomberg article whose claims nobody could reproduce,
-where the author refused to disclose what data was used, but that
-got &hellip;">
+  <meta name="description" content="Catching up with my local news reading last night I stumbled about another
+new report on millennials. The notion that millennials are fleeing &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +79,129 @@ got &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/08/06/millennials-redux/">Millennials Redux</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-08-06T20:54:48-07:00" pubdate data-updated="true"></time>
+        
+         | <a href="/blog/2017/08/06/millennials-redux/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Catching up with my local news reading last night I stumbled about another
+<a href="https://beta.theglobeandmail.com/real-estate/vancouver/priced-out-of-downtown-vancouver-millennials-are-building-hipsturbia/article35884038/">new report on millennials</a>.</p>
+
+<p>The notion that millennials are fleeing Vancouver is a recurring theme in the Vancouver press, and we have addressed
+some of the <a href="http://doodles.mountainmath.ca/blog/2017/05/16/lifeblood/">problems in the data used to support that claim before</a>.</p>
+
+<p>Sadly, this new article&rsquo;s use of data is no less problematic, and the topic, as well as the data misrepresentations, are serious enough that
+I felt they need addressing so as not do distract from the actual real problems that millennials are facing. Problems that are quite
+different from those the 25 to 39 year old age cohort was facing 20 years ago. Groups like Generation Squeeze
+have done a good job nailing some of that down in the data.</p>
+
+<h3>The Data Rabbit Hole Trap</h3>
+
+<p>To the data-minded person reading the article there are a number of red flags that go off throughout. Many of these can
+be attributed to today&rsquo;s typical data-adverse journalism, but typically the actual hard numbers in the article hold up and are just
+misrepresented to varying degrees. What got me stumbling in this article was the data chart at the bottom claiming that the 25 to 39 year old age cohort
+in the &ldquo;UEL&rdquo; grew by 5% between 1996 and 2016. The UEL of course is a quasi-municipality that sits wedged between the City of Vancouver and UBC,
+but many people less attuned to data and administrative details use the term to refer to various portions of the region west of the Pacific Spirit Park,
+sometimes including &ldquo;Little Australia&rdquo; which is west of the Park but an actual part of the UEL and sometimes excluding it.</p>
+
+<p>I took it to mean some version of UEL and UBC/UNA combined, and the 5% number looked suspicious to me. The population in that area more than tripled
+during that period, one would expect the change in that age cohort to be much larger. So I started to dig into the numbers.</p>
+
+<p>The first step was to look up the numbers for the City of Vancouver since there are no issues with administrative boundaries between 1996 and 2016,
+just to make sure that the data was labelled correctly and it was really representing the percentage change in the number of millennials between 1996 and 2016.
+But the number I got was different from the one in the article. The article lists a 10% increase, I calculated an 11% increase. 11.2% to be precise, so
+there was no chance that this was a rounding issue.</p>
+
+<p>And the data rabbit hole opens up, sucks me in and the trap closes.</p>
+
+<h3>The Data</h3>
+
+<p>The data is, for the most part, reasonably straight forward. I just grabbed the 1996 count og 25 to 39 year olds, then the 2016 counts and compared them.
+One problem is boundary changes. Administrative boundaries don&rsquo;t stay fixed. And boundary changes don&rsquo;t always show up when just looking at non-geographic
+data, names or even the uniqe geographic identifiers don&rsquo;t necessarily change when census boundaries change. Looking that the geographic data for both
+censuses one immediately notices that the UEL/UBC/UNA area changed a lot (and also got new geographic identifiers), and Coquitlam changed too.
+That complicates things a little, the UEL/UBC/UNA part is easy enough to deal with. In 1996 that area was called the &ldquo;University Endowment Area&rdquo;, in 2016
+that same area can be obtained by adding to census tracts. Coquitlam is a little trickier and I wasn&rsquo;t interested enough in figuring out the details so
+I decided to ignore it.</p>
+
+<p>Step one, trying to reproduce the graph in the newspaper, is below with blue bars, with the graph from the newspaper in red bars for reference.</p>
+
+<div class="half-image"><img src="/images/millennial_grap_1.png" ><p>News Story</p></div>
+
+
+<div class="half-image"><img src="/images/millennial_grap_2.png" ><p>Actual Data</p></div>
+
+
+<p>There is definitely a correspondence between the graphs, but the numbers don&rsquo;t quite match up. I have no idea how the &ldquo;UEL&rdquo; numbers were derived for
+the article, and I can&rsquo;t explain the difference. But I have an explanation for the difference in the other municipality&rsquo;s numbers. The difference in results
+suggests that a larger denominator was used, and indeed the numbers match up perfectly if I were to divide the difference of population in the 25-39 year
+old cohort by the 2016 number instead of the 1996 number. An embarrassing data mistake to be sure, but nothing out of the ordinary for today&rsquo;s
+news stories.</p>
+
+<p>I can&rsquo;t explain why Surrey, the city with the largest gain in Millennials, was dropped from the data used for the story.</p>
+
+<h3>Data Representation</h3>
+
+<p>But these data problems are really only a side show to the real issue.
+The most important question is what data to use for what purpose. The article chose to use the change in the total number of millennials
+to support the notion that millennials are leaving the City of Vancouver for some of the more outlying regions. The obvious issue with that
+is that that measure is confounded by population growth. If the population is growing, so will the number of millennials, even if the share of millennials
+in the population did not change. For this story, this is clearly a very poor choice of data representation.</p>
+
+<p>As a first approximation to understanding where that age cohort settles in 2016 compared to 1996 one can look at the respectives shares of the
+population in those age cohorts. The only problem, the pretext of the story goes away when one represents the data in this way.
+<img  src="/images/millennial_grap_3.png" style="width:50%;float:right;margin-left:10px;"></p>
+
+<p>What stands out is that the share of 25-39 year olds dropped in all areas. Some of that is just part of the
+changing makeup of the population in general. And
+one sees that the City of Vancouver not only has the highest share of 25-39 year olds, it also experienced the lowest drop.</p>
+
+<h3>Framing of the data</h3>
+
+<p>The other part of the story that irks me is the deep confusion and free mixing of two different concepts. One is that of migration, that is
+(the same) people moving from one area to another over some time period. The other is that of the number or share of (different)
+people in a secific age cohort at two distinct points in time. Nathan Lauster has added some very
+<a href="https://homefreesociology.wordpress.com/2016/02/12/is-the-lifeblood-of-vancouver-leaving/">good analysis</a> to this topic, and has
+followed up with a series of blog posts. And this was picked up in various news articles too.</p>
+
+<p>This article not only lacks appreciation for this important distincion by talking about a &ldquo;migration&rdquo; when really comparing age cohorts, but
+it takes it to the next level by talking about &ldquo;millennials&rdquo; as being 25-39 year old in 1996 (as well as in 2016), which is
+comically absurd.</p>
+
+<p>Not sure what to make of the authors assertion that BC Assessment is in the business of enumerating 25 to 39 year olds between 1996 and 2016,
+I wonder how people get stuff like this past their editors.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -592,60 +714,6 @@ the more outlying areas display very differnet patterns.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2017/01/18/bumper-year-for-thumb-twiddlers/">Bumper Year for Thumb Twiddlers</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2017-01-18T11:10:43-08:00" pubdate data-updated="true"></time>
-        
-         | <a href="/blog/2017/01/18/bumper-year-for-thumb-twiddlers/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="https://mountainmath.ca/map/assessment?zoom=12&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img src="/images/twiddling_thumbs_2006_2017.png" style="width:50%;float:right;margin-left:10px;"></a>
-Almost a year has passed since we first noticed how
-<a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">sitting on single family homes and twiddling thumbs generates more income than working</a>.
-And not just at the level of individual single family households. In the
-City of Vancouver, the cumulative
-land value gains of just the single family homes eclipsed the cumulative taxable earnings
-reported to the CRA for the entire population.</p>
-
-<p>With the new assessment data available now, it is time to run the numbers
-and see how our thumb-twiddlers fared vs workers this year. If you thought
-last year&rsquo;s twiddling thumbs returns were crazy high, you better hold onto
-your hats!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2017/01/18/bumper-year-for-thumb-twiddlers/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -659,6 +727,10 @@ your hats!</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2017/08/06/millennials-redux/">Millennials Redux</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2017/05/16/lifeblood/">Lifeblood</a>
@@ -694,10 +766,6 @@ your hats!</p>
     
       <li class="post">
         <a href="/blog/2017/01/25/jane-jacobs-vancouver/">Jane Jacobs&#8217; Vancouver</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2017/01/18/bumper-year-for-thumb-twiddlers/">Bumper Year for Thumb Twiddlers</a>
       </li>
     
   </ul>

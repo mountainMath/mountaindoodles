@@ -4,7 +4,7 @@
   <title><![CDATA[Category: censusmapper | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/censusmapper/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-06-16T13:51:51-07:00</updated>
+  <updated>2017-08-06T22:27:34-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,100 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Millennials Redux]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/08/06/millennials-redux/"/>
+    <updated>2017-08-06T20:54:48-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/08/06/millennials-redux</id>
+    <content type="html"><![CDATA[<p>Catching up with my local news reading last night I stumbled about another
+<a href="https://beta.theglobeandmail.com/real-estate/vancouver/priced-out-of-downtown-vancouver-millennials-are-building-hipsturbia/article35884038/">new report on millennials</a>.</p>
+
+<p>The notion that millennials are fleeing Vancouver is a recurring theme in the Vancouver press, and we have addressed
+some of the <a href="http://doodles.mountainmath.ca/blog/2017/05/16/lifeblood/">problems in the data used to support that claim before</a>.</p>
+
+<p>Sadly, this new article&rsquo;s use of data is no less problematic, and the topic, as well as the data misrepresentations, are serious enough that
+I felt they need addressing so as not do distract from the actual real problems that millennials are facing. Problems that are quite
+different from those the 25 to 39 year old age cohort was facing 20 years ago. Groups like Generation Squeeze
+have done a good job nailing some of that down in the data.</p>
+
+<h3>The Data Rabbit Hole Trap</h3>
+
+<p>To the data-minded person reading the article there are a number of red flags that go off throughout. Many of these can
+be attributed to today&rsquo;s typical data-adverse journalism, but typically the actual hard numbers in the article hold up and are just
+misrepresented to varying degrees. What got me stumbling in this article was the data chart at the bottom claiming that the 25 to 39 year old age cohort
+in the &ldquo;UEL&rdquo; grew by 5% between 1996 and 2016. The UEL of course is a quasi-municipality that sits wedged between the City of Vancouver and UBC,
+but many people less attuned to data and administrative details use the term to refer to various portions of the region west of the Pacific Spirit Park,
+sometimes including &ldquo;Little Australia&rdquo; which is west of the Park but an actual part of the UEL and sometimes excluding it.</p>
+
+<p>I took it to mean some version of UEL and UBC/UNA combined, and the 5% number looked suspicious to me. The population in that area more than tripled
+during that period, one would expect the change in that age cohort to be much larger. So I started to dig into the numbers.</p>
+
+<p>The first step was to look up the numbers for the City of Vancouver since there are no issues with administrative boundaries between 1996 and 2016,
+just to make sure that the data was labelled correctly and it was really representing the percentage change in the number of millennials between 1996 and 2016.
+But the number I got was different from the one in the article. The article lists a 10% increase, I calculated an 11% increase. 11.2% to be precise, so
+there was no chance that this was a rounding issue.</p>
+
+<p>And the data rabbit hole opens up, sucks me in and the trap closes.</p>
+
+<h3>The Data</h3>
+
+<p>The data is, for the most part, reasonably straight forward. I just grabbed the 1996 count og 25 to 39 year olds, then the 2016 counts and compared them.
+One problem is boundary changes. Administrative boundaries don&rsquo;t stay fixed. And boundary changes don&rsquo;t always show up when just looking at non-geographic
+data, names or even the uniqe geographic identifiers don&rsquo;t necessarily change when census boundaries change. Looking that the geographic data for both
+censuses one immediately notices that the UEL/UBC/UNA area changed a lot (and also got new geographic identifiers), and Coquitlam changed too.
+That complicates things a little, the UEL/UBC/UNA part is easy enough to deal with. In 1996 that area was called the &ldquo;University Endowment Area&rdquo;, in 2016
+that same area can be obtained by adding to census tracts. Coquitlam is a little trickier and I wasn&rsquo;t interested enough in figuring out the details so
+I decided to ignore it.</p>
+
+<p>Step one, trying to reproduce the graph in the newspaper, is below with blue bars, with the graph from the newspaper in red bars for reference.</p>
+
+<div class="half-image"><img src="http://doodles.mountainmath.ca/images/millennial_grap_1.png" ><p>News Story</p></div>
+
+
+<div class="half-image"><img src="http://doodles.mountainmath.ca/images/millennial_grap_2.png" ><p>Actual Data</p></div>
+
+
+<p>There is definitely a correspondence between the graphs, but the numbers don&rsquo;t quite match up. I have no idea how the &ldquo;UEL&rdquo; numbers were derived for
+the article, and I can&rsquo;t explain the difference. But I have an explanation for the difference in the other municipality&rsquo;s numbers. The difference in results
+suggests that a larger denominator was used, and indeed the numbers match up perfectly if I were to divide the difference of population in the 25-39 year
+old cohort by the 2016 number instead of the 1996 number. An embarrassing data mistake to be sure, but nothing out of the ordinary for today&rsquo;s
+news stories.</p>
+
+<p>I can&rsquo;t explain why Surrey, the city with the largest gain in Millennials, was dropped from the data used for the story.</p>
+
+<h3>Data Representation</h3>
+
+<p>But these data problems are really only a side show to the real issue.
+The most important question is what data to use for what purpose. The article chose to use the change in the total number of millennials
+to support the notion that millennials are leaving the City of Vancouver for some of the more outlying regions. The obvious issue with that
+is that that measure is confounded by population growth. If the population is growing, so will the number of millennials, even if the share of millennials
+in the population did not change. For this story, this is clearly a very poor choice of data representation.</p>
+
+<p>As a first approximation to understanding where that age cohort settles in 2016 compared to 1996 one can look at the respectives shares of the
+population in those age cohorts. The only problem, the pretext of the story goes away when one represents the data in this way.
+<img  src="http://doodles.mountainmath.ca/images/millennial_grap_3.png" style="width:50%;float:right;margin-left:10px;"></p>
+
+<p>What stands out is that the share of 25-39 year olds dropped in all areas. Some of that is just part of the
+changing makeup of the population in general. And
+one sees that the City of Vancouver not only has the highest share of 25-39 year olds, it also experienced the lowest drop.</p>
+
+<h3>Framing of the data</h3>
+
+<p>The other part of the story that irks me is the deep confusion and free mixing of two different concepts. One is that of migration, that is
+(the same) people moving from one area to another over some time period. The other is that of the number or share of (different)
+people in a secific age cohort at two distinct points in time. Nathan Lauster has added some very
+<a href="https://homefreesociology.wordpress.com/2016/02/12/is-the-lifeblood-of-vancouver-leaving/">good analysis</a> to this topic, and has
+followed up with a series of blog posts. And this was picked up in various news articles too.</p>
+
+<p>This article not only lacks appreciation for this important distincion by talking about a &ldquo;migration&rdquo; when really comparing age cohorts, but
+it takes it to the next level by talking about &ldquo;millennials&rdquo; as being 25-39 year old in 1996 (as well as in 2016), which is
+comically absurd.</p>
+
+<p>Not sure what to make of the authors assertion that BC Assessment is in the business of enumerating 25 to 39 year olds between 1996 and 2016,
+I wonder how people get stuff like this past their editors.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Lifeblood]]></title>
@@ -581,184 +675,6 @@ sampling/enumeration issues.</p>
 <li><a href="https://censusmapper.ca/maps/596">Components of Population Change</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2016 Census Data - Part 1]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2017/02/10/2016-census-data/"/>
-    <updated>2017-02-10T20:27:10-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2017/02/10/2016-census-data</id>
-    <content type="html"><![CDATA[<p><a href="https://censusmapper.ca/maps/583"><img src="http://doodles.mountainmath.ca/images/van_pop_change.png" style="width:50%;float:right;margin-left:10px;"></a>
-Finally the first batch of 2016 census data has arrived on Tuesday AM and
-CensusMapper was updated with the new census numbers by mid-morning.</p>
-
-<p>Dissemination Block data was a little harder to find, but with the help
-of some friendly StatCan people I finally managed to locate the data and
-add that too this afternoon.</p>
-
-<p>Time for writing up some observations. I am hoping to find time to do
-this regularly as more data gets released.</p>
-
-<!-- more -->
-
-
-<p>The first batch of data only comes with three variables: Population, dwellings and households.
-And two more, a data quality flag indicating areas with incomplete enumeration and the area of
-each geographic region. Area itself is more tricky than it seems at first, one has
-to make decisions what to count. Lakes? Rivers? National or Regional Parks?</p>
-
-<p>Next to these variables, we also got the corresponding 2011 population for all geographic
-regions at the CT/CSD level and above to aid the comparison, but these
-were not available at the DA or DB level.</p>
-
-<p>The variables seem straight forward, but nothing is simple when it comes to big projects like a census,
-so it might we worthwhile to spend a little bit of time looking at them.</p>
-
-<h3>Population</h3>
-
-<p><a href="https://censusmapper.ca/maps/591"><img src="http://doodles.mountainmath.ca/images/van_pop_density.png" style="width:50%;float:right;margin-left:10px;"></a>
-The quintessential census variable counts the number of people in each census region. With the exception
-of people that have a primary residence elsewhere in Canada or abroad. There are several reasons for this,
-the simples one is to avoid the double-counting of people.</p>
-
-<h3>Dwellings</h3>
-
-<p>&ldquo;Dwellings&rdquo; is short for &ldquo;private dwellings&rdquo;, this does not count collective dwellings
-like prisons, student dorms, hospitals or nursery homes or even some coops. This can lead
-to interesting situation where there are zero private dwellings (and zero households) but non-zero population.
-Metro Vancouver has 45 such dissemination blocks. But these people are
-only counted if they don&rsquo;t have a primary residence somewhere else, which
-often is the case for students in dorms. But not for all students, as the
-Dissemination Block on UBC campus that&rsquo;s wedged between NW Marine, University,
-Lower Mall and Agronomy shows.
-It has zero dwellings, zero households, but a population of 890 people.</p>
-
-<h3>Households</h3>
-
-<p>The &ldquo;dwellings, occupied by usual residents&rdquo; is also called &ldquo;households&rdquo;. It
-refers to a private dwelling that is used as a primary residence, and the inhabitants
-make up a household. If inhabitants of a dwelling only live there temporarily and/or has
-a primary residence somewhere else in Canada or abroad, then they are not
-counted in the population nor the household counts.</p>
-
-<h3>Unoccupied Dwellings</h3>
-
-<p><a href="https://censusmapper.ca/maps/584"><img src="http://doodles.mountainmath.ca/images/van_unoccupied.png" style="width:50%;float:left;margin-right:10px;"></a>
-The difference between dwellings and households is &ldquo;dwellings, not occupied by usual residents&rdquo;. Essentially, that&rsquo;s
-dwellings that are not used as primary residences. It&rsquo;s a fun variable to look at, and it
-is available at the very fine Census Block level. In some cases, a Census Block can contain just one apartment building.</p>
-
-<h3>Mixing Variables</h3>
-
-<p>The fun starts when we mix these variables. And compare them to the previous
-censuses. And there are lots of ways to do that, here are a few:</p>
-
-<h4>Population Change</h4>
-
-<p><a href="https://censusmapper.ca/maps/583"><img src="http://doodles.mountainmath.ca/images/van_pop_change.png" style="width:50%;float:right;margin-left:10px;"></a>
-The most immediate variable to look at is population change. We have
-complete Canada-wide data at the CT level or above, but if we are really
-interested we can also view this data for DAs and DBs that stayed the same
-across the census years. The issue with doing that is that some regions will have
-not data, and one has to be very careful not to read too much into an incomplete
-dataset. Which is why I usually don&rsquo;t like giving out maps that contain incomplete data like this.
-But this is great for diving into specific regions to get more information.</p>
-
-<h4>Dwelling Change</h4>
-
-<p><a href="https://censusmapper.ca/maps/588"><img src="http://doodles.mountainmath.ca/images/van_dw_change.png" style="width:50%;float:left;margin-right:10px;"></a>
-This is a great way to see where more dwellings got built. This only measures
-net changes, so even if a region shows zero dwelling increase, there could have
-been quite a bit of construction in the area. In particular, if houses with secondary
-suites get torn down and replaced by houses without secondary suites, it will
-show up as a decline in the number of dwelling units.</p>
-
-<h4>Non-primary residence dwellings</h4>
-
-<p><a href="https://censusmapper.ca/maps/586"><img src="http://doodles.mountainmath.ca/images/van_uo_change.png" style="width:50%;float:right;margin-left:10px;"></a>
-More formally, these are &ldquo;dwellings not occupied by usual residents&rdquo;, it&rsquo;s
-the difference between dwellings and households and the object of continued
-scrutiny in Vancouver. And a good portion of these are the target of the
-upcoming empty home tax to either monetize non-primary resident homes or
-nudge them into the rental market.</p>
-
-<h4>Household size change</h4>
-
-<p><a href="https://censusmapper.ca/maps/590"><img src="http://doodles.mountainmath.ca/images/van_hs_change.png" style="width:50%;float:left;margin-right:10px;"></a>
-A big part of population change is the change in household size. Canada wide the
-trend to smaller households is continuing. That means that if the number of dwellings
-and the rate of unoccupied dwellings in a region remain unchanged, then the
-population in the area will decline if it follows the national trend to
-smaller household size.</p>
-
-<h3>Population Change Null Sum Game</h3>
-
-<p>From looking at CensusMapper, the variable that got by far the most attention
-nationally in the past three days is Population Change. It&rsquo;s great to
-see where population grew or declined. But almost immediately people wonder
-why population change was different in one region compared to another.</p>
-
-<p>The first step to this is the Population Null Sum Game. You need the</p>
-
-<ul>
-<li>Dwelling Change</li>
-<li>Change in Unoccupied Dwellings</li>
-<li>Change in Household size</li>
-</ul>
-
-
-<p>to play. The game is then to express Population Change in terms of those three,
-and thus &ldquo;explaining&rdquo; population change in terms of these variables. There are
-of course other ways to split up the Population Change variable, but I find
-this a useful one.</p>
-
-<p>Nathaniel Lauster kicked the game off
-<a href="https://homefreesociology.wordpress.com/2017/02/10/if-you-build-it-will-they-come/">with this great post</a>.
-Let&rsquo;s follow up his inter-municipal level analysis with some intra-municipal numbers.</p>
-
-<p>We will focus on the City of Vancouver only. People are welcome to use CensusMapper
-to repeat this for whatever region they are interested in. Vancouver has the
-nice advantage that at the dissemination area geography only on change was made.
-A 2011 downtown DA got split into two for 2016. That makes it very easy to carry
-this out at the DA level.</p>
-
-<h3>Components of Population Change</h3>
-
-<p>First we refine our variables a little bit it seems more interesting to use the rate of unoccupied builings as a variable,
-rather than the number of these. We want to express population change <code>Δpop</code> as a
-linear combination of</p>
-
-<ul>
-<li>Dwelling change <code>Δdw</code></li>
-<li>Change in ratio of unoccupied dwellings <code>Δur</code></li>
-<li>Change in household size <code>Δhs</code></li>
-</ul>
-
-
-<p>More formally:</p>
-
-<pre><code>Δpop = hs₁₁ * (1-ur₁₁) * Δdw - hs₁₁ * dw₁₆ * Δur +  hh₁₆ * Δhs
-</code></pre>
-
-<p>where <code>hs₁₁=pop₁₁/hh₁₁</code> is the household size in 2011 as computed by dividing the population by the number of households,
-<code>ur₁₁</code> is the rate of unoccupied dwellings in 2011, <code>dw₁₆</code> is the number of dwellings in 2016 and <code>hh₁₆</code> is the number of households in 2016.</p>
-
-<p>It is simple algebra to check that the identity holds.</p>
-
-<p><a href="https://censusmapper.ca/maps/596"><img src="http://doodles.mountainmath.ca/images/van_pop_comp.png" style="width:50%;float:right;margin-left:10px;"></a>
-The first term gives the contribution to population growth due to the growth in dwellings, assuming that household size and the rate of unoccupied dwellings
-are unchanged from 2011.</p>
-
-<p>The second term give the population growth due to the change in the rate of unoccupied dwellings and the third term gives the
-population growth due to a change in household size.</p>
-
-<p>Great, all that&rsquo;s left to do is to type the formula into CensusMapper and graph the relative contribution of each of these terms. To make this work
-we will have to make due with using only the magnitude of each term, but we can visualize the sign in the bar graph widget when
-we hover over an area.</p>
-
-<p>This makes it very easy to compare different areas and see how the different components contribute to the change in
-population in each area.</p>
 ]]></content>
   </entry>
   
