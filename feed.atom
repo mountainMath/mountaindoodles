@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-08-06T22:32:43-07:00</updated>
+  <updated>2017-08-06T22:35:16-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -79,8 +79,10 @@ news stories.</p>
 
 <p>But these data problems are really only a side show to the real issue.
 The most important question is what data to use for what purpose. The article chose to use the change in the total number of millennials
-to support the notion that millennials are leaving the City of Vancouver for some of the more outlying regions. The obvious issue with that
-is that that measure is confounded by population growth. If the population is growing, so will the number of millennials, even if the share of millennials
+to support the notion that the 25 to 39 year old cohort are shunting the City of Vancouver for some of the more outlying regions.
+The obvious issue with that
+is that that measure is confounded by population growth. If the population is growing, so will the number of millennials,
+even if the share of millennials
 in the population did not change. For this story, this is clearly a very poor choice of data representation.</p>
 
 <p>As a first approximation to understanding where that age cohort settles in 2016 compared to 1996 one can look at the respectives shares of the
@@ -91,7 +93,7 @@ population in those age cohorts. The only problem, the pretext of the story goes
 changing makeup of the population in general. And
 one sees that the City of Vancouver not only has the highest share of 25-39 year olds, it also experienced the lowest drop.</p>
 
-<h3>Framing of the data</h3>
+<h3>Framing of the Data</h3>
 
 <p>The other part of the story that irks me is the deep confusion and free mixing of two different concepts. One is that of migration, that is
 (the same) people moving from one area to another over some time period. The other is that of the number or share of (different)
@@ -99,7 +101,7 @@ people in a secific age cohort at two distinct points in time. Nathan Lauster ha
 <a href="https://homefreesociology.wordpress.com/2016/02/12/is-the-lifeblood-of-vancouver-leaving/">good analysis</a> to this topic, and has
 followed up with a series of blog posts. And this was picked up in various news articles too.</p>
 
-<p>This article not only lacks appreciation for this important distincion by talking about a &ldquo;migration&rdquo; when really comparing age cohorts, but
+<p>This article not only lacks appreciation for this important distinction by talking about &ldquo;migration&rdquo; when really comparing age cohorts, but
 it takes it to the next level by talking about &ldquo;millennials&rdquo; as being 25-39 year old in 1996 (as well as in 2016), which is
 comically absurd.</p>
 
