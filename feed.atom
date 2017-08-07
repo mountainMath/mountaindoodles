@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-08-06T22:48:42-07:00</updated>
+  <updated>2017-08-07T13:13:09-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -50,7 +50,7 @@ there was no chance that this was a rounding issue.</p>
 
 <h3>The Data</h3>
 
-<p>The data is, for the most part, reasonably straight forward. I just grabbed the 1996 count og 25 to 39 year olds, then the 2016 counts and compared them.
+<p>The data is, for the most part, reasonably straight forward. I just grabbed the 1996 count of 25 to 39 year olds, then the 2016 counts and compared them.
 One problem is boundary changes. Administrative boundaries don&rsquo;t stay fixed. And boundary changes don&rsquo;t always show up when just looking at non-geographic
 data, names or even the uniqe geographic identifiers don&rsquo;t necessarily change when census boundaries change. Looking that the geographic data for both
 censuses one immediately notices that the UEL/UBC/UNA area changed a lot (and also got new geographic identifiers), and Coquitlam changed too.
