@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-08-23T22:46:59-07:00</updated>
+  <updated>2017-08-23T22:52:04-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -67,8 +67,7 @@ somewhat in check, let&rsquo;s only look at census subdivisions with at least 50
 drop the population restriction we get the cities of Westmount, Côte-Saint-Luc, Hampstead,
 and White Rock gate-crash our top 10 list.)</p>
 
-<p><img  src="http://doodles.mountainmath.ca/images/densest_CMAs.png" style="width:45%;float:right;">
-<img  src="http://doodles.mountainmath.ca/images/densest_CSDs.png" style="width:45%;float:left;"></p>
+<p><img  src="http://doodles.mountainmath.ca/images/densest_CMAs.png" style="width:49%;"><img  src="http://doodles.mountainmath.ca/images/densest_CSDs.png" style="width:49%;"></p>
 
 <p>We see that the City of Vancouver takes the top spot amoung the cities, Metro Vancouver comes in
 behind Toronto, Red Deer and Montréal. Great for a game of trivia, but it&rsquo;s hard to learn
@@ -83,13 +82,13 @@ Toronto has the green belt. How does one compare these things?</p>
 <p>A good first step is to look at the distribution of density within the cities. Again <em>cancensus</em> makes it easy
 to map dissemination block level density. We change gears a tiny pit and simply focus Canada&rsquo;s 9 largest (by population) cities.</p>
 
-<p><img  src="http://doodles.mountainmath.ca/images/density_map.png" style="width:95%;margin:5px auto;"></p>
+<p><img  src="http://doodles.mountainmath.ca/images/density_map.png" style="width:99%;margin:5px auto;"></p>
 
 <p>The large grey areas, with fewer than 1 person per hectare, jump out immediately. As the colour gradient suggest, there
 are some denser areas around the centres, but the exact extent of these are hard to grasp. A better way to get a grip on
 the proportion is to abandon the geographic coordinates and show the data as a tree map.</p>
 
-<p><img  src="http://doodles.mountainmath.ca/images/density_area.png" style="width:95%;margin:5px auto;"></p>
+<p><img  src="http://doodles.mountainmath.ca/images/density_area.png" style="width:99%;margin:5px auto;"></p>
 
 <p>Now we much more clearly how the density in the different cities is made up, the proportion of low and high density areas.
 The grey areas, with less than 1 person per hecrare, are the parks, industrial and commercial land base of the city. Areas with
@@ -103,7 +102,7 @@ over-interpreted, whereas in Toronto the  1-50 and 50-100 areas are larger.</p>
 
 <p>Instead of asking how much area is devoted to what denstiy, we can also ask what share of the population lives in what density.</p>
 
-<p><img  src="http://doodles.mountainmath.ca/images/density_population.png" style="width:95%;margin:5px auto;"></p>
+<p><img  src="http://doodles.mountainmath.ca/images/density_population.png" style="width:99%;margin:5px auto;"></p>
 
 <p>This visualizes the density as felt by the population that lives in it. Comparing Montréal and Vancouver we see that about half of Montréal&rsquo;s citizens
 live in 50 ro 150 people per acre density, whereas in Vancouver half live in 25 to 100 people per acre density. To make up for that, Vancouver has
