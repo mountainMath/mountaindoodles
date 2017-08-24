@@ -4,7 +4,7 @@
   <title><![CDATA[Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/feed.xml" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-08-07T13:13:09-07:00</updated>
+  <updated>2017-08-23T22:46:59-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,116 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Density]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/08/23/density/"/>
+    <updated>2017-08-23T10:15:29-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/08/23/density</id>
+    <content type="html"><![CDATA[<p>Density in Vancouver has been one of the recurring themese on this blog, and there are many
+different ways to come at it. We have <a href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/">looked at density in terms of land use</a>
+to understand how much land is devoted to what purpose in Metro Vancouver and it&rsquo;s municipalities. We have looked
+at density in terms of <a href="http://doodles.mountainmath.ca/blog/2016/03/02/property-taxes-and-land-use/">tax density</a> to
+understand how property tax revenue depends on land use and zoning. We have looked at
+<a href="http://doodles.mountainmath.ca/blog/2016/05/20/density/">density in terms of built floor space ratio</a>.</p>
+
+<p>And of course we have looked at <a href="https://censusmapper.ca/maps/591">population density through CensusMapper</a>,
+and this time we want to do a quick variation on that theme.</p>
+
+<!-- more -->
+
+
+<h2>Population Density</h2>
+
+<p>Recently I have heard renewed chatter about how dense Vancouver is or is not. Before diving deepr into this it is
+important to distinguish two types of density that often get mixed up.</p>
+
+<h3>Gross Density</h3>
+
+<p>Gross (population) density simply looks
+at the total population divided by (land) area. Ignoring census undercounts, we can simply look at the 2016 census numbers
+to compute these.</p>
+
+<h3>Net Density</h3>
+
+<p><em>Net density</em> takes residential land (instead of all land)
+as it&rsquo;s base. One measure of net density is the <em>floor space ratio</em> (FSR), which we have
+<a href="https://mountainmath.ca/map/assessment?zoom=13&amp;lat=49.25&amp;lng=-123.1182&amp;layer=16&amp;mapBase=2">approximated and mapped in the past</a>
+and that also includes commercial space next to residential living space. More details on this are in
+<a href="(http://doodles.mountainmath.ca/blog/2016/05/20/density/">this older blog post</a>).</p>
+
+<p>Net density is typically what people refer to in the countext of building developments. Sadly it&rsquo;s hard to
+get a hold of good data sources that would allow for meaningful comparisons across the country. The
+provincial assessment authorities have that data, but in Canada this data only shared after significant financial
+commitments.</p>
+
+<h2>How Dense is Vancouver?</h2>
+
+<p>How does Vancouver stack up against the rest of Canada? That, as always, depends on the details.
+In particular, on whether we are talking about Metro Vancouver or the City of Vancouver, and on
+what good comparables are. With the new <a href="https://github.com/mountainMath/cancensus">cancensus R package</a>
+it&rsquo;s straight forward to start hacking away
+at this question. Let&rsquo;s start simple by looking at the 10 census metropolitan
+areas and 10 census subdivisions (cities) with the largest gross density. And to keep things
+somewhat in check, let&rsquo;s only look at census subdivisions with at least 50,000 people. (If we
+drop the population restriction we get the cities of Westmount, Côte-Saint-Luc, Hampstead,
+and White Rock gate-crash our top 10 list.)</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/densest_CMAs.png" style="width:45%;float:right;">
+<img  src="http://doodles.mountainmath.ca/images/densest_CSDs.png" style="width:45%;float:left;"></p>
+
+<p>We see that the City of Vancouver takes the top spot amoung the cities, Metro Vancouver comes in
+behind Toronto, Red Deer and Montréal. Great for a game of trivia, but it&rsquo;s hard to learn
+much of significance from this.</p>
+
+<p>The reason is that we don&rsquo;t know how these densities come about. Metro Vancouver contains the North Shore mountains,
+a very large swath of land where nobody lives. Yet this counts to our area (or at least the horizontal projection of it).
+Toronto has the green belt. How does one compare these things?</p>
+
+<h2>Distribution of Density</h2>
+
+<p>A good first step is to look at the distribution of density within the cities. Again <em>cancensus</em> makes it easy
+to map dissemination block level density. We change gears a tiny pit and simply focus Canada&rsquo;s 9 largest (by population) cities.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/density_map.png" style="width:95%;margin:5px auto;"></p>
+
+<p>The large grey areas, with fewer than 1 person per hectare, jump out immediately. As the colour gradient suggest, there
+are some denser areas around the centres, but the exact extent of these are hard to grasp. A better way to get a grip on
+the proportion is to abandon the geographic coordinates and show the data as a tree map.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/density_area.png" style="width:95%;margin:5px auto;"></p>
+
+<p>Now we much more clearly how the density in the different cities is made up, the proportion of low and high density areas.
+The grey areas, with less than 1 person per hecrare, are the parks, industrial and commercial land base of the city. Areas with
+fewer than 25 people per hectare are densities usually found in broad suburban sprawl. In Vancouver, Shaughnessey, Southlands, or the Drummond Drive
+area of West Point Grey are examples.</p>
+
+<p>We can see that only Toronto, Montreal and Vancouver have significant portions of land beyond the 100 people per hectare density, with
+Montréal devoting a larger portion of it&rsquo;s land to that density than any other of the cities.
+In Vancouver the 50 to 100 people per acre density dominates, althoguh the cutoffs are quite arbitrary to this should not be
+over-interpreted, whereas in Toronto the  1-50 and 50-100 areas are larger.</p>
+
+<p>Instead of asking how much area is devoted to what denstiy, we can also ask what share of the population lives in what density.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/density_population.png" style="width:95%;margin:5px auto;"></p>
+
+<p>This visualizes the density as felt by the population that lives in it. Comparing Montréal and Vancouver we see that about half of Montréal&rsquo;s citizens
+live in 50 ro 150 people per acre density, whereas in Vancouver half live in 25 to 100 people per acre density. To make up for that, Vancouver has
+a much higher portion of the population living in over 300 people per acre density than Montréal.</p>
+
+<h2>Next Steps</h2>
+
+<p>There are several obvious ways to expand on this. One would be to take better comparables, so instead of comparing cities one could compare
+areas with similar population centred around census metropolitan area centres. Comparing Vancouver to Toronto as cities is tricky, Toronto has
+a comparable population to the whole of Metro Vancouver. So a better comparison could be to take the old City of Toronto boundaries and compare
+these against Toronto. Or throw Burnaby, Richmond, New Westminster and North Vancouver into the mix with the City of Vancouver.</p>
+
+<p>With the <a href="https://github.com/mountainMath/cancensus">cancensus R package</a> this is quite easy to do. And totally reproducible,
+as I have <a href="https://github.com/mountainMath/density-explorations">uploaded the R notebook I used to create all the included images to github</a>.</p>
+
+<p>Feel free to clone or fork it and adapt it for your own purposes.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Millennials Redux]]></title>
@@ -3010,110 +3120,6 @@ Adjust the slider to see how the flooded areas change depending on the simulated
 <p>The map is global, and it&rsquo;s worthwhile to compare Vancouver&rsquo;s sea level threat to that of other places, for example
 <a href="https://mountainmath.ca/elevation/map?sea_level=0&amp;zoom=9&amp;lat=52.8774&amp;lng=5.5701">Holland where 21% of the country is below current sea level</a>,
 not counting any future sea level rise.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Measuring Housing Affordability]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2016/09/14/measuring-housing-affordability/"/>
-    <updated>2016-09-14T12:06:06-07:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2016/09/14/measuring-housing-affordability</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/assessment/split_map" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh_price_2015.png" style="width:50%;float:right;margin-left:10px;"></a>
-Housing affordability is a serious issue that deserves attention. Affordability is generally defined comparing incomes
-to housing costs. And ideally also factoring in transportation cost, although that&rsquo;s seldom done and we will not attempt
-today.</p>
-
-<p>Recently we <a href="http://doodles.mountainmath.ca/blog/2016/08/31/incomes/">took a detailed look at income data</a>. Using what we
-learned, together with our
-<a href="https://mountainmath.ca/assessment/split_map">detailed data on the development of prices of single family properties in Vancouver</a>,
-we turn to the never dying question of affordability of single family homes.</p>
-
-<!-- more -->
-
-
-<p><a href="https://mountainmath.ca/assessment/split_map?year=2010" target="_blank"><img  src="http://doodles.mountainmath.ca/images/sfh_price_2010.png" style="width:50%;float:left;margin-right:10px;"></a>
-Let&rsquo;s go through the motions of how different choices in income data can lead to different stories. Some general choices of
-what income to use is often pretty obvious. Others are more subtle and a matter of judgement. For simplicity we focus
-entirely on the situation in 2010, because that&rsquo;s the last year we have detailed income data for the City of Vancouver
-and we also have <a href="https://mountainmath.ca/assessment/split_map?year=2010">detailed publicly available single family housing price data</a>.</p>
-
-<p>When talking about housing, the starting point is to look at income of (private) households (as opposed to individual income).
-We may also want to consider the owner-renter split in the region we are interested in. For simplicity we will skip this.</p>
-
-<h3>Household Income</h3>
-
-<p>Households are as diverse as
-dwelling types. If we write a story about single family housing, household income of all households is too broad to be
-relevant. For example,
-in the city of Vancouver there are about 75,500 single family lots, but 264,573 households. So at most 28% of households
-can live in the main house on a single family lot. Taking the median household income makes no sense in this situation.
-We need to narrow down the target group. In Calgary on the other hand,
-59% of the dwelling stock is single detached (and there are more properties if we count the ones with suites like we
-did for Vancouver), so in that case the assumption that the median household is looking to buy a single family home is
-more reasonable. Although the median household probably won&rsquo;t be looking to buy the median single family home but a lower-priced one.</p>
-
-<h3>Family Income</h3>
-
-<p>So how should we measure the affordability of single family properties? That&rsquo;s not an easy question. A natural choice may
-be to focus in on the 151,330 census families in Vancouver. Again, there are more than twice as many candidates as single
-family properties. So maybe narrow it down even further an only look at the 88,515 census
-families with children at home. Or the 63,790 couple families with children at home. Realistically speaking, even
-going with couple families with children at home there just aren&rsquo;t enough single family properties to go around. Unless we
-are willing to force out all of the roughly 45% of the occupants of the main house on single family lots that currently only have
-1 or 2 people living in there. But overall, couple families with children is probably a better metric for affordability
-for single family homes. Others will of course also buy single family homes, but maybe we will be less worried if
-they can&rsquo;t afford one.</p>
-
-<h3>Family with Children Income</h3>
-
-<p>To complete the example, in 2010 the median single family property cost $848,000 (average $1,133,000) and the median
-couple family with children income in private households was $92,068 (average $123,252).
-That gives a dwelling value to income ratio of around 9.2, showing that the median single family property is not
-affordable for the median couple family with children. By affordable we mean that with a 20% down payment the shelter
-costs stay below 30% of pre-tax income, which requires a ratio of at most 6.6 assuming an interest rate of 3% and 25
-years amortization.</p>
-
-<p>If we were to more realistically assume that the median income couple family with children were to look to buy a single
-family property priced at the 10 percentile level of $606,100 we get a dwelling value to income ratio of 6.6, barely
-squeezing in below our affordability cutoff.</p>
-
-<h3>Matching Income Quantiles with Housing Quantiles</h3>
-
-<p>Another way to slice the data is to look at the household income distribution. By definition there are 37,750
-single family homes more expensive than the median single family home. From the income distribution there are 44,215
-households with income over $125,000. Taking $125,000 as our income we get a median dwelling value to income ratio of 6.8.
-Only when throwing in some secondary suite rental income can we get to the
-&lsquo;barely affordable&rsquo; 6.6 ratio. Adding rental income is double-dipping though, rental income should already be
-included in our total income numbers. Assuming secondary suite rental income is correctly reported.</p>
-
-<h3>Using Median Household Income</h3>
-
-<p>Using the household income instead we would have gotten a ratio of 13.4, which is ridiculously unaffordable. But then
-again, the notion that the median household should be able to purchase the median single family property
-(or even a low-value single family property) is also ridiculous.</p>
-
-<p><a href="https://censusmapper.ca/maps/37" target="_blank"><img  src="http://doodles.mountainmath.ca/images/local_affordability_index.png" style="width:50%;float:right;margin-left:10px;"></a>
-Somewhat more reasonable is to <a href="https://censusmapper.ca/maps/37">compare household income to all housing</a>,
-not just single family. This still ignores that
-half of the population in Vancouver is renting, but still can yield some interesting insights if one is interested in
-more detailed spatial distribution of affordability and compare it to other cities.</p>
-
-<p>Adding a scatter plot of local affordability index by proportion of owner households shows how in Vancouver, unlike
-in comparable cities, the percentage of owner households is a weak determinant of local affordability.</p>
-
-<h3>What about Affordability Today?</h3>
-
-<p>This analysis assumes that all these households are comfortable to max out when buying a home and that there are no other
-competing significant financial obligations like heavy student loans. And, just as a reminder, we were looking at 2010.
-As of 2015 the price of the median single family home has increased 67%. We don&rsquo;t have 2015 income numbers for the City of
-Vancouver (yet), but Couple Family median income for Metro Vancouver has increased 13% between 2010 and 2014, the last
-year with available data. Extrapolating out that trend to 2015, and assuming that whatever other income metrics we were
-looking at, we get an estimated income increase by 16%. So any affordability ratio is about 1.4 times worse in 2015 compared
-to the 2010 ratio. What may have been &lsquo;barely affordable&rsquo; in 2010 is clearly unaffordable in 2015.</p>
-
-<p>So we used the detailed income data available for 2010 to get very good understanding of the affordability situation in 2010.
-Then we used regional income trends to extrapolate that data to 2015 and matched it with 2015 housing data to get more up-to-date
-estimates. This is generally an effective method that yields good results.</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: open data | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/open-data/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-08-07T13:13:09-07:00</updated>
+  <updated>2017-08-23T22:46:59-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,116 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Density]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/08/23/density/"/>
+    <updated>2017-08-23T10:15:29-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/08/23/density</id>
+    <content type="html"><![CDATA[<p>Density in Vancouver has been one of the recurring themese on this blog, and there are many
+different ways to come at it. We have <a href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/">looked at density in terms of land use</a>
+to understand how much land is devoted to what purpose in Metro Vancouver and it&rsquo;s municipalities. We have looked
+at density in terms of <a href="http://doodles.mountainmath.ca/blog/2016/03/02/property-taxes-and-land-use/">tax density</a> to
+understand how property tax revenue depends on land use and zoning. We have looked at
+<a href="http://doodles.mountainmath.ca/blog/2016/05/20/density/">density in terms of built floor space ratio</a>.</p>
+
+<p>And of course we have looked at <a href="https://censusmapper.ca/maps/591">population density through CensusMapper</a>,
+and this time we want to do a quick variation on that theme.</p>
+
+<!-- more -->
+
+
+<h2>Population Density</h2>
+
+<p>Recently I have heard renewed chatter about how dense Vancouver is or is not. Before diving deepr into this it is
+important to distinguish two types of density that often get mixed up.</p>
+
+<h3>Gross Density</h3>
+
+<p>Gross (population) density simply looks
+at the total population divided by (land) area. Ignoring census undercounts, we can simply look at the 2016 census numbers
+to compute these.</p>
+
+<h3>Net Density</h3>
+
+<p><em>Net density</em> takes residential land (instead of all land)
+as it&rsquo;s base. One measure of net density is the <em>floor space ratio</em> (FSR), which we have
+<a href="https://mountainmath.ca/map/assessment?zoom=13&amp;lat=49.25&amp;lng=-123.1182&amp;layer=16&amp;mapBase=2">approximated and mapped in the past</a>
+and that also includes commercial space next to residential living space. More details on this are in
+<a href="(http://doodles.mountainmath.ca/blog/2016/05/20/density/">this older blog post</a>).</p>
+
+<p>Net density is typically what people refer to in the countext of building developments. Sadly it&rsquo;s hard to
+get a hold of good data sources that would allow for meaningful comparisons across the country. The
+provincial assessment authorities have that data, but in Canada this data only shared after significant financial
+commitments.</p>
+
+<h2>How Dense is Vancouver?</h2>
+
+<p>How does Vancouver stack up against the rest of Canada? That, as always, depends on the details.
+In particular, on whether we are talking about Metro Vancouver or the City of Vancouver, and on
+what good comparables are. With the new <a href="https://github.com/mountainMath/cancensus">cancensus R package</a>
+it&rsquo;s straight forward to start hacking away
+at this question. Let&rsquo;s start simple by looking at the 10 census metropolitan
+areas and 10 census subdivisions (cities) with the largest gross density. And to keep things
+somewhat in check, let&rsquo;s only look at census subdivisions with at least 50,000 people. (If we
+drop the population restriction we get the cities of Westmount, Côte-Saint-Luc, Hampstead,
+and White Rock gate-crash our top 10 list.)</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/densest_CMAs.png" style="width:45%;float:right;">
+<img  src="http://doodles.mountainmath.ca/images/densest_CSDs.png" style="width:45%;float:left;"></p>
+
+<p>We see that the City of Vancouver takes the top spot amoung the cities, Metro Vancouver comes in
+behind Toronto, Red Deer and Montréal. Great for a game of trivia, but it&rsquo;s hard to learn
+much of significance from this.</p>
+
+<p>The reason is that we don&rsquo;t know how these densities come about. Metro Vancouver contains the North Shore mountains,
+a very large swath of land where nobody lives. Yet this counts to our area (or at least the horizontal projection of it).
+Toronto has the green belt. How does one compare these things?</p>
+
+<h2>Distribution of Density</h2>
+
+<p>A good first step is to look at the distribution of density within the cities. Again <em>cancensus</em> makes it easy
+to map dissemination block level density. We change gears a tiny pit and simply focus Canada&rsquo;s 9 largest (by population) cities.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/density_map.png" style="width:95%;margin:5px auto;"></p>
+
+<p>The large grey areas, with fewer than 1 person per hectare, jump out immediately. As the colour gradient suggest, there
+are some denser areas around the centres, but the exact extent of these are hard to grasp. A better way to get a grip on
+the proportion is to abandon the geographic coordinates and show the data as a tree map.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/density_area.png" style="width:95%;margin:5px auto;"></p>
+
+<p>Now we much more clearly how the density in the different cities is made up, the proportion of low and high density areas.
+The grey areas, with less than 1 person per hecrare, are the parks, industrial and commercial land base of the city. Areas with
+fewer than 25 people per hectare are densities usually found in broad suburban sprawl. In Vancouver, Shaughnessey, Southlands, or the Drummond Drive
+area of West Point Grey are examples.</p>
+
+<p>We can see that only Toronto, Montreal and Vancouver have significant portions of land beyond the 100 people per hectare density, with
+Montréal devoting a larger portion of it&rsquo;s land to that density than any other of the cities.
+In Vancouver the 50 to 100 people per acre density dominates, althoguh the cutoffs are quite arbitrary to this should not be
+over-interpreted, whereas in Toronto the  1-50 and 50-100 areas are larger.</p>
+
+<p>Instead of asking how much area is devoted to what denstiy, we can also ask what share of the population lives in what density.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/density_population.png" style="width:95%;margin:5px auto;"></p>
+
+<p>This visualizes the density as felt by the population that lives in it. Comparing Montréal and Vancouver we see that about half of Montréal&rsquo;s citizens
+live in 50 ro 150 people per acre density, whereas in Vancouver half live in 25 to 100 people per acre density. To make up for that, Vancouver has
+a much higher portion of the population living in over 300 people per acre density than Montréal.</p>
+
+<h2>Next Steps</h2>
+
+<p>There are several obvious ways to expand on this. One would be to take better comparables, so instead of comparing cities one could compare
+areas with similar population centred around census metropolitan area centres. Comparing Vancouver to Toronto as cities is tricky, Toronto has
+a comparable population to the whole of Metro Vancouver. So a better comparison could be to take the old City of Toronto boundaries and compare
+these against Toronto. Or throw Burnaby, Richmond, New Westminster and North Vancouver into the mix with the City of Vancouver.</p>
+
+<p>With the <a href="https://github.com/mountainMath/cancensus">cancensus R package</a> this is quite easy to do. And totally reproducible,
+as I have <a href="https://github.com/mountainMath/density-explorations">uploaded the R notebook I used to create all the included images to github</a>.</p>
+
+<p>Feel free to clone or fork it and adapt it for your own purposes.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[RS Population Change]]></title>
@@ -553,446 +663,6 @@ grant in 2016 and do in 2017, and under 200 that did qualify in 2016 and don&rsq
 <p>You can&rsquo;t. And your landlord can&rsquo;t either. No matter how much your unit is worth, the province won&rsquo;t be cutting
 any checks to lower your rent by $50/month.
 The homeowner grant is just one of the many perks exclusively available home owners.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[2017 Vancouver Assessment Data]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data/"/>
-    <updated>2017-01-16T19:04:19-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/values?filter=[sfh]&amp;zoom=13&amp;layer=9"><img  src="http://doodles.mountainmath.ca/images/value_animated.gif" style="width:50%;float:right"></a>
-The friendly folks at
-<a href="http://vancouver.ca/your-government/open-data-catalogue.aspx">Vancouver Open Data</a> just
-<a href="https://twitter.com/VanOpenData/status/688060388190097408">updated their property assessment data</a> with the fresh 2017
-property tax assessments. Time to run the script to update the <a href="https://mountainmath.ca/map/assessment">Vancouver Assessment Map</a>
-with the new data, just <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">like we did last year</a>.</p>
-
-<p>For now we just updated our standard visuals and computed some overall statistics. We will take a closer look at the data over the coming days.</p>
-
-<h4>Maps</h4>
-
-<!-- more -->
-
-
-<p>By now we have a variety of maps that highlight different aspects of Vancouver real estate, and after running the import scripts they
-automatically serve the newest data. Our basic
-<a href="https://mountainmath.ca/map/assessment">interactive assessment map</a> offers a variety of ways to slice and display the data. It&rsquo;s
-mostly focused on functionality, some of which we described in
-<a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">last year&rsquo;s post</a>, as well as other posts like
-the one on <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">twiddling thumbs vs working</a>.</p>
-
-<p>We also have interactive views focusing on how real estate prices varied over time, for example the <a href="http://doodles.mountainmath.ca/blog/2016/04/01/on-dirt-and-houses/">houses and dirt map</a>
-that separates out (inflation adjusted) values of the structures and the land, and also allows to filter by type of housing, to animate changes over time.</p>
-
-<p>For people that like simpler maps we also have a <a href="https://mountainmath.ca/map/values?filter=[sfh]&amp;zoom=13&amp;layer=9">plain total (nominal) value over time map</a>
-that allows to interactively step through the years and see how single family house values in Vancouver changed over time. Here we also
-added the ability to visualize year-over-year value changes, which also hints at how BC Assessment changed their valuation
-algorithm over the years.</p>
-
-<h4>The Data</h4>
-
-<p>The data originates with BC Assessment, which estimates land and building values of each property based on recent sales
-of comparable properties. The values are pegged at July 1 of each year, with the the most recent available now being July 1 2016.
-The estimates for the values do not reflect changes in the market since then. Moreover, the estimates can be quite off on an individual
-property level, but are unbiased. That means that any statistics derived from a large subsample should fairly accurately
-reflect actual market conditions for July 1st. Lastly, the assessed values will still change a bit as some will be successfully appealed.</p>
-
-<p>City of Vancouver, as well as the City of Surrey, make this data available for general use through their open data portal, which
-allows us to create these maps. The format of the data the municipalities are giving out through their open data portal is
-different, so lazy me is only importing data from City of Vancouver. Sadly, BC Assessment does not make this data
-generally available province wide for us to make province wide maps.</p>
-
-<p>While BC Assessment makes this data available on their <a href="https://evaluebc.bcassessment.ca">eValue website</a> for browsing individual
-properties and also provides it in bulk to researchers, the attached license does not allow the thematic mapping of individual properties.</p>
-
-<p>The motivation behind the map was to understand the building stock, so in the maps as well as the summary statistics below
-we filter out parks and some other properties.</p>
-
-<p>The new city dataset does not include the 2017 tax levy, so our maps still only show the 2016 tax levies until CoV updated their dataset.</p>
-
-<h4>History</h4>
-
-<p>In the spirit of <a href="http://doodles.mountainmath.ca/blog/2016/01/17/updated-vancouver-assessment-data/">last year&rsquo;s post</a> we ran some
-quick summary statistics to break down the numbers by neighbourhood. Instead of listing the most recent land and building value
-increases by neighbourhood we stuck everything into an interactive graph for the entire time span between 2006 and 2017 tax years.
-Use the dropdown menus to drill down
-into city neighbourhoods, view values for all properties or just residential properties and display as total value or year-over-year
-percentage change.</p>
-
-<p>The last year again
-saw an huge increase in property values. For the City of Vancouver land values were up 35% and building values 10%, with the land
-value increase setting a record for the timeframe for which we have data. The increases become even more pronounced when we zero in
-on residential property only.</p>
-
-<div style="margin:10px 50px;padding:5px;border: 1px solid black;border-radius:5px;">
-<select id="nbhd-select"></select>
-<select id="keys-select"></select>
-<select id="type-select">
-<option value='total'>Total Value</option>
-<option value='percent'>Percentage Change</option>
-</select>
-<div id="graph" style="height:200px;max-width:640px;" data-lines="/data/detail_history.json"></div>
-<div class="legend no-margin">
-</div>
-</div>
-
-
-
-
-<script>
-var ready_for_graph = function() {
-    var d3lines=[];
-    var padding = {top: 20, right: 20, bottom: 30, left: 90};
-    var prevChartWidth = 0, prevChartHeight = 0;
-    var updateTransistionMS = 750; // milliseconds
-    var jsonData, xScale, yScale, line,neighbourhoods;
-
-    var currentValue='City of Vancouver';
-    var currentKeys=['land','building'];
-    var currentModePercentage=false;
-
-    var hash={
-            land: {label:"Land Value", color:"green"},
-              building: {label:"Building Value", color:"blue"},
-              res_land: {label:"Residential Land Value", color:"darkgreen"},
-              res_building: {label:"Residential Building Value", color:"darkblue"},
-              land_p: {label:"Land Value Increase", color:"green"},
-              building_p: {label:"Building Value Increase", color:"blue"},
-              res_land_p: {label:"Residential Land Value Increase", color:"darkgreen"},
-              res_building_p: {label:"Residential Building Value Increase", color:"darkblue"}
-                };
-    var keys=Object.keys(hash);
-
-    var symbol;
-    var prefix;
-    var numberFormatter = function (y) {
-        return '$' + Math.round(prefix.scale(y*10))/10.0 + symbol;
-    };
-
-    var graphs=d3.select("#graph");
-    var div=graphs[0][0];
-    if (div==null|| div.childElementCount!=0) {return;}
-    var data_url=div.dataset.url;
-
-    // create svg and g to contain the chart contents
-    var baseSvg = graphs.append("svg");
-    var chartSvg=baseSvg
-        .append("g")
-        .attr("class", "chartContainer")
-        .attr("transform", "translate(" + padding.left + "," + padding.top + ")");
-
-    // create the x axis container
-    chartSvg.append("g")
-        .attr("class", "x axis");
-
-    // create the y axis container
-    chartSvg.append("g")
-        .attr("class", "y axis");
-    var line;
-    var largest=null;
-    var lineData;
-    if (div.dataset.lines) {
-        d3.json(div.dataset.lines,function(error,json){
-        jsonData=json;
-        neighbourhoods=Object.keys(jsonData);
-        var keyHash={all:{label: 'All Properties',data:['land','building']},res:{label: 'Residential Properties',data:['res_land','res_building']}};
-        var keyOptions=Object.keys(keyHash);
-        d3.select('#nbhd-select').selectAll('option').data(neighbourhoods).enter().append('option').attr('value',function(d){return d}).text(function(d){return d});
-        $('#nbhd-select').on('change',function(d){
-            currentValue=this.value;
-            updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage})
-        });
-        d3.select('#keys-select').selectAll('option').data(keyOptions).enter().append('option').attr('value',function(d){return d}).text(function(d){return keyHash[d].label});
-        $('#keys-select').on('change',function(d){
-            currentKeys=keyHash[this.value].data;
-            updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage})
-        });
-        $('#type-select').on('change',function(d){
-            currentModePercentage=this.value=='percent';
-            updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage})
-        });
-        lineData=json[currentValue];
-        var domain=[null,null];
-        var range=[null,null];
-        lineData.forEach(function(d) {
-             d.date = +d.date;
-             if (domain[0]==null || domain[0]> d.date) domain[0]= d.date;
-             if (domain[1]==null || domain[1]< d.date) domain[1]= d.date;
-             keys.forEach(function(k){
-                d[k]=+d[k];
-                if (range[0]==null || range[0]> d[k]) range[0]= d[k];
-                if (range[1]==null || range[1]< d[k]) range[1]= d[k];
-            });
-        });
-        xScale=d3.scale.linear().domain(domain);
-        var toAdd=(range[1]-range[0])/10;
-        range[0]-=toAdd;
-        range[1]+=toAdd;
-        yScale=d3.scale.linear()
-            .domain(range);
-
-        line = d3.svg.line()
-            .x(function(d) { return xScale(d.date); })
-            .y(function(d) { return yScale(0); })
-            .interpolate("linear");
-        xAxis = d3.svg.axis()
-            .scale(xScale)
-            .orient("bottom")
-            .tickFormat(d3.format("d"));
-            //.ticks(5);
-            //.tickValues(domain);
-
-        yAxis = d3.svg.axis()
-            .scale(yScale)
-            .orient("left")
-            .tickFormat(numberFormatter)
-            .ticks(5);
-
-        prefix = d3.formatPrefix(range[1]);
-        if (prefix.symbol=='K') {
-            symbol='k'
-        } else if (prefix.symbol=='M') {
-                symbol='m'
-        } else if (prefix.symbol=='G') {
-            symbol='bn'
-        } else if (prefix.symbol=='T') {
-            symbol='tn'
-        }
-        updateChart({init:true,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage});
-        });
-
-    }
-
-
-    function updateChart(options)
-    {
-        var lineData=options.data;
-        var init=options.init;
-        var keys=options.keys;
-
-        lineData.forEach(function(d,i) {
-             keys.forEach(function(k){
-                d[k]=+d[k];
-                if (i>0) d[k+'_p']=d[k]/lineData[i-1][k]-1;
-             });
-        });
-
-        if (options.percentage) {
-            keys=keys.map(function(k){return k+'_p'});
-            lineData=lineData.slice(1);
-        }
-
-        var domain=[null,null];
-        var range=[null,null];
-        lineData.forEach(function(d,i) {
-             d.date = +d.date;
-             if (domain[0]==null || domain[0]> d.date) domain[0]= d.date;
-             if (domain[1]==null || domain[1]< d.date) domain[1]= d.date;
-             keys.forEach(function(k){
-                if (range[0]==null || range[0]> d[k]) range[0]= d[k];
-                if (range[1]==null || range[1]< d[k]) range[1]= d[k];
-            });
-        });
-
-        //if (options.percentage) domain[0]+=1;
-
-        var toAdd=(range[1]-range[0])/10;
-        range[0]-=toAdd;
-        if (!options.percentage) range[0]=Math.max(0,range[0]);
-        range[1]+=toAdd;
-        yScale.domain(range);
-        xScale.domain(domain);
-        var formatter;
-        if (options.percentage) {
-            formatter=d3.format('.1%');
-        } else {
-            formatter=numberFormatter;
-        }
-        yAxis.tickFormat(formatter);
-
-        var legend=d3.select('.legend');
-        legend.empty();
-        legend.selectAll('.item').data(keys)
-            .enter().append('p').attr('class','item')
-            .html(function(k){return '<i style="background:'+hash[k].color+'"></i> '+hash[k].label+' <span style="float:right;margin-right:10px;" id="'+k+'_value"></span>'});
-        //legend.selectAll('.item').exit().remove();
-
-
-        // get the height and width subtracting the padding
-//    var innerHeight = window.innerHeight - 20;
-        var innerWidth = window.innerWidth - 20;
-        var divWidth=$(div).width();
-        if (divWidth==0) divWidth=$(div.parentElement.parentElement).width();
-        var maxWidth=parseInt($(div).css('max-width'));
-        if (divWidth==0) divWidth=innerWidth*0.8;
-        if (divWidth>maxWidth) divWidth=maxWidth;
-        var chartWidth = divWidth-padding.left-padding.right;//960 - margin.left - margin.right,
-        var chartHeight = $(div).height()-padding.top-padding.bottom;//500 - margin.top - margin.bottom;
-
-
-        // only update if chart size has changed
-        if (true || (prevChartWidth != chartWidth) || (prevChartHeight != chartHeight)) {
-            prevChartWidth = chartWidth;
-            prevChartHeight = chartHeight;
-
-            //set the width and height of the SVG element
-            chartSvg.attr("width", chartWidth + padding.left + padding.right)
-                .attr("height", chartHeight + padding.top + padding.bottom);
-            baseSvg.attr("width", chartWidth + padding.left + padding.right)
-                .attr("height", chartHeight + padding.top + padding.bottom);
-
-            // ranges are based on the width and height available so reset
-            xScale.range([0, chartWidth]);
-            yScale.range([chartHeight, 0]);
-
-
-
-
-            if (init) {
-                // if first run then just display axis with no transition
-                chartSvg.select(".x")
-                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
-                    .attr("transform", "translate(0," + chartHeight + ")")
-                    .call(xAxis);
-
-                chartSvg.select(".y")
-                    .style({ 'stroke': 'grey', 'fill': 'none', 'stroke-width': '1px'})
-                    .call(yAxis);
-
-                chartSvg.select('.x.axis path').style('display','inherit');
-            }
-            else {
-                // for subsequent updates use a transistion to animate the axis to the new position
-                var t = chartSvg.transition().duration(updateTransistionMS);
-
-                t.select(".x")
-                    .attr("transform", "translate(0," + chartHeight + ")")
-                    .call(xAxis);
-
-                t.select(".y")
-                    .call(yAxis);
-            }
-
-            var sourceData=lineData;
-
-            function addSeries(key){
-                var g=d3.select(this);
-                var color=hash[key].color;
-                var label=hash[key].label;
-                var className=key;
-
-                // bind up the data to the line
-                var lines = g.selectAll("path.line")
-                    .data([sourceData]); // needs to be an array (size of 1 for our data) of arrays
-
-                var valueFunction=function(d){return d[key]};
-                var yFunction=function(d){return yScale(valueFunction(d))};
-                var ff=key[key.length-1]=='p' ? d3.format('.1%') : numberFormatter;
-                var formatFunction=function(d){return ff(valueFunction(d))};
-
-                function tooltipFunction(d,el){
-                  var key=d3.select(el.parentElement).datum();
-                  var ff=key[key.length-1]=='p' ? d3.format('.1%') : numberFormatter;
-                  return d.date + ': ' + ff(d[key]);
-                }
-
-                 var line=d3.svg.line()
-                      .x(function(d) { return xScale(d.date); })
-                      .y(yFunction)
-                      .interpolate("linear");
-
-               // transistion to new position if already exists
-                lines.transition()
-                    .duration(updateTransistionMS)
-                    .attr("d", line);
-
-
-                // add line if not already existing
-                lines.enter().append("path")
-                    .attr("class", "line")
-                    .attr("stroke", color)
-                    .attr("stroke-width", 2)
-                    .attr('fill','none')
-                    .attr("d", line);
-
-                lines.exit().remove();
-
-                // bind up the data to an array of circles
-                var circles = g.selectAll("circle")
-                    .data(sourceData);
-
-                // if already existing then transition each circle to its new position
-                circles.transition()
-                    .duration(updateTransistionMS)
-                    .attr("cx", function (d) {
-                        return xScale(d.date);
-                    })
-                    .attr("cy", yFunction);
-
-                // if new circle then just display
-                circles.enter().append("circle")
-                    .attr("class", className)
-                    .attr("cx", function (d) {
-                        return xScale(d.date);
-                    })
-                    .attr("cy", yFunction)
-                    .attr("r", 4)
-                    .attr('fill', 'transparent')
-                    .style("stroke", color)
-                    .style("stroke-width", 8)
-                    .on('mouseover',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(tooltipFunction(d,this))
-                    }).on('click',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(tooltipFunction(d,this))
-                    }).on('touch',function(d){
-                       d3.select('#'+this.classList[0]+'_value').text(tooltipFunction(d,this))
-                    }).on('mouseout',function(){d3.select('#'+this.classList[0]+'_value').text('')});
-                circles.exit().remove();
-                }
-            }
-
-            var selection=chartSvg.selectAll('g.series').data(keys);
-            selection.exit().remove();
-            selection.enter().append('g').attr('class','series');
-            chartSvg.selectAll('g.series').each(addSeries);
-    }
-
-    // look for resize but use timer to only call the update script when a resize stops
-    var resizeTimer;
-    window.onresize = function(event) {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function()
-        {
-                updateChart({init:false,keys:currentKeys,data:jsonData[currentValue],percentage:currentModePercentage});
-        }, 100);
-    }
-
-
-};
-ready_for_graph();
-
-
-
-function resetImages(){
-    $('img').each(function(img){
-        imgsrc = $(img).attr('src');
-        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
-            $(img).attr('src', '');
-            $(img).attr('src', imgsrc);
-
-        }
-    });
-    setTimeout(function(){
-        resetImages();
-    },25000);
-}
-setTimeout(function(){
-    resetImages();
-},25000);
-
-</script>
-
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vancouver | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/vancouver/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-08-07T13:13:09-07:00</updated>
+  <updated>2017-08-23T22:46:59-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -12,6 +12,116 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Density]]></title>
+    <link href="http://doodles.mountainmath.ca/blog/2017/08/23/density/"/>
+    <updated>2017-08-23T10:15:29-07:00</updated>
+    <id>http://doodles.mountainmath.ca/blog/2017/08/23/density</id>
+    <content type="html"><![CDATA[<p>Density in Vancouver has been one of the recurring themese on this blog, and there are many
+different ways to come at it. We have <a href="http://doodles.mountainmath.ca/blog/2016/02/29/land-use/">looked at density in terms of land use</a>
+to understand how much land is devoted to what purpose in Metro Vancouver and it&rsquo;s municipalities. We have looked
+at density in terms of <a href="http://doodles.mountainmath.ca/blog/2016/03/02/property-taxes-and-land-use/">tax density</a> to
+understand how property tax revenue depends on land use and zoning. We have looked at
+<a href="http://doodles.mountainmath.ca/blog/2016/05/20/density/">density in terms of built floor space ratio</a>.</p>
+
+<p>And of course we have looked at <a href="https://censusmapper.ca/maps/591">population density through CensusMapper</a>,
+and this time we want to do a quick variation on that theme.</p>
+
+<!-- more -->
+
+
+<h2>Population Density</h2>
+
+<p>Recently I have heard renewed chatter about how dense Vancouver is or is not. Before diving deepr into this it is
+important to distinguish two types of density that often get mixed up.</p>
+
+<h3>Gross Density</h3>
+
+<p>Gross (population) density simply looks
+at the total population divided by (land) area. Ignoring census undercounts, we can simply look at the 2016 census numbers
+to compute these.</p>
+
+<h3>Net Density</h3>
+
+<p><em>Net density</em> takes residential land (instead of all land)
+as it&rsquo;s base. One measure of net density is the <em>floor space ratio</em> (FSR), which we have
+<a href="https://mountainmath.ca/map/assessment?zoom=13&amp;lat=49.25&amp;lng=-123.1182&amp;layer=16&amp;mapBase=2">approximated and mapped in the past</a>
+and that also includes commercial space next to residential living space. More details on this are in
+<a href="(http://doodles.mountainmath.ca/blog/2016/05/20/density/">this older blog post</a>).</p>
+
+<p>Net density is typically what people refer to in the countext of building developments. Sadly it&rsquo;s hard to
+get a hold of good data sources that would allow for meaningful comparisons across the country. The
+provincial assessment authorities have that data, but in Canada this data only shared after significant financial
+commitments.</p>
+
+<h2>How Dense is Vancouver?</h2>
+
+<p>How does Vancouver stack up against the rest of Canada? That, as always, depends on the details.
+In particular, on whether we are talking about Metro Vancouver or the City of Vancouver, and on
+what good comparables are. With the new <a href="https://github.com/mountainMath/cancensus">cancensus R package</a>
+it&rsquo;s straight forward to start hacking away
+at this question. Let&rsquo;s start simple by looking at the 10 census metropolitan
+areas and 10 census subdivisions (cities) with the largest gross density. And to keep things
+somewhat in check, let&rsquo;s only look at census subdivisions with at least 50,000 people. (If we
+drop the population restriction we get the cities of Westmount, Côte-Saint-Luc, Hampstead,
+and White Rock gate-crash our top 10 list.)</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/densest_CMAs.png" style="width:45%;float:right;">
+<img  src="http://doodles.mountainmath.ca/images/densest_CSDs.png" style="width:45%;float:left;"></p>
+
+<p>We see that the City of Vancouver takes the top spot amoung the cities, Metro Vancouver comes in
+behind Toronto, Red Deer and Montréal. Great for a game of trivia, but it&rsquo;s hard to learn
+much of significance from this.</p>
+
+<p>The reason is that we don&rsquo;t know how these densities come about. Metro Vancouver contains the North Shore mountains,
+a very large swath of land where nobody lives. Yet this counts to our area (or at least the horizontal projection of it).
+Toronto has the green belt. How does one compare these things?</p>
+
+<h2>Distribution of Density</h2>
+
+<p>A good first step is to look at the distribution of density within the cities. Again <em>cancensus</em> makes it easy
+to map dissemination block level density. We change gears a tiny pit and simply focus Canada&rsquo;s 9 largest (by population) cities.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/density_map.png" style="width:95%;margin:5px auto;"></p>
+
+<p>The large grey areas, with fewer than 1 person per hectare, jump out immediately. As the colour gradient suggest, there
+are some denser areas around the centres, but the exact extent of these are hard to grasp. A better way to get a grip on
+the proportion is to abandon the geographic coordinates and show the data as a tree map.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/density_area.png" style="width:95%;margin:5px auto;"></p>
+
+<p>Now we much more clearly how the density in the different cities is made up, the proportion of low and high density areas.
+The grey areas, with less than 1 person per hecrare, are the parks, industrial and commercial land base of the city. Areas with
+fewer than 25 people per hectare are densities usually found in broad suburban sprawl. In Vancouver, Shaughnessey, Southlands, or the Drummond Drive
+area of West Point Grey are examples.</p>
+
+<p>We can see that only Toronto, Montreal and Vancouver have significant portions of land beyond the 100 people per hectare density, with
+Montréal devoting a larger portion of it&rsquo;s land to that density than any other of the cities.
+In Vancouver the 50 to 100 people per acre density dominates, althoguh the cutoffs are quite arbitrary to this should not be
+over-interpreted, whereas in Toronto the  1-50 and 50-100 areas are larger.</p>
+
+<p>Instead of asking how much area is devoted to what denstiy, we can also ask what share of the population lives in what density.</p>
+
+<p><img  src="http://doodles.mountainmath.ca/images/density_population.png" style="width:95%;margin:5px auto;"></p>
+
+<p>This visualizes the density as felt by the population that lives in it. Comparing Montréal and Vancouver we see that about half of Montréal&rsquo;s citizens
+live in 50 ro 150 people per acre density, whereas in Vancouver half live in 25 to 100 people per acre density. To make up for that, Vancouver has
+a much higher portion of the population living in over 300 people per acre density than Montréal.</p>
+
+<h2>Next Steps</h2>
+
+<p>There are several obvious ways to expand on this. One would be to take better comparables, so instead of comparing cities one could compare
+areas with similar population centred around census metropolitan area centres. Comparing Vancouver to Toronto as cities is tricky, Toronto has
+a comparable population to the whole of Metro Vancouver. So a better comparison could be to take the old City of Toronto boundaries and compare
+these against Toronto. Or throw Burnaby, Richmond, New Westminster and North Vancouver into the mix with the City of Vancouver.</p>
+
+<p>With the <a href="https://github.com/mountainMath/cancensus">cancensus R package</a> this is quite easy to do. And totally reproducible,
+as I have <a href="https://github.com/mountainMath/density-explorations">uploaded the R notebook I used to create all the included images to github</a>.</p>
+
+<p>Feel free to clone or fork it and adapt it for your own purposes.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[RS Population Change]]></title>
@@ -523,146 +633,6 @@ for city in cities.features:
     fig, ax = ox.plot_figure_ground(point=point, filename=place)
     Image('{}/{}.{}'.format(img_folder, place, extension), height=size, width=size)
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Bumper Year for Thumb Twiddlers]]></title>
-    <link href="http://doodles.mountainmath.ca/blog/2017/01/18/bumper-year-for-thumb-twiddlers/"/>
-    <updated>2017-01-18T11:10:43-08:00</updated>
-    <id>http://doodles.mountainmath.ca/blog/2017/01/18/bumper-year-for-thumb-twiddlers</id>
-    <content type="html"><![CDATA[<p><a href="https://mountainmath.ca/map/assessment?zoom=12&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img src="http://doodles.mountainmath.ca/images/twiddling_thumbs_2006_2017.png" style="width:50%;float:right;margin-left:10px;"></a>
-Almost a year has passed since we first noticed how
-<a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">sitting on single family homes and twiddling thumbs generates more income than working</a>.
-And not just at the level of individual single family households. In the
-City of Vancouver, the cumulative
-land value gains of just the single family homes eclipsed the cumulative taxable earnings
-reported to the CRA for the entire population.</p>
-
-<p>With the new assessment data available now, it is time to run the numbers
-and see how our thumb-twiddlers fared vs workers this year. If you thought
-last year&rsquo;s twiddling thumbs returns were crazy high, you better hold onto
-your hats!</p>
-
-<!-- more -->
-
-
-<h3>Work</h3>
-
-<p>Not much changed in terms of the income people earned. CANSIM does not make the
-taxfiler data freely available at the municipal level, we we will again estimate
-the cumulative income for residents of the City of Vancouver by using 2010
-Census data and extrapolating by applying the Metro Vancouver rate of income
-growth.</p>
-
-<p>This way we get a cumulative $22.3bn pre-tax or $18.6bn after-tax income in 2010,
-<a href="http://www5.statcan.gc.ca/cansim/a26?lang=eng&amp;retrLang=eng&amp;id=1110009&amp;&amp;pattern=&amp;stByVal=1&amp;p1=1&amp;p2=37&amp;tabMode=dataTable&amp;csid=">which grew around 13% between 2010 and 2014</a>.
-Extrapolating this for another two years to 2016 we estimate an income growth of around 20% since 2010,
-which then pegs the cumulative income for the City of Vancouver at
-$26.8bn pre-tax or $22.3bn after-tax (ignoring financial drag and other issues).</p>
-
-<h3>Twiddling Thumbs</h3>
-
-<p>Let&rsquo;s compare this to how much Vancouver home owner households &ldquo;earned&rdquo; last year by twiddling thumbs while sitting on their
-property. To keep things simple and consistent with last year, we again focus on just the single family homes (SFH).
-And again, we only consider land value changes, after all changing the
-building value because of renovation or rebuilding certainly does not happen by twiddling thumbs.</p>
-
-<p>The median SFH land value increased was $435,000 (the average was $594,005), for a cumulative land value increase
-of $46.7bn, accounting for about half of the
-<a href="http://doodles.mountainmath.ca/blog/2017/01/16/2017-assessment-data/">total land value increase of the City of Vancouver</a>
-or two thirds of the land value increase for residential (and mixed) land uses.</p>
-
-<p>So while last year the twiddling thumbs return were still comparable to the cumulative income in the City of Vancouver,
-this year the thumb twiddlers blow the income earners out of the water.
-<span style="font-weight:bolder;">Just by by twiddling their thumbs, the SFH property owners alone earned twice as much
-as the entire population of the
-City of Vancouver did by actually working</span>. And in most cases homeowners won&rsquo;t pay taxes on
-their thumb-twiddle earnings, although the
-<a href="http://doodles.mountainmath.ca/blog/2016/10/04/secondary-suites-and-taxes/">CRA recently made it harder with their new reporting rules</a>.</p>
-
-<p>We are glossing over a couple of details here, for example the numbers are not adjusted for inflation, and costs like
-property taxes and property transfer tax are not taken into account.</p>
-
-<p>Of course, comparing income from work to income from twiddling thumbs is not entirely fair. The income from twiddling thumbs
-is frozen in the property until the owner sells. But gains accumulate over the years, and eventually everyone sells and realizes
-the gains (or passes them on to the next generation). And it&rsquo;s always good to remember that
-&ldquo;<a href="https://twitter.com/GRIDSVancouver/status/813516103490015232">house-rich cash-poor homeowners are one transaction away from simply being rich renters</a>&rdquo;.</p>
-
-<h3>The Long Term</h3>
-
-<p><a href="https://mountainmath.ca/map/values?filter=sfh&zoom=13&lat=49.2482&lng=-123.1213&layer=25&mapBase=2&year=2016"><img src="http://doodles.mountainmath.ca/images/twiddling_thumbs_animated_2017.gif" style="width:50%;float:left;margin-right:10px;"></a>
-Most people don&rsquo;t trade houses like stocks, so what really matters is the long term gains, not the year to year changes. The 11 year
-timeframe for which we have data roughly matches the average holding time for a single family house. The year over year
-changes in land value vary dramatically, as the image shows and can be explored further using the
-<a href="https://mountainmath.ca/map/values?filter=sfh&amp;zoom=13&amp;lat=49.2482&amp;lng=-123.1213&amp;layer=25&amp;mapBase=2&amp;year=2016">interactive version</a>.</p>
-
-<p>Over 11 years, the single family home land value quadrupled. The median (nominal) single family home land value increase over that timespan
-was $1,233,000, or $112,000 per year. Broken down further, that&rsquo;s $2,339,000 ($213,000 per year) for the median west side home
-and $1,031,000 ($94,000 per year) for the median east side home.</p>
-
-<p><a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12"><img  src="http://doodles.mountainmath.ca/images/twiddling_thumbs_2006_2017.png" style="width:50%;float:right;"></a>
-We <a href="https://mountainmath.ca/map/assessment?filter=sfh&amp;zoom=13&amp;lat=49.2494&amp;lng=-123.1241&amp;layer=12">mapped the land value gain averaged over 11 years</a>.
-We can observe that the average yearly increase depends on the square footage of the property as well as the location. The rates are mostly uniform
-throughout the city (with some notable exceptions), but properties starting out with a higher value will see higher total value
-increases. It&rsquo;s probably fair to say that even using the 11 year average, most homeowners &ldquo;earned&rdquo; more money twiddling thumbs
-than pursuing a more traditional employment.</p>
-
-<h3>Hourly Rate for Twiddling Thumbs</h3>
-
-<p>Using the <a href="http://doodles.mountainmath.ca/blog/2016/01/24/work-vs-twiddling-thumbs/">same methods as last year</a>
-we can compute the hourly earnings of thumb twiddlers. For the July 2016 to July 2017 timeframe, thumb twiddlers
-in the City of Vancouver averaged a tidy $239 per hour.
-Using the 11 year averaged numbers instead of focusing on just the last year we still get a healthy average
-thumb twiddling rate of $62 per hour.</p>
-
-<p>Another bumper year for thumb twiddlers!
-Considering to change your line work to thumb twiddling? To bad thumb twiddling is so unaffordable!</p>
-
-<h3>Data Dump</h3>
-
-<p>Here is the raw output of the stats run on the single family properties for anyone interested.</p>
-
-<h5>SFH Land Value Rise (2016 - 2017)</h5>
-
-<ul>
-<li>City Wide: Average $594,005 Median $435,000, Count: 78648, Total: $46,717,325,799, Hourly: $239</li>
-<li>Eastside: Average $373,306 Median $358,000, Count: 47988, Total: $17,914,233,199, Hourly: $150</li>
-<li>Westside: Average $939,435 Median $866,000, Count: 30660, Total: $28,803,092,600, Hourly: $378</li>
-</ul>
-
-
-<h5>SFH Land Value Rise (2006 - 2017)</h5>
-
-<ul>
-<li>City Wide: Average $153,777 Median $112,090, Count: 77809, Total: $11,965,271,272, Hourly: $62</li>
-<li>Eastside: Average $96,892 Median $93,727, Count: 47545, Total: $4,606,748,985, Hourly: $39</li>
-<li>Westside: Average $243,144 Median $212,636, Count: 30264, Total: $7,358,522,287, Hourly: $98</li>
-</ul>
-
-
-<p>The total number of units for the 2006 to 2017 analysis are a little lower since not all properties can be traced over that time
-period without resorting to more tedious analysis.</p>
-
-<script>
-function resetImages(){
-    $('img').each(function(img){
-        imgsrc = $(img).attr('src');
-        if (imgsrc.slice(imgsrc.length-4)=='.gif') {
-            $(img).attr('src', '');
-            $(img).attr('src', imgsrc);
-
-        }
-    });
-    setTimeout(function(){
-        resetImages();
-    },25000);
-}
-setTimeout(function(){
-    resetImages();
-},25000);
-</script>
-
 ]]></content>
   </entry>
   
