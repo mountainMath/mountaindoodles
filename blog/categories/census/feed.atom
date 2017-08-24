@@ -4,7 +4,7 @@
   <title><![CDATA[Category: census | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/census/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-08-23T22:52:04-07:00</updated>
+  <updated>2017-08-23T22:57:58-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -69,7 +69,7 @@ and White Rock gate-crash our top 10 list.)</p>
 
 <p><img  src="http://doodles.mountainmath.ca/images/densest_CMAs.png" style="width:49%;"><img  src="http://doodles.mountainmath.ca/images/densest_CSDs.png" style="width:49%;"></p>
 
-<p>We see that the City of Vancouver takes the top spot amoung the cities, Metro Vancouver comes in
+<p>We see that the City of Vancouver takes the top spot among the cities, Metro Vancouver comes in
 behind Toronto, Red Deer and Montréal. Great for a game of trivia, but it&rsquo;s hard to learn
 much of significance from this.</p>
 
@@ -91,22 +91,22 @@ the proportion is to abandon the geographic coordinates and show the data as a t
 <p><img  src="http://doodles.mountainmath.ca/images/density_area.png" style="width:99%;margin:5px auto;"></p>
 
 <p>Now we much more clearly how the density in the different cities is made up, the proportion of low and high density areas.
-The grey areas, with less than 1 person per hecrare, are the parks, industrial and commercial land base of the city. Areas with
+The grey areas, with less than 1 person per hectare, are the parks, industrial and commercial land base of the city. Areas with
 fewer than 25 people per hectare are densities usually found in broad suburban sprawl. In Vancouver, Shaughnessey, Southlands, or the Drummond Drive
 area of West Point Grey are examples.</p>
 
 <p>We can see that only Toronto, Montreal and Vancouver have significant portions of land beyond the 100 people per hectare density, with
 Montréal devoting a larger portion of it&rsquo;s land to that density than any other of the cities.
-In Vancouver the 50 to 100 people per acre density dominates, althoguh the cutoffs are quite arbitrary to this should not be
+In Vancouver the 50 to 100 people per hectare density dominates, althoguh the cutoffs are quite arbitrary to this should not be
 over-interpreted, whereas in Toronto the  1-50 and 50-100 areas are larger.</p>
 
-<p>Instead of asking how much area is devoted to what denstiy, we can also ask what share of the population lives in what density.</p>
+<p>Instead of asking how much area is devoted to what density, we can also ask what share of the population lives in what density.</p>
 
 <p><img  src="http://doodles.mountainmath.ca/images/density_population.png" style="width:99%;margin:5px auto;"></p>
 
 <p>This visualizes the density as felt by the population that lives in it. Comparing Montréal and Vancouver we see that about half of Montréal&rsquo;s citizens
-live in 50 ro 150 people per acre density, whereas in Vancouver half live in 25 to 100 people per acre density. To make up for that, Vancouver has
-a much higher portion of the population living in over 300 people per acre density than Montréal.</p>
+live in 50 ro 150 people per hectare density, whereas in Vancouver half live in 25 to 100 people per hectare density. To make up for that, Vancouver has
+a much higher portion of the population living in over 300 people per hectare density than Montréal.</p>
 
 <h2>Next Steps</h2>
 
