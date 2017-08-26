@@ -4,7 +4,7 @@
   <title><![CDATA[Category: canada | Mountain Doodles]]></title>
   <link href="http://doodles.mountainmath.ca/blog/categories/canada/feed.atom" rel="self"/>
   <link href="http://doodles.mountainmath.ca/"/>
-  <updated>2017-08-25T22:11:03-07:00</updated>
+  <updated>2017-08-26T15:34:57-07:00</updated>
   <id>http://doodles.mountainmath.ca/</id>
   <author>
     <name><![CDATA[MountainMath]]></name>
@@ -36,7 +36,7 @@ lately, so we have been thinking about how to offer them in CensusMapper.</p>
 
 <ol>
 <li>They are very simple to interpret. One dot = one person is something everyone understands immediately.</li>
-<li>They can show several variables at once, for example mapping both male and female cyclist like above or
+<li>They can show several variables at once, for example mapping recent immigrants by region of origin like above or
 <a href="http://www.nytimes.com/interactive/2015/07/08/us/census-race-map.html">mapping ethnic segregation</a>.</li>
 </ol>
 
@@ -69,24 +69,27 @@ problems with that:</p>
 We immediately see where the percentage of child poverty is high. And child poverty is a problem. But what we don&rsquo;t see
 is how many poor children live in each area. So while we see the relative magnitude, we don&rsquo;t see the absolute magnitude
 of the problem. So for example the <a href="http://censusmapper.ca/maps/132?zoom=17&amp;lat=49.2647&amp;lng=-123.1429">DA north-west of Broadway and Fir</a>
-sports 66.7% of children living in poverty, but there are only 30 children in the area. The
+sports 66.7% of children living in poverty, but there are only 30 children in the area, and the expected error due to statistical
+rounding is 10%, let alone errors introduced by non-return bias or simple sampling error. The
 <a href="http://censusmapper.ca/maps/132?zoom=17&amp;lat=49.2435&amp;lng=-123.1516">DA north-east of Arbutus and 33rd</a> has a similar rate
 of 69.1%, but there are 345 children in that area. So when trying to understand child poverty in the west side of Vancouver
 one should focus on the latter not the former, but on the map they appear identical. Dot-density maps do a much better
 job at representing this properly as they would simply draw a dot for each child in poverty, contrasted by a dot for
 each child not in poverty as <a href="http://censusmapper.ca/maps/216?zoom=13&amp;lat=49.2465&amp;lng=-123.1425">you can see here</a>. Another
 way to deal with this issue is via <a href="http://doodles.mountainmath.ca/blog/2017/04/10/surprise/">a surprise map</a> which
-we have explained <a href="">in a previous post</a></p></li>
+we have explained <a href="http://doodles.mountainmath.ca/blog/2017/04/10/surprise/">in a previous post</a>.</p></li>
 <li><p>Choropleth maps are difficult to understand. If you read this far you probably have dealt with a fair share of maps
 and won&rsquo;t appreciate how some people struggle understanding these. But the amount of time I have spent explaining to
 journalists what they see in the <a href="http://censusmapper.ca/maps/137">halloween map of trick or treat density</a> is (torturous)
 testament of the difficulties people have with these kind of maps. I don&rsquo;t think I would have gotten any questions if I
-had simply use [the dot-density version] instead.</p></li>
+had simply use <a href="https://censusmapper.ca/maps/804">the dot-density version</a> instead. However, this only works for the
+trick-or-treat density map, not the trick-or-treat onslaught map.</p></li>
 <li><p>One can only show one variable at a time. There are ways to stretch this a little, for example
 <a href="http://andywoodruff.com/blog/value-by-alpha-maps/">value by alpha maps</a> are one way around this that tackle the population
 bias. Another way is the <a href="http://censusmapper.ca/maps/162">RGB maps CensusMapper has</a>. But this does not exactly make it
 easier to interpret. Dot-density versions of this is certainly <a href="http://censusmapper.ca/maps/202">easier to interpret</a>
-plus one is not limited by the three categories of the RGB maps.</p></li>
+plus one is not limited by the three categories of the RGB maps. We can even <a href="https://censusmapper.ca/maps/678">combine the CensusMapper 3 color mixing with
+value-by-alpha</a> to also show density.</p></li>
 </ol>
 
 
@@ -97,9 +100,8 @@ just have the bare minimum in place to produce these kind of maps: A way to rand
 into each geographic region colored by the given categories. Just when I was about to try myself at dot-density maps I
 saw a <a href="https://twitter.com/pwramsey/status/677502052210085888">helpful tweet</a> telling me exactly what to pay attention
 to, so the implementation was quick and painless. &ndash; Well, not quite, I still had to deal with issues due to polygons
-clipped server side and the fact that census areas are often multi-polygons.</p>
-
-<p> Of course I had to try this out on CensusMapper. The current implementation suffers from a number of (minor) issues though.</p>
+clipped server side and the fact that census areas are often multi-polygons. And one needs to be careful to employ random
+rounding when scaling to more than one person per dot, standard rounding may introduce systematic errors.</p>
 
 <h4>CensusMapper Dot-Density Issues</h4>
 
@@ -126,7 +128,7 @@ Census Blocks. And at the Census
 Block level we see that nobody lives in the Pacific Spirit Park, or on most of Burnaby Mountain. So to fix this we
 simply need to shift the way we decide what census geography to display. This is quite difficult to fix within the
 CensusMapper paradigm of highly dynamic maps where nothing is pre-computed.
-4. Visual feedback on hover / select. For Choropleth maps we highlight regions on hover so that the user knows what geographic
+4. Visual feedback on hover / select. For choropleth maps we highlight regions on hover so that the user knows what geographic
 area the variables in the legend and in the popup are for. This is something that is not too difficult to add, but we
 will have to wait for the next bigger CensusMapper map refresh.</p>
 
