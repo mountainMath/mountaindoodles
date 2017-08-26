@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://doodles.mountainmath.ca/blog/2017/08/24/dot-density/</loc>
+    <lastmod>2017-08-24T22:28:40-07:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://doodles.mountainmath.ca/blog/2017/08/23/density/</loc>
     <lastmod>2017-08-23T10:15:29-07:00</lastmod>
     <priority>0.8</priority>
@@ -371,21 +377,21 @@
   
   <url>
     <loc>http://doodles.mountainmath.ca/blog/archives/</loc>
-    <lastmod>2017-08-25T21:55:46-07:00</lastmod>
+    <lastmod>2017-08-25T22:07:21-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/</loc>
-    <lastmod>2017-08-25T21:55:46-07:00</lastmod>
+    <lastmod>2017-08-25T22:07:21-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://doodles.mountainmath.ca/about/</loc>
-    <lastmod>2017-08-25T21:55:46-07:00</lastmod>
+    <lastmod>2017-08-25T22:07:21-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
